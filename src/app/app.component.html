@@ -1,0 +1,69 @@
+ 
+<mat-sidenav-container>
+  <mat-sidenav class="slidemenu hideSome" fixedInViewport="true" #sidenav [mode]="mode.value">
+    <div class="closs_area">
+      <span class="cross-icon" (click)="toggleSideNav()">
+        <img src="assets/images/cross_icon_sidemenu.jpg" alt="" />
+      </span>
+      <span>
+        <mat-form-field>
+          <mat-select placeholder="EN">
+            <mat-option value="en">EN</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </span>
+    </div>
+
+    <mat-nav-list role="list">
+      <app-sidemenu></app-sidemenu>
+    </mat-nav-list>
+    <div class="form_row1">
+      <div class="input_holder1">
+        <button *ngIf="IsEnableFreeTrial" class="submitButton free-trial" (click)="freeTrial()">Free
+          Trial</button>
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="wraper"> 
+      <app-header *ngIf="!currentURL.includes('moto')  && !currentURL.includes('web_pay') && !currentURL.includes('mobile_pay') && !currentURL.includes('raza-us')" [sidenav]='sidenav'></app-header>
+     <div style="min-height: 500px;">
+	 
+      <router-outlet></router-outlet>
+     </div>
+    </div>
+    <raza-spinner-taghelper></raza-spinner-taghelper>
+    <!--Footer-->
+     
+    <app-footer *ngIf="!currentURL.includes('sitemap') && !currentURL.includes('moto')  && !currentURL.includes('web_pay') && !currentURL.includes('mobile_pay')" ></app-footer>
+    <!--Footer-->
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+
+<!--
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav [mode]="mode.value">
+    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+    <mat-list role="list">
+      <mat-list-item role="listitem">Item 1</mat-list-item>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+-->

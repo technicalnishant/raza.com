@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="20px" viewBox="0 0 34 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="New-Section" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Search-Rates---Main" transform="translate(-208.000000, -986.000000)">
+            <g id="Group-7" transform="translate(207.000000, 458.000000)">
+                <g id="Group-6" transform="translate(0.000000, 144.000000)">
+                    <g id="Group" transform="translate(0.000000, 39.000000)">
+                        <g id="Page-1">
+                            <g transform="translate(1.000000, 345.000000)">
+                                <polygon id="Fill-1" fill="#FFFFFF" points="0 19.5771 33.564 19.5771 33.564 0.0001 0 0.0001"></polygon>
+                                <polygon id="Fill-2" fill="#386FC2" points="0 11.9151 33.564 11.9151 33.564 7.6601 0 7.6601"></polygon>
+                                <polygon id="Fill-3" fill="#000000" points="0 7.6601 33.564 7.6601 33.564 0.0001 0 0.0001"></polygon>
+                                <path d="M33.5637,0.0003 L16.7827,19.5773 L33.5637,19.5773 L33.5637,0.0003 Z M-0.0003,0.0003 L-0.0003,19.5773 L16.7827,19.5773 L-0.0003,0.0003 Z" id="Fill-4" fill="#BC0030"></path>
+                                <polygon id="Fill-5" fill="#F3D02F" points="19.9737 7.0244 22.6797 5.2174 19.4877 5.8514 21.2947 3.1444 18.5877 4.9524 19.2257 1.7604 17.4147 4.4664 16.7807 1.2744 16.1457 4.4664 14.3377 1.7604 14.9717 4.9524 12.2677 3.1444 14.0737 5.8514 10.8837 5.2174 13.5887 7.0244 10.3967 7.6604 23.1637 7.6604"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

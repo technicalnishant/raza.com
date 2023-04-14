@@ -1,0 +1,355 @@
+
+
+// this plan include section
+
+$common-boder-width: 3px solid #0160e0;
+$bg-blue-color : #0160e0;
+
+
+
+
+.plan-info {
+  display: -webkit-flex;
+  padding: 25% 0;
+  position: relative;
+  align-items: center;
+  margin-bottom: 100px;
+
+
+
+  .text-section {
+    width: 60%;
+    position: absolute;
+    margin: 50px 0;
+    background: #fff;
+    left: 15%;
+    z-index: 1;
+
+    padding: 30px;
+    border: 1px solid #2172cb;
+    box-shadow: 0px 0px 6px 0px #000000;
+    border-radius: 10px;
+    grid-gap: 50px;
+
+    h1 {
+      color: #0B203E;
+    text-align: center;
+    font-size: 36px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    }
+
+    .text-part {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+    }
+
+
+
+
+    p {
+      color: #0160e0;
+      font-size: 24px;
+      margin: 0;
+      padding: 30px 0;
+      font-weight: 500;
+      line-height: 1;
+
+      span {
+        color: #8b8b8b;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+      }
+    }
+
+    mat-list {
+      &:last-child img {
+        /* width: 50px; */
+      }
+
+      &:first-child {
+        img {
+          width: 70px;
+        }
+
+        img {
+          margin-right: 50px;
+        }
+      }
+
+      &:last-child {
+        text-align: right;
+
+        mat-list-item {
+
+          img {
+            order: 2;
+            margin-left: 50px;
+          }
+        }
+      }
+    }
+
+  }
+
+  .blue-section {
+    width: 50%;
+    text-align: right;
+    background: $bg-blue-color;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+    padding: 50px 0;
+
+    img {
+      width: 45%;
+    }
+  }
+
+  .mat-list-base {
+    .mat-list-item {
+      height: unset;
+    }
+  }
+}
+
+.call-us {
+  padding-top: 50px;
+  p{
+    margin: 0;
+  }
+  span {
+    a {
+      color: #0160e0;
+    }
+  }
+}
+// plan info media quries start here
+
+
+
+@media only screen and (min-width:100px) and (max-width:1200px) {  
+
+  .plan-info{
+    padding: 0;
+    margin-bottom: 0;
+  }
+    .plan-info .text-section h1 {
+      font-size: 26px;
+    }
+    .plan-info .blue-section img {
+      max-width: 200px;
+  }
+  
+    .plan-info .text-section {
+      width: 100%;
+      position: static;
+      margin: auto;
+      padding: 10px;
+      border-radius: 0;
+      box-shadow: none;
+      border: 0;
+    }
+  
+    .plan-info .text-section .text-part {
+      display: block;
+    }
+  
+    .plan-info .text-section p {
+      font-size: 24px;
+      font-weight: 400;
+      padding: 20px 0 20px;
+      line-height: 28px;
+    }
+  
+    .plan-info .text-section p span {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+  
+    .plan-info .text-section mat-list:first-child img {
+      margin-right: 20px;
+    }
+  
+    .plan-info .text-section mat-list:last-child mat-list-item img {
+      margin-left: 20px;
+    }
+  
+    .plan-info .blue-section {
+      position: static;
+      width: 100%;
+      padding: 0;
+      text-align: center;
+      margin: auto;
+      border-radius: 0 0 10px 10px;
+    }
+  
+    .plan-info .blue-section img {
+      margin: 50px;
+      transform: translate(0%, 0%);
+    }
+  
+    .searchic {
+      display: none;
+    }
+  
+    .bg-shapes img:nth-child(1) {
+      top: -50px;
+      right: 80px;
+    }
+  
+    .bg-shapes img:nth-child(2),
+    .bg-shapes img:nth-child(3),
+    .bg-shapes img:nth-child(4),
+    .bg-shapes img:nth-child(5),
+    .bg-shapes img:nth-child(6),
+    .bg-shapes img:nth-child(7) {
+      display: none;
+    }
+  
+    .plan-info .text-section mat-list:last-child mat-list-item img {
+      order: unset;
+    }
+  
+    .plan-info .text-section mat-list:last-child {
+      text-align: left;
+    }
+  
+    .plan-info .text-section mat-list:last-child mat-list-item img {
+      margin-left: 0 !important;
+      margin-right: 20px;
+      width: 70px;
+    }
+  
+    .call-us {
+      padding-top: 0px;
+    padding-bottom: 30px;
+    }
+  
+    .search-main {
+      padding: 30px 0px 0 !important;
+    }
+  
+    .plan-info .mat-list-base .mat-list-item .mat-list-item-content {
+      display: block;
+      text-align: center;
+      padding: 20px 5px;
+    }
+  
+  }
+  
+  @media only screen and (min-width:481px) and (max-width:1200px) {  
+    .plan-info .text-section h1 {
+      font-size: 26px;
+    }
+  
+    .plan-info .text-section {
+      width: 80%;
+      position: static;
+      margin: auto;
+      padding: 10px;
+      border-radius: 10px 10px 0 0;
+    }
+  
+    .plan-info .text-section .text-part {
+      display: block;
+    }
+  
+    .plan-info .text-section p {
+      font-size: 18px;
+      padding: 20px 0;
+    }
+  
+    .plan-info .text-section p span {
+      font-size: 14px;
+    }
+  
+    .plan-info .text-section mat-list:first-child img {
+      margin-right: 20px;
+    }
+  
+    .plan-info .text-section mat-list:last-child mat-list-item img {
+      margin-left: 20px;
+    }
+  
+    .plan-info .blue-section {
+      position: static;
+      width: 80%;
+      padding: 0;
+      text-align: center;
+      margin: auto;
+      border-radius: 0 0 10px 10px;
+    }
+  
+  
+    .plan-info .blue-section img {
+      margin: 50px;
+      transform: translate(0%, 0%);
+    }
+  
+    .plan-info .text-section mat-list:last-child mat-list-item img {
+      order: unset;
+    }
+  
+    .plan-info .text-section mat-list:last-child {
+      text-align: left;
+    }
+  
+    .plan-info .text-section mat-list:last-child mat-list-item img {
+      margin-left: 0 !important;
+      margin-right: 20px;
+      width: 70px;
+    }
+  
+    .call-us {
+      padding-top: 0px;
+    }
+  
+    .search-main {
+      padding: 30px 0px 0 !important;
+    }
+  
+  
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 1200px) {
+  
+    .plan-info .text-section mat-list:last-child mat-list-item img {
+      order: unset;
+    }
+  
+    .plan-info .text-section mat-list:last-child {
+      text-align: left;
+    }
+  
+    .plan-info .text-section mat-list:last-child mat-list-item img {
+      margin-left: 0 !important;
+      margin-right: 20px;
+      width: 70px;
+    }
+  
+    .call-us {
+      padding-top: 0px;
+    }
+  
+    .search-main {
+      padding: 30px 0px 0 !important;
+    }
+  
+    .plan-info .text-section {
+      width: 80%;
+    }
+  
+    .plan-info .blue-section {
+      position: static;
+      width: 80%;
+    }
+  
+  }
+  
+  // plan info media quries end here
+  
+  

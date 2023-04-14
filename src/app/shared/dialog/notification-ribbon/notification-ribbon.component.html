@@ -1,0 +1,9 @@
+<div class="alert-notification" [class]="getAlertClass()">
+  <p>
+    <mat-icon>notification_important</mat-icon>
+    {{message}}
+  </p>
+  <span class="close-icon" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </span>
+</div>

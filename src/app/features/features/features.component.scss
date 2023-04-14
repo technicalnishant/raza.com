@@ -1,0 +1,213 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.hideinMobile{display: block;}
+.showInmobile { display: none;}
+
+.mat-toolbar{ background: none;}
+.nobg{ background: none; cursor: pointer; border:none;}
+
+.first_fold{ background: #000 !important; position: relative;}
+
+ul.features_list li span.icon:hover, ul.features_list li.active span.icon{background: linear-gradient(to right, #E6167F, #FF8000);}
+ul.features_list li span.icon img:first-child{
+  margin: 0 auto;
+  display: block;
+}  
+
+ul.features_list li span.icon img:last-child{ 
+  position: relative; 
+  left: -80px; 
+  -webkit-transition: left 0.4s ease; /* Safari */ 
+  transition: left 0.4s ease;
+}
+
+@media only screen and (max-width: 425px)  {
+  ul.features_list li span.icon img:last-child{ 
+    position: relative; 
+    left: -56px; 
+    -webkit-transition: left 0.4s ease; /* Safari */ 
+    transition: left 0.4s ease;
+  }
+}
+ul.features_list li span.icon:hover img:last-child{ left: 0px;}
+ul.features_list li span.icon:hover img:first-child{ display: none;}
+ul.features_list li.active span.icon img:first-child{ display: none;}
+ul.features_list li.active span.icon img:last-child{ left: 0px;}
+
+ul.features_list{list-style-type: none;clear: both;overflow: hidden; background: #fff; padding: 0; margin: 0;}
+ul.features_list li{float: none;padding: 20px 13px; cursor: pointer; height: 187px;}
+ul.features_list li span{ display: block; text-align: center;}
+ul.features_list li span.icon{ 
+    margin-bottom: 20px;
+    height: 80px;
+    display: block;
+    padding: 20px 0;
+    width: 80px;
+    margin: 0 auto 20px;
+    border-radius: 40px;
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+}
+
+ul.features_list li span.text{ color: #808080; font-family: 'Montserrat', sans-serif; font-size:17px; font-weight: 400; }
+
+ul.features_list li span.icon img.grey{ display:inline-block;}
+ul.features_list li span.icon img.white{ display: none;}
+
+ul.features_list li span.icon:hover img.gey{ display: none !important;}
+ul.features_list li span.icon:hover img.white{ display: inline-block !important;}
+
+.home_banner{ background-color: #fff !important;}
+
+.leftCommonArea{padding:20px;  background: #fff; box-shadow: 9px 12px 15px 5px rgba(0,0,0,0.1);  -moz-box-shadow: 9px 12px 15px 5px rgba(0,0,0,0.1);  -webkit-box-shadow: 9px 12px 15px 5px rgba(0,0,0,0.1); clear: both; overflow: hidden;}
+.onetouchIcon{ float: left; margin-right: 14px;}
+.oneTouchText{ float: left; width: 70%;text-align: left;}
+.oneTouchText h4{color: #103F8A; font-family: 'Montserrat', sans-serif; font-size:20px; font-weight: 400; }
+.oneTouchText p{color: #919EAF; font-family: 'Montserrat', sans-serif; font-size:14px; font-weight: 400; line-height: 23px; }
+.buttonArea a.howitworks{color: #0061E8; font-family: 'Montserrat', sans-serif; font-size:14px; font-weight: 400; display: block; width: 100%; text-align: center; margin: 15px 0; cursor: pointer; }
+.buttonArea{ clear: both; overflow: hidden;} 
+.leftCommonArea .submitButtonSmall{ margin: 20px auto;}
+.commonTextArea{ float: left; width: 90%; padding: 0 15px 60px 15px;}
+.commonTextArea h3{color: #003E90; font-family: 'Montserrat', sans-serif; font-size:16px; font-weight: 500; line-height: 24px;}
+.commonTextArea p{color: #919EAF; font-family: 'Montserrat', sans-serif; font-size:14px; font-weight: 400; line-height: 23px; }
+.commonIconArea{ float: left; width: 10%;}
+.second_fold{padding: 100px 0px 70px 0;}
+
+@media only screen and (max-width: 650px)  {
+
+  ul.commonUl{ max-width: 230px; float: none !important; margin: 0 auto !important;}
+  .hideinMobile{display: none;}
+  .showInmobile { display: block;}
+  
+  .three_service{ height: 360px;}
+  .leftCommonArea{ margin-bottom: 60px;}
+  ul.features_list li span.text{font-size: 15px;}
+
+  .oneTouchText {float: left;width: 100%;text-align: center;}
+  .onetouchIcon {float: left;margin-right: 0px;display: table;margin: 10px auto;float: none;}
+  .second_fold{padding: 28px 0px 70px 0;}
+  ul.features_list li span.icon{ width: 60px; height: 60px; padding: 14px 0; }
+  ul.features_list li span.icon img{ max-width: 35px;}
+  ul.features_list li{ padding: 20px 0px 20px 13px}
+  .commonLeftAreaFeatures{ padding: 10% 10px !important;}
+  .commonLeftArea{ margin: 0 0 43px 0 !important; text-align: center; }
+  .commonIcon{ float: none !important; margin-bottom: 50px !important;}
+  .commonContentArea{padding-bottom: 52px !important;padding-right: 0px !important;border-bottom: 1px solid #ccc !important;border-right: none  !important;}
+  .commonContentArea h2{ font-size: 24px !important;}
+  .commonRightArea{ float: none !important;}
+  .leftRs img, .rightRs img{ width: 20px;}
+  .leftCRs img, .rightCRs img{ width: 20px;}
+}
+
+.leftRs {
+    position: absolute;
+    margin: auto;
+    top: 40px;
+    left: 0;
+    border: none;
+    font-size: 30px;
+    color: #000;
+    display: block !important;
+    background: none;
+}
+
+.rightRs {
+    position: absolute;
+    margin: auto;
+    top: 40px;
+    right: 0;
+    border: none;
+    font-size: 30px;
+    color: #000;
+    display: block !important;
+    background: none;
+}
+
+.leftCRs {
+  position: absolute;
+  margin: auto;
+  top: 172px;
+  left: -61px;
+  background-color: #fff;
+  border: none;
+  font-size: 30px;
+  /* color: #fff; */
+  display: block !important;
+  background: none;
+}
+
+.rightCRs {
+  position: absolute;
+  margin: auto;
+  top: 172px;
+  right: -61px;
+  background-color: #fff;
+  border: none;
+  font-size: 30px;
+  /* color: #fff; */
+  display: block !important;
+  background: none;
+}
+
+ngx-tile div.container {
+  padding-top: 20px;
+}
+
+.features_list .ngxcarouselitem{ width: auto !important;}
+.tile{ box-shadow: none !important; }
+.contentAreaFeatures{ background: #EDEDED;margin-top: -10px;}
+
+
+.commonLeftAreaFeatures{ clear: both; overflow: hidden;padding: 10% 0px;}
+.commonLeftArea{ float: left; margin-right: 70px;}
+.commonIcon{ float: left; margin-right: 32px;} 
+.commonContentArea{ float: left; padding-right: 30px;border-right: 1px solid #ccc;max-width: 480px;}
+.commonContentArea h2{color: #103F8A; font-size: 32px;}
+ul.commonUl{ list-style-type: none; float: left; margin: 0; padding: 0;}
+ul.commonUl li{ float: left; margin-right: 15px; padding: 10px; border-radius: 30px; -moz-border-radius: 30px; -webkit-border-radius: 30px; width: 50px; height: 50px; text-align: center; }
+.commonRightArea{ float: left;}
+ul.commonUl li:hover{ background: linear-gradient(to right, #E6167F, #FF8000);}
+ul.commonUl li img:last-child{ display: none;} 
+ul.commonUl li:hover img:first-child{ display: none;}
+ul.commonUl li:hover img:last-child{ display: inline-block;}
+
+@media only screen and (max-width: 768px)  {
+  ul.commonUl li{ margin-right: 5px; /*width: 39px;*/}
+  .leftRs{left: -7px;}
+  .rightRs{right: -7px;}
+}
+
+@media only screen and (min-width:651px) and (max-width : 1199px) {
+  .commonLeftAreaFeatures { margin: 0 auto;}
+  .commonLeftArea, .commonRightArea {
+    float: none;
+    text-align: center;
+    margin: 0 auto;
+ }
+ ul.commonUl {
+  float: none;
+  margin: 0 auto;
+  padding: 0;
+  display: inline-block;
+ }
+ .commonContentArea { float: none;}
+}
+
+@media only screen and (min-width: 425px ) and (max-width : 768px) {
+  ul.features_list li { height: 205px;}
+}
+
+@media only screen and (max-width : 500px){
+    .leftRs,.rightRs{display: none !important;}
+    .rightCRs{right: -26px;}
+    .leftCRs{left: -30px;}
+    .leftCRs img, .rightCRs img{
+    width: 41px;}
+    ul.howItWorks li span { height: 70px !important;}
+}

@@ -1,0 +1,71 @@
+<div class="first_fold">
+  <div class="home_banner newcustomermobile_banner">
+    <div class="container-fluid cust-btn-wrapper">
+      <a [routerLink]="['/auth/sign-in']">
+        <img src="/assets/images/existingcustomer-notselected.png" class="imgcustom1" alt="banner">
+      </a>
+      <img src="/assets/images/newcustomer-selected.png" class="imgcustom2" alt="banner">
+    </div>
+    <div class="row displayDsk txt-center">
+      <p class="col-sm-12 label registerpgh headerText">Register here! You are few steps away to make your first call.
+      </p>
+    </div>
+    <div class="row displayMob txt-center">
+      <p class="col-sm-12 label registerpgh headerText">Register here! You are few <br> steps away to make your first
+        call.</p>
+    </div>
+  </div>
+</div>
+
+<!-- common wrapper -->
+<div class="commonWrapperArea commonWrapperAreaNew newcustomer newCustomerTab">
+  <div class="">
+    <div class="coverShadow"></div>
+  </div>
+  <div class="virtual1Form">
+    <form class="example-form" [formGroup]="signUpForm" (ngSubmit)='onSignupFormSubmit()'>
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="label2">Welcome to Raza,</p>
+          <mat-form-field>
+            <mat-select placeholder="Select Country" formControlName="country">
+              <mat-option *ngFor="let country of countries" [value]="country">
+                <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
+                  [ngClass]="'flag flag-f-'+ country.CountryId" height="25">
+                <span class="width70">{{country.CountryName}}</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12 formRowM15">
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="phoneOrEmail" placeholder="Enter Phone Number or Email" />
+            <mat-hint>Start with +(country code), e.g +1, +44 </mat-hint>
+            <mat-error *ngIf="signUpForm.get('phoneOrEmail').errors?.already_exist">
+              Phone Number/Email already exist.
+            </mat-error>
+
+            <mat-error *ngIf="signUpForm.get('phoneOrEmail').errors?.invalid_input">
+              Invalid Phone Number/Email.
+            </mat-error>
+
+          </mat-form-field>
+        </div>
+        <!-- <div class="col-sm-12">
+          <span class="floatRight forgetPass">Resend code? <a (click)="signIn()">Click here</a></span>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Verify Code" value="">
+          </mat-form-field>
+        </div> -->
+
+      </div>
+      <button mat-button class="submitButtonSmall">Sign Up</button>
+	  
+      <p class="haveAccountAlready">Have an account already? <a (click)="login()">Login here!</a></p>
+
+    </form>
+  </div>
+  <p class="agreementtopolicytext">By signing up, you agree to Website Terms, Privacy Policy, Licensing Terms and to
+    receive emails that i can opt out of at anytime.</p>
+</div>
+<!-- common wrapper -->

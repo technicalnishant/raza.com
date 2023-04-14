@@ -1,0 +1,157 @@
+<div class="popupGlobalCall globalCallPopUp buy1get1popup getuptopopup">
+    <div class="selectRechargeamountMain">
+        <div class="Afganistan_new">
+            <div class="callRate">
+                <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
+                    [alt]="countryId" /></span>
+            <span>{{RatePerMin| number:'1.0-0' | sCurrency : globalPlanData.CurrencyCode  }}/min</span>
+                <p class="country-name">{{customCountry}}</p>
+            </div>
+        </div>
+        <span class="closeIcon globalCall" (click)="closeIcon()" mat-dialog-close><i
+                class="material-icons">close</i></span>
+        <h1>Buy 1 Get 1 Min Free</h1>
+
+        <div class="commonminArea hideindesktop">
+            <div class="callRate">
+                <p class="country-name">{{customCountry}}</p>
+                <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
+                        [alt]="countryId" /></span>
+                <span>{{RatePerMin| number:'1.0-0' | sCurrency : globalPlanData.CurrencyCode  }}/min</span>
+            </div>
+        </div>
+        <mat-dialog-content #matContent>
+            <div class="selectRechargeamount">
+                <div class="selectRechargeAmnt globalCall_li_list">
+                    <ul>
+                        <!--<li class="hideinMobile">
+                            <div class="commonminArea">
+                                <div class="callRate">
+                                    <p class="country-name">{{customCountry}}</p>
+                                    <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
+                                            [alt]="countryId" /></span>
+                                    <span>{{RatePerMin| number:'1.0-0' | sCurrency }} / min</span>
+                                </div>
+                            </div>
+                        </li>-->
+
+                         <!--<li *ngFor="let item of Plans; let i = index" class="rate-item" (click)="onClickRateTab(item)">
+                            <div matRipple class="commonpriceArea popular ripple-container">
+                                <div class="commonminArea">
+                                    <p class="mins">{{item.TotalTime}}
+                                        <span>mins</span></p>
+                                    <div class="smallLine"></div>
+                                    <p class="charge">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}
+                                    </p>
+                                </div>
+                                <div class="popuplarTag" *ngIf="i==2">
+                                    <img src="assets/images/popular_tag.png" alt="" />
+                                </div>
+                            </div>
+                        </li>  -->
+                        <li class="rate-item" (click)="buyNow(2, 11)">
+                            <div class="commonpriceArea popular ripple-container">
+                                <div class="commonminArea">
+                                   
+                                    <!--<div class="smallLine"></div>-->
+                                    <p class="mins price"><span>{{currSymbol()}}</span>2</p>
+                                    <p class="charge bcharge">Was {{currSymbol()}}4</p>
+                                     <p class="free-mins">{{oneFreemin*4 | number:'1.0-0'}}<span>mins</span></p>
+                                     <br>
+                                     <button class="button_buy">Buy Now</button>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li class="rate-item selected  blue_margin" (click)="buyNow(3, 12)">
+                            <div class="commonpriceArea ripple-container">
+                                <div class="commonminArea">
+                                   
+                                    <!--<div class="smallLine"></div>-->
+                                    <p class="mins price"><span>{{currSymbol()}}</span>3</p>
+                                    <p class="charge bcharge" >Was {{currSymbol()}}6</p>
+                                     <p class="free-mins">{{oneFreemin*6 | number:'1.0-0'}}<span>mins</span></p>
+                                     <br>
+                                     <button class="button_buy">Buy Now</button>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li class="rate-item" (click)="buyNow(5, 2)">
+                            <div class="commonpriceArea popular ripple-container">
+                                <div class="commonminArea">
+                                   
+                                    <!--<div class="smallLine"></div>-->
+                                    <p class="mins price"><span>{{currSymbol()}}</span>5</p>
+                                    <p class="charge bcharge">Was {{currSymbol()}}10</p>
+                                     <p class="free-mins">{{oneFreemin*10 | number:'1.0-0'}}<span>mins</span></p>
+                                     <br>
+                                     <button class="button_buy">Buy Now</button>
+
+                                </div>
+                            </div>
+                        </li> 
+                    </ul>
+
+
+                    <div class="textARea">
+                        <p>
+                            <!-- <span>
+                                <a (click)="learnmore()">Learn more</a>
+                                <span class="viewAll" (click)="viewAllRatesTab()">View all rates</span>
+                            </span> -->
+                            <span>Have a question?
+                                <a (click)="contactUs()">Call us</a>
+                            </span>
+                        </p>
+                    </div>
+                    <p *ngIf="viewAllPlan">Rates not found.</p>
+                    <div class="viewAllRatesPanel" *ngIf="viewAllrate">
+                        <div class="row">
+
+                            <div class="col-md-9">
+                                <h4>Global call rates to call {{countryName}}</h4>
+                                <p>These rates apply to call {{countryName}} only, rates to call other countries may
+                                    differ.</p>
+                                <table class="table">
+                                    <thead>
+                                        <th>Operator</th>
+                                        <th>Minutes</th>
+                                        <th>Rate / min</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of FilteredSubPlans">
+                                            <td>{{item.CountryName}}</td>
+                                            <td>{{item.TotalTime}}</td>
+                                            <td>{{item.CallRate | sCurrency : globalPlanData.CurrencyCode }} / min</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="input_holder1" style="margin-bottom:18px;">
+                                    <button (click)="buyPlan()" mat-button class="submitButton">BUY NOW</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <mat-form-field>
+                                    <mat-select (selectionChange)="selectDenomination()" placeholder="Select amount"
+                                        [formControl]="denominationSelectControl">
+                                        <mat-option *ngFor="let item of denominationList" [value]="item">
+                                            {{item | bCurrency}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div><!-- 
+                    <p class="descText marginTop15">*All the rates are calculated on the highest denomination calling
+                        plan. For your convenience the plan is set to Auto-refill please uncheck to view the rates
+                        without auto-refill.</p> -->
+                </div>
+
+            </div>
+        </mat-dialog-content>
+    </div>
+    
+</div>
+

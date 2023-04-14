@@ -1,0 +1,472 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+$common-font-family: "Montserrat", sans-serif;
+
+@mixin comman-font-family {
+  font-family: "Montserrat", sans-serif;
+}
+@mixin button-text {
+  border: 1px solid #f3c423;
+  transition: 0.3s ease-in-out;
+  padding: 2px 100px;
+  text-decoration: none;
+  background-color: #f3c423;
+  // border-radius: 20px;
+  width: 100%;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+  font-family: "Montserrat";
+}
+
+::ng-deep {
+  .cdk-overlay-pane {
+    height: unset !important;
+  }
+}
+.popup-wrapper .eyes {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.popup-wrapper .eyes mat-icon {
+  color: #124390;
+}
+.popup-wrapper .cancel {
+  position: absolute;
+  top: -27px;
+  right: 0;
+  padding: 0;
+  height: 20px;
+  width: 29px;
+}
+.popup-wrapper .cancel button {
+  font-size: 26px;
+  font-weight: 300;
+  min-width: 30px;
+  border: none;
+  box-shadow: none;
+  color: #000;
+}
+::ng-deep {
+  .popup-wrapper .mat-dialog-content {
+    -webkit-overflow-scrolling: auto !important;
+    max-height: 77vh;
+  }
+}
+
+.popup-wrapper {
+  position: relative !important;
+  width: 550px;
+  max-width: 100%;
+  .number-top {
+    vertical-align: bottom;
+  }
+
+  .new-raza {
+    margin-bottom: 10px;
+    font-weight: 500;
+    margin-top: 20px;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+    font-size: 30px;
+    letter-spacing: 0px;
+    color: #000000;
+    font-weight: bold;
+    font-family: $common-font-family;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    letter-spacing: 0px;
+    color: #717171;
+    font-family: $common-font-family;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: #000000;
+
+    a {
+      color: #0b3d8d;
+      text-decoration: none;
+    }
+  }
+
+  span {
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #717171;
+    font-family: $common-font-family;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  p,
+  span {
+    font-family: $common-font-family;
+  }
+
+  .mat-select {
+    width: 100% !important;
+  }
+
+  ::ng-deep {
+    .mat-empty {
+      span {
+        display: block;
+      }
+    }
+    label {
+      span {
+        display: none;
+      }
+    }
+  }
+
+  ::ng-deep {
+    .mat-form-field-infix {
+      min-width: 100% !important;
+      max-width: 100% !important;
+      font-size: 20px;
+      letter-spacing: 0px;
+      color: #000;
+      position: relative;
+      @include comman-font-family;
+      font-weight: 600;
+    }
+    .mat-form-field-infix input {
+      letter-spacing: 3px;
+    }
+    .mat-form-field-infix .resend {
+      font-size: 16px;
+      letter-spacing: 0px;
+      color: #0b3d8d;
+      position: absolute;
+      right: 0;
+      text-decoration: none;
+      padding: 6px 0;
+      bottom: -35px;
+      font-weight: 500;
+      @include comman-font-family;
+      z-index: 1;
+    }
+    .mat-form-field-infix span {
+      font-size: 18px;
+      letter-spacing: 0px;
+      @include comman-font-family;
+      color: #333;
+    }
+  }
+}
+.full-width {
+  width: 100%;
+}
+
+.example-container {
+  .mat-form-field {
+    &:nth-child(1) {
+      width: 22%;
+      margin-right: 20px;
+    }
+
+    &:nth-child(2) {
+      // width: 71%;
+      width: 100%;
+      // margin-left: 20px;
+    }
+  }
+
+  mat-form-field {
+    &:nth-child(4) {
+      margin-top: 30px;
+    }
+  }
+}
+
+.submit-btn {
+  a,
+  button {
+    @include button-text;
+
+    span {
+      color: #0b203e;
+      font-weight: 600;
+    }
+
+    &:hover {
+      background: #ffe374;
+    }
+  }
+}
+
+.flag-wrapper {
+  width: 35%;
+  border-bottom: 1px solid #949494;
+  position: relative;
+  float: left;
+  // padding: 2.5px 0;
+  padding: 2px 0;
+
+  .select_top1 {
+    padding: 0;
+    margin-top: 14px;
+    /* position: absolute; */
+    font-size: 0;
+    line-height: 0;
+    cursor: pointer;
+    /* width: 45px; */
+    left: 21px;
+    top: 33px;
+    z-index: 3;
+
+    span {
+      font-size: 20px;
+      align-items: center;
+      margin-left: 10px;
+      color: #000;
+      font-weight: 600;
+      letter-spacing: 4px;
+    }
+
+    &:after {
+      font-family: "Material Icons";
+      content: "expand_more";
+      font-size: 30px;
+      font-weight: 400;
+      color: #000;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .flag_list1 {
+    li {
+      /* padding: 9px 2px; */
+      /* margin: 0 0 5px 0; */
+      //display: block;
+      cursor: pointer;
+      position: relative;
+      height: 50px;
+      border-bottom: 1px solid #999999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .flag_list1 {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 1px;
+    z-index: 3;
+    top: 52px;
+    right: 0;
+    width: 100%;
+
+    ul {
+      padding: 0;
+      background: #efefef;
+
+      li {
+        span {
+          display: block;
+          // margin-left: 7px;
+        }
+      }
+    }
+  }
+}
+
+.or {
+  font-size: 16px;
+  line-height: 20px;
+  color: #99999b;
+  font-weight: 500;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+  &:after {
+    position: absolute;
+    content: "";
+    width: 45%;
+    height: 1px;
+    top: 50%;
+    left: 0;
+    right: 0;
+    background: #eaeaec;
+    z-index: -1;
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    width: 45%;
+    height: 1px;
+    top: 50%;
+    right: 0;
+    background: #eaeaec;
+    z-index: -1;
+  }
+}
+
+.login-button {
+  width: 100%;
+  text-align: left;
+  background-color: #f3f3f3;
+  padding: 7px 19px;
+  font-size: 16px;
+  color: #3e3e3e;
+  font-weight: 600;
+  margin-bottom: 10px;
+  border: 1px solid #d8d8d8;
+  // @include comman-font-family;
+  img {
+    margin-right: 20px;
+  }
+}
+span.note {
+  font-size: 12px;
+}
+
+a.resend {
+  text-align: right;
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0px;
+  color: #0b3d8d;
+  margin-top: -10px;
+  margin-bottom: 16px;
+}
+
+
+// media queries start here
+
+@media only screen and (max-width: 767px) {
+  .popup-wrapper h1 {
+    font-size: 24px;
+  }
+
+  .popup-wrapper .subtitle {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .popup-wrapper .example-container .mat-form-field:nth-child(1) {
+    width: 50%;
+  }
+
+  .popup-wrapper .example-container .mat-form-field:nth-child(2) {
+    width: 100%;
+  }
+
+  ::ng-deep {
+    .popup-wrapper .mat-form-field-infix .resend {
+      right: 0;
+      bottom: -20px;
+    }
+    .popup-wrapper .mat-form-field-infix span {
+      font-size: 15px!important;
+      font-weight: 500;
+    }
+  }
+  .popup-wrapper .example-container mat-form-field:nth-child(4) {
+    margin-top: 0px;
+  }
+
+  .popup-wrapper .new-raza {
+    margin-bottom: 0px;
+    margin-top: 7px;
+  }
+
+  .popup-wrapper p {
+    font-size: 16px;
+  }
+
+  .popup-wrapper span {
+    font-size: 12px;
+  }
+  .popup-wrapper .forgot p {
+    font-size: 12px;
+  }
+  .popup-wrapper .forgot h1 {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .popup-wrapper .flag-wrapper {
+    width: 60%;
+  }
+  .popup-wrapper .submit-btn a {
+    padding: 2px 50px;
+  }
+}
+
+// @media only screen and (min-width:321px) and (max-width:767px){
+
+//   .popup-wrapper .flag-wrapper {
+//     width: 40%;
+// }
+
+// }
+
+@media only screen and (max-width: 767px) {
+  .popup-wrapper .flag-wrapper {
+    width: 40%;
+  }
+  ::ng-deep {
+    .popup-wrapper .mat-form-field-infix input {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  .flag-wrapper span {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+  }
+
+  .popup-wrapper .flag-wrapper {
+    // width: 35%;
+    width: auto;
+  }
+
+  .popup-wrapper .flag-wrapper .select_top1:after {
+    font-size: 23px;
+    right: -16px;
+    color: #717171;
+  }
+  .popup-wrapper .submit-btn a {
+    width: 80%;
+    padding: 0;
+  }
+  ::ng-deep {
+    .cdk-overlay-pane {
+      height: unset !important;
+      max-width: 100% !important;
+    }
+  }
+  
+.login-button{
+  padding: 1px 19px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+}
+

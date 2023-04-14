@@ -1,0 +1,70 @@
+<a mat-list-item routerLink="/account/overview">
+  <span class="mainSpan">Recharge
+    <span class="slider"></span>
+  </span>
+</a>
+<a mat-list-item routerLink="/account/payment-details/{{plan?.PlanId}}">
+  <span class="mainSpan">Payment Details
+    <span class="slider"></span>
+  </span>
+</a>
+<a mat-list-item routerLink="/account/autorefill/{{plan?.PlanId}}">
+  <span class="mainSpan">Auto - Refill
+    <span class="slider"></span>
+  </span>
+</a>
+<a mat-list-item routerLink="/account/order-history">
+  <span class="mainSpan">Order-History
+    <span class="slider"></span>
+  </span>
+</a>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Plan Details
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <ul>
+      <li><a routerLink="/account/plandetails/{{plan?.PlanId}}">Plan Details</a></li>
+      <li><a routerLink="/account/mynumber/{{plan?.PlanId}}">My Numbers</a></li>
+	  <li><a routerLink="/account/call-details/{{plan?.PlanId}}" >Call Details</a></li>
+      <li><a routerLink="/account/onetouchSetups/{{plan?.PlanId}}">One Touch Dial</a></li>
+      <li><a routerLink="/account/callForwardingSetups/{{plan?.PlanId}}">Call Forwarding</a></li>
+    </ul>
+  </mat-expansion-panel>
+
+</mat-accordion>
+
+<a mat-list-item routerLink="/account/rewards">
+  <span class="mainSpan">Rewards
+    <span class="slider"></span>
+  </span>
+</a>
+
+<a mat-list-item routerLink="/account/international-topup">
+  <span class="mainSpan">International Topup
+    <span class="slider"></span>
+  </span>
+</a>
+
+<a mat-list-item routerLink="/account/virtualnumber" class="d-none">
+  <span class="mainSpan">Virtual Numbers
+    <span class="slider"></span>
+  </span>
+</a>
+
+
+<a mat-list-item routerLink="/account/my-profile">
+  <span class="mainSpan">My Profile
+    <span class="slider"></span>
+  </span>
+</a>
+
+<a mat-list-item routerLink="/account/other-plans">
+  <span class="mainSpan">Other Plans
+    <span class="slider"></span>
+  </span>
+</a>

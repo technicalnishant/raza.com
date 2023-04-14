@@ -1,0 +1,49 @@
+<div class="tabContentMyaccount callForward planDetails">
+    <p class="tabTitle">Call Forwarding Setup</p>
+    <div class="input_holder1">
+      <button mat-button (click)="setUpCallForward()" class="submitButton">Setup Call Forwarding</button>
+    </div>
+    <div class="greyBg" *ngFor="let item of callForwardingSetupList; index as i">
+      <table class="table greyBg orderHistory">
+        <tbody>
+
+          <tr>
+            <td>S.No</td>
+            <td>{{i+1}}</td>
+          </tr>
+          <tr>
+            <td>Call Forwarding No.</td>
+            <td>{{item.FollowMeNumber}}</td>
+          </tr>
+          <tr>
+            <td>Destination No.</td>
+            <td>{{item.PhoneNumber}}</td>
+          </tr>
+          <tr>
+            <td>Activation Date</td>
+            <td>{{item.ActivationDate | date :'dd-MMM-yy h:mm:ss a '}}</td>
+          </tr>
+          <tr>
+            <td>Expire Date</td>
+            <td>{{item.ExpiryDate | date :'dd-MMM-yy h:mm:ss a '}}</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>{{item.DisplayName}}</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td>{{item.IsActive ? 'Active': 'In Active'}}</td>
+          </tr>
+          <tr>
+            <td>Action</td>
+            <td><a (click)="deleteCallForwarding(item)">Delete</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+  </div>

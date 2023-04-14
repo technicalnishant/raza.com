@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="20px" viewBox="0 0 34 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="New-Section" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Search-Rates---Main" transform="translate(-207.000000, -728.000000)">
+            <g id="Group-7" transform="translate(207.000000, 458.000000)">
+                <g id="Group-6" transform="translate(0.000000, 144.000000)">
+                    <g id="Group" transform="translate(0.000000, 39.000000)">
+                        <g id="Page-1">
+                            <g transform="translate(0.000000, 87.000000)">
+                                <polygon id="Fill-1" fill="#FFFFFF" points="0.05 19.6297 33.613 19.6297 33.613 0.0547 0.05 0.0547"></polygon>
+                                <path d="M0.05,19.6297 L33.613,19.6297 L33.613,0.0547 L0.05,0.0547 L0.05,19.6297 Z M0.102,19.5777 L33.563,19.5777 L33.563,0.1017 L0.102,0.1017 L0.102,19.5777 Z" id="Fill-2" fill="#000000"></path>
+                                <polygon id="Fill-3" fill="#2F742E" points="0.05 19.6297 16.831 19.6297 16.831 0.0547 0.05 0.0547"></polygon>
+                                <g id="Group-8" transform="translate(11.000000, 4.679700)" fill="#C0003B">
+                                    <path d="M9.461,8.2188 C7.774,9.5708 5.309,9.2928 3.957,7.6098 C2.606,5.9178 2.879,3.4528 4.568,2.1018 C6.256,0.7538 8.719,1.0238 10.07,2.7108 C9.641,1.9728 9.022,1.3518 8.281,0.9218 C5.938,-0.4292 2.943,0.3708 1.592,2.7108 C0.242,5.0548 1.045,8.0468 3.383,9.3988 C5.725,10.7498 8.719,9.9458 10.07,7.6098 C9.891,7.8318 9.686,8.0348 9.461,8.2188" id="Fill-4"></path>
+                                    <polygon id="Fill-6" points="7.5235 6.0508 8.5665 7.4878 8.5665 5.7108 10.2595 5.1598 8.5665 4.6098 8.5665 2.8318 7.5235 4.2698 5.8325 3.7228 6.8775 5.1598 5.8325 6.6018"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

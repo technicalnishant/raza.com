@@ -1,0 +1,257 @@
+// .carousel {
+// 	min-height: 799px;
+// }
+// .home-slider-wrapper {
+// 	height: 799px;
+// 	mat-carousel {
+// 		height: 799px;
+// 	.carousel {
+// 		& > button {
+// 			&:first-of-type {
+// 				left: 60px!important;
+// 				z-index: 999;
+// 			}
+// 			&:last-of-type {
+// 				right: 60px!important;
+// 				z-index: 999;
+// 			}
+// 		}
+// 	}
+// }
+// .mat-icon {
+// 	font-size: 60px;
+// }
+// } 
+// 	.carousel-indicators {
+// 		margin: unset;
+// 	}
+
+// .slider-home-inner {
+// 	height: 799px;
+// 	width: 100%;
+// 	background-size: cover;
+// 	background-repeat: no-repeat;
+// 	background-position: center;
+// }
+// .content-part-home {
+// 	justify-content: space-between;
+// 	align-items: center;
+// 	display: flex;
+// 	flex-direction: row;
+// 	height: 799px;
+// }
+// .btn.focus, .btn:focus {
+// 	outline: 0;
+// 	box-shadow: none;
+// }
+// .slider-content-home {
+// 	.btn {
+// 		background: #fbb204;
+// 		padding: 10px 30px;
+// 		font-size: 28px;
+// 		font-weight: bold;
+// 		color: #231f20;
+// 		box-shadow: 2px 5px 10px 0px #000000;
+// 		&:hover {
+// 			background-color: #fff!important;
+// 			color: #000!important;
+// 		}
+// 	}
+// }
+// ul {
+// 	&.carousel-list {
+// 		li {
+// 			&:nth-child(2) {
+// 				img {
+// 					z-index: 9;
+// 					width: 67%;
+// 					display: block;
+// 					margin: auto;
+// 				}
+// 				.btn {
+// 					margin-top: 36px;
+// 					border-radius: 10px;
+// 					z-index: 1;
+// 					font-weight: 700;
+// 					background: #26a738;
+// 					color: #fff;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// .main-slider {
+// 	.home_textarea {
+// 		position: relative;
+// 		overflow: hidden;
+// 	}
+// 	.mat-icon {
+// 		color: #fff;
+// 	}
+// }
+// .carousel-indicators {
+// 	button {
+// 		width: 15px!important;
+// 		height: 15px!important;
+// 	}
+// }
+// .mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab {
+// 	color: rgba(0,0,0,.87);
+// 	background-color: #fff;
+// }
+// .mat-mini-fab[disabled][disabled] {
+// 	background: #ffffff69;
+// }
+// .right-part {
+// 	width: 50%;
+// 	display: block;
+// 	margin: auto;
+// 	text-align: center;
+// }
+
+// @media only screen and (max-width:768px){
+//   .home-slider-wrapper mat-carousel {
+//     height: 500px;
+//   }
+//   .slider-content-home .btn {
+//     background: #e19f25;
+//     border-radius: 50px;
+//     padding: 8px 29px !important;
+//     font-size: 13px !important;
+//     font-weight: bold;
+//     color: #231f20;
+//     margin-top: 20px!important;
+//     box-shadow: 2px 5px 10px 0px #000000;
+//   }
+//     .carousel {
+//         min-height: 500px;
+//     }
+//     .slider-home-inner {
+//         height: 500px;
+//         width: 100%;
+//         background-size: cover;
+//         background-repeat: no-repeat;
+//         background-position: center;
+//     }
+     
+//     .content-part-home {
+//         justify-content: center;
+//         align-items: center;
+//         display: flex;
+//         flex-direction: column;
+//         height: 500px;
+//     }
+//     .home-slider-wrapper {
+//       height: unset;
+//   }
+//   ul.carousel-list li:nth-child(2) img {
+//     margin: unset;
+// }
+// ul.carousel-list li:nth-child(1) .btn {
+// margin-bottom: 100px;
+// }
+// ul.carousel-list li:nth-child(2) img {
+//   margin: unset;
+//   margin-top: 20px;
+// }
+
+
+// }
+
+
+
+// // new search and media quiries end here
+
+
+// [class|="confetti"] {
+//   position: absolute;
+// }
+
+// $colors: (#d13447, #ffbf00, #263672);
+
+// @for $i from 0 through 150 {
+//   $w: random(20);
+//   $l: random(100);
+//   .confetti-#{$i} {
+//     width: #{$w}px;
+//     height: #{$w*0.4}px;
+//     background-color: nth($colors, random(3));
+//     top: -10%;
+//     left: unquote($l+"%");
+//     opacity: random() + 0.5;
+//     transform: rotate(#{random()*360}deg);
+//     animation: drop-#{$i} unquote(4+random()+"s") unquote(random()+"s") infinite;
+//   }
+
+//   @keyframes drop-#{$i} {
+//     100% {
+//       top: 110%;
+//       left: unquote($l+random(15)+"%");
+//     }
+//   }
+// }
+
+// // .paper {
+// //   position: absolute;
+// //   z-index: 9;
+// //   width: 100%;
+// //   bottom: 0;
+// //   top: 0;
+// // }
+
+
+// @function random_range($min, $max) {
+//   $rand: random();
+//   $random_range: $min + floor($rand * (($max - $min) + 1));
+//   @return $random_range;
+// }
+
+// .snow {
+//   $total: 200;
+//   position: absolute;
+//   width: 10px;
+//   height: 10px;
+//   background: white;
+//   border-radius: 50%;
+//   z-index: 9999;
+
+//   @for $i from 1 through $total {
+//     $random-x: random(1000000) * 0.0001vw;
+//     $random-offset: random_range(-100000, 100000) * 0.0001vw;
+//     $random-x-end: $random-x + $random-offset;
+//     $random-x-end-yoyo: $random-x + ($random-offset / 2);
+//     $random-yoyo-time: random_range(30000, 80000) / 100000;
+//     $random-yoyo-y: $random-yoyo-time * 100vh;
+//     $random-scale: random(10000) * 0.0001;
+//     $fall-duration: random_range(10, 30) * 1s;
+//     $fall-delay: random(30) * -1s;
+
+//     &:nth-child(#{$i}) {
+//       opacity: random(10000) * 0.0001;
+//       transform: translate($random-x, -10px) scale($random-scale);
+//       animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
+//     }
+
+//     @keyframes fall-#{$i} {
+//       #{percentage($random-yoyo-time)} {
+//         transform: translate($random-x-end, $random-yoyo-y) scale($random-scale);
+//       }
+      
+//       to {
+//         transform: translate($random-x-end-yoyo, 100vh) scale($random-scale);
+//       }
+//     }
+//   }
+// }
+
+
+// ::ng-deep{
+// //   .home-slider-wrapper mat-icon {
+// //     display: none!important;
+// // }
+
+// //  .home-slider-wrapper .mat-icon-button {
+// //     background: url('../../assets/images/promotions/christmas/left-arrow.png');
+// // }
+
+// }

@@ -1,0 +1,91 @@
+<div class="form_holder commonPopup addEnroll autoRefill">
+    <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+    <form name="callForwardSetupForm" [formGroup]="callForwardSetupForm" (ngSubmit)="onSubmitCallForwardSetupForm()">
+        <h2>Call Forwarding</h2>
+        <mat-dialog-content>
+            <div class="row commonPopupRow">
+                <div class="col-sm-6">
+                    <mat-form-field>
+                        <mat-select placeholder="Select Your 1-800 Number" formControlName="FollowMeNumber">
+                            <mat-option *ngFor="let item of available800Numbers" [value]="item">{{item}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <!-- <div *ngIf="showPlaceholder" class="placeholder-search" (click)="onClickPlaceholder()">
+                    <p class="palceholder-searchs" (click)="onClickPlaceholder()">Country To</p>
+                  </div> -->
+                <div class="col-sm-6">
+                    <mat-form-field>
+                       <!-- <mat-select placeholder="Select Country" formControlName="Country"
+                            (selectionChange)="onSelectCountryChange()">
+                            <mat-option *ngFor="let item of countries" [value]="item">{{item.CountryName}}</mat-option>
+                        </mat-select>-->
+                        <mat-label>Select Country</mat-label>
+                             <input type="hidden" formControlName="Country"/>
+                             <input matInput aria-label="State" id="searchInput" [matAutocomplete]="auto" [formControl]="autoControl" ng-placeholder="State/Province" (focusout)="onClickInput()" (focus)="onInputFocus()">
+                             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" md-floating-label="Country To" >
+                             <mat-option *ngFor="let option of filteredCountry | async" [value]="option" (onSelectionChange)="setState(option)">
+                                 
+                                 <span class="width70">{{option.CountryName}}</span>
+                                  
+                             </mat-option>
+                             </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row commonPopPopupRow">
+                <div class="col-sm-12">
+                    <p class="enterD">Enter Destination Number</p>
+                </div>
+            </div>
+
+            <div class="row commonPopupRow">
+                <div class="col-sm-2">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="tel" placeholder="Country Code" formControlName="CountryCode" />
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="tel" placeholder="Phone Number" maxlength="10"
+                            formControlName="PhoneNumber" />
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-3">
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker1" placeholder="Activation Date"
+                            formControlName="ActivationDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1 touchUi disabled="false"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-3">
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker2"
+                            [min]="this.callForwardSetupForm.get('ActivationDate').value" placeholder="Expiry Date"
+                            formControlName="ExpiryDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2 touchUi disabled="false"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row commonPopupRow">
+                <div class="col-sm-6">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="text" maxlength="30" placeholder="Name For Call Forwarding Number"
+                            formControlName="DisplayName" />
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </mat-dialog-content>
+        <div class="form_row1">
+            <div class="input_holder1">
+                <button mat-button class="submitButton">Submit</button>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,54 @@
+
+
+
+<div class="form_holder commonPopup addNumber">
+  <span class="closeIcon" (click)="closeIcon()"  mat-dialog-close><i class="material-icons">close</i></span>
+  <h2>Add Credit Card</h2>
+  <mat-dialog-content>
+    <!-- <form [formGroup]="paymentDetailForm" (ngSubmit)="paymentDetailFormSubmit()"> -->
+<form [formGroup]="paymentDetailForm" (ngSubmit)="nextBillingAddress()">
+      <ng-template matStepLabel>Payment Detail </ng-template>
+     
+      <div class="row commonPopupRow">
+        <div class="col-sm-8">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Card Number" formControlName="CardNumber">
+            </mat-form-field>   
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="CVV" formControlName="Cvv2">
+            </mat-form-field>   
+            <div><a href="javascript:void(0);" (click)="whatiscvv()" class="what-cvv">What is
+                CVV</a></div>
+        </div>
+      </div>
+    
+    <div class="row commonPopupRow">
+        <div class="col-sm-6">
+            <mat-form-field>
+            <mat-select placeholder="Expiry Month" formControlName="ExpMonth">
+                <mat-option *ngFor="let item of months" [value]="item.Code">{{item.Value}}</mat-option>
+                
+            </mat-select>
+            </mat-form-field>  
+        </div>
+        <div class="col-sm-6">
+            <mat-form-field>
+             <mat-select placeholder="Expiry Year" formControlName="ExpYear">
+                 <mat-option *ngFor="let item of years" [value]="item">{{item}}</mat-option>
+             </mat-select>
+            </mat-form-field>
+        </div>
+    </div> 
+    
+    <div class="form_row1">
+        <div class="input_holder1"> 
+            <button mat-button class="submitButton" >Add</button> 
+        </div>
+    </div>
+      
+    </form>
+    
+  </mat-dialog-content>
+</div>

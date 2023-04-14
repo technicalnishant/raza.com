@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Group_15" data-name="Group 15" transform="translate(-749 -279)">
+    <g id="Group_13" data-name="Group 13">
+      <rect id="Rectangle_7" data-name="Rectangle 7" width="30" height="30" transform="translate(749 279)"/>
+      <g id="Group_12" data-name="Group 12" transform="translate(778.749 309.143) rotate(180)">
+        <line id="Line_3" data-name="Line 3" class="cls-1" x2="6.866" y2="6.866" transform="translate(11.749 14.991)"/>
+        <line id="Line_4" data-name="Line 4" class="cls-1" y1="6.848" x2="6.847" transform="translate(11.749 8.143)"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,225 @@
+
+
+<div   >
+  <div class="first_fold">
+    <!--  <div class="home_banner deal1_banner" [style.background]="LandingPageBanner">
+    </div> -->
+    <div class="home_banner deal1_banner" style="background-image: url('https://d2uij5nbaiduhc.cloudfront.net/images/1500mindealheader.webp')">
+    </div>
+  </div>
+  <!-- common wrapper -->
+  <div class="commonWrapperArea search-main">
+    <h2 class="hideindesktop text-center">Get Up to 1500 mins</h2>
+    <div class="commonWrapperAreaShadowArea">
+      <div class="coverShadow"></div>
+    </div>
+    <div class="search__wrapper">
+      <div class="stillSearchingArea">
+        <h3 class="select-country">Select Country</h3>
+        <!-- Search area like home page-->
+        <div class="searchAreaMain">
+          <div class="select_top1" (click)="openFlagDropDown();">
+            <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20" [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId">
+          </div>
+          <div class="flag_list1" *ngIf="showDropdown">
+            <ul>
+              <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)">
+                <span>
+                  <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20" [ngClass]="'flag flag-f-'+ item.CountryId">
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div *ngIf="showPlaceholder" class="placeholder-search" (click)="onClickPlaceholder()">
+            <p class="palceholder-searchs" (click)="onClickPlaceholder()">Where do you wish to call?</p>
+          </div>
+          <img [src]="searchicon" alt="" class="searchic" (click)="onClickClose(searchicon)">
+          <div class="homecountry_dropdown1">
+            <mat-form-field class="example-full-width">
+              <input matInput aria-label="State" id="searchInput" [matAutocomplete]="auto" [formControl]="autoControl" ng-placeholder="State" (focusout)="onClickInput()" (focus)="onInputFocus()">
+              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of countryToList | async" [value]="option" (onSelectionChange)="countryChange(option, $event)">
+                  <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden [ngClass]="'flag flag-'+ option.CountryId" height="25">
+                  <span class="width70">{{option.CountryName}}</span>
+                  <!--<span class="width30">
+                      <img src="./../../assets/images/phone-icon.png" alt="">
+                      <span class="mobileRate">{{option.CallingRateMobile | sCurrency}} </span>
+        
+                      <img src="./../../assets/images/icon-landphone.png" alt="">
+                      <span class="landlineRate">{{option.CallingRateLandline | sCurrency}} </span>
+                    </span>-->
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+        </div>
+        <!-- Search area like home page-->
+  
+      </div>
+      <div class="country-list-wrapper">
+        <div class="country-list" *ngFor="let option of listCountry; let i=index" (click)="openDialog(option)" >
+          <div *ngIf=" i < 5">
+          <img src="./../../assets/images/{{getImageName(option.CountryName) | lowercase}}.png">
+          <p class="country">{{option.CountryName}}</p>
+          <span>from</span>
+          <p class="price"><b>{{plandenomination(option)| sCurrency:currentCurrency}}</b></p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mobileratestable">
+        <div class="mobileratestable-row" *ngFor="let option of listCountry; let i=index" (click)="openDialog(option)">
+          <span class="mobileratestable-flagNameWrap" *ngIf=" i < 5">
+            <span style="display: flex; align-items: center;">
+              <img alt="" src="./../../assets/images/{{getImageName(option.CountryName) | lowercase}}.png" height="37" width="37"></span>
+              <span class="mobileratestable-currencyName"><span>{{option.CountryName}}</span><!-- <span>From</span> --></span>
+            </span><span class="mobileratestable-rate"><span class="">{{plandenomination(option)| sCurrency:currentCurrency}}</span></span>
+          </div>
+      </div>
+  
+  
+      <div class="bg-shapes">
+        <img src="./../../assets/images/search/Image_57.png">
+        <img src="./../../assets/images/search/Ellipse_1.png">
+        <img src="./../../assets/images/search/Ellipse_7.png">
+        <img src="./../../assets/images/search/Polygon_4.png">
+        <img src="./../../assets/images/search/Rectangle_5.png">
+        <img src="./../../assets/images/search/Rectangle_48.png">
+        <img src="./../../assets/images/search/Polygon_4.png">
+      </div>
+    </div>
+    <div class="call-us text-center" style="">
+      <p><span>Have a question? <a (click)=contactUs()>Call us</a></span></p>
+    </div>
+  </div>
+  <!-- Search section end her -->
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="plan-info d-block d-xl-flex">
+  
+    <div class="text-section">
+      <h1 class="text-center">THIS PLAN INCLUDES</h1>
+      <div class="text-part">
+            <mat-list>
+        <mat-list-item>
+          <img src="./../../assets/images/plan-include/global.png">
+          <p>GLOBAL CALLING <br>
+            <span>Best Rates to call any Landlines and Cell phones worldwide!</span></p>
+        </mat-list-item>
+        <mat-list-item>
+          <img src="./../../assets/images/plan-include/quality.png">
+          <p>EXEPTIONAL CALL QUALITY <br>
+            <span>Our State of the Art fiber optic network keeps you in touch with high quality.</span></p>
+        </mat-list-item>
+        <mat-list-item>
+          <img src="./../../assets/images/plan-include/money-back.png">
+          <p>100% MONEY BACK GURANTEE <br>
+            <span>Get your unused balance refunded at any time if you are not completed satishfied.</span></p>
+        </mat-list-item>
+      </mat-list>
+      <mat-list>
+        <mat-list-item>
+          <img src="./../../assets/images/plan-include/mobile-app.png">
+          <p>MOBILE APP <br>
+            <span>
+              Download the app and call directly without having to dial <br> access number.</span></p>
+        </mat-list-item>
+        <mat-list-item>
+          <img src="./../../assets/images/plan-include/reward.png">
+          <p>RAZA REWARDS <br>
+            <span>Signup for Raza Rewards and earn points on every dollor spent.</span></p>
+        </mat-list-item>
+        <mat-list-item>
+          <img src="./../../assets/images/plan-include/account.png">
+          <p>ONLINE ACCOUNT MANAGEMENT <br>
+            <span>Keep track of your calls, orders and rewards anywhere anytime..</span></p>
+        </mat-list-item>
+      </mat-list>
+      </div>
+    </div>
+    <div class="blue-section align-items-center d-flex text-right flex-column flex-xl-row-reverse">
+      <img src="./../../assets/images/bubble.png">
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="container search-main no-margin">
+    <!--<div *ngIf="planDenominations">
+      <mat-tab-group>
+        <mat-tab *ngFor="let item of planDenominations" [label]="item.Price | bCurrency">
+          <ng-container [ngTemplateOutlet]='isDetailMode ? detailsModeTemplate : summaryModeTemplate'
+            [ngTemplateOutletContext]="{item:item}"></ng-container>
+  
+        </mat-tab>
+      </mat-tab-group>
+    </div> -->
+    <app-faq-generic [promotionCode]="promotion.PromotionCode"></app-faq-generic>
+  </div>
+  <!--
+  <ng-template #summaryModeTemplate let-item='item'>
+    <button *ngIf="item.IsPopular" mat-button class="mostpopularButon">Most popular</button>
+    <div class="mapAreaD">
+      <img class="bg-map" [src]="getBackGroundMap()" alt="" />
+      <h4 [ngClass]="freeMinTextCss">{{item.FreeMin}} <span>free mins</span></h4>
+    </div>
+    <p class="mapText">These minutes do not expire, buy it today and use it anytime, anywhere!</p>
+    <div class="buttonArea">
+      <button (click)="buyDeal(item)" mat-button class="submitButton">Buy Now</button>
+    </div>
+    <div class="learnMorearea">
+      <a (click)="toggleDetailMode()" class="learMore">Learn more</a>
+    </div>
+  </ng-template>
+  
+  <ng-template #detailsModeTemplate let-item='item'>
+    <span class="icon-close" (click)="toggleDetailMode()">
+      <i class="material-icons">close</i>
+    </span>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Free mins</th>
+          <th scope="col">{{item.FreeMin}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Regular Mins</td>
+          <td>{{item.RegularMin}}</td>
+        </tr>
+        <tr>
+          <td>Rate per minute</td>
+          <td>{{item.RatePerMin | sCurrency }}</td>
+        </tr>
+        <tr class="total">
+          <td>Total</td>
+          <td>{{item.RegularMin + item.FreeMin}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="buttonArea">
+      <button mat-button (click)="buyDeal(item)" class="submitButton">Buy Now</button>
+    </div>
+  </ng-template>-->
+  
+  
+  <div class="still-searching text-center" style="">
+      <p>Still Searching?</p>
+      <a href="/searchrates" title="">View All Rates</a>
+  
+    </div>
+</div>

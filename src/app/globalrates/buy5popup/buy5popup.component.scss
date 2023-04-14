@@ -1,0 +1,542 @@
+.buy1get1popup {
+  width: 100%;
+  max-width: 100%;
+
+  p.charge,
+  .mins {
+    color: #0c223d;
+  }
+
+  .mins {
+    padding: 30px 0;
+    font-size: 40px;
+  }
+
+  .free-mins {
+    font-size: 36px !important;
+    display: inline;
+    font-weight: 700 !important;
+
+    span {
+      display: unset !important;
+      margin-left: 5px;
+    }
+
+  }
+
+  .textARea span:last-child {
+    float: right;
+    color: #0b203e;
+    font-weight: 700;
+  }
+
+  .textARea span:last-child a {
+    padding-right: 10px;
+    color: #1c7ad9 !important;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .bcharge {
+    &:after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 26px;
+      top: -2px;
+      background: red;
+      right: 41%;
+      transform: rotate(45deg);
+    }
+  }
+
+  .selectRechargeAmnt {
+    ul {
+      display: grid;
+      grid-template-columns: 15% 1fr 1fr 1fr;
+      grid-gap: 40px;
+
+      li {
+        .commonpriceArea {
+          width: unset;
+          height: unset;
+          border: 1px solid #E2E7ED;
+          vertical-align: middle;
+          position: relative;
+          display: block;
+          padding: 10px 0;
+
+          &:hover {
+            border: 1px solid #0160E0;
+          }
+        }
+
+        &:first-child {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+
+  .callRate {
+    span {
+      &:last-child {
+        font-weight: 700;
+      }
+    }
+  }
+
+}
+
+.country-name {
+  text-transform: uppercase;
+  color: #0B203E;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+.free-mins {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+.full-tab {
+  margin: 50px 0;
+
+  .mat-tab-label-active {
+    background: #2a5693 !important;
+    color: #fff;
+    opacity: 1;
+  }
+
+  .mat-tab-label {
+    width: 33.33%;
+    border: 1px solid #bec5ce;
+    border-bottom: 0;
+  }
+
+  table {
+    tr {
+      th {
+        color: #212529;
+
+        &:last-child {
+          text-align: right;
+        }
+      }
+
+      td {
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .buttonArea {
+    margin: 50px 0 0;
+
+    button {
+      border-radius: 30px;
+      width: unset;
+      padding: 5px 50px;
+      font-weight: 700;
+    }
+  }
+}
+
+.mat-dialog-container {
+  height: unset;
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+.rate-item {
+  cursor: pointer;
+}
+
+.ripple-container {
+  cursor: pointer;
+  text-align: center;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.popupGlobalCall {
+  width: 100%;
+  max-width: 100%;
+}
+.popupGlobalCall .selectRechargeAmnt ul li .commonpriceArea {
+  padding: 60px 0;
+}
+.popupGlobalCall .selectRechargeAmnt ul li:first-child {
+  margin-right: -5px;
+}
+/* 
+  .viewAll{
+    color: #0160E0;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    text-decoration: underline;
+    margin-right: 10px;
+    line-height: 26px;
+  }
+  .cracker-img{
+    max-width: 100%;
+    height: 190px;
+    object-fit: contain;
+    margin-right: 50px;
+  } */
+
+.card-wrapper {
+  border-radius: 16px;
+  padding-bottom: 40px;
+}
+.card-head {
+  text-align: center;
+  background: #ffffff;
+  padding: 20px 0;
+  border-radius: 16px 16px 0 0;
+}
+
+.card-head p {
+  margin: 0;
+}
+.card-head p {
+  color: #0052e5!important;
+  font-size: 19px;
+  line-height: 24px;
+  font-weight: 400;
+  position: relative;
+  font-weight: 600;
+}
+.btn-gredients {
+  width: 80%;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 7px;
+  background: rgb(250,92,69);
+  background: -moz-linear-gradient(90deg, rgba(250,92,69,1) 23%, rgba(254,157,21,1) 60%);
+  background: -webkit-linear-gradient(90deg, rgba(250,92,69,1) 23%, rgba(254,157,21,1) 60%);
+  background: linear-gradient(90deg, rgba(250,92,69,1) 23%, rgba(254,157,21,1) 60%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fa5c45",endColorstr="#fe9d15",GradientType=1);
+}
+.card-head h1.discount-percentage {
+  color: #0052e5;
+  font-size: 50px;
+  font-weight: 900;
+  margin: 0;
+  padding-bottom: 0!important;
+  line-height: 40px;
+  padding-top: 10px!important;
+  z-index: 1;
+  position: relative;
+}
+.card-wrapper hr {
+  width: 75%;
+  margin: 0 auto;
+}
+.popup-card {
+  padding-bottom: 20px;
+}
+.price {
+  color: #42495e;
+  font-weight: 400;
+  font-size: 36px;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  line-height: 29px;
+}
+.price span {
+  font-size: 25px;
+}
+p.price sup {
+  left: 10px;
+  font-size: 19px;
+  font-weight: 300;
+  top: -14px;
+}
+
+.card-wrapper {
+  background: #fff;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2)
+}
+
+.card-wrapper .feature-list li {
+  color: #404040;
+  text-align: left;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 26px;
+  margin: 0 !important;
+  float: none;
+  list-style: none;
+}
+.container.popup-card {
+  margin-top: 30px;
+}
+.card-wrapper .feature-list {
+  display: block !important;
+  list-style: disc !important;
+  padding-left: 20px !important;
+  padding-bottom: 20px !important;
+  margin-left: 0% !important;
+}
+h1.mb-0.promo-title {
+  font-size: 40px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  padding-top: 20px;
+  color: #0160e0;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+.christmas .closeIcon {
+  top: 0 !important;
+  right: 0;
+  z-index: 99;
+}
+
+.sub-heading {
+  font-size: 22px;
+  font-weight: 500;
+  position: relative;
+  z-index: 999;
+  margin-bottom: 10px;
+  color: #0160e0;
+  text-transform: uppercase;
+}
+.background-effect {
+  width: 100%;
+  height: 100%;
+  background: #e5effc;
+  height: 250px;
+  grid-column: 1/-1;
+  -ms-grid-column: 10;
+  -ms-grid-column-span: 6;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  margin-top: 0;
+  border-radius: 0;
+  position: absolute;
+}
+.popup-card .col-md-3:nth-child(3) .card-wrapper .card-head {
+  padding: 30px 0 20px 0;
+}
+.popup-card .col-md-3:nth-child(3) .card-wrapper {
+  position: relative;
+
+}
+.popup-card .col-md-3:nth-child(3) .card-wrapper:after {
+  content: "";
+  // background-image: url(../../../assets/images/popular-tag.png);
+  position: absolute;
+  top: -27px;
+  width: 200px;
+  height: 47px;
+  background-repeat: no-repeat;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 999;
+  background-size: contain;
+}
+
+
+
+
+.box-wrapper {
+  z-index: 1;
+}
+.box-wrapper {
+  z-index: 1;
+  min-width: 200px;
+}
+.promotions-wrapper{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+.christmas{
+  position: relative;
+}
+.christmas:before{
+  content: '';
+  // background-image: url('../../../assets/images/promotions/christmas/bottomleft-star.png');
+  width: 275px;
+  height: 209px;
+  left: -2px;
+  bottom: 0;
+  position: absolute;
+  z-index: 999;
+}
+.christmas:after{
+  content: '';
+  // background-image: url('../../../assets/images/promotions/christmas/bottomright-star.png');
+  width: 187px;
+  height: 195px;
+  right: 0px;
+  bottom: 0;
+  position: absolute;
+  z-index: 999;
+}
+.promotion-top {
+  position: relative;
+}
+.promotion-top:before{
+  content: '';
+  // background-image: url('../../../assets/images/promotions/christmas/ribbon.png');
+  position: absolute;
+  width: 205px;
+  height: 201px;
+  left: -1px;
+  top: 0;
+  z-index: 9;
+}
+.promotion-top:after{
+  content: '';
+  // background-image: url('../../../assets/images/promotions/christmas/balloon.png');
+  position: absolute;
+  width: 209px;
+  height: 255px;
+    right: 20px;
+    top: 0;
+    z-index: 9;
+
+}
+.popup-card .textARea p {
+  margin-right: 40px;
+}
+
+.bottom-text {
+  z-index: 999999;
+  position: relative;
+}
+
+.bottom-text p {margin-bottom: 0;}
+.text-blue{
+  color: #1f3676;
+  font-weight: 500;
+}
+
+.card-wrapper .country-name {
+  color: #0052e5;
+  text-align: center;
+  font-size: 18px;
+}
+
+
+
+.promotions-wrapper .box-wrapper:nth-child(1) .card-head {
+  padding-bottom: 0;
+}
+
+.promotions-wrapper .box-wrapper:nth-child(1) span.price {
+  font-size: 30px;
+  display: block;
+}
+.promotions-wrapper .box-wrapper:nth-child(3):before {
+  content: '';
+  // background-image: url('../../../assets/images/promotions/christmas/popular-tag.png');
+  position: absolute;
+  height: 23px;
+  width: 84px;
+  top: 38%;
+  left: -4px;
+}
+.promotions-wrapper .box-wrapper:nth-child(3) {
+  position: relative;
+}
+.promotions-wrapper .box-wrapper:nth-child(1) .card-wrapper,.promotions-wrapper .box-wrapper:nth-child(1) .card-head {
+  background: #055ce9;
+}
+
+
+.promotions-wrapper .box-wrapper:nth-child(1) .card-head p,.promotions-wrapper .box-wrapper:nth-child(1) p.country-name,.promotions-wrapper .box-wrapper:nth-child(1) span.price {
+  color: #fff;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .promotions-wrapper .box-wrapper:nth-child(1) .card-wrapper {
+    padding-bottom: 0;
+  }
+  .promotions-wrapper .box-wrapper:nth-child(1) span.price {
+    font-size: 20px;
+    padding: 8px 0;
+}
+.promotions-wrapper .box-wrapper:nth-child(1) .card-wrapper,.promotions-wrapper .box-wrapper:nth-child(1) .card-head {
+  padding: 5px 0;
+}
+
+
+  h1.mb-0.promo-title {
+    font-size: 24px;
+  }
+  .sub-heading {
+    font-size: 15px;
+  }
+  .card-head h1.discount-percentage {
+    font-size: 28px;
+  }
+  .card-wrapper {
+    margin-top: 20px;
+  }
+  .popup-card .col-md-3 {
+    padding: 0;
+  }
+  .card-wrapper .feature-list li {
+    font-size: 12px;
+    line-height: 21px;
+  }
+  .card-wrapper .feature-list {
+    display: block !important;
+    list-style: disc !important;
+    padding-left: 10px !important;
+    margin-left: 0px !important;
+    padding-bottom: 20px !important;
+  }
+  .background-effect {
+    display: none;
+  }
+  .box-wrapper {
+    width: 85%;
+    margin: auto;
+}
+
+.promotions-wrapper {
+    display: block;
+}
+
+.christmas:after,.christmas:before,.promotion-top:after,.promotion-top:before {
+    content: none;
+}
+.popupGlobalCall .selectRechargeamount {
+  padding: 0px 0 62px 0;
+}
+.getuptopopup .selectRechargeamountMain h1 {
+  display: block !important;
+}
+}
+@media (min-width: 768px){
+  
+  .popup-card .mr-md-5,  .popup-card .mx-md-5 {
+  margin-right: 8rem!important;
+}
+}
+

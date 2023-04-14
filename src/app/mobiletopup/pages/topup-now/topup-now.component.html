@@ -1,0 +1,255 @@
+<!-- New mobile topup section start here -->
+<div class="mobile-topup-wrapper">
+    <div class="top-banner">
+      <div class="">
+        <h1 class="heading_style1">Mobile Top-up
+           <br><span class="sendtopup">send top-up to over 300 operators</span>
+           
+        <span>we deliver most recharge in seconds!</span>
+        </h1>
+      </div>
+      </div>
+    
+  
+  
+  
+    <div class="container" *ngIf="!mobileTopupData">
+      <div class="form-wrapper">
+        <div class="row">
+        
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
+            <div class="card p-3 p-md-5 shadow mt-4 rounded-lg">
+              <form class="example-form mobileTopup" [formGroup]="mobileTopupForm" (ngSubmit)="onMobileTopupFormSubmit()">
+                <mat-form-field class="example-full-width">
+                  <mat-label class="font-weight-bold text-dark">Choose Country</mat-label>
+  
+                   <!--<span *ngIf="mycountryId > 0" matPrefix class="prefix-mobiletopup">
+                    <img src="assets/images/blank.gif" [ngClass]="'flag flag-' + mycountryId" />
+                  </span>--> 
+                  <input matInput type="text" [matAutocomplete]="auto" formControlName="countryTo" (keyup)="unsetFlag()"
+                    class="ml-2" />
+                  <mat-icon matSuffix>search</mat-icon>
+  
+                  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option *ngFor="let country of filteredCountry | async" [value]="country"
+                      (click)="onSelectCountrFrom(country)">
+                      <span class="mr-2">
+                        <img src="assets/images/blank.gif" [ngClass]="'flag flag-' + country.CountryId"
+                          [alt]="country.CountryName" />
+                      </span>
+                      {{ country.CountryName }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+  
+  
+                <mat-form-field class="example-full-width input-number">
+                  <mat-label class="font-weight-bold text-dark">Enter Mobile Number</mat-label>
+                  <span matPrefix class="prefix-mobiletopup"
+                    *ngIf="this.mobileTopupForm.get('countryTo').value?.CountryCode">+{{
+                    this.mobileTopupForm.get("countryTo").value?.CountryCode }}
+                  </span>
+  
+                  <input type="tel" matInput formControlName="phoneNumber" class="ml-2" />
+                  <span class="floatRight forgetPass" *ngIf="isTopUpEnable">
+                    <a tabindex="3" (click)="changeNumber()">Change Number?</a></span>
+                </mat-form-field>
+                <!--<p class="numberXX">+971 5299XXXXX</p>-->
+                <mat-error *ngIf="
+                  mobileTopupForm.get('phoneNumber').errors?.Invalid_Operator
+                ">
+                  Top-up to this number is not available at this time.
+                </mat-error>
+  
+  
+                <!--<a mat-button href="#" class="submit-btn">SUBMIT</a>-->
+  
+                <div class="button-wrapper">
+                  <button mat-button class="submit-btn btn-block mb-3 mb-md-0 w-50">{{ buttonText }}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          
+        
+  
+        </div>
+      </div>
+    </div>
+    
+  
+  
+    <!-- country section section end here -->
+  
+  
+    <div class="container" *ngIf="mobileTopupData">
+      <div class="form-wrapper">
+        <div class="row">
+          <div class="col-12 mobiletopup_mobile">
+            <p class="form-desc">
+              Order Details
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
+            <div class="card p-3 p-md-5 shadow mt-4 rounded-lg">
+              <div class="operator-details border-bottom pb-4">
+                <div class="justify-content-md-between row align-items-center">
+                  <div class="country col-auto col-md-4">Country:</div>
+                  <div class="country-img col-auto col-md-4">
+                    <div>
+                    <!--- <img src="../../../../assets/images/afgan_map.jpg" alt="" class="flag mr-2">-->
+                      <img src="assets/images/blank.gif" [ngClass]="'flag flag-' + mycountryId" [alt]="countryName" />
+                      {{countryName}}
+                    </div>
+                  </div>
+                  <div class="edit-button col col-md-4 text-right">
+                    <a href="javascript:void(0)" class="d-none d-md-flex" (click)="changeCountry()"
+                      type="button">Edit <mat-icon>arrow_right
+                      </mat-icon>
+                    </a>
+                    <a href="javascript:void(0)" class="d-block d-md-none" (click)="changeCountry()"
+                      type="button"><mat-icon>edit</mat-icon>
+                    </a>
+                  </div>
+                </div>
+                <div class="justify-content-md-between row align-items-center py-4 row">
+                  <div class="country col-auto col-md-4">Number:</div>
+                  <div class="country-img col-auto col-md-4">
+                    <div>+{{
+                      this.mobileTopupForm.get("countryTo").value?.CountryCode
+                      }}-{{this.mobileTopupForm.get('phoneNumber').value}}</div>
+                  </div>
+                      <div class="edit-button col col-md-4 text-right">
+                        <a href="javascript:void(0)" class="d-none d-md-flex" (click)="changeNumber()"
+                          type="button">Edit <mat-icon>arrow_right
+                          </mat-icon>
+                        </a>
+                        <a href="javascript:void(0)" class="d-block d-md-none" (click)="changeNumber()"
+                          type="button"><mat-icon>edit</mat-icon>
+                        </a>
+                      </div>
+                </div>
+                <div class="justify-content-md-between row align-items-center" *ngIf="mobileTopupData">
+                  <div class="country col-auto col-md-4">Operator:</div>
+                  <div class="country-img col-auto col-md-4">
+                    <div> <img class="operator mr-2" [src]="operatorImage" alt="" /> {{mobileTopupData.Operator}}</div>
+                  </div>
+                  <div class="edit-button col-12 col-md-4 text-right"><a style="display:none" href="#" type="button">Edit
+                      <mat-icon>arrow_right
+                      </mat-icon></a></div>
+                </div>
+              </div>
+  
+
+              <div class="row">
+                <mat-button-toggle-group  #topupType="matButtonToggleGroup" value="{{selectionType}}">
+                    <mat-button-toggle value="topup">Topup+Bonus</mat-button-toggle>
+                    <mat-button-toggle value="plans">Plans(Bundles)</mat-button-toggle>
+                </mat-button-toggle-group>
+             </div>
+          
+
+
+
+             <!------ Topup section --------->
+             <div class="topup_section" *ngIf="topupType.value=='topup'"> 
+                <h2>Topup section {{topupType.value}}</h2>
+                <splide [options]="{ type: 'loop', perPage: 3, keyboard: false }">
+                    <splide-slide  *ngFor="let item of mobileTopupData?.OperatorDenominations; let i = index">
+                        <div class="col-md-12 topup_box denomination__box">
+                            <div class="top_section">
+                                <h2>{{item.UsDenomination | bCurrency}}</h2>
+                                <p>{{mobileTopupData.Operator}} {{countryName}} HUGE</p>
+                                <p>200% Bonus</p>
+                                <a (click)="showDetailTopup()">Detail</a>
+                            </div>
+
+                            <div class="bottom_section">
+                                <p>They Get</p>
+                                <div class="amount"><h3> <span>{{item.DestinationCurrency}} </span> {{item.DestinationAmount}}</h3></div>
+                                <p>Before GCT</p>
+                            </div>
+                            <button (click)="onClickAmountOption(item)">Buy</button>
+                           
+                        </div>
+                    </splide-slide>
+                </splide>
+            </div>
+            <!------EOF Topup section --------->
+            <!------ Plans (Bundels) section --------->
+            <div class="topup_section" *ngIf="topupType.value=='plans'"> 
+                <h2>Plans(Bundels) section {{topupType.value}}</h2>
+                <splide [options]="{ type: 'loop', perPage: 3, keyboard: false }">
+                    <splide-slide  *ngFor="let item of mobileTopupData?.OperatorDenominations; let i = index">
+                        <div class="col-md-12 bundle_box denomination__box">
+                            <div class="top_section">
+                                <h2>{{item.UsDenomination | bCurrency}}</h2>
+                                <p>{{mobileTopupData.Operator}} {{countryName}} HUGE</p>
+                                <p>200% Bonus</p>
+                                <a (click)="showDetailTopup()">Detail</a>
+                            </div>
+
+                            <div class="bottom_section">
+                                <p>14 Day Stay Connected Plan<br />
+                                <span>Valid for 14 days</span></p>
+                                <ul>
+                                    <li>Data LTE 10GB</li>
+                                    <li>Unlimited local Digi to Minutes</li>
+                                    <li>Magic Number</li>
+                                    <li>Unlimited WhatsApp</li>
+                                    <li>10GB for each of the following Night Data,d'Music Data, Bip Data, PlayGo</li>
+                                </ul>
+                                 
+                            </div>
+                            <button (click)="onClickAmountOption(item)">Buy</button>
+                           
+                        </div>
+                    </splide-slide>
+                </splide>
+            </div>
+            <!------ EOF Plans (Bundels) section --------->
+
+          
+            <!--/*for mobile and small  devices */-->
+             
+             <!--------------->
+              <!-- oprator details section end here -->
+  
+              <!-- <div class="denomination row" *ngIf="mobileTopupData">
+                <div class="col-12">
+                  <div class="pt-5 pb-3 country">Choose Amount:</div>
+                </div>
+                <div class="col-md-6" *ngFor="let item of mobileTopupData?.OperatorDenominations; let i = index">
+                  <div class="denomination__box {{getChecked(item.UsDenomination)}}" (click)="onClickAmountOption(item)">
+                    <mat-checkbox class="example-margin">
+                      <div class="d-flex justify-content-between">
+                        <div class="amount">{{item.UsDenomination | bCurrency}}</div>
+                        <div class="d-flex align-items-center popular" *ngIf="i==1 && 2">
+                          <mat-icon>favorite</mat-icon> POPULAR
+                        </div>
+                        <div class="amount"><span>{{item.DestinationCurrency}} </span> {{item.DestinationAmount}}</div>
+                      </div>
+                    </mat-checkbox>
+                  </div>
+                </div>
+   
+                
+              </div>
+              <div class="button-wrapper mt-3" >
+                <button mat-button class="submit-btn btn-block mb-3 mb-md-0" (click)="onMobileTopupFormSubmit()">{{
+                  buttonText }}</button>
+              </div> -->
+  
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-12 text-center marginBottomimg">
+     
+      <img src="assets/images/new_design_images/partnerlogo.png" alt="icon" class="img-fluid">
+    </div>
+    
+  </div>

@@ -1,0 +1,467 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+$common-font-family: "Montserrat",
+sans-serif;
+
+.cdk-overlay-pane {
+  height: unset !important;
+}
+
+
+.popup-wrapper{
+  position: relative !important;
+  padding: 40px 20px 10px;
+  text-align: center;
+
+  .number-top {
+    display: flex;
+    align-items: flex-start;
+    vertical-align: bottom;
+}
+  .eyes {
+    position: absolute;
+    right: 0;
+    top: 0;
+    mat-icon {
+    color: #124390;
+}
+}
+
+
+
+  .new-raza {
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+    font-size: 30px;
+    letter-spacing: 0px;
+    color: #000000;
+    font-weight: bold;
+    font-family: $common-font-family;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    letter-spacing: 0px;
+    color: #717171;
+    font-family: $common-font-family;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: #000000;
+
+    a {
+      color: #0b3d8d;
+      text-decoration: none;
+    }
+
+  }
+
+  span {
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #717171;
+    font-family: $common-font-family;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  p,
+  span {
+    font-family: $common-font-family;
+  }
+
+  .mat-select {
+    width: 100% !important;
+  }
+
+  .mat-empty {
+    span {
+      display: block;
+    }
+  }
+
+  label {
+    span {
+      display: none;
+    }
+  }
+
+
+
+  .mat-form-field-infix {
+    min-width: 100% !important;
+    max-width: 100% !important;
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: #000;
+    font-family: $common-font-family;
+    position: relative;
+    font-weight: 600;
+
+    input {
+      letter-spacing: 3px;
+
+    }
+
+    .resend {
+      font-size: 16px;
+      letter-spacing: 0px;
+      color: #0b3d8d;
+      font-family: $common-font-family;
+      position: absolute;
+      right: 0;
+      text-decoration: none;
+      padding: 6px 0;
+          bottom: -35px;
+    font-weight: 500;
+    z-index: 1;
+    }
+
+    span {
+      font-size: 18px;
+      letter-spacing: 0px;
+      color: #333333;
+      font-family: $common-font-family;
+    }
+  }
+
+  .full-width {
+    width: 100%;
+  }
+  .forgot{
+ .mat-dialog-content {
+    overflow: hidden;
+}
+    .full-width {
+    width: 100%!important;
+  }
+  h1 {
+    margin-bottom: 10px;
+    font-size: 26px;
+    letter-spacing: 0px;
+    color: #000000;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+p{
+  font-size: 16px;
+}
+  }
+
+  .forgetPass{
+    position: absolute;
+    right: 0px;
+    font-size: 12px!important;
+    bottom: 10px;
+    color: #0b3d8d!important;
+    z-index: 2;
+}
+
+  .example-container {
+
+    .mat-form-field {
+
+      &:nth-child(1) {
+        width: 22%;
+        
+        margin-right: 20px;
+      }
+
+      &:nth-child(2) {
+        // width: 71%;
+        width: 100%;
+        margin-left: 20px;
+      }
+    }
+
+    mat-form-field {
+      &:nth-child(4) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+
+  .cancel {
+    position: absolute;
+    top: -27px;
+    right: 0;
+    padding: 0;
+    height: 20px;
+    width: 29px;
+
+    button {
+      font-size: 40px;
+      font-weight: 300;
+      min-width: 30px;
+      background: #fff;
+      border: none;
+    }
+  }
+
+  .submit-btn {
+    text-align: center;
+    margin: 50px 0;
+
+    a,button {
+      border: 1px solid #f4cb26;
+      transition: .3s ease-in-out;
+      border-radius: 20px;
+      padding: 2px 100px;
+      text-decoration: none;
+      background-color: #F4CB26;
+
+
+      span {
+        color: #0b203e;
+        font-weight: 600;
+
+      }
+
+      &:hover {
+        background: #ffe374;
+      }
+    }
+
+  }
+
+  .flag-wrapper {
+    // width: 25%;
+    width: 35%;
+    border-bottom: 1px solid #949494;
+    position: relative;
+    float: left;
+    // padding: 2.5px 0;
+    padding: 2px 0;
+
+    .select_top1 {
+      padding: 0;
+      margin-top: 14px;
+      /* position: absolute; */
+      font-size: 0;
+      line-height: 0;
+      cursor: pointer;
+      /* width: 45px; */
+      left: 21px;
+      top: 33px;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+
+      span {
+        // font-size: 20px !important;
+        font-size: 20px;
+
+        align-items: center;
+        margin-left: 10px;
+        color: #000;
+        font-weight: 600;
+        letter-spacing: 4px;
+      }
+
+      &:after {
+        font-family: 'Material Icons';
+        content: "expand_more";
+        font-size: 30px;
+        font-weight: 400;
+        color: #000;
+        position: absolute;
+        right: 0;
+      }
+
+    }
+
+    .flag_list1 {
+
+
+      li {
+                  /* padding: 9px 2px; */
+    /* margin: 0 0 5px 0; */
+    //display: block;
+    cursor: pointer;
+    position: relative;
+    height: 50px;
+    border-bottom: 1px solid #999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+      }
+    }
+
+    .flag_list1 {
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      left: 0;
+      z-index: 3;
+      top: 52px;
+      right: 0;
+      width: 100%;
+
+      ul {
+        padding: 0;
+        background: #efefef;
+
+        li {
+          span {
+            display: block;
+            margin-left: 7px;
+          }
+        }
+
+      }
+
+    }
+
+
+  }
+
+}
+
+// media queries start here
+
+
+@media only screen and (max-width:767px) {
+
+  .popup-wrapper h1 {
+    font-size: 19px;
+  }
+
+  .popup-wrapper .subtitle {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .popup-wrapper .example-container .mat-form-field:nth-child(1) {
+    width: 50%;
+  }
+
+  .popup-wrapper .example-container .mat-form-field:nth-child(2) {
+    width: auto;
+    float: right;
+    overflow: hidden;
+    margin-left: 16px;
+  }
+
+  .popup-wrapper .mat-form-field-infix span {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .popup-wrapper .mat-form-field-infix .resend {
+    right: 0;
+    bottom: -25px;
+    font-size: 12px;
+  }
+
+  .popup-wrapper .example-container mat-form-field:nth-child(4) {
+    margin-top: 0px;
+  }
+
+  .popup-wrapper .submit-btn {
+    margin: 30px 0;
+  }
+
+  .popup-wrapper .new-raza {
+    margin-bottom: 20px;
+  }
+
+  .popup-wrapper p {
+    font-size: 14px;
+  }
+
+  .popup-wrapper span {
+    font-size: 12px;
+  }
+  .popup-wrapper .forgot p {
+    font-size: 12px;
+} 
+.popup-wrapper .forgot h1 {
+    font-size: 15px;
+}
+
+}
+
+
+@media only screen and (max-width:320px){
+
+  .popup-wrapper .flag-wrapper {
+    width: 60%;
+}
+.popup-wrapper .submit-btn a {
+    padding: 2px 50px;
+}
+
+}
+
+@media only screen and (max-width:767px){
+
+  .popup-wrapper .flag-wrapper {
+    width: 40%;
+}
+.popup-wrapper .mat-form-field-infix input {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.flag-wrapper span {
+    font-size: 16px!important;
+    font-weight: 500!important;
+}
+
+.popup-wrapper .flag-wrapper {
+    // width: 35%;
+    width: auto;
+}
+.popup-wrapper .example-container .mat-form-field:nth-child(2) {
+    // width: 60%;
+    // float: right;
+    width: 100%;
+    float: right;
+    overflow: hidden;
+    margin-left: 26px;
+}
+.popup-wrapper .flag-wrapper .select_top1:after {
+    font-size: 23px;
+    right: -16px;
+    color: #717171;
+}
+.cdk-overlay-pane {
+  height: unset !important;
+  max-width: 100%!important;
+}
+
+
+}
+
+
+
+.no-data {
+    .material-icons {
+        font-size: 76px;
+    }
+    .subtitle {
+        color: black;
+        font-weight: 500;
+        font-size: 24px;
+    }
+}
+

@@ -1,0 +1,20 @@
+.linethroughArea {
+	position: relative;
+	height: 40px;
+	margin: 68px 0 23px;
+	span {
+		background: #fff;
+		color: #3A4B63;
+		font-size: 24px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		position: absolute;
+		padding: 10px 40px;
+		left: 41%;
+		top: -26px;
+	}
+}
+.line {
+	height: 1px;
+	background: #0B203E;
+}

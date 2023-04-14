@@ -1,0 +1,268 @@
+<div class="py-5"></div>
+<section class="container pt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="pt-5 border-bottom pb-3">Raza Site Map</h2>
+        </div>
+    </div>
+</section>
+<!-- for us and canada  -->
+<section class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>My account {{username}}</h3>
+                <ul class="list list-nobullet" *ngIf="isAuthenticated">
+                    <li><a routerLink="/account/overview" routerLinkActive="active-link">Recharge</a></li>
+                    <li><a routerLink="/account/payment-details/{{plan?.PlanId}}" routerLinkActive="active-link">Payment Details</a></li>
+                    <li *ngIf="plan"><a routerLink="/account/autorefill/{{plan?.PlanId}}" routerLinkActive="active-link">Auto -
+                        Refill</a></li>
+                        <li><a routerLink="/account/order-history" routerLinkActive="active-link">Order-History</a></li>
+                    
+                    <li><a routerLink="/account/plandetails/{{plan?.PlanId}}" routerLinkActive="active-link">Your access number</a>
+                    </li>
+                    <li *ngIf="plan.IsAllowPinLess">
+                        <a routerLink="/account/mynumber/{{plan?.PlanId}}" routerLinkActive="active-link">My
+                          Numbers</a></li>
+                    <li><a routerLink="/account/call-details/{{plan?.PlanId}}" routerLinkActive="active-link">Call Details</a></li>
+                    <li><a routerLink="/account/onetouchSetups/{{plan?.PlanId}}" routerLinkActive="active-link">One Touch
+                        Dial</a></li>
+                        <li *ngIf="plan.IsAllowCallForwarding">
+                            <a routerLink="/account/callForwardingSetups/{{plan?.PlanId}}" routerLinkActive="active-link">
+                              Call Forwarding</a>
+                          </li>
+                    <li><a href="/account/my-profile">My profile</a></li>
+                    <li><a href="/account/order-history">Purchase history</a></li>
+                    <li><a href="/account/rewards">Raza Rewards</a></li>
+                    <li><a href="/account/other-plans">Other plans</a></li>
+                    <li><a href="/mobiletopup">International Top-up</a></li>
+
+                </ul>
+
+                <ul class="list list-nobullet" *ngIf="!isAuthenticated">
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','overview', '')">Recharge</a></li>
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','payment-details', 'planId')">Payment Details</a></li>
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','order-history','')">Order-History</a></li>
+                    
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','plandetails', 'planId')">Your access number</a>
+                    </li>
+                    <li >
+                        <a href="javascript:void(0)" (click)="clickRecharge('account','mynumber', 'planId')">My Numbers</a></li>
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','call-details', 'planId')" >Call Details</a></li>
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','onetouchSetups', 'planId')">One Touch Dial</a></li>
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','callForwardingSetups', 'planId')"> Call Forwarding</a> </li>
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','my-profile','')">My profile</a></li>
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','order-history','')">Purchase history</a></li>
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','rewards','')">Raza Rewards</a></li>
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','other-plans','')">Other plans</a></li>
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('','mobiletopup','')">International Top-up</a></li>
+
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <h3>Company</h3>
+                <ul class="list list-nobullet">
+                    <li><a href="/aboutus">About Raza</a></li>
+                    <li><a href="/howitworks">How it works</a></li>
+                    <li><a href="/contactus">Contact us</a></li>
+                    <li><a href="/becomeapartner">Become a partner</a></li>
+                </ul>
+
+                <h3>Features</h3>
+                <ul class="list list-nobullet">
+                    <li><a href="/features">One Touch Setup</a></li>
+                    <li><a href="/features">My Numbers</a></li>
+                    <li><a href="/features">Call Details</a></li>
+                    <li><a href="/features">100% Money back guarantee</a></li>
+                    <li><a href="/features">Auto-refill</a></li>
+                    <li><a href="/features">Call forwarding</a></li>
+                    <li><a href="/features">Raza Rewards</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Quick Links</h3>
+                <ul class="list list-nobullet">
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('', '', '')">Signup</a></li>
+                    <li><a href="javascript:void(0)" (click)="clickRecharge('account','my-profile', '')">Login</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/searchrates">Search Rates</a></li>
+                    <li><a href="/faq">FAQs</a></li>
+                    <li><a href="/refer-a-friend">Refer a friend</a></li>
+                    <li><a href="/feedback">Give us your feedback</a></li>
+                    <li><a href="/support">Privacy and cookies statement</a></li>
+                    <li><a href="/termsandcondition">Terms and Conditions </a></li>
+                    <li><a href="/mobileterms">Mobile Top-up T & C</a></li>
+                </ul>
+                <h3>Services</h3>
+                <ul class="list list-nobullet">
+                    <li><a href="">Raza International calling</a></li>
+                    <li><a href="/mobiletopup">Mobile Top-up</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.razacomm.universe">Raza Android
+                            Mobile app</a></li>
+                    <li><a href="https://apps.apple.com/ca/app/raza-universe/id1226298666">Raza IOS Mobile app</a></li>
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <h3>Raza Plans and Promotions</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul class="list list-nobullet">
+                            <li><a href="/deals/buy1-get1">Buy1Get1 free</a></li>
+                            <li><a href="/freetrial">Free trial</a></li>
+                            <li><a href="/searchrates">Search Rates </a></li>
+                            <li><a href="/callasia">Call Asia</a></li>
+                            <li><a href="/callafrica">Call Africa</a></li>
+                            <li><a href="https://apps.apple.com/ca/app/raza-universe/id1226298666">Free$2 Download IOS
+                                    mobile app</a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=com.razacomm.universe">Free $2
+                                    Download Android mobile app</a></li>
+                                     
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-3" *ngFor="let item of searchRates" style="cursor: pointer;" > 
+             
+                                        <a href="javascript:void(0)" (click)="viewRates(item.CountryId)">{{item.CountryName}}</a>
+                              </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- for uk  -->
+
+
+<section class="py-3 d-none">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>My account</h3>
+                <ul class="list list-nobullet">
+
+                    <li><a href="/recharge/OS2341233201">Recharge</a></li>
+                    <li><a href="/account/payment-details/OS2341233201">Payment Details</a></li>
+                    <li><a href="/account/autorefill/OS2341233201">Auto-refill</a></li>
+                    <li><a href="/account/order-history">Order History</a></li>
+                    <li><a href="/account/plandetails/OS2341233201">Your access number</a></li>
+                    <li><a href="/account/mynumber/OS2341233201">My Numbers</a></li>
+                    <li><a href="/account/call-details/OS2341233201">Call details</a></li>
+                    <li><a href="/account/onetouchSetups/OS2341233201">One Touch dial</a></li>
+                    <li><a href="/account/callForwardingSetups/OS2341233201">Call forwarding</a></li>
+                    <li><a href="/account/my-profile">My profile</a></li>
+                    <li><a href="/account/order-history">Purchase history</a></li>
+                    <li><a href="/account/rewards">Raza Rewards</a></li>
+                    <li><a href="/account/other-plans">Other plans</a></li>
+                    <li><a href="/mobiletopup">International Top-up</a></li>
+
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Raza Plans and Promotions</h3>
+                <ul class="list list-nobullet">
+                    <li><a href="/deals/get-upto-1500">Get up to 1500 free minutes</a></li>
+                    <li><a href="/deals/india-one-cent">India 1cent plan</a></li>
+                    <li><a href="/deals/buy1-get1">Buy1Get1 free</a></li>
+                    <li><a href="">Free trial</a></li>
+                    <li><a href="/searchrates">Search Rates </a></li>
+                    <li><a href="/callasia">Call Asia</a></li>
+                    <li><a href="/callafrica">Call Africa</a></li>
+                    <li><a href="https://apps.apple.com/ca/app/raza-universe/id1226298666">Free$2 Download IOS mobile
+                            app</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.razacomm.universe">Free $2 Download
+                            Android mobile app</a></li>
+                    <li><a href="">Call Afghanistan</a></li>
+                    <li><a href="">Call Bangladesh</a></li>
+                    <li><a href="">Call Cuba</a></li>
+                    <li><a href="">Call Ghana</a></li>
+                    <li><a href="">Call Guyana</a></li>
+                    <li><a href="">Call India</a></li>
+                    <li><a href="">Call Jamaica</a></li>
+                    <li><a href="">Call Nigeria</a></li>
+                    <li><a href="">Call Nepal</a></li>
+                    <li><a href="">Call Pakistan</a></li>
+                    <li><a href="">Call Sri Lanka</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Company</h3>
+                <ul class="list list-nobullet">
+                    <li><a href="/aboutus">About Raza</a></li>
+                    <li><a href="/howitworks">How it works</a></li>
+                    <li><a href="/contactus">Contact us</a></li>
+                    <li><a href="/becomeapartner">Become a partner</a></li>
+                </ul>
+                <h3>Services</h3>
+                <ul class="list list-nobullet">
+                    <li><a href="">Raza International calling</a></li>
+                    <li><a href="/mobiletopup">Mobile Top-up</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.razacomm.universe">Raza Android
+                            Mobile app</a></li>
+                    <li><a href="https://apps.apple.com/ca/app/raza-universe/id1226298666">Raza IOS Mobile app</a></li>
+                </ul>
+                <h3>Features</h3>
+                <ul class="list list-nobullet">
+                    <li><a href="/features">One Touch Setup</a></li>
+                    <li><a href="/features">My Numbers</a></li>
+                    <li><a href="/features">Call Details</a></li>
+                    <li><a href="/features">100% Money back guarantee</a></li>
+                    <li><a href="/features">Auto-refill</a></li>
+                    <li><a href="/features">Call forwarding</a></li>
+                    <li><a href="/features">Raza Rewards</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Quick Links</h3>
+                <ul class="list list-nobullet">
+                    <li><a href="">Signup</a></li>
+                    <li><a href="">Login</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/searchrates">Search Rates</a></li>
+                    <li><a href="/faq">FAQs</a></li>
+                    <li><a href="/refer-a-friend">Refer a friend</a></li>
+                    <li><a href="/feedback">Give us your feedback</a></li>
+                    <li><a href="/support">Privacy and cookies statement</a></li>
+                    <li><a href="/termsandcondition">Terms and Conditions </a></li>
+                    <li><a href="/mobileterms">Mobile Top-up T & C</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="py-5"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

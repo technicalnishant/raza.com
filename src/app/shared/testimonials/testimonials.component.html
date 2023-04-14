@@ -1,0 +1,53 @@
+<div class="testimonials ">
+  <div class="container hideinMobile">
+    <div class="rows">
+      <!-- <div class="grid-wrapper" style="background-image:url({{main_bg}})"> -->
+      <div class="grid-wrapper">
+        <div class="backimage">
+          <div *ngFor="let item of data;  let i = index" [ngClass]="main_bg == i? 'active' : ''" class="main_bg main_bg_{{i}}" style="background: url({{item.bg_img}}); background-size: cover"></div>
+        </div>
+        <mat-grid-list cols="3" rowHeight="4:3">
+          <mat-grid-tile *ngFor="let item of data;  let i = index" (mouseover)="(main_bg = i)">
+            <div class="box">
+              <div class="front1">
+                <div class="front-back">
+                  <p>{{item.name}}</p>
+                </div>
+              </div>
+              <div class="back1" style="background-color: {{item.bg_color}}E6;">
+                <p class="item_title">{{item.content}}</p>
+                <div mat-card-avatar class="avatar-wrapper">
+                  <img src="{{item.avatar}}" class="example-header-image">
+                </div>
+                <div class="front-back">
+                  <p class="name__user">{{item.name}} <br>
+                    <span>{{item.date}}</span></p>
+                </div>
+              </div>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- slide -->
+<div class="slider-wrapper">
+  <mat-carousel class="show_mobile" timings="250ms ease-in" [hideArrows]="false" interval="50000" color="none" [useMouseWheel]="false" [hideIndicators]="false">
+    <mat-carousel-slide *ngFor="let items of data">
+      <div class="slider-inner" style="background-image: url({{items.bg_img}})">
+        <div class="slider-content-wrapper" style="background-color: {{items.bg_color}};">
+          <div class="slider-content">
+            <div class="images-part">
+              <img src="{{items.avatar}}">
+            </div>
+            <div class="content-part">
+              <p>{{items.content}}</p>
+              <span>{{items.name}} {{items.date}}</span> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-carousel-slide>   
+  </mat-carousel>
+</div>

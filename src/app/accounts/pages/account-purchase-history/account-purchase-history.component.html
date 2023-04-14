@@ -1,0 +1,84 @@
+<ng-template #planDetail>
+  <div class="tabContentMyaccount planDetails" id="mynumber">
+    <p class="tabTitle">Order History</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">My Plan</th>
+          <th scope="col">Recharge Date</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Add-Funds</th>
+          <th scope="col">Pin/Phone No.<span
+              matTooltip="Calling from PayPhone or any Private Phone? Call us to get your Pin Number."><img loading="lazy"
+                src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of orderHistoryList; index as i" >
+          <ng-container *ngIf="item.TransType != 'Domestic TopUp'">
+            <td>{{item.CardName}}</td>
+            <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td> 
+            <td>{{item.Price | bCurrency : item.CurrencyCode}}</td>
+            <!--<td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td> -->
+            <td *ngIf="item.IsAllowRecharge && item.TransType == 'Mobile TopUp'"><a (click)="rechargeRedirect(item)">Topup Now</a></td>
+            <!-- <td *ngIf="item.IsAllowRecharge && item.TransType != 'Mobile TopUp'"><a (click)="recharge(item.PlanId)">Recharge</a></td>   -->
+            <td *ngIf="item.IsAllowRecharge && item.TransType != 'Mobile TopUp'"><a (click)="recharge(item)">Recharge</a></td>  
+            
+            <td *ngIf="!item.IsAllowRecharge"><a>Monthly Recharge</a>&nbsp;<span
+                matTooltip="Monthly plans will recharge every 30 days from the date of purchase. Please Call us if you like to recharge now"><img loading="lazy"
+                  src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></td>
+            <td *ngIf="item.TransType == 'Mobile TopUp'">{{item.Pin}}</td>
+            <td *ngIf="item.TransType != 'Mobile TopUp'">{{item.Pin | pinNumber}}</td>
+        </ng-container>
+        </tr>
+
+      </tbody>
+    </table>
+    <a class="showFullHistory" (click)="onClickShowMore()">Show More</a>
+
+  </div>
+</ng-template>
+
+<ng-template #planDetailMobile>
+  <div class="tabContentMyaccount planDetails" id="mynumber">
+    <p class="tabTitle">Order History</p>
+    <div *ngFor="let item of orderHistoryList; index as i">
+      <table class="table greyBg orderHistory" [ngClass]="{'greyBg': i%2===0}">
+        <tbody>
+          <tr>
+            <td>My Plan</td>
+            <td>{{item.CardName}}</td>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>{{item.Price | bCurrency : item.CurrencyCode}}</td>
+          </tr>
+          <tr>
+            <td>Add Funds</td>
+             <td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td>
+ 
+            <td *ngIf="!item.IsAllowRecharge"><a>Monthly Recharge</a>&nbsp;<span
+                matTooltip="Monthly plans will recharge every 30 days from the date of purchase. Please Call us if you like to recharge now"><img loading="lazy"
+                  src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></td>
+          </tr>
+          <tr>
+            <td>Pin Number</td>
+            <td>{{item.Pin | pinNumber}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-template>
+
+
+<div class="onlyDesktopAccount">
+  <ng-container *ngTemplateOutlet="planDetail"></ng-container>
+</div>
+<div class="onlySmallScreenAccount">
+  <ng-container *ngTemplateOutlet="planDetailMobile"></ng-container>
+</div>

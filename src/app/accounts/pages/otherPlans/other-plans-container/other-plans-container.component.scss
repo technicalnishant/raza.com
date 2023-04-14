@@ -1,0 +1,1015 @@
+.active-link {
+	text-decoration: underline;
+	font-weight: 500 !important;
+}
+.example-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.cdk-overlay-pane {
+	top: opx!important;
+}
+.example-radio-group {
+	display: block;
+	border: 1px solid #555;
+	margin: 20px;
+	padding: 10px;
+}
+.mat-toolbar {
+	background: none;
+}
+.nobg {
+	background: none;
+	cursor: pointer;
+	border: none;
+}
+.colorWhite {
+	color: #0B203E;
+}
+.mat-radio-button {
+	padding-right: 6px;
+}
+.header_style {
+	background: #fff;
+}
+.recharge_block {
+	padding: 60px 0;
+	margin: 0;
+	width: 100%;
+	background-color: #f6f8fa;
+	margin-bottom: 10px;
+	label {
+		display: block;
+		color: #103F8A;
+		font-size: 16px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 500;
+	}
+	.mat-form-field {
+		display: block !important;
+	}
+}
+.heading_style4 {
+	padding: 0;
+	margin: 0 0 25px 0;
+	color: #0b203e;
+	font-size: 24px;
+	text-align: center;
+	position: relative;
+	&:after {
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		height: 1px;
+		background-color: #0b203e;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		-webkit-transform: translate(-50%,-50%);
+		content: "";
+	}
+	span {
+		padding: 0 15px;
+		margin: 0 auto;
+		display: inline-block;
+		background-color: #f6f8fa;
+		position: relative;
+		z-index: 2;
+	}
+}
+h2 {
+	&.heading_style4 {
+		span {
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 600;
+			font-size: 24px;
+			color: #0B203E;
+			font-size: 24px;
+			text-align: center;
+		}
+	}
+	&.welcomeText {
+		font-family: 'Montserrat', sans-serif;
+		color: #103F8A;
+		font-size: 34px;
+		font-weight: 500;
+		text-align: center;
+		margin-bottom: 25px;
+	}
+}
+.form_holder {
+	padding: 30px;
+	margin: 0 auto;
+	background-color: #fff;
+	box-shadow: 2px 10px #456D99;
+	box-shadow: 1px 3px 21px #ddd;
+	-moz-box-shadow: 1px 3px 21px #ddd;
+	-webkit-box-shadow: 1px 3px 21px #ddd;
+	padding: 0px 0px 15px 0 !important;
+	& > *:last-child {
+		margin-bottom: 0;
+	}
+	& > div {
+		&:nth-last-of-type(2) {
+			margin-bottom: 15px;
+			padding-bottom: 15px;
+			border-bottom: 1px solid #e4e9ee;
+		}
+	}
+	input {
+		&.mat-input-element {
+			height: 25px;
+		}
+	}
+}
+.form_row1 {
+	padding: 0;
+	margin: 0 0 15px 0;
+}
+.input_holder1 {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+.input_style1 {
+	padding: 0 15px;
+	margin: 0;
+	width: 100%;
+	height: 40px;
+	border: 1px solid #9ba7b6;
+	outline: none!important;
+	color: #9ba7b6;
+	font-size: 14px;
+}
+.form_label1 {
+	padding: 0;
+	margin: 0 0 5px 0;
+	color: #103F8A;
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	a {
+		padding: 0;
+		margin: 0;
+		color: #0b203e;
+		font-size: 12px;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+.form_row2 {
+	padding: 0;
+	margin: 0;
+	width: 75%;
+}
+.form_row3 {
+	padding: 0;
+	margin: 0;
+	width: 20%;
+}
+.submit_btn1 {
+	padding: 0;
+	margin: 0 10%;
+	width: 80%;
+	height: 40px;
+	border: none;
+	outline: none;
+	border-radius: 20px;
+	cursor: pointer;
+	text-align: center;
+	text-transform: uppercase;
+	background-color: #f4d03c;
+	color: #233651;
+	font-size: 14px;
+	&:hover {
+		background-color: #233651;
+		color: #f4d03c;
+	}
+}
+.cardRowLeft {
+	float: left;
+	width: 60%;
+	margin-right: 5%;
+}
+.cardRowRight {
+	float: left;
+	width: 35%;
+}
+.floatRight {
+	float: right;
+}
+.forgetPass {
+	font-size: 11px;
+	color: #103F8A;
+}
+.cardRow {
+	padding: 0 15px;
+	display: block;
+	clear: both;
+	overflow: hidden;
+}
+.radio_checkbox_wraper1 {
+	padding: 0;
+	margin: 0 0 15px 0;
+	width: 100%;
+	& > *:last-child {
+		margin-right: 0;
+	}
+}
+.radiobutton_holder1 {
+	padding: 0;
+	margin: 0 5px 0 0;
+	position: relative;
+	display: inline-block;
+	input[type="radio"] {
+		margin: 0;
+		opacity: 0;
+		padding: 0;
+		position: absolute;
+		& + label {
+			padding: 0 0 0 30px;
+			margin: 0;
+			color: #8c8c8c;
+			font-size: 14px;
+			cursor: pointer;
+			&:before {
+				padding: 0;
+				margin: 0;
+				width: 20px;
+				height: 20px;
+				background-color: #fff;
+				border: 1px solid #a1acb9;
+				border-radius: 100%;
+				position: absolute;
+				left: 0;
+				top: 3px;
+				font-size: 0;
+				text-align: center;
+				content: "";
+			}
+			&:after {
+				padding: 0;
+				margin: 0;
+				position: absolute;
+				left: 4px;
+				top: 12px;
+				font-size: 30px;
+				line-height: 0;
+				text-align: center;
+				content: "\2022";
+				opacity: 0;
+				transform: scale(0);
+				-webkit-transform: scale(0);
+				transition: all 0.5s ease 0s;
+				-webkit-transition: all 0.5s ease 0s;
+				color: #a1acb9;
+			}
+		}
+	}
+	input[type="radio"]:checked {
+		& + label {
+			&:after {
+				opacity: 1;
+				transform: scale(1);
+				-webkit-transform: scale(1);
+				transition: all 0.5s ease 0s;
+				-webkit-transition: all 0.5s ease 0s;
+			}
+		}
+	}
+}
+.heading_style5 {
+	padding: 0;
+	margin: 45px 0 20px 0;
+	color: #808080;
+	font-size: 16px;
+	text-align: center;
+	position: relative;
+	line-height: 24px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+}
+.login_link {
+	padding: 0;
+	margin: 0 25% 30px 25%;
+	width: 50%;
+	height: 40px;
+	border: none;
+	outline: none;
+	border-radius: 20px;
+	cursor: pointer;
+	text-transform: uppercase;
+	background-color: #f4d03c;
+	color: #233651;
+	font-size: 14px;
+	display: block;
+	&:hover {
+		background-color: #233651;
+		color: #f4d03c;
+		text-decoration: none;
+	}
+}
+.heading_style6 {
+	padding: 0;
+	margin: 0 0 30px 0;
+	color: #0b203e;
+	font-size: 24px;
+	text-align: center;
+	position: relative;
+	&:after {
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		height: 1px;
+		background-color: #979797;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		-webkit-transform: translate(-50%,-50%);
+		content: "";
+	}
+	span {
+		padding: 0 15px;
+		margin: 0 auto;
+		display: inline-block;
+		background-color: #f6f8fa;
+		position: relative;
+		z-index: 2;
+	}
+}
+.heading_style7 {
+	padding: 0;
+	margin: 0 0 30px 0;
+	color: #0B203E;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	font-size: 22px;
+	text-align: center;
+	position: relative;
+	line-height: 27px;
+}
+.login_text {
+	padding: 0;
+	margin: 30px auto 0;
+	width: 100%;
+	display: block;
+	color: #808080;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	width: 80%;
+	a {
+		color: #0061E8;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+h3 {
+	&.heading_style6 {
+		width: 150px;
+		display: block;
+		margin: 50px auto;
+		span {
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			font-size: 22px;
+			color: #0B203E;
+		}
+	}
+}
+.mat-radio-label-content {
+	color: #808080;
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+}
+.savedCard {
+	padding: 5px 20px;
+	border-bottom: 1px solid #eee;
+}
+.cardImg,.cardDetails {
+	float: left;
+}
+.cardImg {
+	padding: 30px 4px 0 15px;
+	padding: 20px 4px 0 22px;
+}
+.cardDetails {
+	padding: 23px 4px 0 15px;
+	width: 78%;
+	padding: 14px 4px 0 15px;
+	p {
+		&.cardNumber {
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			color: #0B203E;
+			font-size: 16px;
+			margin-bottom: 10px;
+			color: #0B203E;
+			font-size: 15px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			margin-bottom: 9px;
+			span {
+				color: #309C69;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 400;
+				padding: 0 0 0 30px;
+			}
+		}
+		&.cardExpires {
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			color: #0B203E;
+			font-size: 14px;
+			color: #0B203E;
+			font-size: 14px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+		}
+		span {
+			a {
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 400;
+				font-size: 12px;
+				color: #103F8A;
+				float: right;
+			}
+		}
+	}
+}
+.table {
+	td {
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		color: #808080;
+		font-size: 18px;
+		padding-left: 0px;
+		padding-right: 0px;
+		&:first-child {
+			text-align: left;
+		}
+		&:last-child {
+			text-align: right;
+		}
+	}
+	tr {
+		&.total {
+			td {
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 600;
+				color: #0B203E;
+				padding: 28px 0;
+			}
+		}
+	}
+}
+a {
+	&.redeemPromo {
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+		text-transform: uppercase;
+		color: #0160E0;
+		text-decoration: underline;
+	}
+	&.showFullHistory {
+		color: #103F8A;
+		font-size: 14px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		text-align: center;
+		margin: 40px 0 0 0;
+		display: block;
+	}
+}
+.cvvCard {
+	padding-left: 20px;
+}
+.cardOpacity {
+	opacity: 0.5;
+}
+.lock {
+	position: absolute;
+	right: -20px;
+	top: 17px;
+}
+.i_icon {
+	position: absolute;
+	padding-left: 5px;
+}
+.myaccountTabArea {
+	clear: both;
+	overflow: hidden;
+	padding: 136px 0;
+	margin: 0;
+	width: 100%;
+	background-color: #f6f8fa;
+	.submitButton {
+		width: auto !important;
+		padding: 9px 28px;
+		font-size: 15px;
+		margin-top: 5px;
+	}
+	table {
+		margin-top: 40px;
+		th {
+			color: #103F8A;
+			font-size: 14px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 500;
+		}
+		td {
+			font-size: 13px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			color: #808080;
+			&:last-child {
+				text-align: left;
+			}
+			a {
+				color: #103F8A;
+				font-size: 13px;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 400;
+				text-decoration: underline;
+			}
+		}
+		tr {
+			&.total {
+				td {
+					color: #103F8A;
+					font-size: 13px;
+					font-family: 'Montserrat', sans-serif;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+}
+.tabContentMyaccount {
+	padding: 60px 0;
+	background: #fff;
+	clear: both;
+	overflow: hidden;
+}
+p {
+	&.tabTitle {
+		text-align: center;
+		color: #0B203E;
+		font-size: 24px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+	}
+	&.currentBalance {
+		color: #0B203E;
+		font-size: 24px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		margin-bottom: 3px;
+	}
+	&.commonTabText {
+		color: #103F8A;
+		font-size: 20px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+		margin-bottom: 3px;
+	}
+}
+.rechargeLeft,.rechargeRight {
+	width: 50%;
+	text-align: center;
+	float: left;
+	padding: 15px 0;
+	margin: 12px 0;
+}
+.rechargeRight {
+	border-left: 1px solid #E4E4E4;
+}
+.planDetails {
+	padding: 60px 36px;
+}
+.myaccountTabArea table th,.myaccountTabArea table td {
+	padding: 10px !important;
+}
+.myaccountTabArea table, .myaccountTabArea table th,.myaccountTabArea table td,.myaccountTabArea table tr {
+	border: none;
+}
+.table-striped {
+	tbody {
+		tr {
+			&:nth-of-type(odd) {
+				background: #fafafa;
+			}
+		}
+	}
+}
+.razaNumberLeft,.razaNumberRight {
+	float: left;
+}
+.razaNumberLeft {
+	width: 40%;
+}
+.razaNumberRight {
+	width: 60%;
+	text-align: center;
+	margin-top: 40px;
+}
+.razawebNumberRightApplinkArea {
+	border: 1px solid #F0F0F0;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	padding: 22px;
+	margin: 25px 32px;
+}
+.paymentDetailsSavedcard {
+	border: 1px solid #F0F0F0;
+	clear: both;
+	overflow: hidden;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	position: relative;
+	margin-bottom: 30px;
+	button {
+		right: 30px;
+		background: none;
+		border: none;
+		position: absolute;
+		top: 26%;
+		padding: 0px;
+		display: block;
+		height: auto;
+	}
+	.mat-icon {
+		color: #103F8A;
+		font-size: 37px;
+	}
+}
+.paymentDetails {
+	padding: 60px 36px;
+	p {
+		&.tabTitle {
+			margin-bottom: 62px;
+		}
+	}
+}
+.myNumberButtonArea {
+	margin: 0 auto;
+	display: table;
+	clear: both;
+	overflow: hidden;
+	button {
+		float: left;
+	}
+	.submitButton {
+		margin-right: 7px;
+	}
+}
+.autoRefill {
+	padding: 60px 36px;
+	table {
+		td {
+			color: #103F8A;
+			font-size: 14px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			position: relative;
+			padding: 10px 23px !important;
+			button {
+				background: none;
+				border: none;
+				display: block;
+				height: auto;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+			&.enable {
+				color: #1A9259;
+			}
+		}
+	}
+	td {
+		&.moreIcon {
+			.mat-icon {
+				color: #103F8A;
+				font-size: 37px;
+			}
+		}
+		&.enable {
+			.mat-icon {
+				color: #1A9259;
+				font-size: 14px;
+				width: auto;
+			}
+		}
+	}
+	p {
+		&.tabTitle {
+			line-height: 20px;
+			span {
+				color: #808080;
+				font-size: 14px;
+			}
+		}
+	}
+}
+.accountDetails {
+	text-align: center;
+	p {
+		margin-bottom: 0px;
+		color: #808080;
+		font-size: 15px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		line-height: 24px;
+	}
+	a {
+		margin-bottom: 0px;
+		color: #103F8A;
+		font-size: 14px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		text-decoration: none;
+	}
+}
+table {
+	&.showAlltable {
+		width: 100%;
+		tr {
+			td {
+				width: 33.33%;
+			}
+		}
+	}
+}
+.showAlltable {
+	a {
+		color: #103F8A;
+		font-size: 14px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		text-decoration: none !important;
+	}
+}
+.onlyDesktopAccount {
+	display: block;
+	clear: both;
+	overflow: hidden;
+	max-width: 1200px;
+	margin: 0 auto;
+	.leftTabArea {
+		float: left;
+		width: 17%;
+		h5 {
+			color: #0B203E;
+			font-size: 22px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+		}
+		ul {
+			list-style-type: none;
+			padding: 0px;
+			li {
+				line-height: 50px;
+				border-bottom: 1px solid #D8D8D8;
+				&.noBorder {
+					border: none;
+				}
+				a {
+					display: block;
+					color: #0B3D8D;
+					font-size: 18px;
+					font-family: 'Montserrat', sans-serif;
+					font-weight: 300;
+				}
+				&.active {
+					color: #0B3D8D;
+					a {
+						text-decoration: underline;
+						font-weight: 500;
+					}
+				}
+				ul {
+					padding: 0 0 0 31px;
+					li {
+						border-bottom: none;
+						line-height: 40px;
+						&.active {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+		.mat-expansion-panel {
+			background: none !important;
+			&:hover {
+				background: none !important;
+			}
+		}
+		.mat-expansion-panel-header-title {
+			color: #0B3D8D;
+			font-size: 18px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 300;
+		}
+	}
+	.rightTabArea {
+		float: left;
+		width: 920px;
+		margin-left: 36px;
+	}
+}
+.onlySmallScreenAccount {
+	display: none;
+}
+.mat-expansion-panel-header {
+	&:hover {
+		background: none !important;
+	}
+}
+.mat-expansion-indicator::after, .mat-expansion-panel-header-description {
+	color: #000;
+}
+td {
+	&.moreIcon {
+		position: relative;
+		button {
+			background: none;
+			border: none;
+			display: block;
+			height: auto;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+		}
+		.mat-icon {
+			color: #103F8A;
+			font-size: 37px;
+		}
+	}
+}
+#onetouch {
+	tr {
+		&:hover {
+			.moreArea {
+				display: inline-block;
+			}
+		}
+	}
+}
+.moreArea {
+	display: block;
+}
+.icon-close {
+	position: absolute;
+	top: 206px;
+	right: 6%;
+	cursor: pointer;
+}
+
+  @media only screen and (max-width: 868px)  {
+  .myaccountTabArea {
+    padding: 0 0 0 0; 
+    margin-bottom: 0px;
+  }
+  h2.welcomeText{font-size: 30px; font-weight: 700; margin-bottom: 10px;}
+  .onlyDesktopAccount{ display: none;}
+  .onlySmallScreenAccount {display: block}
+  .myAccountMobileSelect{ display: block; text-align: center;}
+  .mat-select{ margin-bottom: 0px !important;}
+  .myAccountMobTabContArea{ background: #fff; }
+  .myAccountMobTabContArea .rechargeLeft{width: 100%;text-align: center;padding: 15px 0;display: block;margin: 24px auto;}
+  .myAccountMobTabContArea .rechargeRight{width: 50%;text-align: center;display: block; margin: 24px auto; padding-top: 40px; border-top: 1px solid #E4E4E4; border-left: none; float: none;  clear: both;}
+  .planDetails{ padding: 50px 0px;}
+  .razaNumberRight{margin-top: 0px;}
+  .razaNumberRight .heading_style7{ margin: 0 0 22px 0;font-size: 16px;line-height: 20px;}
+  .razaNumberLeft,.razaNumberRight{ width: 100%;}
+  p.disclaimer{ display: none;}
+  .planDetails p.tabTitle{ margin-bottom:50px; }
+  .razaNumberLeft table tr th,.razaNumberLeft table tr td{ width: 50%;padding: 10px 25px !important;}
+  .tabContentMyaccount table tr th,.tabContentMyaccount table tr td{ /*width: 50%;*/padding: 10px 25px !important;}
+  table.orderHistory tr td:first-child{font-family: 'Montserrat', sans-serif; font-weight: 500; color:#0B203E;}
+  .razawebNumberRightApplinkArea{ margin: 25px 10px !important;padding: 20px 12px !important;} 
+  .greyBg{background: #FAFAFA; margin: 0px;padding: 30px 0;}
+  .cardDetails{ width:70%;}
+  .cardDetails p{margin-bottom: 2px;}
+  .cardDetails p:last-child{margin-bottom: 9px;}
+  .cardDetails p.cardNumber span{padding: 0px;}
+  .paymentDetails{padding: 60px 25px;}
+  .myaccountTabArea .submitButton{margin-top: 40px;}
+  
+  .myNumberButtonArea{ width: 100%; text-align: center; }
+  .myNumberButtonArea button:first-child{float: none; display: block; margin: 0 auto 30px; width: 240px !important;}
+  .myNumberButtonArea button:last-child{float: none; display: block; margin: 0 auto 30px; width: 240px !important;}
+  .numberTabCont.paymentDetails{ padding: 60px 0;}
+  .autorefillTextarea{ background:#FAFAFA; text-align: center; padding: 20px 0;}
+  .autorefillTextarea p.autoTextcommon{ color: #103F8A; font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 500; }
+  .autorefillTextarea p.enabledText{ color: #1A9259; font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 500;}
+  .enabledText .mat-icon{ font-size:16px;}
+  .autorefillTextarea p.autoTextcommon button:focus{ background: none; outline: none;}
+  .autorefillTextarea p.autoTextcommon span.iconSpan{padding-left: 15px;} 
+  .autorefillTextarea p.autoTextcommon span .mat-icon{color: #103F8A; font-size: 30px; display: -webkit-inline-box;}
+  .autorefill p.tabTitle{ color: #0B203E; font-size: 28px;font-family: 'Montserrat', sans-serif; font-weight: 400;line-height: 20px; margin-bottom: 40px;}
+  .autorefill p.tabTitle span{color: #808080; font-size: 14px;}
+  .myaccountTabArea .callForward table{ margin-top: 0px;}
+  table.showAlltable tr td{width: 33.33% !important;}
+  .rewardsOverview table tr th:last-child,.rewardsOverview table tr td:last-child{ text-align: right !important;} 
+  
+  .app_list ul{ display: flex; margin: 0 auto;}
+  .app_list{ clear: both; overflow: hidden;}
+  .app_list ul li:last-of-type {
+      margin: 0px !important;
+  }
+  .tabContentMyaccount table tr th, .tabContentMyaccount table tr td{padding: 10px 17px !important;}
+  .tabContentMyaccount{
+    padding-bottom: 30px !important;
+    text-align: center;
+  }
+  .icon-close{
+    position: absolute;
+    top: 210px;
+    right: 2%;
+  }
+  a.backButton {
+    margin: 0 auto!important;
+    top: 0px!important;
+  }
+  } 
+  
+   
+  .tabContentMyaccount1 {
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 30px;
+    .rechargeLeft {
+      background: #fff;
+      width: 49%;
+    }
+    .rechargeRight {
+      float: right;
+      background: #fff !important;
+      width: 49%;
+      border: none !important;
+      .submitButton {
+        background: #E8E8E8;
+      }
+    }
+  }
+  .tabContentMyaccount1 .rechargeLeft,.tabContentMyaccount1 .rechargeRight {
+    height: 362px;
+    padding: 90px 40px;
+    margin: 0px;
+  }
+  .tabContentMyaccount1 .rechargeLeft p.commonHead,.tabContentMyaccount1 .rechargeRight p.commonHead {
+    color: #0B203E;
+    font-size: 28px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .tabContentMyaccount1 .rechargeLeft p.description,.tabContentMyaccount1 .rechargeRight p.description {
+    color: #0B203E;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 32px !important;
+  }
+  .tabContentMyaccount1 .rechargeLeft .submitButton,.tabContentMyaccount1 .rechargeRight .submitButton {
+    width: 255px !important;
+  }
+  .matCard {
+    clear: both;
+    overflow: hidden;
+  }
+  .commonBg {
+    background: #f6f8fa;
+    clear: both;
+    overflow: hidden;
+  }
+  .mat-card {
+    padding: 12px 16px !important;
+  }
+  a {
+    &.backButton {
+      color: grey;
+      font-size: 16px;
+      font-family: Montserrat,sans-serif;
+      font-weight: 400;
+      top: -42px;
+      position: relative;
+    }
+  }
+  .myaccountTabArea {
+    margin-top: 67px;
+    padding-top: 44px;
+  }
+  

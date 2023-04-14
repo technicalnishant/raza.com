@@ -1,0 +1,143 @@
+
+
+<div>
+  <div class="first_fold">
+
+    <!-- <div class="home_banner deal1_banner" [style.background]="LandingPageBanner">
+    </div> -->
+    <div class="home_banner deal1_banner" style="background-image: url('assets/images/guyana_bg.jpg')">
+    </div>
+  </div>
+  <!-- common wrapper -->
+  <!-- <div class="commonWrapperArea newcustomer deals"> -->
+  <div class="commonWrapperArea deals">
+    <div class="commonWrapperAreaShadowArea">
+      <div class="coverShadow"></div>
+    </div>
+    <h2>Guyana Special</h2>
+    
+      <div class="row px-5">
+        <div *ngFor="let item of Plans; let i = index" class="col-md-4">
+          
+          <div *ngIf="i<3">
+            <div class="commonminArea py-5">
+              <div class="twoIcon">
+                <img src="assets/images/mobile_icon.png" alt="">
+                <img src="assets/images/phone_icon.png" alt="">
+              </div>
+              
+              <p class="mins">{{item.TotalTime}}
+                <span>mins</span></p>
+              <div class="smallLine"></div>
+              <p class="charge">{{ item.Price | bCurrency}}</p>
+              <div class="buttonArea">
+                <button mat-button class="submitButton" (click)="buyPlanNow(item)">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    <!-- <div class="viewAllrate"><a>VIEW ALL COUNTRIES</a></div> -->
+    <!-- <div class="deal4Textare">
+      <ul>
+        <li>Did not find the country?</li>
+        <li><a routerLink="/searchrates">View all Rates</a></li>
+      </ul>
+  
+      <ul>
+        <li>Have a question?</li>
+        <li><a (click)="contactUs()">Call us</a></li>
+      </ul>
+    </div> -->
+  
+     <!--<app-faq-generic [promotionCode]="guyana"></app-faq-generic> -->
+
+     <div class="mt-5 pt-5">
+      <div class="linethroughArea">
+        <div class="line">
+        </div>
+        <span>FAQ’S</span>
+      </div>
+
+
+     <mat-accordion>
+      <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Who is eligible for this offer?
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Both New and Existing customers are eligible for this amazing offer.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Do my minutes expire?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>No, there is no expiry date for the minutes.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Is Guyana special promotion available for USA and Canada customers?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Yes, this promotion is available for both USA and Canada customers.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Can I avail this offer more than once?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Yes, you can purchase and recharge this plan as many times as you like.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Do the calling rates change if I call other than GTT service?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Yes, calling rates are not the same for all carriers and countries; this promotion is exclusively for GTT service users.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Once I get this plan, can I make calls to other countries?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Yes, calls can be made to any country in the world using this plan, only the calling rates will differ.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Are there any hidden charges?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>No, there are no hidden charges on any of our plans.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Will the rates differ to call Landlines and Mobiles?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>No, calling rates are same to call both landlines and cell phones to GTT carrier.</p>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+     </div>
+
+
+  </div>
+ 
+</div>

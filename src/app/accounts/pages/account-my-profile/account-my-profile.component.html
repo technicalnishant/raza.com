@@ -1,0 +1,17 @@
+<ng-template #billingProfileTemplate>
+  <p class="tabTitle">Profile</p>
+  <div class="accountDetails">
+    <p>{{billingInfo?.FirstName}} {{billingInfo?.LastName}}</p>
+    <p>{{billingInfo?.Address?.StreetAddress}},
+      {{billingInfo?.Address?.City}}, {{billingInfo?.Address?.State}}</p>
+    <p>{{billingInfo?.Address?.Country?.CountryName}} -
+      {{billingInfo?.Address?.ZipCode}}</p>
+    <p>{{billingInfo?.Address?.HomePhone}} </p>
+    <p> <a mat-button (click)="editProfile()">Edit Profile</a></p>
+    <p> <a mat-button (click)="updatePassword()">Change Password</a></p>
+  </div>
+</ng-template>
+
+<div class="tabContentMyaccount planDetails" id="profile">
+  <ng-container *ngTemplateOutlet="billingProfileTemplate"></ng-container>
+</div>

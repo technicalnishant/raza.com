@@ -1,0 +1,113 @@
+.rate-item {
+	cursor: pointer;
+}
+.ripple-container {
+	cursor: pointer;
+	text-align: center;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-tap-highlight-color: transparent;
+}
+.popupGlobalCall {
+	width: 100%;
+	max-width: 100%;
+}
+.viewAll {
+	color: #0160E0;
+	font-weight: 500;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 13px;
+	text-decoration: underline;
+	margin-right: 10px;
+	line-height: 26px;
+}
+.popupGlobalCall .commonminArea p.pop_min{ font-size: 40px !important;}
+.popupGlobalCall .selectRechargeAmnt ul li.rate-item-pop{ width:14%!important;}
+//.popupGlobalCall .selectRechargeAmnt ul li.li_item4{ margin-left:180px !important;}
+
+// new css start here
+// .flag_wrapper {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-wrap: wrap;
+//     margin-bottom: 16px;
+// }
+
+// .flag_wrapper p {
+//     font-size: 15px;
+//     font-weight: 600;
+//     line-height: 8px;
+// }
+
+// .flag_wrapper span {
+//     font-size: 23px;
+//     color: #0b203e;
+//     font-weight: 600;
+//     font-family: "Montserrat", sans-serif;
+// }
+
+// .flag_wrapper .flag {
+//     margin-right: 12px;
+// }
+// .popupGlobalCall .selectRechargeAmnt ul li:first-child{
+// 	margin: 20px 20px 0 0!important;
+// }
+
+// .per_minute {
+//     color: #0b203e;
+//     font-size: 16px;
+//     font-weight: 600;
+//     font-family: "Montserrat", sans-serif;
+// }
+// .popupGlobalCall p.charge {
+//     color: #0b203e;
+// 	font-weight: 700;
+// }
+// .popupGlobalCall .commonminArea p.mins {
+//     font-weight: 700!important;
+// }
+
+.selectRechargeAmnt {
+	&.globalCall_li_list {
+		ul {
+			li {
+				&:nth-child(2):after {
+					content: "$100";
+					position: absolute;
+					color: #0b203e;
+					bottom: 0px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+					height: 29%;
+					font-size: 20px;
+					font-weight: 600;
+					left: 0;
+				}
+				&:nth-child(2) {
+					position: relative;
+					:before {
+						content: "|";
+						position: absolute;
+						color: red;
+						bottom: 0;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						width: 100%;
+    					height: 29%;
+    					font-size: 28px;
+    					transform: rotate(45deg);
+    					left: 5px;
+					}
+				}
+			}
+		}
+	}
+}
+

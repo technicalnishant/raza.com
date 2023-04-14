@@ -1,0 +1,177 @@
+<div class="tabContentMyaccount1" id="recharge">
+
+  <!-- <div class="rechargeRight w-100" *ngIf="!plan">
+    <p class="commonHead">Buy 1 Get 1</p>
+    
+    <div class="input_holder1">
+      <button mat-button (click)="onClickBuyGet()" class="submitButton">Buy Now</button>
+    </div>
+  </div> -->
+
+  <div class="commonmyaccountareaforallpages d-block d-md-flex align-items-center d-flex-wrap"
+    *ngIf="isEnableOtherPlan && uri==''">
+    <div class="leftArea">  
+      <div class="global_planArea">
+        <!-- <img loading="lazy" class="globalIcon" src="https://d2uij5nbaiduhc.cloudfront.net/images/global_img_icon.png" alt="" /> -->
+        <p class="currentPlanText">NEW CUSTOMER SPEACIAL</p>
+        <p class="globalCallText">BUY 1 GET 1 FREE</p>
+      </div>
+
+    </div>
+    <div class="rightArea">
+      <div class="planBalanceRecharge">
+        <div class="input_holder1">
+          <button mat-button (click)="onClickBuyGet()" class="submitButton">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="clear"></div>
+
+  <div class="rechargeLeft rechargeLeftNone w-100 text_center" *ngIf="uri !='notification' && !isSmallScreen">
+    <p class="commonHead">International Topup</p>
+    <p class="description">Worldwide top-up to over 500 networks
+      across 140 countries</p>
+    <div class="input_holder1">
+      <button mat-button (click)="onClickTopUpBtn()" class="submitButton">Topup Now</button>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="rechargeLeft w-100" *ngIf="uri =='notification'"> 
+
+    <div class="bg-white px-5 py-5 w-100 mt-3 text-left notifications" *ngIf="uri=='notification'">
+      <p class="commonHead mt-4 text-center">Notifications</p>
+      <div class="border-bottom d-flex justify-content-between">
+        <div class="mr-4">
+          <p class="title">Text/SMS</p>
+          <p>This option must be enabled at all times to receive verification code and to login securely to our website. 
+          </p>
+        </div> 
+        <mat-slide-toggle [(ngModel)]="myModel" #toggleElement (ngModelChange)="keepIt1($event)" [checked] = "myModel"   class="example-margin" color="primary">
+        </mat-slide-toggle>
+      </div>
+  
+      <div class="d-flex justify-content-between mt-3">
+        <div class="mr-4">
+          <p class="title">Promo Notifications</p>
+          <p>Occasionally you will receive great deals and promotions from us.  Don't miss out on promotions to get upto 50%
+            bonus minutes.</p>
+        </div>
+        <mat-slide-toggle [(ngModel)]="sendSMSPromo" (ngModelChange)="keepIt($event)" checked = sendSMSPromo; class="example-margin" color="primary">
+        </mat-slide-toggle>
+      </div>
+    </div>
+  </div>
+ 
+<div class="rechargeLeft w-100" *ngIf="uri !='notification' && isSmallScreen"> 
+ <div style="margin-bottom:50px!important" class="gap_class">
+    <app-account-payment-details *ngIf="plan" [plan]="plan" > </app-account-payment-details>
+   </div>
+   <!--<section class="gap_class" >
+    <div class="rechargeLeft rechargeLeftNone w-100" *ngIf="uri !='notification'" style="margin-bottom: 50px !important;">
+      <p class="commonHead">International Topup</p>
+      <p class="description">Worldwide top-up to over 500 networks
+        across 140 countries</p>
+      <div class="input_holder1">
+        <button mat-button (click)="onClickTopUpBtn()" class="submitButton">Topup Now</button>
+      </div>
+    </div>
+</section>-->
+    <div class="tabContentMyaccount planDetails">
+      <p class="tabTitle">Plan Details</p>
+      <button mat-button class="submitButton" *ngIf="!showPlan" (click)="showPlanDetails()">View All</button>
+      <button mat-button class="submitButton" *ngIf="showPlan" (click)="showPlanDetails();">Close</button>
+    </div>
+
+    
+
+    
+    
+    <section class="gap_class" style="margin-bottom: 50px!important;" *ngIf="plan && showPlan">
+    <app-mobile-your-raza  [plan]="plan"> </app-mobile-your-raza>
+    </section>
+
+    <section class="gap_class"  *ngIf="plan && showPlan" style="margin-bottom: 50px!important;">
+      <app-mobile-my-numbers [plan]="plan"></app-mobile-my-numbers>
+    </section>
+
+    <section class="gap_class"  *ngIf="plan && showPlan" style="margin-bottom: 50px!important;">
+      <app-mobile-onetouch-dial [plan]="plan"></app-mobile-onetouch-dial>
+    </section>
+
+    <section class="gap_class" *ngIf="plan && showPlan" style="margin-bottom: 50px!important;">
+      <app-mobile-call-farwording  [plan]="plan"></app-mobile-call-farwording>
+    </section>
+
+    <section class="gap_class"  style="margin-bottom: 50px!important;" *ngIf="plan && showPlan" >
+    
+    <div class="tabContentMyaccount planDetails call_detail_button" >
+      <p class="tabTitle">Call Details</p>
+      <a routerLink="/account/call-details/{{plan?.PlanId}}" routerLinkActive="active-link">View</a>
+    </div>
+  </section>
+
+
+   
+
+
+  
+      
+    
+    <div>
+
+      <div class="bottom_lin" >
+        <div class="tabContentMyaccount planDetails" >
+          <p class="commonHead">International Topup</p>
+          <p class="description">Worldwide top-up to over 500 networks across 140 countries</p>
+          <div >
+            <button mat-button (click)="onClickTopUpBtn()" class="submitButton">Topup Now</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="bottom_lin"><a routerLink="/account/rewards" routerLinkActive="active-link">Raza Rewards</a>
+        <p>View your available rewards and referral points.</p>
+      </div>
+
+    <div class="bottom_lin"><a routerLink="/account/order-history" routerLinkActive="active-link">Order-History</a>
+    <p>Find your order history, date, and purchase amount.</p>
+    </div>
+    <div class="bottom_lin"><a routerLink="/account/my-profile" routerLinkActive="active-link">My Profile</a>
+    <p>Change your password, update your address and Phone number.</p>
+    </div>
+    <div class="bottom_lin"routerLink="/account/other-plans" routerLinkActive="active-link"> <a>Other Plans</a>
+    <p>View all plans, find your access number, and edit features. </p>
+    </div>
+
+    <div class="bottom_lin" routerLink="/account/overview/notification" routerLinkActive="active-link"><a>Notifications</a>
+    <p>Manage your promo notifications from this tab.</p>
+    </div>
+
+    <!-- <app-mobile-order-history *ngIf="plan" [plan]="plan"></app-mobile-order-history>
+    <app-account-my-profile *ngIf="plan" [plan]="plan"></app-account-my-profile>
+    <app-other-plans *ngIf="plan" [plan]="plan"></app-other-plans>
+    <app-mobile-notifications *ngIf="plan" [plan]="plan" ></app-mobile-notifications> -->
+   
+  <!--</div>-->
+
+
+</div>
+  <div class="clear"></div>
+
+  
+  <!-- <div class="rechargeRight">
+    <p class="commonHead">Virtual Number</p>
+    <p class="description">Get a Raza Virtual Number so your friends and family can call you at anytime for free.</p>
+    <div class="input_holder1">
+      <button mat-button class="submitButton">Coming Soon</button>
+    </div>
+  </div> -->
+</div>

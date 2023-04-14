@@ -1,0 +1,91 @@
+<div class="msgArea">
+  <p class="updateCard2">Confirmation</p>
+  <p class="paymentText">Payment successful!</p>
+</div>
+<div class="container containerMobile">
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="col-md-12">
+
+      </div>
+      <div class="col-md-12">
+
+        <div class="form_holder form_holder2 form_holder5">
+          <div class="orderNumberArea">
+            <p>Your Order number <span>{{orderId}}</span></p>
+          </div>
+          <div class="emailSent">
+            <p class="payment-message">Text message has been sent to your Mobile Number.</p>
+          </div>
+        </div>
+
+        <div class="downloadApp">
+          <h4 class="heading_style7">Download Raza mobile app and <br />
+            start calling now!</h4>
+          <div class="app_list">
+            <ul>
+              <li>
+                <a href="#">
+                  <img src="../assets/images/icon_appstore.png" alt="app" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="../assets/images/icon_googleplaystore.png" style="width:110px!important;" alt="app" />
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+
+        <div class="live_chatarea">
+          <ul>
+            <li><a href="#"><span><img src="../assets/images/user_icon.svg" alt="" /></span> My account</a></li>
+            <li><a href="#"><span><img src="../assets/images/chat_icon.svg" alt="" /></span> 24/7 Live Chat</a></li>
+            <li><a href="#"><span><img src="../assets/images/call_icon.svg" alt="" /></span> 1-877-463-4233</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-xl-1"></div>
+    <div class="col-xl-5">
+      <div class="col-md-12">
+        <h2 class="heading_style4">
+          <span>Your order</span>
+        </h2>
+      </div>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Mobile Recharge</td>
+            <td>{{ checkoutModel?.getPurchaseAmount() | bCurrency : checkoutModel?.currencyCode }} </td>
+          </tr>
+          <tr>
+            <td>Service Fee</td>
+            <td>{{ checkoutModel?.calculateServiceFee() | bCurrency : checkoutModel?.currencyCode }} </td>
+          </tr>
+          <tr>
+            <td>Amount Sent</td>
+            <td> {{ checkoutModel?.topupOption.DestinationCurrency }}
+              {{ checkoutModel?.topupOption.DestinationAmount }}</td>
+          </tr>
+          <tr>
+            <td>Mobile Number</td>
+            <td>{{checkoutModel?.phoneNumber }}</td>
+          </tr>
+          <tr>
+            <td>Operator</td>
+            <td>{{checkoutModel?.topupOption.Operator}}</td>
+          </tr>
+          <tr class="total">
+            <td>Total ({{checkoutModel?.currencyCode}})</td>
+            <td>{{checkoutModel?.totalAmount() | bCurrency : checkoutModel?.currencyCode}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

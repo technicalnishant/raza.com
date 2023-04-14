@@ -1,0 +1,94 @@
+.margin .footer_style{ margin-top: -95px;} 
+
+@media only screen and (max-width: 480px)
+{
+ .ph_no{
+    font-size: 20px;
+    font-weight: 600;
+ }
+
+ .footer_section1 {
+    h4 {
+        &.heading_style3 {
+            font-size: 15px;
+            font-weight: 500;
+            
+        }
+    }
+}
+
+.footer_menu {
+
+    ul {
+     
+
+        li {
+        
+        
+            a {
+               
+                font-size: 13px;
+                font-weight: 400;
+
+               
+            }
+        }
+    }
+}
+/*.social_list{
+    margin-bottom: 40px;
+}*/
+
+.raza_logo2 img{
+    height: 54px;
+}
+.display5{
+    display: none;
+}
+.display6{
+    display: block !important;
+}
+}
+.display6{
+    display: none;
+}
+.copyright1{
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+}
+.footer_menu2 ul li a {
+    font-size: 15px;
+    font-weight: 600;
+    
+}
+.copyright{
+    display: none;
+}
+.pintrest_icon{
+    height: 40px;
+    width: 40px;
+    background: url("/assets/images/new_design_images/icon_sprite.png") -41px 168px;
+}
+.twitter_icon{
+    height: 40px;
+    width: 40px;
+    background: url("/assets/images/new_design_images/icon_sprite.png") 0px 168px;
+}
+.fb_icon{ 
+    height:40px;
+    width:40px;
+    background:url("/assets/images/new_design_images/icon_sprite.png") -82px 168px;
+}
+@media only screen and (max-width: 650px){
+    .copyright1{
+        display: none;
+    }
+    .footer_menu2 ul li a {
+        font-size: 13px;
+        font-weight: 400;
+    }
+    .copyright{
+        display: block;
+    }
+}

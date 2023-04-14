@@ -1,0 +1,476 @@
+<div class="first_fold">
+    <div class="home-slider">
+       <ngb-carousel [showNavigationArrows]="true" 
+       [showNavigationIndicators]="true">
+           <ng-template ngbSlide class="promotions" >
+                <div class="picsum-img-wrapper" *ngIf="currentSetting?.country?.CountryId !=3">
+                    <img loading="lazy" src="../../../assets/images/promotion/tg22bg.jpg" alt="Random first slide" class="bg-image promotion_image d-none d-md-block" >
+                     
+                    <img loading="lazy" src="../../../assets/images/promotion/tg22-mobile-us.jpg" alt="Random first slide" class="bg-image d-block d-md-none" >
+                     
+                </div>
+
+                <div class="picsum-img-wrapper" *ngIf="currentSetting?.country?.CountryId ==3">
+                    <img loading="lazy" src="../../../assets/images/promotion/tg22bg-uk.jpg" alt="Random first slide" class="bg-image promotion_image d-none d-md-block" >
+                     
+                    <img loading="lazy" src="../../../assets/images/promotion/tg22-mobile-uk.jpg" alt="Random first slide" class="bg-image d-block d-md-none" >
+                     
+                </div>
+                <div class="carousel-caption promotion">
+                      <div class="promotion_img_div">
+ 
+                    </div>  
+                    <div class="clear"></div>
+                    <div class="promotion-offer" >
+                        <a type="button" (click)="onopenchristmas(typedEl)" class="promo-btn d-flex"><img src="../../../assets/images/promotion/buynow.png" class="promo-btnimg">{{name__p}}</a>
+                         <div style="display:none;"><a *ngIf="currentSetting?.country?.CountryId !=3" routerLink="/mobiledeals" type="button" class="view-more">View Other Offers</a></div> 
+                    </div>
+                </div>
+                  <p class="promotion-note" >*Promotion minutes vary from country to country.</p>  
+            </ng-template>   
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="./assets/images/slider-bg.webp" loading="lazy" alt="Random first slide" class="bg-image">
+                </div>
+                <div class="carousel-caption">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <div class="d-md-flex align-items-center justify-content-center mt-5 mt-md-0">
+                            <div class="img-1 mt-5">
+                                <img  src="./assets/images/buy1get1.webp" loading="lazy" alt="" class="img-fluid">
+                            </div>
+                            <div class="py-3 d-block d-md-none w-75 m-auto" *ngIf="currentSetting?.country?.CountryId ==3">
+                                <img src="./assets/images/buy1get1.webp" alt="" loading="lazy" class="img-fluid">
+                            </div>
+                            <div class="divider"></div>
+                            <div class="img-1 " *ngIf="currentSetting?.country?.CountryId !=3">
+                                <img src="./assets/images/was10now5.webp" alt="" loading="lazy" class="img-fluid">
+                            </div>
+                            <div class="img-1 d-none d-md-block" *ngIf="currentSetting?.country?.CountryId ==3">
+                                <img src="./assets/images/uk_left.webp" alt="" loading="lazy" class="img-fluid">
+                            </div>
+                            <div class="py-3 d-block d-md-none" *ngIf="currentSetting?.country?.CountryId ==3">
+                                <img src="./assets/images/mobile-uk.webp" alt="" loading="lazy" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="button-wrapper text-center" style="width:100%; height:45px;">
+
+                            <a mat-raised-button routerLink="deals/buy1-get1" type="button" class="rounded-pill btn-lg px-5 py-1 py-md-2 mb-3 buy-btn shadow">Buy Now</a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </ng-template> 
+ 
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image">
+                </div>
+                <div class="carousel-caption download">
+                    <img loading="lazy" src="./assets/images/mobile_app_v2.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId ==3">
+                    <img loading="lazy" src="./assets/images/download_get_img.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId ==3">
+                    <img loading="lazy" src="./assets/images/mobile_app_us_ypncgi.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId !=3">
+                    <img loading="lazy" src="./assets/images/download_get_us.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId !=3">
+                    <div  style="width:100%; height:45px;">
+                        <a href="javascript:void(0)" (click)="downloadApp()" class="btn-slider" type="button" mat-button>Download Now</a>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template ngbSlide *ngIf="currentSetting?.country?.CountryId !=3">
+                <div class="picsum-img-wrapper">
+                    <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image d-none d-md-block">
+                    <img loading="lazy" src="./assets/images/slider-bg.webp" alt="" class="bg-image d-block d-md-none">
+                </div>
+                <div class="carousel-caption refer it-topup">
+                    <a href="#"><img loading="lazy" src="./assets/images/int-top-img.webp" alt="" class="img-fluid d-md-none d-block m-auto topup-img"></a>
+                    <img loading="lazy" src="./assets/images/int-top-bottom.webp" alt="" class="img-fluid d-md-none d-block m-auto int-bottom">
+                    <img loading="lazy" src="./assets/images/it-topup-inner_g7bpbe.webp" alt="" class="img-fluid d-md-block d-none m-auto">
+                    
+                    <div  style="width:100%; height:35px;">
+                        <a href="" [routerLink]="[ '/mobiletopup' ]" class="topup-btn" type="button" mat-button>TOP-UP</a>
+                    </div>
+            </div>
+            </ng-template>
+
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image">
+                </div>
+                <div class="carousel-caption reward">
+                    <div class="container d-none d-md-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <img loading="lazy" src="./assets/images/star_iiewat.webp" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="reward-content">
+                                    <img loading="lazy" src="./assets/images/free_10.webp" alt="" class="img-fluid" *ngIf="currentSetting?.country?.CountryId !=3">
+                                    <img loading="lazy" src="./assets/images/free-uk.webp" alt="" class="img-fluid" *ngIf="currentSetting?.country?.CountryId ==3">
+
+                                    <div class="bonus-ms">
+                                        ENROLL <br> EARN <br> Redeem
+                                    </div>
+                                    <div class="border"></div>
+                                    <small *ngIf="currentSetting?.country?.CountryId !=3">Collect 1000 points and get $10 FREE.</small> <br *ngIf="currentSetting?.country?.CountryId !=3">
+                                    <small *ngIf="currentSetting?.country?.CountryId ==3">Collect 1000 points and get € 5 FREE.</small> <br *ngIf="currentSetting?.country?.CountryId ==3">
+                                    <div class="enroll-wrappers">
+                                        <a href="javascript:void(0)" (click)="enrollNow()" class="btn btn-warning" mat-button>Enroll Now</a>
+                                        <a href="javascript:void(0)" (click)="howItWorksPopup(6)">How it works</a>
+                                        <a href="javascript:void(0)" (click)="faqPopup(6)">FAQs</a>
+
+
+                                    </div>
+
+                                    <p>No Purchase Necessary. Get 200 points instantly.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-block d-md-none">
+                        <img loading="lazy" src="./assets/images/reward-mobile.webp" alt="" class="img-fluid d-block d-md-none reward-mob" *ngIf="currentSetting?.country?.CountryId !=3">
+                        <img loading="lazy" src="./assets/images/reward-mobile-uk.webp" alt="" *ngIf="currentSetting?.country?.CountryId ==3" class="img-fluid d-block d-md-none reward-mob">
+                        <div class="collection">Collect 1000 points and get $10 FREE. </div>
+                        <a href="javascript:void(0)" (click)="enrollNow()" mat-button class="enroll-btn" mat-button>Enroll Now</a>
+                        <div class="enroll-wrappers">
+                            <a href="javascript:void(0)" (click)="howItWorksPopup(6)">How it works</a>
+                            <a href="javascript:void(0)" (click)="faqPopup(6)">FAQs</a>
+
+                        </div>
+                        <div class="collection_note">
+                            No Purchase Necessary. Get 200 points instantly.
+                        </div>
+                    </div>
+                </div>
+            </ng-template> 
+
+  
+
+        </ngb-carousel>
+    </div>
+</div>
+<!-- home banne section end here -->
+
+
+<div class="homepage_bluearea hideinMobile">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 homeBluecommon">
+                <a routerLink="/freetrial" *ngIf="currentSetting?.country?.CountryId ==3">
+                    <div class="icon_holder1">
+                        <img loading="lazy" src="./assets/images/mobile_topup_white.svg" alt="icon">
+                        <img loading="lazy" src="./assets/images/mobile_topup_blue.svg" alt="icon">
+                    </div>
+                    <h3>Try us Free</h3>
+                    <p>Get upto 100 free mins to call anywhere in <br /> the world</p>
+                    <div class="arrow">
+                        <img loading="lazy" src="./assets/images/home_arrow_white.png" alt="icon">
+                        <img loading="lazy" src="./assets/images/home_arrow_blue.png" alt="icon">
+                    </div>
+                </a>
+
+                <a routerLink="/mobiletopup" *ngIf="currentSetting?.country?.CountryId !=3">
+                    <div class="icon_holder1">
+                        <img loading="lazy" src="./assets/images/mobile_topup_white.svg" alt="icon">
+                        <img loading="lazy" src="./assets/images/mobile_topup_blue.svg" alt="icon">
+                    </div>
+                    <h3>Send Mobile Topup</h3>
+                    <p>Send minutes to over 300 carriers in 120<br /> countries</p>
+                    <div class="arrow">
+                        <img loading="lazy" src="./assets/images/home_arrow_white.png" alt="icon">
+                        <img loading="lazy" src="./assets/images/home_arrow_blue.png" alt="icon">
+                    </div>
+                </a>
+
+
+
+            </div>
+            <div class="col-md-4 homeBluecommon white_color">
+                <a routerLink="/callafrica">
+                    <div class="icon_holder1">
+                        <img loading="lazy" src="./assets/images/callafrica_white.svg" class="whiteimg" alt="icon">
+                        <img loading="lazy" src="./assets/images/callafrica_blue.png" class="blueimg" alt="icon">
+                    </div>
+                    <h3 class="bluecolor">Call Africa</h3>
+                    <p class="bluecolor">Start making high quality calls to Africa<br /> for as low as 4c/min</p>
+                    <div class="arrow">
+                        <img loading="lazy" src="./assets/images/home_arrow_white.png" class="whiteimg" alt="icon">
+                        <img loading="lazy" src="./assets/images/home_arrow_blue.png" class="blueimg" alt="icon">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 homeBluecommon">
+                <a routerLink="/callasia">
+                    <div class="icon_holder1">
+                        <img loading="lazy" src="./assets/images/callasia_white.svg" alt="icon">
+                        <img loading="lazy" src="./assets/images/callasia_blue.svg" alt="icon">
+                    </div>
+                    <h3>Call Asia</h3>
+                    <p>Start making high quality calls to Asia for<br /> as low as 1c/min</p>
+                    <div class="arrow">
+                        <img loading="lazy" src="./assets/images/home_arrow_white.png" alt="icon">
+                        <img loading="lazy" src="./assets/images/home_arrow_blue.png" alt="icon">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="homepage_bluearea showInmobile">
+    <div class="containerNew">
+        <div class="blue">
+            <div class="col-md-4 homeBluecommon">
+                <a routerLink="/mobiletopup">
+                    <div class="icon_holder1">
+                        <img loading="lazy" src="./assets/images/mobile_topup_white.svg" alt="icon">
+                    </div>
+                    <h3>Mobile Topup</h3>
+                    <p>Send minutes to over 300 carriers in 120 countries</p>
+                    <div class="arrow">
+                        <img loading="lazy" src="./assets/images/home_arrow_white.png" alt="icon">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="white">
+            <div class="col-md-4 homeBluecommon">
+                <a routerLink="/callafrica">
+                    <div class="icon_holder1">
+                        <img loading="lazy" src="./assets/images/callafrica_blue.png" alt="icon">
+                    </div>
+                    <h3>Call Africa</h3>
+                    <p>Start making high quality calls to Africa for as low as 4c/min</p>
+                    <div class="arrow">
+                        <img loading="lazy" src="./assets/images/home_arrow_blue.png" alt="icon">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="blue">
+            <div class="col-md-4 homeBluecommon">
+                <a routerLink="/callasia">
+                    <div class="icon_holder1"><img loading="lazy" src="./assets/images/call_asia_icon.svg" alt="icon"></div>
+                    <h3>Call Asia</h3>
+                    <p>Start making high quality calls to Asia for as low as 1c/min</p>
+                    <div class="arrow">
+                        <img loading="lazy" src="./assets/images/home_arrow_white.png" alt="icon">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="home_howitworksmain">
+    <div class="container">
+        <div class="row">
+            <p class="howitText">How it works</p>
+            <h2 class="heading_style2">It’s super easy!</h2>
+            <div class="col-md-4">
+                <!-- <a href="/searchrates" title="" *ngIf="currentSetting?.country?.CountryId ==3">
+                    <div class="home_howitworksSection shadow1">
+                        <div class="icon_holder1"><img loading="lazy" src="./assets/images/pick_your_plan.svg" alt="icon"></div>
+                        <h3 class="picktext">Pick your plan</h3>
+                        <p>Search Rates to call anywhere in the world and select Purchase amount.</p>
+                    </div>
+                </a>
+                <a href="../mobiledeals/" title="" *ngIf="currentSetting?.country?.CountryId !=3">
+                    <div class="home_howitworksSection shadow1">
+                        <div class="icon_holder1"><img loading="lazy" src="./assets/images/pick_your_plan.svg" alt="icon"></div>
+                        <h3 class="picktext">Pick your plan</h3>
+                        <p>Search Rates to call anywhere in the world and select Purchase amount.</p>
+                    </div>
+                </a> -->
+
+                <a href="/searchrates" title="" >
+                    <div class="home_howitworksSection shadow1">
+                        <div class="icon_holder1"><img loading="lazy" src="./assets/images/pick_your_plan.svg" alt="icon"></div>
+                        <h3 class="picktext">Pick your plan</h3>
+                        <p>Search Rates to call anywhere in the world and select Purchase amount.</p>
+                    </div>
+                </a>
+                
+
+            </div>
+            <div class="col-md-4">
+                <!--<a href="/auth/sign-up">-->
+                <a href="javascript:void(0)" (click)="signupModal()">
+                    <div class="home_howitworksSection shadow2">
+                        <div class="icon_holder1"><img loading="lazy" src="./assets/images/create_account_icon.svg" alt="icon"></div>
+                        <h3 class="createText">{{getText()}} </h3>
+
+                        <p>Signup using your Mobile number or Check Out as Guest if you like to try us.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="../searchrates">
+                    <div class="home_howitworksSection shadow3">
+                        <div class="icon_holder1"><img loading="lazy" src="./assets/images/start_calling_icon.svg" alt="icon"></div>
+                        <h3 class="startTxt">Start calling!</h3>
+                        <p>Dial your Raza access number and Start Making Calls. That’s it… Keep Talking!</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mobileAppArea" #mobileAppArea>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <p class="mAppHowtxt">Raza</p>
+                <h3>Mobile App.</h3>
+                <div class="mobileAppcommon_area first">
+                    <h4>Crystal clear quality</h4>
+                    <!-- <h4>$2 FREE - Download Now!</h4> -->
+                    <!-- <p>Get $2 absolutely free when you download our new and improved mobile app for the first time. No purchase is necessary.</p> -->
+                    <p>Raza mobile app provides crystal clear call quality backed by unbeatable prices. Make sure you never miss a moment with friends and family!</p>
+                </div>
+                <div class="mobileAppcommon_area second">
+                    <h4>Easy to call at Super Low Rates</h4>
+                    <p>Call directly through the app at super low rates.  Our rates are starting as low as 1¢ per/min.
+                    </p>
+                </div>
+                <div class="mobileAppcommon_area third">
+                    <h4>International  Mobile Top-up</h4>
+                    <p>Send top-ups to over 300 Operators through the app instantly. We deliver most recharges in Seconds!</p>
+                </div>
+
+ 
+
+            </div>
+            <div class="col-md-5 new_style_mobile_divall">
+
+                <div class="new_style_mobile">
+                    <div class="mobileImageSliderMain"></div>
+                    <div class="mobileImageSlider">
+                       <!-- <video width="380" height="800" autoplay="autoplay" loop="loop"  muted="muted" controls="true"  class="gif-app">
+                            <source src="../../../assets/images/mobile-video.mp4" type="video/mp4">
+                           
+                          
+                          </video> -->
+                         <!-- <video 
+                          src="./assets/images/mobile-video.mp4"
+                          autoPlay = true
+                          controls = false
+                          loop = true
+                          muted = true
+                        
+                          id="raza_videoPlayer" width="380" height="800"
+                          playsinline class="gif-app"
+                       ></video>-->
+
+                       
+
+              <!-- <video id="raza_videoPlayer" width="380" height="800" autoplay="autoplay" loop="loop"  muted="muted" controls="true"  class="gif-app"> 
+                  
+                    <source src="./assets/images/mobile-video.mp4" type='video/mp4' />
+                   
+                </video> -->
+
+                        <img loading="lazy" src="./assets/images/download2dollor.jpg" class="gif-app" alt="icon" /> 
+
+                        <div class="home_mobile_div" >
+                            <a href="https://play.google.com/store/apps/details?id=com.razacomm.universe">
+                                <img loading="lazy" src="../../../assets/images/new_design_images/play_store.png" alt="play" class="mb-lg-0">
+                            </a>
+                            <a href="https://apps.apple.com/ca/app/raza-universe/id1226298666" >
+                                <img loading="lazy" src="../../../assets/images/new_design_images/app_store.png" class="ml-0 ml-lg-3" alt="app">
+                            </a>
+                          </div>
+
+                    </div>
+                    <!-- <button (click)="openDialog()" class="bg-primary" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+              <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+            </svg>
+          </button> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="home_pageGreyarea">
+    <div class="mobileAppcommon_area showMobileOnly">
+        <div class="app_list new">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img loading="lazy" src="./assets/images/icon_appstore.svg" alt="app">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img loading="lazy" src="./assets/images/icon_googleplaystore.svg" alt="app">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="leftareaNew">
+        <div class="leftcontent">
+            <div class="textareaNew">
+                <h4>Do you own a <br />business?</h4>
+                <p>Partner with us!</p>
+                <p routerLink="/becomeapartner" class="smallText">I’M INTERESTED <span><img loading="lazy"
+              src="./assets/images/arrow_first.png" alt="icon"/></span></p>
+            </div>
+            <div class="imageareaNew">
+                <img loading="lazy" src="./assets/images/partnerwithus.png" alt="icon" />
+            </div>
+        </div>
+    </div>
+    <div class="rightareaNew">
+        <div class="rightcontent">
+            <div class="textareaNew">
+                <h4>Get rewarded with <br />bonus points!</h4>
+                <p>Become a member today</p>
+                <p routerLink="/refer-a-friend" class="smallText">SIGN UP NOW <span><img loading="lazy"
+              src="./assets/images/arrow_right.png" alt="icon" /></span></p>
+            </div>
+            <div class="imageareaNew">
+                <img loading="lazy" src="./assets/images/gift_box.webp" alt="icon" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="testimonial_area">
+    <div class="testimonial_area_container">
+        <div class="testPadding">
+            <h3>Testimonials</h3>
+            <p>Our customers have something to say about us</p>
+        </div>
+
+        <div class="testiSliderContent">
+            <app-testimonials></app-testimonials>
+        </div>
+
+    </div>
+</div>
+
+<!-- -->
+<div class="streakBanner">
+    <div class="backgroundTexture">
+        <div class="maintextarea">
+            <h4>Try it for free.<br /> It only takes 30 seconds to get started.</h4>
+            <a href="#" [routerLink]="['/freetrial']" class="button orange-cta cta w-inline-block chrome">TRY NOW</a>
+        </div>
+    </div>
+</div>
+<div class="streakBannerBottom">
+    <!-- <p>Existing Customers? <span>Get something awesome!</span>
+         <a href="/mobiledeals">View Offers</a>  -->
+         <p>Existing Customers? <span>Check out our awesome features!</span>  
+        <a href="/features">View</a>
+
+    </p>
+</div>

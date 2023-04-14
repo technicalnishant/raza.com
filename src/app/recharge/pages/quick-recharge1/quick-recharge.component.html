@@ -1,0 +1,226 @@
+<div class="first_fold">
+
+    <h1 class="heading_style1">	
+        Quick<br> Recharge
+    
+    </h1>
+    <div class="home_banner quick_recharge"> 
+        <!-- <img src="assets/images/banner_image.png" alt="banner"> -->
+    </div>
+    </div>
+
+<div class="recharge_block">
+    <div class="container containerMobile">
+        
+  
+                <div class="row margin_class">
+                <div class="col-md-6 boxborderright">
+            
+                    <h2 class="heading_style4">
+                        <span>Quick Recharge/Top Up</span>
+                    </h2>
+                
+                
+                    <form [formGroup]="rechargeForm" (ngSubmit)='onRechargeFormSubmit()' novalidate>
+                        <div class="form form_margin">
+                            <div class="col-sm-12 formRowM15">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Phone Number" type="tel" formControlName="phoneNumber">
+                                    <mat-error *ngIf="rechargeForm.get('phoneNumber').errors?.required">
+                                        Phone Number is required.
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div *ngIf="!isAuthenticated" class="col-sm-12 formRowM15">
+                                <span class="floatRight forgetPass">
+                                    <a routerLink='/auth/forgot-password' href="#">Forgot Password?</a>
+                                </span>
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Password" type="password" formControlName="password">
+                                    <mat-error *ngIf="rechargeForm.get('password').errors?.required">
+                                        Password is required.
+                                    </mat-error>
+                                    <mat-error *ngIf="rechargeForm.get('phoneNumber').errors?.Invalid_grant">
+                                        Phone Number/Password is not valid.
+                                    </mat-error>
+                                </mat-form-field>
+                               
+                            </div>
+                            
+                            <div class="cardRow formRowM15">
+                                <div class="cardRowLeft">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput maxlength="5" placeholder="Last 4 Digits of Your Credit Card"
+                                            formControlName="lastDigitsOfCard">
+                                        <mat-error *ngIf="rechargeForm.get('lastDigitsOfCard').errors?.required">
+                                            Credit card is required.
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="cardRowRight">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput type="password" maxlength="4" placeholder="CVV"
+                                            formControlName="cvv">
+                                        <mat-error *ngIf="rechargeForm.get('cvv').errors?.required">
+                                            Cvv is required.
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 formRowM15">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Do you have a Promo Code?(Optional)"
+                                        formControlName="couponCode">
+                                </mat-form-field>
+                            </div>
+                            <div class="form_row1">
+                                <div class="input_holder1">
+                                    <button mat-button type="submit" class="submitButton">Recharge</button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </form>
+
+                        <div class="row ml-4 exc_center">
+                            <div class="col-sm-6 existing">
+                                Existing Customer? <a (click)="openPopup('login')" href="javascript:void(0);">Login</a>
+                            </div>
+                            <div class="col-sm-6 new_customer">
+                                New Customer? <a (click)="openPopup('signup')" href="javascript:void(0);">Sign up now</a>
+                            </div>
+                        </div>
+              
+                
+
+</div>
+
+
+<div class="col-md-5 mt-4 button_margint">
+    <div class="form_label1">Recharge Amount</div>
+    <div class="input_holder1">
+        <div class="radio_checkbox_wraper1">
+
+            <mat-radio-group formControlName="rechargeAmount">
+                <div class="row">
+                    <div class="col-md-12">
+                    <ul class="rechargeamount">
+                        <li (click)="setrechargeAmount(5)"><button class="submitButtonSmall w-100 {{getActiveClass(5)}}" >
+                            $5     
+                       </button></li>
+
+                        <li (click)="setrechargeAmount(10)"><button class="submitButtonSmall w-100 {{getActiveClass(10)}}" >
+                            $10     
+                       </button></li>
+                       <li (click)="setrechargeAmount(20)"><button class=" submitButtonSmall w-100 {{getActiveClass(20)}}" >
+                        $20      
+                      </button></li>
+                      <li (click)="setrechargeAmount(50)" ><button class="submitButtonSmall w-100 {{getActiveClass(50)}}" >
+                        $50
+                      </button></li>
+                      <li (click)="setrechargeAmount(100)"> <button class="submitButtonSmall w-100 {{getActiveClass(100)}}" >
+                        $100
+                        </button></li>
+                    </ul>
+
+                </div>
+
+
+
+                   <!-- <div class="col-md-5">
+                        <button class="submitButtonSmall w-100 " value="20">
+                     $10     
+                </button>
+                </div>
+                <div class="col-md-4">
+                <button class=" submitButtonSmall w-100" value="20">
+          $20      
+        </button>
+        </div>           
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <button class="submitButtonSmall w-100" value="20">
+  $50
+</button>
+</div>
+<div class="col-md-4">
+    <button class="submitButtonSmall w-100" value="20">
+$100
+</button>
+</div> -->              
+                </div>
+
+            </mat-radio-group>
+            <mat-error
+                *ngIf="rechargeForm.get('rechargeAmount').errors?.required && rechargeForm.get('rechargeAmount').touched">
+                Recharge amount is required.
+            </mat-error>
+
+        </div>
+    </div>
+
+</div>
+
+</div>
+            
+            </div>
+            </div>
+            <section class="search-strip">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="title">
+                        Download <br>
+                        Raza mobile app <br>
+                        and start calling now
+                      </div>
+                      <div class="d-flex align-items-center mt-5">
+                        <img src="../../../assets/images/new_design_images/qr_code.png" alt="qr" class="mr-4 qrimage">
+                        <div>
+                          <a href="https://play.google.com/store/apps/details?id=com.razacomm.universe"><img src="../../../assets/images/new_design_images/play_store.png" alt="play" class="mb-3 mb-lg-0"></a>
+                          <a href="https://apps.apple.com/ca/app/raza-universe/id1226298666" class="ml-0 ml-lg-3"><img src="../../../assets/images/new_design_images/app_store.png" alt="app"></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-5 text-right">
+                      <img src="../../../assets/images/new_design_images/strip_mob.png" alt="mob" class="mt-5 mt-lg-0 img-fluid">
+                    </div>
+                  </div>
+                </div>
+              </section>
+        
+   
+<div class="last">
+    <p>Still Searching? For All Rates
+    <a mat-button type="submit" routerLink="/searchrates" class="submitButton1">View All Rates</a>
+</p>
+</div>
+<!--<div id="mybraintreeDiv" class="payment__box">
+    <div id="el" style="position:absolute; z-index:9999; width:auto; background-color:#fff;height:auto; left:40%;top:40%;"></div>
+<<<<<<< HEAD
+  </div>-->
+=======
+  </div>
+  
+  <!-- common wrapper -->
+  <div class="streakBanner">
+    <div class="backgroundTexture">
+      <div class="maintextarea">
+        <h4>
+          Try it for free.<br />
+          It only takes 30 seconds to get started.
+        </h4>
+        <a href="#" [routerLink]="['/freetrial']" class="button orange-cta cta w-inline-block chrome">TRY NOW</a>
+      </div>
+    </div>
+  </div>
+  <div class="streakBannerBottom">
+    <p>
+      Existing Customers? <span>Get something awesome!</span>
+      <a>View Offers</a>
+    </p>
+  </div>
+>>>>>>> 340249a38e303e1e12532cea058ad720da9804bc

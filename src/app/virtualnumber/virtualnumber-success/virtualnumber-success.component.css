@@ -1,0 +1,57 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.hideinMobile{display: block;}
+.showInmobile { display: none;}
+
+.mat-toolbar{ background: none;}
+.nobg{ background: none; cursor: pointer; border:none;}
+
+.commonWrapperArea p.label{ color: #103F8A;font-size: 16px;font-family: 'Montserrat', sans-serif; font-weight: 400; line-height: 20px;margin: 0; }
+.commonWrapperArea p.label span{ display: block; font-size: 12px; color: #808080;} 
+
+.commonWrapperArea p.price{ color: #103F8A;font-size: 30px;font-family: 'Montserrat', sans-serif; font-weight: 400; line-height: 29px; margin-bottom: 25px; }
+.commonWrapperArea p.price span{  font-size: 12px; color: #808080;line-height: 12px;} 
+
+.footer_style{ margin-top: -95px;}
+.vnArea{ text-align: center; padding-top: 126px;}
+.vnArea p.normal{color: #0B203E; font-size: 16px;font-family: 'Montserrat', sans-serif; font-weight: 400; margin-bottom: 10px; }
+.vnArea p.bold{color: #0B203E; font-size: 16px;font-family: 'Montserrat', sans-serif; font-weight: 500; margin-bottom: 10px;} 
+
+.vnNumber{ background: #103F8A;
+    position: relative;
+    display: inline-flex;
+    padding: 10px 26px;
+    margin: 0 auto;}
+.vnNumber .arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #103F8A;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+}
+.vnNumber span{ color: #fff; font-size: 23px;font-family: 'Montserrat', sans-serif; font-weight: 400; }
+
+@media only screen and (max-width: 650px)  {
+  
+  .hideinMobile{display: none;}
+  .showInmobile { display: block;}
+  
+  .three_service{ height: 360px;}
+  .virtual1Form{ width: auto;}
+  .commonWrapperArea h3{ font-size: 20px;}
+  .commonWrapperArea{padding: 30px 12px;}
+  .commonWrapperArea p.headerText{ font-size: 14px; line-height:20px;}
+  .virtualNumberList h4{font-size: 19px;}
+  .vnArea{  padding-top: 16px;}
+  .vnArea p.normal{font-size: 13px; margin-bottom: 20px;}
+  .vnArea p.bold{font-size: 14px;} 
+}

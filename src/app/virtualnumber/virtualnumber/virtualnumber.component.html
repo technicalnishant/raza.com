@@ -1,0 +1,63 @@
+<div class="wraper">
+    <div class="first_fold">
+  
+      <h1 class="heading_style1">	
+      Virtual Numbers<br/>
+      <span>Free Call back! </span>
+      </h1>
+      <div class="home_banner virtual1_banner">
+          <!-- <img src="assets/images/banner_image.png" alt="banner"> -->
+      </div>
+    </div>
+    <!-- common wrapper -->
+    <div class="commonWrapperArea">
+        <div class="commonWrapperAreaShadowArea">
+            <div class="coverShadow"></div>
+        </div>
+        <h3>Friends and family far away?</h3>
+        <p class="headerText">Get a Raza Virtual Number in one of <span (click)="openVNList()" class="countryList">22 countries</span> so they can call you without
+  incoming international long distance rates.</p>
+  
+        <div class="virtual1Form">
+          <form class="example-form">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <p class="label">Where do you want a Virtual Number?<span>Select a country to see available area codes and prices for that area
+      </span></p>     
+                      <mat-form-field>
+                          <mat-select placeholder="Select Country">
+                              <mat-option *ngFor="let country of countries" [value]="country.value">
+                              {{ country.viewValue }}
+                          </mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                  </div>
+                  <div class="col-sm-6">
+                      <mat-form-field>
+                          <mat-select placeholder="State">
+                              <mat-option *ngFor="let state of states" [value]="state.value">
+                                  {{ state.viewValue }}
+                              </mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                  </div>
+                  <div class="col-sm-6">
+                      <mat-form-field>
+                          <mat-select placeholder="City">
+                              <mat-option *ngFor="let city of cities" [value]="city.value">
+                                  {{ city.viewValue }}
+                              </mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                  </div>
+                  <div class="col-sm-12"><p class="price">CAD 9.9/month <span>for this virtual number</span></p></div>
+                   
+              </div>
+              <button mat-button class="submitButtonSmall">Next</button>  
+          </form>
+      </div>
+  
+    </div>
+    <!-- common wrapper -->
+  </div>
+  

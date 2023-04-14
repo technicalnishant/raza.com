@@ -1,0 +1,189 @@
+ 
+  
+    <div class="form__wrapper">
+      <mat-horizontal-stepper [linear]="true" #stepper [selectedIndex]="selectepage" (selectionChange)="stepChange($event)">
+        <mat-step [stepControl]="paymentInfoForm">
+          <form [formGroup]="paymentInfoForm">
+          <div class="card-wrapper payment-card">
+            <div class="card-head">
+              <div class="main-title">Add New Credit Card</div>
+              <div><!--img src="../../assets/images/app-icons/photo-camera.svg" alt="" class="pr-18">--></div>
+            </div>
+            <div class="card-content comman-padding">
+              
+               <div class="form-group position-relative">
+                <label>Credit Card Number <span class="text-danger">*</span></label> 
+                <input type="text" required class="form-control" autocomplete="off" type="tel" formControlName="cardNumber" (keypress)="card_error_check()" maxlength="19" >
+                <!--<img src="../../assets/images/app-icons/mastercard_icon.svg" alt="" class="card-type">-->
+                
+                <div *ngIf=" cardSubmitted && cf.cardNumber.errors" class="mat-error" >
+                  <div>Valid card number is required</div>
+                  <!--<div *ngIf="cf.cardNumber.errors.required">Card number is required</div>-->
+                </div>
+                <div *ngIf=" cardClicked  && cf.cardNumber.errors" class="mat-error" >
+                  <div>Valid card number is required</div>
+                  <!--<div *ngIf="cf.cardNumber.errors.required">Card number is required</div>-->
+                </div>
+               </div>
+               <div class="d-flex  align-items-end">
+                 
+                 <div class="form-group w-100">
+                  <label>Expiry Date <span class="text-danger">*</span></label>
+                 <select  formControlName="validFrom" matSelect required class="form-control">
+                   <option value="">Month</option>
+                   <option *ngFor="let item of months" [value]="item.Code">{{item.Value}}</option>
+                 </select>
+                 </div>
+                 <div class="form-group w-100 mx-10">
+                  <!-- <mat-form-field formControlName="validTo">
+                    <mat-label>Select me</mat-label>
+                    <mat-select>
+                      <mat-option value="">Year</mat-option>
+                      <mat-option *ngFor="let item of years" [value]="item.Code">{{item.Value}}</mat-option>
+                    </mat-select>
+                  </mat-form-field> -->
+
+                  <select formControlName="validTo" class="form-control" matSelect required>
+                   <option value="">Year </option>
+                    <option *ngFor="let item of years" [value]="item.Code">{{item.Value}}</option>
+                  </select>
+                 </div>
+                 <div class="form-group w-100">
+                  <label class="align-items-end d-flex justify-content-between align-items-center"><div>CVV <span class="text-danger">*</span> </div><div><a href="javascript:void(0);" (click)="whatiscvv()" class="what-cvv">What is CVV</a></div></label>
+                  <input type="text" matInput required class="form-control placeholder" placeholder="3-4 digits" type="password" formControlName="cvv" maxlength="4" ccCvc>
+                 </div>
+                 
+               </div>
+               <div *ngIf="cardSubmitted && cf.validFrom.errors" class="mat-error" >
+                <div *ngIf="cf.validFrom.errors.required">Expiry month is required</div>
+              </div>
+               <div *ngIf="cardSubmitted && cf.validTo.errors" class="mat-error" >
+                <div *ngIf=" cf.validTo.errors.required">Expiry year is required</div>
+              </div>
+              <div *ngIf="cardSubmitted && cf.cvv.errors" class="mat-error" >
+                <div >Cvv is required</div>
+              </div>
+                <button class="btn btn-gradient btn-block mt-3" (click)="validateCard()" mat-button type="submit" matStepperNext>NEXT</button>
+              
+            </div>
+        </div>
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+    </mat-step>
+      <mat-divider class="mb-3"></mat-divider>
+     
+      <mat-step [stepControl]="billingInfoForm">
+
+        <form [formGroup]="billingInfoForm">
+        <div class="card-wrapper default-card">
+          <div class="card-head">
+            <div class="main-title">Payment Details</div>
+          </div>
+          <div class="card-content comman-padding pb-0">
+  
+              <mat-form-field appearance="legacy" class="w-100">
+                <mat-label class="label_address">First Name</mat-label>
+                <input matInput required formControlName="firstName">
+                <div *ngIf="addSubmitted && af.firstName.errors" class="mat-error" >
+                  <div *ngIf="af.firstName.errors.required">First Name is required</div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field appearance="legacy" class="w-100">
+                <mat-label class="label_address">Last Name</mat-label>
+                <input matInput required formControlName="lastName">
+
+                <div *ngIf="addSubmitted && af.lastName.errors" class="mat-error" >
+                  <div *ngIf="af.lastName.errors.required">Last Name is required</div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field appearance="legacy" class="w-100">
+                <mat-label class="label_address">Phone Number</mat-label>
+                <input matInput required formControlName="phoneNumber">
+              </mat-form-field>
+  
+              <mat-form-field appearance="legacy" class="w-100">
+                <mat-label class="label_address">Email ( Payment confirmation will be sent to)</mat-label>
+                <input matInput required formControlName="email">
+              </mat-form-field>
+  
+              
+  
+              <mat-form-field appearance="legacy" class="w-100">
+                <mat-label class="label_address">Address</mat-label>
+                <input matInput required class="input search_google" #addresstext formControlName="address">
+                <!--<input matInput required class="input search_google" (keypress)="getPlaceAutocomplete()" #addresstext formControlName="address">-->
+                <div *ngIf="addSubmitted && af.address.errors" class="mat-error" >
+                  <div *ngIf="af.address.errors.required">Address is required</div>
+                </div>
+              </mat-form-field>
+  
+              <mat-form-field appearance="legacy" class="w-100">
+                <mat-label class="label_address">City</mat-label>
+                <input matInput placeholder="City" formControlName="city" required> 
+                <div *ngIf="addSubmitted && af.city.errors" class="mat-error" >
+                  <div *ngIf="af.city.errors.required">Address is required</div>
+                </div>
+
+              </mat-form-field>
+  
+                <div *ngIf="search_country_id != 3">
+              <mat-form-field appearance="legacy" class="w-100" *ngIf="!isFreeStateText">
+                <mat-label class="label_address">State</mat-label>
+                <mat-select formControlName="state" required>
+                  <mat-option *ngFor="let item of states" [value]="item.Id">{{item.Name}}</mat-option>
+                </mat-select>
+                
+              </mat-form-field>
+              <mat-form-field *ngIf="isFreeStateText">
+                <mat-label class="label_address">State</mat-label>
+                <input matInput formControlName="state" required>
+              </mat-form-field>
+              <div *ngIf="addSubmitted && af.state.errors" class="mat-error" >
+                <div *ngIf="af.state.errors.required">Address is required</div>
+              </div>
+            </div>
+  
+              <mat-form-field appearance="legacy" class="w-100">
+                <mat-label class="label_address">Zip / Postal Code</mat-label>
+                <input matInput formControlName="zipcode" required>
+
+                <div *ngIf="addSubmitted && af.zipcode.errors" class="mat-error" >
+                  <div *ngIf="af.zipcode.errors.required">Address is required</div>
+                </div>
+              </mat-form-field>
+  
+              
+              <mat-form-field appearance="legacy" class="w-100">
+                <mat-label class="label_address">Country</mat-label>
+                <mat-select formControlName="country" (selectionChange)="onCountryChange($event.value)" required>
+                  <mat-option *ngFor="let item of countries" [value]="item.CountryId">{{item.CountryName}}
+                  </mat-option>
+                </mat-select>
+                <div *ngIf="addSubmitted && af.country.errors" class="mat-error" >
+                  <div *ngIf="af.country.errors.required">Address is required</div>
+                </div>
+              </mat-form-field>
+              <button class="btn btn-gradient btn-block my-3" mat-button (click)='onPaymentInfoFormSubmit()' >CONFIRM</button>
+          </div>
+      </div>
+    </form>
+        </mat-step>
+
+    </mat-horizontal-stepper>
+       
+    </div>
+
+    
+   

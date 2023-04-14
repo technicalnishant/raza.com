@@ -1,0 +1,50 @@
+[
+    {
+        "question": "What is the difference between the above 3 plans?",
+        "answer": "$9.99 plan is to call India Mobiles only, followed by $14.99 and $19.99 plans to call both Mobile phones and landlines. Choose any plan as per your calling requirements."
+    },
+    {
+        "question": "Will my minutes expire?",
+        "answer": "Minutes under the Monthly plan will expire every 30 days as your plan renews."
+    },
+    {
+        "question": "Who is eligible for this offer?",
+        "answer": "Both New and Existing customers can purchase this offer."
+    },
+    {
+        "question": "Is Unlimited plan available for USA and Canada customers?",
+        "answer": "Yes! This offer is for both USA and CANADA customers."
+    },
+    {
+        "question": "Can I avail this offer more than once?",
+        "answer": "This plan will automatically recharge every month as per your billing cycle."
+    },
+    {
+        "question": "Can I cancel my auto-refill anytime?",
+        "answer": "Absolutely, you may choose to cancel this plan anytime, however you cannot use this plan once it's cancelled. We recommend our customers to call us closer to your billing date so we can stop or cancel your plan."
+    },
+    {
+        "question": "How can I get this plan?",
+        "answer": "This plan is available online or by calling our 24/7 customer service team."
+    },
+    {
+        "question": "Once I get this plan, can I make calls to other countries? ",
+        "answer": "Yes! You will be able to make calls to anywhere in the world. The rates will differ, based on the countries you are calling."
+    },
+    {
+        "question": "Do I qualify for Raza rewards or can I apply any additional coupons on this plan?",
+        "answer": "No, this is already a discounted plan, no rewards or additional coupons apply to this low rate plan."
+    },
+    {
+        "question": "Are there any hidden charges?",
+        "answer": " There are no hidden charges on any of our plans. A service fee of $3.99 is applicable for $9.99 plan and fee of $7.99 for $14.99 and $19.99 plans."
+    },
+    {
+        "question": "Will the rates differ to call Landlines and Mobiles?",
+        "answer": "Rates to call Landlines and Cell phones may differ based on the country you are calling."
+    },
+    {
+        "question": "Once I have purchased the plan how do I make calls?",
+        "answer": "Dial the Raza Access number. \n For International Calls: Dial 011 + Country Code +City Code + Number followed by # sign. \nTo call within USA, Canada or Caribbean: Dial 1 + Area Code + Number followed by # sign. \n*(Once you have dialed the destination number, please do not press send key.)"
+    }
+]

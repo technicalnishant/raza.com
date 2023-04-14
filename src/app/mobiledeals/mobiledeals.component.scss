@@ -1,0 +1,247 @@
+@import "__variables";
+@import "__mixins";
+// deals tab css start here
+$promotion-desktop: url("../../assets/images/promotion/deals.png");
+$promotion-mobile: url("../../assets/images/promotion/mobile-deals-inner.png");
+.Guyana{
+    background-color: #ffe5e1;
+}
+.mins{
+    background-color: #e4f5ee;
+}
+.india{
+    background-color:#ededf3 ;
+}
+.buy1{
+    background-color:#fff5db ;
+}
+.mobile-deal-wrapper {
+    padding: 100px 0 50px;
+    .title_main{
+        font-size: 46px;
+        color: #162f75;
+        font-weight: 800;
+        font-family: "Montserrat";
+        text-align: center;
+        margin: 50px 0;
+        @include breakpoint(sm) {
+            font-size: 34px;
+            margin: 20px 0;
+        }
+    }
+    .deal-box {
+       display: flex;
+        max-height: 500px;
+        padding: 20px 20px 0 20px;
+        margin: 20px;
+        border: 2px solid #0071e300;
+        overflow: hidden;
+        display: inline-block;
+        border-radius: 12px;
+        @include breakpoint(sm) {
+            margin-top: 20px;
+        }
+        &:hover {
+            border-color: #0071e3;
+        }
+        &:nth-child(2) {
+            margin-top: 170px;
+            @include breakpoint(sm) {
+                margin-top: 20px;
+            }
+            h1 {
+                margin-top: 30px;
+                position: relative;
+                &:before {
+                    content: "Get up to";
+                    font-size: 18px;
+                    position: absolute;
+                    top: -27px;
+                    background: #000;
+                    color: #fff;
+                    padding: 5px;
+                    @include breakpoint(sm) {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        &:nth-child(3) {
+            margin-top: -120px;
+            @include breakpoint(sm) {
+                margin-top: 20px;
+            }
+        }
+        .btn-wrapper {
+            .learn-more {
+                position: relative;
+                &:after {
+                    font-family: "Material Icons";
+                    content: "keyboard_arrow_right";
+                    font-feature-settings: "liga";
+                    font-size: 24px;
+                    position: absolute;
+                    top: -9px;
+                }
+            }
+            .buy-now {
+                background-color: #0071e3;
+                padding: 0px 20px;
+                border-radius: 20px;
+                color: #fff;
+            }
+            a {
+                margin-left: 20px;
+                color: #0066cc;
+                text-decoration: none;
+            }
+        }
+        .content-part {
+            width: 100%;
+            text-align: center;
+            h1,
+            p {
+                font-family: "Montserrat", sans-serif;
+                color: #000;
+            }
+            h1 {
+                font-weight: 600;
+                font-size: 44px;
+                color: #000000;
+                @include breakpoint(sm) {
+                    font-size: 24px;
+                }
+
+            }
+            p {
+                font-weight: 700;
+                font-size: 22px;
+                @include breakpoint(sm) {
+                    font-size: 18px;
+                }
+            }
+        }
+        .img-part {
+            text-align: right;
+            width: 100%;
+            img {
+                height: auto;
+                max-width: 100%;
+            }
+        }
+        &:nth-child(even) .content-part {
+            order: 2;
+        }
+    }
+}
+
+.promotions {
+    background-image: $promotion-desktop;
+    background-size: contain;
+    background-repeat: no-repeat;
+    .note {
+        font-size: 36px;
+        letter-spacing: -2px;
+        color: #000000;
+        font-weight: 400;
+        font-family: "Montserrat";
+        margin-bottom: 16px;
+    }
+}
+
+
+
+@include breakpoint(md) {
+    .promotions {
+        background-image: $promotion-mobile;
+        background-size: 100%;
+        background-size: contain;
+        background-position: bottom;
+    }
+    .deal-box.promotions {
+        max-height: 700px;
+        padding-right: 0;
+        // height: 543px!important;
+        .note {
+            margin: 0;
+            color: #000000;
+            font-weight: 700;
+            font-family: "Montserrat";
+            text-align: center;
+            font-size: 28px;
+        }
+        .btn-wrapper {
+            a {
+                margin-left: 0;
+                color: #0066cc;
+                text-decoration: none;
+                margin-top: 8px!important;
+            }
+        }
+        .content-part {
+            p {
+                font-size: 19px;
+                line-height: 22px;
+                color: #000000;
+                font-weight: 400!important;
+                font-family: "Montserrat";
+                text-align: center;
+            }
+            h1 {
+                font-size: 36px;
+                text-align: center;
+                display: block;
+                margin: auto;
+                padding-bottom: 8px;
+                margin-bottom: 2px;
+                color: #000000;
+                font-weight: 600 !important;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@include breakpoint(min-md) {
+    .deal-box {
+        display: flex;
+        align-items: center;
+    }
+    .content-part {
+        width: 50%;
+    }
+    .content-part h1 {
+        font-size: 3rem;
+    }
+    .img-part {
+        width: 50%;
+    }
+    .btn-wrapper a {
+        margin-left: 0 !important;
+    }
+    .btn-wrapper .learn-more {
+        margin-left: 20px !important;
+    }
+    .content-part {
+        text-align: left !important;
+        margin-left: 20px;
+    }
+}
+
+.tringle:before {
+    content: "";
+    position: absolute;
+    // background-image: url('https://d2uij5nbaiduhc.cloudfront.net/images/deal-top.png');
+    width: 148px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+}
+
+@media only screen and (max-width: 990px) {
+    .tringle:before {
+        content: none;
+    }
+}

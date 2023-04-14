@@ -1,0 +1,433 @@
+<div class="d-none d-md-block">
+    <div class="container-fluid">
+        <div class="top-header">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="country">
+                        <div class="flag-wrapper">
+                            <img *ngIf="flag_exists" src="./assets/images/flag/{{getcountryName()}}.png" alt="{{baseCountryName}}">
+                             <div *ngIf="!flag_exists" class="country-text">{{flag_name}}</div> 
+                        </div>
+                        <div class="country-name">
+                            <h1 class="text-center123">
+                              {{baseCountryName}} 
+                            </h1>
+                            <p *ngIf="!isAutoRefill">as low as {{RatePerMinWithOutPromo | sCurrency : countryCode}} / min</p>
+                            <p *ngIf="isAutoRefill">as low as {{RatePerMinPromo | sCurrency : countryCode}} / min</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="auto-refiil">
+                        <button mat-button class="{{!isAutoRefill?'active-button':''}}"
+                            (click)="setPlanType(0)">Regular Mins</button>
+                        <button mat-button class="{{isAutoRefill?'active-button':''}}"
+                            (click)="setPlanType(1)">Auto-refill Mins</button>
+                        <div (click)="tooltip.toggle()"
+                            aria-label="Show/Hide tooltip on the button at the end of this section"
+                            class="example-action-button">1
+
+                            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"
+                                width="18px" height="18px">
+                                <path
+                                    d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 7 L 11 9 L 13 9 L 13 7 L 11 7 z M 11 11 L 11 17 L 13 17 L 13 11 L 11 11 z" />
+                            </svg>
+                        </div>
+                        <div #tooltip="matTooltip" matTooltip="Your plan will be enrolled to auto-refill and recharges only when the balance falls below $2.
+                        Cancel anytime." matTooltipPosition="above"
+                            aria-tooltip="Button that displays and hides a tooltip triggered by other buttons">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid py-5 mb-3 ">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="d-flex border-bottom pb-4">
+                    <div class="first-col">
+                        <div class="first-inner">Amount</div>
+                        <div>Regular Minutes</div>
+                        <div>Bonus Minutes</div>
+                        <div>Total Minutes</div>
+                        <div>Rate/min</div>
+                        <div>Features <br>
+                            <small>Call Mobile & Landline.</small>
+                            <small>Call forwarding.</small>
+                            <small>Raza Rewards.</small>
+                            <small>Raza Mobile App.</small>
+                            <small>No Expiration Date.</small>
+                        </div>
+                    </div>
+                    <div *ngIf="isAutoRefill" class="d-flex flex-grow-1">
+                        <div *ngFor="let item of AutorefillPlans; let i = index" class="col-wrapper active {{getActiveClass(item)}}"
+                            (click)="setActiveClass(item); clicked = i" >
+                            <div class="bonus" *ngIf="item.DiscountApplied > 0">{{item.DiscountApplied}}% BONUS</div>
+                            <div class="ano-col">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}
+                                <small *ngIf="item.Price==90">$100</small>
+                            </div>
+                            <div class="inner-cell">{{item.TotalTime}}</div>
+                            <div class="inner-cell">{{item.PromoMinutes}}</div>
+                            <div class="inner-cell">{{item.TotalTime+item.PromoMinutes}}</div>
+                            <div class="inner-cell" *ngIf="item.Price==90">{{RatePerMinPromo}}₵</div>
+                            <div class="inner-cell" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵</div>
+                            <div class="check">
+                                <mat-icon>check</mat-icon>
+                            </div>
+                            <div class="button">
+                                <button mat-button (click)="onClickRateTab(item)">Buy Now</button>
+                                <small class="text-center">Cancel anytime</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="!isAutoRefill" class="d-flex flex-grow-1">
+                        <div *ngFor="let item of WithoutAutorefillPlans; let i = index" class="col-wrapper active {{getActiveClass(item)}}" (click)="setActiveClass(item)">
+                            <div class="bonus" *ngIf="item.DiscountApplied > 0">{{item.DiscountApplied}}% BONUS</div>
+                            <div class="ano-col">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}
+                                <small *ngIf="item.Price==90">$100</small>
+                            </div>
+                            <div class="inner-cell">{{item.TotalTime}}</div>
+                            <div class="inner-cell">{{item.PromoMinutes}}</div>
+                            <div class="inner-cell">{{item.TotalTime+item.PromoMinutes}}</div>
+
+
+                            <div class="inner-cell" *ngIf="item.Price==90">{{RatePerMinWithOutPromo}}₵</div>
+                            <div class="inner-cell" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵</div>
+
+                            <div class="check">
+                                <mat-icon>check</mat-icon>
+                            </div>
+                            <div class="button">
+                                <button mat-button (click)="onClickRateTab(item)">Buy Now</button>
+                                <small class="text-center">Cancel anytime</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-links">
+                    <div>
+                        <a (click)="learnmore()" href="javascript:void(0)">Learn more</a>
+                        <a class="viewAll" href="javascript:void(0)" (click)="viewAllRatesTab()">View all rates</a>
+                    </div>
+                    <div>
+                        Have a question? <a (click)="contactUs()">Call us</a>
+                    </div>
+                </div>
+                <div class="all-rates viewAllRatesPanel" *ngIf="viewAllrate">
+
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h4>Global call rates to call {{countryName}}</h4>
+                            <p>These rates apply to call {{countryName}} only, rates to call other countries may
+                                differ.</p>
+                        </div>
+                        <div class="col-md-2 drop_down_div">
+                            <mat-form-field appearance="legacy" class="w-100">
+                                <mat-label>Select Amount</mat-label>
+                                <mat-select class="fix_height" (selectionChange)="selectDenomination()" placeholder="Select amount"
+                                    [formControl]="denominationSelectControl" >
+                                    <mat-option *ngFor="let item of denominationList" [value]="item">
+                                        {{item | bCurrency}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-12">
+
+                            <table class="table">
+                                <thead>
+                                    <th>Operator</th>
+                                    <th>Regular Minutes</th>
+                                    <th>Bonus Minutes</th>
+                                    <th> Total Minutes</th>
+                                    <th>Rate / min</th>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let item of FilteredSubPlans">
+                                        <td>{{item.CountryName}} </td>
+                                        <td>{{item.DiscountedRate.TotalTime}}</td>
+                                        <td>{{item.DiscountedRate.PromoMinutes}}</td>
+                                        <td>{{item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes}}</td>
+                                        <td>{{getSubbCallRates(item) | sCurrency : globalPlanData.CurrencyCode }} / min
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="button" *ngIf="FilteredSubPlans">
+                                <button mat-button class="px-5" (click)="buyPlan()"
+                                    style="background-color: #f3c423;">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="descText marginTop15 text-center">*All the rates are calculated on the highest denomination
+                    calling plan. For your convenience the plan is set to Auto-refill please uncheck to view the rates
+                    without auto-refill.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- mobile version start here -->
+
+<div class="d-md-none d-block">
+    <div class="container-fluid">
+        <div class="fixed-header">
+            <div class="top-header">
+                <div class="country">                    
+                        <img *ngIf="flag_exists" src="./assets/images/flag/{{getcountryName()}}.png" alt="{{countryName}}">
+                         <div *ngIf="!flag_exists" class="country-text">{{flag_name}}</div> 
+                     
+
+                    <div class="country-name">
+                        <h1 class="text-center">
+                            {{countryName}}
+                        </h1>
+                        <p>as low as {{RatePerMin | sCurrency : countryCode}} / min</p>
+                    </div>
+                </div>
+                <div class="auto-refiil">
+                    <button mat-button class="{{!isAutoRefill?'active-button':''}}" (click)="setPlanType(false)">Reg.
+                        Mins</button>
+                    <button mat-button class="{{isAutoRefill?'active-button':''}}" (click)="setPlanType(true)">10% Bonus mins</button>
+                    <div (click)="tooltip.toggle()" aria-label="Show/Hide tooltip on the button at the end of this section"
+                        class="example-action-button">
+    
+                        <svg fill="#244481" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px"
+                            height="18px">
+                            <path
+                                d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 7 L 11 9 L 13 9 L 13 7 L 11 7 z M 11 11 L 11 17 L 13 17 L 13 11 L 11 11 z" />
+                        </svg>
+                    </div>
+                    <div #tooltip="matTooltip" matTooltip="1. Enroll to Auto-refill and earn 10% bonus minutes.
+                                    2. We will recharge your plan only when the account balance falls below $2.
+                                    3. Cancel online or by calling customer service anytime." matTooltipPosition="bellow"
+                        aria-tooltip="Button that displays and hides a tooltip triggered by other buttons">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-light">
+                <div class="container-fluid">
+                    <div class="d-flex py-lg-4 justify-content-between flex-wrap py-3">
+                        <div  [class.selected]="clicked === i" (click)="clicked = i" *ngFor="let item of Plans; let i = index" class="deno-box {{getSelected_box(i)}}">
+                            <a (click)="owlCar.to(item.id)" id="class_box_{{i}}"> <span *ngIf="item.Price == 90">{{ 100 | bCurrency :
+                                    countryCode }}</span>
+                                {{ item.Price | bCurrency : countryCode }}</a>
+                        </div>
+                        <!-- <div class="top_list">
+                                <a class="btn btn-success" *ngFor="let item of Plans; let i = index"  (click)="owlCar.to(item.id)"> {{item.id}}</a>
+                            </div>  -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="container-fluid px-0">
+        <div class="denomination-wrapper">
+            <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)"
+                (change)="getChangeData($event)" (changed)="getChangedData($event)" #owlCar>
+                <ng-container *ngFor="let item of Plans; let i = index">
+                    <ng-template carouselSlide [id]="item.id" [width]="282">
+                        <div class="denomination-box">
+                            <div class="bonus">{{item.DiscountApplied}}% BONUS</div>
+                            <table class="table">
+                                <thead>
+                                    <th>Amount</th>
+                                    <th class="text-right positon-relative">
+                                        <span class="slice" *ngIf="item.Price==90">$100</span>
+                                        {{ item.Price | bCurrency : countryCode }}
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Regular Minutes
+                                        </td>
+                                        <td class="text-right">{{item.TotalTime}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <span class="text_blue"> Bonus  {{item.DiscountApplied}}% </span>
+                                        </td>
+                                        <td class="text-right">{{item.PromoMinutes}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Total Minutes
+                                        </td>
+                                        <td class="text-right">{{item.TotalTime+item.PromoMinutes}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Rate/min
+                                        </td>
+                                        <td class="text-right" *ngIf="item.Price==90">{{RatePerMinPromo}}₵</td>
+                                        <td class="text-right" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵</td>
+
+
+                                    </tr>
+                                    <!-- <tr>
+                                        <td>
+                                            Features
+                                            <div>Call Mobile & Landline. </div>
+                                            <div>Raza Rewards.
+
+                                                <a matTooltip="Info about the action" matTooltipPosition="bellow"
+                                                    aria-label="Show/Hide tooltip on the button at the end of this section">
+
+                                                    <svg fill="#244481" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 24 24" width="18px" height="18px">
+                                                        <path
+                                                            d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 7 L 11 9 L 13 9 L 13 7 L 11 7 z M 11 11 L 11 17 L 13 17 L 13 11 L 11 11 z" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div>Raza Mobile App.</div>
+                                        </td>
+                                        <td class="text-right">
+                                            <mat-icon>check</mat-icon>
+                                        </td>
+                                    </tr> -->
+                                    <!-- <tr>
+                                        <td colspan="2">
+                                            <div class="auto-refiil">
+                                                <button mat-button class="{{!isAutoRefill?'active-button':''}}" (click)="setPlanType(false)">Reg.
+                                                    Mins</button>
+                                                <button mat-button class="{{isAutoRefill?'active-button':''}}" (click)="setPlanType(true)">
+                                                    
+                                                    10% Bonus mins
+                                                </button>
+                                                <div (click)="tooltip.toggle()" aria-label="Show/Hide tooltip on the button at the end of this section"
+                                                    class="example-action-button" matTooltipPosition="above" matTooltipClass="mobile-ttoltip">
+                                
+                                                    <svg fill="#244481" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px"
+                                                        height="18px">
+                                                        <path
+                                                            d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 7 L 11 9 L 13 9 L 13 7 L 11 7 z M 11 11 L 11 17 L 13 17 L 13 11 L 11 11 z" />
+                                                    </svg>
+                                                </div>
+                                                <div #tooltip="matTooltip" matTooltip="Your plan will be enrolled to auto-refill and recharges only when the balance falls below $2.
+                                                Cancel anytime." 
+                                                    aria-tooltip="Button that displays and hides a tooltip triggered by other buttons" matTooltipClass="mobile-ttoltip" matTooltipPosition="above">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr> -->
+                                    <tr>
+                                        <td colspan="2" class="border-top-0">
+                                            <div class="button">
+                                                <button mat-button (click)="onClickRateTab(item)">Buy Now</button>
+                                                <small class="text-center py-1">Cancel anytime</small>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+
+
+        </div>
+
+        <div class="all-rates viewAllRatesPanel px-3">
+            <div class="bottom-links">
+                <div>
+
+                    <a (click)="learnmore()" href="javascript:void(0)">Learn More</a>
+                    <a href="javascript:void(0)" (click)="viewAllRatesTab()">View all rates</a>
+                </div>
+                <div>
+                    Have a question? <a (click)="contactUs()">Call us</a>
+                </div>
+            </div>
+            <div class="row" *ngIf="viewAllrate">
+                <div class="col-md-9">
+                    <h4>Global call rates to call {{countryName}}</h4>
+                    <p>These rates apply to call {{countryName}} only, rates to call other countries may
+                        differ.</p>
+                </div>
+                <div class="col-md-3 drop_down_div">
+                    <mat-form-field appearance="legacy" class="w-100">
+                        <mat-label>Select Amount</mat-label>
+                        <mat-select (selectionChange)="selectDenomination()" placeholder="Select amount"
+                            [formControl]="denominationSelectControl" >
+                            <mat-option *ngFor="let item of denominationList" [value]="item">
+                                {{item | bCurrency}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <th>Operator</th>
+
+                            <th>Regular Minutes</th>
+                            <th>Bonus Minutes</th>
+                            <th> Total Minutes</th>
+                            <th>Rate / min</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of FilteredSubPlans">
+                                <td>{{item.CountryName}}</td>
+                                <td>{{item.DiscountedRate.TotalTime}}</td>
+                                <td>{{item.DiscountedRate.PromoMinutes}}</td>
+
+                                <td>{{item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes}}</td>
+                                <td>{{getSubbCallRates(item) | sCurrency : globalPlanData.CurrencyCode }} / min</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="button">
+                        <button mat-button class="px-5" style="background-color: #f3c423;">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-3"></div>
+</div>
+
+
+
+
+
+
+<!-- <div>Some tags before</div>
+<owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide id="owl-slide-1" datahash="one"><img
+            src="https://images.pexels.com/photos/4171475/pexels-photo-4171475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt=""></ng-template>
+    <ng-template carouselSlide id="owl-slide-2" datahash="two"><img
+            src="https://images.pexels.com/photos/4171475/pexels-photo-4171475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt=""></ng-template>
+    <ng-template carouselSlide id="owl-slide-3" datahash="three"><img
+            src="https://images.pexels.com/photos/4171475/pexels-photo-4171475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt=""></ng-template>
+</owl-carousel-o>
+<div>Some tags after</div>
+
+
+
+<a class="button btn btn-primary mx-3 secondary url" href="globalcallrates/{{countryId}}#one">one</a>
+<a class="button btn btn-primary mx-3 secondary url" href="globalcallrates/{{countryId}}#two">two</a>
+<a class="button btn btn-primary mx-3 secondary url" href="globalcallrates/{{countryId}}#three">three</a> -->

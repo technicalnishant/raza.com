@@ -1,0 +1,294 @@
+@import "__variables";
+@import "__mixins";
+.input_holder1 {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	@media only screen and (max-width: 800px){ 
+	text-align: center;}
+}
+.table {
+	td {
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		color: #808080;
+		font-size: 18px;
+		padding-left: 0px;
+		padding-right: 0px;
+		&:first-child {
+			text-align: left;
+		}
+		&:last-child {
+			text-align: right;
+		}
+	}
+	tr {
+		&.total {
+			td {
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 600;
+				color: #0B203E;
+				padding: 28px 0;
+			}
+		}
+	}
+}
+.tabContentMyaccount {
+	clear: both;
+	overflow: hidden;
+	padding: 136px 0;
+	margin: 0;
+	width: 100%;
+	background-color: #f6f8fa;
+	padding: 60px 0;
+	background: #fff;
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 30px;
+	.submitButton {
+		width: auto !important;
+		padding: 9px 28px;
+		font-size: 15px;
+		margin-top: 5px;
+	}
+	table {
+		margin-top: 40px;
+		th {
+			color: #103F8A;
+			font-size: 14px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 500;
+		}
+		td {
+			font-size: 13px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			color: #808080;
+			&:last-child {
+				text-align: left;
+			}
+			a {
+				color: #103F8A;
+				font-size: 13px;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 400;
+				text-decoration: underline;
+			}
+		}
+		tr {
+			&.total {
+				td {
+					color: #103F8A;
+					font-size: 13px;
+					font-family: 'Montserrat', sans-serif;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+}
+p {
+	&.tabTitle {
+		text-align: center;
+		color: #0B203E;
+		font-size: 24px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+	}
+	&.currentBalance {
+		color: #0B203E;
+		font-size: 24px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		margin-bottom: 3px;
+	}
+	&.commonTabText {
+		color: #103F8A;
+		font-size: 20px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+		margin-bottom: 3px;
+	}
+}
+.planDetails {
+	padding: 60px 36px;
+}
+.tabContentMyaccount table th,.tabContentMyaccount table td {
+	padding: 10px !important;
+}
+.tabContentMyaccount table, .tabContentMyaccount table th,.tabContentMyaccount table td,.tabContentMyaccount table tr {
+	border: none;
+}
+.table-striped {
+	tbody {
+		tr {
+			&:nth-of-type(odd) {
+				background: #fafafa;
+			}
+		}
+	}
+}
+.myNumberButtonArea {
+	margin: 0 auto;
+	display: table;
+	clear: both;
+	overflow: hidden;
+	button {
+		float: left;
+	}
+	.submitButton {
+		margin-right: 7px;
+	}
+}
+table {
+	&.showAlltable {
+		width: 100%;
+		tr {
+			td {
+				width: 33.33%;
+			}
+		}
+	}
+}
+.onlyDesktopAccount {
+	display: block;
+	clear: both;
+	overflow: hidden;
+	max-width: 1200px;
+	margin: 0 auto;
+	.leftTabArea {
+		float: left;
+		width: 17%;
+		h5 {
+			color: #0B203E;
+			font-size: 22px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+		}
+		ul {
+			list-style-type: none;
+			padding: 0px;
+			li {
+				line-height: 50px;
+				border-bottom: 1px solid #D8D8D8;
+				&.noBorder {
+					border: none;
+				}
+				a {
+					display: block;
+					color: #0B3D8D;
+					font-size: 18px;
+					font-family: 'Montserrat', sans-serif;
+					font-weight: 300;
+				}
+				&.active {
+					color: #0B3D8D;
+					a {
+						text-decoration: underline;
+						font-weight: 500;
+					}
+				}
+				ul {
+					padding: 0 0 0 31px;
+					li {
+						border-bottom: none;
+						line-height: 40px;
+						&.active {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+		.mat-expansion-panel {
+			background: none !important;
+			&:hover {
+				background: none !important;
+			}
+		}
+		.mat-expansion-panel-header-title {
+			color: #0B3D8D;
+			font-size: 18px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 300;
+		}
+	}
+	.rightTabArea {
+		float: left;
+		width: 920px;
+		margin-left: 36px;
+	}
+}
+.onlySmallScreenAccount {
+	display: none;
+}
+td {
+	&.moreIcon {
+		position: relative;
+		button {
+			background: none;
+			border: none;
+			display: block;
+			height: auto;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+		}
+		.mat-icon {
+			color: #103F8A;
+			font-size: 37px;
+		}
+	}
+}
+#onetouch {
+	tr {
+		&:hover {
+			.moreArea {
+				display: inline-block;
+			}
+		}
+	}
+}
+.moreArea {
+	display: block;
+}
+  
+  @media only screen and (max-width: 868px)  {
+  .tabContentMyaccount{margin-bottom: 0px;}   
+  .tabContentMyaccount{padding: 120px 0 0 0; margin-bottom: 0px;}
+  h2.welcomeText{font-size: 27px; margin-bottom: 10px;}
+  .onlyDesktopAccount{ display: none;}
+  .onlySmallScreenAccount {display: block}
+  .myAccountMobileSelect{ display: block; text-align: center;}
+  .mat-select{margin-bottom: 0px !important;}
+  .planDetails{ padding: 50px 0px;}
+  p.disclaimer{ display: none;}
+  .planDetails p.tabTitle{ margin-bottom:50px; font-weight: 600; }
+  .tabContentMyaccount table tr th,.tabContentMyaccount table tr td{ /*width: 50%;*/padding: 10px 25px !important;}
+  table.orderHistory tr td:first-child{font-family: 'Montserrat', sans-serif; font-weight: 500; color:#0B203E;}
+  .razawebNumberRightApplinkArea{ margin: 25px 10px !important;padding: 20px 12px !important;} 
+  .greyBg{background: #FAFAFA; margin: 0px;padding: 30px 0; border-top: 1px solid #C7C7C7;}
+  .paymentDetails{padding: 60px 25px;}
+  .tabContentMyaccount .submitButton{margin-top: 40px;}
+  
+  .myNumberButtonArea{ width: 100%; text-align: center; }
+  .myNumberButtonArea button:first-child{float: none; display: block; margin: 0 auto 30px; width: 240px !important;}
+  .myNumberButtonArea button:last-child{float: none; display: block; margin: 0 auto 30px; width: 240px !important;}
+  .numberTabCont.paymentDetails{ padding: 60px 0;}
+  .enabledText .mat-icon{ font-size:16px;}
+  .tabContentMyaccount .callForward table{ margin-top: 0px;}
+  table.showAlltable tr td{width: 33.33% !important;}
+  
+  .app_list ul{ display: flex; margin: 0 auto;}
+  .app_list{ clear: both; overflow: hidden;}
+  .app_list ul li:last-of-type {
+      margin: 0px !important;
+  }
+
+  .tabContentMyaccount .submitButton{margin:30px auto !important;}
+  
+  } 
+  
+  a{
+	  text-decoration: none;
+  }

@@ -1,0 +1,89 @@
+<div class="recharge_block recharge2 overflowHidden">
+  <!--rechargeStep -->
+  <div class="rechargeStepMain">
+    <div class="rechargeStep">
+      <div class="step1">
+        <p class="step">Step 1</p>
+        <p class="stepName">Login</p>
+      </div>
+      <div class="step2 active">
+        <p class="step">Step 2</p>
+        <p class="stepName">Payment</p>
+      </div>
+      <div class="step3">
+        <p class="step">Step 3</p>
+        <p class="stepName">Confirmation</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- rechargeStep -->
+  <p class="updateCard">Update Card Details</p>
+  <div class="container containerMobile">
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="col-md-12">
+          <h2 class="heading_style4">
+            <span>padding: 9px 2px;
+    margin: 0 0 5px 0;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    height: 50px;
+    border-bottom: 1px solid #999999;</span>
+          </h2>
+        </div>
+        <div class="col-md-12">
+          <div class="form_holder form_holder2 creditCard_paypal">
+            <mat-tab-group>
+              <mat-tab label="Credit Card">
+                <new-credit-card-payment-box (onPaymentSubmit)="onPaymentInfoFormSubmit($event)">
+                </new-credit-card-payment-box>
+              </mat-tab>
+              <mat-tab label="PayPal">
+                <ng-template matTabContent>
+                  <div class="form_row1">
+                    <div class="input_holder1">
+                      <div id="paypal-button-container"></div>
+                      <raza-paypal [config]="payPalConfig"></raza-paypal>
+                    </div>
+                  </div>
+                </ng-template>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-xl-1"></div>
+      <div class="col-xl-5">
+        <div class="col-md-12">
+          <h2 class="heading_style4">
+            <span>Your order</span>
+          </h2>
+        </div>
+        <table class="table">
+          <!-- <tbody>
+            <tr>
+              <td>Plan</td>
+              <td>{{purchasePlanReq.CardName}}</td>
+            </tr>
+            <tr>
+              <td>Purchase Amount</td>
+              <td>{{ purchasePlanReq.details.Price | bCurrency }} </td>
+            </tr>
+            <tr>
+              <td>Service Fee</td>
+              <td>{{ calculateServiceFee() | bCurrency }}</td>
+            </tr>
+            <tr class="total">
+              <td>Total </td>
+              <td>{{totalAmount() | bCurrency}}</td>
+            </tr>
+          </tbody> -->
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

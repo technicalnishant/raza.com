@@ -1,0 +1,260 @@
+.example-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.virtualCommingSoon {
+	.submitButton {
+		background: #E8E8E8 !important;
+		&:hover {
+			background: #E8E8E8 !important;
+		}
+	}
+}
+.hideinMobile {
+	display: block;
+}
+.showInmobile {
+	display: none;
+}
+.mat-toolbar {
+	background: none;
+}
+.nobg {
+	background: none;
+	cursor: pointer;
+	border: none;
+}
+.commonWrapperArea {
+	&.learnmore {
+		padding: 30px 10px;
+	}
+}
+.learnmore {
+	.bonusArea {
+		display: table;
+		margin: 0 auto;
+		position: relative;
+		span {
+			float: left;
+			color: #0B203E;
+			font-weight: 500;
+			margin-right: 15px;
+			font-size: 16px;
+			text-transform: uppercase;
+		}
+	}
+	.i_icon {
+		position: absolute;
+		top: 4px;
+	}
+	.callRate {
+		display: table;
+		margin: 23px auto;
+		span {
+			color: #0B203E;
+			font-weight: 400;
+			font-size: 24px;
+			font-family: 'Montserrat', sans-serif;
+			&:first-child {
+				margin-right: 20px;
+			}
+			&:last-child {
+				margin-left: 20px;
+			}
+		}
+	}
+	.submitButton {
+		padding: 8px 16px !important;
+		width: 146px !important;
+	}
+}
+ul {
+	&.learnmoreUl {
+		list-style-type: none;
+		padding: 15px 0;
+		display: table;
+		margin: 0 auto;
+		li {
+			float: left;
+			margin-right: 20px;
+			span {
+				float: left;
+				&.radio {
+					padding: 14px 10px;
+				}
+			}
+		}
+	}
+}
+.radioValueLearnmore {
+	width: 308px;
+	padding: 10px 20px;
+	border: 1px solid #D4D4D4;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	float: left;
+	span {
+		color: #0B203E;
+		font-size: 17px;
+		font-family: 'Montserrat', sans-serif;
+		&:first-child {
+			float: left;
+			font-weight: 500;
+		}
+		&:last-child {
+			float: right !important;
+		}
+		strong {
+			font-weight: 500;
+		}
+	}
+}
+.form_row1 {
+	clear: both;
+	overflow: hidden;
+}
+.greyLinelearnmore {
+	height: 1px;
+	background: #D4D4D4;
+	margin: 35px 0;
+}
+.learnCommonRow {
+	clear: both;
+	overflow: hidden;
+	padding: 40px 0;
+	.text {
+		width: 50%;
+		padding: 50px 60px 15px 0px;
+		h5 {
+			color: #000000;
+			font-size: 24px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			margin-bottom: 15px;
+			line-height: 30px;
+		}
+		p {
+			color: #000000;
+			font-size: 17px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			line-height: 25px;
+		}
+	}
+	.background_area {
+		width: 50%;
+		text-align: center;
+		background: #F5F6F7;
+		border-radius: 4px;
+		height: 278px;
+	}
+}
+.firstFirst .text ,.SecondFirst .background_area {
+	float: left !important;
+}
+.firstFirst .background_area , .SecondFirst .text {
+	float: right !important;
+}
+.SecondFirst {
+	.text {
+		padding: 50px 60px 15px 30px !important;
+	}
+}
+.benefitArea_learnmore {
+	padding: 60px 10%;
+	background: #0160E0;
+	color: #fff;
+	margin-top: -100px;
+	h2 {
+		color: #fff;
+		text-align: center;
+		margin-bottom: 20px;
+		font-size: 30px;
+	}
+	p {
+		text-align: center;
+		&.mainTxt {
+			font-size: 18px;
+			color: #fff;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			line-height: 27px;
+			margin-bottom: 61px;
+		}
+	}
+	h5 {
+		font-size: 17px;
+		color: #fff;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+	}
+	.txtArea {
+		margin-bottom: 20px;
+		p {
+			text-align: left;
+			color: #fff;
+			font-size: 15px;
+			line-height: 27px;
+		}
+	}
+}
+.section_last_learnMore {
+	padding: 50px 0;
+}
+.grey1 {
+	padding: 28px 0;
+}
+.grey3 {
+	padding: 56px 0;
+}
+.grey4 {
+	padding: 25px 0;
+}
+.text2 {
+	margin-top: 25px;
+}
+.text4 {
+	margin-top: 26px;
+}
+
+
+
+@media only screen and (max-width: 650px)  {
+
+  
+  
+  .hideinMobile{display: none;}
+  .showInmobile { display: block;}
+  
+  .three_service{ height: 360px;}
+
+  .firstFirst .text ,.SecondFirst .background_area{ float: none !important; width: 100%;}
+  .firstFirst .background_area , .SecondFirst .text{ float: none !important;  width: 100%;}
+  .learnCommonRow img{ max-width: 100%;}
+  .text{ text-align: center;}
+  .learnmore .bonusArea span{font-size: 12px;margin-right: 11px; line-height: 26px;}
+  .radioValueLearnmore{ width: 210px;}
+  ul.learnmoreUl li{ margin-right: 0px; margin-bottom:20px }
+  .learnmore .submitButton{margin-top: 0px;}
+  .background_area{ background: none !important;}
+  .learnCommonRow{ padding: 3px 0;}
+  .learnCommonRow .background_area{ padding: 10px 10px;}
+  .learnCommonRow .text{ text-align: center; padding: 20px 0 !important;}
+  .benefitArea_learnmore{ padding: 100px 10px !important;}
+  .section_last_learnMore { width: 80%; margin: 0 auto;}
+  .benefitArea_learnmore p.mainTxt{padding: 0px !important;}
+
+  .learnmore .callRate span{ display: block; margin:0 auto !important; font-size: 24px; text-align: center;}
+  .learnmore .callRate img{ margin: 10px auto; display: block;}
+  .radioValueLearnmore span:first-child{ font-size: 20px;}
+  .radioValueLearnmore span:last-child{font-size: 16px;font-weight: 300;}
+  .radioValueLearnmore span strong{font-size: 20px;}
+  .learnCommonRow .background_area{padding: 10px 0 !important; height: auto;}
+      
+  
+}

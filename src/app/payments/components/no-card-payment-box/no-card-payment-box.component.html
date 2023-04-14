@@ -1,0 +1,99 @@
+<div class="col-md-12">
+  <h2 class="heading_style4"><span>Start Your Free Trial</span></h2>
+</div>
+  
+    
+    <div class="form_holder form_holder2 express_checkout">
+
+      <form [formGroup]="paymentInfoForm" (ngSubmit)='onPaymentInfoFormSubmit()' novalidate>
+      <div class="row form_holder5Row">
+        <div class="col-sm-12 ">
+
+
+
+          <mat-form-field class="example-full-width w-100">
+            <div matPrefix>
+              <div *ngIf="isPromotion==false" class="col-sm-12 formRowM15 text-left current-country">
+                <img alt="flag" height="20" src="./../../assets/images/blank.gif" width="30" [class]="countryFlagCss">
+
+              </div>
+              <div *ngIf="isPromotion==true" class="position-relative">
+                <div class="select_top1 text-left d-flex align-items-center mr-3" (click)="openFlagDropDown()">
+                  <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+                    [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId"> <span>+{{currentSetting.country.CountryCode}}</span>
+                  <svg version="1.1" class="ml-2" fill="#929292" height="12" width="12" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 386.257 386.257"
+                    style="enable-background:new 0 0 386.257 386.257;" xml:space="preserve">
+                    <polygon points="0,96.879 193.129,289.379 386.257,96.879 " />
+                  </svg>
+                  <!-- You are in {{currentSetting.country?.CountryName}}
+      {{countryFrom}} -->
+                </div>
+
+                <div class="flag_list1" *ngIf="showDropdown">
+                  <ul>
+                    <li *ngFor="let item of countrysFrom" (click)="onSelectCountrFrom(item)">
+
+
+                      <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+                        [ngClass]="'flag flag-f-'+ item.CountryId">
+
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <input matInput placeholder="Phone Number" formControlName="phoneNumber" required>
+          </mat-form-field>
+        </div>
+
+
+        <div class="col-sm-12">
+          <mat-form-field class="example-full-width w-100">
+            <input matInput placeholder="Full Name" formControlName="firstName" required>
+          </mat-form-field>
+        </div>
+
+        <!--<div class="col-sm-6">
+          <mat-form-field class="example-full-width ">
+            <input matInput placeholder="Last Name" formControlName="lastName" required>
+          </mat-form-field>
+        </div>-->
+
+        <div class="col-sm-12">
+          <!-- <label>
+            <span class="i_icon">
+              <img matTooltipPosition="left"
+                matTooltip="Payment confirmation will be sent to."
+                src="../assets/images/i_icon.png" alt="" /></span></label> -->
+          <mat-form-field class="example-full-width w-100">
+            <input matInput placeholder="Email (Payment confirmation will be sent to)" formControlName="email">
+          </mat-form-field>
+        </div>
+
+      </div>
+      <div class="form_row1 full-width-btn fixed-btn">
+        <button type="submit" mat-button class="submitButton_confirms">VERIFY</button>
+      </div>
+    </form>
+
+    <div class="list">
+      <ul>
+        <li><mat-icon>check_circle</mat-icon> Global Calling</li>
+        <li><mat-icon>check_circle</mat-icon> Cancel Anytime</li>
+        <li><mat-icon>check_circle</mat-icon> Excellent Quality</li>
+      </ul>
+    </div>
+
+</div>
+
+
+<!--Open dialog if error comes. Do not remove this functionality is attached with this.-->
+<button type="hidden" style="display:none!important;" id="auto_trigger" (click)="editModal()"
+  class="btn btn-warning"></button>
+<!--EOF Open dialog if error comes -->
+
+<div id="mybraintreeDiv" style="position:absolute; width:100%;height:100%; z-index:9999;">
+  <div id="el"
+    style="position:absolute; z-index:9999; width:auto; background-color:#fff;height:auto; left:40%;top:40%;"></div>
+</div>

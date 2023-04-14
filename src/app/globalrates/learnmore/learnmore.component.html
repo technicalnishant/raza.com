@@ -1,0 +1,235 @@
+
+<div class="first_fold">
+
+<div class="home_banner learnmore_banner">
+    <!-- <img src="assets/images/banner_image.png" alt="banner"> -->
+</div>
+</div>
+<form class="example-form" [formGroup]="learnMoreForm" #formDirective="ngForm">
+
+
+<div class="commonWrapperArea learnmore">
+      <div class="bonusArea">
+          <span class="regularminTxt">Regular mins</span>
+          <span class="relative">
+            <mat-slide-toggle formControlName="toggle1" [(checked)]="isAutorefill" (change)="onChange($event)">PROMO MINS</mat-slide-toggle><img class="i_icon"  matTooltip="Lorem ipsum dolor sit amet, telloines consectetur adipiscing elit, sed do cani eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim demi veniam." matTooltipPosition="right" src="assets/images/i_icon.png" alt=""/>
+          </span>
+          <!-- <span class="bonusMin">10% Bonus mins</span> -->
+      </div>
+      <div class="callRate">
+        <span>Call {{countryName}}</span>
+         <!-- <img src="assets/images/nigeria_map.jpg" alt="" /> -->
+         <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ countryId"  [alt]="countryId" /></span>
+          <span>{{RatePerMin | sCurrency}} / min</span>
+      </div>
+
+      <ul class="learnmoreUl">
+        <mat-radio-group formControlName="matRadioBtn1" (change)="onSelectionChange($event)">
+        <li>
+           <span class="radio">
+              <mat-radio-button value="1"  [checked]="true"></mat-radio-button>
+             <!-- <mat-radio-button value="1"></mat-radio-button> -->
+            </span> 
+           <div class="radioValueLearnmore">
+             <span>{{Plans[3]?.Price | bCurrency : 'Pre'}}</span>
+             <span><strong>{{Plans[3]?.TotalTime}}</strong> mins</span>
+           </div>
+        </li>
+        <li>
+           <span class="radio">
+             <!-- <mat-radio-button  value="2"></mat-radio-button> -->
+              <mat-radio-button value="2"></mat-radio-button>
+
+            </span> 
+           <div class="radioValueLearnmore">
+             <span>{{Plans[2]?.Price | bCurrency : 'Pre'}}</span>
+             <span><strong>{{Plans[2]?.TotalTime}}</strong> mins</span>
+           </div>
+        </li>
+      </mat-radio-group>
+      </ul>
+      
+
+      <div class="form_row1">      	
+        <div class="input_holder1 text-center">
+          <button mat-button class="submitButton" (click)="onLearnMoreFormSubmit(1)">Buy Now</button> 
+        </div>
+      </div>
+
+      <div class="greyLinelearnmore"></div> 
+
+      <div class="learnCommonRow firstFirst">
+        <div class="background_area grey1">
+            <img src="assets/images/global_calling_image.png" alt=""/> 
+        </div>
+        <div class="text">
+          <h5>Global Calling</h5>
+          <p>Best Rates to call any Landlines and Cell phones worldwide! We believe in providing international calling at lowest possible rates so you can stay connected with your loved ones more frequently. </p>
+        </div>
+        
+      </div>
+
+      <div class="learnCommonRow SecondFirst">
+        <div class="background_area">
+            <img src="assets/images/call_quality_image.png" alt=""/> 
+        </div>
+        <div class="text text2">
+          <h5>Exceptional Call Quality</h5>
+          <p>Our State of the Art fiber optic network keeps you in touch by providing high quality calls to anywhere in the world.</p>
+        </div>
+        
+      </div>
+
+      <div class="learnCommonRow firstFirst">
+        <div class="background_area grey3">
+            <img src="assets/images/no_expiry_image.png" alt=""/> 
+        </div>
+        <div class="text">
+          <h5>No expiry date</h5>
+          <p>Not a frequent caller?  Not to worry! Your minutes will never expire with Raza communications. Just keep using your account at least once in 6 months so your account is active.</p>
+        </div>
+        
+      </div>
+
+      <div class="learnCommonRow SecondFirst">
+        <div class="background_area grey4">
+            <img src="assets/images/online_management_image.png" alt=""/> 
+        </div>
+        <div class="text text4"> 
+          <h5>Online Account Management</h5>
+          <p>Manage your account online 24/7. Gets full access to your account enabling you to view, edit and update your information anytime anywhere!</p>
+        </div>
+        
+      </div>
+      
+</div>
+
+<div class="benefitArea_learnmore">
+   <!-- <div class="container">
+   <form class="example-form">
+        <h2 class="heading_style2">Benefits</h2>
+        <p class="mainTxt">Partner up with Shoutem and deliver apps<br/> hat create vaulue for our customers</p>  -->
+        <div class="row">
+            <div class="col-sm-4 txtArea">
+                <h3>100% Money Back Guarantee</h3><b>We believe in what we offer!</b>
+                <p>Get your unused balance refunded at any time if you are not completely satisfied with our Product, Quality or Price</p>
+                
+            </div>
+            <div class="col-sm-4 txtArea">
+                <h3>Total Transparency</h3><b>Keep Track of your calls anytime anywhere!</b>
+                <p>View detailed breakdown of your call history. May it be for your records or for your business purpose? View and print details for the past 60 days right from the website.</p>
+            </div>
+            <div class="col-sm-4 txtArea">
+                <h3>Raza Rewards</h3><b>Earn points and redeem for minutes.</b>
+                <p>Whether you recharge or refer a friend, get bonus points every time. Signup today and earn 200 free points.</p>
+            </div>
+        </div>
+        
+    <!-- </form> 
+  </div>-->
+</div>
+
+<div class="learnmore section_last_learnMore">
+
+    <div class="bonusArea">
+          <span class="regularminTxt">Regular mins</span>
+          <span class="relative">
+            <mat-slide-toggle [(checked)]="isAutorefill" formControlName="toggle2" (change)="onChange($event)">PROMO MINS</mat-slide-toggle><img class="i_icon"  matTooltip="Lorem ipsum dolor sit amet, telloines consectetur adipiscing elit, sed do cani eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim demi veniam." matTooltipPosition="right" src="assets/images/i_icon.png" alt=""/>
+          </span>
+          <!-- <span class="bonusMin">10% Bonus mins</span> -->
+      </div>
+      <div class="callRate">
+        <span>Call {{countryName}}</span> 
+        <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ countryId"  [alt]="countryId" /></span>
+        <!-- <img src="assets/images/nigeria_map.jpg" alt="" />  -->
+        <span>{{RatePerMin | sCurrency}} / min</span>
+      </div>
+
+      <ul class="learnmoreUl">
+        <mat-radio-group (change)="onSelectionChange2($event)" formControlName="matRadioBtn2">
+        <li>
+           <span class="radio">
+             <!-- <mat-radio-button value="1"></mat-radio-button> -->
+
+              <mat-radio-button value="1" [checked]="true"></mat-radio-button>
+ 
+            </span> 
+           <div class="radioValueLearnmore">
+            <span>{{Plans[3]?.Price | bCurrency : 'Pre'}}</span>
+            <span><strong>{{Plans[3]?.TotalTime}}</strong> mins</span>
+           </div>
+        </li>
+        <li>
+           <span class="radio">
+              <mat-radio-button value="2"></mat-radio-button>
+            </span> 
+           <div class="radioValueLearnmore">
+            <span>{{Plans[2]?.Price | bCurrency : 'Pre'}}</span>
+            <span><strong>{{Plans[2]?.TotalTime}}</strong> mins</span>
+           </div>
+        </li>
+      </mat-radio-group>
+      </ul>
+      
+
+      <div class="form_row1">      	
+        <div class="input_holder1">
+          <button mat-button class="submitButton" (click)="onLearnMoreFormSubmit(2)">Buy Now</button> 
+        </div>
+      </div> 
+      
+      <!-- <div class="linethroughArea">
+        <div class="line"></div>
+        <span>FAQ’S</span>
+      </div>
+
+      <mat-accordion>
+
+              <mat-expansion-panel hideToggle (opened)="panelOpenState1 = true" (closed)="panelOpenState1 = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        100% Money Back Guarantee
+                    </mat-panel-title>
+                    <div class="matIconPlusMinus" [class.open]="panelOpenState1"> 
+                      <mat-icon *ngIf="!panelOpenState1">add</mat-icon>
+                      <mat-icon *ngIf="panelOpenState1">maximize</mat-icon>
+                    </div> 
+                  </mat-expansion-panel-header>
+                  <p><b>We believe in what we offer!</b></p>
+                  <p>Get your unused balance refunded at any time if you are not completely satisfied with our Product, Quality or Price</p>
+              </mat-expansion-panel>
+
+              <mat-expansion-panel hideToggle (opened)="panelOpenState2 = true" (closed)="panelOpenState2 = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      Total Transparency
+                  </mat-panel-title>
+                  <div class="matIconPlusMinus" [class.open]="panelOpenState2"> 
+                    <mat-icon *ngIf="!panelOpenState2">add</mat-icon>
+                    <mat-icon *ngIf="panelOpenState2">maximize</mat-icon>
+                  </div> 
+                </mat-expansion-panel-header>
+                <p><b>Keep Track of your calls anytime anywhere!</b></p>
+                <p>View detailed breakdown of your call history. May it be for your records or for your business purpose? View and print details for the past 60 days right from the website.</p>
+              </mat-expansion-panel>
+
+            <mat-expansion-panel hideToggle (opened)="panelOpenState3 = true" (closed)="panelOpenState3 = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Raza Rewards 
+                </mat-panel-title>
+                <div class="matIconPlusMinus" [class.open]="panelOpenState3"> 
+                  <mat-icon *ngIf="!panelOpenState3">add</mat-icon>
+                  <mat-icon *ngIf="panelOpenState3">maximize</mat-icon>
+                </div> 
+              </mat-expansion-panel-header>
+              <p><b>Earn points and redeem for minutes.</b></p>
+              <p>Whether you recharge or refer a friend, get bonus points every time. Signup today and earn 200 free points. </p>
+            </mat-expansion-panel>
+
+      </mat-accordion> -->
+
+</div>
+
+</form>
+

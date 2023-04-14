@@ -1,0 +1,33 @@
+<div class="tabContentMyaccount planDetails" id="mynumber">
+    <p class="tabTitle">Order History</p>
+    <div *ngFor="let item of orderHistoryList; index as i">
+      <table class="table greyBg orderHistory" [ngClass]="{'greyBg': i%2===0}">
+        <tbody>
+          <tr>
+            <td>My Plan</td>
+            <td>{{item.CardName}}</td>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>{{item.Price | bCurrency : item.CurrencyCode}}</td>
+          </tr>
+          <tr>
+            <td>Add Funds</td>
+             <td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td>
+ 
+            <td *ngIf="!item.IsAllowRecharge"><a>Monthly Recharge</a>&nbsp;<span
+                matTooltip="Monthly plans will recharge every 30 days from the date of purchase. Please Call us if you like to recharge now"><img loading="lazy"
+                  src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></td>
+          </tr>
+          <tr>
+            <td>Pin Number</td>
+            <td>{{item.Pin | pinNumber}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

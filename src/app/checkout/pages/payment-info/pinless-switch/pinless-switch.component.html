@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="heading_style4">
+      <span>Switch number</span>
+    </h2>
+  </div>
+  <div class="col-md-12 exiting-num">
+    <div class="form_holder form_holder2 creditCard_paypal">
+      <mat-selection-list #selList color='primary'>
+        <mat-list-option *ngFor="let number of pinlessNumbers" [value]="number">
+          {{number}}
+        </mat-list-option>
+      </mat-selection-list>
+
+      <div class="clearBoth">
+        <h2 class="heading_style8">
+          <span (click)="toggleShowAllNumbers()" class="showmore_country">
+            {{isShowMore ? 'Show more': 'Show less'}}</span>
+        </h2>
+      </div>
+
+
+      <div class="col-md-12">
+        <h2 class="heading_style4">
+          <span>Add New</span>
+        </h2>
+      </div>
+      <form [formGroup]="newPinFormGroup">
+        <div>
+          <div class="col-md-12" formArrayName="numbers">
+            <mat-form-field class="example-full-width" *ngFor="let item of newPinFormArray?.controls; let i=index"
+              [formGroupName]="i">
+              <input matInput placeholder="Enter number" type="tel" formControlName="pinlessNumber" />
+            </mat-form-field>
+            <a (click)="addNew()">Add New</a>
+          </div>
+
+        </div>
+
+
+        <div class="greyLine"></div>
+
+        <div class="form_row1">
+
+          <div class="input_holder1">
+            <button type="submit" (click)="saveNumbers()" mat-button class="submitButton">Confirm</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+
+  </div>
+</div>

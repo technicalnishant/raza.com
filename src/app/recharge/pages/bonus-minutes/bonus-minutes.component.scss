@@ -1,0 +1,21 @@
+.mins {
+	columns: 3;
+	width: 1000px;
+	column-gap: 60px;
+	div {
+		&:first-child {
+ font-size: 15px;
+	line-height: 31px;
+	color: #2f3b55;
+	font-weight: 500;
+	font-family: "Montserrat";
+}
+&:last-child {
+	font-size: 15px;
+	line-height: 31px;
+	color: #2f3b55;
+	font-weight: 500;
+	font-family: "Montserrat";
+}
+    }
+}

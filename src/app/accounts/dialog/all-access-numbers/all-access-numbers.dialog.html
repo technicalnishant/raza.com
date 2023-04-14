@@ -1,0 +1,11 @@
+<div class="form_holder commonPopup callUsPopup">
+  <span class="closeIconContactUs" (click)="closeIcon()"><i mat-dialog-close class="material-icons">close</i></span>
+  <h2>Access Numbers</h2>
+  <mat-dialog-content>
+    <div class="row commonPopupRow">
+      <div class="col-sm-12 callusRow">
+        <a *ngFor="let item of accessNumbers">{{item}}</a>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div>

@@ -1,0 +1,347 @@
+<!--- <div class="alert-notification" [class]="getAlertClass()">
+  <p>
+    <mat-icon>notification_important</mat-icon>
+    {{message}}
+  </p>
+  <span class="close-icon" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </span>
+</div>-->
+
+<!-- <div class="form_holder commonPopup promoCode failedPromo">
+ <span class="closeIcon promoFailed" (click)="close()" mat-dialog-close><i class="material-icons">close</i></span>
+  <mat-dialog-content>
+    <div class="row commonPopupRow justify-content-center">
+      <div class="col-sm-12">
+        
+        <h2>{{message}}</h2>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div> -->
+
+<!--response popup start-->
+<div class="topup-wrapper d-none d-lg-block" *ngIf="ticketSubmitted">
+
+  <div class="response-icon">&nbsp;</div>
+  <div class="col-md-12 text-center pb-2">
+    
+    <!--<h1 class="titleResponse mb-0">Thank you for your feedback </h1>-->
+  </div>
+  <div class="d-flex">
+    <p class="ticketresponse">{{ticketResponse}}</p>
+  </div>
+  <div class="col-md-12 right-panel bordersubmitresponse"><button mat-dialog-close class="submit-Button">Done</button></div>
+</div>
+<!--report an  issue popup -->
+<div class="topup-wrapper d-none d-lg-block" *ngIf="!ticketSubmitted">
+  <div mat-dialog-close class="close-btn">&nbsp;</div>
+  <div class="col-md-12 text-center pb-2">
+    <h1 class="titleMain mb-0">Report an issue </h1>
+    <p class="subDescription">Please tell us what wasn’t working </p>
+  </div>
+  <div class="col-md-12 mainboxE">
+    <div class="d-flex">
+    <div class="col-md-6 px-0">
+      <div class="left-panel">
+        <form
+          class="example-form"
+          [formGroup]="feedbackForm"
+          #formDirective="ngForm"
+          (ngSubmit)="onFeedbackFormSubmit(feedbackForm, formDirective)"
+        >
+        
+              <div class="mb-3">
+                <mat-form-field class="w-100">
+                  <input
+                    formControlName="phoneNumber"
+                    placeholder="Phone"
+                    matInput
+                    value=""
+                  />
+                  <mat-error
+                    *ngIf="feedbackForm.get('phoneNumber').hasError('maxlength')"
+                  >
+                    Your phone cannot exceed 10 characters.
+                  </mat-error>
+                  <mat-error
+                    *ngIf="feedbackForm.get('phoneNumber').hasError('pattern')"
+                  >
+                    Only number values allowed.
+                  </mat-error>
+                  <mat-error
+                    *ngIf="feedbackForm.get('phoneNumber').hasError('required')"
+                  >
+                    Phone number is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="mb-3">
+                <mat-form-field class="w-100">
+                  <input
+                    formControlName="email"
+                    placeholder="Email"
+                    matInput
+                    value=""
+                  />
+                  <mat-error *ngIf="feedbackForm.get('email').hasError('email')">
+                    Incorrect email format.
+                  </mat-error>
+                  <mat-error
+                    *ngIf="feedbackForm.get('email').hasError('required')"
+                  >
+                    Email is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+               <div>
+                <mat-form-field class="w-100">
+                  <mat-select
+                    formControlName="typeOfFeedback"
+                    placeholder="Type of Feedback"
+                    class="w-100"
+                  >
+                    <!--<mat-option *ngFor="let opt of feedbacklistServer" value="{{opt}}">{{opt}}</mat-option>-->
+
+                    <mat-option value="About our new website"
+                      >About our New Website</mat-option
+                    >
+                    <mat-option value="Feedback &amp; Suggestions"
+                      >Feedback &amp; Suggestions</mat-option
+                    >
+                    <mat-option value="I am unable to Login"
+                      >I am unable to Login</mat-option
+                    >
+                    <mat-option value="I am unable to Recharge"
+                      >I am unable to Recharge</mat-option
+                    >
+                    <mat-option value="Remove Numbers from PinLess SetUp"
+                      >Remove Numbers from PinLess SetUp</mat-option
+                    >
+                    <mat-option value="The above access number is not working"
+                      >The Access Number(s)are not working</mat-option
+                    >
+                    <mat-option value="I want to Cancel My Auto Refill"
+                      >I want to Cancel My Auto Refill</mat-option
+                    >
+                    <mat-option value="My card is not recharged yet"
+                      >My Plan is not recharged yet</mat-option
+                    >
+                    <mat-option
+                      value="I was Charged by PAYPAL but order could not be processed"
+                      >I was Charged by PAYPAL but order could not be
+                      processed</mat-option
+                    >
+                    <mat-option value="Other Description"
+                      >Other Issue</mat-option
+                    >
+                  </mat-select>
+                  <mat-error
+                    *ngIf="
+                      feedbackForm.get('typeOfFeedback').hasError('required')
+                    "
+                  >
+                    Feedback type is required.
+                  </mat-error>
+                </mat-form-field>
+               </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6 px-0">
+      <div class="right-panel">
+          <form
+            class="example-form"
+            [formGroup]="feedbackForm"
+            #formDirective="ngForm"
+            (ngSubmit)="onFeedbackFormSubmit(feedbackForm, formDirective)"
+          >
+                <mat-form-field class="w-100">
+                  <textarea
+                    formControlName="yourFeedback"
+                    matInput
+                    placeholder="Your Feedback"
+                    rows="5" cols="40" 
+                  ></textarea>
+                  <mat-error
+                    *ngIf="
+                      feedbackForm.get('yourFeedback').hasError('required')
+                    "
+                  >
+                    Your feedback is required.
+                  </mat-error>
+                </mat-form-field>
+            <!--<button mat-button class="submit-Button">Send Report</button> -->
+          </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 right-panel bordersubmitbutton"><form
+    class="example-form"
+    [formGroup]="feedbackForm"
+    #formDirective="ngForm"
+    (ngSubmit)="onFeedbackFormSubmit(feedbackForm, formDirective)"
+  ><button mat-button class="submit-Button">Send Report</button></form></div>
+  </div>
+</div>
+
+<!-- Mobile Screen  -->
+<div class="topup-wrapper d-block d-lg-none" *ngIf="ticketSubmitted">
+
+  <div class="response-icon">&nbsp;</div>
+  <div class="col-md-12 text-center pb-2">
+    
+    <!-- <h1 class="titleResponse mb-0">Thank you for your feedback </h1> -->
+  </div>
+  <div class="flex flex-wrap">
+    <p class="ticketresponse">{{ticketResponse}}</p>
+  </div>
+  <div class="col-md-12 right-panel bordersubmitresponse"><button mat-dialog-close class="submit-Button">Done</button></div>
+</div>
+
+<!-- response popup mobile end -->
+<div class="topup-wrapper d-block d-lg-none" *ngIf="!ticketSubmitted">
+    <div mat-dialog-close class="close-btn">&nbsp;</div>
+    <div class="col-md-12 text-center pb-2">
+      <h1 class="titleMain mb-0">Report an issue </h1>
+      <p class="subDescription">Please tell us what wasn’t working </p>
+    </div>
+    <div class="flex flex-wrap">
+      
+      <div class="col-md-6 px-0">
+        <div class="left-panel">
+          <form
+            class="example-form"
+            [formGroup]="feedbackForm"
+            #formDirective="ngForm"
+            (ngSubmit)="onFeedbackFormSubmit(feedbackForm, formDirective)"
+          >
+                <div class="mb-3">
+                  <mat-form-field class="w-100">
+                    <input
+                      formControlName="email"
+                      placeholder="Email"
+                      matInput
+                      value=""
+                    />
+                    <mat-error *ngIf="feedbackForm.get('email').hasError('email')">
+                      Incorrect email format.
+                    </mat-error>
+                    <mat-error
+                      *ngIf="feedbackForm.get('email').hasError('required')"
+                    >
+                      Email is required.
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+  
+                <div class="mb-3">
+                  <mat-form-field class="w-100">
+                    <input
+                      formControlName="phoneNumber"
+                      placeholder="Phone"
+                      matInput
+                      value=""
+                    />
+                    <mat-error
+                      *ngIf="feedbackForm.get('phoneNumber').hasError('maxlength')"
+                    >
+                      Your phone cannot exceed 10 characters.
+                    </mat-error>
+                    <mat-error
+                      *ngIf="feedbackForm.get('phoneNumber').hasError('pattern')"
+                    >
+                      Only number values allowed.
+                    </mat-error>
+                    <mat-error
+                      *ngIf="feedbackForm.get('phoneNumber').hasError('required')"
+                    >
+                      Phone number is required.
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+  
+  
+                 <div>
+                  <mat-form-field class="w-100">
+                    <mat-select
+                      formControlName="typeOfFeedback"
+                      placeholder="Type of Feedback"
+                      class="w-100"
+                    >
+                      <!--<mat-option *ngFor="let opt of feedbacklistServer" value="{{opt}}">{{opt}}</mat-option>-->
+  
+                      <mat-option value="About our new website"
+                        >About our New Website</mat-option
+                      >
+                      <mat-option value="Feedback &amp; Suggestions"
+                        >Feedback &amp; Suggestions</mat-option
+                      >
+                      <mat-option value="I am unable to Login"
+                        >I am unable to Login</mat-option
+                      >
+                      <mat-option value="I am unable to Recharge"
+                        >I am unable to Recharge</mat-option
+                      >
+                      <mat-option value="Remove Numbers from PinLess SetUp"
+                        >Remove Numbers from PinLess SetUp</mat-option
+                      >
+                      <mat-option value="The above access number is not working"
+                        >The Access Number(s)are not working</mat-option
+                      >
+                      <mat-option value="I want to Cancel My Auto Refill"
+                        >I want to Cancel My Auto Refill</mat-option
+                      >
+                      <mat-option value="My card is not recharged yet"
+                        >My Plan is not recharged yet</mat-option
+                      >
+                      <mat-option
+                        value="I was Charged by PAYPAL but order could not be processed"
+                        >I was Charged by PAYPAL but order could not be
+                        processed</mat-option
+                      >
+                      <mat-option value="Other Description"
+                        >Other Issue</mat-option
+                      >
+                    </mat-select>
+                    <mat-error
+                      *ngIf="
+                        feedbackForm.get('typeOfFeedback').hasError('required')
+                      "
+                    >
+                      Feedback type is required.
+                    </mat-error>
+                  </mat-form-field>
+                 </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 px-0">
+        <div class="right-panel">
+            <form
+              class="example-form"
+              [formGroup]="feedbackForm"
+              #formDirective="ngForm"
+              (ngSubmit)="onFeedbackFormSubmit(feedbackForm, formDirective)"
+            >
+                  <mat-form-field class="w-100">
+                    <textarea
+                      formControlName="yourFeedback"
+                      matInput
+                      placeholder="Your Feedback"
+                      rows="5" cols="40" 
+                    ></textarea>
+                    <mat-error
+                      *ngIf="
+                        feedbackForm.get('yourFeedback').hasError('required')
+                      "  >
+                      Your feedback is required.
+                    </mat-error>
+                  </mat-form-field>
+              <button mat-button class="submit-Button">Send Report</button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>

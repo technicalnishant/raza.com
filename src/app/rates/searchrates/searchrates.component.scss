@@ -1,0 +1,423 @@
+@import '__variables';
+@import '__mixins';
+$background-color_1: #293a6a;
+
+.country-search{
+	.countries{
+		border-bottom: 1px solid #e7e7e7;
+	}
+    @include breakpoint(sm) {
+        .container{
+            width: 100%;
+        }
+    }
+    .search-input {
+        margin-top: -50px;
+        padding: 14px;
+        border-radius: 8px;
+        background-color: $background-color_1;
+        border: 1px solid #1c294d;
+        @include breakpoint(sm) {
+            padding: 4px;
+            border-radius: 8px;
+            margin-top: -50px;
+        }
+        input {
+            height: 71px;
+            font-size: 22px;
+            line-height: 28px;
+            color: $primary-color2;
+            font-weight: 500;
+            font-family: $font-family;
+            @include breakpoint(sm) {
+                height: 48px;
+                font-size: 16px;
+                padding: 0;
+            }
+        }
+        &::placeholder {
+            font-size: 22px;
+            line-height: 28px;
+            color: $primary-color2;
+            font-weight: 500;
+            font-family: $font-family;
+            opacity: 1;
+    
+            @include breakpoint(sm) {
+                font-size: 16px;
+            }
+        }
+    
+        .form-control {
+            &:focus {
+                border: 0;
+                box-shadow: none;
+                outline: none;
+            }
+    
+            &:focus-visible {
+                border: 0;
+                box-shadow: none;
+                outline: none;
+            }
+        }
+    }
+    
+}
+// Search box Css end here
+
+.alphabet_links {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 0;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+
+    @include breakpoint(sm) {
+        margin: 30px 0;
+		flex-direction: row;
+    }
+	@include breakpoint(md) {
+        margin: 30px 0;
+		flex-direction: row;
+    }
+    li {
+        font-size: 16px;
+        line-height: 34px;
+        color: $primary-color2;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: $font-family;
+        margin: 0 8px;
+		list-style: none;
+    }
+	.active {
+		background-color: #ffc72b;
+		border-radius: 50%;
+		height: 28px;
+		width: 28px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+$background-color_1: #ffffff;
+
+.country-box {
+    margin: 70px 0; 
+	border-right: 1px solid #e7e7e7;
+    @include breakpoint(sm) {
+        text-align: center;
+		margin: 30px 0;
+		border-right:0;
+    }
+	@include breakpoint(md) {
+        text-align: center;
+		margin: 30px 0;
+		border-right:0;
+    }
+
+    .country-flag {
+        display: flex;
+        align-items: center;
+        @include breakpoint(sm) {
+            justify-content:center;
+        }
+        img {
+            // height: 40px;
+            // width: 40px;
+           // object-fit: contain;
+
+            height: 40px;
+            width: 40px;
+            -o-object-fit: contain;
+            object-fit: contain;
+        }
+    }
+.flag_round{
+    height: 40px;
+            width: 40px;
+            -o-object-fit: contain;
+            object-fit: contain;
+}
+    .country-name {
+        font-size: 20px;
+        line-height: 28px;
+        color: $primary-color2;
+        font-weight: 700;
+        font-family: $font-family;
+        margin-left: 16px;
+    }
+
+    .country-rate {
+        font-size: 24px;
+        letter-spacing: 0px;
+        line-height: 28px;
+        color: $primary-color2;
+        font-weight: 700;
+        font-family: $font-family;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 21px;
+
+        span {
+            font-size: 16px;
+            text-transform: lowercase;
+        }
+    }
+
+    .view-details-btn {
+        border-radius: 20px;
+        background-color: #ffffff;
+        border: 2px solid $button-background;
+        font-size: 14px;
+        line-height: 28px;
+        color: $primary-color2;
+        font-weight: 700;
+        font-family: $font-family;
+        padding: 4px 18px;
+        transition: ease-in-out .3s;
+        margin-left: 20px;
+
+        &:hover {
+            background: $button-background;
+            transition: bakground ease-in-out .3s;
+        }
+    }
+
+}
+.qrimage
+{
+	box-shadow: 7px 10px #cc9f23;
+}
+// country grid css end here
+
+.popular-country {
+    background-color: #fff;
+    padding: 50px 0;
+    margin: 50px 0;
+
+    .section-title {
+        font-size: 46px;
+        color: #162f75;
+        font-weight: 800;
+        font-family: $font-family;
+        text-align: center;
+		margin-bottom: 18px;
+        @include breakpoint(sm) {
+            font-size:34px
+        }
+    }
+
+    .box {
+		text-align: center;
+		margin-top: 32px;
+		object-fit: contain;
+		border-radius: 6px;
+		background-color: #ffffff;
+		border: 1px solid #d8e1ef;
+		padding: 16px;
+		transition:ease-in-out .2s;
+		&:hover{
+			filter: drop-shadow(0 0 7.5px rgba(0,0,0,0.24));
+			border: 2px solid #1959ff;
+			transition:filter ease-in-out .2s;
+			cursor: pointer;
+		}
+		img{
+			margin-bottom:16px;
+            height: 40px;
+            width: 40px;
+            -o-object-fit: contain;
+            object-fit: contain;
+		}
+        .box-title {
+            font-size: 14px;
+			line-height: 18px;
+			color: #4b5358;
+			font-weight: 500;
+			font-family: "Montserrat";
+        }
+
+        .box-description {
+			font-size: 16px;
+			color: #393939;
+			font-weight: 600;
+			line-height:24px;
+			font-family: "Montserrat";
+        }
+    }
+}
+
+.still-search-strip {
+    background-color: #ffc72c;
+    padding: 20px 0;
+    margin-top: 80px;
+
+    .strip-title {
+        font-size: 32px;
+        color: #162f75;
+        font-weight: 300;
+        font-family: $font-family;
+        margin-right: 16px;
+        @include breakpoint(sm) {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+    }
+
+    a {
+        border-radius: 25px;
+        background-color: #ffffff;
+        padding: 6px 12px;
+        font-size: 18px;
+        line-height: 28px;
+        color: #273d7d;
+        font-weight: 600;
+        font-family: $font-family;
+
+        &:hover {
+            background-color: #162f75;
+            color: #fff;
+        }
+    }
+}
+
+.plan-section {
+    background-color: #e5f0ff;
+    padding: 50px 0;
+    margin: 50px 0;
+
+    .section-title {
+        font-size: 46px;
+        color: #162f75;
+        font-weight: 800;
+        font-family: $font-family;
+        text-align: center;
+        @include breakpoint(sm) {
+            font-size:34px
+        }
+    }
+
+    .box {
+        text-align: center;
+        margin-top: 50px;
+        object-fit: contain;
+
+        img {
+            min-height: 90px;
+        }
+
+        .box-title {
+            font-size: 22px;
+            line-height: 28px;
+            color: #042d43;
+            font-weight: 600;
+            font-family: $font-family;
+            margin: 20px 0;
+        }
+
+        .box-description {
+            font-size: 16px;
+            line-height: 20px;
+            color: #000000;
+            font-weight: 400;
+            font-family: $font-family;
+            padding: 0 40px;
+        }
+    }
+}
+
+@import '__variables';
+@import '__mixins';
+
+
+.section-title {
+    font-size: 46px;
+    color: #162f75;
+    font-weight: 800;
+    font-family: "Montserrat";
+    text-align: center;
+    margin-bottom: 50px;
+    @include breakpoint(sm) {
+        font-size:34px;
+        margin-bottom: 30;
+    }
+   
+}
+
+.faq-section {
+	padding-bottom: 100px;
+    mat-icon{
+		color: #152f75;
+	}
+	.loadmore{
+		background: #f4cb26;
+		border-radius: 24px !important;
+		-moz-border-radius: 24px !important;
+		-webkit-border-radius: 24px !important;
+		border: none;
+		padding: 11px 34px !important;
+		margin: 60px auto 0 !important;
+		color: #08273a;
+		text-transform: uppercase;
+		font-size: 14px;
+		font-family: "Montserrat", sans-serif;
+		font-weight: bold;
+		transition: background 0.3s ease-in-out;
+		display: block;
+	}
+}
+::ng-deep{
+    .faq-section mat-panel-title{
+        color: #042d43;
+        font-weight: 500;
+        font-family: "Montserrat";
+    }
+    .faq-section .mat-expansion-panel-content p{
+        color: #042d43;
+        font-weight: 500;
+        font-family: "Montserrat";
+    }
+}
+
+.search-strip{
+	background-image: url("../../../assets/images/new_design_images/search-strip.jpg");
+	min-height: 423px;
+	background-size: cover;
+	padding-top: 34px;
+	.title {
+		font-size: 34px;
+		letter-spacing: -1px;
+		line-height: 34px;
+		color: #162f75;
+		font-weight: 700;
+		font-family: "Montserrat";
+	}
+}
+
+
+.flag_list1 {
+    position: absolute;
+    top: 54px;
+    left: 14px;
+	z-index: 9;
+}
+
+.flag_list1 li {
+    list-style: none;
+}
+
+.flag_list1 ul {
+    padding: 0;
+    background: #fff;
+}
+
+.country-box[_ngcontent-xye-c182] .country-flag[_ngcontent-xye-c182] img[_ngcontent-xye-c182] {
+    height: 40px;
+    width: 40px;
+    -o-object-fit: contain;
+    object-fit: contain;
+}

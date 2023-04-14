@@ -1,0 +1,130 @@
+<div class="form__wrapper">
+        <mat-horizontal-stepper [linear]="true" #stepper [selectedIndex]="selectepage" (selectionChange)="stepChange($event)">
+        <mat-step [stepControl]="paymentDetailForm">
+            
+            <form [formGroup]="paymentDetailForm">
+
+                <div class="card-wrapper payment-card">
+                  <div class="card-head">
+                    <div class="main-title">Edit Credit Card</div>
+                    <div><!--img src="../../assets/images/app-icons/photo-camera.svg" alt="" class="pr-18">--></div>
+                  </div>
+                  <div class="card-content comman-padding">
+                    
+                     <div class="form-group position-relative">
+                      <label class="align-items-end d-flex justify-content-between align-items-center">Credit Card Number</label>
+                      <input type="tel" required autocomplete="cc-number" formControlName="CardNumber" maxlength="19" (keypress)="card_error_check()" ccNumber (change)="removeEclass('card')" class="form-control {{getClass('card')}}">
+                      <!--<img src="../../assets/images/app-icons/mastercard_icon.svg" alt="" class="card-type">-->
+
+                      <div *ngIf="( cardClicked || cardSubmitted ) && cf.CardNumber.errors" class="mat-error" >
+                        <div>Valid card number is required</div>
+                        <!--<div *ngIf="cf.CardNumber.errors.required">Card number is required</div>-->
+                      </div>
+                     </div>
+                     <div class="d-flex align-items-end">
+                       
+                       <div class="form-group w-100">
+                        <label class="align-items-end d-flex justify-content-between align-items-center" >Expiry Date</label>
+                       <select  formControlName="ExpMonth" class="form-control  {{getClass('card')}}">
+                         <option value="">Month</option>
+                         <option *ngFor="let item of months" [value]="item.Code">{{item.Value}}</option>
+                       </select>
+                       </div>
+                       <div class="form-group w-100 mx-10">
+                        <!-- <mat-form-field formControlName="validTo">
+                          <mat-label>Select me</mat-label>
+                          <mat-select>
+                            <mat-option value="">Year</mat-option>
+                            <mat-option *ngFor="let item of years" [value]="item.Code">{{item.Value}}</mat-option>
+                          </mat-select>
+                        </mat-form-field> -->
+      
+                        <select formControlName="ExpYear" class="form-control  {{getClass('card')}}">
+                         <option value="">Year</option>
+                          <option *ngFor="let item of years" [value]="item.Code">{{item.Value}}</option>
+                        </select>
+                       </div>
+                       <div class="form-group w-100">
+                        <label class="align-items-end d-flex justify-content-between align-items-center"><div>CVV</div><div><a href="javascript:void(0);" (click)="whatiscvv()" class="what-cvv">What is CVV</a></div></label>
+                        <input placeholder="3-4 digits" maxlength="4" autocomplete="off" type="tel" type="password" formControlName="Cvv2" ccCvc (change)="removeEclass('cvv')" class="form-control placeholder {{getClass('cvv')}}">
+                       </div>
+                     </div>
+                     <div *ngIf="cardSubmitted && cf.ExpMonth.errors" class="mat-error" >
+                      <div *ngIf="cf.ExpMonth.errors.required">Expiry month is required</div>
+                    </div>
+                     <div *ngIf="cardSubmitted && cf.ExpYear.errors" class="mat-error" >
+                      <div *ngIf=" cf.ExpYear.errors.required">Expiry year is required</div>
+                    </div>
+                    <div *ngIf="cardSubmitted && cf.Cvv2.errors" class="mat-error" >
+                      <div *ngIf="cf.Cvv2.errors.required">Cvv is required</div>
+                    </div>
+                      <button class="mat-stepper-next btn btn-gradient btn-block mt-3" (click)="validateCard()" matStepperNext>NEXT</button>
+                    
+                  </div>
+              </div>
+            </form>   
+            
+            
+        </mat-step>
+
+        <mat-step [stepControl]="billingInfoForm" >
+            <form [formGroup]="billingInfoForm">
+                <div class="card-wrapper default-card">
+                  <div class="card-head">
+                    <div class="main-title">Payment Details</div>
+                  </div>
+                  <div class="card-content comman-padding pb-0">
+          
+                      <mat-form-field appearance="legacy" class="w-100">
+                        <mat-label class="label_address">Full Name</mat-label>
+                        <input matInput required formControlName="FullName">
+                      </mat-form-field>          
+                      
+          
+                      <mat-form-field appearance="legacy" class="w-100">
+                        <mat-label class="label_address">Address</mat-label>
+                        <input matInput required class="input search_google {{getClass('billing')}}" #addresstext formControlName="BillingAddress"  >
+                        <!--<input matInput required class="input search_google {{getClass('billing')}}" (keypress)="getPlaceAutocomplete(); removeEclass('billing')" #addresstext formControlName="BillingAddress"  >-->
+                      </mat-form-field>
+          
+                      <mat-form-field appearance="legacy" class="w-100">
+                        <mat-label class="label_address">City</mat-label>
+                        <input matInput (click)="removeEclass('city')" placeholder="City" class="{{getClass('city')}}" formControlName="City" required> 
+                      </mat-form-field>
+          
+                        <div *ngIf="search_country_id != 3">
+                      <mat-form-field appearance="legacy" class="w-100" *ngIf="!isFreeStateText">
+                        <mat-label class="label_address">State</mat-label>
+                        <mat-select formControlName="State" (click)="removeEclass('state')" class="{{getClass('state')}}" required>
+                          <mat-option *ngFor="let item of states" [value]="item.Id">{{item.Name}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <mat-form-field *ngIf="isFreeStateText" appearance="legacy" class="w-100">
+                        <mat-label class="label_address">State</mat-label>
+                        <input matInput formControlName="State" required>
+                      </mat-form-field>
+                    </div>
+          
+                      <mat-form-field appearance="legacy" class="w-100">
+                        <mat-label class="label_address">Zip / Postal Code</mat-label>
+                        <input matInput formControlName="PostalCode" (keypress)="removeEclass('zip')" class="{{getClass('zip')}}" required>
+                      </mat-form-field>
+                      <mat-form-field appearance="legacy" class="w-100">
+                        <mat-select placeholder="Country" (click)="removeEclass('country')" class="{{getClass('country')}}" formControlName="Country"
+                            (selectionChange)="loadStates()">
+                            <mat-option *ngFor="let item of fromCountry" [value]="item.CountryId">
+                                {{item.CountryName}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                      <button class="btn btn-gradient btn-block my-3" mat-button (click)="paymentDetailFormSubmit()" >CONFIRM</button>
+                  </div>
+                 
+              </div>
+              
+            </form>
+        </mat-step>
+
+    </mat-horizontal-stepper>
+
+</div>

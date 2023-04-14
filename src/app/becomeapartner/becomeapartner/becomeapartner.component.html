@@ -1,0 +1,138 @@
+
+  
+<div class="first_fold">
+	<h1 class="heading_style1">	
+  Become <br>a Partner
+  
+		<span>Partner with the most trusted brand and see your business growing!</span>
+	</h1>
+	<div class="home_banner becamepartner_banner">
+		<!-- <img src="assets/images/banner_image.png" alt="banner"> -->
+	</div>
+</div>
+<div class="second_fold">
+	<div class="container">
+		<div class="row">
+			<h2 class="heading_style2">Earn up to $5000 per month</h2>
+			<div class="col-md-4 three_service">
+				<div class="icon_holder1">
+					<img src="assets/images/new_design_images/increase_walkincustomer1.png" alt="icon">
+					</div>
+					<h3 class="heading_style2">Earn maximum
+						<br/> commission
+					</h3>
+					<p>Do you own a business and want to earn extra money? Join Raza and start selling our products today! Our excellent commission structure will get you more money without any hassle of inventory or deposit. So start today and earn today!</p>
+				</div>
+				<div class="col-md-4 three_service">
+					<div class="icon_holder1">
+						<img src="assets/images/new_design_images/earn_maximumcomission1.png" alt="icon">
+						</div>
+						<h3 class="heading_style2">Increase walk-in
+							<br/> customers
+						</h3>
+						<p>Raza is a well known brand which provides the best reliable products that our customers love; expanding your business by selling Raza products will not only make you money but increases your walk in customers.</p>
+					</div>
+					<div class="col-md-4 three_service">
+						<div class="icon_holder1">
+							<img src="assets/images/new_design_images/free_traning1.png" alt="icon">
+							</div>
+							<h3 class="heading_style2">FREE training</h3>
+							<p class="mt-5 free_traning">Get started in just 30 minutes. Your account manager will make you understand the key aspects including access to customer and commission management tools. The technical support will assist with any queries 24/7 365 days.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="signupformArea">
+				<div class="container">
+					<form class="example-form" [formGroup]="becomeAPartnerForm" #formDirective="ngForm"  (ngSubmit)="onBecomeAPartnerFormSubmit(becomeAPartnerForm,formDirective);">
+						<h2 class="heading_style2 text-center">Create a New Account </h2>
+						<div class="row align-items-center">
+							<div class="col-12 col-md-6 col-lg-6">
+								<div class="row">
+									<div class="col-sm-6">
+										<div>
+											<mat-form-field class="example-full-width">
+												<input formControlName="firstName" placeholder="First Name" matInput value="">
+													<mat-error *ngIf="becomeAPartnerForm.get('firstName').hasError('required')">
+                               First Name is required.
+                          </mat-error>
+												</mat-form-field>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<mat-form-field class="example-full-width">
+												<input formControlName="lastName" placeholder="Last Name" matInput value="" >
+													<mat-error *ngIf="becomeAPartnerForm.get('lastName').hasError('required')">
+                            Last Name is required.
+                       </mat-error>
+												</mat-form-field>
+											</div>
+											<div class="col-sm-6">
+												<div>
+													<mat-form-field class="example-full-width">
+														<input formControlName="email" placeholder="Email" matInput value="" >
+															<mat-error *ngIf="becomeAPartnerForm.get('email').hasError('email')">
+                                Incorrect email format.
+                          </mat-error>
+															<mat-error *ngIf="becomeAPartnerForm.get('email').hasError('required')">
+                                Email is required.
+                           </mat-error>
+														</mat-form-field>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<mat-form-field class="example-full-width">
+														<input formControlName="phoneNumber" placeholder="Phone" matInput>
+															<mat-error *ngIf="becomeAPartnerForm.get('phoneNumber').hasError('maxlength')">
+                            Your phone cannot exceed 10 characters.
+                      </mat-error>
+															<mat-error *ngIf="becomeAPartnerForm.get('phoneNumber').hasError('pattern')">
+                            Only number values allowed.
+                      </mat-error>
+															<mat-error *ngIf="becomeAPartnerForm.get('phoneNumber').hasError('required')">
+                            Phone number is required.
+                      </mat-error>
+														</mat-form-field>
+													</div>
+													<div class="col-sm-6">
+														<div>
+															<mat-form-field>
+																<input formControlName="city" placeholder="City" matInput value="">
+																	<mat-error *ngIf="becomeAPartnerForm.get('city').hasError('required')">
+                                    City name is required.
+                              </mat-error>
+																</mat-form-field>
+															</div>
+														</div>
+														<div class="col-sm-6">
+															<mat-form-field>
+																<mat-select  placeholder="Country" formControlName="countrySelect">
+																	<mat-option  *ngFor="let country of allCountry" [value]="country">
+                              {{ country.CountryName }}
+                          </mat-option>
+																</mat-select>
+																<mat-error *ngIf="becomeAPartnerForm.get('countrySelect').hasError('required')">
+                            Country name is required.
+                      </mat-error>
+															</mat-form-field>
+														</div>
+														<div class="col-sm-12 textarea">
+															<mat-form-field class="example-full-width">
+																<textarea formControlName="comments" matInput placeholder="Leave a comment"></textarea>
+																<mat-error *ngIf="becomeAPartnerForm.get('comments').hasError('required')">
+                            Comment is required.
+                      </mat-error>
+															</mat-form-field>
+															<button mat-button class="submitButton">
+																<b>Submit</b>
+															</button>
+														</div>
+													</div>
+												</div>
+												<div class="col-12 col-md-6 col-lg-6 text-right">
+													<img src="assets/images/new_design_images/signup-image.png" alt="signup" class="img-fluid mt-5 pt-3 mt-lg-0 pt-lg-0">
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>

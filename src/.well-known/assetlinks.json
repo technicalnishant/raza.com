@@ -1,0 +1,25 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.razacomm.universe",
+    "sha256_cert_fingerprints":
+    ["4A:42:2B:5A:A0:18:05:7E:C3:0E:35:56:04:D6:C5:8A:F5:AA:C0:F9:D3:0F:D4:99:DF:15:5F:0B:3F:79:25:F8"]
+  }
+},
+{
+  "relation": ["delegate_permission/common.get_login_creds"],
+  "target": {
+    "namespace": "web",
+    "site": "https://raza.com"
+  }
+},
+{
+  "relation": ["delegate_permission/common.get_login_creds"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.razacomm.universe",
+    "sha256_cert_fingerprints":
+    ["4A:42:2B:5A:A0:18:05:7E:C3:0E:35:56:04:D6:C5:8A:F5:AA:C0:F9:D3:0F:D4:99:DF:15:5F:0B:3F:79:25:F8"]
+  }
+}]

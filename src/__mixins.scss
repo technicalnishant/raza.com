@@ -1,0 +1,112 @@
+@mixin breakpoint($size) {
+  @if $size == xs {
+    @media (max-width: 300px) {
+      @content;
+    }
+  } @else if $size == sm {
+    @media (max-width: 690px) {
+      @content;
+    }
+  } @else if $size == max-650 {
+    @media (max-width: 650px) {
+      @content;
+    }
+  } @else if $size == max-600 {
+    @media (max-width: 600px) {
+      @content;
+    }
+  } @else if $size == max-675 {
+    @media (max-width: 675px) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == min-md {
+    @media (min-width: 767px) {
+      @content;
+    }
+  } @else if $size == lg {
+    @media (min-width: 1090px) {
+      @content;
+    }
+  } @else if $size == md-lg {
+    @media (min-width: 768px) and (max-width: 1200px) {
+      @content;
+    }
+  } @else if $size == sm-md {
+    @media (min-width: 690px) and (max-width: 768px) {
+      @content;
+    }
+  } @else if $size == xs-md {
+    @media (min-width: 300px) and (max-width: 768px) {
+      @content;
+    }
+  } @else if $size == big-desktop-up {
+    @media (min-width: 1800px) {
+      @content;
+    }
+  }
+}
+
+@mixin comman-font-family {
+  font-family: "Montserrat", sans-serif;
+}
+@mixin button-text {
+  border: 1px solid #f3c423;
+  transition: 0.3s ease-in-out;
+  padding: 2px 100px;
+  text-decoration: none;
+  background-color: #f3c423;
+  width: 100%;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+  font-family: "Montserrat";
+}
+
+@mixin accountTab {
+  .tabContentMyaccount1 {
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 30px;
+    .rechargeLeft {
+      background: #fff;
+      width: 49%;
+    }
+    .rechargeRight {
+      float: right;
+      background: #fff !important;
+      width: 49%;
+      border: none !important;
+      .submitButton {
+        background: #e8e8e8;
+      }
+    }
+  }
+  .tabContentMyaccount1 .rechargeLeft,
+  .tabContentMyaccount1 .rechargeRight {
+    height: 362px;
+    padding: 90px 40px;
+    margin: 0px;
+  }
+  .tabContentMyaccount1 .rechargeLeft p.commonHead,
+  .tabContentMyaccount1 .rechargeRight p.commonHead {
+    color: #0b203e;
+    font-size: 28px;
+    font-family: "Montserrat", sans-serif;
+  }
+  .tabContentMyaccount1 .rechargeLeft p.description,
+  .tabContentMyaccount1 .rechargeRight p.description {
+    color: #0b203e;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 32px !important;
+  }
+  .tabContentMyaccount1 .rechargeLeft .submitButton,
+  .tabContentMyaccount1 .rechargeRight .submitButton {
+    width: 255px !important;
+  }
+}

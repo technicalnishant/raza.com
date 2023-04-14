@@ -1,0 +1,45 @@
+<div class="recharge_block recharge2">
+  <!--rechargeStep -->
+  <div class="rechargeStepMain" *ngIf="!isSmallScreen">
+    <div class="rechargeStep">
+      <div class="step1">
+        <p class="step">Step 1</p>
+        <p class="stepName">Login</p>
+      </div>
+      <div class="step2">
+        <p class="step">Step 2</p>
+        <p class="stepName">Payment</p>
+      </div>
+      <div class="step3 active">
+        <p class="step">Step 3</p>
+        <p class="stepName">Confirmation</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- rechargeStep -->
+  <div *ngIf="checkoutModel">
+    <div *ngIf="checkoutModel.transactiontype === 1">
+      <app-recharge-confirmation [orderId]="orderId" [message]="transResponse.Message" [userContext]="userContext">
+      </app-recharge-confirmation>
+    </div>
+    <div *ngIf="checkoutModel.transactiontype === 2 || checkoutModel.transactiontype === 3">
+        <app-purchase-confirmation [orderId]="orderId" [userContext]="userContext" [checkoutModel]="checkoutModel">
+      </app-purchase-confirmation> 
+
+      <!-- <app-recharge-confirmation [orderId]="orderId" [message]="transResponse.Message" [userContext]="userContext">
+      </app-recharge-confirmation> -->
+
+    </div>
+
+    <div *ngIf="checkoutModel.transactiontype === 4">
+        <app-mobile-topup-confirmation [orderId]="orderId" [userContext]="userContext" [checkoutModel]="checkoutModel">
+      </app-mobile-topup-confirmation>  
+
+      <!-- <app-recharge-confirmation [orderId]="orderId" [message]="transResponse.Message" [userContext]="userContext">
+      </app-recharge-confirmation> -->
+
+    </div>
+
+  </div>
+</div>

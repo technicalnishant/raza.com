@@ -1,0 +1,971 @@
+
+::ng-deep{
+    ._hj_feedback_container {
+    display: none !important;
+    }
+    .LPMcontainer.LPMoverlay {
+        display: none !important;
+        }
+}
+
+.scroll-fixed {
+    position: sticky;
+    top: 70px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+._hj_feedback_container {
+	display: none!important;
+}
+.bg-blue {
+	background: #0380e8;
+	min-height: 100px;
+}
+.bg-blue1 {
+	background: #0380e8;
+	min-height: 60px;
+}
+.error_bg {
+	color: #ff0b0b;
+}
+.bg-icon-blue {
+	background: transparent;
+	span {
+		font-size: 36px;
+		display: table;
+	}
+}
+.title_bold {
+	font-weight: 700;
+	color: #ffffff;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 10px;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: auto;
+	width: 50%;
+}
+.wallet-price {
+	gap: 15px;
+	border-radius: 18px;
+	margin-top: -35px;
+}
+.msg {
+	font-size: 14px;
+	font-weight: 500;
+	color: #253853;
+}
+.amount {
+	font-size: 36px;
+	font-weight: 600;
+	color: #253853;
+}
+.comman-shadow {
+	box-shadow: 0px 1px 7px #d2d2d2;
+}
+.title {
+	color: #253853;
+	font-size: 16px;
+	font-weight: 600;
+}
+.checkbox-wraper {
+	min-width: 45%;
+	border: 1px solid #d8e3eb;
+	border-radius: 10px;
+	padding: 10px 0;
+	p {
+		font-size: 18px;
+		text-align: center;
+		font-weight: 600;
+		margin: 0;
+		color: #253853;
+	}
+}
+.checkbox-main {
+	gap: 21px;
+	margin: 0 15px;
+}
+.br-radius {
+	border-radius: 18px;
+}
+.payment-type {
+	gap: 20px;
+	min-width: 47%;
+	img {
+		height: 24px;
+		width: 24px;
+		object-fit: contain;
+	}
+	p {
+		color: #253853;
+		font-weight: 600;
+	}
+}
+.price {
+	color: #253853;
+	font-size: 14px;
+	font-weight: 400;
+	span {
+		color: #2B4964;
+		font-weight: 500;
+		font-family: 'Roboto';
+		font-size: 14px;
+	}
+}
+.btn-gradient {
+	border-radius: 20px;
+	color: #fff !important;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 5px 0;
+	background: transparent linear-gradient(
+270deg
+, #FA6127 0%, #EA3562 100%) 0% 0% no-repeat padding-box;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Roboto;
+}
+
+
+::ng-deep {
+    .mat-radio-label{
+        margin-bottom: 0;
+    }
+    
+}
+.main__wrapper {
+    min-height: 100vh;
+    background: #f9f9f9;
+    position: relative;
+}
+
+
+// new scss start here
+
+.bg-top {
+	background-image: url("../../../assets/images/bg_app.png");
+	min-height: 116px;
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+.balance {
+	text-align: center;
+	font-size: 32px;
+	font-weight: 600;
+	color: #fff;
+	line-height: 20px;
+	margin-top: 12px;
+	span {
+		font-size: 12px;
+		font-weight: 400;
+		opacity: .6;
+	}
+}
+.price_box {
+	display: flex;
+	justify-content: space-between;
+	border: 2px solid #edecec;
+	padding: 10px;
+	border-radius: 10px;
+	align-items: center;
+	&.checked {
+		border-color: #0996f6;
+	}
+}
+.rchge_amount {
+	color: #3b4d65;
+	font-size: 18px;
+	font-weight: 600;
+	width: 60%;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+.rchge_label {
+	color: #d8d8d8;
+	font-size: 14px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	mat-icon {
+		height: 14px;
+		width: 14px;
+		font-size: 14px;
+	}
+}
+.checked {
+	.rchge_label {
+		color: #04a2f6;
+	}
+}
+
+::ng-deep{
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+        border-color: #01a0f6;
+    }
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+        background-color: #01a0f6;
+    }
+    button.mat-tooltip-trigger {
+        background: #01a0f6;
+        border: 0;
+        color: #fff;
+        border-radius: 50%;
+        height: 24px;
+        width: 24px;
+        margin-left: 20px;
+    }
+    .cvv .mat-form-field-appearance-legacy .mat-form-field-underline,.add-card .mat-form-field-appearance-legacy .mat-form-field-underline,
+    .billing-details .mat-form-field-appearance-legacy .mat-form-field-underline
+    {
+        background-color: rgb(222 226 230);
+    }
+   
+   
+}
+
+.add-card mat-label {
+    color: #243752;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.autorecharge {
+    font-size: 16px;
+    color: #20344f;
+    font-weight: 700;
+}
+
+.bg-top.bg-top-inner {
+    min-height: 61px;
+    display: flex;
+}
+
+.bg-top-inner .title_bold {
+    margin: 0;
+    font-size: 18px;
+}
+.page-title h3 {
+    text-align: center;
+    font-weight: 800;
+    margin-top: 40px;
+    color: #243752;
+}
+.card-name {
+    font-size: 18px;
+    color: #243752;
+    font-weight: 500;
+}
+
+.edit {
+    color: #4fb1f3;
+    font-size: 14px;
+    font-weight: 500;
+}
+.card-type img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+.card-details {
+    margin-left: 16px;
+}
+
+.card-details p {
+    color: #243752;
+    font-weight: 500;
+}
+.ssl_msg {
+    color: #243752;
+    font-size: 8px;
+    font-weight: 500;
+    margin: 0;
+    padding: 10px 0;
+    line-height: 14px;
+}
+.billing-details mat-label {
+    color: #243752;
+    font-weight: 500;
+    font-size:14px
+
+}
+input{
+    color: #243752;
+    font-weight: 500;
+
+}
+
+
+
+// new design css start here
+
+input {
+	color: #253853;
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
+}
+.card-header {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px;
+}
+.shadow-common {
+	box-shadow: 3px 3px 6px #00000014;
+	border-radius: 20px;
+}
+.main-title {
+	letter-spacing: 0.26px;
+	color: #253853;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	padding-left: 18px;
+}
+.card-wrapper {
+	padding: 18px 0;
+	background: #fff;
+}
+.card-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #E0E0E0;
+	padding-bottom: 18px;
+}
+.section-wrapper {
+	margin: 20px;
+	margin-top: 160px!important;
+}
+.card-img {
+	padding-right: 18px;
+}
+.comman-padding {
+	padding: 18px;
+}
+.card-content {
+	label {
+		font-size: 10px;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 400;
+		color: #8D8D8D;
+		margin-bottom: 7px;
+	}
+}
+
+.what-cvv{
+    color: #8D8D8D;
+    font-size: 8px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: underline;
+}
+.save-card{
+    color: #454545;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+::ng-deep{
+    .card-content .mat-checkbox-background,.card-content .mat-checkbox-frame {
+        border-radius: 50px;
+    }
+    .card-content .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background,.card-content .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+        background-color: #0996f6;
+    }
+}
+.note {
+	display: flex;
+	margin: 0 20px;
+	font-size: 10px;
+	color: #2B4964;
+	padding: 19px 10px;
+	font-family: 'ROBOTO';
+	line-height: 14px;
+	img {
+		margin-right: 10px;
+	}
+}
+.card-type {
+	position: absolute;
+	height: 24px;
+	width: 24px;
+	object-fit: contain;
+	right: 10px;
+	top: 50%;
+}
+.card__img {
+	img {
+		height: 24px;
+		width: 24px;
+		object-fit: contain;
+	}
+}
+.card-label {
+	color: #8D8D8D;
+	font-size: 10px;
+	font-family: 'Roboto';
+	margin-bottom: 3px;
+}
+.card-number {
+	color: #253853;
+	font-size: 13px;
+	font-weight: 500;
+	font-family: 'ROBOTO';
+}
+
+
+::ng-depp{
+    label.mat-checkbox-layout {
+        margin-bottom: 0;
+    }
+}
+.edit-card {
+	border-bottom: 1px solid #e0e0e0;
+	padding: 18px 0;
+	align-items: center;
+	&:last-child {
+		border-bottom: 0;
+	}
+}
+img {
+	&.card-img {
+		height: 18px;
+		width: 34px;
+		object-fit: contain;
+	}
+}
+.button-wrapper {
+	margin: 0 20px;
+}
+.pr-18 {
+	padding-right: 18px;
+}
+.card__img {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+.selected {
+	width: 12px;
+	height: 12px;
+	background: #0383e8;
+	border-radius: 50%;
+}
+.non-selected {
+	border: 1px solid #0482e8;
+	height: 12px;
+	width: 12px;
+	border-radius: 50%;
+}
+.card-content .table td, .table th {
+	padding: 1.2rem 0;
+}
+.summary {
+	tr {
+		td {
+			vertical-align: middle;
+			&:first-child {
+				color: #8D8D8D;
+				font-size: 12px;
+				font-family: 'ROBOTO';
+			}
+			&:last-child {
+				color: #253853;
+				font-size: 13px;
+				font-weight: 500;
+				font-family: 'ROBOTO';
+				text-align: right;
+			}
+		}
+		&:first-child {
+			td {
+				border-top: 0;
+			}
+		}
+	}
+}
+
+::ng-deep{
+    .card-content .mat-form-field-appearance-legacy .mat-form-field-underline {
+        background-color: #EBEBEB;
+    }
+    .default-card .mat-checkbox-inner-container {
+        height: 20px;
+        width: 20px;
+        background: #EEF9FF;
+        border-radius: 50%;
+    }
+    .payment-card .mat-checkbox-inner-container {
+        height: 16px;
+        width: 16px;
+        background: #EEF9FF;
+        border-radius: 50%;
+    }
+    .default-card .mat-checkbox-layout {
+        margin: 0;
+    }
+    .default-card .mat-checkbox-frame,.payment-card .mat-checkbox-frame{
+        border-color: #0996F6;
+        border-width: 1px!important;
+    }
+    .default-card .mat-checkbox-frame{
+        border-radius: 50%!important;
+    }
+    .default-card .mat-form-field-appearance-legacy .mat-form-field-infix {
+        padding: 7px 0 14px 0;
+    }
+}
+
+.form-control {
+	height: 49px;
+	border-radius: 6px;
+	border: 1px solid #E0E0E0;
+	&:focus {
+		box-shadow: none;
+		border: 1px solid #0996F6;
+	}
+}
+.placeholder {
+	padding-left: 23px!important;
+	&::placeholder {
+		color: #BCBCBC;
+		font-size: 11px;
+		font-weight: 400;
+	}
+}
+.gap-20 {
+	gap: 20px;
+}
+.waller-amount-wrapper {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	height: 52px;
+}
+.wallet-amount {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 20px;
+}
+.wallet-icon {
+	padding-left: 15px;
+	border-right: 1px solid #dee2e6;
+	padding-right: 20px;
+	padding: 10px 20px 10px 15px;
+}
+.wallet-msg {
+	font-size: 12px;
+	color: #253853;
+	font-weight: 400;
+	font-family: 'Roboto';
+}
+.wallet__amount {
+	// font-size: 50px;
+	font-size: 28px;
+	font-weight: 400;
+	font-family: 'Roboto';
+	padding-right: 20px;
+	position: relative;
+	&:before {
+		content: "$";
+		font-family: 'Roboto';
+		font: normal normal bold 18px/69px Roboto;
+		letter-spacing: 0.36px;
+		color: #253853;
+		position: absolute;
+		top: 0;
+		left: -13px;
+		top: -13px;
+	}
+}
+.balance__amount {
+	// margin-top: -34px;
+	position: absolute;
+	width: 100%;
+	margin-top: 10px;
+}
+.comman-border {
+	border: 1px solid #D8E3EB;
+}
+.radius-10 {
+	border-radius: 10px;
+}
+.radius-6 {
+	border-radius: 6px;
+}
+.p-10 {
+	padding: 10px;
+}
+.rechg_amount {
+	font-size: 13px;
+	font-weight: 500;
+	color: #253853;
+	font-family: "ROBOTO";
+	justify-content: center;
+	text-align: center;
+	padding: 5px;
+}
+.denomination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 90%;
+}
+
+
+::ng-deep{
+    .denomination label {
+        margin: 0;
+        margin-left: 10px;
+    }
+    
+    .denomination .mat-checkbox-inner-container {
+        height: 12px!important;
+        width: 12px!important;
+    }
+    .selected-dom mat-checkbox {
+        position: absolute;
+        top: -10px;
+        right: -8px;
+    }
+    .selected-dom .mat-checkbox-inner-container {
+        height: 16px !important;
+        width: 16px !important;
+    }
+    .selected-dom .mat-checkbox-checked .mat-checkbox-checkmark {
+        opacity: 1;
+        height: 13px;
+        width: 13px;
+        margin: auto;
+    }
+    .new-customer .mat-form-field-appearance-legacy .mat-form-field-infix {
+        padding: 7px 0 9px 0;
+    }
+    .selected-dom .mat-checkbox-frame,.payment-card .mat-checkbox-frame{
+        border-color: #0996F6;
+        border-width: 1px!important;
+    }
+    .selected-dom .mat-checkbox-frame{
+        border-radius: 50%!important;
+    }
+    .selected-dom .mat-checkbox-background {
+        border-radius: 50px;
+    }
+    .selected-dom .mat-checkbox-checked.mat-primary .mat-checkbox-background{
+        background-color: #0996f6!important;
+    }
+}
+
+.denomination__rates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.selected-dom {
+    background: #DAF1FD;
+}
+
+.selected-dom {
+    color: #fff;
+    position: relative;
+    border: 1px solid #0996F6;
+}
+.selected-dom p.deal{
+    color: #fff;
+    opacity: 1;
+}
+.selected-dom .rechg_amount {
+    color:#253853;
+}
+
+p.deal {
+    font-size: 10px;
+    opacity: .4;
+    font-family: 'Roboto';
+    color: #2B4964;
+    margin: 0;
+    line-height: 4px;
+    padding-bottom: 10px;
+}
+.auto-recharge-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    background: #F2F2F2;
+    padding: 16px 20px;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Roboto';
+    border: 1px solid #DDDDDD;
+    border-radius: 6px;
+}
+.auto-rechage {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+}
+
+.auto-rechage .auto {
+    border: 1px solid #2B4964;
+    height: 18px;
+    width: 18px;
+    text-align: center;
+    border-radius: 50%;
+    color: #2B4964;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auto-rechage p {
+    color: #575757;
+    font-size: 13px;
+    font-weight: 500;
+}
+.cvv .form-group {max-width: 135px;}
+
+.cvv {
+    display: flex;
+    gap: 27px;
+}
+.label {
+    color: #8D8D8D;
+    opacity: .7;
+    font-size: 12px;
+}
+.hint {
+    font-size: 7px;
+    color: #8D8D8D;
+    text-decoration: underline;
+    font-family: 'Roboto';
+}
+.cards {
+    padding: 6px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+}
+.cards img {
+    width: 150px;
+}
+.edit__card{
+    width: 85%;
+}
+.add_Card a{
+    color: #253853;
+    font-size: 13px;
+    font-family: Roboto;
+    font-weight: 500;
+}
+
+.label_address{
+    font-size: 14px;
+}
+::ng-deep{
+    iframe {
+        width: 100%!important;
+        position: fixed;
+    }
+}
+::ng-deep{
+    ._hj_feedback_container {
+    display: none !important;
+    }
+    .LPMcontainer.LPMoverlay {
+        display: none !important;
+        }
+}
+.scroll-fixed {
+    position: sticky;
+    top: 70px;
+}
+
+// denomination scss here
+
+
+.denom_amount {
+	font-size: 20px;
+	font-weight: 500;
+	color: #253853;
+	font-family: "ROBOTO";
+	justify-content: center;
+	text-align: center;
+	padding: 5px;
+	margin: auto;
+}
+.denomination-wrapper {
+	flex: 1 0 45%;
+}
+.denomination__rates {
+	// display: grid;
+	// grid-template-columns: 1fr 1fr;
+	// grid-gap: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+.selected-dom {
+	background: #0996F6;
+	.denom_amount {
+		color: #fff;
+	}
+}
+
+::ng-deep{
+    .mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
+        background-color: #0386ea;
+    }
+    .denomination label {
+        margin: 0;
+        margin-left: 10px;
+    }
+    
+    .denomination .mat-checkbox-inner-container {
+        height: 12px !important;
+        width: 12px !important;
+    }
+    .selected-dom mat-checkbox {
+        position: absolute;
+        top: -10px;
+        right: -8px;
+    }
+    .selected-dom .mat-checkbox-inner-container {
+        height: 16px !important;
+        width: 16px !important;
+    }
+    .selected-dom .mat-checkbox-checked .mat-checkbox-checkmark {
+        opacity: 1;
+        height: 13px;
+        width: 13px;
+        margin: auto;
+    }
+    .new-customer .mat-form-field-appearance-legacy .mat-form-field-infix {
+        padding: 7px 0 9px 0;
+    }
+    .selected-dom .mat-checkbox-frame,.payment-card .mat-checkbox-frame{
+        border-color: #0996F6;
+        border-width: 1px!important;
+    }
+    .selected-dom .mat-checkbox-frame{
+        border-radius: 50%!important;
+    }
+    .selected-dom .mat-checkbox-background {
+        border-radius: 50px;
+    }
+    .selected-dom .mat-checkbox-checked.mat-primary .mat-checkbox-background{
+        background-color: #0996f6!important;
+    }
+}
+.slice:after {content: '';width: 2px;height: 35px;background: red;position: absolute;left: 67%;transform: rotate(45deg);top: -6px;}
+
+
+.slice {
+    position: relative;
+}
+p.deal {
+    font-size: 10px;
+    opacity: .4;
+    font-family: 'Roboto';
+    color: #2B4964;
+    margin: 0;
+    // line-height: 4px;
+    // padding-bottom: 10px;
+}
+.denomination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+}
+.auto-rechage {
+    .auto {
+        border: 1px solid #2B4964;
+        text-align: center;
+        border-radius: 50%;
+        color: #2B4964;
+        font-size: 12px;
+        padding: 2px 6px;
+    }
+}
+select.form-control {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M505.752,123.582c-8.331-8.331-21.839-8.331-30.17,0L256,343.163L36.418,123.582c-8.331-8.331-21.839-8.331-30.17,0 s-8.331,21.839,0,30.17l234.667,234.667c8.331,8.331,21.839,8.331,30.17,0l234.667-234.667 C514.083,145.42,514.083,131.913,505.752,123.582z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
+    padding-right: 25px;
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-size: 12px;
+  }
+  
+  select.form-control::-ms-expand {
+    display: none;
+  }
+
+.mx-10{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+::ng-deep{
+    .alert-notification,.alert-notification.alert-danger{
+        height: 100%;
+        width: 100%!important;
+        padding: 8px;
+        text-align: left!important;
+        font-size: 12px;
+        display: flex;
+    justify-content: space-between;
+    align-items: center;
+        p{
+            display: flex;
+    align-items: center;
+    margin: 0;
+    max-width: 90%;
+        }
+    }
+    .close-icon{
+        position: unset!important;
+        top: unset!important;
+        right: unset!important;
+        cursor: pointer;
+    }
+    .mat-error {
+        font-size: 12px;
+    }
+}
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select:focus,
+textarea {
+  font-size: 16px;
+}

@@ -1,0 +1,29 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/spec",
+    "baseUrl": "./",
+    "types": [
+      "jasmine",
+      "node",
+	  "googlemaps"
+    ],
+	"noImplicitAny": false, 
+	"strict": false, 
+	"paths": {
+      "NgxAutocomPlace": [
+        "../projects/ngx-autocom-place/src/public_api"
+      ],
+      "NgxAutocomPlace/*": [
+        "../projects/ngx-autocom-place/src/*"
+      ]
+    },
+  },
+  "files": [
+    "test.ts"
+  ],
+  "include": [
+    "**/*.spec.ts",
+    "**/*.d.ts"
+  ]
+}

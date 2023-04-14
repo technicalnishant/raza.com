@@ -1,0 +1,226 @@
+<div class="promotion-top">
+<div class="popupGlobalCall globalCallPopUp buy1get1popup getuptopopup christmas">
+    <div class="selectRechargeamountMain">
+        <div class="background-effect"></div>
+        <span class="closeIcon globalCall" (click)="closeIcon()" mat-dialog-close><i
+                class="material-icons">close</i></span>
+        <h1 class="promo-title mb-0">Buy $5 Get $5</h1>
+        <p class="text-center sub-heading pb-3">BEST OFFER of the year</p>
+
+        <div class="commonminArea hideindesktop d-none">
+            <div class="callRate">
+                <p class="country-name">{{customCountry}}</p>
+                <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
+                        [alt]="countryId" /></span>
+                <span>{{RatePerMin| number:'1.0-0' | sCurrency }} / min</span>
+            </div>
+        </div>
+        <div class="popup-card b-block d-md-none">
+            <div class="promotions-wrapper">
+                <div class="box-wrapper">
+                    <div class="card-wrapper">
+                        <div class="card-head">
+                            <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
+                                [alt]="countryId" /></span>
+                        </div>
+                        <p class="country-name">{{customCountry}}</p>
+                        <span class="price">{{RatePerMin| number:'1.0-0' | sCurrency }} / min</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <mat-dialog-content #matContent>
+            <div class="selectRechargeamount">
+                <div class="selectRechargeAmnt globalCall_li_list">
+                    <ul class="d-none">
+                        <li class="hideinMobile">
+                            <div class="commonminArea">
+                                <div class="callRate">
+                                    <p class="country-name">{{customCountry}}</p>
+                                    <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
+                                            [alt]="countryId" /></span>
+                                    <span>{{RatePerMin| number:'1.0-0' | sCurrency }}  / min</span>
+                                </div>
+                            </div>
+                        </li>
+
+                         <!--<li *ngFor="let item of Plans; let i = index" class="rate-item" (click)="onClickRateTab(item)">
+                            <div matRipple class="commonpriceArea popular ripple-container">
+                                <div class="commonminArea">
+                                    <p class="mins">{{item.TotalTime}}
+                                        <span>mins</span></p>
+                                    <div class="smallLine"></div>
+                                    <p class="charge">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}
+                                    </p>
+                                </div>
+                                <div class="popuplarTag" *ngIf="i==2">
+                                    <img src="assets/images/popular_tag.png" alt="" />
+                                </div>
+                            </div>
+                        </li>  -->
+                        <li class="rate-item" (click)="buyNow(2, 11)">
+                            <div class="commonpriceArea popular ripple-container">
+                                <div class="commonminArea">
+                                    <p class="charge bcharge">Was $4</p>
+                                    <div class="smallLine"></div>
+                                    <p class="mins">$2</p>
+                                     <p class="mins free-mins">{{oneFreemin*4 | number:'1.0-0'}}<span>mins</span></p>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li class="rate-item" (click)="buyNow(3, 12)">
+                            <div class="commonpriceArea popular ripple-container">
+                                <div class="commonminArea">
+                                    <p class="charge bcharge" >Was $6</p>
+                                    <div class="smallLine"></div>
+                                    <p class="mins">$3</p>
+                                     <p class="mins free-mins">{{oneFreemin*6 | number:'1.0-0'}}<span>mins</span></p>
+
+                                </div>
+                                <div class="popuplarTag">
+                                    <img src="assets/images/popular_tag.png" alt="" />
+                                </div> 
+                            </div>
+                        </li> 
+                        <li class="rate-item" (click)="buyNow(5, 2)">
+                            <div class="commonpriceArea popular ripple-container">
+                                <div class="commonminArea">
+                                    <p class="charge bcharge">Was $10</p>
+                                    <div class="smallLine"></div>
+                                    <p class="mins">$5</p>
+                                     <p class="mins free-mins">{{oneFreemin*10 | number:'1.0-0'}}<span>mins</span></p>
+
+                                </div>
+                            </div>
+                        </li> 
+                    </ul>
+
+                    <div class="popup-card">
+                        <div class="promotions-wrapper">
+                            <div class="box-wrapper d-none d-md-block">
+                                <div class="card-wrapper">
+                                    <div class="card-head">
+                                        <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
+                                            [alt]="countryId" /></span>
+                                    </div>
+                                    <p class="country-name">{{customCountry}}</p>
+                                    <span class="price">{{RatePerMin| number:'1.0-0' | sCurrency }} / min</span>
+                                </div>
+                            </div>
+                            <div class="box-wrapper">
+                                <div class="card-wrapper">
+                                    <div class="card-head">
+                                        <p class="charge bcharge">Was $4</p>
+                                        <h1 class="discount-percentage">$2</h1>
+                                    </div>
+                                    <hr>
+                                    <p class="price">{{oneFreemin*4 | number:'1.0-0'}} <br> <span>mins</span></p>
+                                    <div class="button-wrapper text-center">
+                                        <a href="javascript:void(0)" class="btn btn-gredients" (click)="buyNow(2, 11)">Buy Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-wrapper">
+                                <div class="card-wrapper">
+                                    <div class="card-head">
+                                        <p class="charge bcharge">Was $6</p>
+                                        <h1 class="discount-percentage">$3</h1>
+                                    </div>
+                                    <hr>
+                                    <p class="price">{{oneFreemin*6 | number:'1.0-0'}} <br> <span>mins</span></p>
+                                    <div class="button-wrapper text-center">
+                                        <a href="javascript:void(0)"  class="btn btn-gredients" (click)="buyNow(3, 12)">Buy Now</a>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="box-wrapper">
+                                <div class="card-wrapper">
+                                    <div class="card-head">
+                                        <p class="charge bcharge">Was $10</p>
+                                        <h1 class="discount-percentage">$5</h1>
+                                    </div>
+                                    <hr>
+                                    <p class="price">{{oneFreemin*10 | number:'1.0-0'}} <br> <span>mins</span></p>
+                                    <div class="button-wrapper text-center">
+                                        <a href="javascript:void(0)" type="button" class="btn btn-gredients" (click)="buyNow(5, 2)">Buy Now</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="container">
+                            <div class="text-right mr-0 mr-md-5 bottom-text pr-0 pr-md-5 pt-4 mt-5">
+                                <p class="text-blue">
+                                    <span>Have a question?
+                                        <a (click)="contactUs()" class="text-blue">Call us</a>
+                                        <!-- <a>Chat with us</a> -->
+                                    </span>
+                                </p>
+                                <p class="text-right"> *One time offer exclusively for new customers only.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="textARea d-none">
+                        <p>
+                            <!-- <span>
+                                <a (click)="learnmore()">Learn more</a>
+                                <span class="viewAll" (click)="viewAllRatesTab()">View all rates</span>
+                            </span> -->
+                            <span>Have a question?
+                                <a (click)="contactUs()">Call us</a>
+                            </span>
+                        </p>
+                    </div>
+                    <p *ngIf="viewAllPlan">Rates not found.</p>
+                    <div class="viewAllRatesPanel" *ngIf="viewAllrate">
+                        <div class="row">
+
+                            <div class="col-md-9">
+                                <h4>Global call rates to call {{countryName}}</h4>
+                                <p>These rates apply to call {{countryName}} only, rates to call other countries may
+                                    differ.</p>
+                                <table class="table">
+                                    <thead>
+                                        <th>Operator</th>
+                                        <th>Minutes</th>
+                                        <th>Rate / min</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of FilteredSubPlans">
+                                            <td>{{item.CountryName}}</td>
+                                            <td>{{item.TotalTime}}</td>
+                                            <td>{{item.CallRate | sCurrency : globalPlanData.CurrencyCode }} / min</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="input_holder1" style="margin-bottom:18px;">
+                                    <button (click)="buyPlan()" mat-button class="submitButton">BUY NOW</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <mat-form-field>
+                                    <mat-select (selectionChange)="selectDenomination()" placeholder="Select amount"
+                                        [formControl]="denominationSelectControl">
+                                        <mat-option *ngFor="let item of denominationList" [value]="item">
+                                            {{item | bCurrency}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div><!-- 
+                    <p class="descText marginTop15">*All the rates are calculated on the highest denomination calling
+                        plan. For your convenience the plan is set to Auto-refill please uncheck to view the rates
+                        without auto-refill.</p> -->
+                </div>
+
+            </div>
+        </mat-dialog-content>
+    </div>
+</div>
+</div>

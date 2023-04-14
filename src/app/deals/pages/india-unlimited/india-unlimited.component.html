@@ -1,0 +1,52 @@
+
+
+<div>
+  <div class="first_fold">
+
+    <!-- <div class="home_banner deal1_banner" [style.background]="LandingPageBanner">
+    </div> -->
+    <div class="home_banner deal1_banner" style="background-image: url('https://d2uij5nbaiduhc.cloudfront.net/images/indiamonthlyplan_header_n.webp')">
+    </div>
+  </div>
+  <!-- common wrapper -->
+  <!-- <div class="commonWrapperArea newcustomer deals"> -->
+  <div class="commonWrapperArea deals">
+    <div class="commonWrapperAreaShadowArea">
+      <div class="coverShadow"></div>
+    </div>
+    <h2>{{promotion.PromotionName}}</h2>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of promotion.Plans">
+        <div class="commonminArea">
+          <div class="twoIcon">
+            <img *ngIf="item.IsMobile" src="assets/images/mobile_icon.png" alt="" />
+            <img *ngIf="item.IsLandLine" src="assets/images/phone_icon.png" alt="" />
+          </div>
+          <p class="mins">{{item.Denominations[0].RegularMin}}
+            <span>mins</span></p>
+          <div class="smallLine"></div>
+          <p class="charge">{{item.Denominations[0].Price | bCurrency}}</p>
+          <div class="buttonArea">
+            <button mat-button class="submitButton" (click)="buyPlan(item)">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- <div class="viewAllrate"><a>VIEW ALL COUNTRIES</a></div> -->
+    <div class="deal4Textare">
+      <ul>
+        <li>Did not find the country?</li>
+        <li><a routerLink="/searchrates">View all Rates</a></li>
+      </ul>
+  
+      <ul>
+        <li>Have a question?</li>
+        <li><a (click)="callUs()">Call us</a></li>
+      </ul>
+    </div>
+  
+    <app-faq-generic [promotionCode]="promotion.PromotionCode"></app-faq-generic>
+  
+  </div>
+</div>

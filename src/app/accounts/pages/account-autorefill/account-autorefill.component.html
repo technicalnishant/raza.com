@@ -1,0 +1,70 @@
+<ng-template #autoRefill>
+  <div *ngIf="autorefill" class="tabContentMyaccount autoRefill" id="globalcall">
+    <p class="tabTitle">Auto-refill <br /><span>Plan: {{autorefill?.PlanName}}</span></p>
+    <div *ngIf="isEnableSubscribeButton()" class="myNumberButtonArea">
+      <button mat-button class="submitButton" (click)="addEnroll()">Enroll AutoRefill</button>
+    </div>
+    <br />
+
+    <table class="table table-striped" *ngIf="isDisplayAutorefillInfo()">
+      <tbody>
+        <tr>
+          <td>Auto top up - {{autorefill?.AutoRefillAmount | bCurrency : autorefill?.CurrencyCode }} </td>
+
+          <td class="enable">
+            <mat-icon *ngIf="isAutorefillActive()">check_circle</mat-icon>{{getAutorefillStatusText()}}
+          </td>
+
+          <td>Card ending in … {{autorefill.CardNumber | creditCard}}</td>
+          <td class="moreIcon">
+
+            <button mat-icon-button [matMenuTriggerFor]="editDeleteMenu7">
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+            <mat-menu #editDeleteMenu7="matMenu" class="editDeleteAreaMain">
+              <ul>
+                <li><a (click)="editAutoRefill()">Edit</a></li>
+                <li><a (click)="deleteAutoRefill()">Delete</a></li>
+              </ul>
+            </mat-menu>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+<ng-template #autoRefillMobile>
+  <div *ngIf="autorefill" class="tabContentMyaccount paymentDetails numberTabCont autorefill">
+    <p class="tabTitle">Auto-refill <br /><span>Plan: Global Call</span></p>
+    <div class="myNumberButtonArea" *ngIf="isEnableSubscribeButton()">
+      <button mat-button class="submitButton" (click)="addEnroll()">Enroll Autorefill</button>
+    </div>
+    <div class="autorefillTextarea" *ngIf="isDisplayAutorefillInfo()">
+      <p class="autoTextcommon">Auto top up - {{autorefill?.AutoRefillAmount | bCurrency : currentSetting.currency}}</p>
+      <p *ngIf="autorefill?.Status==='A'" class="enabledText">
+        <mat-icon *ngIf="isAutorefillActive()">check_circle</mat-icon>{{getAutorefillStatusText()}}
+      </p>
+
+      <p class="autoTextcommon">
+        <span>Card ending in … {{autorefill.CardNumber | creditCard}}</span>
+        <span class="iconSpan" mat-icon-button [matMenuTriggerFor]="moreMenu3">
+          <mat-icon>more_horiz</mat-icon>
+        </span>
+        <mat-menu #moreMenu3="matMenu" class="editDeleteAreaMain">
+          <ul>
+            <li><a (click)="editAutoRefill()">Edit</a></li>
+            <li><a (click)="deleteAutoRefill()">Delete</a></li>
+          </ul>
+        </mat-menu>
+      </p>
+    </div>
+  </div>
+</ng-template>
+
+<div class="onlyDesktopAccount">
+  <ng-container *ngTemplateOutlet="autoRefill"></ng-container>
+</div>
+<div class="onlySmallScreenAccount">
+  <ng-container *ngTemplateOutlet="autoRefillMobile"></ng-container>
+</div>

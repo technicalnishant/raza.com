@@ -1,0 +1,249 @@
+.example-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.hideinMobile {
+	display: block;
+}
+.showInmobile {
+	display: none;
+}
+.mat-toolbar {
+	background: none;
+}
+.nobg {
+	background: none;
+	cursor: pointer;
+	border: none;
+}
+.commonWrapperArea {
+	p {
+		&.label {
+			color: #103F8A;
+			font-size: 16px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			line-height: 20px;
+			margin: 0;
+			span {
+				display: block;
+				font-size: 12px;
+				color: #808080;
+			}
+		}
+		&.price {
+			color: #103F8A;
+			font-size: 30px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			line-height: 29px;
+			margin-bottom: 25px;
+			span {
+				font-size: 12px;
+				color: #808080;
+				line-height: 12px;
+			}
+		}
+	}
+}
+.footer_style {
+	margin-top: -95px;
+}
+.contactusWrapper {
+	width: 828px;
+	margin: 0 auto;
+	position: relative;
+}
+.mainContactArea {
+	margin-top: -120px;
+}
+.commonContact {
+	width: 255px;
+	height: 258px;
+	background: #fff;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	position: relative;
+	text-align: center;
+	float: left;
+	margin-right: 20px;
+	h3 {
+		color: #004090;
+		font-size: 25px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		margin-top: 25px;
+		padding-top: 80px;
+		line-height: 30px;
+	}
+	p {
+		color: #808080;
+		font-size: 15px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		line-height: 23px;
+	}
+}
+.chatIcon {
+	position: absolute;
+	left: 75px;
+	top: -42px;
+}
+.link {
+	position: absolute;
+	bottom: 0px;
+	background: #F7F9FC;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	padding: 10px 0;
+	a {
+		color: #0B203E;
+		font-size: 16px;
+		font-weight: 400;
+		cursor: pointer;
+	}
+}
+.mobileTopAccordion {
+	width: 80%;
+	margin: 0 auto 95px;
+	min-height: 500px;
+	padding-bottom: 50px;
+	h2 {
+		color: #103F8A;
+		font-size: 24px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		margin: 120px 0;
+		text-align: center;
+	}
+}
+.headingText {
+	color: #0B203E;
+	font-size: 18px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	padding: 16px 0;
+	border-bottom: 1px solid #ccc;
+	margin-top: 60px;
+}
+.clearDiv {
+	clear: both;
+	overflow: hidden;
+	height: 1px;
+	width: 100%;
+}
+.card-header {
+	a {
+		color: #808080;
+		font-size: 16px;
+	}
+}
+.contactus {
+	.aboutusCont {
+		p {
+			color: #808080;
+			font-size: 16px;
+			line-height: 28px;
+		}
+	}
+}
+.greenArea {
+	background: linear-gradient(to right, #04A5F6 , #0367DE);
+	padding: 81px 0;
+	clear: both;
+	overflow: hidden;
+	min-height: 300px;
+}
+.officeAddress {
+	width: 90%;
+	margin: 0 auto;
+}
+.officeAddLeft {
+	float: left;
+	width: 70%;
+}
+.officeAddRight {
+	float: left;
+	width: 30%;
+}
+.contactAdd {
+	float: left;
+	width: 266px;
+	padding: 10px 20px;
+	p {
+		color: #fff;
+		font-size: 14px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		margin-bottom: 4px;
+		line-height: 23px;
+		&.heading {
+			color: #fff;
+			font-size: 18px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			margin-bottom: 11px;
+		}
+	}
+}
+.borderLeft {
+	border-left: 1px solid rgba(255,255,255,0.25);
+}
+.contactAdd2 {
+	float: left;
+	width: 170px;
+	padding: 10px 20px;
+	p {
+		color: #fff;
+		font-size: 14px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		margin-bottom: 4px;
+		line-height: 23px;
+		&.heading {
+			color: #fff;
+			font-size: 18px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			margin-bottom: 11px;
+		}
+	}
+}
+.popup {
+	a {
+		cursor: pointer;
+		margin: 20px 0;
+		display: block;
+	}
+}
+
+  
+  @media only screen and (max-width: 650px)  {
+    
+    .hideinMobile{display: none;}
+    .showInmobile { display: block;}
+  
+    .mainContactArea .carousel-inner{overflow: visible; height: 258px;}
+    
+    .three_service{ height: 360px;}
+    .virtual1Form{ width: auto; margin: 25px auto 0;}
+    .commonWrapperArea h3{ font-size: 20px;}
+    .commonWrapperArea{padding: 30px 12px;}
+    .commonWrapperArea p.headerText{ font-size: 14px; line-height:20px;}
+    .virtualNumberList h4{font-size: 19px;}
+    .mobileTopAccordion h2{margin: 57px 0 10px 0; font-size:20px; line-height: 24px;}
+    .headingText{font-size: 16px;}
+    .officeAddLeft{ width: 100%; }
+    .borderLeft{ border-left: none;}
+    .contactAdd{margin-bottom: 35px;}
+    .mobileTopAccordion{ margin-bottom: 0px;}
+    .officeAddRight{ width: 100%; }
+    .contactAdd2{ width: 168px;}
+    .contactusWrapper{ width:255px; }
+  }

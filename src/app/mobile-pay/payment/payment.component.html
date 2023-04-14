@@ -1,0 +1,200 @@
+<!-- Amount recharge new customer -->
+
+<div class="bg-comman">
+  <div class="main__wrapper" >
+    <div class="bg-top bg-top-inners">
+      <div class="d-flex align-items-center pt-4 justify-content-between align-items-center w-100">
+        <button class="bg-icon-blue border-0 text-white" (click)="goBack()">
+          <span class="material-icons"> keyboard_arrow_left </span>
+        </button>
+        <h4 class="title_bold">Recharge</h4>
+  
+        <button class="bg-icon-blue border-0 text-white" (click)="closeApp()">
+          <span class="material-icons close-screen">close</span>
+        </button>
+      </div>
+      <!--<div class="container scroll-fixed">
+        <div class="row comman-shadow mb-2 p-2 br-radius bg-white balance__amount">
+          <div class="waller-amount-wrapper">
+            <div class="wallet-icon">
+              <img src="../../assets/images/app-icons/wallet.svg" alt="">
+            </div>
+            <div class="wallet-amount">
+              <div class="wallet-msg">Current Balance</div>
+              <div class="wallet__amount">{{balance}}</div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+    </div>
+   <div class="section-wrapper shadow-common overflow-hidden mt-1" *ngIf="havingExistingCard && !addNewCard && !editCard && !showCartInfo">
+    <div class="card-wrapper card-content">
+        <div class="card-head"  >
+          <div class="main-title">Your Saved Credit Cards</div>
+          <div *ngIf="selectedCard?.CardId" >
+            <img src="../../assets/images/edit.svg" alt="" class="card-img pr-3" (click)="editCardClick('editCrd')"> 
+            <img src="../../assets/images/app-icons/delete.svg" alt=""  (click)="deleteCardDetails()" class="card-img pr-3">
+          </div>
+        </div>
+        <div class="card-content comman-padding py-0 save-card-header">
+          <mat-radio-group class="example-radio-group" name="cardNumber" [(ngModel)]="selectedCard">
+        <div class="d-flex gap-20 edit-card align-items-start" *ngFor="let item of customerSavedCards; let ind = index"
+        [ngClass]="{'cardOpacity': selectedCard?.CardId != item.CardId }">
+          <div class="card__img">
+            <img [src]="getCardIcon(item)" alt="" />
+          </div>
+  
+            <div class="d-flex justify-content-between edit__card">
+             <div class="d-flex justify-content-between flex-column w-75">
+              
+              <div class="d-flex justify-content-between">
+                <div class="card__details">
+                  <p class="card-label">Card Number</p>
+                  <div class="card-number">{{ getFormatedCard(item.CardNumber) }}</div>
+                </div>
+                <div class="card__details">
+                  <p class="card-label">Expires On</p>
+                  <div class="card-number">{{item.ExpiryMonth}}/{{item.ExpiryYear}}</div>
+                </div>
+              </div>
+            
+              <div class="cvv_input" *ngIf="item.CardId === selectedCard?.CardId" >
+                <form class="example-form">
+                  <mat-form-field class="w-100">
+                    <mat-label class="label">CVV Code</mat-label>
+                    <input matInput type="password" maxlength="4" placeholder="Security code" name="{{item.CardId}}"
+                [(ngModel)]="item.Cvv" (keyup)="modelChangeFn($event)">
+                    <div matSuffix><a href="javascript:void(0)" (click)="whatiscvv() && onIconClick($event)" class="hint">what is CVV</a></div>
+                  </mat-form-field>
+                  <mat-error *ngIf="isDisplayCvvRequired(item) || cardCvvError">
+                    CVV is required
+                  </mat-error>
+                </form>
+              </div>
+             </div>
+              <div class="check__box">
+                <mat-radio-button (click)="setItem(item)" [checked]="getChecked(item)" [value]="item"></mat-radio-button>
+              </div>
+          </div>
+          
+        </div>
+      </mat-radio-group>
+        </div>
+  
+        <div class="card-content comman-padding py-0">
+          <div class="d-flex gap-20 edit-card align-items-start" *ngIf="customerSavedCards">
+            <div class="card__img">
+              <img src="../../assets/images/app-icons/blue_card.svg" alt="">
+            </div>
+              <div class="d-flex justify-content-between edit__card">
+                <div class="add_Card">
+                  <a href="javascript:void(0)">ADD NEW CARD</a>
+                </div>
+                <div class="check__box">
+                  <mat-radio-button (click)="addCardClick('newCrd')" [checked]="getChecked('')" [value]="newCard"></mat-radio-button>
+                </div>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+    </div>
+  </div>
+  <div class="container my-5" *ngIf="havingExistingCard && !addNewCard && !editCard && !showCartInfo">
+    <div class="row">
+      <div class="col-12 px-0" >
+        <button class="btn btn-gradient btn-block" (click)="addNewOrPay()" mat-button>CONTINUE</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section-wrapper shadow-common overflow-hidden mt-1" *ngIf="addNewCard">
+      
+    <app-new-credit-card [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentInfoFormSubmit($event)">
+   </app-new-credit-card>  
+  
+  </div>
+  <div class="section-wrapper shadow-common overflow-hidden mt-1" *ngIf="editCard">
+   
+  <app-add-card [selectedCard]="selectedCard" [billingInfo]="billingInfo" (onPaymentSubmit)="onPaymentInfoFormSubmit($event)">
+  </app-add-card>  
+  
+  </div>
+   
+   
+    <div class="section-wrapper shadow-common overflow-hidden" *ngIf="showCartInfo">
+      <div class="card-wrapper pb-0">
+          <div class="card-head">
+            <div class="main-title">Order Summary</div>
+          </div>
+          <div class="card-content comman-padding pt-1">
+            <table class="table summary mb-0 border-bottom">
+              <tr>
+                <td>Mobile Number</td>
+                <td>+{{userPhone}}</td>
+              </tr>
+              <tr>
+                <td>Plan Name</td>
+                <td>{{this.plan.CardName}}</td>
+              </tr>
+              <tr>
+                <td>Credit Card</td>
+                <td>Ending {{getlast4digit()}}</td>
+              </tr>
+              <tr>
+                <td>Price</td>
+                <td> {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode }} <!--<span class="pl-3">(USD)</span>--></td>
+              </tr>
+              <tr>
+                <td>Fees</td>
+                <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode }}</td>
+              </tr>
+              <tr>
+                <td>Promotion</td>
+                <td> </td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode }}</td>
+              </tr>
+  
+            </table>
+          </div>
+      </div>
+    
+    
+    </div>
+    <div *ngIf="showCartInfo">
+      <div class="button-wrapper my-3">
+       <button class="btn btn-gradient btn-block" (click)="processPayment()" mat-button>RECHARGE NOW</button>
+      </div>
+    </div>
+    
+    <div class="note border pb-3">
+      <div>
+        <img src="../../assets/images/app-icons/ssl.svg" alt="">
+      </div>
+      <div>Its Safe, Secure and easy ! Your information is encrypted Using proprietary and secure socket layer ( SSL ) Technology</div>
+   </div>
+  </div>
+</div>
+
+<a href="javascript:void(0)" (click)="returnPaymentResp()" style="display:none" id="auto_trigger"></a>
+<a href="javascript:void(0)" (click)="showCardEdit()" style="display:none" id="error_trigger"></a>
+<!-- Amount recharge new customer end-->
+
+<div id="mybraintreeDiv" class="payment__box">
+  <div id="el" style="    position: absolute;
+  z-index: 9999;
+  width: auto;
+  background-color: #fff;
+  left: 0%;
+  top: 20%;
+  right: 0;"></div>
+</div>
+
+
+<!-- <div id="mybraintreeDiv" style="position:absolute; width:100%;height:100%; z-index:9999;">
+  <div id="el" style="position:absolute; z-index:9999; width:auto; background-color:#fff;height:auto; left:0%;top:20%;"></div>
+</div> -->

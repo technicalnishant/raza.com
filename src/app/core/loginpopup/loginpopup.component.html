@@ -1,0 +1,232 @@
+<div class="popup-wrapper pt-1 px-3 text-center" id="loginDilog">
+<div *ngIf="!showForgotPass">
+  <h1 mat-dialog-title class="text-center" *ngIf="!reward_content">Welcome back</h1>
+  <h1 mat-dialog-title class="text-center" *ngIf="reward_content" >Raza Rewards</h1>
+  <p class="text-center subtitle" *ngIf="!reward_content && ! signupNoExist">Get access to your account details anywhere anytime!</p>
+  <p class="text-center subtitle" *ngIf="reward_content">
+    It's never too late, enroll to Raza rewards today and get 200 bonus points.
+     
+  </p>
+ 
+
+  <p *ngIf="signupNoExist" class="red_text text-center subtitle">It looks like you already have an account with us. Please log in.</p>
+  <div mat-dialog-content>
+    <div class="example-container" >
+      <div mat-dialog-actions class="cancel">
+        <button mat-dialog-close class="bg-white text-dark"><mat-icon class="text-dark">close</mat-icon></button>
+      </div>
+      <form *ngIf="loginWith == 'phone'" class="example-form" name="loginForm" [formGroup]="loginForm" (ngSubmit)='onLoginFormSubmit()' >
+        <!--<mat-formfield appearance="" class="flat-option">
+          <mat-select c-lass="flag-option">
+            <mat-option value="option" selected>Option</mat-option>
+          </mat-select>
+        </mat-form-field>-->
+		 
+		 <div class="number-top d-flex align-items-start">
+     <div class="flag-wrapper">
+		<div class="select_top1 d-flex align-items-center" (click)="openFlagDropDown()">
+        <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+          [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId">
+		 <span>+{{currentSetting.country.CountryCode}}</span>
+      </div>
+      <div class="flag_list1" *ngIf="showDropdown">
+        <ul>
+          <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)">
+            <span>
+              <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+                [ngClass]="'flag flag-f-'+ item.CountryId">
+            </span>
+          </li>
+        </ul>
+      </div>
+      </div>
+		 
+        <mat-form-field appearance="" class="mobile-number ml-4">
+          <!--<input type="text" matInput formControlName="username" placeholder="Enter your phone number" [textMask]="{mask: getmask()}">-->
+          <input  matInput formControlName="username" (keyup)="validateUsername()" ng-pattern="/^[1-9]{1}[0-9]{9}$/" maxlength="15" placeholder="Enter Mobile Number"/> 
+          <!--<input  matInput formControlName="username" placeholder="Enter Mobile Number/Email"/>-->
+			
+            <mat-error *ngIf="loginForm.get('username').errors?.required">
+              Phone Number is required.
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('username').errors?.pattern">
+              Please enter a valid phone number.
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('username').errors?.invalid_input">
+              Invalid Phone Number.
+            </mat-error>
+        </mat-form-field>
+        </div>
+        <mat-form-field appearance="" class="full-width">
+          <input matInput #input maxlength="30" formControlName="password" type="" placeholder="Enter your passcode" [type]="hide ? 'text' : 'password'" class="password">
+          <button type="button" mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="eyes">
+    <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+    </button>
+		  <span class="floatRight resend forget">
+            <a tabindex="3" (click)="showHideForgotForm()">Forgot code?</a></span>
+		  <mat-error *ngIf="loginForm.get('password').errors?.required">
+              Password is required. 
+            </mat-error> 
+            <mat-error *ngIf="loginForm.get('password').errors?.maxLength">
+              Password can not be more than 30 character.
+            </mat-error>
+
+            <mat-error *ngIf="loginForm.get('password').errors?.invalid">
+              Incorrect Mobile Number/Password.
+            </mat-error>
+			
+          <!--<a href="#" class="resend">Resend Code</a> -->
+        </mat-form-field>
+        <div class="submit-btn pt-5 text-center">
+          <button mat-button>LOGIN</button>
+        </div>
+   </form>
+
+
+<form *ngIf="loginWith == 'email'" class="example-form" name="loginForm" [formGroup]="loginForm" (ngSubmit)='onLoginFormSubmit()' >
+    
+ 
+ <div class="number-top d-flex align-items-start">
+ 
+ 
+    <mat-form-field appearance="" class="mobile-number ml-0 w-100">  
+      <!--<input type="text" matInput formControlName="username" placeholder="Enter your phone number" [textMask]="{mask: getmask()}">-->
+      <input  matInput formControlName="username" (keyup)="validateEmail()"  placeholder="Enter Email Address"/> 
+      <!--<input  matInput formControlName="username" placeholder="Enter Mobile Number/Email"/>-->
+     
+        <mat-error *ngIf="loginForm.get('username').errors?.invalid_input">
+          Invalid Phone Number.
+        </mat-error>
+        <span *ngIf="invalidEmail" class="span_error">
+          Please enter a valid email.
+        </span>
+    </mat-form-field>
+    </div>
+    <mat-form-field appearance="" class="full-width" *ngIf="showPassWord">
+      <input matInput #input maxlength="30" formControlName="password" type="" placeholder="Enter your passcode" [type]="hide ? 'text' : 'password'" class="password">
+      <button type="button" mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="eyes">
+<mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+</button>
+  <span class="floatRight resend forget">
+        <a tabindex="3" (click)="showHideForgotForm()">Forgot password?</a>
+      </span>
+  <mat-error *ngIf="loginForm.get('password').errors?.required">
+          Password is required. 
+        </mat-error> 
+        <mat-error *ngIf="loginForm.get('password').errors?.maxLength">
+          Password can not be more than 30 character.
+        </mat-error>
+
+        <mat-error *ngIf="loginForm.get('password').errors?.invalid">
+          Incorrect Username/Password.
+        </mat-error>
+  
+      <!--<a href="#" class="resend">Resend Code</a> -->
+    </mat-form-field>
+    <div class="submit-btn pt-5 text-center">
+      <button mat-button *ngIf="showPassWord" >LOGIN</button>
+      <button type="button" (click)="validateEmail()" mat-button *ngIf="!showPassWord" >CONTINUE</button>
+    </div>
+</form>
+
+   <div class="or">
+    or
+  </div>
+  <div class="login-options">
+    <button *ngIf="loginWith != 'email'" mat-button class="login-button" (click)="setLoginWith('email')">
+      <img src="./assets/images/app-icons/email.png" alt=""> Continue with Email
+    </button>     
+    <button *ngIf="loginWith == 'email'" mat-button class="login-button" (click)="setLoginWith('phone')">
+      <img src="./assets/images/app-icons/email.png" alt=""> Continue with phone number
+    </button>      
+    <!-- <button mat-button class="login-button"><img src="./assets/images/app-icons/fb.png" alt=""> Continue with Facebook</button>
+    <button mat-button class="login-button"><img src="./assets/images/app-icons/apple.png" alt=""> Continue with Apple</button>
+    <button mat-button class="login-button"><img src="./assets/images/app-icons/GPay-Light-themed-buttons.svg" alt=""> Continue with Google</button> -->
+  </div>
+  <p class="new-raza">New to raza? <a href="javascript:void(0)" (click)="showSignup()">Sign up now</a></p>
+  <span class="note">By signing in, you agree to our Website <a href="termsandcondition">Terms & Privacy Policy</a></span>
+  <p class="new-raza" style="font-size: 16px; "><a href="javascript:void(0)" >SMS OPT-IN</a></p>
+      <!--<button (click)="signInWithGoogle()">signInWithGoogle</button>-->
+
+	  
+    </div>
+  </div>
+</div>
+
+
+<div class="forgot" *ngIf="showForgotPass">
+<div mat-dialog-content>
+<div mat-dialog-actions class="cancel">
+
+        <button mat-dialog-close class="bg-white"><mat-icon class="text-dark">close</mat-icon></button>
+      </div>
+
+<h1 mat-dialog-title class="text-center">Forgot your password? No problem</h1>
+  <p class="text-center subtitle" *ngIf="loginWith == 'phone'">Enter your mobile number to receive your password.</p>
+  <p class="text-center subtitle" *ngIf="loginWith == 'email'">Enter your email address to receive your password.</p>
+  
+<div class="example-container">
+      <form name="forgotPasswordForm" [formGroup]="forgotPasswordForm" (ngSubmit)="submitForgotPasswordForm()">
+        <div class="col-sm-12 formRowM15">
+           <div class="number-top d-flex align-items-start">
+		<div class="flag-wrapper" *ngIf="loginWith == 'phone'">
+				<div class="select_top1 d-flex align-items-center" (click)="openFlagDropDown()">
+				<img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+				  [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId">
+				 <span>+{{currentSetting.country.CountryCode}}</span>
+			  </div>
+			  <div class="flag_list1" *ngIf="showDropdown">
+				<ul>
+				  <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)">
+					<span>
+					  <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+						[ngClass]="'flag flag-f-'+ item.CountryId">
+					</span>
+				  </li>
+				</ul>
+			  </div>
+			  </div>
+          <mat-form-field class="example-full-width full-width ml-4">
+            <input matInput placeholder="Enter {{loginWith == 'email'?'Email address':'mobile number'}}" (keyup)="validateFUsername()" formControlName="phoneEmailControl">
+            <!--<input matInput placeholder="Enter mobile number/email" formControlName="phoneEmailControl">-->
+            <!-- <mat-hint>Start with +(country code), e.g +1, +44, or +91 </mat-hint> -->
+            <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required">
+              {{loginWith == 'email'?'Email address':'Mobile number'}} is required.
+            </mat-error>
+            <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.pattern">
+              Please enter a valid {{loginWith == 'email'?'email address':'mobile number'}}.
+            </mat-error>
+
+            <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.invalid">
+              {{loginWith == 'email'?'Email address':'Mobile number'}} does not exist.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+        <div class="col-sm-12 formRowM15" [hidden]="!otpSend">
+
+          <mat-form-field class="example-full-width full-width">
+            <input matInput type="password" maxlength="6" placeholder="Enter 6 digit passcode" formControlName="otp">
+            <span class="floatRight resend" *ngIf="isEnableResendOtp">
+            <a tabindex="0" (click)="sendOtp()">Resend Passcode</a>
+          </span>
+            <mat-error *ngIf="forgotPasswordForm.get('otp').errors?.invalid">
+              Incorrect Mobile Number/Password.
+            </mat-error>
+          </mat-form-field>
+
+          
+        </div>
+        <div class="form_row1">
+          <div class="input_holder1 submit-btn my-5 text-center">
+            <button type="submit" mat-button class="">Submit</button>
+            <!-- <p *ngIf="subscribeTimer > 0">{{subscribeTimer}}</p> -->
+          </div>
+        </div>
+      </form>
+      
+</div>
+</div>
+</div>
+
+</div>

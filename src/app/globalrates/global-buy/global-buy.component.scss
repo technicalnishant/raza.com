@@ -1,0 +1,387 @@
+.buy1get1popup {
+  width: 100%;
+  max-width: 100%;
+
+  p.charge,
+  .mins {
+    color: #000;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  .mins {
+    padding: 30px 0px 0px 0px;
+    font-size: 40px;
+  }
+
+  .free-mins {
+    font-size: 28px !important;
+    display: inline-block;
+    font-weight: 700 !important;
+
+    span {
+      display: unset !important;
+      margin-left: 5px;
+    }
+
+  }
+
+  .textARea span:last-child {
+    float: right;
+    font-weight: 700;
+  }
+
+  .textARea span:last-child a {
+    padding-right: 10px;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .bcharge {
+    &:after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: 40px;
+      top: 113px;
+      background: red;
+      right: 42%;
+      transform: rotate(45deg);
+    }
+  }
+
+  .selectRechargeAmnt {
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 40px;
+
+      li {
+        .commonpriceArea {
+          width: unset;
+          height: unset;
+          border: none;
+          vertical-align: middle;
+          position: relative;
+          display: block;
+          padding: 26px;
+
+          // &:hover {
+          //   border: 5px solid #1a40bf;
+          //   border-radius: 30px;
+          // }
+        }
+
+        &:first-child {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+
+  .callRate {
+    span {
+      &:last-child {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .selectRechargeamountMain {
+    h1 {
+      font-size: 42px;
+    color: #000000;
+    font-weight: 700;
+    font-family: "Montserrat";
+    margin-bottom: 0;
+    padding: 36px 0;
+    
+    }
+  }
+
+}
+
+.country-name {
+  font-size: 28px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: #000000;
+  font-weight: 700;
+  font-family: "Montserrat";
+  margin-bottom: 0;
+  margin-left: 14px;
+}
+
+.free-mins {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+.full-tab {
+  margin: 50px 0;
+
+  .mat-tab-label-active {
+    background: #2a5693 !important;
+    color: #fff;
+    opacity: 1;
+  }
+
+  .mat-tab-label {
+    width: 33.33%;
+    border: 1px solid #bec5ce;
+    border-bottom: 0;
+  }
+
+  table {
+    tr {
+      th {
+        color: #212529;
+
+        &:last-child {
+          text-align: right;
+        }
+      }
+
+      td {
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .buttonArea {
+    margin: 50px 0 0;
+
+    button {
+      border-radius: 30px;
+      width: unset;
+      padding: 5px 50px;
+      font-weight: 700;
+    }
+  }
+}
+
+.mat-dialog-container {
+  height: unset;
+}
+
+/*    new  */
+.Afganistan_new {
+  background-color: #f7c951;
+  text-align: center;
+  border-radius: 60px;
+  border: 12px solid #000000;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 16px 28px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -57px;
+}
+.selected{
+  border: 5px solid #1a40bf;
+    border-radius: 30px;
+    background: #fff;
+    position: relative;
+    &:after{
+    content:'';
+    background-image: url('../../../assets/images/new_design_images/popular.png');
+    position: absolute;
+    width: 54%;
+    height: 66%;
+    background-repeat: no-repeat;
+    top: -5px;
+    right: -5px;
+    background-size: contain;
+  }
+  .button_buy {
+    border: 2px solid #f7c951;
+}
+}
+
+  p.mins.price {
+    font-size: 44px!important;
+}
+  p.mins.price span {
+    display: inline!important;
+}
+
+.popupGlobalCall .callRate {
+  margin: 0px !important;
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 20px;
+  }
+}
+
+.popupGlobalCall .callRate span {
+  font-size: 32px;
+  color: #000000;
+  font-weight: 700;
+  font-family: "Montserrat";
+
+}
+
+.mat-dialog-content {
+  overflow: hidden !important;
+}
+
+.popupGlobalCall .selectRechargeamount {
+  background-color: #f5f7ff;
+  border-top: 1px solid #d6d8e1;
+  border-radius: 0 0 60px 60px;
+  padding-bottom: 24px;
+}
+
+.mat-dialog-container {
+  padding: 0px !important;
+}
+
+.button_buy {
+  margin-top: 10px;
+  background-color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 10px;
+
+  &:hover {
+    border: 2px solid #f7c951;
+  }
+
+}
+
+.popupGlobalCall .selectRechargeAmnt ul li .commonpriceArea.popular {
+  background: none;
+}
+
+::ng-deep {
+  .buy1get1popup-dialog {
+    .mat-dialog-container {
+      display: block;
+      padding: 0;
+      border-radius: 60px;
+      box-sizing: border-box;
+      overflow: visible;
+    }
+    .closeIcon {
+      top: 25px !important;
+      background: #fff;
+      height: 44px;
+      width: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      right: -50px;
+  }
+  .textARea {
+    position: absolute;
+    right: 0;
+    bottom: -60px;
+    span{
+      &:last-child{
+        color: #ffffff!important;
+        a{
+        color: #fff !important;
+        }
+      }
+    }
+    }
+  }
+}
+
+
+@media only screen and (max-width:480px) {
+  .buy1get1popup .selectRechargeAmnt ul {
+    display: block !important;
+  }
+
+  .buy1get1popup .selectRechargeAmnt ul li {
+    display: block;
+  }
+
+  .buy1get1popup .selectRechargeAmnt ul li {
+    margin: 20px auto;
+  }
+
+
+}
+
+@media only screen and (min-width:481px) and (max-width:768px) {
+  .buy1get1popup .selectRechargeAmnt ul {
+    display: block !important;
+    max-width: 50%;
+  }
+  
+
+  .buy1get1popup .selectRechargeAmnt ul li {
+    display: block;
+  }
+
+  .buy1get1popup .selectRechargeAmnt ul li {
+    margin: 20px auto;
+  }
+
+  
+}
+
+@media only screen and (min-width:769px) and (max-width:1024px) {
+  .buy1get1popup .selectRechargeAmnt ul {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media only screen and (max-width:650px) {
+  .hideinMobile {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width:651px) {
+  .hideindesktop {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width:675px){
+  .blue_margin{
+       margin: 20px 5px !important;
+  }
+  .closeIcon{
+    top: -29px !important;
+    right: 0px;
+  }
+   .textARea{
+    left: 0;
+    bottom: -70px;
+    margin-left: 10px;
+  }
+  .Afganistan_new{
+    border: 10px solid #000000;
+    padding: 10px 20px;
+    margin-top: -37px;
+  }
+  .mat-dialog-content{
+    overflow: scroll !important;
+  }
+  .cdk-overlay-pane{
+    padding: 0 35px !important;
+  }
+  .popupGlobalCall .callRate span{
+    font-size: 25px !important;
+  }
+  .country-name{
+    font-size: 15px !important;
+  }
+  .getuptopopup .selectRechargeamountMain h1{
+    display: block !important;
+    font-size: 25px !important;
+  }
+}

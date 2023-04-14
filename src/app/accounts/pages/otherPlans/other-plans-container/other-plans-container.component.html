@@ -1,0 +1,25 @@
+<div class="myaccountTabArea">
+
+  <div class="onlySmallScreenAccount" *ngIf="isSmallScreen">
+    <div class="myAccountMobTabContArea">
+      <div class="commonBg">
+        <h2 class="welcomeText">Hello, {{username}}</h2>
+        <div class="tabContentMyaccount" style="background: none; padding: 0px; overflow: visible;">
+          <a routerLink="/account" class="backButton">Back to My Account</a></div>
+      </div>
+      <span *ngIf="isVisibleCloseIcon" class="icon-close" (click)="onClickClose()"><i
+          class="material-icons">close</i></span>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <div class="onlyDesktopAccount" *ngIf="!isSmallScreen">
+    <h2 class="welcomeText">Hello, {{username}}</h2>
+    <div class="tabContentMyaccount" style="background: none; padding: 0px; overflow: visible;">
+      <a routerLink="/account" class="backButton">Back to My Account</a></div>
+    <span *ngIf="isVisibleCloseIcon" class="icon-close" (click)="onClickClose()">
+      <i class="material-icons">close</i>
+    </span>
+    <router-outlet></router-outlet>
+  </div>
+</div>

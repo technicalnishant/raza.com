@@ -1,0 +1,82 @@
+
+<div class="first_fold">
+ 
+    <p>create-instance works!</p>
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+        <div>
+          <label for="name">
+            FirstName
+          </label>
+          <input id="name" type="text" formControlName="FirstName">
+        </div>
+        <div>
+            <label for="name"> LastName </label>
+            <input id="name" type="text" formControlName="LastName">
+          </div>
+
+          <div>
+            <label for="name"> EmailAddress </label>
+            <input id="name" type="text" formControlName="EmailAddress">
+          </div>
+          <div>
+            <label for="name"> HomePhone </label>
+            <input id="name" type="text" formControlName="HomePhone">
+          </div>
+          <div>
+            <label for="name"> OrderId </label>
+            <input id="name" type="text" formControlName="OrderId">
+          </div>
+
+          
+        <div>
+          <label for="address">
+            Address
+          </label>
+          <input id="address" type="text" formControlName="Address1">
+        </div>
+        <div>
+            <label for="address"> City
+            </label>
+            <input id="address" type="text" formControlName="City">
+          </div>
+
+        <div>
+            <label for="name"> State </label>
+            <input id="name" type="text" formControlName="State">
+          </div>
+        <div>
+            <label for="name"> ZipCode </label>
+            <input id="name" type="text" formControlName="ZipCode">
+          </div>
+<div>
+            <label for="address"> Currency </label>
+            <input id="address" type="text" formControlName="CurrencyCode">
+          </div>
+          
+          <div>
+            <label for="address"> CardNumber </label>
+            <input id="address" type="text" formControlName="CardNumber">
+          </div>
+          <div>
+            <label for="address"> ExpiryDate </label>
+            <input id="address" type="text" formControlName="ExpiryDate">
+          </div>
+          <div>
+            <label for="address"> CvvValue </label>
+            <input id="address" type="text" formControlName="CvvValue">
+          </div>
+        <div>
+            <label for="address"> Amount </label>
+            <input id="address" type="text" formControlName="Amount">
+          </div>
+
+        
+        <button class="button" type="submit">Generate Nonce</button>
+      
+      </form>
+      <div id="mybraintreeDiv1" style="position:absolute; width:100%;height:100%; z-index:9999;">
+        <div id="el1" style="position:absolute; z-index:9999; width:auto; background-color:#fff;height:auto; left:40%;top:40%;"></div>
+      </div>
+</div>
+

@@ -1,0 +1,177 @@
+
+.tabContentMyaccount {
+	padding: 180px 0;
+	background: #fff;
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 30px;
+	.submitButton {
+		width: auto !important;
+		padding: 9px 76px;
+		font-size: 15px;
+		margin-top: 51px;
+	}
+	table {
+		margin-top: 40px;
+		th {
+			color: #103F8A;
+			font-size: 14px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 500;
+		}
+		td {
+			font-size: 13px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			color: #808080;
+			&:last-child {
+				text-align: left;
+			}
+			a {
+				color: #103F8A;
+				font-size: 13px;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 400;
+				text-decoration: underline;
+			}
+		}
+		tr {
+			&.total {
+				td {
+					color: #103F8A;
+					font-size: 13px;
+					font-family: 'Montserrat', sans-serif;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+}
+p {
+	&.tabTitle {
+		text-align: center;
+		color: #0B203E;
+		font-size: 28px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		line-height: 34px;
+	}
+	&.currentBalance {
+		color: #0B203E;
+		font-size: 24px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		margin-bottom: 3px;
+	}
+	&.commonTabText {
+		color: #103F8A;
+		font-size: 20px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+		margin-bottom: 3px;
+	}
+}
+
+.planDetails {
+	padding: 60px 36px;
+}
+.tabContentMyaccount table th,.tabContentMyaccount table td {
+	padding: 10px !important;
+}
+.tabContentMyaccount table, .tabContentMyaccount table th,.tabContentMyaccount table td,.tabContentMyaccount table tr {
+	border: none;
+}
+
+.accountDetails {
+	text-align: center;
+	p {
+		margin-bottom: 0px;
+		color: #808080;
+		font-size: 15px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		line-height: 24px;
+	}
+	a {
+		margin-bottom: 0px;
+		color: #103F8A;
+		font-size: 14px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		text-decoration: none;
+	}
+}
+  
+  @media only screen and (max-width: 868px)  {
+    .tabContentMyaccount{
+      margin-bottom: 0px !important;
+  }
+  .myaccountTabArea{padding: 120px 0 0 0; margin-bottom: 0px;}
+  h2.welcomeText{font-size: 27px; margin-bottom: 10px;}
+  .onlyDesktopAccount{ display: none;}
+  .onlySmallScreenAccount {display: block}
+  .myAccountMobileSelect{ display: block; text-align: center;}
+  .mat-select{ margin-bottom: 0px !important;}
+  .myAccountMobTabContArea{ background: #fff; }
+  .myAccountMobTabContArea .rechargeLeft{width: 100%;text-align: center;padding: 15px 0;display: block;margin: 24px auto;}
+  .myAccountMobTabContArea .rechargeRight{width: 50%;text-align: center;display: block; margin: 24px auto; padding-top: 40px; border-top: 1px solid #E4E4E4; border-left: none; float: none;  clear: both;}
+  .planDetails{ padding: 50px 10px;}
+  .razaNumberRight{margin-top: 0px;}
+  .razaNumberRight .heading_style7{ margin: 0 0 22px 0;font-size: 16px;line-height: 20px;}
+  .razaNumberLeft,.razaNumberRight{ width: 100%;}
+  p.disclaimer{ display: none;}
+  .planDetails p.tabTitle{ margin-bottom:50px; font-size: 24px !important; font-weight: 600 !important; }
+  .razaNumberLeft table tr th,.razaNumberLeft table tr td{ width: 50%;padding: 10px 25px !important;}
+  .tabContentMyaccount table tr th,.tabContentMyaccount table tr td{ /*width: 50%;*/padding: 10px 25px !important;}
+  table.orderHistory tr td:first-child{font-family: 'Montserrat', sans-serif; font-weight: 500; color:#0B203E;}
+  .razawebNumberRightApplinkArea{ margin: 25px 10px !important;padding: 20px 12px !important;} 
+  .greyBg{background: #FAFAFA; margin: 0px;padding: 30px 0;}
+  .cardDetails{ width:70%;}
+  .cardDetails p{margin-bottom: 2px;}
+  .cardDetails p:last-child{margin-bottom: 9px;}
+  .cardDetails p.cardNumber span{padding: 0px;}
+  .paymentDetails{padding: 60px 25px;}
+  .tabContentMyaccount .submitButton{margin-top: 40px;}
+  
+  .myNumberButtonArea{ width: 100%; text-align: center; }
+  .myNumberButtonArea button:first-child{float: none; display: block; margin: 0 auto 30px; width: 240px !important;}
+  .myNumberButtonArea button:last-child{float: none; display: block; margin: 0 auto 30px; width: 240px !important;}
+  .numberTabCont.paymentDetails{ padding: 60px 0;}
+  .autorefillTextarea{ background:#FAFAFA; text-align: center; padding: 20px 0;}
+  .autorefillTextarea p.autoTextcommon{ color: #103F8A; font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 500; }
+  .autorefillTextarea p.enabledText{ color: #1A9259; font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 500;}
+  .enabledText .mat-icon{ font-size:16px;}
+  .autorefillTextarea p.autoTextcommon button:focus{ background: none; outline: none;}
+  .autorefillTextarea p.autoTextcommon span.iconSpan{padding-left: 15px;} 
+  .autorefillTextarea p.autoTextcommon span .mat-icon{color: #103F8A; font-size: 30px; display: -webkit-inline-box;}
+  .autorefill p.tabTitle{ color: #0B203E; font-size: 28px;font-family: 'Montserrat', sans-serif; font-weight: 400;line-height: 20px; margin-bottom: 40px;}
+  .autorefill p.tabTitle span{color: #808080; font-size: 14px;}
+  .tabContentMyaccount .callForward table{ margin-top: 0px;}
+  table.showAlltable tr td{width: 33.33% !important;}
+  .rewardsOverview table tr th:last-child,.rewardsOverview table tr td:last-child{ text-align: right !important;} 
+  
+  .app_list ul{ display: flex; margin: 0 auto;}
+  .app_list{ clear: both; overflow: hidden;}
+  .app_list ul li:last-of-type {
+      margin: 0px !important;
+  }
+  .myNumberButtonArea button:last-child{
+    padding: 9px 56px !important;
+    margin: 0 auto 15px !important;
+  }
+  
+  
+  } 
+    
+
+.tabContentMyaccount {
+	p {
+		&.desc {
+			text-align: center;
+			color: #0B203E;
+			font-size: 16px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 300;
+		}
+	}
+}

@@ -1,0 +1,38 @@
+.rate-item {
+	cursor: pointer;
+}
+.ripple-container {
+	cursor: pointer;
+	text-align: center;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-tap-highlight-color: transparent;
+}
+.popupGlobalCall {
+	width: 100%;
+	max-width: 100%;
+	.selectRechargeAmnt {
+		ul {
+			li {
+				.commonpriceArea {
+					padding: 60px 0;
+				}
+				&:first-child {
+					margin-right: -5px;
+				}
+			}
+		}
+	}
+}
+.viewAll {
+	color: #0160E0;
+	font-weight: 500;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 13px;
+	text-decoration: underline;
+	margin-right: 10px;
+	line-height: 26px;
+}

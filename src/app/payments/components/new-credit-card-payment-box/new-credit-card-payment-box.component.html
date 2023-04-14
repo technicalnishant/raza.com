@@ -1,0 +1,223 @@
+<div *ngIf="!havingExistingCard" class="new-payment-form">
+  <form [formGroup]="paymentInfoForm" (ngSubmit)='onPaymentInfoFormSubmit()' novalidate>
+    <div class="form__wrapper">
+      <div class="row form_holder5Row">
+        <div class="col-sm-12">
+         <div class="align-items-center d-flex flex-wrap flex-lg-nowrap">
+          <mat-form-field class="example-full-width order-2 order-lg-0">
+            <input matInput placeholder="Card Number" autocomplete="off" type="tel" formControlName="cardNumber"
+              maxlength="19" ccNumber>
+            <span class="lock"><img src="../assets/images/lock_icon.png" alt="" /></span>
+          </mat-form-field>
+          <label>
+            <span class="floatRight pl-0 pl-lg-3 order-1 order-lg-0">
+              <img src="../assets/images/credit_cards_icon.png" alt="" />
+            </span>
+          </label>
+         </div>
+        </div>
+        <div class="col-sm-4">
+          <div>
+            <mat-form-field>
+              <mat-select placeholder="Month" formControlName="validFrom">
+                <mat-option *ngFor="let item of months" [value]="item.Code">{{item.Value}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+  
+        <div class="col-sm-4">
+          <div>
+            <mat-form-field>
+              <mat-select placeholder="Year" formControlName="validTo">
+                <mat-option *ngFor="let item of years" [value]="item.Code">{{item.Value}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Security Code" type="password" formControlName="cvv" maxlength="4" ccCvc>
+            <span class="lock"><img src="../assets/images/lock_icon.png" alt="" /></span>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-divider class="mb-3"></mat-divider>
+      <!-- <div class="row form_holder5Row">
+        <div class="col-sm-12">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name on the card" formControlName="firstName">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Last Name" formControlName="lastName">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row form_holder5Row">
+        <div class="col-sm-12">
+          <label>
+            <span class="i_icon">
+              <img matTooltipPosition="left"
+                matTooltip="Lorem ipsum dolor sit amet, telloines consectetur adipiscing elit, sed do cani eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim demi veniam."
+                src="../assets/images/i_icon.png" alt="" /></span></label>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" formControlName="email">
+          </mat-form-field>
+        </div>
+  
+      </div> -->
+      <div class="row form_holder5Row">
+        <div class="col-sm-6">
+          <mat-form-field class="example-full-width ">
+            <input matInput placeholder="First Name" formControlName="firstName" required>
+          </mat-form-field>
+        </div>
+  
+        <div class="col-sm-6">
+          <mat-form-field class="example-full-width ">
+            <input matInput placeholder="Last Name" formControlName="lastName" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="example-full-width ">
+            <input matInput placeholder="Phone Number" formControlName="phoneNumber" required>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <label>
+            <span class="i_icon">
+              <img matTooltipPosition="left"
+                matTooltip="Payment confirmation will be sent to."
+                src="../assets/images/i_icon.png" alt="" /></span></label>
+          <mat-form-field class="example-full-width ">
+            <input matInput placeholder="Email (Payment confirmation will be sent to)" formControlName="email" >
+          </mat-form-field>
+        </div>
+        
+        <div class="col-sm-12"> 
+          <mat-form-field class="example-full-width ">
+           <!--<input matInput placeholder="Address" formControlName="address">-->
+            <input matInput placeholder="Address" required class="input search_google" (keypress)="getPlaceAutocomplete()" #addresstext formControlName="address"  >
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput placeholder="City" formControlName="city" required> 
+          </mat-form-field>
+        </div>
+ 
+        <div class="col-sm-6" *ngIf="search_country_id != 3">
+          <mat-form-field *ngIf="!isFreeStateText">
+            <mat-select placeholder="State" formControlName="state" required>
+              <mat-option *ngFor="let item of states" [value]="item.Id">{{item.Name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field *ngIf="isFreeStateText">
+            <input matInput placeholder="State" formControlName="state" required>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-6">
+          <mat-form-field class="example-full-width ">
+            <input matInput placeholder="Zip/Postal code" formControlName="zipcode" required>
+          </mat-form-field>
+        </div>
+              
+        <div class="col-sm-6" >
+          <mat-form-field>
+            <mat-select placeholder="Country" formControlName="country" (selectionChange)="onCountryChange($event.value)" required>
+              <mat-option *ngFor="let item of countries" [value]="item.CountryId">{{item.CountryName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+      </div>
+  
+      <div class="row form_holder5Row" *ngIf="isEnableAutoRefillOption">
+        <div class="col-sm-12">
+          <p *ngIf="checkOutModel.isMandatoryAutorefill" class="labelText">Auto Refill</p>
+          <p *ngIf="!checkOutModel.isMandatoryAutorefill" class="labelText">Enable auto top up</p>
+          <mat-slide-toggle formControlName="isAutRefill"></mat-slide-toggle>
+          <p class="autoTxt">{{autoRefillTipText}}</p>
+        </div>
+      </div>
+      <div class="greyLine"></div>
+    </div>
+
+    <div class="form_row1 full-width-btn fixed-btn">
+      <div class="input_holder1 d-block d-lg-flex justify-content-end px-4">
+        <!-- <button [disabled]="!paymentInfoForm.valid" type="submit" mat-button class="submitButton_confirms {{ paymentInfoForm.valid ?'' : 'gray'}} ">Confirm</button> -->
+        <button type="submit" mat-button class="submitButton_confirms">Confirm</button>
+        <!-- <p class="small mt-2 text-center">100% Money Back Guarantee</p> -->
+      </div>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="havingExistingCard">
+  <mat-radio-group class="example-radio-group" name="cardNumber" [(ngModel)]="selectedCard">
+    <div class="savedCard" *ngFor="let item of customerSavedCards; let ind = index"
+      [ngClass]="{'cardOpacity': selectedCard?.CardId != item.CardId }">
+      <mat-radio-button [value]="item">
+        <div class="cardImg">
+          <img [src]="getCardIcon(item)" alt="" />
+        </div>
+        
+        <div class="cardDetails">
+          <p class="cardNumber">Card Ending in … {{ item.CardNumber | creditCard }}</p>
+          <p class="cardExpires">Expires {{item.ExpiryMonth}}/{{item.ExpiryYear}}
+            <span>
+              <a (click)="editCardDetails(item)">Update Card/Billing Details</a>
+            </span>
+          </p>
+        </div>
+      </mat-radio-button>
+      <div class="cvvCard" *ngIf="item.CardId === selectedCard?.CardId">
+        <div class="col-sm-6">
+          <mat-form-field class="example-full-width">
+            <input matInput type="password" maxlength="4" placeholder="Security code" name="{{item.CardId}}"
+              [(ngModel)]="item.Cvv">
+            <span class="lock"><img src="assets/images/lock_icon.png" alt="" /></span>
+          </mat-form-field>
+          <mat-error *ngIf="isDisplayCvvRequired(item)">
+            CVV is .
+          </mat-error>
+        </div>
+      </div>
+    </div>
+
+  </mat-radio-group>
+  <div class="form_row1">
+
+    <div class="input_holder1"> 
+
+      <!--<button mat-button class="submitButton" (click)="onClickCreditCardPayment()">Confirm</button>-->
+       
+      <section class="submit-wrapper">
+          <div class="d-block d-lg-flex px-4 justify-content-between align-items-center">
+            <div class="order-2 mr-0">
+              <button mat-button (click)="onClickCreditCardPayment()" class="submitButton_confirms">Confirm</button>
+              <!-- <a href="/features" class="small mt-2">100% Money Back Guarantee</a> -->
+              <!-- <a href="/support">Privacy Policy</a>
+              <a href="/termsandcondition">Terms of service</a> -->
+            </div>
+            <p class="haveAccountAlready text-center text-lg-right mb-0 order-1"> <a (click)="addNewCard()">Add New Card</a></p>
+          </div>
+      </section>
+
+      
+    </div>
+  </div>
+</div>
+<!--Open dialog if error comes. Do not remove this functionality is attached with this.-->
+<button type="hidden" style="display:none!important;" id="auto_trigger" (click)="editModal()"class="btn btn-warning"></button>
+<!--EOF Open dialog if error comes -->
+
+<div id="mybraintreeDiv" style="position:absolute; width:100%;height:100%; z-index:9999;">
+  <div id="el" style="position:absolute; z-index:9999; width:auto; background-color:#fff;height:auto; left:40%;top:40%;"></div>
+</div>
+
+

@@ -1,0 +1,58 @@
+<div class="first_fold">
+
+  <!-- <div class="home_banner deal1_banner" [style.background]="LandingPageBanner">
+  </div> -->
+  <div class="home_banner deal1_banner" style="background-image: url('assets/images/new-buy1-get1.jpg')">
+  </div>
+
+</div>
+<!-- common wrapper -->
+<!-- <div class="commonWrapperArea newcustomer deals"> -->
+<div class="commonWrapperArea deals">
+  <div class="commonWrapperAreaShadowArea">
+    <div class="coverShadow"></div>
+  </div>
+  <h2>{{promotion.PromotionName}}</h2>
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of limitDenomination">
+      <div class="commonminArea">
+        <div class="callRate">
+          <img [class]="getCountryFlag(item.CountryToId)" height="32" src="./../../assets/images/blank.gif">
+          <span>{{item.CountryToName}}</span>
+          <span>{{item.RatePerMin | sCurrency }} / min</span>
+        </div>
+        <p class="mins">{{item.RegularMin + item.FreeMin}}
+          <span>mins</span></p>
+        <div class="smallLine"></div>
+        <p class="charge">{{item.Price | bCurrency}}</p>
+        <div class="buttonArea">
+          <button (click)="buyDeal(item)" mat-button class="submitButton">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearBoth">
+    <h2 class="heading_style8">
+      <span *ngIf="!showmore" (click)="showMoreCountry()" class="showmore_country">Show more</span>
+      <span *ngIf="showmore" (click)="hideMoreCountry()" class="showmore_country">Show less</span>
+    </h2>
+  </div>
+
+  <div class="deal4Textare">
+    <ul>
+      <li><a [routerLink]="['/searchrates']">Did not find the country?</a></li>
+      <li><a [routerLink]="['/searchrates']">View other</a></li>
+    </ul>
+
+    <ul>
+      <li>Have a question?</li>
+      <li><a (click)="openContactUsDialog()">Call us</a></li>
+    </ul>
+  </div>
+
+  <app-faq-generic [promotionCode]="promotion.PromotionCode"></app-faq-generic>
+
+</div>
+<!-- common wrapper -->

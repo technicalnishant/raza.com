@@ -1,0 +1,149 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-radio-group {
+    display: block;
+    border: 1px solid #555;
+    margin: 20px;
+    padding: 10px;
+  }
+  .mat-toolbar{ background: none;}
+  .nobg{ background: none; cursor: pointer; border:none;}
+  .colorWhite{ color: #0B203E;}
+  .mat-radio-button{
+    padding-right: 6px;
+  }
+  
+  
+  .header_style{ background:#fff; }
+  
+  
+  .recharge_block{padding:60px 0; margin:0; width:100%; background-color:#f6f8fa; }
+  .heading_style4{padding:0; margin:0 0 25px 0; color:#0b203e; font-size:24px;text-align:center; position:relative;}
+  h2.heading_style4 span{font-family: 'Montserrat', sans-serif; font-size:24px; color:#0B203E; font-size:24px;text-align:center; }
+  .heading_style4:after{padding:0; margin:0; width:100%; height:1px; background-color:#0b203e; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); -webkit-transform:translate(-50%,-50%); content:"";}
+  .heading_style4 span{padding:0 15px; margin:0 auto; display:inline-block; background-color:#f6f8fa; position:relative; z-index:2;}
+  .form_holder{padding:30px;; margin:0 auto; background-color:#fff;box-shadow: 2px 10px #456D99;
+  box-shadow: 1px 3px 21px #ddd; -moz-box-shadow: 1px 3px 21px #ddd; -webkit-box-shadow: 1px 3px 21px #ddd;}
+  .form_holder > *:last-child{margin-bottom:0;}
+  .form_holder > div:nth-last-of-type(2){margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid #e4e9ee;}
+  .form_row1{padding:0; margin:0 0 15px 0;}
+  .input_holder1{padding:0; margin:0; width:100%;}
+  .input_style1{padding:0 15px; margin:0; width:100%; height:40px; border:1px solid #9ba7b6; outline:none!important; color:#9ba7b6; font-size:14px;}
+  .form_label1{padding:0; margin:0 0 5px 0; color:#103F8A; font-size:16px; font-family: 'Montserrat', sans-serif;}
+  .form_label1 a{padding:0; margin:0; color:#0b203e; font-size:12px;; text-decoration:none; }
+  .form_label1 a:hover{text-decoration:underline;}
+  .form_row2{padding:0; margin:0; width:75%;}
+  .form_row3{padding:0; margin:0; width:20%;}
+  .submit_btn1{padding:0; margin:0 10%; width:80%; height:40px; border:none; outline:none; border-radius:20px; cursor:pointer; text-align:center; text-transform:uppercase; background-color:#f4d03c; color:#233651; font-size:14px;}
+  .submit_btn1:hover{background-color:#233651; color:#f4d03c;}
+  .rechare_block label{display: block;color:#103F8A; font-size:16px; font-family: 'Montserrat', sans-serif;}
+  .cardRowLeft{float: left; width: 60%; margin-right: 5%;}
+  .cardRowRight{float: left; width: 35%;}
+  .rechare_block .mat-form-field{display: block !important;}
+  .floatRight{ float: right;}
+  .forgetPass{ font-size: 11px; color: #103F8A;}
+  .cardRow{ padding: 0 15px; display: block; clear: both; overflow: hidden;}
+  .form_holder input.mat-input-element{height: 25px;}
+  
+  .radio_checkbox_wraper1{padding:0; margin:0 0 15px 0; width:100%;}
+  .radio_checkbox_wraper1 > *:last-child{margin-right:0;}
+  
+  .radiobutton_holder1{padding:0; margin:0 5px 0 0; position:relative; display:inline-block;}
+  .radiobutton_holder1 input[type="radio"] {margin: 0;opacity: 0;padding: 0; position:absolute;}
+  .radiobutton_holder1 input[type="radio"] + label{padding:0 0 0 30px; margin:0; color:#8c8c8c; font-size:14px; cursor:pointer;}
+  .radiobutton_holder1 input[type="radio"] + label:before{padding:0; margin:0; width:20px; height:20px; background-color:#fff; border:1px solid #a1acb9;  border-radius:100%; position:absolute; left:0; top:3px; font-size:0; text-align:center; content:""; }
+  .radiobutton_holder1 input[type="radio"] + label:after{padding:0; margin:0; position:absolute; left:4px; top:12px; font-size:30px; line-height:0; text-align:center; content:"\2022"; opacity:0; transform:scale(0); -webkit-transform:scale(0); transition: all 0.5s ease 0s; -webkit-transition: all 0.5s ease 0s; color:#a1acb9;}
+  .radiobutton_holder1 input[type="radio"]:checked + label:after{opacity:1; transform: scale(1); -webkit-transform: scale(1); transition: all 0.5s ease 0s; -webkit-transition: all 0.5s ease 0s;}
+  
+  .heading_style5{padding:0; margin:45px 0 20px 0; color:#808080; font-size:16px; text-align:center; position:relative; line-height: 24px; font-family: 'Montserrat', sans-serif;}
+  
+  .login_link{padding:0; margin:0 25% 30px 25%; width:50%; height:40px; border:none; outline:none; border-radius:20px; cursor:pointer; text-transform:uppercase; background-color:#f4d03c; color:#233651; font-size:14px; display:block;}
+  .login_link:hover{background-color:#233651; color:#f4d03c; text-decoration:none;}
+  
+  .heading_style6{padding:0; margin:0 0 30px 0; color:#0b203e; font-size:24px; text-align:center; position:relative;}
+  .heading_style6:after{padding:0; margin:0; width:100%; height:1px; background-color:#979797; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); -webkit-transform:translate(-50%,-50%); content:"";}
+  .heading_style6 span{padding:0 15px; margin:0 auto; display:inline-block; background-color:#f6f8fa; position:relative; z-index:2;}
+  
+  .heading_style7{padding:0; margin:0 0 30px 0; color:#0B203E; font-family: 'Montserrat', sans-serif; font-size:22px;text-align:center; position:relative; line-height: 27px; }
+  .login_text{padding:0; margin:30px auto 0; width:100%; display:block; color:#808080; font-family: 'Montserrat', sans-serif; font-size:15px; width: 80%;}
+  .login_text a{color:#0061E8; text-decoration:none;}
+  .login_text a:hover{text-decoration:underline;}
+  
+  .submitButton{}
+  
+  h3.heading_style6{width: 150px;display: block;margin: 50px auto;}
+  h3.heading_style6 span{font-family: 'Montserrat', sans-serif; font-size:22px; color: #0B203E;}
+  .mat-radio-label-content{color:#808080; font-size: 16px;font-family: 'Montserrat', sans-serif;}
+  
+  
+  .form_holder{ padding: 0px 0px 15px 0 !important;}
+  .savedCard{padding: 5px 20px;border-bottom: 1px solid #eee;}
+  .cardImg,.cardDetails{float: left;}
+  .cardImg{ padding: 30px 4px 0 15px;}
+  .cardDetails{padding: 23px 4px 0 15px; width:78%;}
+  .cardDetails p.cardNumber{font-family: 'Montserrat', sans-serif;color: #0B203E; font-size: 16px;    margin-bottom: 10px;}
+  .cardDetails p.cardExpires{font-family: 'Montserrat', sans-serif;color: #0B203E; font-size: 14px;}
+  .cardDetails p span a{font-family: 'Montserrat', sans-serif; font-size:12px; color: #103F8A; float: right; }
+  
+  .table td{font-family: 'Montserrat', sans-serif; color: #808080; font-size: 18px; padding-left:0px; padding-right: 0px; }
+  
+  .table tr.total td{font-family: 'Montserrat', sans-serif; color: #0B203E; padding: 28px 0;}
+  
+  .table td:first-child{ text-align: left;}
+  .table td:last-child{ text-align: right;}
+  a.redeemPromo{font-family: 'Montserrat', sans-serif;text-transform: uppercase; color: #0160E0; text-decoration: underline;}
+  .cvvCard{ padding-left: 20px;}
+  .cardOpacity{ opacity: 0.5;}
+  
+  p.updateCard{color:#919EAE; font-size: 26px; font-family: 'Montserrat', sans-serif; text-align: center;    padding: 15px 0;}
+  .rechargeStepMain{ clear: both; overflow: hidden; background: #fff;padding: 33px 0 21px 0;position: fixed;
+      width: 100%;z-index: 9;}
+  .rechargeStep{width: 80%; display: block; margin: 0 auto; }
+  .step1,.step2,.step3{float: left;text-align: center;width: 33.33%;}
+  .step1.active p.stepName,.step2.active p.stepName, .step3.active p.stepName{color: #0B203E;}
+  p.step{font-family: 'Montserrat', sans-serif; color: #969DA5; font-size: 14px; margin-bottom: 3px;}
+  p.stepName{ color: #969DA5; text-transform: uppercase; font-family: 'Montserrat', sans-serif; font-size: 16px;font-weight: 600;}
+  
+  .lock{ position: absolute; right: 5px; top: 7px;}
+  .i_icon{padding-left: 5px;}
+  
+  .form_holder5Row{ padding: 15px 33px;}
+  td.productNumber{color:#103F8A !important;}
+  .msgArea{ padding: 25px 0;margin-top: 60px;}
+  p.updateCard2{ color: #919EAE; font-size: 20px; font-family: 'Montserrat', sans-serif; text-align: center; margin-bottom: 0px;}
+  p.paymentText{ color: #0B3D8D; font-size: 26px; font-family: 'Montserrat', sans-serif; text-align: center;}
+  .orderNumberArea{ background: #103F8A;height: 70px;padding: 25px 13px;}
+  .orderNumberArea p{color: #fff;font-size: 18px; font-family: 'Montserrat', sans-serif;}
+  .orderNumberArea p span{float:right;}
+  .emailSent{ background: #fff; padding: 10px;}
+  .emailSent p{ color: #808080; font-size: 16px; font-family: 'Montserrat', sans-serif; text-align: center; }
+  
+  .downloadApp{ background: #fff;text-align: center;margin-top: 20px;padding: 44px 20px;box-shadow: 2px 10px #456D99;
+  box-shadow: 1px 3px 21px #ddd; -moz-box-shadow: 1px 3px 21px #ddd; -webkit-box-shadow: 1px 3px 21px #ddd;}
+  .live_chatarea{margin-top: 25px;padding: 20px 0; border-top:1px solid #E2E7ED; border-bottom:1px solid #E2E7ED;}
+  .live_chatarea ul{list-style-type: none;
+      clear: both;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;}
+  .live_chatarea ul li{ float: left; margin-right: 7%;}
+  .live_chatarea ul li a{color:#0160E0; font-size:16px; font-family: 'Montserrat', sans-serif; }
+  .live_chatarea ul li a span{padding: 0px 8px 0 0;}
+  
+  @media only screen and (max-width: 675px) { 
+    .containerMobile{width: 100%;}
+    .app_list ul{ display: flex; margin: 0 auto;}
+    .rechargeStepMain {margin-top: -70px;} 
+  }
+
+  .app_list li a img{
+    width: 110px;
+    height: 32px;
+    object-fit: cover;
+  }

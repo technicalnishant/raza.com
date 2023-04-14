@@ -1,0 +1,18 @@
+<div class="msgArea">
+  <p class="paymentText">Payment successful!</p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="paymentInfoMsg">
+      <h2 *ngIf="userContext.emailAddress">Text message has been sent to your registered phone number.
+      </h2>
+      <h2 *ngIf="message">{{message}} </h2>
+      <h2 *ngIf="!userContext.emailAddress">Your Order has been confirmed. </h2>
+      <p *ngIf="message">{{message}} </p>
+      <p>Order# {{ orderId }}</p>
+      <div class="input_holder1">
+        <button mat-button class="submitButton" (click)="backToMyAccount()">Back to my account</button>
+      </div>
+    </div>
+  </div>
+</div>

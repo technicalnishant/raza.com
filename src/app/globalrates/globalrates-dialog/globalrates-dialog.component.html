@@ -1,0 +1,193 @@
+<div class="popupGlobalCall globalCallPopUp getuptopopup">
+    <div class="selectRechargeamountMain">
+        <span class="closeIcon globalCall" (click)="closeIcon()" mat-dialog-close><i
+                class="material-icons">close</i></span>
+        <h1>Get Up to 1500 mins</h1>
+        <!-- <div class="bonusArea">
+            <span>Regular mins</span>
+            <span class="relative">
+                <mat-slide-toggle [(checked)]="isAutorefill" (change)="onChange($event)">PROMO MINS
+                </mat-slide-toggle><img class="i_icon" matTooltip="1. Enroll to Auto-refill and earn 10% bonus minutes.
+                    2. We will recharge your plan only when the account balance falls below $2.
+                    3. Cancel online or by calling customer service anytime." matTooltipPosition="right"
+                    src="assets/images/i_icon.png" alt="" />
+            </span>
+            <span class="bonusMin2"><img src="assets/images/bonus.png" alt="" /></span>
+        </div> -->
+        <div class="commonminArea hideindesktop">
+          <div class="callRate">
+              <!-- <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ countryId"
+                      [alt]="countryId" /></span> -->
+                      <p class="country-name">{{countryTo?.CountryName}}</p>
+                      <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ countryTo?.CountryId"
+                      [alt]="countryTo?.CountryId" class="flag" /></span>
+               <span>{{RatePerMin | sCurrency :currency}} / min</span> 
+              
+
+          </div>
+      </div>
+        <mat-dialog-content #matContent>
+             <!--<div *ngIf="planDenominations">
+				<mat-tab-group>
+				  <mat-tab *ngFor="let item of planDenominations" [label]="item.Price | bCurrency">
+					<ng-container [ngTemplateOutlet]='isDetailMode ? detailsModeTemplate : ""'
+					  [ngTemplateOutletContext]="{item:item}"></ng-container>
+
+				  </mat-tab>
+				</mat-tab-group>
+			  </div> -->  
+			              <div class="selectRechargeamount">
+                <div class="selectRechargeAmnt globalCall_li_list">
+                    <ul>
+					 
+						
+                        <li class="hideinMobile">
+                            <div class="commonminArea">
+                                <div class="callRate">
+                                    <!-- <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ countryId"
+                                            [alt]="countryId" /></span> -->
+                                            <p class="country-name">{{countryTo?.CountryName}}</p>
+                                            <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ countryTo?.CountryId"
+                                            [alt]="countryTo?.CountryId" class="flag" /></span>
+                                     <span>{{RatePerMin | sCurrency :currency}} / min</span> 
+                                    
+
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- <li *ngFor="let item of Plans; let i = index" class="rate-item" (click)="onClickRateTab(item)"> -->
+                        	<li *ngFor="let item of planDenominations; let i = index" >
+                            <div matRipple class="commonpriceArea popular ripple-container" (click)="buyDeal(item)">
+                                <div class="commonminArea">
+                                    <p class="mins">{{item?.RegularMin}}
+                                        <span>mins</span></p>
+                                    <div class="smallLine"></div>
+                                    <p class="charge">{{item?.Price | bCurrency : item?.CurrencyCode}}      
+                                      <!-- <del style="font-size: 17px;" *ngIf="item.Price==90">$100</del> -->
+                                    </p>
+                                     <p class="mins free-mins"><span>Free {{item?.FreeMin}} mins</span></p>
+
+                                </div>
+                                <div class="popuplarTag" *ngIf="i==1">
+                                    <img src="assets/images/popular_tag.png" alt="" />
+                                </div> 
+                            </div>
+                        </li>
+						
+						 
+                    </ul>
+
+                    <div class="textARea" >
+                        <p>
+                            <span>
+                                <a (click)="toggleDetailMode()">Learn more</a>
+                                <!-- <span class="viewAll" (click)="viewAllRatesTab()">View all rates</span> -->
+                            </span>
+                            <span>Have a question?
+                                <a (click)="contactUs()">Call us</a>
+                            </span>
+                        </p>
+                    </div>
+                    <p *ngIf="viewAllPlan">Rates not found.</p>
+                    <!--<div class="viewAllRatesPanel" *ngIf="viewAllrate">
+                        <div class="row">
+
+                            <div class="col-md-9">
+                                <h4>Global call rates to call {{countryName}}</h4>
+                                <p>These rates apply to call {{countryName}} only, rates to call other countries may
+                                    differ.</p>
+                                <table class="table">
+                                    <thead>
+                                        <th>Operator</th>
+                                        <th>Minutes</th>
+                                        <th>Rate / min</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of FilteredSubPlans">
+                                            <td>{{item.CountryName}}</td>
+                                            <td>{{item.TotalTime}}</td>
+                                            <td>{{item.CallRate | sCurrency : globalPlanData.CurrencyCode }} / min</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="input_holder1" style="margin-bottom:18px;">
+                                    <button (click)="buyPlan()" mat-button class="submitButton">BUY NOW</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <mat-form-field>
+                                    <mat-select (selectionChange)="selectDenomination()" placeholder="Select amount"
+                                        [formControl]="denominationSelectControl">
+                                        <mat-option *ngFor="let item of denominationList" [value]="item">
+                                            {{item | bCurrency}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>-->
+                    <p class="descText marginTop15">*All the rates are calculated on the highest denomination calling
+                        plan.</p>
+                </div>
+
+            </div>
+        </mat-dialog-content> 
+		<div *ngIf="isDetailMode" class="full-tab">
+				<mat-tab-group>
+				  <mat-tab *ngFor="let item of planDenominations" [label]="item.Price | bCurrency : item?.CurrencyCode">
+					<ng-container [ngTemplateOutlet]='isDetailMode ? detailsModeTemplate : summaryModeTemplate'
+					  [ngTemplateOutletContext]="{item:item}"></ng-container>
+
+				  </mat-tab>
+				</mat-tab-group>
+		</div>
+		<ng-template #summaryModeTemplate let-item='item'>
+		  <!--<button *ngIf="item.IsPopular" mat-button class="mostpopularButon">Most popular</button>
+		  <div class="mapAreaD">
+			<img class="bg-map" [src]="getBackGroundMap()" alt="" />
+			<h4 [ngClass]="freeMinTextCss">{{item.FreeMin}} <span>free mins</span></h4>
+		  </div>
+		  <p class="mapText">These minutes do not expire, buy it today and use it anytime, anywhere!</p>
+		  <div class="buttonArea">
+			<button (click)="buyDeal(item)" mat-button class="submitButton">Buy Now</button>
+		  </div>
+		  <div class="learnMorearea">
+			<a (click)="toggleDetailMode()" class="learMore">Learn more</a>
+		  </div>-->
+		</ng-template>
+
+		<ng-template #detailsModeTemplate let-item='item'>
+		  <!-- <span class="icon-close" (click)="toggleDetailMode()">
+			<i class="material-icons">close</i>
+		  </span> -->
+		  <table class="table table-striped">
+			<thead>
+			  <tr>
+				<th scope="col">Free mins</th>
+				<th scope="col">{{item.FreeMin}}</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td>Regular Mins</td>
+				<td>{{item.RegularMin}}</td>
+			  </tr>
+			  <tr>
+				<td>Rate per minute</td>
+				<td>{{item.RatePerMin | sCurrency : item?.CurrencyCode }}</td>
+			  </tr>
+			  <tr class="total">
+				<td>Total</td>
+				<td>{{item.RegularMin + item.FreeMin}}</td>
+			  </tr>
+			</tbody>
+		  </table>
+		  <div class="buttonArea text-center">
+			<button mat-button (click)="buyDeal(item)" class="submitButton">Buy Now</button>
+		  </div>
+		</ng-template>
+
+    </div>
+</div>

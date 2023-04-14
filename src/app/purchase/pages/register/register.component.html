@@ -1,0 +1,107 @@
+<div class="recharge_block recharge2">
+  <!--rechargeStep -->
+  <div class="rechargeStepMain">
+    <div class="rechargeStep">
+      <div class="step1 active">
+        <p class="step">Step 1</p>
+        <p class="stepName">Login</p>
+      </div>
+      <div class="step2">
+        <p class="step">Step 2</p>
+        <p class="stepName">Payment</p>
+      </div>
+      <div class="step3">
+        <p class="step">Step 3</p>
+        <p class="stepName">Confirmation</p>
+      </div>
+    </div>
+  </div>
+  <!-- rechargeStep -->
+  <p class="updateCard">Almost there...</p>
+  <div class="container containerMobile">
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="col-md-12">
+          <h2 class="heading_style4">
+            <span>Express checkout</span>
+          </h2>
+        </div>
+        <div class="col-md-12">
+          <form [formGroup]="purchaseInfoForm" (ngSubmit)='onPurchaseInfoFormSubmit()' novalidate>
+            <div class="form_holder form_holder2 express_checkout">
+              <p class="mobile_guest">Mobile</p>
+              <div class="smallLine"></div>
+              <div class="col-sm-12 formRowM15">
+                <mat-form-field>
+                  <mat-select placeholder="Choose your country" formControlName="country">
+                    <mat-option *ngFor="let item of countries" [value]="item">{{item.CountryName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12 formRowM15">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Phone number" formControlName="phoneNumber">
+                  <mat-error *ngIf="purchaseInfoForm.get('phoneNumber').errors?.already_exist">
+                    Phone Number already exist.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="form_row1">
+                <div class="input_holder1">
+                  <button mat-button class="submitButton">Verify</button>
+                </div>
+              </div>
+
+              <div class="orArea">
+                <p class="heading_styleSmall">
+                  <span>or</span>
+                </p>
+              </div>
+              <p class="mobile_guest">Checkout as a guest</p>
+              <div class="smallLine"></div>
+              <p class="noWorryText">Not ready to commit? Don’t worry about it, we’ll be here when you’re ready to
+                take things to the next level.</p>
+              <div class="form_row1">
+
+                <div class="input_holder1">
+                  <button mat-button class="submitButton">checkout</button>
+                </div>
+              </div>
+              <p class="haveAccountTxt">Have an account already? <a href="#">Login here</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-1"></div>
+      <div class="col-xl-5">
+        <div class="col-md-12">
+          <h2 class="heading_style4">
+            <span>Your order</span>
+          </h2>
+        </div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>Plan</td>
+              <td>{{purchasePlanReq.CardName}}</td>
+            </tr>
+            <tr>
+              <td>Purchase Amount</td>
+              <td>{{ purchasePlanReq.details.Price }} </td>
+            </tr>
+            <tr>
+              <td>Service Fee</td>
+              <td>{{ calculateServiceFee() }}</td>
+            </tr>
+            <tr class="total">
+              <td>Total (USD)</td>
+              <td>{{totalAmount()}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

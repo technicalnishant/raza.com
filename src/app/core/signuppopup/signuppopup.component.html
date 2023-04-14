@@ -1,0 +1,104 @@
+<div class="popup-wrapper pt-1 px-3 text-center" id="signupDilog">
+  <h1 mat-dialog-title class="text-center" *ngIf="!reward_content">Let’s Keep Talking</h1>
+  <h1 mat-dialog-title class="text-center" *ngIf="reward_content" >Raza Rewards</h1>
+  <p class="text-center subtitle" *ngIf="!reward_content">
+    You are few steps away to make your first call.
+  </p>
+  <p class="text-center subtitle" *ngIf="reward_content">
+    It's never too late, enroll to Raza rewards today and get 200 bonus points.
+  </p>
+  <div mat-dialog-content>
+    <div class="example-container">
+      <div mat-dialog-actions class="cancel">
+        <button mat-dialog-close class="bg-white text-dark">
+          <mat-icon class="text-dark">close</mat-icon>
+        </button>
+      </div>
+      <form class="example-form" [formGroup]="signUpForm" (ngSubmit)="onSignupFormSubmit()">
+        <!--<mat-form-field appearance="" class="flat-option">
+          <mat-select class="flag-option">
+            <mat-option value="option" selected>Option</mat-option>
+          </mat-select>
+        </mat-form-field>-->
+
+        <div class="number-top d-flex align-items-start">
+          <div class="flag-wrapper">
+            <div class="select_top1 d-flex align-items-center" (click)="openFlagDropDown()">
+              <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+                [ngClass]="'flag flag-f-' + currentSetting?.country?.CountryId" />
+              <span>+{{ currentSetting.country.CountryCode }}</span>
+            </div>
+            <div class="flag_list1" *ngIf="showDropdown">
+              <ul>
+                <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)">
+                  <span>
+                    <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+                      [ngClass]="'flag flag-f-' + item.CountryId" />
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <mat-form-field appearance="" class="mobile-number ml-4">
+             <input matInput formControlName="phoneOrEmail" (keyup)="validateSignupUsername()"
+              placeholder="Enter your phone number" type="text" />  
+
+             <!--<input matInput formControlName="phoneOrEmail"
+              placeholder="Enter your phone number" type="text" />-->
+              
+            <mat-error *ngIf="signUpForm.get('phoneOrEmail').errors?.already_exist">
+              Number already registered, please login.
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('phoneOrEmail').errors?.pattern">
+              Please enter a valid phone number.
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('phoneOrEmail').errors?.invalid_input">
+              Invalid Phone Number.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        
+
+        <mat-form-field appearance="" class="mobile-number full-width" *ngIf="showPinBox">
+          <input matInput formControlName="otp" placeholder="Enter 6 digit Code" type="text" />
+          <mat-error *ngIf="signUpForm.get('otp').errors?.required">
+            Enter Verification Code
+          </mat-error>
+          
+        </mat-form-field>
+        <a class="resend" (click)="resendOtp()" *ngIf="showPinBox"> Resend Code</a>
+        
+        <div class="submit-btn" *ngIf="showPinBox">
+          <button *ngIf="!reward_content" mat-button (click)="onOtpConfirmFormSubmit()" type="button">Verify</button>
+
+          <button *ngIf="reward_content" mat-button (click)="onOtpConfirmFormSubmit()" type="button">Signup to Rewards</button>
+        </div> 
+        <br>
+
+        <div class="submit-btn my-5 text-center" *ngIf="!showPinBox">
+          <button mat-button>VERIFY</button>
+          <button mat-button *ngIf="showPinBox">SEND CODE</button>
+          <!--<button mat-button class="submitButtonSmall">SEND PIN</button>-->
+        </div>
+        <!-- <div class="or">
+          or
+        </div>
+        <div class="login-options">
+          <button mat-button class="login-button"><img src="./assets/images/app-icons/email.png" alt=""> Continue with Email</button>          
+          <button mat-button class="login-button"><img src="./assets/images/app-icons/fb.png" alt=""> Continue with Facebook</button>
+          <button mat-button class="login-button"><img src="./assets/images/app-icons/apple.png" alt=""> Continue with Apple</button>
+          <button mat-button class="login-button"><img src="./assets/images/app-icons/GPay-Light-themed-buttons.svg" alt=""> Continue with Google</button>
+        </div> -->
+        <p class="new-raza">
+          Have an account already?
+          <a href="javascript:void(0)" (click)="showLogin()">Login now</a>  
+        </p>
+        <span class="note">By signing in, you agree to our Website
+          <a href="termsandcondition">Terms & Privacy Policy</a></span>
+
+          <p class="new-raza" style="font-size: 16px; "><a href="javascript:void(0)" >SMS OPT-IN</a></p>
+      </form>
+    </div>
+  </div>
+</div>

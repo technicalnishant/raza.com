@@ -1,0 +1,143 @@
+<div class="selectRechargeamountMain">
+  <h1>Recharge</h1>
+  <div class="selectRechargeamount">
+    <p class="selectAmountText">Select Recharge Amount</p>
+    <div class="bonusArea"><span>10% Bonus mins</span>
+      <span class="relative">
+        <mat-slide-toggle [(ngModel)]="isAutoRefillEnable">PROMO MINS</mat-slide-toggle>
+        <img class="i_icon" matTooltip="1. Enroll to Auto-refill and earn 10% bonus minutes.
+        2. We will recharge your plan only when the account balance falls below $2.
+        3. Cancel online or by calling customer service anytime." matTooltipPosition="right"
+          src="assets/images/i_icon.png" alt="" />
+      </span></div>
+    <div class="selectRechargeAmnt">
+      <ul *ngIf="isPremium">
+        <li *ngFor="let item of rechargeAmounts" (click)="onClickAmountOption1(item)">
+          <div matRipple class="commonpriceArea mouse-pointer">
+            <!-- <p class="newPrice"> {{item | bCurrency : plan?.CurrencyCode}}</p> -->
+            <div *ngIf="item == 90" class="slice"><span>$100</span></div>
+            <p class="newPrice"> {{item.Price| bCurrency : plan?.CurrencyCode}}</p>
+
+            <!-- <div class="inner-cell">Time {{item.TotalTime}}</div>
+                            <div class="inner-cell">Promo Minutes {{item.PromoMinutes}}</div>
+                            <div class="inner-cell">Total Minutes {{item.TotalTime+item.PromoMinutes}}</div>
+                            <div class="inner-cell" *ngIf="item.Price==90">Rate per min. {{RatePerMinWithOutPromo}}₵</div>
+                            <div class="inner-cell" *ngIf="item.Price!=90">Rate per min. {{getRatePerMin(item)}}₵</div> -->
+
+          </div>
+        </li>
+      </ul>
+
+      <ul *ngIf="!isPremium">
+        <li *ngFor="let item of rechargeAmounts" (click)="onClickAmountOption(item)">
+          <div matRipple class="commonpriceArea mouse-pointer">
+            <p class="newPrice"> {{item | bCurrency : plan?.CurrencyCode}}</p> 
+            </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<div class="d-none">
+  <div class="container-fluid">
+      <div class="top-header">
+          <div class="row align-items-center">
+              <div class="col-md-6">
+                  <div class="country">
+                      <div class="flag-wrapper">
+                          <!-- <img src="./assets/images/flag/{{getcountryName()}}.png" alt="{{countryName}}"> -->
+                          <img src="./assets/images/flag/india.png" alt="">
+                          <!--<div class="country-text">A</div>-->
+                      </div>
+                      <div class="country-name">
+                          <h1 class="text-center">
+                            Call India
+                          </h1>
+                          <p>as low as 1.1₵/min</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="auto-refiil">
+                      <button mat-button class="active-button"
+                          >Regular Mins</button>
+                      <button mat-button
+                          >Auto-refill Mins</button>
+                      <div (click)="tooltip.toggle()"
+                          aria-label="Show/Hide tooltip on the button at the end of this section"
+                          class="example-action-button">
+
+                          <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"
+                              width="18px" height="18px">
+                              <path
+                                  d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 7 L 11 9 L 13 9 L 13 7 L 11 7 z M 11 11 L 11 17 L 13 17 L 13 11 L 11 11 z" />
+                          </svg>
+                      </div>
+                      <div #tooltip="matTooltip" matTooltip="1. Enroll to Auto-refill and earn 10% bonus minutes.
+                      2. We will recharge your plan only when the account balance falls below $2.
+                      3. Cancel online or by calling customer service anytime." matTooltipPosition="above"
+                          aria-tooltip="Button that displays and hides a tooltip triggered by other buttons">
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="container-fluid py-5 mb-3">
+      <div class="row">
+          <div class="col-md-12 ">
+              <div class="d-flex pb-4">
+                  <div class="first-col">
+                      <div class="first-inner">Amount</div>
+                      <div>Regular Minutes</div>
+                      <div>Bonus Minutes</div>
+                      <div>Total Minutes</div>
+                      <div>Rate/min</div>
+                  </div>
+                  
+                  <div class="d-flex flex-grow-1" *ngIf="isPremium">
+                      <div *ngFor="let item of rechargeAmounts let i = index" class="col-wrapper active {{getActiveClass(item)}}"
+                      (click)="setActiveClass(item); clicked = i" >
+                          <div class="bonus">{{item.DiscountApplied}}% BONUS</div>
+                          <div class="ano-col">{{item.Price| bCurrency : plan?.CurrencyCode}}
+                              <small *ngIf="item.Price==90">$100</small>
+                          </div>
+                          <div class="inner-cell">{{item.TotalTime}}</div>
+                          <div class="inner-cell">{{item.PromoMinutes}}</div>
+                          <div class="inner-cell">{{item.TotalTime+item.PromoMinutes}}</div>
+                          <div class="inner-cell" *ngIf="item.Price==90">{{RatePerMinPromo}}₵</div>
+                          <div class="inner-cell" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵</div>
+                          <div class="button">
+                              <button mat-button (click)="onClickRateTab(item)">Buy Now</button>
+                              <small class="text-center">Cancel anytime</small>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+
+  <div class="container-fluid" *ngIf="rechargeAmounts">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="recharge-note">
+                <div class="legend">
+                    Call Worldwide!
+                </div>
+                <p>Best Rates to call any Landlines and Cell phones worldwide! We believe in providing international calling at lowest possible rates so you can stay 
+                    connected with your loved ones more frequently.</p>
+                    <p><i>Features Include:- Call Mobile & Landline, Call forwarding, Raza Rewards, Raza Mobile app, No expiration date.</i></p>
+                    <p><b>Calling a different country? <a href="javascript:void(0)" (click)="openDialog()">Check Bonus Minutes</a></b></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- mobile version start here -->

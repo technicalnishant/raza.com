@@ -1,0 +1,758 @@
+<div class="form_holder commonPopup faqPopup" *ngIf="isShow == 0 ? true : false">
+  <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+  <h2>FAQ</h2>
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <input matInput placeholder="How do we help?" type="text">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <!-- <div class="headingText">What is the coupon code for Buy 1 Get 1 Offer?</div> -->
+    <div class="headingText"></div>
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How can I make a call using the One Touch Dialing feature?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Dial the local # corresponding to your friend's name that you have saved in your phone</p>
+            <p>The rest will be taken care by Raza..Just Keep Talking</p>
+            <p>(Once you dial the One Touch # from your phone, our system recognizes your account and connects the call
+              appropriately to the pre-assigned destination number).</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>Does One Touch Dialing feature work with all service providers?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Yes, as long as your phone service provider supports caller ID.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>Can I use "One Touch Dial" if my caller ID is blocked?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Yes!. When you save 'One Touch Dial' Number into your phone contacts, add *82 before the actual 10 digit
+              number (*82 646XXXXXXX). Caller ID of your phone will still be blocked if you are placing any other call.
+            </p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How many One Touch Dialing numbers can I register?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>You can register upto 15 One Touch Dialing numbers in your account.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How soon can I start using the service after setting up the One Touch Dialing?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Instantly!</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>Is this feature chargeable?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+
+            <p>No, this amazing feature is offered free of cost for better convenience.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </mat-dialog-content>
+</div>
+
+<div class="form_holder commonPopup faqPopup" *ngIf="isShow == 1 ? true : false">
+  <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+  <h2>FAQ</h2>
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <input matInput placeholder="How do we help?" type="text">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <div class="headingText"></div>
+
+    <mat-accordion>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Can I avail this offer more than once?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>This is a onetime promotional offer, applicable only on the first purchase of $10.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            How can I get this plan?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>This plan is available for online customers only.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Once I get this plan, can I make calls to other countries?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Yes! You will be able to make calls to anywhere in the world. The rates will differ, based on the countries
+          you are calling.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Are there any hidden charges?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>NO, there are absolutely no hidden charges.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Will the extra minutes reflect immediately after the recharge or purchase?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Yes! Extra minutes will be added immediately after recharging or purchasing a plan. </p>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+    <!-- <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <span>How many pin-less numbers (calling from numbers) can I register?
+                <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+              </span>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <div class="aboutusCont">
+              <p>You can register up to 5 pin-less numbers to your account. (This may not apply for few discounted plans)</p>
+             </div>
+            </ng-template>
+          </ngb-panel>
+  
+          <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span>Can I edit my numbers online?
+                  <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+                </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="aboutusCont">
+                    <p>Absolutely! You can add and delete your pin-less setup at any time.</p>
+                </div>
+              </ng-template>
+          </ngb-panel>
+          
+          <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span>How soon can start using my account once I edit my pin-less setup?
+                  <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+                </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="aboutusCont">
+                  <p>Immediately!</p>
+                </div>
+              </ng-template>
+          </ngb-panel>
+  
+          <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span>Can I register my pin-less numbers in two different plans or accounts?
+                  <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+                </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="aboutusCont">
+                  <p>No, a phone number can be registered only in one pin-less setup at a time.</p>
+                </div>
+              </ng-template>
+          </ngb-panel>
+        </ngb-accordion> -->
+  </mat-dialog-content>
+</div>
+
+<div class="form_holder commonPopup faqPopup" *ngIf="isShow == 2 ? true : false">
+  <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+  <h2>FAQ</h2>
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <input matInput placeholder="How do we help?" type="text">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <!-- <div class="headingText">What is the coupon code for Buy 1 Get 1 Offer?</div> -->
+    <div class="headingText"></div>
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How soon can I view call details?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Immediately, call details reflects right away after the call is disconnected.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How far can I go back to view call history?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Call details are available for the last 60 days.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>Can I see how much each call charged me?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Yes, it shows you the duration as well as the charges of the call.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </mat-dialog-content>
+</div>
+
+<div class="form_holder commonPopup faqPopup" *ngIf="isShow == 3 ? true : false">
+  <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+  <h2>FAQ</h2>
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <input matInput placeholder="How do we help?" type="text">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <div class="headingText"></div>
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>What is Money back guarantee?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>If, for any reason you’re not satisfied with the product or service, we will refund your money back.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>Will I get 100% money back irrespective of the usage?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>We will refund 100% of your unused balance back to your account.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </mat-dialog-content>
+</div>
+
+<div class="form_holder commonPopup faqPopup" *ngIf="isShow == 4 ? true : false">
+  <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+  <h2>FAQ</h2>
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <input matInput placeholder="How do we help?" type="text">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <div class="headingText"></div>
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How can I enroll my plan to auto-refill?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>You can enroll your plan to auto-refill by logging into your account or by calling our customer service.
+            </p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>When can I cancel my auto-refill?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>You can cancel the auto-refill feature at any given time by logging into your account.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>When will my plan recharge?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Your account will be changed only when the balance falls below $2.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </mat-dialog-content>
+</div>
+
+<div class="form_holder commonPopup faqPopup" *ngIf="isShow == 5 ? true : false">
+  <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+  <h2>FAQ</h2>
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <input matInput placeholder="How do we help?" type="text">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <div class="headingText"></div>
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>What is the Call Forwarding feature?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>The Call Forwarding feature allows you to have your family; friends and co-workers reach you on any
+              phone, anywhere in the world. Now you can travel anywhere in the world and not miss those important calls!
+            </p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How does Call Forwarding work?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Let's say you're going overseas to India. Just let us know the hotel, mobile or relatives phone number in
+              India you would like to be reached at. Then we will provide you with your own personal toll-free number
+              that when dialed from USA or Canada it will automatically ring to your designated number in India. All you
+              have to do is give out your personal toll-free number to your family, friends & co-workers.! and if you
+              want to make sure you don't miss any calls, just forward your home, mobile and/or office phone to your
+              personal toll-free number and all your calls will be directed to your designated number in India. It's as
+              simple as 123.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>What is my personal toll-free number?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Your personal toll-free number is an 800/866/877 number specifically assigned to you. When this number is
+              dialed from USA or Canada, it will ring to any number in the world you chose.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>Can I change the number I want to be reached at?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>The number where you would like to be reached can be changed anytime you choose. Just login to our
+              website and just change the number you would like to be reached at.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>When does the Call Forwarding feature become active?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>The Call Forwarding feature is activated as soon as you purchase and setup the number you would like to
+              be reached at.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>What is my custom itinerary?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+
+            <p>If you will be traveling to many destinations and would like to have your Call Forwarding number ring to
+              all your different destinations, just setup a custom itinerary. The custom itinerary allows you to have
+              your destination number change based on your travel dates and the phone number you would like to be
+              reached at. As an example, let's say you will be traveling to London from the 1st of the month till the
+              7th and from there you will be in India from the 8th till the 15th. You can setup your custom itinerary to
+              have your calls ring to your number in London from the 1st till the 7th and then have you calls ring to
+              you in India from the 8th till the 15th.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span> What if I don't know the number I want to be reached at?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>No problem! When you arrive to your traveling destination and know what number you want to be reached at.
+              Just login to our website and setup your number at that time.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span> Do my friends, family and co-workers get charged for calling me?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Absolutely not! Your family, friends and co-workers will not be charged for your Call Forwarding feature
+              no matter where you travel in the world! Note: Not responsible for charges applied to calling party by
+              their provider for dialing toll-free number.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span> What if I run out of balance while I am away?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>You will never run out of your minutes if you enroll your plan to auto-refill however if you choose not
+              to enroll then please visit our website to recharge or chat with us from any country to recharge your
+              account.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span> How do I forward my calls to my personal toll-free number?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Each mobile provider as well as home and office phone providers have their own way of forwarding calls.
+              Please contact your phone providers to find out how you can forward your calls to the personal toll-free
+              number that is provided to you when you purchase the Call Forwarding feature.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+    </ngb-accordion>
+  </mat-dialog-content>
+</div>
+
+<div class="form_holder commonPopup faqPopup" *ngIf="isShow == 6 ? true : false">
+  <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+  <h2>FAQ</h2>
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <input matInput placeholder="How do we help?" type="text">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <!-- <div class="headingText">What is the coupon code for Buy 1 Get 1 Offer?</div> -->
+    <div class="headingText"></div>
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How many points do I get upon signup?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>By signing up to Raza rewards you get 200 free signup bonus points.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How many points do I get upon referring a friend?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>You will receive 250 reward points upon your friends account activation and first successful recharge.
+            </p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How can I earn more reward points?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>You will automatically earn 4 points for every $1 spent to recharge your account.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How long can I keep my Reward points before exchanging them for rewards?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Your Raza Rewards™ points never expire and hence you can keep adding your points on your valid plan and
+              exchange the points anytime.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>When can I redeem my Raza Rewards?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Your plan can be credited with as low as $10 when you earn a minimum of 1000 points for US customers and
+              1100 for Canadian customers.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <span>How can I redeem my reward points?
+            <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+          </span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="aboutusCont">
+            <p>Reward points can be redeemed by calling our 24/7 customer service.</p>
+            <p>Crediting Account - Raza Rewards™ Points will be credited to a customer's account within 2 weeks of the
+              qualifying activity. Customers are responsible for verifying that Points are credited to their account.
+              All account discrepancies must be reported in writing within one month of date of activity.</p>
+            <p>Expiration and Termination -Raza and Raza Rewards™ reserves the right to terminate your membership in the
+              Program at any time if you violate the Program's rules or policies or any term or condition of the
+              website, including the Subscriber Agreement and the Conditions of Use. Termination of your membership will
+              result in a loss of all accumulated Raza Rewards™ Bonus Points and the loss of all other Program benefits.
+              Terminated members are not eligible to participate in any aspect of the Program. In lieu of termination,
+              Raza and Raza Rewards™ may at its sole discretion deduct Raza Rewards™ Bonus Points from your account, but
+              permit you to continue participating in the Program. If a customer returns a card (PIN) and receives a
+              refund, then all of the Bonus Points associated with that card (PIN) will be automatically cancelled.
+              Bonus Points do not expire except as expressly set forth herein.</p>
+            <p>Points Eligibility - Raza Rewards™ Points are only eligible for purchases made through Raza.com website.
+              Points are only available through recharges, purchases or gift purchases through the Raza.com website.
+              Special Promotions that require the use of a "Coupon Code" at checkout are NOT ELIGIBLE for Points
+              accumulation.</p>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </mat-dialog-content>
+</div>
+
+
+
+<!-- <div class="form_holder commonPopup faqPopup">
+     <span class="closeIcon" (click)="closeIcon()"  mat-dialog-close><i class="material-icons">close</i></span>
+      <h2>FAQ</h2>
+      <mat-dialog-content>
+      
+      <mat-form-field>
+          <input matInput placeholder="How do we help?" type="text">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <div class="headingText"></div>
+        <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <span>General
+                <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+              </span>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <div class="aboutusCont">
+              <p>For business professionals caught between high OEM price and mediocre print and graphic output, there’s a solution: Business Express’s Eclipse line of compatible laser toner cartridges that meet or exceed OEM quality for 20% less than typical OEM price. While even brand name OEMs display “This cartridge may contain recycled components” on packaging, only Business Express, a leading U.S.-based toner cartridge remanufacturer, uses all new internal components on its Eclipse line of compatible toner cartridges, and offers a guaranty on the cartridge and printer.</p>
+  
+            </div>
+            </ng-template>
+          </ngb-panel>
+  
+          <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span>Definitions
+                  <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+                </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="aboutusCont">
+                    <p>"You" and "Your" mean the purchaser and/or the user of the Products (as defined below). "Raza.com," "We," "Our," and "Us" mean Raza.communications and any Raza.com affiliates authorized to sell and/or distribute the Products. "Product" or "Products" means any and all Products you purchase and/or use from the Raza.com Website now or in the future. "Raza.communications Website" is found at www.Raza.com and contains the specific prices and charges, Product descriptions and other terms and conditions not set forth here that apply to the Products. You can also request information about the specific prices and charges, Product descriptions and other terms and conditions not set forth here that apply to the Products by calling Raza.com toll free at 1-877-463-4233.</p>
+                    <p>This Agreement incorporates by reference to a Product's prices, charges, restrictions and the terms and conditions for such Product listed on our website, as well as any disclosures, provisions, limitations or other information provided with, or printed on, the Products.</p>
+                </div>
+              </ng-template>
+          </ngb-panel>
+          
+          <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span>What is the time period for Buy 1 Get 1 Offer?
+                  <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+                </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="aboutusCont">
+                  <p>Raza.com uses a 1 minute rounding interval. This means that the duration of each call is rounded up to the next full minute for billing purposes. In contrast, many prepaid phone cards use a 3 or 6 minute rounding interval where calls are rounded up in 3 or 6 minute intervals for billing purposes.</p>
+                </div>
+              </ng-template>
+          </ngb-panel>
+  
+          <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span>3 Simple Ways To Save A Bunch Of Money When Buying A New Computer
+                  <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+                </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="aboutusCont">
+                  <p>All of Raza.com's Products, trademarks, service marks, symbols, logos and the intellectual property rights thereto (collectively "Marks") are the property of Raza.communications or its affiliates and You shall have no right in or to the Marks or any right to use the Marks. You are not permitted to commercially re-sell the Products or to print, produce, sell or distribute any telecommunication products that use or are based upon the Products, the telecommunication services provided with the Products and/or the Marks.</p>
+                </div>
+              </ng-template>
+          </ngb-panel>
+  
+          <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span>Choosing The Best Audio Player Software For Your Computer
+                  <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+                </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="aboutusCont">
+                  <p>You agree that Raza.com shall not be responsible for any third party claims against Us that arise from Your purchase or use of the Products. Further, You agree to reimburse Raza.com for all costs and expenses related to the defense of any such claims, including any type of fee, unless such claims are based upon Our willful misconduct or gross negligence. This provision will continue to remain in force after the Agreement expires or is otherwise terminated.</p>
+                </div>
+              </ng-template>
+          </ngb-panel>
+  
+          <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span>Dealing With Technical Support 10 Useful Tips
+                  <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+                </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="aboutusCont">
+                  
+                  <p>Raza.com will not be liable for the liabilities whatsoever resulting due to registration of hotel/hostel/public phone numbers or otherwise any claims by you or third parties.</p>
+                </div>
+              </ng-template>
+          </ngb-panel>
+  
+          <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span>Help Finding Information Online
+                  <i class="material-icons first-child">add</i> <i class="material-icons second-child">maximize</i>
+                </span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="aboutusCont">
+                  <p>Raza.communications does not guarantee call quality or connectivity, and will not be responsible or liable for reimbursement of lost minutes or reduction in the stored value of any prepaid card. Connection to a wrong number is a valid call. Service outages extending over few hours to a couple of days may occur. Raza.communications will not be liable for such outages, and customers shall have no right to any refund, credit, compensation or damages from Raza.communications because of service outage or any other situation arising out of service outage.</p>
+                  
+                </div>
+              </ng-template>
+          </ngb-panel>
+  
+        </ngb-accordion>
+      
+     
+      </mat-dialog-content>
+  </div> -->

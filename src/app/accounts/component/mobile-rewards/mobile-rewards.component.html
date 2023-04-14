@@ -1,0 +1,125 @@
+<div class="tabContentMyaccount planDetails" id="rewards">
+    <p class="tabTitle">Rewards Overview</p>
+    <mat-tab-group>
+  
+      <mat-tab label="Raza Reward">
+        <div *ngIf="isenableEnroll"><br /><br />
+          <p *ngIf="county_id==1" class="desc">Click to enroll and get 200 points instantly. <br />Get {{enrollAmount| bCurrency : plan?.CurrencyCode}} FREE worth of minutes for every 1000 points redeemed.</p>
+              <p *ngIf="county_id!=1" class="desc">Click to enroll and get 200 points instantly. <br />Get {{enrollAmount| bCurrency : plan?.CurrencyCode}} FREE worth of minutes for every 1100 points redeemed.
+            </p>
+            
+             <!--<p  class="desc">Click enroll to earn 200 free points,
+          get {{enrollAmount| bCurrency : plan?.CurrencyCode}} free
+            minutes for every {{enrollPoints}} points.</p>-->
+          <!-- <div class="input_holder1">
+            <button mat-button class="submitButton" (click)="enrollNow()">Enroll</button>
+         </div> -->
+          <div *ngIf="btnEnrollDisable" class="input_holder1">
+            <button mat-button class="submitButton" (click)="enrollNow()">Enroll</button>
+          </div>
+          <div *ngIf="!btnEnrollDisable" class="input_holder1 virtualCommingSoon">
+            <button mat-button class="submitButton">Enroll</button>
+          </div>
+        </div>
+  
+        <div *ngIf="!isenableEnroll">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Rewards Points</th>
+                <th scope="col">Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Total Raza Rewards</td>
+                <td>{{rewardTotal}}</td>
+              </tr>
+              <tr class="total">
+                <td>Total Available Points</td>
+                <td>{{rewardTotal}}</td>
+              </tr>
+  
+            </tbody>
+          </table>
+          <div *ngIf="isAbleToRedeemFlag" class="input_holder1">
+            <button mat-button class="submitButton" (click)="redeemNow()">Redeem Now</button>
+          </div>
+          <div *ngIf="!isAbleToRedeemFlag" class="input_holder1 virtualCommingSoon">
+            <button mat-button class="submitButton">Redeem Now</button>
+          </div>
+        </div>
+  
+        <table class="showAlltable" *ngIf="!isenableEnroll">
+          <tr>
+            <td>
+              <a (click)="onClickDetails(true)" *ngIf="!allRewardPoints">Details</a>
+              <a (click)="onClickDetails(false)" *ngIf="allRewardPoints">Close Details</a>
+            </td>
+            <td class="text-center"> </td>
+            <td *ngIf="isAbleToRedeemFlag" class="text-right">
+            </td>
+          </tr>
+        </table>
+  
+        <table class="table table-striped" *ngIf="allRewardPoints">
+          <thead>
+            <tr>
+              <th scope="col">Recharge Date & Time</th>
+              <th scope="col">Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of allRewardPoints">
+              <td>
+                {{item.EarnedDate | date :'dd-MMM-yy  h:mm a ' }}
+              </td>
+              <td>{{item.Point}}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+      </mat-tab>
+      <mat-tab label="Refer a Friend">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Refer-A-Friend Email</th>
+              <th scope="col">Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of referedFriends; index as i">
+              <td>{{item.EmailId}}</td>
+              <td>{{item.Point}}</td>
+            </tr>
+  
+          </tbody>
+        </table>
+        <table class="table">
+          <tr class="total">
+            <td>Total Refer A Friend Points</td>
+            <td>{{rewardTotal}}</td>
+          </tr>
+        </table>
+      </mat-tab>
+      <mat-tab label="Points Redeemed">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Transaction Date</th>
+              <th scope="col">Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of redeemedPoints; index as i">
+              <td>{{item.RedeemDate | date :'dd-MMM-yy h:mm:ss a '}}</td>
+              <td>{{item.PointUsed}}</td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </mat-tab>
+    </mat-tab-group>
+  
+  </div>

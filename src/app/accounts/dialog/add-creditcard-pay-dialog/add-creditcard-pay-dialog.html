@@ -1,0 +1,126 @@
+<div class="form_holder commonPopup addNumber">
+    <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+    <h2>Add Credit Card</h2>
+
+    <mat-horizontal-stepper [linear]="true" #stepper>
+        <mat-step [stepControl]="paymentDetailForm">
+            <form [formGroup]="paymentDetailForm">
+                <ng-template matStepLabel>Payment Detail</ng-template>
+                <div class="row commonPopupRow commonPopupRowcc">
+                    <div class="col-sm-8">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Card Number" (change)="onCheckCard($event)" type="tel" autocomplete="cc-number" formControlName="CardNumber" maxlength="19" ccNumber>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="CVV" maxlength="4" autocomplete="off" type="tel" type="password" formControlName="Cvv2" ccCvc>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row commonPopupRow commonPopupRowcc">
+                    <div class="col-sm-6">
+                        <mat-form-field>
+                            <mat-select placeholder="Expiry Month" formControlName="ExpMonth">
+                                <mat-option *ngFor="let item of months" [value]="item.Code">{{item.Value}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-6">
+                        <mat-form-field>
+                            <mat-select placeholder="Expiry Year" formControlName="ExpYear">
+                                <mat-option *ngFor="let item of years" [value]="item.Code">{{item.Value}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="input_holder1">
+                    <button mat-button matStepperNext class="submitButton">Next</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="billingInfoForm">
+            <form [formGroup]="billingInfoForm">
+                <ng-template matStepLabel>Billing Address</ng-template>
+                <div class="row commonPopupRow commonPopupRowcc">
+                    <div class="col-sm-12">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Full Name" formControlName="FullName">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row commonPopupRow commonPopupRowcc">
+                    <div class="col-sm-12">
+                        <mat-form-field class="example-full-width">
+                            <!-- <input matInput placeholder="Billing Address" formControlName="BillingAddress"> -->
+                            <input matInput placeholder="Billing Address" class="input search_google" (click)="getPlaceAutocomplete()" #addresstext formControlName="BillingAddress">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+
+                <div class="row commonPopupRow commonPopupRowcc">
+                    <div class="col-sm-12">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="City" formControlName="City">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+
+                <div class="row commonPopupRow commonPopupRowcc">
+                    <div class="col-sm-12">
+                        <mat-form-field>
+                            <mat-select placeholder="Country" formControlName="Country" (selectionChange)="loadStates()">
+                                <mat-option *ngFor="let item of fromCountry" [value]="item.CountryId">
+                                    {{item.CountryName}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row commonPopupRow commonPopupRowcc" *ngIf="search_country_id !=3">
+                    <div class="col-sm-12">
+                        <mat-form-field *ngIf="!isFreeStateText">
+                            <mat-select placeholder="State/Province" formControlName="State">
+                                <mat-option *ngFor="let item of states" [value]="item.Id">{{item.Name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field *ngIf="isFreeStateText">
+                            <input matInput placeholder="State/Province" formControlName="State">
+                        </mat-form-field>
+
+                    </div>
+                </div>
+
+                <div class="row commonPopupRow commonPopupRowcc">
+
+                    <div class="col-sm-12">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Zip/Postal Code" formControlName="PostalCode">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+
+                <div class="myNumberButtonArea ">
+
+                    <button *ngIf="!isLoading" class="submitButton commonPopupButton" mat-button (click)="paymentDetailFormSubmit()" style="width:150px;margin-left:25px!important">Confirm</button>
+                    <button *ngIf="isLoading" mat-button type="button" disabled>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Loading...
+                      </button>
+
+                    <button class="submitButton commonPopupButton" mat-button matStepperPrevious type="button" style="width:150px; margin-left:25px!important">Back</button>
+                </div>
+            </form>
+        </mat-step>
+
+    </mat-horizontal-stepper>
+
+</div>

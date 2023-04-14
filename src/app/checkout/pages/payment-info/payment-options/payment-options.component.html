@@ -1,0 +1,46 @@
+<div class="col-md-12">
+  <!-- <h2 class="heading_style4">
+    <span>Select payment method</span>
+  </h2> -->
+</div>
+  <div class="col-md-12" *ngIf="currentCart.couponCode =='FREETRIAL'">
+  <app-no-card-payment-box  [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentInfoFormSubmit($event)">
+  </app-no-card-payment-box>
+</div>
+<div class="col-md-12" *ngIf="currentCart.couponCode !='FREETRIAL'"> 
+  
+  <!--<div class="col-md-12">-->
+  <div class="form_holder form_holder2 creditCard_paypal" [ngClass]="{'width-full': !enablePaypalOption}">
+    <mat-tab-group>
+      <mat-tab label="Credit Card">
+	  <new-credit-card-payment-box [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentInfoFormSubmit($event)">
+        </new-credit-card-payment-box>
+  		
+      </mat-tab>
+      <mat-tab label="PayPal" *ngIf="enablePaypalOption">
+        <ng-template matTabContent>
+          <div class="form_row1 paypal-box">
+            <div class="input_holder1">
+              <div id="paypal-button-container" class="paypal-button-container">
+                <raza-paypal [config]="payPalConfig"></raza-paypal>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group> 
+        
+        <!--<ngx-braintree 
+          [getClientToken] = "getClientToken.bind(this)"
+           
+          [createPurchaseURL]="getClientCheckoutUrl()"
+          (paymentStatus)="onPaymentStatus($event)"
+          [chargeAmount]="55.55"
+          [enablePaypalCheckout] = "true"
+          [currency]="'USD'">
+        </ngx-braintree>-->
+       
+         
+    
+  </div>
+</div>

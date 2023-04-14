@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>information</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="My-account" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.3">
+        <g id="Raza---My-Account" transform="translate(-953.000000, -1018.000000)">
+            <g id="Group-7" transform="translate(261.000000, 677.000000)">
+                <g id="Group-9" transform="translate(37.000000, 227.000000)">
+                    <g id="information" transform="translate(656.000000, 115.000000)">
+                        <g id="i">
+                            <circle id="Oval" stroke="#0B203E" stroke-width="0.900000036" cx="7" cy="7" r="7"></circle>
+                            <path d="M6.99744898,5.23341837 C7.47959184,5.23341837 7.86989796,4.84311224 7.86989796,4.36096939 C7.86989796,3.87882653 7.47959184,3.5 6.99744898,3.5 C6.52678571,3.5 6.125,3.87882653 6.125,4.36096939 C6.125,4.84311224 6.52678571,5.23341837 6.99744898,5.23341837 Z M7.73214286,10.5 L7.73214286,5.83035714 L6.27423469,5.83035714 L6.27423469,10.5 L7.73214286,10.5 Z" fill="#0B203E"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

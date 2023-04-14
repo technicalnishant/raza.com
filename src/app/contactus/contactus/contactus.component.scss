@@ -1,0 +1,178 @@
+@import '__variables';
+@import '__mixins';
+
+.heading_style1{
+	left: 16%;
+	margin-left: 209px;
+}
+.heading_style1 span{
+	font-size: 26px;
+	width: 100%;
+}
+
+.mobileTopAccordion {
+    width: 80%;
+    margin: 0 auto 95px;
+    min-height: 500px;
+    padding-bottom: 50px;
+    max-width: 1100px;
+	@include breakpoint(sm){
+		margin: 0 auto 40px;
+	}
+
+    h2 {
+        color: #103F8A;
+        font-size: 24px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        margin: 120px 0;
+        text-align: center;
+    }
+}
+
+.headingText {
+    color: #1c2b58;
+    font-size: 26px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    padding: 16px 0;
+    border-bottom: 1px solid #ccc;
+    margin-top: 75px;
+}
+
+// prakash code
+
+.contact-header{
+		color: #0c0c0c;
+		span{
+			color: #0c0c0c;
+		}
+}
+
+.contactus {
+	font-size: 50px;
+	margin-top: 50px;
+	color: #162f75;
+	font-weight: 800;
+	text-align: center;
+	@include breakpoint(sm){
+	font-size: 34px;
+	}
+}
+
+.contactus-section {
+    p {
+        font-size: 16px;
+        color: #042d43;
+        font-weight: 600;
+        display: inherit;
+		text-align: center;
+		margin-bottom: 60px;
+		@include breakpoint(sm){
+		margin-bottom: 30px;
+		}
+    }
+	.contact-box{
+		border-radius: 8px;
+		padding: 40px 30px;
+		height: 100%;
+		@include breakpoint(sm){
+			padding: 20px;
+			height: auto;
+			margin-bottom: 16px;
+		}
+		.box-title{
+			font-size: 34px;
+		line-height: 61px;
+		color: #162f75;
+		font-weight: 800;
+		font-family: "Montserrat";
+		@include breakpoint(sm){
+			font-size: 24px;
+		}
+		}
+		.box-icon{
+			float: right;
+		@include breakpoint(sm){
+			font-size: 24px;
+		}
+		}
+		.box-description{
+			font-size: 18px;
+			line-height: 26px;
+			color: #4b5358;
+			font-weight: 500;
+			font-family: "Montserrat";
+			a{
+				color: #4b5358;
+			}
+			@include breakpoint(sm){
+				font-size: 16px;
+			}
+		}
+		a.btn{
+			border-radius: 23px;
+			background-color: #1959ff;
+			margin-top: 20px;
+			padding: .375rem  1.2rem;
+		}
+	}
+	.call{
+		background-color: #e6f1fc;
+	}
+	.message{
+		background-color: #dcf6fe;
+	}
+	.contact-address{
+		height: 100%;
+		margin-bottom: 20px;
+		.box-title{
+			font-size: 30px;
+		color: #162f75;
+		font-weight: 800;
+		font-family: "Montserrat";
+		@include breakpoint(sm){
+			font-size:24px;
+		}
+		}
+		p{
+			font-size: 18px;
+			color: #4b5358;
+			font-weight: 500;
+			font-family: "Montserrat";
+			text-align: left;
+			margin-bottom: 0;
+			@include breakpoint(sm){
+				font-size:16px;
+			}
+		}
+	}
+	.contact-adress-wrapper{
+		border-radius: 8px;
+		background-color: #fbf4ec;
+		margin-top: 32px;
+		padding: 30px;
+		@include breakpoint(sm){
+			padding: 20px;
+			margin-top: 0;
+			.border-right.contact-address {
+				border: 0!important;
+			}
+		}
+		
+	}
+}
+
+@include breakpoint(lg) {
+    .contactus_banner {
+        /* background-position: 100% 0;*/
+        background-size: cover;
+    }
+}
+@media only screen and (max-width: 650px)  {
+	
+	.heading_style1{
+		left: 53%;
+		margin-left: 0px;
+	}
+}

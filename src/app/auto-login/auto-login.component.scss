@@ -1,0 +1,360 @@
+.example-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.hideinMobile {
+	display: block;
+}
+.showInmobile {
+	display: none;
+}
+.mat-toolbar {
+	background: none;
+}
+.nobg {
+	background: none;
+	cursor: pointer;
+	border: none;
+}
+.commonWrapperArea {
+	width: 842px !important;
+	p {
+		&.label {
+			color: #103F8A;
+			font-size: 16px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			line-height: 20px;
+			margin: 0;
+			span {
+				display: block;
+				font-size: 12px;
+				color: #808080;
+			}
+		}
+		&.price {
+			color: #103F8A;
+			font-size: 30px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			line-height: 29px;
+			margin-bottom: 25px;
+			span {
+				font-size: 12px;
+				color: #808080;
+				line-height: 12px;
+			}
+		}
+	}
+}
+.newcustomer {
+	h3 {
+		color: #0B203E;
+		font-size: 24px;
+		text-transform: uppercase;
+		span {
+			padding: 0 16px;
+			&.active {
+				font-weight: 500;
+				margin-left: 10px;
+			}
+			&:last-child {
+				border-left: 1px solid #0B203E;
+			}
+		}
+	}
+	p {
+		&.headerText {
+			color: #808080;
+			font-size: 15px;
+			color: #808080;
+			font-size: 15px;
+			margin-top: 10px;
+		}
+		&.label2 {
+			color: #0B203E;
+			font-size: 20px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+		}
+		&.haveAccountAlready {
+			color: #0B203E;
+			font-size: 16px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			text-align: center;
+			margin-top: 10px;
+			a {
+				color: #0B3D8D;
+			}
+		}
+		&.agreementtopolicytext {
+			color: #0B203E;
+			font-size: 14px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 400;
+			margin-top: 25px;
+			text-align: center;
+		}
+	}
+}
+.forgetPass {
+	position: absolute;
+	right: 15px;
+	font-size: 12px;
+	top: 15px;
+	color: #0A1F3F;
+	z-index: 2;
+	a {
+		color: #0B3D8D;
+	}
+}
+.loginWithSocialmedia {
+	padding: 19px 0px;
+	clear: both;
+	overflow: hidden;
+	width: 410px;
+	margin: 0 auto;
+	a {
+		display: block;
+		&:first-child {
+			float: left;
+		}
+		&:last-child {
+			float: right;
+		}
+	}
+}
+.virtual1Form {
+	margin: 30px auto 0;
+}
+
+  
+  
+  @media only screen and (max-width: 650px)  {
+    
+    .hideinMobile{display: none;}
+    .showInmobile { display: block;}
+    
+    .three_service{ height: 360px;}
+    .virtual1Form{ width: auto; margin: 25px auto 0; padding: 0 18px;}
+    .commonWrapperArea h3{ font-size: 12px;}
+    .commonWrapperArea{padding: 30px 12px;}
+    .commonWrapperArea p.headerText{ font-size: 14px; line-height:20px;}
+    .commonWrapperAreaNew{width: 842px !important;}
+    .virtualNumberList h4{font-size: 19px;}
+    .forgetPass{ top:-13px;}
+    .loginWithSocialmedia{ padding: 19px 0px; width: 90%;} 
+    .loginWithSocialmedia a{ float: none !important; display: block; margin: 0 auto 15px; text-align: center; }
+  }
+  @media only screen and (max-width: 810px){
+      .commonWrapperArea {
+          width: 86% !important;
+      }
+  }
+  @media only screen and (max-width: 860px)  {
+      .newcustomer{display: block;}
+  }
+   .displayMob{
+      display: none;
+    } 
+    .displayDsk{
+      display: block;
+    }
+    @media  (max-width: 768px) and (min-width: 320px){
+    .displayMob{
+      display: block;
+    }
+    .displayDsk{
+      display: none;
+    }
+  }
+  .txt-center{text-align: center;}
+  .imgcustom1  {
+      width: 16%;
+      margin-top: 170px;
+  }
+  .imgcustom2  {
+      width: 17%;
+      margin-top: 160px;
+      margin-left: 1%;
+  }
+  .cust-btn-wrapper {
+      text-align: center;
+  }
+  .registerpgh{color:white;margin-top:50px;font-size: 20px;}
+  .registerpghscnd{color:white;margin-top: 0px;font-size: 20px;}
+  @media (max-width: 480px){
+      .imgcustom2  {
+          width: 47%;
+          margin-top: 42%;
+          margin-left: 1%;
+      }
+      .imgcustom1  {
+          width: 47%;
+          margin-top: 45%;
+      }
+      .registerpgh{color:white;margin-top: 15%;font-size: 15px;}
+      .registerpghscnd{color:white;margin-top: 0px;font-size: 12px;}
+  }
+  @media (min-width: 310px) and (max-width: 340px) {
+      .registerpgh{margin-top: 22%!important;} 
+  }
+  @media (min-width: 341px) and (max-width: 420px) {
+      .imgcustom2  {
+          width: 47%;
+          margin-top: 42%;
+          margin-left: 1%;
+      }
+      .imgcustom1  {
+          width: 47%;
+          margin-top: 44%;
+      }
+      .registerpgh{color:white;margin-top: 15%;font-size: 15px;}
+      .registerpghscnd{color:white;margin-top: 0px;font-size: 12px;} 
+  }
+  @media (min-width: 421px) and (max-width: 480px) {
+      .imgcustom1{
+          width: 47%;
+          margin-top: 37%;
+      }
+      .imgcustom2 {
+          width: 47%;
+          margin-top: 36%;
+          margin-left: 1%;
+      }
+      .registerpgh{color:white;margin-top: 10%;font-size: 15px;}
+  }
+  @media (min-width: 481px) and (max-width: 590px) {
+      .imgcustom2  {
+          width: 35%;
+          margin-top: 29%;
+          margin-left: 1%;
+      }
+      .imgcustom1  {
+          width: 35%;
+          margin-top: 30%;
+      }
+      .registerpgh{color:white;margin-top: 11%; font-size: 15px;}    
+      .registerpghscnd{color:white;margin-top: 0px;font-size: 15px;}
+  }
+  @media (min-width: 591px) and (max-width: 710px) {
+      .imgcustom2  {
+              width: 30%;
+      margin-top: 23%;
+      margin-left: 1%;
+      }
+      .imgcustom1  {
+              width: 30%;
+      margin-top: 25%;
+      }
+      .registerpgh {
+          color: white;
+          margin-top: 7%;
+          font-size: 15px;
+      }
+  }
+  @media (min-width: 711px) and (max-width: 791px) {
+      .imgcustom2 {
+          width: 30%;
+          margin-top: 21%;
+          margin-left: 1%;
+      }
+      .imgcustom1  {
+          width: 30%;
+          margin-top: 22%;
+      }
+      .registerpgh {
+          color: white;
+          margin-top: 9%;
+          font-size: 15px;
+      }
+  }
+  @media (min-width: 792px) and (max-width: 860px) {
+      .imgcustom2  {
+          width: 25%;
+          margin-top: 20%;
+          margin-left: 1%;
+      }
+      .imgcustom1  {
+          width: 25%;
+          margin-top: 21%;
+      }
+      .registerpgh{color:white;margin-top: 8.5%; font-size: 18px;}    
+       .registerpghscnd{color:white;margin-top: 0px;font-size: 15px;}  
+          .commonWrapperArea {
+          width: 70% !important;
+      }
+  }
+  @media (min-width: 861px) and (max-width: 990px){
+      .imgcustom2  {
+          width: 25%;
+          margin-top: 19%;
+          margin-left: 1%;
+      }
+      .imgcustom1  {
+          width: 25%;
+          margin-top: 20%;
+      }
+      .registerpgh{color:white;margin-top: 8%; font-size: 18px;}    
+       .registerpghscnd{color:white;margin-top: 0px;font-size: 15px;}  
+          .commonWrapperArea {
+          width: 70% !important;
+      }
+  }
+  @media (min-width: 991px) and (max-width: 1100px) {
+      .imgcustom2  {
+          width: 20%;
+          margin-top: 15%;
+          margin-left: 1%;
+      }
+      .imgcustom1  {
+          width: 20%;
+          margin-top: 16%;
+      }
+      .registerpgh{color:white;margin-top: 8%; font-size: 18px;}    
+      .registerpghscnd{color:white;margin-top: 0px;font-size: 18px;}  
+          .commonWrapperArea {
+          width: 70% !important;
+      }
+  }
+  @media (min-width: 1101px) and (max-width: 1280px) {
+      .imgcustom1  {
+          width: 16%;
+          margin-top: 15%;
+      }
+      .imgcustom2  {
+          width: 17%;
+          margin-top: 14%;
+          margin-left: 1%;
+      }
+      .registerpgh{color:white;margin-top: 65px; font-size: 18px;}    
+  }
+  @media(min-width:1281px) and (max-width:1550px){
+      .imgcustom1  {
+          width: 16%;
+          margin-top: 12%;
+      }
+      .imgcustom2  {
+          width: 17%;
+          margin-top: 11%;
+          margin-left: 1%;
+      }
+      .cust-btn-wrapper {
+          text-align: center;
+      }
+      .registerpgh{color:white;margin-top:70px;font-size: 20px;}
+      .registerpghscnd{color:white;margin-top: 0px;font-size: 20px;}
+  }
+  
+  .newcustomer_banner{
+    background: url("/assets/images/existingcustomer-headerimg.png") no-repeat center 100%;
+    background-size: cover!important;
+  }
+  
+  .catcha-control{
+      margin-bottom: 15px;
+  }

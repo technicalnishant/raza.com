@@ -1,0 +1,106 @@
+<div class="recharge_block recharge2">
+  <!--rechargeStep -->
+  <div class="rechargeStepMain">
+    <div class="rechargeStep">
+      <div class="step1">
+        <p class="step">Step 1</p>
+        <p class="stepName">Login</p>
+      </div>
+      <div class="step2">
+        <p class="step">Step 2</p>
+        <p class="stepName">Payment</p>
+      </div>
+      <div class="step3 active">
+        <p class="step">Step 3</p>
+        <p class="stepName">Confirmation</p>
+      </div>
+    </div>
+  </div>
+  <!-- rechargeStep -->
+  <div class="msgArea">
+    <p class="updateCard2">Confirmation</p>
+    <p class="paymentText">Payment successful!</p>
+  </div>
+  <div class="container containerMobile">
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="col-md-12">
+          <h2 class="heading_style4">
+            <span>Select payment method</span>
+          </h2>
+        </div>
+        <div class="col-md-12">
+
+          <div class="form_holder form_holder2 form_holder5">
+            <div class="orderNumberArea">
+              <p>Order #<span>{{orderNo}}</span></p>
+            </div>
+            <div class="emailSent">
+              <p>An email has been sent to {{email}} with order details </p>
+            </div>
+          </div>
+
+          <div class="downloadApp">
+            <h4 class="heading_style7">Download Raza mobile app and <br />
+              start calling now!</h4>
+            <div class="app_list">
+              <ul>
+                <li>
+                  <a href="#">
+                    <img src="../assets/images/icon_googleplaystore.png" alt="app" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="../assets/images/icon_appstore.png" alt="app" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="live_chatarea">
+            <ul>
+              <li><a href="#"><span><img src="../assets/images/user_icon.svg" alt="" /></span> My account</a></li>
+              <li><a href="#"><span><img src="../assets/images/chat_icon.svg" alt="" /></span> 24/7 Live Chat</a></li>
+              <li><a href="#"><span><img src="../assets/images/call_icon.svg" alt="" /></span> 1-877-463-4233</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-xl-1"></div>
+      <div class="col-xl-5">
+        <div class="col-md-12">
+          <h2 class="heading_style4">
+            <span>Your order</span>
+          </h2>
+        </div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>Purchase Amount</td>
+              <td>{{ purchaseAmount | bCurrency }} </td>
+            </tr>
+            <tr>
+              <td>Service Fee</td>
+              <td>{{ serviceFee | bCurrency }}</td>
+            </tr>
+            <tr class="total">
+              <td>Total</td>
+              <td>{{totalAmount() | bCurrency }}</td>
+            </tr>
+            <tr>
+              <td>Order Id</td>
+              <td>{{ orderNo }}</td>
+            </tr>
+            <tr>
+              <td>Date & time</td>
+              <td>{{ datetime }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

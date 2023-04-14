@@ -1,0 +1,185 @@
+<ng-template #planDetail>
+  <div class="tabContentMyaccount planDetails" id="planDetails">
+    <p class="tabTitle">Your Raza Numbers</p>
+        <div class="razaNumberLeft">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">S.NO</th>
+                <th class="text-center">Access Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of accessNumberList; index as i">
+                <!--<td class="text-center">#00{{i+1}}</td>-->
+                <td class="text-center"> {{i+1}}</td> 
+                <td class="text-center">{{item}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="razaNumberRight">
+          <div class="col-xl-12 text-center">
+            <div class="razawebNumberRightApplinkArea">
+              <h4 class="heading_style7">You can download our app to make calls directly from Raza app Contacts</h4>
+              <div class="app_list">
+                <ul>
+                  <li>
+                    <a href="#">
+                      <img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/icon_googleplaystore.svg" alt="app" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/icon_appstore.svg" alt="app" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="disclaimer">DISCLAIMER: Two cent/min will be charged for using a Toll Free or 1-800 numbers. Customer
+          is
+          responsible for choosing access numbers that are local and free of charge. Contact your local telephone
+          company
+          to confirm that the number(s) that appear are both local and free of charge for you to call. Raza.com is Not
+          responsible for any long distance phone charges from your primary service provider.</p>
+ 
+
+     <!-- <mat-tab label="Call Details" *ngIf="plan?.IsAllowCdr">
+        <mat-form-field class="option-dd">
+          <mat-select [formControl]="callDetailsSelectionControl">
+            <mat-option value="7"> Last 7 days </mat-option>
+            <mat-option value="30"> Last 30 days </mat-option>
+            <mat-option value="60"> Last 60 days </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <table class="table table-s triped">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Source Number</th>
+              <th scope="col">Destination</th>
+              <th scope="col">Dest. City</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of callHistories; index as i">
+              <td>{{item.CallDate | date :'M/d/yy h:mm a'}}</td>
+              <td>{{item.SourceNumber}}</td>
+              <td>{{item.Destination}}</td>
+              <td>{{item.DestinationCity}}</td>
+              <td>{{item.Duration}}</td>
+              <td>{{item.Amount | number:'1.1-2' | bCurrency : 'Pre'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-tab>-->
+  </div>
+</ng-template>
+
+<ng-template #planDetailMobile>
+  <div class="tabContentMyaccount planDetails">
+    <p class="tabTitle">Your Raza Numbers</p>
+    <!-- <mat-tab-group>
+      <mat-tab label="Your Raza Numbers"> -->
+        <div class="razaNumberLeft">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">S.NO</th>
+                <th scope="col">Access Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of accessNumberList; index as i">
+                <!--<td scope="row">#00{{i+1}}</td>-->
+                <td scope="row">{{i+1}}</td>
+                <td scope="row">{{item}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="razaNumberRight">
+          <div class="col-xl-12 text-center">
+            <div class="razawebNumberRightApplinkArea">
+              <h4 class="heading_style7 ">You can download our app to make calls directly from Raza app Contacts</h4>
+              <div class="app_list">
+                <ul>
+                  <li>
+                    <a href="#">
+                      <img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/icon_googleplaystore.svg" alt="app" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/icon_appstore.svg" alt="app" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="disclaimer">DISCLAIMER: Two cent/min will be charged for using a Toll Free or 1-800 numbers. Customer
+          is
+          responsible for choosing access numbers that are local and free of charge. Contact your local telephone
+          company
+          to confirm that the number(s) that appear are both local and free of charge for you to call. Raza.com is Not
+          responsible for any long distance phone charges from your primary service provider.</p>
+ 
+
+      <!-- <mat-tab label="Call Details">
+        <mat-form-field class="option-dd">
+          <mat-select [formControl]="callDetailsSelectionControl">
+            <mat-option value="7"> Last 7 days </mat-option>
+            <mat-option value="30"> Last 30 days </mat-option>
+            <mat-option value="60"> Last 60 days </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngFor="let item of callHistories; index as i">
+          <table class="table orderHistory" [ngClass]="{'greyBg': i%2===0}">
+            <tbody>
+              <tr>
+                <td>Date</td>
+                <td>{{item.CallDate | date :'M/d/yy h:mm a'}}</td>
+              </tr>
+              <tr>
+                <td>Source Number</td>
+                <td>{{item.SourceNumber}}</td>
+              </tr>
+              <tr>
+                <td>Destination</td>
+                <td>{{item.Destination}}</td>
+              </tr>
+              <tr>
+                <td>Dest. City</td>
+                <td>{{item.DestinationCity}}</td>
+              </tr>
+              <tr>
+                <td>Duration</td>
+                <td>{{item.Duration}}</td>
+              </tr>
+              <tr>
+                <td>Amount</td>
+                <td>{{item.Amount | number:'1.1-2' | bCurrency : 'Pre'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-tab> -->
+
+
+  </div>
+</ng-template>
+
+<div class="onlyDesktopAccount">
+  <ng-container *ngTemplateOutlet="planDetail"></ng-container>
+</div>
+<div class="onlySmallScreenAccount">
+  <ng-container *ngTemplateOutlet="planDetailMobile"></ng-container>
+</div>

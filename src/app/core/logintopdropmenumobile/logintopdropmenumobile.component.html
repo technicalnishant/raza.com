@@ -1,0 +1,40 @@
+<ng-container *ngIf="isUserAuthenticated(); then loggedInTemp; else loggedOutTemp">
+</ng-container>
+
+<ng-template #loggedInTemp>
+
+  <!-- <span *ngIf="isAccountMenuDisplay" class="cross-icon" (click)="toggleSideNav()">
+    <img src="assets/images/cross_icon_sidemenu.jpg" alt="" />
+  </span> -->
+
+  <h3>{{username}}</h3>
+
+  <div *ngIf="isAccountMenuDisplay" class="slidemenu hideSome" (click)="$event.stopPropagation();">
+    <mat-nav-list role="list"> 
+      <app-account-top-menu [plan]="planSub$ | async"></app-account-top-menu>
+    </mat-nav-list>
+  </div>
+
+  <button *ngIf="!isAccountMenuDisplay" mat-button class="submitButton loginButton" routerLink="/account">My
+    Account</button>
+  <button mat-button class="submitButton" (click)="onClickLogOut()">Log out</button>
+
+</ng-template>
+<ng-template #loggedOutTemp>
+
+  <h3>Welcome</h3>
+  <p>Manage your account by just logging in.<br>
+    <!-- Discover new features that are absolutely free! -->
+    <!--<button mat-button class="submitButton loginButton" routerLink='/auth/sign-in'>Login</button>--> 
+    <button mat-button id="loginPoup" class="submitButton loginButton" (click)="openModal()">Login</button> 
+  </p>
+ 
+  <p>New customer? Register or just download Raza app now!</p>
+  <!--<button routerLink="/auth/sign-up" mat-button class="submitButton">Sign Up</button>-->
+   <button  mat-button (click)="openModal2()" class="submitButton">Sign Up</button>
+  
+  
+
+
+</ng-template>
+

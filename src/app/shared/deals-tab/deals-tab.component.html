@@ -1,0 +1,53 @@
+<!-- deal section start heree -->
+<div class="deals-wrapper">
+  <div class="containers" style="background: url('{{main_img}}')">
+    <div class="deals-option-wrapper">
+      <div class="title">
+        <p>DEALS</p>
+      </div>
+      
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let item of data" (mouseover)="(main_img = item.main_img)">
+           
+          <a routerLink="{{item.page_link}}" *ngIf="item.page_link_id !=5">
+            <div class="deals-option">
+              <div class="img-part">
+                
+                <img loading="lazy" src="{{item.img1}}">
+                <img loading="lazy" src="{{item.img2}}">
+                <img loading="lazy" src="{{item.main_img}}" style="display: none;">
+              </div>
+              <div class="text-part" [innerHTML]="item.content">
+                
+              </div>
+              <div class="img-part arrows">
+                <img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/deals/right-icon.png">
+                <img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/deals/arrow-right.png">
+              </div>
+            </div>
+          </a>
+		  <a  *ngIf ="item.page_link_id ==5" (click)="onopenchristmas()">
+        <!-- <a  *ngIf ="item.page_link_id ==5" href="/deals/buy1-get1"> -->
+            <div class="deals-option">
+              <div class="img-part">
+                
+                <img loading="lazy" src="{{item.img1}}">
+                <img loading="lazy" src="{{item.img2}}">
+                <img loading="lazy" src="{{item.main_img}}" style="display: none;">
+              </div>
+              <div class="text-part" [innerHTML]="item.content">
+                
+              </div>
+              <div class="img-part arrows">
+                <img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/deals/right-icon.png">
+                <img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/deals/arrow-right.png">
+              </div>
+            </div>
+          </a>
+		  
+		  
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+</div>

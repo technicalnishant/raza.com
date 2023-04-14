@@ -1,0 +1,117 @@
+<ng-template #otherPlans>
+
+  <div class="tabContentMyaccount planDetails">
+    <p class="tabTitle">My Plans</p>
+    <table class="table table-striped centerTable2">
+      <thead>
+        <tr>
+          <th scope="col">Plan Name</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Add Funds</th>
+          <th scope="col">Access Number</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of plan; index as i">
+          <td>{{item?.CardName}}<br />{{item?.LastRechargeDate  | date :'dd-MMM-yy h:mm:ss a '}}</td>
+          <td>{{item?.Price | bCurrency : item?.CurrencyCode}}</td>
+          <td>{{item?.Balance | bCurrency : item?.CurrencyCode }}</td>
+          <td>
+            
+            <a *ngIf="item.IsAllowRecharge" (click)="recharge(item.PlanId)">Recharge</a>
+            <a *ngIf="!item.IsAllowRecharge" (click)="rechargeMsg()">Recharge</a>
+             
+
+          </td>
+          <td>
+            {{item?.FirstAccessNumbers}}<br />
+            <span *ngIf="item.IsDisplayAccessNumberShowMore" (click)="showAllAccessNumbers(item.AccessNumbers)"
+              class="showall">Show All</span>
+          </td>
+          <td class="text-center moreIcon">
+            <div class="moreArea">
+              <button mat-icon-button [matMenuTriggerFor]="editDeleteMenu2">
+                <mat-icon>more_horiz</mat-icon>
+              </button>
+              <mat-menu #editDeleteMenu2="matMenu" class="editDeleteAreaMain menu2">
+                <ul>
+                  <li *ngIf="item.IsAllowPinLess"><a (click)="pinlessSetup(item?.PlanId)">Pinless Setup</a></li>
+                  <li><a (click)="oneTouchDial(item?.PlanId)">One Touch Dial</a></li>
+                  <li *ngIf="item.IsAllowCdr"><a (click)="callDetails(item?.PlanId)">Call Details</a></li>
+                  <li *ngIf="item.IsAllowCallForwarding"><a (click)="callForwarding(item?.PlanId)">Call Forwarding</a>
+                  </li>
+                  <li><a (click)="autoRefill(item?.PlanId)">Auto Refill</a></li>
+                </ul>
+              </mat-menu>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</ng-template>
+
+<ng-template #otherPlansMobile>
+  <div class="tabContentMyaccount planDetails">
+    <p class="tabTitle">My Plans</p>
+    <div *ngFor="let item of plan; let i = index">
+      <table class="table orderHistory mt-40" [ngClass]="{'greyBg': i%2===0}">
+        <tbody>
+          <tr>
+            <td>Plan Name</td>
+            <td>{{item?.CardName}}<br />{{item?.LastRechargeDate  | date :'dd-MMM-yy h:mm:ss a '}}</td>
+          </tr>
+
+          <tr>
+            <td>Amount</td>
+            <td>{{item?.Price | bCurrency : item?.CurrencyCode}}</td>
+          </tr>
+          <tr>
+            <td>Balance</td>
+            <td>{{item?.Balance | bCurrency : item?.CurrencyCode}}</td>
+          </tr>
+          <tr>
+            <td>Add Funds</td>
+            <td><a (click)="recharge(item?.PlanId)">Recharge</a></td>
+          </tr>
+          <tr>
+            <td>Access Number</td>
+            <td>{{item?.FirstAccessNumbers}}<br />
+              <span *ngIf="item.IsDisplayAccessNumberShowMore" (click)="showAllAccessNumbers(item.AccessNumbers)"
+                class="showall">Show All</span>
+              <br />
+              <p class="autoTextcommon">
+                <span class="iconSpan" mat-icon-button [matMenuTriggerFor]="moreMenu3">
+                  <mat-icon>more_horiz</mat-icon>
+                </span>
+
+                <mat-menu #moreMenu3="matMenu" class="editDeleteAreaMain menu2">
+                  <ul>
+                    <li *ngIf="item.IsAllowPinLess"><a (click)="pinlessSetup(item?.PlanId)">Pinless Setup</a></li>
+                    <li><a (click)="oneTouchDial(item?.PlanId)">One Touch Dial</a></li>
+                    <li *ngIf="item.IsAllowCdr"><a (click)="callDetails(item?.PlanId)">Call Details</a></li>
+                    <li *ngIf="item.IsAllowCallForwarding"><a (click)="callForwarding(item?.PlanId)">Call Forwarding</a>
+                    </li>
+                    <li><a (click)="autoRefill(item?.PlanId)">Auto Refill</a></li>
+                  </ul>
+                </mat-menu>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-template>
+
+
+<div class="onlyDesktopAccount">
+  <ng-container *ngTemplateOutlet="otherPlans"></ng-container>
+</div>
+<div class="onlySmallScreenAccount">
+  <ng-container *ngTemplateOutlet="otherPlansMobile"></ng-container>
+</div>

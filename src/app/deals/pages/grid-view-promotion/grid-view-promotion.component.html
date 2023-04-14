@@ -1,0 +1,286 @@
+<div class="first_fold">
+  <h1 class="heading_style1 contact-header">
+    BUY 1 GET 1 FREE<br />
+    <span>New Customer Special</span>
+  </h1>
+  <div class="home_banner deal1_banner">
+    <!-- <img src="assets/images/banner_image.png" alt="banner"> -->
+  </div>
+</div>
+
+<section class="country-search">
+  <div class="container">
+    <div class="col-lg-8 col-md-12 mx-auto">
+      <div class="search-input">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text caret bg-white border-right-0">
+              <div (click)="openFlagDropDown()" class="select_top1">
+                <img
+                  src="./../../assets/images/blank.gif"
+                  alt="flag"
+                  width="30"
+                  height="20"
+                  [ngClass]="
+                    'flag flag-f-' + currentSetting?.country?.CountryId
+                  "
+                />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down ml-2" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                </svg>
+              </div>
+              <div class="flag_list1" *ngIf="showDropdown">
+                <ul>
+                  <li
+                    *ngFor="let item of countryFrom"
+                    (click)="onSelectCountrFrom(item)"
+                  >
+                    <span>
+                      <img
+                        src="./../../assets/images/blank.gif"
+                        alt="flag"
+                        width="30"
+                        height="20"
+                        [ngClass]="'flag flag-f-' + item.CountryId"
+                      />
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </span>
+          </div>
+          <input
+            type="text"
+            placeholder="Where do you wish to call?"
+            class="form-control form-control-lg border-right-0 border-left-0"
+            aria-label="State"
+            id="searchInput"
+            [matAutocomplete]="auto"
+            [formControl]="autoControl"
+            ng-placeholder="State"
+            (focusout)="onClickInput()"
+            (focus)="onInputFocus()"
+          />
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option
+              *ngFor="let option of filteredCountry | async"
+              [value]="option"
+              (onSelectionChange)="
+                viewRates($event, option.CountryToId, option)
+              "
+            >
+              <img
+                class="example-option-img"
+                src="./../../assets/images/blank.gif"
+                aria-hidden
+                [ngClass]="'flag flag-' + option.CountryToId"
+                height="25"
+              />
+              <span class="width70">{{ option.CountryToName }}</span>
+            </mat-option>
+          </mat-autocomplete>
+          <div class="input-group-append">
+            <span class="input-group-text border-left-0 bg-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-search"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- country search section end here -->
+
+<section class="country-search">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 mx-auto">
+        <div class="alphabet_links">
+          <li class="active" [ngClass]="{'active': defaultChar === 'A' }" (click)="setChar('A')">A</li>
+          <li [ngClass]="{'active': defaultChar === 'B' }" (click)="setChar('B')" >B</li>
+          <li [ngClass]="{'active': defaultChar === 'C' }" (click)="setChar('C')">C</li>
+          <li [ngClass]="{'active': defaultChar === 'D' }" (click)="setChar('D')" >D</li>
+          <li [ngClass]="{'active': defaultChar === 'E' }" (click)="setChar('E')" >E</li>
+          <li [ngClass]="{'active': defaultChar === 'F' }" (click)="setChar('F')" >F</li>
+          <li [ngClass]="{'active': defaultChar === 'G' }" (click)="setChar('G')" >G</li>
+          <li [ngClass]="{'active': defaultChar === 'H' }" (click)="setChar('H')" >H</li>
+          <li [ngClass]="{'active': defaultChar === 'I' }" (click)="setChar('I')" >I</li>
+          <li [ngClass]="{'active': defaultChar === 'J' }" (click)="setChar('J')">J</li>
+          <li [ngClass]="{'active': defaultChar === 'K' }" (click)="setChar('K')">K</li>
+          <li [ngClass]="{'active': defaultChar === 'L' }" (click)="setChar('L')">L</li>
+          <li [ngClass]="{'active': defaultChar === 'M' }" (click)="setChar('M')">M</li>
+          <li [ngClass]="{'active': defaultChar === 'N' }" (click)="setChar('N')">N</li>
+          <li [ngClass]="{'active': defaultChar === 'O' }" (click)="setChar('O')">O</li>
+          <li [ngClass]="{'active': defaultChar === 'P' }" (click)="setChar('P')" >P</li>
+          <li [ngClass]="{'active': defaultChar === 'Q' }" (click)="setChar('Q')">Q</li>
+          <li [ngClass]="{'active': defaultChar === 'R' }" (click)="setChar('R')">R</li>
+          <li [ngClass]="{'active': defaultChar === 'S' }" (click)="setChar('S')">S</li>
+          <li [ngClass]="{'active': defaultChar === 'T' }" (click)="setChar('T')">T</li>
+          <li [ngClass]="{'active': defaultChar === 'U' }" (click)="setChar('U')" >U</li>
+          <li [ngClass]="{'active': defaultChar === 'V' }" (click)="setChar('V')">V</li>
+          <li [ngClass]="{'active': defaultChar === 'W' }" (click)="setChar('W')">W</li>
+          <li [ngClass]="{'active': defaultChar === 'X' }" (click)="setChar('X')">X</li>
+          <li [ngClass]="{'active': defaultChar === 'Y' }" (click)="setChar('Y')" >Y</li>
+          <li [ngClass]="{'active': defaultChar === 'Z' }" (click)="setChar('Z')">Z</li>
+          <!--<div>Show All</div>-->
+        </div>
+      </div>
+    </div>
+    <!-- Alpahbet search end here-->
+
+    <div class="row">
+      <div
+        class="col-xl-3 col-md-4 countries"
+        *ngFor="let option of limitDenomination; let i = index"
+      >
+        <div class="country-box" >
+          <div class="country-flag">
+            <div class="div">
+               
+              <img
+              src="./../../assets/images/flag/{{
+                getImageName(option.CountryToName) | lowercase
+              }}.png"
+            />
+            </div>
+            <div class="country-name">{{ option.CountryToName }}</div>
+          </div>
+          <div class="country-rate">
+            <span>From</span> {{ option.RatePerMin | sCurrency : option.CurrencyCode}}
+          </div>
+          <button
+            class="view-details-btn"
+            (click)="showPopup(option.CountryToId, option)"
+          >
+            VIEW Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- this plan include section start here -->
+
+<section class="plan-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">This Plan Includes</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-4 col-md-6">
+        <div class="box">
+          <img
+            src="../../../../assets/images/new_design_images/global_calling.png"
+            alt="global_calling"
+          />
+          <div class="box-title">Global Calling</div>
+          <div class="box-description">
+            Best Rates to call any Landlines and Cell phones worldwide!
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-6">
+        <div class="box">
+          <img
+            src="../../../../assets/images/new_design_images/mobile_app.png"
+            alt="global_calling"
+          />
+          <div class="box-title">Mobile App</div>
+          <div class="box-description">
+            Download the app and call directly without having to dialaccess
+            number.
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-6">
+        <div class="box">
+          <img
+            src="../../../../assets/images/new_design_images/call_quality.png"
+            alt="global_calling"
+          />
+          <div class="box-title">Exeptional Call Quality</div>
+          <div class="box-description">
+            Our State of the Art fiber optic network keeps you in touch with
+            high quality.
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-6">
+        <div class="box">
+          <img
+            src="../../../../assets/images/new_design_images/raza_rewards.png"
+            alt="global_calling"
+          />
+          <div class="box-title">Raza Rewards</div>
+          <div class="box-description">
+            Signup for Raza Rewards and earn points on every dollor spent.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-md-6">
+        <div class="box">
+          <img
+            src="../../../../assets/images/new_design_images/money_back.png"
+            alt="global_calling"
+          />
+          <div class="box-title">100% Money Back Gurantee</div>
+          <div class="box-description">
+            Get your unused balance refunded at any time if you are not
+            completed satishfied.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-md-6">
+        <div class="box">
+          <img
+            src="../../../../assets/images/new_design_images/account_management.png"
+            alt="global_calling"
+          />
+          <div class="box-title">Online Account Management</div>
+          <div class="box-description">
+            Keep track of your calls, orders and rewards anywhere anytime..
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- this plan include section end here -->
+
+
+  <app-comman-faqs></app-comman-faqs>
+
+
+<!-- commna faq section end here -->
+
+
+<section class="still-search-strip">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+      <div class="d-flex align-items-center flex-wrap justify-content-center">
+        <div class="strip-title"> Still Searching for All Rates</div>
+        <a href="/searchrates" class="white-btn">View All Rates</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>

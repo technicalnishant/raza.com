@@ -1,0 +1,137 @@
+.howitworks_header{
+	color: #0c0c0c;
+}
+.arrows{
+	margin-top: 40px;
+}
+
+
+.example-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.hideinMobile {
+	display: block;
+}
+.showInmobile {
+	display: none;
+}
+.mat-toolbar {
+	background: none;
+}
+.nobg {
+	background: none;
+	cursor: pointer;
+	border: none;
+}
+
+.howitworksSection {
+	text-align: center;
+	padding: 6px 20px 125px 85px;
+	h3 {
+		&.heading_style2 {
+			color: #162f75;
+			font-size: 26px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 600;
+			text-align: center;
+		}
+	}
+	p {
+		color: #4b5358;
+		font-size: 16px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+	}
+}
+.second_fold {
+	padding-top: 0px;
+	position: relative;
+	padding-bottom: 129px;
+}
+.shadowtype2 {
+	width: 90%;
+	margin: 0 auto;
+	/*padding: 116px 10px;*/
+	max-width: 1200px;
+}
+.gradientArea {
+	
+	background:#e5efff;
+	padding: 33px 230px;
+	/*width: 100%;*/
+	p {
+		color: #162f75;
+		font-size: 20px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 500;
+		text-align: center;
+		margin: 0px;
+	}
+}
+.number2 {
+	p {
+		margin-bottom: 0px;
+		&.first-child {
+			border-bottom: 1px solid #E2E7ED;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+		}
+		&.last-child {
+			font-style: italic;
+		}
+	}
+}
+
+.heading_style3{
+	font-size: 50px;
+	color: #162f75;
+	font-weight: 800;
+	text-align: center;
+	margin-top: 75px;
+	margin-bottom: 115px;
+	span{
+		font-size: 16px;
+		color: #08273a;
+		font-weight: 600;
+		display: block;
+	}
+}
+
+  
+  
+  @media only screen and (max-width: 650px)  {
+    .arrows_display{
+		display: none;
+	}
+    .gradientArea{ padding: 30px 20px;}
+    .hideinMobile{display: none;}
+    .showInmobile { display: block;}
+    .shadowtype2{ padding: 20px 0 !important;}
+    .howitworksSection{ padding: 61px 20px 25px 11px; background-position: center top;} 
+	.howitworks_header{
+		color: white;
+	}
+    .three_service{ height: 360px;}
+    .second_fold{ padding: 30px 40px;}
+	.heading_style3{
+		font-size: 45px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+		.howitworksSection {
+			text-align: center; 
+
+			h3 {
+				&.heading_style2 { 
+					text-align: center;
+				}
+			}
+
+		}
+			
+  }
+ 

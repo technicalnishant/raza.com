@@ -1,0 +1,121 @@
+<!-- Amount denomination -->
+<!-- <div class="bg-comman">
+<div class="main__wrapper">
+    <div class="bg-top">
+      <div class="d-flex align-items-center pt-4 justify-content-between">
+        <button class="bg-icon-blue border-0 text-white" (click)="goBack()">
+          <span class="material-icons"> keyboard_arrow_left </span>
+        </button>
+        <h4 class="title_bold mb-0">Recharge</h4>
+        <button class="bg-icon-blue border-0 text-white" (click)="closeApp()">
+          <span class="material-icons close-screen">close</span>
+        </button>
+      </div>
+      <div class="container scroll-fixed">
+        <div class="row comman-shadow mb-2 p-2 br-radius bg-white balance__amount">
+          <div class="waller-amount-wrapper">
+            <div class="wallet-icon">
+              <img src="../../assets/images/app-icons/wallet.svg" alt="">
+            </div>
+            <div class="wallet-amount">
+              <div class="wallet-msg">Current Balance</div>
+              <div class="wallet__amount">{{balance}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+    <div class="bg-comman">
+      <div class="main__wrapper">
+          <div class="bg-top">
+            <div class="d-flex align-items-center pt-4 justify-content-between">
+              <button class="bg-icon-blue border-0 text-dark" (click)="goBack()">
+                <span class="material-icons"> keyboard_arrow_left </span>
+              </button>
+              <!-- <h4 class="title_bold mb-0">Recharge</h4>
+              <button class="bg-icon-blue border-0 text-white" (click)="closeApp()">
+                <span class="material-icons close-screen">close</span>
+              </button> -->
+            </div>
+          </div>
+  
+
+  
+    
+      <div class="section-wrapper shadow-common overflow-hidden mt-1">
+        <div class="card-wrapper payment-card">
+            <div class="card-head border-0">
+              <div class="main-title">Amount</div>
+        
+            </div>
+            <div class="card-content comman-padding denomination__rates pt-0">
+              <div class="denomination-wrapper" *ngIf="rechargeAmounts">
+                <div class="denomination comman-border radius-10 p-10 bg-light">
+                 <!-- <div> <mat-checkbox class="example-margin" color="primary"></mat-checkbox></div> -->
+                 <div class="denom_amount">$ <span>5</span>
+                  <!-- <p class="deal">Available Soon</p> -->
+                </div>
+                </div>
+              </div>
+
+              <div class="denomination-wrapper" *ngFor="let item of rechargeAmounts" (click)="onClickAmountOption(item)">
+                <div class="denomination comman-border radius-10 p-10 {{getSelectedClass(item)}}">
+                 <div> <mat-checkbox class="example-margin" [checked]="getChecked(item)" color="primary" #privatUserCheckbox></mat-checkbox></div>
+                 <div *ngIf="item != '90'" class="denom_amount">{{item | bCurrency : plan?.CurrencyCode}}</div>
+                 <div *ngIf="item == '90'" class="denom_amount"> <span class="slice">$ 100</span> &nbsp; <span>{{item | bCurrency : plan?.CurrencyCode}}</span><p *ngIf="item == '90'" class="deal">10 % Bonus</p> </div>
+                 
+                </div>
+              </div>
+              <!--<div class="denomination-wrapper">
+                <div class="denomination comman-border radius-10 p-10 selected-dom ">
+                 <div> <mat-checkbox class="example-margin" color="primary"></mat-checkbox></div>
+                 <div class="denom_amount">$ <span>10</span></div>
+                </div>
+              </div>
+             
+              <div class="denomination-wrapper">
+                <div class="denomination comman-border radius-10 p-10">
+                 <div> <mat-checkbox class="example-margin" color="primary"></mat-checkbox></div>
+                 <div class="denom_amount">$ <span>20</span></div>
+                </div>
+              </div>
+              <div class="denomination-wrapper">
+                <div class="denomination comman-border radius-10 p-10">
+                 <div> <mat-checkbox class="example-margin" color="primary"></mat-checkbox></div>
+                 <div class="denom_amount">$ <span>50</span></div>
+                </div>
+              </div>
+              <div class="denomination-wrapper">
+                <div class="denomination comman-border radius-10 p-10">
+                 <div> <mat-checkbox class="example-margin" color="primary"></mat-checkbox></div>
+                 <div class="denom_amount"> <span class="slice">$ 100</span> &nbsp; <span> $ 90</span>
+                  
+                  <p class="deal">10 % Bonus</p></div>
+                </div>
+              </div>-->
+            </div>
+            <div class="auto-recharge-wrapper mt-3">
+              <div class="auto-rechage">
+                <p class="mb-0">Auto Recharge & get 10% Bonus minutes. <span (click)="tooltip.toggle()"  class="auto">?</span><span #tooltip="matTooltip" matTooltip="We will recharge your plan, only when the balance falls below $2. Cancel anytime"></span></p>
+              </div>
+              <mat-slide-toggle color="primary"></mat-slide-toggle>
+           </div>
+        </div>
+     </div>
+   
+  
+  
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-12 px-0">
+           <button class="btn btn-gradient btn-block" (click)="continue()" mat-button>CONTINUE</button> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <!-- Amount denomination end-->

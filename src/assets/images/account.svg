@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="37px" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Account</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Become-a-Partner" transform="translate(-1373.000000, -46.000000)">
+            <g id="Menu" transform="translate(1250.000000, 48.000000)">
+                <g id="Account" transform="translate(125.000000, 0.000000)">
+                    <g id="Log-in-/-sign-up" transform="translate(11.000000, 8.800000)" fill="#FFFFFF">
+                        <g id="Page-1">
+                            <path d="M5.5,6.6 C3.61444828,6.6 2.0862069,5.1227 2.0862069,3.3 C2.0862069,1.4773 3.61444828,0 5.5,0 C7.38555172,0 8.9137931,1.4773 8.9137931,3.3 C8.9137931,5.1227 7.38555172,6.6 5.5,6.6 Z" id="Fill-1"></path>
+                            <path d="M11,14.6666667 C11,14.6666667 8.72413793,15.4 5.68965517,15.4 C2.65517241,15.4 0,14.6666667 0,14.6666667 L0,11.1452 C0,8.83776667 1.93524138,6.96666667 4.32262069,6.96666667 L6.67244828,6.96666667 C9.06248276,6.96666667 11,8.8396 11,11.1499667 L11,14.6666667 Z" id="Fill-3"></path>
+                        </g>
+                    </g>
+                    <circle id="Oval-6" stroke="#FFFFFF" stroke-width="2.2" cx="16.5" cy="16.5" r="16.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

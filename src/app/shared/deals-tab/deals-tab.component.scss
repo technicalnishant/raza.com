@@ -1,0 +1,142 @@
+
+.deals-wrapper {
+      
+  .title {
+    text-align: left;
+    border-bottom: 1px solid #dedede;
+    p {
+      color: #000;
+      margin: 0;
+      padding: 10px 10px 10px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+
+  .deals-option {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+
+    .arrows{
+      position: absolute;
+    right: 30px;
+
+    img {
+    width: 22px!important;
+    height: 22px!important;
+}
+}
+    }
+  .containers {
+    background-repeat: no-repeat !important;
+    background-position: 100% 0 !important;
+    background-color: #fff !important;
+    transition: fade-in 0.5s;
+    background-size: contain!important;
+}
+
+  .deals-option-wrapper {
+    margin-left: 5%;
+    background: #fff;
+    width: 40%;
+    box-shadow: 0px 0px 19px 1px #d2d2d2;
+  }
+
+  .text-part {
+    margin-left: 28px;
+    line-height: 20px;
+    line-height: 25px;
+
+    p {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 500;
+      color: #000000;
+    }
+
+    span {
+      font-size: 15px;
+      font-weight: 400;
+      color: #909090;
+    }
+    small {
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+}
+  }
+
+  .img-part {
+    img {
+      height: 70px;
+      width: 70px;
+      object-fit: contain;
+
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+  .mat-list-base{
+    padding-top: 0;
+      }
+
+
+  .mat-list-item-content {
+    margin: 0;
+    padding: 0 20px !important;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .mat-list-item {
+    height: 135px !important;
+    border-bottom: 1px solid #dedede;
+    position: relative;
+
+    &:hover {
+      background: #0055d8;
+          transition: ease-in .5s;
+    }
+
+    &:hover {
+      a .text-part {
+
+        p,
+        span,small {
+          color: #fff;
+        }
+      }
+    }
+
+    &:hover .img-part img:nth-child(2) {
+      display: block;
+    }
+
+    &:hover .img-part img:nth-child(1) {
+      display: none;
+    }
+    &:last-child {
+    position: relative;
+    border-bottom: none;
+}
+&:last-child:after {
+    width: 100%;
+    content: '';
+    height: 30px;
+    position: absolute;
+    background: #fff;
+    border-radius: 0 0 30px 30px;
+}
+&:hover:last-child:after {
+    background: #0055d8;
+    transition:ease-in .5s;
+}
+
+  }
+
+}

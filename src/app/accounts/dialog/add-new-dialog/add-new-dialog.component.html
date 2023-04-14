@@ -1,0 +1,107 @@
+<div class="form_holder commonPopup addEnroll">
+  <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+  <h2>Calling Information</h2>
+
+  <mat-horizontal-stepper [linear]="true" #stepper>
+
+    <mat-step [stepControl]="oneTouchDialForm">
+      <form [formGroup]="oneTouchDialForm">
+        <ng-template matStepLabel>Calling From</ng-template>
+        <div class="row commonPopupRow">
+          <div class="col-sm-12">
+            <mat-form-field>
+              <mat-select placeholder="Country" formControlName="Country" (selectionChange)="loadStates()">
+                <mat-option *ngFor="let item of fromCountry" [value]="item.CountryId">{{item.CountryName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row commonPopupRow">
+          <div class="col-sm-12">
+            <mat-form-field>
+              <mat-select placeholder="State/Province" formControlName="State" (selectionChange)="loadPostalCode()">
+                <mat-option *ngFor="let item of states" [value]="item.Id">{{item.Name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row commonPopupRow">
+          <div class="col-sm-12">
+            <mat-form-field>
+              <mat-select placeholder="Area Code" formControlName="PostalCode" (selectionChange)="loadNumbers()">
+                <mat-option *ngFor="let item of postalcodes" [value]="item">{{item}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row commonPopupRow">
+          <div class="col-sm-12">
+            <mat-form-field>
+              <mat-select placeholder="Available Numbers" formControlName="AvailableNumbers">
+                <mat-option value="10">10</mat-option>
+                <mat-option value="20">20</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form_row1">
+          <div class="input_holder1">
+            <button mat-button matStepperNext class="submitButton">Continue</button>
+          </div>
+        </div>
+
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="oneTouchDialToForm">
+      <form [formGroup]="oneTouchDialToForm">
+        <ng-template matStepLabel>Calling To</ng-template>
+        <div class="row commonPopupRow">
+          <div class="col-sm-12">
+            <mat-form-field>
+              <mat-select placeholder="Country" formControlName="CountryTo">
+                <mat-option *ngFor="let item of toCountry" [value]="item.CountryId">{{item.CountryName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row commonPopupRow">
+          <div class="col-sm-12">
+            <mat-form-field>
+              <input matInput placeholder="City Code + Phone#" formControlName="PhoneWithCityCode">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row commonPopupRow">
+          <div class="col-sm-12">
+            <mat-form-field>
+              <input matInput placeholder="Code" formControlName="Code">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row commonPopupRow">
+          <div class="col-sm-12">
+            <mat-form-field>
+              <input matInput placeholder="Ref. Names" formControlName="RefNames">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form_row1">
+          <div class="input_holder1">
+            <button mat-button class="submitButton" (click)="oneTouchFormSubmit()">Add</button>
+          </div>
+        </div>
+
+      </form>
+    </mat-step>
+
+  </mat-horizontal-stepper>
+</div>

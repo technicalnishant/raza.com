@@ -1,0 +1,108 @@
+<ng-template #callForward>
+  <div class="tabContentMyaccount planDetails" id="callforward">
+    <p class="tabTitle">Call Forwarding</p>
+    <div class="myNumberButtonArea">
+   <!--   <button mat-button class="submitButton" (click)="setUpCallForward()">Setup</button>-->
+      <p>Please call customer service to set up the "Call forwarding" feature on your account.</p>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Call Fwd No.</th>
+          <th scope="col">Dest No.</th>
+          <th scope="col">Activation Date</th>
+          <th scope="col">Expiry Date</th>
+          <th scope="col">Name</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of callForwardingSetupList; index as i">
+          <td>{{item.FollowMeNumber}}</td>
+          <td>{{item.PhoneNumber}}</td>
+          <td>{{item.ActivationDate | date :'dd-MMM-yy '}} <br />
+            {{item.ActivationDate | date :' h:mm:ss a '}}
+          </td>
+          <td>{{item.ExpiryDate | date :'dd-MMM-yy'}}<br />
+            {{item.ExpiryDate | date :' h:mm:ss a '}}
+          </td>
+          <td>{{item.DisplayName}}</td>
+          <td>{{item.IsActive ? 'Active': 'In Active'}}</td>
+          <td class="moreIcon">
+            <div class="moreArea">
+              <button mat-icon-button [matMenuTriggerFor]="editDeleteMenu2">
+                <mat-icon>more_horiz</mat-icon>
+              </button>
+              <mat-menu #editDeleteMenu2="matMenu" class="editDeleteAreaMain">
+                <ul>
+                  <li><a (click)="deleteCallForwarding(item)">Delete</a></li>
+                </ul>
+              </mat-menu>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</ng-template>
+
+<ng-template #callForwardMobile>
+  <div class="tabContentMyaccount callForward planDetails">
+    <p class="tabTitle">Call Forwarding Setup</p>
+    <div class="input_holder1">
+      <button mat-button (click)="setUpCallForward()" class="submitButton">Setup Call Forwarding</button>
+    </div>
+    <div class="greyBg" *ngFor="let item of callForwardingSetupList; index as i">
+      <table class="table greyBg orderHistory">
+        <tbody>
+
+          <tr>
+            <td>S.No</td>
+            <td>{{i+1}}</td>
+          </tr>
+          <tr>
+            <td>Call Forwarding No.</td>
+            <td>{{item.FollowMeNumber}}</td>
+          </tr>
+          <tr>
+            <td>Destination No.</td>
+            <td>{{item.PhoneNumber}}</td>
+          </tr>
+          <tr>
+            <td>Activation Date</td>
+            <td>{{item.ActivationDate | date :'dd-MMM-yy h:mm:ss a '}}</td>
+          </tr>
+          <tr>
+            <td>Expire Date</td>
+            <td>{{item.ExpiryDate | date :'dd-MMM-yy h:mm:ss a '}}</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>{{item.DisplayName}}</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td>{{item.IsActive ? 'Active': 'In Active'}}</td>
+          </tr>
+          <tr>
+            <td>Action</td>
+            <td><a (click)="deleteCallForwarding(item)">Delete</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+  </div>
+</ng-template>
+
+<div class="onlyDesktopAccount">
+  <ng-container *ngTemplateOutlet="callForward"></ng-container>
+</div>
+<div class="onlySmallScreenAccount">
+  <ng-container *ngTemplateOutlet="callForwardMobile"></ng-container>
+</div>

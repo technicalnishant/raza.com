@@ -1,0 +1,79 @@
+@import "__variables";
+@import "__mixins";
+
+.three_service {
+	height: auto !important;
+}
+.aboutusCont {
+    position: relative;
+	h5 {
+		color: #1c2b58;
+		font-size: 34px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 700;
+	}
+	p {
+		color: #4b5358;
+		font-size: 20px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		line-height: 34px;
+	}
+}
+.aboutUsblueArea {
+	background: #e5efff;
+	min-height: 200px;
+	padding: 50px 0;
+	h3 {
+		color: #000000;
+		font-size: 24px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+	}
+	p {
+		color: #4b5358;
+		font-size: 16px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		line-height: 26px;
+	}
+}
+.icon_holder1 {
+	height: auto;
+}
+.three_service{
+	text-align: left !important;
+}
+.blue_border{
+border-top: 5px #0045ff solid;
+margin-right: 190px;
+margin-bottom: 10px;
+}
+.heading_style1 span{
+	font-weight: 600;
+	width:72%;
+	font-size: 18px;
+	margin-top: 10px;
+}
+.heading_style1{
+	left: 21%;
+	margin-left: 219px;
+	top:45%
+}
+  
+  
+  @include breakpoint(max-650)  { 
+    .three_service{ 
+		height: 360px;
+		text-align: center !important;
+
+	}
+    .second_fold {padding: 30px 14px;}
+    .container{ width: 95%;}
+	.heading_style1 {
+		left: 53%;
+		margin-left: 0px;
+		top: 60%;
+	}
+
+  }

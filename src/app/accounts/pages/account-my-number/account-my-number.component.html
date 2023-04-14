@@ -1,0 +1,25 @@
+<div class="tabContentMyaccount planDetails" id="mynumber">
+
+  <p class="tabTitle">My Numbers</p>
+  <div class="myNumberButtonArea">
+    <!--<button mat-button class="submitButton" (click)="addNumber()">ADD A NUMBER</button>-->
+    <p>Please call customer service to register any new phone number to your Pin-less setup.</p>
+  </div>
+  <table class="table table-striped centerTable pinlessTable">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pinlessNumbers; index as i">
+        <td>Phone #{{i+1}}</td>
+        <td>{{ item.PinlessNumber }}</td>
+        <td><a (click)="deletePinLess(item)">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

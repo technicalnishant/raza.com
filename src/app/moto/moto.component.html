@@ -1,0 +1,213 @@
+<div class="bg-comman">
+    <div class="main__wrapper">
+        <div class="bg-top">
+            <div class="d-flex align-items-center pt-4 justify-content-between align-items-center w-100">
+                <button class="bg-icon-blue border-0 text-white invisible">
+                    <span class="material-icons"> keyboard_arrow_left </span>
+                </button>
+                <h4 class="logo"><img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/raza_logo.png" alt="logo"></h4>
+
+
+                <button class="bg-icon-blue border-0 text-white invisible">
+                    <span class="material-icons close-screen">close</span>
+                </button>
+            </div>
+            <div class="container scroll-fixed">
+                <div class="row comman-shadow mb-2 p-2 br-radius bg-white balance__amount">
+                    <div class="waller-amount-wrapper">
+                        <div class="wallet-icon">
+                            <img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/app-icons/wallet.svg" alt="">
+                        </div>
+                        <div class="wallet-amount">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="wallet-msg">Purchase Amount</div>
+                                <div class="wallet__amount">{{ order_amount | bCurrency : currency_code }}</div>
+                            </div>
+
+                            
+                            <div class="d-flex justify-content-between align-items-center py-2 border-top">
+                                <div class="wallet-msg">Promo Code(5%)</div>
+                                <div class="wallet-msg d-flex align-items-center">Applied <mat-icon class="text-success">check_circle</mat-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-wrapper shadow-common overflow-hidden mt-1" *ngIf="!havingExistingCard">
+
+            <form [formGroup]="paymentDetailForm">
+                <div class="card-wrapper payment-card">
+                    <div class="card-head">
+                        <div class="main-title">
+                            <ng-template matStepLabel>Payment Detail</ng-template>
+                        </div>
+
+                        <div>
+                            <!--img src="https://d2uij5nbaiduhc.cloudfront.net/images/app-icons/photo-camera.svg" alt="" class="pr-18">-->
+                        </div>
+                    </div>
+                    <div class="card-content comman-padding">
+
+                        <div class="form-group position-relative">
+                            <label>Credit Card Number <span class="text-danger">*</span></label>
+                            <input class="form-control" type="tel" autocomplete="cc-number" formControlName="CardNumber"
+                                maxlength="19" ccNumber>
+ 
+
+                        </div>
+                        <div class="d-flex  align-items-end">
+
+                            <div class="form-group w-100">
+                                <label>Expiry Date <span class="text-danger">*</span></label>
+                                <select formControlName="ExpMonth" required class="form-control">
+                                    <option value="">Month</option>
+                                    <option *ngFor="let item of months" [value]="item.Code">{{item.Value}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group w-100 mx-10">
+                                <select formControlName="ExpYear" class="form-control" required>
+                                    <option value="">Year </option>
+                                    <option *ngFor="let item of years" [value]="item.Code">{{item.Value}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group w-100">
+                                <label class="align-items-end d-flex justify-content-between align-items-center">
+                                    <div>CVV <span class="text-danger">*</span> </div>
+                                    <div><a href="javascript:void(0);" (click)="whatiscvv()" class="what-cvv">What is
+                                            CVV</a></div>
+                                </label>
+                                <input placeholder="3-4 digits" maxlength="4" autocomplete="off" type="tel"
+                                    type="password" formControlName="Cvv2" ccCvc class="form-control cvv-sm">
+                            </div>
+                        </div>
+                        <button class="btn btn-gradient btn-block mt-3" (click)="onPaymentInfoFormSubmit()" mat-button
+                            type="submit">CONTINUE</button>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="section-wrapper shadow-common overflow-hidden mt-1 bg-white p-3" *ngIf="havingExistingCard">
+            <div class="savedCard" *ngFor="let item of customerSavedCards; let ind = index"
+                  [ngClass]="{'cardOpacity': selectedCard?.CardId != item.CardId }">
+                   
+                    <div class="d-flex align-items-center">
+                        <div class="cardImg">
+                            <img loading="lazy" [src]="getCardIcon(item)" alt="" />
+                          </div>
+                          <div class="cardDetails">
+                            <p class="cardNumber">Card Ending in … {{ item.CardNumber | creditCard }}</p>
+                            <p class="cardExpires">Expires {{item.ExpiryMonth}}/{{item.ExpiryYear}}
+                            </p>
+                          </div>
+                    </div>
+                    <div class="mt-3 w-50">
+                        <div class="form-group w-100">
+                            <label class="align-items-end d-flex justify-content-between align-items-center">
+                                <div class="small">Security code <span class="text-danger">*</span> </div>
+                                <div><a href="javascript:void(0);" (click)="whatiscvv()" class="what-cvv">What is
+                                        CVV</a></div>
+                            </label>
+                            <input class="form-control" type="password" maxlength="4" name="{{item.CardId}}"
+                            [(ngModel)]="item.Cvv">
+                            <mat-error *ngIf="isDisplayCvvRequired(item)">
+                                CVV is .
+                              </mat-error>
+                        </div>
+                    </div>
+                    
+                </div>
+                <button mat-button (click)="onClickCreditCardPayment()" class="btn btn-gradient btn-block mt-3">Confirm</button>
+              </div>
+
+        <div class="note pb-3">
+            <div>
+                <img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/app-icons/ssl.svg" alt="">
+            </div>
+            <div>Its Safe, Secure and easy ! Your information is encrypted Using proprietary and secure socket layer (
+                SSL )
+                Technology</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form_holder commonPopup addNumber d-none">
+
+    <form [formGroup]="paymentDetailForm">
+        <ng-template matStepLabel>Payment Detail</ng-template>
+        <div class="row commonPopupRow">
+            <div class="col-sm-8">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Card Number" type="tel" autocomplete="cc-number"
+                        formControlName="CardNumber" maxlength="19" ccNumber>
+
+                </mat-form-field>
+            </div>
+            <div class="col-sm-4">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="CVV" maxlength="4" autocomplete="off" type="tel" type="password"
+                        formControlName="Cvv2" ccCvc>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row commonPopupRow">
+            <div class="col-sm-6">
+                <mat-form-field>
+                    <mat-select placeholder="Expiry Month" formControlName="ExpMonth">
+                        <mat-option *ngFor="let item of months" [value]="item.Code">{{item.Value}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+                <mat-form-field>
+                    <mat-select placeholder="Expiry Year" formControlName="ExpYear">
+                        <mat-option *ngFor="let item of years" [value]="item.Code">{{item.Value}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="myNumberButtonArea">
+            <button class="submitButton" mat-button (click)="onPaymentInfoFormSubmit()">Confirm</button>
+        </div>
+    </form>
+
+
+
+</div>
+
+
+<div *ngIf="havingExistingCard d-none">
+<div class="savedCard d-none" *ngFor="let item of customerSavedCards; let ind = index"
+      [ngClass]="{'cardOpacity': selectedCard?.CardId != item.CardId }">
+      <mat-radio-button [value]="item">
+        <div class="cardImg">
+          <img loading="lazy" [src]="getCardIcon(item)" alt="" />
+        </div>
+        <div class="cardDetails">
+          <p class="cardNumber">Card Ending in … {{ item.CardNumber | creditCard }}</p>
+          <p class="cardExpires">Expires {{item.ExpiryMonth}}/{{item.ExpiryYear}}
+           
+          </p>
+        </div>
+      </mat-radio-button>
+           
+ 
+        <div class="col-sm-6">
+          <mat-form-field class="example-full-width">
+            <input matInput type="password" maxlength="4" placeholder="Security code" name="{{item.CardId}}"
+              [(ngModel)]="item.Cvv">
+            <span class="lock"><img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/lock_icon.png" alt="" /></span>
+          </mat-form-field>
+          <mat-error *ngIf="isDisplayCvvRequired(item)">
+            CVV is .
+          </mat-error>
+        </div>
+        <button mat-button (click)="onClickCreditCardPayment()" class="submitButton_confirms">Confirm</button>
+    </div>
+  </div>

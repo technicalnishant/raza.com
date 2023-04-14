@@ -1,0 +1,221 @@
+<div class="first_fold">
+  <h1 class="heading_style1">
+    Feedback<br />
+    <span>We welcome your comments and questions</span>
+  </h1>
+  <div class="home_banner feedback_banner">
+    <!-- <img src="assets/images/banner_image.png" alt="banner"> -->
+  </div>
+</div>
+
+<div class="second_fold feedbackTextarea">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="heading_style2 marginBottom">Feedback</h2>
+        <p class="feedback_subdesc">
+          We welcome your comments, questions or complaints
+        </p>
+      </div>
+      <div class="col-md-12">
+        <p class="desc">
+          Please use the form below to submit your feedback. We will use this
+          feedback to <br> continuously improve your experience with Raza.com.
+        </p>
+
+        <p class="desc">
+          For immediate assistance with your account, password retrieval,
+          transaction <br> difficulties or other queries, please call our 24/7
+          customer support.
+        </p>
+      </div>
+
+      <div class="col-md-4 marginB2">
+        <a href="tel:1-877-463-4233">
+          <div class="countryNumber">
+            <img src="../../../assets/images/new_design_images/us_flag.png" alt="icon" />
+            <div class="countryName">USA</div>
+            <div class="number">1-877-463-4233</div>
+          </div></a
+        >
+      </div>
+
+      <div class="col-md-4 marginB2">
+        <a href="tel:1-877-463-4233">
+          <div class="countryNumber border-left border-right">
+            <img src="../../../assets/images/new_design_images/canada_flag.png" alt="icon" />
+            <div class="countryName">Canada</div>
+            <div class="number">1-800-550-3501</div>
+          </div></a>
+      </div>
+
+      <div class="col-md-4 marginB2">
+        <a href="tel:1-877-463-4233">
+          <div class="countryNumber">
+            <img src="../../../assets/images/new_design_images/uk_flags.png" alt="icon" />
+            <div class="countryName">UK</div>
+            <div class="number">44-800-041-8192</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="signupformArea">
+  <div class="container">
+    <form
+      class="example-form"
+      [formGroup]="feedbackForm"
+      #formDirective="ngForm"
+      (ngSubmit)="onFeedbackFormSubmit(feedbackForm, formDirective)"
+    >
+      <h2 class="heading_style2">Submit Feedback</h2>
+      <div class="row">
+       <div class="col-md-7">
+        <div class="row">
+            <div class="col-sm-6">
+                <div>
+                  <mat-form-field class="example-full-width">
+                    <input
+                      formControlName="firstName"
+                      placeholder="First Name"
+                      matInput
+                      value=""
+                    />
+                    <mat-error
+                      *ngIf="feedbackForm.get('firstName').hasError('required')"
+                    >
+                      First Name is required.
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field class="example-full-width">
+                  <input
+                    formControlName="lastName"
+                    placeholder="Last Name"
+                    matInput
+                    value=""
+                  />
+                  <mat-error
+                    *ngIf="feedbackForm.get('lastName').hasError('required')"
+                  >
+                    Last Name is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <div>
+                  <mat-form-field class="example-full-width">
+                    <input
+                      formControlName="email"
+                      placeholder="Email"
+                      matInput
+                      value=""
+                    />
+                    <mat-error *ngIf="feedbackForm.get('email').hasError('email')">
+                      Incorrect email format.
+                    </mat-error>
+                    <mat-error *ngIf="feedbackForm.get('email').hasError('required')">
+                      Email is required.
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field class="example-full-width">
+                  <input
+                    formControlName="phoneNumber"
+                    placeholder="Phone"
+                    matInput
+                    value=""
+                  />
+                  <mat-error
+                    *ngIf="feedbackForm.get('phoneNumber').hasError('maxlength')"
+                  >
+                    Your phone cannot exceed 10 characters.
+                  </mat-error>
+                  <mat-error
+                    *ngIf="feedbackForm.get('phoneNumber').hasError('pattern')"
+                  >
+                    Only number values allowed.
+                  </mat-error>
+                  <mat-error
+                    *ngIf="feedbackForm.get('phoneNumber').hasError('required')"
+                  >
+                    Phone number is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12">
+                <div>
+                  <mat-form-field>
+                    <mat-select
+                      formControlName="typeOfFeedback"
+                      placeholder="Type of Feedback"
+                    >
+                      <mat-option value="About our new website"
+                        >About our New Website</mat-option
+                      >
+                      <mat-option value="Feedback &amp; Suggestions"
+                        >Feedback &amp; Suggestions</mat-option
+                      >
+                      <mat-option value="I am unable to Login"
+                        >I am unable to Login</mat-option
+                      >
+                      <mat-option value="I am unable to Recharge"
+                        >I am unable to Recharge</mat-option
+                      >
+                      <mat-option value="Remove Numbers from PinLess SetUp"
+                        >Remove Numbers from PinLess SetUp</mat-option
+                      >
+                      <mat-option value="The above access number is not working"
+                        >The Access Number(s)are not working</mat-option
+                      >
+                      <mat-option value="I want to Cancel My Auto Refill"
+                        >I want to Cancel My Auto Refill</mat-option
+                      >
+                      <mat-option value="My card is not recharged yet"
+                        >My Plan is not recharged yet</mat-option
+                      >
+                      <mat-option
+                        value="I was Charged by PAYPAL but order could not be processed"
+                        >I was Charged by PAYPAL but order could not be
+                        processed</mat-option
+                      >
+                      <mat-option value="Other Description">Other Issue</mat-option>
+                    </mat-select>
+                    <mat-error
+                      *ngIf="feedbackForm.get('typeOfFeedback').hasError('required')"
+                    >
+                      Feedback type is required.
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-sm-12 textarea">
+                <mat-form-field>
+                  <textarea
+                    formControlName="yourFeedback"
+                    matInput
+                    placeholder="Your Feedback"
+                  ></textarea>
+                  <mat-error
+                    *ngIf="feedbackForm.get('yourFeedback').hasError('required')"
+                  >
+                    Your feedback is required.
+                  </mat-error>
+                </mat-form-field>
+                <button mat-button class="submitButton"><b>Submit</b></button>
+              </div>
+        </div>
+       </div>
+       <div class="col-md-5">
+        <img src="../../../assets/images/new_design_images/feedback_form_banner.png" alt="signup" class="form-banner-img">
+       </div>
+      </div>
+    </form>
+  </div>
+</div>

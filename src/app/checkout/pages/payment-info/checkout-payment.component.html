@@ -1,0 +1,128 @@
+<div class="recharge_block recharge2 overflowHidden pb-0 position-relative">
+  <!--rechargeStep -->
+  <div class="rechargeStepMain" *ngIf="currentCart.couponCode !='FREETRIAL'  && !isSmallScreen">
+    <div class="rechargeStep">
+      <div class="step1">
+        <p class="step">Step 1</p>
+        <p class="stepName">Login</p>
+      </div>
+      <div class="step2 active">
+        <p class="step">Step 2</p>
+        <p class="stepName">Payment</p>
+      </div>
+      <div class="step3">
+        <p class="step">Step 3</p>
+        <p class="stepName">Confirmation</p>
+      </div>
+    </div>
+  </div>
+    
+     <!-- <div class="col-md-12 mt-5 mb-4" *ngIf="promoCode =='EASTER2023'">
+    <img src="./assets/images/promotion/{{promoCode}}.jpg" class="img-fluid" alt="Diwali Banner" />
+  </div>   -->
+  <div class="rechargeStepMain pt-2" *ngIf="currentCart.couponCode =='FREETRIAL'">
+    <div class="rechargeStep">
+      <div class="f-ttile">Call Any Mobile And Landline Number</div>
+      <div class="f-description">Get Unlimited access to all premium features. <span>No credit card required.</span></div>
+       
+    </div>
+  </div>
+
+  <!-- rechargeStep -->
+  <!-- <p class="updateCard">Update Card Details</p> -->
+  <div class="container containerMobile mt-40 payment-bottom" *ngIf="currentCart">
+<div class="body-tab mt-5">
+      <div class="row">
+      <div class="col-xl-8">
+        <router-outlet></router-outlet>
+        
+      </div>
+      <!-- <div class="col-xl-1"></div> -->
+      <div class="col-xl-4">
+        <div class="col-md-12">
+          <h2 class="heading_style4">
+            <span>Your order</span>
+          </h2>
+        </div>
+        <table class="table" *ngIf="currentCart.transactiontype != 4">
+          <tbody>
+            <tr>
+              <td>Plan Name</td>
+              <td>{{currentCart?.getOrderName()}}</td>
+            </tr>
+            <tr>
+              <td>Purchase Amount</td>
+              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode }} </td>
+            </tr>
+            <tr>
+              <td>Service Fee</td>
+              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode }}</td>
+            </tr>
+
+            <tr *ngIf="currentCart?.offerPercentage">
+              <td><b>Bonus</b></td>
+              <td><b>{{currentCart?.offerPercentage}}%</b></td>
+            </tr>
+
+            <tr class="total">
+              <td>Total ({{currentCart?.currencyCode}})</td>
+              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode}}</td>
+            </tr>
+           <!--<tr class="total" *ngIf="currentCart?.couponCode">
+              <td>Promo Code </td>
+              <td>{{getCustomPromocode()}}</td>
+            </tr>-->
+          </tbody>
+        </table>
+
+        <table class="table" *ngIf="currentCart.transactiontype === 4">
+          <tbody>
+            <tr>
+              <td>Mobile Recharge</td>
+              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode }} </td>
+            </tr>
+            <tr>
+              <td>Service Fee</td>
+              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode }} </td>
+            </tr>
+            <tr>
+              <td>Amount Sent</td>
+              <td> {{ currentCart?.topupOption.DestinationCurrency }}
+                {{ currentCart?.topupOption.DestinationAmount }}</td>
+            </tr>
+            <tr>
+              <td>Mobile Number</td>
+              <td>{{currentCart?.phoneNumber }}</td>
+            </tr>
+            <tr>
+              <td>Operator</td>
+              <td>{{currentCart?.topupOption.Operator}}</td>
+            </tr>
+            <tr class="total">
+              <td>Total ({{currentCart?.currencyCode}})</td>
+              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <a *ngIf="!currentCart?.isHideCouponEdit" (click)="openPromoDialog()" class="redeemPromo">Redeem promo code</a>
+      </div>
+    </div>
+</div>
+
+
+
+</div>
+<!-- <section class="py-4 py-lg-4   submit-wrapper">
+  <div class="container">
+    <div class="col-md-12">
+      <div class="text-center button-wrapper">
+        <a href="#" type="button" class="btn btn-warning mr-0 mr-lg-4 mb-2">CONFIRM</a>
+        <a href="/features" class="small mt-2">100% Money Back Guarantee</a>
+        <a href="/support">Privacy Policy</a>
+        <a href="/termsandcondition">Terms of service</a> 
+      </div>
+    </div>
+  </div>
+</section> -->
+</div>

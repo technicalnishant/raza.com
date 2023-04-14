@@ -1,0 +1,38 @@
+<div class="tabContentMyaccount planDetails" id="onetouch">
+  <p class="tabTitle">One Touch Setup</p>
+  <div class="myNumberButtonArea">
+    <button mat-button class="submitButton" (click)="addNewTouch()">ADD NEW</button>
+  </div>
+  <table class="table table-striped centerTable2">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Access Number</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of onetouchNumbers; index as i">
+        <td>{{item.HotDialName}}</td>
+        <!--<td>{{item.Destination}}</td>-->
+        <td>{{item.HotDialNumber}}</td>
+        
+        <td class="moreIcon">
+          <div class="moreArea">
+            <button mat-icon-button [matMenuTriggerFor]="editDeleteMenu2">
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+            <mat-menu #editDeleteMenu2="matMenu" class="editDeleteAreaMain">
+              <ul>
+                <li><a (click)="editOneTouchSetup(item)">Edit</a></li>
+                <li><a (click)="deleteOneTouch(item)">Delete</a></li>
+                <!-- <li><a>Print</a></li>
+                <li><a>Email</a></li> -->
+              </ul>
+            </mat-menu>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

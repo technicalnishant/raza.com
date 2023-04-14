@@ -1,0 +1,151 @@
+@import '__variables';
+@import '__mixins';
+.example-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.hideinMobile {
+	display: block;
+}
+.showInmobile {
+	display: none;
+}
+.mat-toolbar {
+	background: none;
+}
+.nobg {
+	background: none;
+	cursor: pointer;
+	border: none;
+}
+.feedbackTextarea {
+	width: 70%;
+	margin: 0 auto;
+	p {
+		color: #919EAF;
+		font-size: 14px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		line-height: 22px;
+		margin-bottom: 40px;
+	}
+}
+.three_service {
+	height: auto !important;
+}
+.countryNumber {
+	padding: 15px 25px;
+	margin-bottom: 20px;
+	text-align: center;
+	img {
+		margin-bottom: 10px;
+	}
+}
+
+
+// prakash code
+.feedbackTextarea{
+	h2.heading_style2 {
+		margin-bottom: 10px;
+		font-size: 50px;
+		color: #162f75;
+		font-weight: 800;
+		
+	}
+	.feedback_subdesc{
+		font-size: 16px;
+		color: #162f75;
+		font-weight: 600;
+		font-family: "Montserrat";
+		text-align: center;
+	}
+	.desc{
+		font-size: 16px;
+		line-height: 20px;
+		color: #000000;
+		font-weight: 400;
+		font-family: "Montserrat";
+		text-align: center;
+	}
+	.number{
+		font-size: 24px;
+		letter-spacing: 0px;
+		line-height: 28px;
+		color: #042d43;
+		font-weight: 500;
+		font-family: "Montserrat";
+		margin-top: 5px;
+	}
+	.countryName{
+		font-size: 20px;
+		line-height: 28px;
+		color: #162f75;
+		font-weight: 700;
+		font-family: "Montserrat";
+		margin-bottom: 5px;
+	}
+}
+
+.signupformArea	{
+	.submitButton {
+		background: $button-background;
+		border-radius: 24px !important;
+		-moz-border-radius: 24px !important;
+		-webkit-border-radius: 24px !important;
+		border: none;
+		padding: 8px 20px !important;
+		width: 190px;
+		margin-right: auto !important;
+		margin-left: 0!important;
+		display: block !important;
+		color: #08273a;
+		text-transform: uppercase;
+		font-size: 16px;
+		font-family: $font-family;
+		font-weight: bold;
+	}
+	.form-banner-img {
+		position: absolute;
+		bottom: -92px;
+		@include breakpoint(md){
+			position: relative;
+		}
+	}
+}
+::ng-deep{
+	.signupformArea {
+		.mat-form-field{
+			display: block;
+		}
+		.mat-select{
+			width: 100%!important;
+		}
+		.textarea mat-form-field {
+			width: 100% !important;
+			margin-left: 0;
+		}
+		.mat-form-field-appearance-legacy .mat-form-field-label {
+			color: $input-color;
+		}
+		.mat-form-field-appearance-legacy .mat-form-field-underline {
+			background-color: $input-border-color;
+		}
+	}
+}
+
+  
+  
+  @media only screen and (max-width: 650px)  {
+    
+    .hideinMobile{display: none;}
+    .showInmobile { display: block;}
+    .feedbackTextarea{ width: 100%; padding: 0 10px; margin:0 auto;}
+    .three_service{ height: 360px;}
+    .signupformArea{padding:40px 0;}
+    h2.heading_style2{margin-bottom: 10px;}
+    .marginBottom,.marginB2{ margin-bottom: 25px !important;} 
+    .feedbackTextarea{ padding: 20px 10px 0;}
+  }

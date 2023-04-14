@@ -1,0 +1,15 @@
+<div class="form_holder commonPopup promoCode failedPromo">
+
+  <!--<img src="assets/images/grey_cross.svg" alt="">-->
+  <span class="closeIcon promoFailed" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+  <!-- <h2>{{errorModel.header}}</h2> -->
+  
+  <mat-dialog-content>
+    <div class="row commonPopupRow justify-content-center">
+      <div class="col-sm-12">
+        <!-- <p>{{errorModel.message}}</p> -->
+        <h2>{{errorMessage}}</h2>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div>

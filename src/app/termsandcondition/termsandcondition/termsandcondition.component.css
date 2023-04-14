@@ -1,0 +1,41 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .hideinMobile{display: block;}
+  .showInmobile { display: none;}
+  
+  .mat-toolbar{ background: none;}
+  .nobg{ background: none; cursor: pointer; border:none;}
+  
+  .three_service{ height: auto !important;}
+  .first_fold{ margin-bottom: 35px;}
+  .aboutusCont h5{ color:#1c2b58; font-size: 30px; font-family: 'Montserrat', sans-serif; font-weight: 700;     line-height: 26px; padding: 0 52px 0 0; margin: 20px 0px 20px 0px; }
+  .aboutusCont h4{ color:#0B203E; font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 500;     line-height: 26px; margin-bottom: 32px;}
+  .aboutusCont p{ color:#4b5358; font-size: 18px; display: contents; font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 27px; text-align: center ;}
+  .aboutusCont ul{padding-left: 17px;}
+  .aboutusCont ul li{  color:#808080; font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 400; line-height: 27px;}
+  
+  .aboutUsblueArea{ background: #0367DE; min-height: 200px; padding: 50px 0;}
+  .aboutUsblueArea h3{ color: #fff; font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 400; }
+  .aboutUsblueArea p{ color: #fff; font-size: 13px; font-family: 'Montserrat', sans-serif; font-weight: 400; line-height: 26px;}
+  .icon_holder1{ height: auto;}
+  .second_fold{padding: 10px 0px 35px 0;}
+  .mobileOnly{ display: none; margin: 0 20px 30px 20px !important;}
+  .deskTopOnly{ display: block;}
+  
+  
+  @media only screen and (max-width: 650px)  { 
+    
+    .hideinMobile{display: none;}
+    .showInmobile { display: block;}
+    
+    .three_service{ height: 360px;}
+    .second_fold {padding: 30px 14px;}
+    .deskTopOnly{ display: none;}
+    .mobileOnly{ display: block; margin:0 20px;}
+  }

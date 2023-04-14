@@ -1,0 +1,183 @@
+
+
+.getuptopopup {
+  width: 100%;
+  max-width: 100%;
+
+  .selectRechargeAmnt {
+    ul {
+      display: grid;
+      grid-template-columns: 15% 1fr 1fr 1fr;
+      grid-gap: 40px;
+
+      li {
+        .commonpriceArea {
+          width: unset;
+          height: unset;
+          border: 1px solid #E2E7ED;
+          padding: 30px 0 0;
+          vertical-align: middle;
+          position: relative;
+          display: block;
+
+          &:hover {
+            border: 1px solid #0160E0;
+          }
+        }
+
+        &:first-child {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+
+  .callRate {
+    span {
+      &:last-child {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .selectRechargeamountMain {
+    h1 {
+      padding-top: 20px;
+      font-weight: 600;
+      padding-bottom: 30px;
+    }
+  }
+
+}
+
+.country-name {
+  text-transform: uppercase;
+  color: #0B203E;
+  font-size: 26px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+.free-mins {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+.full-tab {
+	margin: 50px 0;
+  .mat-tab-label-active {
+    background: #2a5693 !important;
+    color: #fff;
+    opacity: 1;
+  }
+
+  .mat-tab-label {
+    width: 33.33%;
+        border: 1px solid #bec5ce;
+    border-bottom: 0;
+  }
+
+  table {
+    tr {
+      th {
+        color: #212529;
+
+        &:last-child {
+          text-align: right;
+        }
+      }
+
+      td {
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+.buttonArea{
+    margin: 50px 0 0;
+    button {
+    border-radius: 30px;
+    width: unset;
+    padding: 5px 50px!important;
+    font-weight: 600;
+}
+}
+}
+.mat-dialog-container{
+	height: unset;
+}
+
+ @media only screen and (max-width:480px) {
+  .getuptopopup .selectRechargeAmnt ul {
+    display: block !important;
+  }
+
+  .getuptopopup .selectRechargeAmnt ul li {
+    display: block;
+  }
+
+  .getuptopopup .selectRechargeAmnt ul li {
+    margin: 20px auto;
+  }
+  .getuptopopup .selectRechargeamount {
+    padding: 0px 0 0px 0;
+}
+.getuptopopup .selectRechargeamountMain h1 {
+    display: none;
+}
+.getuptopopup .textARea span:first-child {
+    display: unset;
+    margin: 15px auto;
+    float: none !important;
+}
+}
+
+@media only screen and (min-width:481px) and (max-width:768px) {
+  .getuptopopup .selectRechargeAmnt ul {
+    display: block !important;
+    max-width: 50%;
+  }
+
+  .getuptopopup .selectRechargeAmnt ul li {
+    display: block;
+  }
+
+  .getuptopopup .selectRechargeAmnt ul li {
+    margin: 20px auto;
+  }
+  .getuptopopup .selectRechargeamount {
+    padding: 0px 0 0px 0;
+}
+.getuptopopup .selectRechargeamountMain h1 {
+    margin: 0;
+    padding-bottom: 0;
+    font-size: 24px;
+}
+.textARea span:first-child {
+    display: unset;
+    margin: 15px auto;
+    float: none !important;
+}
+}
+
+@media only screen and (min-width:769px) and (max-width:1024px) {
+  .getuptopopup .selectRechargeAmnt ul {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+@media only screen and (max-width:650px){
+  .hideinMobile{
+    display: none!important;
+  }
+}
+@media only screen and (min-width:651px){
+  .hideindesktop{
+    display: none!important;
+  }
+}

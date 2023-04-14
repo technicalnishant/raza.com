@@ -1,0 +1,69 @@
+<ng-template #paymentDetails>
+  <div class="tabContentMyaccount paymentDetails">
+    <p class="tabTitle">Payment Details</p>
+    <div *ngFor="let card of creditCards; index as i" class="paymentDetailsSavedcard">
+      <div class="cardImg" *ngIf="card.CardType=='Visa'"><img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/visa_card.png" alt="" /></div>
+      <div class="cardImg" *ngIf="card.CardType=='MasterCard'"><img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/master-card.png" alt="" /></div>
+      <div class="cardImg" *ngIf="card.CardType=='Discover'"><img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/discover-card.png" alt="" /></div>
+      <div class="cardImg" *ngIf="card.CardType=='Amex'"><img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/american-card.png" alt="" />
+      </div>
+      <div class="cardDetails">
+        <p class="cardNumber">Card Ending in … {{card.CardNumber | creditCard}}
+          <span *ngIf="i==0">Primary Card</span> </p>
+        <p class="cardExpires">Expires {{card.ExpiryMonth}}/{{card.ExpiryYear}}</p>
+      </div>
+      <button mat-icon-button [matMenuTriggerFor]="moreMenu">
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+      <mat-menu #moreMenu="matMenu" class="editDeleteAreaMain">
+        <ul>
+          <li><a (click)="editCardDetails(card)">Edit</a></li>
+          <li><a (click)="deleteCardDetails(card)">Delete</a></li>
+        </ul>
+      </mat-menu>
+    </div>
+    <div class="input_holder1">
+      <button mat-button class="submitButton" (click)="addCardPopup()">ADD CARD</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #paymentDetailsMobile>
+  <div class="tabContentMyaccount paymentDetails">
+    <p class="tabTitle">Payment Details</p>
+    <div *ngFor="let card of creditCards; index as i" class="paymentDetailsSavedcard">
+      <div class="cardImg" *ngIf="card.CardType=='Visa'"><img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/visa_card.png" alt="" /></div>
+      <div class="cardImg" *ngIf="card.CardType=='MasterCard'"><img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/master-card.png" alt="" /></div>
+      <div class="cardImg" *ngIf="card.CardType=='Discover'"><img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/discover-card.png" alt="" /></div>
+      <div class="cardImg" *ngIf="card.CardType=='Amex'"><img loading="lazy" src="https://d2uij5nbaiduhc.cloudfront.net/images/american-card.png" alt="" />
+      </div>
+
+      <div class="cardDetails">
+        <p class="cardNumber">Card Ending in … {{card.CardNumber | creditCard}} </p>
+        <p class="cardExpires">Expires {{card.ExpiryMonth}}/{{card.ExpiryYear}}</p>
+        <p class="cardNumber" *ngIf="i==0"><span>Primary Card</span></p>
+      </div>
+      <button mat-icon-button [matMenuTriggerFor]="moreMenu">
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+      <mat-menu #moreMenu="matMenu" class="editDeleteAreaMain">
+        <ul>
+          <li><a (click)="editCardDetails(card)">Edit</a></li>
+          <li><a (click)="deleteCardDetails(card)">Delete</a></li>
+        </ul>
+      </mat-menu>
+    </div>
+    <div class="input_holder1">
+      <button mat-button class="submitButton" (click)="addCardPopup()">ADD CARD</button>
+    </div>
+
+  </div>
+</ng-template>
+
+<div class="onlyDesktopAccount">
+  <ng-container *ngTemplateOutlet="paymentDetails"></ng-container>
+</div>
+<div class="onlySmallScreenAccount">
+  <ng-container *ngTemplateOutlet="paymentDetailsMobile"></ng-container>
+</div>
+<app-account-autorefill></app-account-autorefill>

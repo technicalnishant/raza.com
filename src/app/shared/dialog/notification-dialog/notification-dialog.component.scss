@@ -1,0 +1,481 @@
+.alert-notification {
+    height: 100%;
+    width: 100%;
+    padding: 14px 24px;
+    text-align: center;
+}
+.notification-popup{
+    z-index:99999;
+}
+
+.alert-warning {
+    color:#8a6d3b;
+    background-color:#fcf8e3;
+    border-color:#faebcc;
+}
+
+.alert-success {
+    color:#3c763d;
+    background-color:#dff0d8;
+    border-color:#d6e9c6;
+}
+
+.close-icon {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+}
+.alert-danger{color:#a94442;background-color:#f2dede;border-color:#ebccd1}
+.alert-notification p {
+    padding: 0 40px 0px 0;
+}
+
+
+@media only screen and (max-width: 768px){
+    .alert-notification p {
+        display: flex;
+        margin-bottom: 0;
+    }
+}
+@import "../../../../_variables";
+@import "../../../../_mixins";
+
+
+.topup-wrapper{
+    position: relative;
+    overflow: visible;
+    .close-btn {
+        position: absolute;
+    right: -21px;
+    height: 40px;
+    width: 40px;
+    background: #e4e4e4;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 99;
+    top: -20px;
+        @include breakpoint(sm) {
+            right: -26px;
+            height: 30px;
+            width: 30px;
+            background: #fff;
+            top: -26px;
+            border: 2px solid #000;
+            color: #000;
+        }
+    }
+    .left-panel{
+        background-color: #afdbf5;
+        text-align: center;
+        padding: 40px 12px;
+        border: 1px solid #8fc0dd;
+        border-radius: 20px 0 0 20px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        @include breakpoint(sm) {
+            padding: 20px 16px;
+            border-radius: 14px 0 0 0;
+            flex-direction: row;
+        }
+        img{
+            margin: 20px 0;
+            @include breakpoint(sm) {
+                width: 31%;
+                margin: 0;
+            }
+        }
+        .title{
+            font-size: 28px;
+            letter-spacing: -1px;
+            line-height: 30px;
+            color: #1d2733;
+            font-weight: 700;
+            font-family: "Montserrat";
+            text-align: center;
+            @include breakpoint(sm) {
+                font-size: 19px;
+                line-height: 20px;
+                color: #1d2733;
+                font-weight: 700;
+                font-family: "Montserrat";
+                width: 60%;
+                text-align: left;
+            }
+        }
+        .description{
+            font-size: 13px;
+            letter-spacing: 0px;
+            line-height: 19px;
+            color: #000000;
+            font-weight: 600;
+            font-family: "Montserrat";
+            text-align: center;
+            width: 80%;
+        }
+    }
+    .right-panel{
+        .hello-text{
+            font-size: 28px;
+            line-height: 48px;
+            color: #ff001c;
+            font-weight: 700;
+            font-family: "Montserrat";
+            text-align: center;
+            margin-top: 20px;
+            @include breakpoint(sm) {
+                margin-top: 16px;
+                border-bottom: 2px solid #dfdfdf;
+            }
+            
+        }
+        .warning-message {
+            font-size: 20px;
+            letter-spacing: 0px;
+            line-height: 28px;
+            color: #020540;
+            font-weight: 400;
+            font-family: "Montserrat";
+            text-align: center;
+            padding: 70px 0;
+            @include breakpoint(sm) {
+                padding: 30px 0;
+            }
+        }
+        .cus-name{
+            font-size: 22px;
+            color: #1d2733;
+            font-weight: 300;
+            font-family: "Montserrat";
+            text-align: center;
+        }
+        .denomination-box{
+            margin-top: 40px;
+            border-radius: 16px;
+            background-color: rgba(29,39,51,0);
+            border: 1px solid #dfdfdf;
+            padding: 20px;
+            position: relative;
+            @include breakpoint(sm) {
+                margin-top: 24px;
+                padding: 20px 16px;
+            }
+            .plan-title{
+                background-color: #1e3c73;
+                padding: 6px 12px;
+                position: absolute;
+                border-radius: 33px;
+                font-size: 12px;
+                letter-spacing: 0px;
+                color: #ffffff;
+                font-weight: 600;
+                font-family: "Montserrat";
+                top: -14px
+            }
+            .plan-name{
+                font-size: 18px;
+                letter-spacing: 0px;
+                line-height: 48px;
+                color: #1d2733;
+                font-weight: 700;
+                font-family: "Montserrat";
+                margin-top: 8px;
+                @include breakpoint(sm) {
+                    line-height: 30px;
+                    font-size: 17px;
+                    letter-spacing: -1px;
+                    line-height: 24px;
+                    color: #1d2733;
+                    font-weight: 700;
+                    font-family: "Montserrat";
+                    margin-bottom: 20px;
+                }
+            }
+            .divider {
+                height: 1px;
+                background-color: #e7e7e7;
+                margin: 16px 0;
+                @include breakpoint(sm) {
+                    margin: 6px 0;
+                }
+            }
+            .denomination-title{
+                font-size: 13px;
+                letter-spacing: 0px;
+                line-height: 48px;
+                color: #525c68;
+                font-weight: 600;
+                font-family: "Montserrat";
+            }
+            .denomination{
+                width: 66px;
+                height: 50px;
+                border-radius: 8px;
+                background-color: #f2f5f7;
+                border: 1px solid #ececec;
+                font-size: 18px;
+                letter-spacing: 0px;
+                line-height: 48px;
+                color: #1d2733;
+                font-weight: 600;
+                font-family: "Montserrat";
+                color: #1d2733;
+                text-align: center;
+                cursor: pointer;
+                span {
+                    font-size: 14px;
+                }
+                @include breakpoint(sm) {
+                    font-size: 22px;
+                    span{
+                        font-size:14px;
+                    }
+                }
+            }
+            .denomination.selected{
+                background-color: #3562ad;
+                border: 1px solid #30589c;
+                color: #fff;
+            }
+            select{
+                border-radius: 8px;
+                background-color: #f2f5f7;
+                border: 1px solid #ececec;
+                padding-right: 16px;
+                height: 48px;
+                font-size: 15px;
+                letter-spacing: 0px;
+                line-height: 24px;
+                color: #1d2733;
+                font-weight: 600;
+                font-family: "Montserrat";
+            }
+            .add-card{
+                border-radius: 12px;
+                background-image: linear-gradient(268deg, #ff6b23 0%, #ff6b23 0%, #f1176b 99%, #f1176b 100%);
+                outline: none;
+                border: 0;
+                font-size: 11px;
+                letter-spacing: 0px;
+                color: #ffffff;
+                font-weight: 600;
+                font-family: "Montserrat";
+                padding: 4px 8px;
+                justify-content: flex-end;
+                margin-top: 16px;
+            }
+        }
+        .bottom-part{
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #dddddd;
+            padding-top: 30px;
+            label{
+                font-size: 12px;
+                color: #1d2733;
+                font-weight: 400;
+                font-family: "Montserrat";
+            }
+            .callnow-Button {
+                width: 100px;
+                height: 48px;
+                border-radius: 24px;
+                background-color: #e8edf4;
+                border: 0;
+                font-size: 15px;
+                letter-spacing: 0px;
+                line-height: 19px;
+                color: #244e92;
+                font-weight: 700;
+                font-family: "Montserrat";
+                text-align: center;
+            }
+            .submit-Button{
+                width: 155px;
+                height: 48px;
+                border-radius: 24px;
+                background-color: #f8cf01;
+                border: 0;
+                font-size: 15px;
+                letter-spacing: 0px;
+                line-height: 19px;
+                color: #000000;
+                font-weight: 700;
+                font-family: "Montserrat";
+                margin-left: 14px;
+                @include breakpoint(sm) {
+                    margin-top: 0px;
+                }
+                }
+                p{
+                    font-size: 13px;
+                    letter-spacing: 0px;
+                    line-height: 19px;
+                    color: #000000;
+                    font-weight: 400;
+                    font-family: "Montserrat";
+                    text-align: center;
+                    margin-top: 10px;
+                    @include breakpoint(sm) {
+                        padding: 16px;
+                    }
+                }
+        }
+    }
+}
+
+::ng-deep{
+    .notification-popup .mat-dialog-container {
+        display: block;
+        padding: 20px;
+        border-radius: 30px;
+        box-sizing: border-box;
+        outline: 0;
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        max-height: inherit;
+        overflow: hidden;
+        @include breakpoint(sm){
+        overflow: visible;
+        }
+    }
+}
+
+.paymet_screen{
+    padding: 16px;
+    background-color: #f8f8f8;
+    max-height: 91vh;
+    overflow: scroll;
+    border-radius: 14px;
+    .back{
+        font-size: 16px;
+        letter-spacing: 0px;
+        line-height: 24px;
+        color: #1d2733;
+        font-weight: 700;
+        font-family: "Montserrat";
+        margin-bottom: 20px;
+        svg {
+            margin-right: 8px;
+        }
+    }
+    .card_wrapper{
+        padding: 16px;
+        border-radius: 14px;
+        background-color: #ffffff;
+        border: 1px solid #e1e5e8;
+    }
+    .expiryDate {
+        flex: 0 0 65%;
+    }
+    .labelCard{
+        font-size: 15px;
+        line-height: 24px;
+        color: #1d2733;
+        font-weight: 600;
+        font-family: "Montserrat";
+        position: relative;
+        text-align: center;
+        margin-bottom:16px;
+        &:after{
+            content: '';
+            background-color: #bcbcbc;
+            height: 1px;
+            width: 28%;
+            position: absolute;
+            right: 0;
+            top: 50%;
+        }
+        &:before{
+            content: '';
+            background-color: #bcbcbc;
+            height: 1px;
+            width: 28%;
+            position: absolute;
+            left: 0;
+            top: 50%;
+        }
+    }
+    .denomination-title{
+        font-size: 12px;
+        line-height: 24px;
+        color: #525c68;
+        font-weight: 500;
+        font-family: "Montserrat";
+        margin-bottom: 8px;
+    }
+    select{
+        border-radius: 6px;
+        background-color: #f2f5f7;
+        border: 1px solid #ececec;
+        height: 42px;
+        font-size: 15px;
+        letter-spacing: 0px;
+        line-height: 24px;
+        color: #1d2733;
+        font-weight: 600;
+        font-family: "Montserrat";
+    }
+    input{
+        border-radius: 6px;
+        background-color: #f2f5f7;
+        border: 1px solid #ececec;
+        height: 42px;
+        font-size: 15px;
+        letter-spacing: 0px;
+        line-height: 24px;
+        color: #1d2733;
+        font-weight: 600;
+        font-family: "Montserrat";
+    }
+    .month{
+        border-radius: 6px;
+        background-color: #f2f5f7;
+        border: 1px solid #ececec;
+    }
+    .addCard{
+        border-radius: 6px;
+        background-image: linear-gradient(270deg, #fd5f2f 0%, #f4285e 100%);
+        border: 0;
+        padding: 6px 8px;
+        font-size: 10px;
+        color: #ffffff;
+        font-weight: 600;
+        font-family: "Montserrat";
+    }
+    .cardTitle {
+        font-size: 16px;
+        line-height: 24px;
+        color: #1d2733;
+        font-weight: 600;
+        font-family: "Montserrat";
+        padding-top: 16px;
+    }
+    .divider {
+        height: 1px;
+        background-color: #bcbcbc;
+        margin: 16px 0;
+    }   
+    .submit-Button{
+        border-radius: 22px;
+        background-color: #fec432;
+        font-size: 16px;
+        letter-spacing: 0px;
+        color: #000000;
+        font-weight: 700;
+        font-family: "Montserrat";
+        border: 0;
+        outline: none;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+    } 
+}

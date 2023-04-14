@@ -1,0 +1,72 @@
+<a mat-list-item routerLink="/">
+  <span class="mainSpan">HOME
+    <span class="slider"></span>
+  </span>
+</a>
+   
+<a  mat-list-item (click)="redirectQuickClick();" > 
+  <span class="mainSpan">QUICK RECHARGE
+    <span class="slider"></span>
+  </span>
+</a>
+<a mat-list-item routerLink="/searchrates">
+  <span class="mainSpan">SEARCH RATES
+    <span class="slider"></span>
+  </span>
+</a>
+<a *ngIf="currentSetting?.country?.CountryId !=3" mat-list-item routerLink="/mobiletopup">
+  <span class="mainSpan">MOBILE TOP-UP
+    <span class="slider"></span>
+  </span>
+</a>
+<!-- <a mat-list-item routerLink="/mobiledeals" class="hide-desktop">
+  <span class="mainSpan">DEALS
+    <span class="slider"></span>
+  </span>
+</a> -->
+<!-- <a mat-list-item routerLink=".">
+  <span class="mainSpan">CALL ME LOCAL
+    <span class="slider"></span>
+  </span>
+  <span class="subMenu"><img src="assets/images/sub_menu_icon.svg" alt="arrow down" /></span>
+</a> -->
+<a mat-list-item  (click)="redirectClick();" >
+  <span class="mainSpan">SIGNUP / LOGIN
+    <span class="slider"></span>
+  </span>
+  <span class="subMenu"><img src="assets/images/sub_menu_icon.svg" alt="arrow down" /></span>
+</a>
+<!-- <a mat-list-item routerLink=".">
+  <span class="mainSpan">LIVE CHAT
+    <span class="slider"></span>
+  </span>
+</a> -->
+
+<a mat-list-item routerLink="/features">
+  <span class="mainSpan">FEATURES
+    <span class="slider"></span>
+  </span>
+</a>
+<a mat-list-item routerLink="/contactus">
+  <span class="mainSpan">CONTACT US
+    <span class="slider"></span>
+  </span>
+</a>
+
+<a mat-list-item class="d-md-none d-block">
+  <span class="mainSpan w-100">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        DOWNLOAD APP
+      </div>
+      <div>
+        <a href="https://play.google.com/store/apps/details?id=com.razacomm.universe"><img src="./assets/images/playstore_grey.svg" width="18" alt="" class="ml-1"></a>
+        <a href="https://apps.apple.com/ca/app/raza-universe/id1226298666"><img src="./assets/images/apple_grey.svg" width="18" alt="" class="ml-4"></a>
+      </div>
+    </div>
+    <span class="slider"></span>
+  </span>
+</a>
+
+<!-- <div class="language d-md-none d-block pt-3 mx-3" ><img src="./assets/images/globe_footer.png" alt="" class="mr-2"> <span>Eng
+  (CA)</span></div> -->

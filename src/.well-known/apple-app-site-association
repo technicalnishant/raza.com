@@ -1,0 +1,15 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "Z2M49Q3HBJ.com.razaComApp.com",
+                "paths": [ "*"]
+            },
+	   {
+                "appID": "Z2M49Q3HBJ.Raza",
+                "paths": [ "*" ]
+        	   }
+        ]
+    }
+}

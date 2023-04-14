@@ -1,0 +1,26 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "types": ["googlemaps"],
+	"noImplicitAny": false, 
+	"strict": false, 
+	
+	"paths": {
+      "NgxAutocomPlace": [
+        "../projects/ngx-autocom-place/src/public_api"
+      ],
+      "NgxAutocomPlace/*": [
+        "../projects/ngx-autocom-place/src/*"
+      ]
+    },
+  },
+  "files": [
+    "main.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}

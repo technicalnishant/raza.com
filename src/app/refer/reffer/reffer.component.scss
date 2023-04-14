@@ -1,0 +1,151 @@
+.example-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.hideinMobile {
+	display: block;
+}
+.showInmobile {
+	display: none;
+}
+.mat-toolbar {
+	background: none;
+}
+.nobg {
+	background: none;
+	cursor: pointer;
+	border: none;
+}
+.howitworksSection {
+	text-align: left;
+	padding: 20px 20px 20px 85px;
+	h3 {
+		&.heading_style2 {
+			color: #103F8A;
+			font-size: 18px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 500;
+			text-align: left;
+		}
+	}
+	p {
+		color: #919EAF;
+		font-size: 14px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+	}
+}
+.second_fold {
+	padding-top: 0px;
+	position: relative;
+}
+.shadowtype2 {
+	width: 1100px;
+	margin: 0 auto;
+	padding: 60px 10px 0px 10px;
+}
+.gradientArea {
+	background: #04A5F6;
+	background: linear-gradient(to right, #04A5F6 , #0367DE );
+	padding: 30px 0;
+	width: 100%;
+	p {
+		color: #fff;
+		font-size: 14px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+		text-align: center;
+		margin: 0px;
+	}
+}
+.deals {
+	padding: 57px 45px 0px 57px;
+	h3 {
+		color: #103F8A;
+		font-size: 20px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 500;
+		margin-bottom: 30px;
+	}
+	p {
+		color: #919EAF;
+		line-height: 21px;
+		font-size: 14px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 400;
+	}
+	.table {
+		margin-top: 60px;
+		thead {
+			th {
+				border: none;
+				color: #0B203E;
+				font-size: 18px;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 500;
+			}
+		}
+		tr {
+			td {
+				color: #808080;
+				font-size: 16px;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 400;
+			}
+		}
+	}
+	.table-striped {
+		tbody {
+			tr {
+				&:nth-of-type(odd) {
+					background-color: #F8F8F8;
+				}
+			}
+		}
+	}
+}
+.deals .table td,.deals .table th {
+	border: none;
+	padding: 15px 30px;
+}
+.deals .table td:last-child, .deals .table th:last-child {
+	text-align: right;
+}
+
+.point_box{
+	height:350px;
+	border:1px solid #ccc;
+	border-radius: 20px;
+    margin-right: 5px;
+	width:95%;
+	padding:5px 0px 0px 5px;
+    height: 350px;
+    border: 1px solid #ccc;
+}
+
+
+.point_box_bottom{
+	height:150px;
+	border:1px solid #ccc;
+	border-radius: 20px;
+    margin-right: 5px;
+	width:95%;
+	padding:5px 0px 0px 5px;
+   
+    border: 1px solid #ccc;
+}
+
+@media only screen and (max-width: 650px)  {
+  
+  .gradientArea{ padding: 30px 20px;}
+  .hideinMobile{display: none;}
+  .showInmobile { display: block;}
+  .shadowtype2{ padding: 20px 0 !important; width: 100%;}
+  .howitworksSection{ padding: 61px 20px 25px 11px; background-position: center top;}
+  .three_service{ height: 360px;}
+  .second_fold{ padding: 30px 42px;}
+  .deals{padding: 40px 0 0 !important;}
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="63.143" height="20" viewBox="0 0 63.143 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect y="1" width="41" height="17" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_226" data-name="Group 226" transform="translate(-147.857 -231)">
+    <g id="Scroll_Group_3" data-name="Scroll Group 3" transform="translate(170 233)" clip-path="url(#clip-path)" style="isolation: isolate">
+      <text id="Paypal" transform="translate(0 13)" fill="#253853" font-size="13" font-family="Roboto-Medium, Roboto" font-weight="500" letter-spacing="0.02em"><tspan x="0" y="0">Paypal</tspan></text>
+    </g>
+    <g id="Group_172" data-name="Group 172" transform="translate(147.856 231)">
+      <path id="Path_99" data-name="Path 99" d="M30.869,32.33h5.64c3.028,0,4.168,1.533,3.992,3.785-.291,3.718-2.539,5.776-5.521,5.776H33.475c-.409,0-.684.271-.795,1l-.639,4.266c-.042.277-.188.437-.406.459H28.091c-.333,0-.451-.255-.364-.807l2.161-13.675A.86.86,0,0,1,30.869,32.33Z" transform="translate(-23.665 -27.623)" fill="#009ee3" fill-rule="evenodd"/>
+      <path id="Path_100" data-name="Path 100" d="M3.676,0H9.322c1.59,0,3.477.051,4.738,1.165a3.827,3.827,0,0,1,1.184,3.2c-.347,4.311-2.925,6.726-6.384,6.726H6.075c-.475,0-.788.314-.922,1.165l-.777,4.95c-.051.32-.189.51-.437.533H.456c-.386,0-.523-.291-.422-.935L2.538.941A1,1,0,0,1,3.676,0Z" transform="translate(0)" fill="#113984" fill-rule="evenodd"/>
+      <path id="Path_101" data-name="Path 101" d="M35.95,39.371l.986-6.241a.863.863,0,0,1,.983-.809h5.64a5.5,5.5,0,0,1,2.28.415c-.566,3.838-3.049,5.969-6.3,5.969H36.761A.821.821,0,0,0,35.95,39.371Z" transform="translate(-30.715 -27.615)" fill="#172c70" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,74 @@
+<div class="first_fold">
+    <div class="home_banner newcustomer_banner">
+      <div class="container-fluid cust-btn-wrapper">
+        <img src="/assets/images/existingcustomer-selected.png" class="imgcustom1" alt="banner">
+        <a [routerLink]="['/auth/sign-up']">
+          <img src="/assets/images/newcustomer-notselected.png" class="imgcustom2" alt="banner">
+        </a>
+      </div>
+      <div class="row txt-center displayMob">
+        <p class="col-sm-12 label registerpgh headerText">Login! Get access to <br> your account details anywhere anytime!
+        </p>
+      </div>
+      <div class="row txt-center displayDsk">
+        <p class="col-sm-12 label registerpgh headerText">Login! Get access to your account details anywhere anytime!</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- common wrapper -->
+  <div class="commonWrapperArea commonWrapperAreaNew newcustomer newCustomerTab">
+    <div class="">
+      <div class="coverShadow"></div>
+    </div>
+    <!--<mat-card>-->
+    <div class="virtual1Form">
+      <form class="example-form" name="loginForm" [formGroup]="loginForm" >
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="label2">Welcome back,</p>
+          </div>
+  
+          <div class="col-sm-12">
+            <mat-form-field class="example-full-width">
+              <input tabindex="1" matInput placeholder="Enter Mobile Number / Email" formControlName="username">
+              <mat-hint>Start with +(country code), e.g +1, +44, or +91 </mat-hint>
+              <mat-error *ngIf="loginForm.get('username').errors?.required">
+                Username is required.
+              </mat-error>
+              <mat-error *ngIf="loginForm.get('username').errors?.invalid_input">
+                Invalid Phone Number/Email.
+              </mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="col-sm-12">
+            <span class="floatRight forgetPass">
+              <a tabindex="3" routerLink='/auth/forgot-password'>Forgot password?</a></span>
+            <mat-form-field class="example-full-width">
+              <input matInput tabindex="2" type="password" placeholder="Password" formControlName="password">
+              <mat-error *ngIf="loginForm.get('password').errors?.required">
+                Password is required.
+              </mat-error>
+              <mat-error *ngIf="loginForm.get('password').errors?.invalid">
+                Incorrect Username/Password.
+              </mat-error>
+            </mat-form-field>
+          </div>
+  
+          <!-- <div class="col-sm-12 catcha-control">
+            <re-captcha formControlName="captcha" [siteKey]="captchaKey"></re-captcha>
+          </div> -->
+  
+        </div>
+        <button mat-button class="submitButtonSmall">Login</button>
+       
+      </form>
+    </div>
+    <!-- <div class="loginWithSocialmedia">
+      <a href=""><img src="../assets/images/facebook_icon.jpg" alt="" /></a>
+      <a href=""><img src="../assets/images/googleplus_icon.jpg" alt="" /></a>
+    </div> -->
+  
+  </div>
+  <!-- common wrapper -->

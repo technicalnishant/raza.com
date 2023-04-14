@@ -1,0 +1,105 @@
+<div class="recharge_block recharge2 overflowHidden">
+  <div class="container containerMobile">
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="col-md-12">
+          <h2 class="heading_style4">
+            <span>Select payment method</span>
+          </h2>
+        </div>
+        <div class="col-md-12">
+          <form>
+            <div class="form_holder form_holder2 creditCard_paypal">
+              <mat-tab-group>
+                <mat-tab label="Credit Card">
+                  <mat-radio-group class="example-radio-group" name="cardNumber" [(ngModel)]="selectedCard">
+
+                    <div class="savedCard" *ngFor="let item of customerSavedCards; let ind = index"
+                      [ngClass]="{'cardOpacity': selectedCard?.CardId != item.CardId }">
+                      <mat-radio-button [value]="item">
+                        <div class="cardImg" *ngIf="item?.CardType=='Visa'"><img src="assets/images/visa_card.png"
+                            alt="" /></div>
+                        <div class="cardImg" *ngIf="item?.CardType=='MasterCard'"><img
+                            src="assets/images/master-card.png" alt="" /></div>
+                        <div class="cardImg" *ngIf="item?.CardType=='Discover'"><img
+                            src="assets/images/discover-card.png" alt="" /></div>
+                        <div class="cardImg" *ngIf="item?.CardType=='Amex'"><img src="assets/images/american-card.png"
+                            alt="" />
+                        </div>
+                        <div class="cardDetails">
+                          <p class="cardNumber">Card Ending in … {{ item.CardNumber | creditCard }}</p>
+                          <p class="cardExpires">Expires {{item.ExpiryMonth}}/{{item.ExpiryYear}}
+                            <span>
+                              <a (click)="editCardDetails(item)">Update Card/Billing Details</a>
+                            </span></p>
+                        </div>
+                      </mat-radio-button>
+                      <div class="cvvCard" *ngIf="item.CardId === selectedCard?.CardId">
+                        <div class="col-sm-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput type="password" placeholder="Security code" name="{{item.CardId}}"
+                              [(ngModel)]="item.Cvv">
+                            <span class="lock"><img src="assets/images/lock_icon.png" alt="" /></span>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+
+                  </mat-radio-group>
+                  <div class="form_row1">
+
+                    <div class="input_holder1">
+                      <button mat-button class="submitButton" (click)="onClickCreditCardPayment()">Confirm</button>
+                    </div>
+                  </div>
+
+                </mat-tab>
+                <mat-tab label="PayPal">
+                  <ng-template matTabContent>
+                    <div class="form_row1">
+                      <div class="input_holder1">
+                        <div id="paypal-button-container"></div>
+                        <raza-paypal [config]="payPalConfig"></raza-paypal>
+                      </div>
+                    </div>
+                  </ng-template>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-1"></div>
+      <div class="col-xl-5" *ngIf="plan">
+        <div class="col-md-12">
+          <h2 class="heading_style4">
+            <span>Your order</span>
+          </h2>
+        </div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>Plan </td>
+              <td>{{plan.CardName}}</td>
+            </tr>
+            <tr>
+              <td> Recharge Amount</td>
+              <td> {{rechargeOptionsModel.purchaseAmount | bCurrency }}</td>
+            </tr>
+            <tr>
+              <td>Service Fee</td>
+              <td>{{ serviceFee | bCurrency }}</td>
+            </tr>
+            <tr class="total">
+              <td>Total </td>
+              <td>{{ rechargeOptionsModel.purchaseAmount + serviceFee | bCurrency }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <a href="#" class="redeemPromo">Redeem promo code</a>
+
+      </div>
+    </div>
+  </div>
+</div>

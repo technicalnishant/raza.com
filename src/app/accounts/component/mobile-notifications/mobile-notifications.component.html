@@ -1,0 +1,29 @@
+<div class="tabContentMyaccount1" id="recharge">
+ 
+  
+    <div class="clear"></div>
+  
+    <div class="bg-white px-5 py-5 w-100 mt-3 text-left notifications" >
+      <p class="commonHead mt-4 text-center">Notifications</p>
+      <div class="border-bottom d-flex justify-content-between">
+        <div class="mr-4">
+          <p class="title">Text/SMS</p>
+          <p>This option must be enabled at all times to receive verification code and to login securely to our website. 
+          </p>
+        </div> 
+        <mat-slide-toggle [(ngModel)]="myModel" #toggleElement (ngModelChange)="keepIt1($event)" [checked] = "myModel"   class="example-margin" color="primary">
+        </mat-slide-toggle>
+      </div>
+  
+      <div class="d-flex justify-content-between mt-3">
+        <div class="mr-4">
+          <p class="title">Promo Notifications</p>
+          <p>Occasionally you will receive great deals and promotions from us.  Don't miss out on promotions to get upto 50%
+            bonus minutes.</p>
+        </div>
+        <mat-slide-toggle [(ngModel)]="sendSMSPromo" (ngModelChange)="keepIt($event)" checked = sendSMSPromo; class="example-margin" color="primary">
+        </mat-slide-toggle>
+      </div>
+    </div>
+     
+  </div>

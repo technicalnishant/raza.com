@@ -1,0 +1,263 @@
+<!-- <div class="form_holder commonPopup addEnroll autoRefill">
+    <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+    <h2 *ngIf="!headerPromotion" >Auto-refill</h2>
+    <h2 *ngIf="headerPromotion" >  Hello {{username}}</h2>
+    <mat-dialog-content>
+       <div *ngIf="headerPromotion" class="popup_heading">
+        
+        <div class="row rounded" style="background-color:#0172f4; border-bottom: #00b2ee 15px solid; background-image: url('../assets/images/skyline.png'); background-repeat: no-repeatgit;">
+            <div class="col-3 p-5">
+                <img src="../assets/images/15percent.png" alt="Auto Refill">
+              </div>
+              <div class="col p-5 ml-5">
+                <h4 class="text-white" style="border-bottom: 2px solid #ffffff; padding-bottom: 10px;">Enroll to Auto-refill and get <br/>Bonus on your next 3 recharges</h4>
+                <span class="text-white">Rechargesonly when the balance falls bellow $2 <br/>10% bonus for life after the first 3 recharges <br /> Cancel Anytime*</span> 
+              </div>
+              
+            
+        </div> 
+        <p *ngIf="!headerPromotion">
+            Enrolling to auto-refill will allow us to recharge your account every time the balance falls below $2. We
+            will notify you by email or text once your account is charged. You may choose to deactivate this feather any
+            time
+        </p>
+    </div>
+        <form [formGroup]="autoRefillForm">
+            <div class="row commonPopupRow">
+                <div class="col-sm-6">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Plan Name" formControlName="planName">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row commonPopupRow">
+                <div class="col-sm-6">
+                    <mat-form-field>
+                        <mat-select placeholder="Refill Amount" formControlName="AutoRefillAmount">
+                            <mat-option value="10">{{'10' | bCurrency : autorefillSetup?.CurrencyCode}}</mat-option>
+                            <mat-option value="20">{{'20' | bCurrency : autorefillSetup?.CurrencyCode}}</mat-option>
+                            <mat-option value="50">{{'50' | bCurrency : autorefillSetup?.CurrencyCode}}</mat-option>
+                            <mat-option value="100">{{'100' | bCurrency : autorefillSetup?.CurrencyCode}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                    <mat-form-field>
+                        <mat-select placeholder="Credit Card" formControlName="CreditCard">
+                            <mat-option *ngFor="let item of creditCardList" [value]="item.CardId">
+                                {{item.CardNumber | CreditCardMask}}
+                            </mat-option>
+                        </mat-select>
+                       
+                    </mat-form-field>
+                    <a href="javascript:void(0)" (click)="addNewCard()" >Add New Card</a>
+                </div>
+            </div>
+            <div class="row commonPopupRow">
+                <div class="col-sm-6">
+                    <mat-checkbox color="primary" formControlName="isAgreeToAutorefill">I agree to Auto-Refill my plan
+                        <mat-error *ngIf="submitted && autoRefillForm.get('isAgreeToAutorefill').errors">
+                            Select the box to confirm auto-refill.
+                         </mat-error>
+                    </mat-checkbox>
+
+                    
+                </div>
+            </div>
+            
+
+            <div class="form_row1">
+
+                <div class="input_holder1">
+                    <button mat-button class="submitButton" (click)="autoRefillFormSubmit()">Submit</button>
+                </div>
+            </div>
+        </form>
+    </mat-dialog-content>
+
+     
+</div> -->
+
+
+
+
+<div class="topup-wrapper d-none d-lg-block">
+    <div mat-dialog-close class="close-btn">&nbsp;</div>
+    <div class="d-flex">
+        <div class="col-md-6 pl-0">
+            <div class="left-panel">
+                <h1 class="title">Enroll to auto-refill <br> and get Bonus on your <br> next 3 recharges</h1>
+                <img src="../../../../assets/images/new_design_images/new_popup.png" class="img-fluid" alt="new_popup">
+                <div class="description">Your Plan Recharges only when the balance falls bellow $2. Get 10% bonus for life after the first 3 recharges.</div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="right-panel">
+                <div class="hello-text">Hello!</div>
+                <div class="cus-name">{{username}}</div>
+                <form [formGroup]="autoRefillForm">
+                <div class="denomination-box">
+                    <div class="plan-title">Plan Name</div>
+                    <div class="plan-name">
+                        <div class="plan-name">{{autorefillSetup.PlanName}}</div>
+                        <!-- <input matInput placeholder="Plan Name" formControlName="planName"> -->
+                         
+                    </div>
+                    <div class="divider"></div>
+                    <div class="denomination-title">Refill Amount</div>
+                    <div class="d-flex justify-content-between">
+
+                        <div class="denomination {{getSelectedClass(5)}}" (click)="onClickAmountOption(5)" >
+                            {{'5' | bCurrency : autorefillSetup?.CurrencyCode}}
+                        </div>
+                        <div class="denomination {{getSelectedClass(10)}}" (click)="onClickAmountOption(10)" >
+                            {{'10' | bCurrency : autorefillSetup?.CurrencyCode}}
+                        </div>
+
+                        <div class="denomination {{getSelectedClass(20)}}" (click)="onClickAmountOption(20)" >
+                            {{'20' | bCurrency : autorefillSetup?.CurrencyCode}}
+                        </div>
+                        <div class="denomination {{getSelectedClass(50)}}" (click)="onClickAmountOption(50)" >
+                            {{'50' | bCurrency : autorefillSetup?.CurrencyCode}}
+                        </div>
+                        <!-- <div class="denomination {{getSelectedClass(100)}}" (click)="onClickAmountOption(100)" >
+                            {{'100' | bCurrency : autorefillSetup?.CurrencyCode}}
+                        </div> -->
+
+                        
+                    </div>
+                      <div class="denomination-title">Credit Card</div> 
+                      <select formControlName="CreditCard" class="form-control">
+                        <option  *ngFor="let item of creditCardList" [value]="item.CardId">
+                            {{item.CardNumber | CreditCardMask}}
+                        </option>
+                    </select>
+                     
+                    
+                    <div class="text-right">
+                        
+                        <a class="add-card" href="javascript:void(0)" (click)="addNewCard()" >Add New Card</a>
+                    </div>
+                </div>
+                <div class="bottom-part">
+                    <div class="form-group form-check mb-4 align-items-center">
+                        <mat-checkbox color="primary" formControlName="isAgreeToAutorefill">I agree to Auto-Refill my plan
+                            <mat-error *ngIf="submitted && autoRefillForm.get('isAgreeToAutorefill').errors">
+                                Select the box to confirm auto-refill.
+                             </mat-error>
+                        </mat-checkbox>
+
+                        
+                    </div>
+                     
+                    <button mat-button class="submit-Button submitButton" (click)="autoRefillFormSubmit()">Submit</button>
+                    <p>Cancel Anytime</p>
+                </div>
+            </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Mobile Screen -->
+
+<div class="topup-wrapper d-block d-lg-none">
+ <div mat-dialog-close class="close-btn">X</div>  
+ <!-- Denomination screen-->
+ <form [formGroup]="autoRefillForm"> 
+<div class="d-flex flex-wrap" >
+    <div class="col-md-6 pl-0 pr-0 pr-lg-3">
+        <div class="left-panel">
+            <!-- <h1 class="title">Enroll to <br> auto-refill and get <br> Bonus on your <br> next 3 recharges</h1> -->
+            <img src="../../../../assets/images/new_design_images/new_popup.png" class="img-fluid" alt="new_popup">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="right-panel">
+            <div class="hello-text">Hello!</div>
+            <div class="cus-name">{{username}}</div>
+            
+            <div class="denomination-box" *ngIf="nextFirst">
+                <div class="plan-title">Plan Name</div>
+                <div class="plan-name">{{autorefillSetup.PlanName}}</div>
+                <div class="divider"></div>
+                <div class="denomination-title">Refill Amount</div>
+                <div class="d-flex justify-content-between">
+                    <div class="denomination {{getSelectedClass(5)}}" (click)="onClickAmountOption(5)" >{{'5' | bCurrency : autorefillSetup?.CurrencyCode}}</div>
+                    <div class="denomination {{getSelectedClass(10)}}" (click)="onClickAmountOption(10)" >{{'10' | bCurrency : autorefillSetup?.CurrencyCode}}</div>
+                    <div class="denomination {{getSelectedClass(20)}}" (click)="onClickAmountOption(20)" >{{'20' | bCurrency : autorefillSetup?.CurrencyCode}}</div>
+                    <div class="denomination {{getSelectedClass(50)}}" (click)="onClickAmountOption(50)">{{'50' | bCurrency : autorefillSetup?.CurrencyCode}}</div>
+                    <!-- <div class="denomination {{getSelectedClass(100)}}" (click)="onClickAmountOption(100)">{{'100' | bCurrency : autorefillSetup?.CurrencyCode}}</div> -->
+                </div>
+            </div>
+            <div class="bottom-part" *ngIf="nextFirst">
+                <button class="submit-Button" type="button" (click)="gotToNextScreen()">CONTINUE</button>
+                <div class="form-group form-check mb-4 mt-4 align-items-center">
+                    <mat-checkbox color="primary" formControlName="isAgreeToAutorefill">
+                        Get a 15% bonus on the first 3 recharges<br>
+                        and 10% for life thereafter. Recharges <br>
+                        only when the balance falls below $2 <br>Cancel anytime
+                         
+                        
+                    </mat-checkbox>
+                    <mat-error *ngIf="isAgreeToAutorefill">
+                        Select the box to confirm auto-refill.
+                     </mat-error>
+                </div>
+                
+                
+                
+            </div>
+         <!-------Payment screen --------->
+
+         <div class="paymet_screen" *ngIf="nextScreen">
+            <div class="back" (click)="gotToBackScreen()"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+              </svg> Secure Payment</div>
+            <div class="card_wrapper">
+                <div class="labelCard">Card Details</div>
+                <div class="form-group">
+                    <div class="denomination-title">Credit Card</div>
+                    <mat-form-field class="w-100">
+                        <mat-select placeholder="Credit Card" floatLabel="never" formControlName="CreditCard">
+                            <mat-option *ngFor="let item of creditCardList" [value]="item.CardId">
+                                {{item.CardNumber | CreditCardMask}}
+                            </mat-option>
+                        </mat-select>
+                       
+                    </mat-form-field>
+                </div>
+                
+               <div class="text-right">
+                <button class="addCard" (click)="addNewCard()">Add New Card</button> 
+                 
+               </div>
+            </div>
+        
+            <div class="bottom-part">
+                <button class="submit-Button" (click)="autoRefillFormSubmit()">CONTINUE</button>
+            </div>
+        
+        </div>
+        <!-------------EOF -->
+        </div>
+    </div>
+</div>
+
+
+ <!-- Payment screen-->
+
+
+</form>
+<!-- Add new credit card -->
+
+ 
+</div>
+
+
+
+
