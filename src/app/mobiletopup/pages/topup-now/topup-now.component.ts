@@ -280,6 +280,13 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     
     this.mobileTopupForm.get('topUpAmount').setValue(item);
     this.isTopUpEnable = true;
+     
+  }
+  buyNow(item: any)
+  {
+    this.mobileTopupForm.get('topUpAmount').setValue(item);
+    this.isTopUpEnable = true;
+    this. onMobileTopupFormSubmit();
   }
   onMobileTopupFormSubmit() {
     // stop here if form is invalid
