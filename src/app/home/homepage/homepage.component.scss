@@ -973,14 +973,25 @@ a {
     position: relative;
     z-index: 9;
 }
-
+.promotion-offer .promo-btn {
+    width: 200px;
+}
+.promotion-offer .promo-btn img.promo-btnimg {
+    max-width: 100%;
+}
+.carousel-caption.promotion {
+    bottom: 25%;
+    right: 29.5%;
+    left: unset;
+    padding: 0;
+}
 // new slide css start here
 .home-slider {
     .bg-image {
         width: 100%;
         // min-height: 699px;
-        min-height: 799px;
-        max-height: 799px;
+        // min-height: 799px;
+        // max-height: 799px;
         // min-height: 100vh;
         // object-fit: fill;
         object-fit: cover;
@@ -1206,72 +1217,70 @@ h1.buy1get1-text:after {
     z-index: -1;
 }
 
-.promotion-offer {
-    position: absolute;
-    bottom: 25%;
-    display: flex;
-    justify-content: center;
-    left: -15%;
-    right: 0;
-    margin: auto;
-    a {
-        position: absolute;
-        // bottom: 180px;
-        img {
+// .promotion-offer {
+//     position: absolute;
+//     bottom: 25%;
+//     display: flex;
+//     justify-content: center;
+//     left: -15%;
+//     right: 0;
+//     margin: auto;
+//     a {
+//         position: absolute;
+//         // bottom: 180px;
+//         img {
           
-            width: 85% !important;
-        }
-    }
-    div {
-        a {
-            position: absolute;
-            left: 0;
-            right: 0;
-            margin-bottom: -53px;
-            &:after {
-                content: "";
-                position: absolute;
-                background: #d03b36;
-                width: 164px;
-                height: 1px;
-                left: 0;
-                bottom: -6px;
-                margin: auto;
-                right: 0;
-            }
-        }
-    }
-    .view-more {
-        color: #d03b36;
-        font-size: 18px;
-    }
-    .promo-btn {
-        padding: 12px 21px;
-        font-size: 18px;
-        letter-spacing: 1px;
-        line-height: 36px;
-        font-weight: bold;
-        color: #fff;
-        border-radius: 10px;
-        top: 135px;
-        right: 10%;
-    }
-    .promo-btnimg {
-      max-width: 75%;
-    }
-}
+//             width: 85% !important;
+//         }
+//     }
+//     div {
+//         a {
+//             position: absolute;
+//             left: 0;
+//             right: 0;
+//             margin-bottom: -53px;
+//             &:after {
+//                 content: "";
+//                 position: absolute;
+//                 background: #d03b36;
+//                 width: 164px;
+//                 height: 1px;
+//                 left: 0;
+//                 bottom: -6px;
+//                 margin: auto;
+//                 right: 0;
+//             }
+//         }
+//     }
+//     .view-more {
+//         color: #d03b36;
+//         font-size: 18px;
+//     }
+//     .promo-btn {
+//         padding: 12px 21px;
+//         font-size: 18px;
+//         letter-spacing: 1px;
+//         line-height: 36px;
+//         font-weight: bold;
+//         color: #fff;
+//         border-radius: 10px;
+//     }
+//     .promo-btnimg {
+//       max-width: 75%;
+//     }
+// }
 
-.carousel-caption.promotion {
-    position: absolute;
-    right: -37.5%;
-    bottom: 20%;
-    left: 0;
-    z-index: 10;
-    padding-top: 12px;
-    padding-bottom: 20px;
-    color: #fff;
-    text-align: center;
-}
+// .carousel-caption.promotion {
+//     position: absolute;
+//     right: -37.5%;
+//     bottom: 20%;
+//     left: 0;
+//     z-index: 10;
+//     padding-top: 12px;
+//     padding-bottom: 20px;
+//     color: #fff;
+//     text-align: center;
+// }
 
 .buy5get5_promotion .buy-btn {
     color: #000;
@@ -1279,7 +1288,7 @@ h1.buy1get1-text:after {
 .promotion-note {
     font-size: 14px;
     letter-spacing: 0px;
-    color: #0c0c0c;
+    color: #fff;
     position: absolute;
     bottom: 25px;
     // left: 20px;
@@ -1296,23 +1305,23 @@ h1.buy1get1-text:after {
         left: 11px;
         line-height: 15px;
     }
-    .promotion-offer {
-        position: absolute;
-        bottom: 0%;
-        display: flex;
-        justify-content: center;
+    // .promotion-offer {
+    //     position: absolute;
+    //     bottom: 0%;
+    //     display: flex;
+    //     justify-content: center;
          
-        right: 0;
-        margin: auto;
-    }
-    .promotion-offer .promo-btn {
-        // padding: 8px 20px;
-        font-size: 16px;
-        line-height: 26px;
-    }
-    .promotion-offer img {
-        width: 56%;
-    }
+    //     right: 0;
+    //     margin: auto;
+    // }
+    // .promotion-offer .promo-btn {
+    //     // padding: 8px 20px;
+    //     font-size: 16px;
+    //     line-height: 26px;
+    // }
+    // .promotion-offer img {
+    //     width: 56%;
+    // }
     .promotion-inner {
         max-width: none;
         width: 100%;
@@ -1320,27 +1329,27 @@ h1.buy1get1-text:after {
     .carousel-caption.promotion {
         // bottom: 56%;
         // left: 65%;
-        bottom: -4%;
-        right: 0;
-        margin: auto;
+        // bottom: -4%;
+        // right: 0;
+        // margin: auto;
     }
-    .promotion-offer .view-more {
-        font-size: 14px;
-    }
-    .promotion-offer div a {
-        position: absolute;
-        margin-bottom: -33px;
-    }
-    .promotion-offer div a:after {
-        width: 139px;
-    }
-    .promotion-offer a {
-        position: absolute;
-        bottom: 200px;
-    }
-    .promotion-offer a img {
-        width: 60% !important;
-    }
+    // .promotion-offer .view-more {
+    //     font-size: 14px;
+    // }
+    // .promotion-offer div a {
+    //     position: absolute;
+    //     margin-bottom: -33px;
+    // }
+    // .promotion-offer div a:after {
+    //     width: 139px;
+    // }
+    // .promotion-offer a {
+    //     position: absolute;
+    //     bottom: 200px;
+    // }
+    // .promotion-offer a img {
+    //     width: 60% !important;
+    // }
     .promotion-offer {
         // top: 715%;
         // left: -136%;
@@ -1363,16 +1372,16 @@ h1.buy1get1-text:after {
     .enroll-wrappers a:last-child {
         border-right: 0;
     }
-    .home-slider .bg-image {
-        // min-height: 649px;
-        // object-fit: cover;
-        // padding-top: 50px;
-        // max-height: 650px;
-        min-height: 700px;
-        object-fit: cover;
-        padding-top: 70px;
-        max-height: 700px;
-    }
+    // .home-slider .bg-image {
+    //     // min-height: 649px;
+    //     // object-fit: cover;
+    //     // padding-top: 50px;
+    //     // max-height: 650px;
+    //     min-height: 700px;
+    //     object-fit: cover;
+    //     padding-top: 70px;
+    //     max-height: 700px;
+    // }
     .collection {
         display: none;
     }
@@ -1519,52 +1528,52 @@ h1.buy1get1-text:after {
         left: 11px;
         line-height: 15px;
     }
-    .promotion-offer {
-        position: absolute;
-        bottom: 0%;
-        display: flex;
-        justify-content: center;
-        left: -15%;
-        margin: auto;
-    }
-    .promotion-offer .promo-btn {
-        // padding: 8px 20px;
-        font-size: 16px;
-        line-height: 26px;
-    }
-    .promotion-offer img {
-        width: 56%;
-    }
+    // .promotion-offer {
+    //     position: absolute;
+    //     bottom: 0%;
+    //     display: flex;
+    //     justify-content: center;
+    //     left: -15%;
+    //     margin: auto;
+    // }
+    // .promotion-offer .promo-btn {
+    //     // padding: 8px 20px;
+    //     font-size: 16px;
+    //     line-height: 26px;
+    // }
+    // .promotion-offer img {
+    //     width: 56%;
+    // }
     .promotion-inner {
         max-width: none;
         width: 100%;
     }
-    .carousel-caption.promotion {
-        bottom: 56%;
-        left: 65%;
-        right: 0;
-        margin: auto;
-    }
-    .promotion-offer .view-more {
-        font-size: 14px;
-    }
-    .promotion-offer div a {
-        position: absolute;
-        margin-bottom: -33px;
-    }
-    .promotion-offer div a:after {
-        width: 139px;
-    }
-    .promotion-offer a {
-        position: absolute;
-        bottom: 0px;
-    }
-    .promotion-offer a img {
-        width: 60% !important;
-    }
-    .promotion-offer {
-        top: 33%;
-    }
+    // .carousel-caption.promotion {
+    //     bottom: 56%;
+    //     left: 65%;
+    //     right: 0;
+    //     margin: auto;
+    // }
+    // .promotion-offer .view-more {
+    //     font-size: 14px;
+    // }
+    // .promotion-offer div a {
+    //     position: absolute;
+    //     margin-bottom: -33px;
+    // }
+    // .promotion-offer div a:after {
+    //     width: 139px;
+    // }
+    // .promotion-offer a {
+    //     position: absolute;
+    //     bottom: 0px;
+    // }
+    // .promotion-offer a img {
+    //     width: 60% !important;
+    // }
+    // .promotion-offer {
+    //     top: 33%;
+    // }
     img.promotion-inner-bottom {
         bottom: 0;
         position: absolute;
@@ -1583,16 +1592,16 @@ h1.buy1get1-text:after {
     .enroll-wrappers a:last-child {
         border-right: 0;
     }
-    .home-slider .bg-image {
-        // min-height: 649px;
-        // object-fit: cover;
-        // padding-top: 50px;
-        // max-height: 650px;
-        min-height: 700px;
-        object-fit: cover;
-        padding-top: 80px;
-        max-height: 700px;
-    }
+    // .home-slider .bg-image {
+    //     // min-height: 649px;
+    //     // object-fit: cover;
+    //     // padding-top: 50px;
+    //     // max-height: 650px;
+    //     min-height: 700px;
+    //     object-fit: cover;
+    //     padding-top: 80px;
+    //     max-height: 700px;
+    // }
     .collection {
         display: none;
     }
@@ -1725,13 +1734,13 @@ h1.buy1get1-text:after {
 }
 
 @media only screen and (min-width: 990px) and (max-width: 1366px) {
-    .carousel-caption.promotion {
-        left: 0;
-        max-width: 80%;
-        right: 0;
-        margin: auto;
-        bottom: -10%;
-    }
+    // .carousel-caption.promotion {
+    //     left: 0;
+    //     max-width: 80%;
+    //     right: 0;
+    //     margin: auto;
+    //     bottom: -10%;
+    // }
     // .promotion-offer .promo-btn {
     //     padding: 6px 31px;
     //     font-size: 16px;
@@ -1744,25 +1753,23 @@ h1.buy1get1-text:after {
     // }
     .promotion-inner {
         max-width: 75%;
-    margin: auto;
-    
-    
+        margin: auto;
     }
-    .carousel-caption.promotion {
-        padding-bottom: 80px;
-    }
+    // .carousel-caption.promotion {
+    //     padding-bottom: 80px;
+    // }
 }
 
 @media only screen and(min-width:1400px) and (max-width: 1649px) {
-    .carousel-caption.promotion {
-        left: 0;
-        max-width: 70%;
-        right: 0;
-        margin: auto;
-        // bottom: -10%;
-        // padding-bottom: 80px;
-        bottom: 45%;
-    }
+    // .carousel-caption.promotion {
+    //     left: 0;
+    //     max-width: 70%;
+    //     right: 0;
+    //     margin: auto;
+    //     // bottom: -10%;
+    //     // padding-bottom: 80px;
+    //     bottom: 45%;
+    // }
     .promotion-inner {
         
         max-width: 55%;
@@ -1790,36 +1797,37 @@ h1.buy1get1-text:after {
 }
 
 @media only screen and (min-width: 1650px) and (max-width: 1799.9px) {
-    .picsum-img-wrapper {
-        height: 799px;
-    }
-    .home-slider .promotion_image {
-        min-height: 975px!important;
-        max-height: 975px!important;
-    }
-    .carousel-caption.promotion {
-        position: absolute;
-        right: 15%;
-        bottom: 23%;
-        left: 15%;
-        z-index: 10;
-        padding-top: 20px;
-        padding-bottom: 80px;
-        color: #fff;
-        text-align: center;
-    }
+    // .picsum-img-wrapper {
+    //     height: 799px;
+    // }
+    // .home-slider .promotion_image {
+    //     min-height: 975px!important;
+    //     max-height: 975px!important;
+    // }
+    // .carousel-caption.promotion {
+    //     position: absolute;
+    //     right: 15%;
+    //     bottom: 23%;
+    //     left: 15%;
+    //     z-index: 10;
+    //     padding-top: 20px;
+    //     padding-bottom: 80px;
+    //     color: #fff;
+    //     text-align: center;
+    // }
     .promotion-inner {
         max-width: 85%;
         margin: auto;
     }
-    .promotion .promotion_img_div{
-        width: 60%;
-        margin: 0 0 0 auto;
-        right:20%
-    }  
-    .promotion-offer .promo-btn {
-        top: 78px;
-    }
+    // .promotion .promotion_img_div{
+    //     width: 60%;
+    //     margin: 0 0 0 auto;
+    //     right:20%
+    // }  
+    // .promotion-offer .promo-btn {
+    //     position: relative;
+    //     top: 0px;
+    // }
 }
 
 
@@ -1831,31 +1839,31 @@ h1.buy1get1-text:after {
     //         right: 24%;
     //     }
     // }
-    .promotion-offer div a {
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin-bottom: -53px;
-        right: 0%;
-    }
-    .carousel-caption.promotion {
-        position: absolute;
-        bottom: 45%;
-       // top:60px;
-        z-index: 10;
-        padding-top: 12px;
-        padding-bottom: 0px;
-        color: #fff;
-        text-align: center;
-        left: -35px;
-        max-width: 60%;
-        right: 0;
-        margin: auto;
-    }
+    // .promotion-offer div a {
+    //     position: absolute;
+    //     left: 0;
+    //     right: 0;
+    //     margin-bottom: -53px;
+    //     right: 0%;
+    // }
+    // .carousel-caption.promotion {
+    //     position: absolute;
+    //     bottom: 45%;
+    //    // top:60px;
+    //     z-index: 10;
+    //     padding-top: 12px;
+    //     padding-bottom: 0px;
+    //     color: #fff;
+    //     text-align: center;
+    //     left: -35px;
+    //     max-width: 60%;
+    //     right: 0;
+    //     margin: auto;
+    // }
     
-    .promotion-offer a{
-        margin-bottom:90px;
-    }
+    // .promotion-offer a{
+    //     margin-bottom:90px;
+    // }
     .promotion-inner{
         max-width: 35%;
         margin: auto;
@@ -1867,12 +1875,12 @@ h1.buy1get1-text:after {
         bottom: 14px;
     }
 
-    .promotion-offer .promo-btnimg{
-        max-width: 85%;
-    }
-    .promotion-offer {
-        left: -18%;
-    }
+    // .promotion-offer .promo-btnimg{
+    //     max-width: 85%;
+    // }
+    // .promotion-offer {
+    //     left: -18%;
+    // }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1230px) {
     // .promotion-offer .promo-btn {
@@ -1890,151 +1898,102 @@ h1.buy1get1-text:after {
        
     // }
 }
-@media only screen and (min-width: 1000px) and (max-width: 1200px) {
-    .promotion-offer .promo-btn {
-        right: 0;
-        top: -10px;
-    }
-}
-
-@media only screen and (max-width: 999px) {
-    .promotion-offer .promo-btn {
-        right: 27px;
-        top: -309px;
-    }
-}
-
-@media only screen and (max-width: 989px) {
-    .promotion-offer .promo-btn {
-        right: 32%;
-        top: -80px;
-    }
-}
-
-@media only screen and (max-width: 889px) {
-    .promotion-offer .promo-btn {
-        right: 28%;
-        top: -80px;
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    .promotion-offer .promo-btn {
-        right: 32%;
-        top: -235px;
-    }
-}
-
-@media only screen and (max-width: 578px) {
-    .promotion-offer .promo-btn {
-        right: 8px;
-        top: -344px;
-        bottom: unset;
-    }
-}
-
-@media only screen and (max-width: 550px) {
-    .promotion-offer .promo-btn {
-        right: unset;
-        left: 46%;
-        width: 210px;
-    }
-    .promotion-offer .promo-btn img {
-        width: 100% !important;
-        max-width: 100%;
-    }
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+    // .promotion-offer a {
+    //     position: absolute;
+    //      bottom: null; 
+    // }
 }
 
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
 
-    .promotion-offer .promo-btn {
-        top: 70px;
-    }
+// .promotion .promotion_img_div{
+//     width: 60%;
+//     margin: 0 0 0 auto;
+//     right:20%
+// }  
+// .promotion-offer {
+//     bottom: 0%;
+//     left:-15%;
+     
+// }
 
-    .promotion .promotion_img_div{
-        width: 60%;
-        margin: 0 0 0 auto;
-        right:20%
-    }  
-    .promotion-offer {
-        bottom: 0%;
-        left:-15%;
-        
-    }
-    .promotion-offer a img {
-        width: 65% !important;
-    }
-    .carousel-caption.promotion{
-        position: absolute;
-        bottom: 40%;
-        left: 9%;
-        width: 62%;
-        /* right: 9%; */
-        color: #fff;
-        text-align: center;
-    }
+// .promotion-offer a img {
+//     width: 65% !important;
+// }
+// .carousel-caption.promotion{
+//     position: absolute;
+//     bottom: 40%;
+//     left: 9%;
+//     width: 62%;
+//     /* right: 9%; */
+//     color: #fff;
+//     text-align: center;
+// }
+
+
 
 }
 
 @media only screen and (min-width: 1228.80px) and (max-width: 1230px) {
 
-    .promotion-offer {
-        bottom: 0%;
-        left:-33%;
+    // .promotion-offer {
+    //     bottom: 0%;
+    //     left:-33%;
          
-    }
+    // }
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1200px) {
 
-    .promotion .promotion_img_div{
-        width: 60%;
-        margin: 0 0 0 auto;
-        right:20%
-    }  
-    .promotion-offer{bottom: 0;}
+    // .promotion .promotion_img_div{
+    //     width: 60%;
+    //     margin: 0 0 0 auto;
+    //     right:20%
+    // }  
+    // .promotion-offer{bottom: 0;}
     // .promotion-offer .promo-btn {
     //     position: relative;
     //     top: -50px;
     //     left:25px;
     // }
     
-    .carousel-caption.promotion{
-        position: absolute;
-        bottom: 29%;
-        left: 0;
-        width: 62%;
-        /* right: 9%; */
-        color: #fff;
-        text-align: center;
-    }
-    .home-slider .bg-image{
-        width: 100%;
-        min-height: 0;
-        -o-object-fit: cover;
-        object-fit: contain;
-        }
-        .promotion-offer .promo-btnimg{
-            max-width: 55%;
-        }
+    // .carousel-caption.promotion{
+    //     position: absolute;
+    //     bottom: 29%;
+    //     left: 0;
+    //     width: 62%;
+    //     /* right: 9%; */
+    //     color: #fff;
+    //     text-align: center;
+    // }
+    // .home-slider .bg-image{
+    //     width: 100%;
+    //     min-height: 0;
+    //     -o-object-fit: cover;
+    //     object-fit: contain;
+    //     }
+        // .promotion-offer .promo-btnimg{
+        //     max-width: 55%;
+        // }
         
 
     }
 
 
     @media only screen and (min-width: 1920px) and (max-width: 3000px) {
-        .home-slider .bg-image{
-            min-height: 925px;
-             max-height: 990px;
-        }
+        // .home-slider .bg-image{
+        //     min-height: 925px;
+        //      max-height: 990px;
+        // }
     }
     
     @media only screen and (min-width: 1850px) and (max-width: 1920px) {
   
-        .promotion-offer a{
-            margin-bottom: 30px;
-        }  
+        // .promotion-offer a{
+        //     margin-bottom: 30px;
+        // }  
         .promotion-offer{
             // top: -308px;
         }
@@ -2059,44 +2018,44 @@ h1.buy1get1-text:after {
 }
 
 @media only screen and (min-width: 280px) and (max-width: 280px) {
-    .promotion-offer .promo-btn {
-        // padding: 8px 20px;
-        font-size: 16px;
-        line-height: 26px;
-    }
-    .promotion-offer img {
-        width: 56%;
-    }
+    // .promotion-offer .promo-btn {
+    //     // padding: 8px 20px;
+    //     font-size: 16px;
+    //     line-height: 26px;
+    // }
+    // .promotion-offer img {
+    //     width: 56%;
+    // }
     .promotion-inner {
         max-width: none;
         width: 100%;
     }
-    .carousel-caption.promotion {
-        bottom: 100px;
-        left: 0%;
-        right: 0;
-        margin: auto;
-    }
-    .promotion-offer .view-more {
-        font-size: 14px;
-    }
-    .promotion-offer div a {
-        position: absolute;
-        margin-bottom: -33px;
-    }
-    .promotion-offer div a:after {
-        width: 139px;
-    }
-    .promotion-offer a {
-        position: absolute;
-        bottom: -15px;
-    }
-    .promotion-offer a img {
-        width: 60% !important;
-    }
-    .promotion-offer {
-        top: 33%;
-    }
+    // .carousel-caption.promotion {
+    //     bottom: 100px;
+    //     left: 0%;
+    //     right: 0;
+    //     margin: auto;
+    // }
+    // .promotion-offer .view-more {
+    //     font-size: 14px;
+    // }
+    // .promotion-offer div a {
+    //     position: absolute;
+    //     margin-bottom: -33px;
+    // }
+    // .promotion-offer div a:after {
+    //     width: 139px;
+    // }
+    // .promotion-offer a {
+    //     position: absolute;
+    //     bottom: -15px;
+    // }
+    // .promotion-offer a img {
+    //     width: 60% !important;
+    // }
+    // .promotion-offer {
+    //     top: 33%;
+    // }
     img.promotion-inner-bottom {
         bottom: 0;
         position: absolute;
@@ -2115,15 +2074,15 @@ h1.buy1get1-text:after {
     .enroll-wrappers a:last-child {
         border-right: 0;
     }
-    .home-slider .bg-image {
-        // min-height: 649px;
-        // object-fit: cover;
-        // padding-top: 50px;
-        // max-height: 650px;
-        min-height: 653px;
-        object-fit: cover;
-           max-height: 653px;
-    }
+    // .home-slider .bg-image {
+    //     // min-height: 649px;
+    //     // object-fit: cover;
+    //     // padding-top: 50px;
+    //     // max-height: 650px;
+    //     min-height: 653px;
+    //     object-fit: cover;
+    //        max-height: 653px;
+    // }
     .collection {
         display: none;
     }
@@ -2243,5 +2202,55 @@ h1.buy1get1-text:after {
     }
     .topup-btn {
         bottom: 45%;
+    }
+}
+
+@media only screen  and (max-width: 1900px) {
+    .carousel-caption.promotion {
+        bottom: 24%;
+    }
+}
+
+@media only screen  and (max-width: 1600px) {
+    .carousel-caption.promotion {
+        bottom: 23%;
+    }
+}
+
+@media only screen  and (max-width: 1300px) {
+    .carousel-caption.promotion {
+        bottom: 22%;
+    }
+    .promotion-offer .promo-btn {
+        width: 180px;
+    }
+}
+
+@media only screen  and (max-width: 1100px) {
+    .promotion-offer .promo-btn {
+        width: 160px;
+    }
+}
+
+@media only screen  and (max-width: 950px) {
+    .promotion-offer .promo-btn {
+        width: 140px;
+    }
+}
+
+@media only screen  and (max-width: 767px) {
+    .carousel-caption.promotion {
+        bottom: 43%;
+        right: 24%;
+    }
+    .promotion-offer .promo-btn {
+        width: 160px;
+    }
+}
+
+@media only screen  and (max-width: 480px) {
+    .carousel-caption.promotion {
+        bottom: 39%;
+        right: 15%;
     }
 }
