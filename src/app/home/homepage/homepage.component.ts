@@ -251,7 +251,8 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     window.scrollTo(1650, 1650);
   }
 
-  cliclDownloadAppFree(el: HTMLElement) {
+  cliclDownloadAppFree(el: HTMLElement) 
+  {
     if (this.platform.ANDROID) {
       window.open('https://cutt.ly/7eFSBtF', 'blank')
     } else if (this.platform.IOS) {
