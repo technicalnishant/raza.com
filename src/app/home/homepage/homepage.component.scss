@@ -1253,6 +1253,8 @@ h1.buy1get1-text:after {
         font-weight: bold;
         color: #fff;
         border-radius: 10px;
+        top: 135px;
+        right: 10%;
     }
     .promo-btnimg {
       max-width: 75%;
@@ -1816,8 +1818,7 @@ h1.buy1get1-text:after {
         right:20%
     }  
     .promotion-offer .promo-btn {
-        position: relative;
-        top: 0px;
+        top: 78px;
     }
 }
 
@@ -1874,62 +1875,105 @@ h1.buy1get1-text:after {
     }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1230px) {
-    .promotion-offer .promo-btn {
-        position: relative;
-        // top: -23px;
-        left: 0px
+    // .promotion-offer .promo-btn {
+    //     position: relative;
+    //     // top: -23px;
+    //     left: 0px
        
-    }
+    // }
 }
 @media only screen and (min-width: 1231px) and (max-width: 1397px) {
-    .promotion-offer .promo-btn {
-        position: relative;
-        // top: -23px;
-        left: 135px
+    // .promotion-offer .promo-btn {
+    //     position: relative;
+    //     // top: -23px;
+    //     left: 135px
        
+    // }
+}
+@media only screen and (min-width: 1000px) and (max-width: 1200px) {
+    .promotion-offer .promo-btn {
+        right: 0;
+        top: -10px;
     }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1200px) {
-    .promotion-offer[_ngcontent-wbf-c368] .promo-btn[_ngcontent-wbf-c368] {
-         
-        top: -45px;
-        
-    }
 
-    .promotion-offer a {
-        position: absolute;
-         bottom: null; 
+@media only screen and (max-width: 999px) {
+    .promotion-offer .promo-btn {
+        right: 27px;
+        top: -309px;
+    }
+}
+
+@media only screen and (max-width: 989px) {
+    .promotion-offer .promo-btn {
+        right: 32%;
+        top: -80px;
+    }
+}
+
+@media only screen and (max-width: 889px) {
+    .promotion-offer .promo-btn {
+        right: 28%;
+        top: -80px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .promotion-offer .promo-btn {
+        right: 32%;
+        top: -235px;
+    }
+}
+
+@media only screen and (max-width: 578px) {
+    .promotion-offer .promo-btn {
+        right: 8px;
+        top: -344px;
+        bottom: unset;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .promotion-offer .promo-btn {
+        right: unset;
+        left: 46%;
+        width: 210px;
+    }
+    .promotion-offer .promo-btn img {
+        width: 100% !important;
+        max-width: 100%;
     }
 }
 
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
 
-.promotion .promotion_img_div{
-    width: 60%;
-    margin: 0 0 0 auto;
-    right:20%
-}  
-.promotion-offer {
-    bottom: 0%;
-    left:-15%;
-     
-}
+    .promotion-offer .promo-btn {
+        top: 70px;
+    }
 
-.promotion-offer a img {
-    width: 65% !important;
-}
-.carousel-caption.promotion{
-    position: absolute;
-    bottom: 40%;
-    left: 9%;
-    width: 62%;
-    /* right: 9%; */
-    color: #fff;
-    text-align: center;
-}
-
-
+    .promotion .promotion_img_div{
+        width: 60%;
+        margin: 0 0 0 auto;
+        right:20%
+    }  
+    .promotion-offer {
+        bottom: 0%;
+        left:-15%;
+        
+    }
+    .promotion-offer a img {
+        width: 65% !important;
+    }
+    .carousel-caption.promotion{
+        position: absolute;
+        bottom: 40%;
+        left: 9%;
+        width: 62%;
+        /* right: 9%; */
+        color: #fff;
+        text-align: center;
+    }
 
 }
 
@@ -1950,11 +1994,11 @@ h1.buy1get1-text:after {
         right:20%
     }  
     .promotion-offer{bottom: 0;}
-    .promotion-offer .promo-btn {
-        position: relative;
-        top: -50px;
-        left:25px;
-    }
+    // .promotion-offer .promo-btn {
+    //     position: relative;
+    //     top: -50px;
+    //     left:25px;
+    // }
     
     .carousel-caption.promotion{
         position: absolute;
