@@ -2239,18 +2239,23 @@ h1.buy1get1-text:after {
 }
 
 @media only screen  and (max-width: 767px) {
-    .carousel-caption.promotion {
-        bottom: 43%;
-        right: 24%;
-    }
     .promotion-offer .promo-btn {
-        width: 160px;
+        width: 132px;
+    }
+    .home-slider {
+        margin-top: 50px;
+    }
+    .carousel-caption.promotion {
+        bottom: 10%;
+        right: 50%;
+        margin-right: -66px;
     }
 }
 
 @media only screen  and (max-width: 480px) {
     .carousel-caption.promotion {
-        bottom: 39%;
-        right: 15%;
+        bottom: 10%;
+        right: 50%;
+        margin-right: -66px;
     }
 }
