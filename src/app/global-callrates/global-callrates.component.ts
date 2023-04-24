@@ -24,7 +24,7 @@ import { CheckoutService } from '../checkout/services/checkout.service';
  
 
 import { SlidesOutputData, OwlOptions } from 'ngx-owl-carousel-o';
-import { tap } from '../../../node_modules/rxjs/operators';
+import { filter, tap } from '../../../node_modules/rxjs/operators';
 import { Country } from '../rates/model/country';
 import { MetaTagsService } from 'app/core/services/meta.service';
 
@@ -130,7 +130,11 @@ export class GlobalCallratesComponent implements OnInit {
     private metaTagsService:MetaTagsService,
     private _titleService: Title,
     private _metaService: Meta
-    ) { }
+    ) { 
+
+    
+    
+    }
 
  
     
@@ -139,7 +143,6 @@ export class GlobalCallratesComponent implements OnInit {
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
   
-   
     if(this.route.snapshot.paramMap.get('country_name'))
     {
       let current_route = this.route.snapshot.paramMap.get('country_name')

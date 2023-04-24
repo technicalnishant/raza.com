@@ -77,6 +77,9 @@ import { BottomUpComponent } from './mobile-pay/dialog/bottom-up/bottom-up.compo
 import { DialogCofirmComponent } from './mobile-pay/dialog/dialog-cofirm/dialog-cofirm.component'; 
 var google: any;
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+
+ 
+
 export function LocationProviderFactory(provider: RazaEnvironmentService) {
  
 

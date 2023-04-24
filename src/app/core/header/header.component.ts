@@ -30,7 +30,7 @@ import { GlobalRatesService } from '../../home/globalrates.service';
 import { Event, NavigationStart, NavigationError } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
-
+import { PreviousRouteService } from '../services/previous-route.service';
  
 @Component({
   selector: 'app-header',
@@ -76,6 +76,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   selected_country:string='';
   filter_string:string=''
   ctryName:any;
+  previousUrl:any ='';
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -90,12 +91,13 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     private searchRatesService: SearchRatesService,
     private globalRatesService: GlobalRatesService,
     public platform: Platform,
+     
   ) 
   { 
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     this.isAccountMenuDisplay = this.isSmallScreen && this.isUserAuthenticated();
     //console.log('sidenav',this.sidenav);
- 
+   
 
 } 
 
@@ -105,12 +107,17 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
 
   ngOnInit() {
 
+
+
+
   
   this.router.events.pipe(
     filter(event => event instanceof NavigationEnd)  
   ).subscribe((event: NavigationEnd) => {
      
- 
+  
+    localStorage.setItem('last_page', event.url);
+
 
     if(event.url == '/'  )
     {
@@ -411,6 +418,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
  if(this.currentSetting.currentCountryId != 3 )
 {
       localStorage.setItem('rate_country_id', countryId);
+      localStorage.setItem('history_search_country_id', countryId);
       this.router.navigate(['globalcallrates']);
 }
 else

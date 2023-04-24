@@ -49,6 +49,7 @@ export class MobiletopupComponent implements OnInit, OnDestroy {
   operatorsList:any=[];
   countryTo:number=0;
   currentOperator:string='';
+  topup_ctr: any;
   constructor(private router: Router, private titleService: Title,
     private formBuilder: FormBuilder,
     private countryService: CountriesService,
@@ -99,6 +100,41 @@ export class MobiletopupComponent implements OnInit, OnDestroy {
       this.getInitialTopUpOperatorInfo();
       this.isTopUpEnable = true;  
     }
+
+   
+    // localStorage.getItem("topupCountryName");
+    // localStorage.getItem("topupPhone");
+
+    if(parseFloat(localStorage.getItem("topupCountryId")) > 0)
+    {
+ 
+      let json_str            = JSON.parse(localStorage.getItem("topupCountry"));
+      this.mycountryId        = json_str.CountryId; 
+      
+      if(this.mycountryId > 0)
+      {
+
+        this.mobileTopupForm.controls["countryTo"].setValue(json_str);
+        this.countryName        = json_str.CountryName;
+        this.topup_ctr          = parseFloat(localStorage.getItem("topupCountryId"));
+        
+  
+        
+        
+        this.mobileTopupForm.controls["phoneNumber"].setValue(parseFloat(localStorage.getItem("topupPhone")))
+  
+       if(localStorage.getItem("topupTrigger") == 'clicked')
+       {
+        this.getTopUpOperatorInfo();
+       }
+        
+      }
+     
+
+    }
+    
+     
+
      
   }
 
@@ -181,6 +217,7 @@ export class MobiletopupComponent implements OnInit, OnDestroy {
   }
 
   displayFn(country?: Country): string | undefined {
+     console.log("you are here", country);
     return country ? country.CountryName : undefined;
   }
 
@@ -277,9 +314,11 @@ export class MobiletopupComponent implements OnInit, OnDestroy {
   onMobileTopupFormSubmit() {
     // stop here if form is invalid
     if (!this.isTopUpEnable) {
+      localStorage.setItem("topupTrigger", 'clicked');
       this.getTopUpOperatorInfo();
       return;
     }
+
     this.validateAmountSelection();
     if (!this.mobileTopupForm.valid) {
       return;
@@ -318,13 +357,23 @@ export class MobiletopupComponent implements OnInit, OnDestroy {
     return true;
   }
   
-  onSelectCountrFrom(country: Country) {
+ 
+  onSelectCountrFrom(country: Country) 
+  {
+   
+    localStorage.setItem("topupCountryId", country.CountryId.toString());
+    localStorage.setItem("topupCountry", JSON.stringify(country));
     
-  this.countryName = country.CountryName;
+    
+    this.countryName = country.CountryName;
 
-	this.mycountryId= country.CountryId; 
+    this.mycountryId= country.CountryId; 
   } 
-  
+  storePhoneNumber = () =>{
+    let phone = this.mobileTopupForm.get('phoneNumber').value;
+    localStorage.setItem("topupPhone", phone);
+   
+  }
   unsetFlag() {
     
     

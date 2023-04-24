@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, AfterViewChecked} from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { filter, map, startWith } from 'rxjs/operators';
 //import { NgxCarousel, NgxCarouselStore } from 'ngx-carousel';
 import { SideBarService } from '../../core/sidemenu/sidemenu.service';
 import { GlobalRatesService } from '../globalrates.service';
@@ -38,7 +38,7 @@ import { LoginpopupComponent } from '../../core/loginpopup/loginpopup.component'
 import { ModalVideoComponent } from '../modal-video/modal-video.component';
 
 import { MetaTagsService } from '../../core/services/meta.service';
-
+import { PreviousRouteService } from '../../core/services/previous-route.service';
 // import{GoogleAnalyticsService} from '../../services/google-analytics.service';
 // declare var videojs: any;
 @Component({
@@ -86,6 +86,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
   promtionCode:string='EID2023';
   currentURL:any;
   defaultImage = '';
+  previousUrl:any='';
   image_1 = 'https://d2uij5nbaiduhc.cloudfront.net/images/slider-bg.webp';
   image_2 = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
   image_3 = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
@@ -111,30 +112,61 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     public platform: Platform,
 	private authService: AuthenticationService,
   private metaTagsService:MetaTagsService,
+  private previousRouteService: PreviousRouteService,
   @Inject(DOCUMENT) private document: Document,
   //public googleAnalyticsService: GoogleAnalyticsService
 
   ) {
     this.sideBarService.toggle();
-
+    router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe((event: NavigationEnd) => {
+      console.log('prev:', event.url);
+      this.previousUrl = event.url;
+    });
   }
 
 
   ngOnInit() {
+  /******************* Remember & redirect rate page search functioanlity ********************/
+
+    let previous = this.previousRouteService.getPreviousUrl();
+    let currnet = this.previousRouteService.getCurrentUrl();
+    
+    if(previous == '/globalcallrates' && currnet == '/')
+    {
+      localStorage.removeItem('history_search_country_id');
+       
+    }
+    else if(previous != '/globalcallrates' && previous != '/')
+    {
+      localStorage.removeItem('history_search_country_id')
+     
+    }
+   else if( localStorage.getItem('history_search_country_id') && parseFloat(localStorage.getItem('history_search_country_id'))> 0) 
+    {
+     
+     localStorage.setItem('rate_country_id', localStorage.getItem('history_search_country_id'));
+     localStorage.removeItem('history_search_country_id')
+     this.router.navigate(['globalcallrates']); 
+    }
+    
+/******************* EOF Remember & redirect  rate page search functioanlity ********************/
+
     window.scroll({ 
       top: 10, 
       left: 0, 
       behavior: 'smooth' 
-});
+  });
    // this.googleAnalyticsService.eventEmitter("home_page", "Home page", "Home page", "page load", 1);
 
-    this.defaultImage = 'https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif';
-    this.image_1 = 'https://d2uij5nbaiduhc.cloudfront.net/images/slider-bg.webp';
-    this.image_2 = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
-    this.image_3 = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
-    this.image_4 = 'https://d2uij5nbaiduhc.cloudfront.net/images/was10now5.webp';
-    this.image_5 = 'https://d2uij5nbaiduhc.cloudfront.net/images/uk_left.webp';
-    this.image_6 = 'https://d2uij5nbaiduhc.cloudfront.net/images/mobile-uk.webp';
+    this.defaultImage   = 'https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif';
+    this.image_1        = 'https://d2uij5nbaiduhc.cloudfront.net/images/slider-bg.webp';
+    this.image_2        = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
+    this.image_3        = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
+    this.image_4        = 'https://d2uij5nbaiduhc.cloudfront.net/images/was10now5.webp';
+    this.image_5        = 'https://d2uij5nbaiduhc.cloudfront.net/images/uk_left.webp';
+    this.image_6        = 'https://d2uij5nbaiduhc.cloudfront.net/images/mobile-uk.webp';
 
   
     this.currentURL = window.location.href;

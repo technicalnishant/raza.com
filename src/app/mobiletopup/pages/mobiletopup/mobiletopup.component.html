@@ -26,11 +26,11 @@
                  <!--<span *ngIf="mycountryId > 0" matPrefix class="prefix-mobiletopup">
                   <img src="assets/images/blank.gif" [ngClass]="'flag flag-' + mycountryId" />
                 </span>--> 
-                <input matInput type="text" [matAutocomplete]="auto" formControlName="countryTo" (keyup)="unsetFlag()"
+                <input matInput type="text" [matAutocomplete]="auto" formControlName="countryTo"  (keyup)="unsetFlag()"
                   class="ml-2" />
                 <mat-icon matSuffix>search</mat-icon>
 
-                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" >
                   <mat-option *ngFor="let country of filteredCountry | async" [value]="country"
                     (click)="onSelectCountrFrom(country)">
                     <span class="mr-2">
@@ -50,9 +50,9 @@
                   this.mobileTopupForm.get("countryTo").value?.CountryCode }}
                 </span>
 
-                <input type="tel" matInput formControlName="phoneNumber" class="ml-2" />
+                <input type="tel" matInput formControlName="phoneNumber" class="ml-2" (keyup)="storePhoneNumber()" />
                 <span class="floatRight forgetPass" *ngIf="isTopUpEnable">
-                  <a tabindex="3" (click)="changeNumber()">Change Number?</a></span>
+                  <a tabindex="3" (click)="changeNumber()" >Change Number?</a></span>
               </mat-form-field>
               <!--<p class="numberXX">+971 5299XXXXX</p>-->
               <mat-error *ngIf="

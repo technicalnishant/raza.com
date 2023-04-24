@@ -272,6 +272,11 @@ export class TransactionMobProcessBraintreeService {
         if (transactionResponseModel.Status) {
           PurchaseService.processedTransaction.next(transactionReq);
           this.navigateToConfirmationPage(model.OrderId);
+
+          localStorage.removeItem("topupTrigger");
+          localStorage.removeItem("topupCountryId");
+          localStorage.removeItem("topupCountry");
+
         } else {
          
           let error = new ErrorDialogModel();

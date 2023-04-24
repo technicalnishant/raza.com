@@ -140,6 +140,7 @@ export class SearchratesComponent implements OnInit, OnDestroy {
   }
 
   viewRates(countryId) {
+    localStorage.setItem('history_search_country_id', countryId);
      if(this.currentSetting.currentCountryId == 3)
       {
     this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, countryId).subscribe(
