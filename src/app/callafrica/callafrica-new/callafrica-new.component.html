@@ -1,0 +1,511 @@
+<div class="first_fold">
+
+
+
+
+    <div class="callafrica_banner">
+        <!-- <img src="../assets/images/banner_image.png" alt="banner"> -->
+    </div>
+</div>
+<div class="commonWrapperArea2 search-main2">
+   
+<div class="search__wrapper_new">
+  <!-- still searching area -->
+<!-- <div class="stillSearchingArea">
+    <h3 class="select-country">Select Country</h3>
+   
+    <div class="searchAreaMain">
+        <div class="select_top1" (click)="openFlagDropDown()">
+            <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+                [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId">
+        </div>
+        <div class="flag_list1" *ngIf="showDropdown">
+            <ul>
+                <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)">
+                    <span>
+                        <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+                            [ngClass]="'flag flag-f-'+ item.CountryId">
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div *ngIf="showPlaceholder" class="placeholder-search" 
+            (click)="onClickPlaceholder()">
+            <p class="palceholder-searchs" (click)="onClickPlaceholder()">Where do you wish to call?</p>
+        </div>
+        <img [src]="searchicon" alt="" class="searchic" (click)="onClickClose(searchicon)">
+
+        <div class="homecountry_dropdown1">
+            <mat-form-field class="example-full-width">
+              <input matInput aria-label="State" id="searchInput" [matAutocomplete]="auto" [formControl]="autoControl"
+                ng-placeholder="State" (focusout)="onClickInput()" (focus)="onInputFocus()">
+              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of filteredCountry | async" [value]="option"
+                  (onSelectionChange)="viewRates($event,option.CountryId)">
+                  <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
+                    [ngClass]="'flag flag-'+ option.CountryId" height="25">
+                  <span class="width70">{{option.CountryName}}</span>
+                 
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+    </div>
+    
+</div> -->
+<!-- still searching area -->
+
+
+
+<section class="country-search">
+    <div class="container">
+      <div class="col-lg-8 col-md-12 mx-auto">
+        <div class="search-input">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text caret bg-white border-right-0">
+                <div (click)="openFlagDropDown()" class="select_top1">
+                  <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20" [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down ml-2" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+                </div>
+                <div class="flag_list1" *ngIf="showDropdown">
+                  <ul>
+                    <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)">
+                      <span>
+                        <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+                          [ngClass]="'flag flag-f-'+ item.CountryId">
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- <div *ngIf="showPlaceholder" class="placeholder-search" (click)="onClickPlaceholder()">
+                    <p class="palceholder-searchs" (click)="onClickPlaceholder()">Where do you wish to call?</p>
+                </div>
+                <img [src]="searchicon" alt="" class="searchic" (click)="onClickClose(searchicon)"> -->
+
+
+              </span>
+            </div>
+            <input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto" 
+class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder="State" (focusout)="onClickInput()" (focus)="onInputFocus()">
+            
+  
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of filteredCountry | async" [value]="option"
+                    (onSelectionChange)="viewRates($event,option.CountryId)">
+                    <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
+                        [ngClass]="'flag flag-'+ option.CountryId" height="25">
+                        <span class="width70">{{option.CountryName}}</span>
+                       
+                    </mat-option>
+                </mat-autocomplete>
+            <div class="input-group-append">
+              <span class="input-group-text border-left-0 bg-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="country-search">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-9 mx-auto">
+            
+        <div class="alphabet_links" *ngIf="allCountry">
+                 
+        <li class="active" [ngClass]="{'active': currentClickedChar === 'All' }" (click)="displayCountryList('All')">All</li>
+        <li class="{{isDisabled('A')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'A' }" (click)="displayCountryList('A')">A</li>
+        <li class="{{isDisabled('B')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'B' }" (click)="displayCountryList('B')">B</li>
+        <li class="{{isDisabled('C')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'C' }" (click)="displayCountryList('C')">C</li>
+        <li class="{{isDisabled('D')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'D' }" (click)="displayCountryList('D')">D</li>
+        <li class="{{isDisabled('E')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'E' }" (click)="displayCountryList('E')">E</li>
+        <li class="{{isDisabled('F')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'F' }" (click)="displayCountryList('F')">F</li>
+        <li class="{{isDisabled('G')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'G' }" (click)="displayCountryList('G')">G</li>
+        <li class="{{isDisabled('H')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'H' }" (click)="displayCountryList('H')">H</li>
+        <li class="{{isDisabled('I')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'I' }" (click)="displayCountryList('I')">I</li>
+        <li class="{{isDisabled('J')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'J' }" (click)="displayCountryList('J')">J</li>
+        <li class="{{isDisabled('K')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'K' }" (click)="displayCountryList('K')">K</li>
+        <li class="{{isDisabled('L')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'L' }" (click)="displayCountryList('L')">L</li>
+        <li class="{{isDisabled('M')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'M' }" (click)="displayCountryList('M')">M</li>
+        <li class="{{isDisabled('N')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'N' }" (click)="displayCountryList('N')">N</li>
+        <li class="{{isDisabled('O')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'O' }" (click)="displayCountryList('O')">O</li>
+        <li class="{{isDisabled('P')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'P' }" (click)="displayCountryList('P')">P</li>
+        <li class="{{isDisabled('Q')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Q' }" (click)="displayCountryList('Q')">Q</li>
+        <li class="{{isDisabled('R')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'R' }" (click)="displayCountryList('R')">R</li>
+        <li class="{{isDisabled('S')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'S' }" (click)="displayCountryList('S')">S</li>
+        <li class="{{isDisabled('T')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'T' }" (click)="displayCountryList('T')">T</li>
+        <li class="{{isDisabled('U')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'U' }" (click)="displayCountryList('U')">U</li>
+        <li class="{{isDisabled('V')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'V' }" (click)="displayCountryList('V')">V</li>
+        <li class="{{isDisabled('W')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'W' }" (click)="displayCountryList('W')">W</li>
+        <li class="{{isDisabled('X')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'X' }" (click)="displayCountryList('X')">X</li>
+        <li class="{{isDisabled('Y')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Y' }" (click)="displayCountryList('Y')">Y</li>
+        <li class="{{isDisabled('Z')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Z' }" (click)="displayCountryList('Z')">Z</li>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-6 col-md-4 col-xl-3 col-lg-4 countries" *ngFor="let item of bindSearchRates; let i = index">
+              <div class="country-box" >
+                <div class="country-flag">
+                  <!--<div class="div">
+                    <img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ item.CountryId"
+                          [alt]="item.CountryName" />
+                          
+                  </div>-->
+  
+                  <div class="div">
+                 
+                     
+                  <img
+                  src="./../../assets/images/flag/{{
+                    getImageName(item.CountryName) | lowercase
+                  }}.png"
+                />
+                  </div>
+  
+                  <div class="country-name">{{item.CountryName}}</div>
+                </div>
+                <div class="country-rate">
+                  <span>mins</span> {{getcountryrate(item.CallRate) | sCurrency : currentCurrency}}
+                </div>
+                <button
+                  class="view-details-btn"
+                  (click)="viewPopUp(item.CountryId)"
+                >
+                Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Alpahbet search end here-->
+    </div>
+  </section>
+
+
+
+<!-- <div class="country-list-wrapper">
+  <div class="country-list" *ngFor="let option of allCountryFilteredList" (click)="viewPopUp(option.CountryId)">
+    <img src="./../../assets/images/{{getImageName(option.CountryName) | lowercase}}.png">
+    <p class="country">{{option.CountryName}}</p>
+    <span>from</span> 
+    <p class="price"><b>{{getcountryrate(option.CallRate) | sCurrency : currentCurrency}}</b></p>
+  </div>
+</div>
+
+
+
+
+<div class="mobileratestable">
+  <div class="mobileratestable-row" *ngFor="let option of allCountryFilteredList" (click)="viewPopUp(option.CountryId)">
+    <span class="mobileratestable-flagNameWrap">
+      <span style="display: flex; align-items: center;">
+        <img alt="" src="./../../assets/images/{{getImageName(option.CountryName) | lowercase}}.png" height="37" width="37"></span>
+        <span class="mobileratestable-currencyName"><span>{{option.CountryName}}</span> </span>
+      </span><span class="mobileratestable-rate"><span class="">{{option.CallRate | sCurrency:currentCurrency}}</span></span>
+    </div>
+</div> -->
+
+
+
+<!-- <div class="bg-shapes">
+  <img src="./../../assets/images/search/Image_57.png">
+  <img src="./../../assets/images/search/Ellipse_1.png">
+  <img src="./../../assets/images/search/Ellipse_7.png">
+  <img src="./../../assets/images/search/Polygon_4.png">  
+  <img src="./../../assets/images/search/Rectangle_5.png">  
+  <img src="./../../assets/images/search/Rectangle_48.png"> 
+  <img src="./../../assets/images/search/Polygon_4.png">  
+
+</div> -->
+
+</div>
+<div class="call-us text-center" style="">
+    <p><span>Have a question? <a (click)=contactUs() >Call us</a></span></p>
+  </div>
+
+
+</div>
+<div class="plan-info d-block d-xl-flex">
+
+  <div class="text-section">
+    <h1 class="text-center">THIS PLAN INCLUDES</h1>
+    <div class="text-part">
+          <mat-list>
+      <mat-list-item>
+        <img src="./../../assets/images/plan-include/global.png">
+        <p>GLOBAL CALLING <br>
+          <span>Best Rates to call any Landlines and Cell phones worldwide!</span></p>
+      </mat-list-item>
+      <mat-list-item>
+        <img src="./../../assets/images/plan-include/quality.png">
+        <p>EXEPTIONAL CALL QUALITY <br>
+          <span>Our State of the Art fiber optic network keeps you in touch with high quality.</span></p>
+      </mat-list-item>
+      <mat-list-item>
+        <img src="./../../assets/images/plan-include/money-back.png">
+        <p>100% MONEY BACK GURANTEE <br>
+          <span>Get your unused balance refunded at any time if you are not completed satishfied.</span></p>
+      </mat-list-item>
+    </mat-list>
+    <mat-list>
+      <mat-list-item>
+        <img src="./../../assets/images/plan-include/mobile-app.png">
+        <p>MOBILE APP <br>
+          <span>
+            Download the app and call directly without having to dial <br> access number.</span></p>
+      </mat-list-item>
+      <mat-list-item>
+        <img src="./../../assets/images/plan-include/reward.png">
+        <p>RAZA REWARDS <br>
+          <span>Signup for Raza Rewards and earn points on every dollor spent.</span></p>
+      </mat-list-item>
+      <mat-list-item>
+        <img src="./../../assets/images/plan-include/account.png">
+        <p>ONLINE ACCOUNT MANAGEMENT <br>
+          <span>Keep track of your calls, orders and rewards anywhere anytime..</span></p>
+      </mat-list-item>
+    </mat-list>
+    </div>
+  </div>
+  <div class="blue-section align-items-center d-flex text-right flex-column flex-xl-row-reverse">
+    <img src="./../../assets/images/bubble.png">
+  </div>
+</div>
+
+
+<!-- this plan include section -->
+
+<!-- common wrapper -->
+<div class="container search-main no-margin">
+  <div class="linethroughArea">
+  <div class="line"></div>
+  <span>FAQ’S</span></div>
+
+  <!-- <mat-form-field>
+        <input matInput placeholder="How do we help?" type="text">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field> -->
+  <!-- <div class="headingText">What is the coupon code for Buy 1 Get 1 Offer?</div> -->
+
+    <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Once I purchase a calling plan, how do I place my first call?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Upon purchasing a calling plan you will receive a confirmation Email providing you with a local access number
+        to dial out.</p>
+      <p>1. Use your registered phone and dial the local access number.</p>
+      <p>2. Dial 011+ Country code + Destination number to get connected.</p>
+      <p>3. Keep Talking!</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Can I use my calling plan to dial any country other than what I selected while sign up.
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <p> Yes, however the rates advertised on the web only apply to the specific country of selection. Please visit our
+        “search rate” page to view all rates.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Will my calling plan expire?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Most of our calling plans have no expiration date; there is 6 month validity on our special or discounted
+        plans.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Why do I have to wait for my account to be activated?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>At Raza Communications confirming your order is our way of ensuring consumer protection against credit card
+        fraud. Our highly trained customer service representatives inspect and verify all new orders to guarantee your
+        online security. You can recharge anytime once your account is verified successfully. </p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          How do I know which Calling Plan is right for me?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Calling rates differ from Country to Country and to Mobile and Landlines. All our plans are tailored to call
+        anywhere in the world at the best rates possible. Chat or call our 24/7 customer service for any additional
+        assistance.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          How do I make purchase without using Credit Card?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Yes, you can mail us a money order to:</p>
+      <p>Raza communications </p>
+      <p>5219 N. Harlem Ave. </p>
+      <p>Chicago IL, 60656 </p>
+      <p>Please be sure to include your Name, Address, Phone Number and Email. Once we receive your payment we will call
+        or e-mail your plan details. </p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Why are the rates different when calling a cell phone?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>In most non-domestic countries, a surcharge is applied when calling a Mobile phone. This additional charge
+        results in rate increases. However, for certain countries it is cheaper to call Mobiles than landlines.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Is it safe to purchase your service over the Internet?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Our technology makes it possible for sensitive data to be safely transmitted over the Internet; the information
+        is encrypted using proprietary and secure socket layer (SSL) technology. We are also certified secure by McAfee,
+        Thawte and Visa/MasterCard.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          I lost my password, how do I reset?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Click <a href="javascript:void(0)" (click)="openLoginPopup()">Forgot Password</a> link on the login page to receive your password by
+        Text or E-mail.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          I lost my access number. How do I get that back?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Login and visit Account Overview page to view your current Raza access number.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          What if the rate on the website differs from the rate on the calling plan purchased?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>If the rates on the site differ from the rate of the calling plan, call customer service immediately for
+        assistance. In most of the cases we will refund your money back.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Can I cancel my auto-refill now and continue using my balance?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Only premium plans will allow you to use the remaining balance on the account. Discounted plans will cancel
+        automatically upon auto-refill cancellation.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          What is Money Back Guarantee?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>If for any reason you are not satisfied with our product, the unused balance on your account will be refunded
+        back. Any Balance that is 6 months or older will not be refunded.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Can I recharge my Raza Calling Plan?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Absolutely, our website will allow you to add more money to your plan at any time! You can even use our
+        Auto-Refill Feature to automatically recharge your account once it falls below $2. Some auto-refill plans may
+        not allow you to recharge online. Please call the customers service or chat with a live agent for more details.
+      </p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Do i need to enroll first to be eligible to earn Raza Reward points?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Yes, you must be enrolled to Raza Rewards to earn points on all eligible  recharge transactions.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          How can I contact you for further details?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p> <a routerLink="/contactus">Click here</a> to Call, Chat or email us.</p>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+
+</div>
+ 
+
+<div class="still-searching text-center" style="">
+    <p>Still Searching?</p>
+    <a href="/searchrates" title="">View All Rates</a>
+
+  </div>
+
+<div class="streakBanner">
+  <div class="backgroundTexture">
+    <div class="maintextarea">
+      <h4>Try it for free.<br />
+        It only takes 30 seconds to get started.</h4>
+      <a href="#" [routerLink]="['/freetrial']" class="button orange-cta cta w-inline-block chrome">TRY NOW</a>
+    </div>
+  </div>
+</div>
+<div class="streakBannerBottom">
+  <!-- <p>Existing Customers? <span>Get something awesome!</span>
+    <a href="/mobiledeals">View Offers</a> -->
+
+    <p>Existing Customers? <span>Check out our awesome features!</span>  
+      <a href="/features">View</a>
+  </p>
+</div>
+

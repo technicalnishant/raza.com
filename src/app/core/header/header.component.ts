@@ -346,25 +346,28 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     }
     else
     {
-      const dialogConfig = new MatDialogConfig();
-      // The user can't close the dialog by clicking outside its body
-      dialogConfig.disableClose = true;
-      dialogConfig.id = "modal-component";
-      dialogConfig.height = "350px";
-      dialogConfig.width = "600px";
-      dialogConfig.data = {
-        name: "logout",
-        title: "Are you sure you want to logout?",
-        description: "Pretend this is a convincing argument on why you shouldn't logout :)",
-        actionButtonText: "Logout",
-      }
-      // https://material.angular.io/components/dialog/overview
-      const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
+
+      this.router.navigate(['/recharge/quick']);
+
+      // const dialogConfig = new MatDialogConfig();
+      
+      // dialogConfig.disableClose = true;
+      // dialogConfig.id = "modal-component";
+      // dialogConfig.height = "350px";
+      // dialogConfig.width = "600px";
+      // dialogConfig.data = {
+      //   name: "logout",
+      //   title: "Are you sure you want to logout?",
+      //   description: "Pretend this is a convincing argument on why you shouldn't logout :)",
+      //   actionButtonText: "Logout",
+      // }
+     
+      // const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
     }
   }
   closeIconLogin(){}
   closeIcon(){
-    console.log('dealsDropMenu', this.dealsDropMenu);
+  //   console.log('dealsDropMenu', this.dealsDropMenu);
     //this.renderer.setStyle(this.dealsDropMenu.nativeElement, 'display', 'none')
   }
 

@@ -8,6 +8,7 @@ import { FreeTrialComponent } from './freetrial/freetrial.component';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FreetrialNewComponent } from './freetrial-new/freetrial-new.component';
 @NgModule({
   imports: [ 
       MaterialModule,
@@ -17,13 +18,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 	  ReactiveFormsModule,
       RouterModule.forChild([
         { path: '', component: FreeTrialComponent },    
+        { path: 'new', component: FreetrialNewComponent },    
       ]) 
    ],
   exports: [
     FreeTrialComponent
     ],
   declarations: [ 
-    FreeTrialComponent
+    FreeTrialComponent, FreetrialNewComponent
    ],
   providers: [ 
     FreeTrialService 

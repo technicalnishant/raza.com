@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CallafricaComponent } from './callafrica/callafrica.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CallafricaNewComponent } from './callafrica-new/callafrica-new.component';
 
 @NgModule({
   imports: [ 
@@ -15,13 +16,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
       ReactiveFormsModule,
       RouterModule.forChild([
         { path: '', component: CallafricaComponent },    
+        { path: 'new', component: CallafricaNewComponent },    
       ]) 
    ],
   exports: [
     CallafricaComponent
     ],
   declarations: [ 
-    CallafricaComponent,
+    CallafricaComponent, CallafricaNewComponent,
    ],
   providers: [  ],
   entryComponents : [

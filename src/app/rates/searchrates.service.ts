@@ -34,28 +34,28 @@ export class SearchRatesService {
         }
 
         public getSearchRates(countryFromId: number): Observable<SearchRate[] | ApiErrorResponse> {
-                // return this.httpClient.get<SearchRate[]>(`${Api.rates.getSearchRates} ${countryFromId}`)
-                //         .pipe(
-                //                 catchError(err => this.handleHttpError(err))
-                //         );
+                return this.httpClient.get<SearchRate[]>(`${Api.rates.getSearchRates} ${countryFromId}`)
+                        .pipe(
+                                catchError(err => this.handleHttpError(err))
+                        );
 
                 
-                var file = 'countries_usa.json';
-                if(countryFromId == 2)
-                file = 'countries_cad.json';
+                // var file = 'countries_usa.json';
+                // if(countryFromId == 2)
+                // file = 'countries_cad.json';
 
-                if(countryFromId == 3)
-                file = 'countries_uk.json';
+                // if(countryFromId == 3)
+                // file = 'countries_uk.json';
 
-                if(countryFromId == 8)
-                file = 'countries_aus.json';
-                if(countryFromId == 20)
-                file = 'countries_nz.json';
-                if(countryFromId == 26)
-                file = 'countries_in.json';
+                // if(countryFromId == 8)
+                // file = 'countries_aus.json';
+                // if(countryFromId == 20)
+                // file = 'countries_nz.json';
+                // if(countryFromId == 26)
+                // file = 'countries_in.json';
 
-                console.log(file);
-                return  this.httpClient.get<[]>("./assets/"+file) ;
+                // console.log(file);
+                // return  this.httpClient.get<[]>("./assets/"+file) ;
         }
 
         public getPopularRates(countryFromId: number): Observable<PopularRate[] | ApiErrorResponse> {

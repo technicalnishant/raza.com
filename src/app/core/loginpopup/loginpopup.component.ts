@@ -98,7 +98,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     this.fromPage   = (data.redirect_path)?data.redirect_path:'';
     this.module     = (data.module)?data.module:'';
     this.plan_id    = (data.plan_id)?data.plan_id:'';
- 
+    console.log(data);
 
   }
 
@@ -120,6 +120,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
   }
   ngOnInit() {
+
+    
 
     this.loginForm = this.formBuilder.group({
       //username: ['', [Validators.required, Validators.pattern("^[1-9]{1}[0-9]{9}$")]],
@@ -293,7 +295,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       this.authService.login(body, false, "Y").subscribe((response) => {
         if (response != null) {
 
-          if(this.fromPage   =='') 
+          if(this.fromPage   =='' ) 
           { 
             this.router.navigate([this.returnUrl]);
             this.closeModal();
@@ -319,9 +321,10 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     );
   }
   ////////// Forgor password /////////
+  
   callRedirect()
   {
-    var path = '/'+this.module+'/'+this.fromPage
+     var path = '/'+this.module+'/'+this.fromPage
     
     
 
@@ -330,11 +333,14 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
         if(data[0]) 
         {
           this.plan = data[0];
-          if(this.plan_id !='')
-           path = '/'+this.module+'/'+this.fromPage+'/'+this.plan.PlanId
+          if(this.plan.PlanId !='')
+          path = '/'+this.module+'/'+this.fromPage+'/'+this.plan.PlanId;
+
+            this.router.navigateByUrl(path);
+            this.closeModal();
+
         }
-        this.router.navigateByUrl(path);
-        this.closeModal();
+        
       },
       (err: ApiErrorResponse) => {
         console.log(err)

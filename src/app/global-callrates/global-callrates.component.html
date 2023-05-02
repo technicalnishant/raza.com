@@ -10,13 +10,14 @@
                         </div>
                         <div class="country-name">
                             <h1 class="text-center123">
-                              {{baseCountryName}} 
+                              {{countryName}} 
                             </h1>
                             <p *ngIf="!isAutoRefill">as low as {{RatePerMinWithOutPromo | sCurrency : countryCode}} / min</p>
                             <p *ngIf="isAutoRefill">as low as {{RatePerMinPromo | sCurrency : countryCode}} / min</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-md-6">
                     <div class="auto-refiil">
                         <button mat-button class="{{!isAutoRefill?'active-button':''}}"
@@ -25,7 +26,7 @@
                             (click)="setPlanType(1)">Auto-refill Mins</button>
                         <div (click)="tooltip.toggle()"
                             aria-label="Show/Hide tooltip on the button at the end of this section"
-                            class="example-action-button">1
+                            class="example-action-button">
 
                             <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"
                                 width="18px" height="18px">

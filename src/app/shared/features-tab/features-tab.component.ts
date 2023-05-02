@@ -228,12 +228,8 @@ export class FeaturesTabComponent implements OnInit {
 
   }
       
-	signupModal() {
-	this.dialog.open(LoginpopupComponent, {
-		data: {  }
-    });
-	 
-  }
+	
+	
 	howItWorksPopup(obj) {
 	 
     this.dialog.open(HowWorksComponent, {
@@ -272,9 +268,15 @@ export class FeaturesTabComponent implements OnInit {
 		{
 			localStorage.removeItem('redirect_path');
 		}
-		this.signupModal();
+		this.signupModal('account', this.data[obj].page_url);
 		}
 	} 
   
+	signupModal(obj, obj1) 
+	{
 
+		this.dialog.open(LoginpopupComponent, {
+			data: { redirect_path:obj1, module:obj}
+		});
+	}
 }

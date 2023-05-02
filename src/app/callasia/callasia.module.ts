@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../core/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { CallasiaComponent } from './callasia/callasia.component';
+import { CallasiaNewComponent } from './callasia-new/callasia-new.component';
 
 @NgModule({
   imports: [
@@ -15,13 +16,15 @@ import { CallasiaComponent } from './callasia/callasia.component';
     MatAutocompleteModule,
     RouterModule.forChild([
       { path: '', component: CallasiaComponent },
+      { path: 'new', component: CallasiaNewComponent },
     ])
   ],
   exports: [
     CallasiaComponent
   ],
   declarations: [
-    CallasiaComponent
+    CallasiaComponent,
+    CallasiaNewComponent
   ],
   providers: [],
   entryComponents: [
