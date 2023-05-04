@@ -23,6 +23,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+
+ 
  /*
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import {
@@ -41,6 +43,7 @@ import {
 	MatAutocompleteModule,
 	ReactiveFormsModule,
 	SharedModule,
+ 
   ],
   exports: [
     HeaderComponent,

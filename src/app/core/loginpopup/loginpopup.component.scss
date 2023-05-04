@@ -555,3 +555,41 @@ span.note {
 }
 }
 
+@media (min-width: 0px) and (max-width: 576px) {
+  ::ng-deep .ng-otp-input-wrapper .otp-input {
+     width: 2rem !important;
+     height: 2rem !important;
+     margin-right: 5px !important;
+     margin-bottom: 5px !important;
+  }}
+
+  .options{
+  
+   
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    cursor: pointer;
+    /* identical to box height */
+
+    color: #007BFF;
+  }
+  .contact_div{
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    
+    /* identical to box height */
+    text-align: center;
+    
+    .phone_text{
+      color: #007BFF;
+    }
+  }
+  

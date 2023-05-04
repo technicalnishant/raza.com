@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, Optional, Inject} from '@angular/core';
+import { Component, OnInit, Injector, Optional, Inject, ViewChild, ViewChildren} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 //import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel';
 //import { TextMaskModule } from 'angular2-text-mask';
@@ -14,7 +14,7 @@ import { SignuppopupComponent } from '../signuppopup/signuppopup.component';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Title } from '@angular/platform-browser';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { AuthenticationService } from '../../core/services/auth.service';
 import { AppBaseComponent } from '../../shared/components/app-base-component';
 import { timer } from 'rxjs';
@@ -26,6 +26,7 @@ import { PlanService } from '../../accounts/services/planService';
 import { ApiErrorResponse } from '../../core/models/ApiErrorResponse'; 
 import { Plan } from '../../accounts/models/plan';
 import { OtpDialogComponent } from '../otp-dialog/otp-dialog.component';
+ 
 /*
 import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
@@ -39,7 +40,7 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
 
 
 export class LoginpopupComponent extends AppBaseComponent implements OnInit {
-
+  
   public phonemask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   public phonemask1 = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   public phonemask2 = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
@@ -76,7 +77,13 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   enteredPhone:number;
   enteredEmail:string;
   signupNoExist:boolean=false;
+  processOtp:boolean=false;
 
+  moreOptions:boolean=false;
+  form: FormGroup;
+  formInput = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6'];
+  @ViewChildren('formRow') rows: any;
+  
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -92,9 +99,11 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     public signupDialog: MatDialog,
     //private sauthService: SocialAuthService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
+    
     _injector: Injector
   ) {
     super(_injector); 
+    this.form = this.toFormGroup(this.formInput);
     this.fromPage   = (data.redirect_path)?data.redirect_path:'';
     this.module     = (data.module)?data.module:'';
     this.plan_id    = (data.plan_id)?data.plan_id:'';
@@ -352,18 +361,66 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     //this.module     = (data.module)?data.module:'';
     //this.plan_id    = (data.plan_id)?data.plan_id:'';
   }
-  showHideForgotForm() {
 
+  showHideForgotForm() {
+    
     if (this.showForgotPass) {
       this.showForgotPass = false;
-    } else {
+    } else 
+    {
       this.showForgotPass = true;
       const phoneOrEmail = this.loginForm.value.username;
       this.forgotPasswordForm.controls['phoneEmailControl'].setValue(phoneOrEmail);
+
+      if(phoneOrEmail !='')
+      {
+
+        this.enteredPhone = phoneOrEmail;
+        this.processForgot()
+       
+
+        this.processOtp = true;
+      }
+      else{
+        this.processOtp = false;
+      }
     }
 
   }
 
+  processForgot()
+  {
+    let reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
+
+    reciever = this.escapeRegExp(reciever);
+    reciever = reciever.replace(" ", "");
+ 
+    if(this.loginWith == 'phone')
+     {
+      reciever = autoCorrectIfPhoneNumber(this.currentSetting.country.CountryCode+reciever);
+      
+     } 
+      
+     if (!isValidPhoneOrEmail(reciever)) {
+      this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid_input': true });
+      return;
+    }
+ 
+    this.executeCaptcha('login').toPromise().then(token => {
+    this.authService.sendOtp(reciever, token).subscribe(
+      (res: boolean) => {
+        
+      },
+      err => {
+        this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+      }
+    );
+    })
+  }
+  onOtpChange()
+  {
+
+  }
   submitForgotPasswordForm(): void {
 
    if(this.loginWith == 'email')
@@ -608,4 +665,95 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      
   }
 
+
+
+  toFormGroup(elements) {
+    const group: any = {};
+
+    elements.forEach(key => {
+      group[key] = new FormControl('', Validators.required);
+    });
+    return new FormGroup(group);
+  }
+
+  keyUpEvent(event, index) {
+    let pos = index;
+    if((event.target as HTMLInputElement).value == '')
+    {
+      return false
+    }
+    if (event.keyCode === 8 && event.which === 8) {
+      pos = index - 1 ;
+    } else {
+      pos = index + 1 ;
+    }
+   
+    if (pos > -1 && pos < this.formInput.length ) {
+      this.rows._results[pos].nativeElement.focus();
+      
+    }
+
+    if(pos == this.formInput.length)
+      this.onSubmit()
+
+  }
+
+ 
+
+
+  onSubmit(): void {
+    
+    let otp = this.form.value.input1+this.form.value.input2+this.form.value.input3+this.form.value.input4+this.form.value.input5+this.form.value.input6;
+    var reciever = this.forgotPasswordForm.value.phoneEmailControl;
+   
+  if(this.loginWith  != 'email')
+  {
+    reciever = autoCorrectIfPhoneNumber(this.currentSetting.country.CountryCode+this.forgotPasswordForm.get('phoneEmailControl').value);
+  }
+  else
+  reciever = autoCorrectIfPhoneNumber(this.forgotPasswordForm.get('phoneEmailControl').value);
+   
+  
+   
+
+    
+    let body = {
+      username: reciever,
+      password: otp,
+      phone:this.forgotPasswordForm.get('phoneEmailControl').value
+    }
+
+    console.log(body);
+    this.authService.login(body, true).subscribe((response) => {
+      console.log(response);
+      if (response != null) 
+      {
+        this.router.navigateByUrl('/account/update-password');
+        this.closeModal();
+      } else if (response == null) 
+      {
+       // this.router.navigateByUrl('/auth/sign-in');
+         this.closeModal();
+      } else 
+      {
+        this.forgotPasswordForm.controls['otp'].setErrors({ 'invalid': true });
+      }
+    },
+      (error) => {
+        this.forgotPasswordForm.controls['otp'].setErrors({ 'invalid': true });
+      });
+  }
+
+  changeNumber()
+  {
+    this.processOtp = false;
+    this.showForgotPass = true;
+  }
+
+  processWith(obj:any)
+  {
+    this.loginWith = obj;
+    this.processOtp = false;
+    this.forgotPasswordForm.controls['phoneEmailControl'].setValue('');
+  }
 }

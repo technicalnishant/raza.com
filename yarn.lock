@@ -7267,6 +7267,13 @@
   dependencies:
     "tslib" "^2.0.0"
 
+"ng-otp-input@^1.8.5":
+  "integrity" "sha512-qIngq7Lx3KPOxpw30FIfG+jhhSYLFtpur62k0Qtg1f1UdavNfLu5Ca9PPI8jmPwGpQ63Ro0dCHi+LvFBsVLF2g=="
+  "resolved" "https://registry.npmjs.org/ng-otp-input/-/ng-otp-input-1.8.5.tgz"
+  "version" "1.8.5"
+  dependencies:
+    "tslib" "^2.2.0"
+
 "ng-recaptcha@^5.0.0":
   "integrity" "sha512-tUVMmHiCDgWSjqXddjRde9jTnyODwki/akixvFiYK8SaQhgW1aor1WKS8dnNtc+Spx7XFiurEXRVfgyd70G6Mw=="
   "resolved" "https://registry.npmjs.org/ng-recaptcha/-/ng-recaptcha-5.0.0.tgz"

@@ -156,7 +156,7 @@ export function LocationProviderFactory(provider: RazaEnvironmentService) {
     MatTooltipModule,
     MatIconModule,
     MatBottomSheetModule, 
-	
+    
 
   ],
 
