@@ -416,17 +416,19 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     const phoneOrEmail = this.forgotPasswordForm.value.phoneEmailControl;
     if(phoneOrEmail && phoneOrEmail !='' )
     {
-
-    var replaced = phoneOrEmail.replace(/ /g, '');
-    replaced = replaced.replace(/[a-z]/g, "");
-    replaced = replaced.replace(/[A-Z]/g, "");
-    replaced = replaced.replace(/[&\/\\#,+()$~%.`^'":!@_*?<>{}=|]/g, '');
-    replaced = replaced.replace(/-/g, '');
-    replaced = replaced.replace(/]/g, '');
-     
-    replaced = replaced.replace(/;/g, '');
-    replaced = replaced.replace(/[\[\]']/g,'' );
-    this.forgotPasswordForm.controls['phoneEmailControl'].setValue(replaced);
+      if(this.loginWith  != 'email')
+      {
+        var replaced = phoneOrEmail.replace(/ /g, '');
+        replaced = replaced.replace(/[a-z]/g, "");
+        replaced = replaced.replace(/[A-Z]/g, "");
+        replaced = replaced.replace(/[&\/\\#,+()$~%.`^'":!@_*?<>{}=|]/g, '');
+        replaced = replaced.replace(/-/g, '');
+        replaced = replaced.replace(/]/g, '');
+        
+        replaced = replaced.replace(/;/g, '');
+        replaced = replaced.replace(/[\[\]']/g,'' );
+        this.forgotPasswordForm.controls['phoneEmailControl'].setValue(replaced);
+      }
     }
   }
   loginWithOtp(): void {
