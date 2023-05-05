@@ -119,7 +119,8 @@
         </mat-error>
 
         <mat-error *ngIf="loginForm.get('password').errors?.invalid">
-          Incorrect Username/Password.
+          <!-- Incorrect Username/Password. -->
+          {{error_response}}
         </mat-error>
   
       <!--<a href="#" class="resend">Resend Code</a> -->
@@ -162,9 +163,11 @@
         <button mat-dialog-close class="bg-white"><mat-icon class="text-dark">close</mat-icon></button>
       </div>
 
-<h1 mat-dialog-title class="text-center">Forgot your passcode? No problem</h1>
+<h1 mat-dialog-title class="text-center" *ngIf="loginWith == 'phone'">Forgot your passcode? No problem</h1>
+<h1 mat-dialog-title class="text-center" *ngIf="loginWith == 'email'">Forgot your password? No problem</h1>
+
   <p class="text-center subtitle" *ngIf="loginWith == 'phone'">Enter your mobile number to receive the verification code.</p>
-  <p class="text-center subtitle" *ngIf="loginWith == 'email'">Enter your email address to receive the verification code.</p>
+  <p class="text-center subtitle" *ngIf="loginWith == 'email'">Enter your email address to receive the verification link.</p>
   
 <div class="example-container">
       <form name="forgotPasswordForm" [formGroup]="forgotPasswordForm" (ngSubmit)="submitForgotPasswordForm()">
