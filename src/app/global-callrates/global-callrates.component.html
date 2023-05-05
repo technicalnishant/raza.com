@@ -150,7 +150,8 @@
 
                                 <tbody>
                                     <tr *ngFor="let item of FilteredSubPlans">
-                                        <td>{{item.CountryName}} </td>
+                                        <!-- <td>{{item.CountryName}} </td>-->
+                                        <td>{{getNameOfCountry(item.CountryName)}} </td> 
                                         <td>{{item.DiscountedRate.TotalTime}}</td>
                                         <td>{{item.DiscountedRate.PromoMinutes}}</td>
                                         <td>{{item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes}}</td>

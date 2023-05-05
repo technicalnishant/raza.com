@@ -76,7 +76,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   enteredPhone:number;
   enteredEmail:string;
   signupNoExist:boolean=false;
-
+  error_response:any='Incorrect Mobile Number/Password.';
+ err_forgot_pass:any='';
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -312,6 +313,10 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
         }
       },
         (error) => {
+
+            this.error_response = error.error.error_description
+        //  console.log("error message is ",error.error.error_description);
+
           this.loginForm.patchValue({
             captcha: ''
           });
@@ -464,7 +469,9 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
         this.forgotPasswordForm.controls['otp'].setErrors({ 'invalid': true });
       }
     },
-      (error) => {
+      (error) => 
+      {
+        
         this.forgotPasswordForm.controls['otp'].setErrors({ 'invalid': true });
       });
   }
@@ -474,11 +481,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
     reciever = this.escapeRegExp(reciever);
     reciever = reciever.replace(" ", "");
-/*
-    var phoneno = /^\d{10}$/;
-    if( reciever.match(phoneno) )
-    {}*/
-   
+ 
     if(this.loginWith == 'phone')
      {
       reciever = autoCorrectIfPhoneNumber(this.currentSetting.country.CountryCode+reciever);
@@ -489,22 +492,24 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid_input': true });
       return;
     }
-
-    
-
-    
-
+ 
     this.executeCaptcha('login').toPromise().then(token => {
     this.authService.sendOtp(reciever, token).subscribe(
       (res: boolean) => {
-        this.otpSend = true;
         
-        this.showOtpPopup()
-        this.oberserableTimer();
-        this.forgotPasswordForm.get('otp').setValidators(Validators.required);
-        this.forgotPasswordForm.get('phoneEmailControl').disable();
+        if(res)
+        {
+          this.otpSend = true;
+          this.showOtpPopup()
+          this.oberserableTimer();
+          this.forgotPasswordForm.get('otp').setValidators(Validators.required);
+          this.forgotPasswordForm.get('phoneEmailControl').disable();
+        }
+       
       },
       err => {
+        //console.log("Forgot error message", err.error.Message);
+        this.err_forgot_pass = err.error.Message;
         this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
       }
     );

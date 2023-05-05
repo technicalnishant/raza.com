@@ -186,7 +186,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
                   <div class="country-name">{{item.CountryName}}</div>
                 </div>
                 <div class="country-rate">
-                  <span>mins</span> {{getcountryrate(item.CallRate) | sCurrency : currentCurrency}}
+                   {{getcountryrate(item.CallRate) | sCurrency : currentCurrency}} <span>mins</span>
                 </div>
                 <button
                   class="view-details-btn"
@@ -241,7 +241,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
 </div> -->
 
 </div>
-<div class="call-us text-center" style="">
+<div class="call-us text-center" >
     <p><span>Have a question? <a (click)=contactUs() >Call us</a></span></p>
   </div>
 
@@ -274,7 +274,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         <img src="./../../assets/images/plan-include/mobile-app.png">
         <p>MOBILE APP <br>
           <span>
-            Download the app and call directly without having to dial <br> access number.</span></p>
+            Download the app and call directly without having to dial access number.</span></p>
       </mat-list-item>
       <mat-list-item>
         <img src="./../../assets/images/plan-include/reward.png">

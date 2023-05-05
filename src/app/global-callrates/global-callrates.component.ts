@@ -742,4 +742,12 @@ export class GlobalCallratesComponent implements OnInit {
         return '';
       }
     }
+    getNameOfCountry(obj){
+      if(obj == this.baseCountryName)
+      {
+        return obj+' landline'
+      }
+      else
+      return obj;
+    }
 }
