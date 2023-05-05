@@ -471,7 +471,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     },
       (error) => 
       {
-        
+       this.error_response = error.error.error_description
+      //  console.log("OTP error message = ", error.error.error_description)
         this.forgotPasswordForm.controls['otp'].setErrors({ 'invalid': true });
       });
   }

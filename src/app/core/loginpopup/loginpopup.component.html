@@ -162,9 +162,9 @@
         <button mat-dialog-close class="bg-white"><mat-icon class="text-dark">close</mat-icon></button>
       </div>
 
-<h1 mat-dialog-title class="text-center">Forgot your password? No problem</h1>
-  <p class="text-center subtitle" *ngIf="loginWith == 'phone'">Enter your mobile number to receive your password.</p>
-  <p class="text-center subtitle" *ngIf="loginWith == 'email'">Enter your email address to receive your password.</p>
+<h1 mat-dialog-title class="text-center">Forgot your passcode? No problem</h1>
+  <p class="text-center subtitle" *ngIf="loginWith == 'phone'">Enter your mobile number to receive the verification code.</p>
+  <p class="text-center subtitle" *ngIf="loginWith == 'email'">Enter your email address to receive the verification code.</p>
   
 <div class="example-container">
       <form name="forgotPasswordForm" [formGroup]="forgotPasswordForm" (ngSubmit)="submitForgotPasswordForm()">
@@ -213,7 +213,8 @@
             <a tabindex="0" (click)="sendOtp()">Resend Passcode</a>
           </span>
             <mat-error *ngIf="forgotPasswordForm.get('otp').errors?.invalid">
-              Incorrect Mobile Number/Password.
+              <!-- Incorrect Mobile Number/Password. -->
+              {{error_response}}
             </mat-error>
           </mat-form-field>
 
