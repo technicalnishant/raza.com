@@ -319,8 +319,7 @@ viewPopUp(countryId)
       let filterlistdata =  this.allCountry.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
       return filterlistdata.length>0?false:true;
     }
-    
- 
+  
   }
 
    displayCountryList(character) 

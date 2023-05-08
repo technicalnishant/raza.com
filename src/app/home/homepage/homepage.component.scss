@@ -980,9 +980,9 @@ a {
     max-width: 100%;
 }
 .carousel-caption.promotion {
-    bottom: 25%;
+    bottom: 23%;
     right: 29.5%;
-    left: unset;
+      left: 14%;
     padding: 0;
 }
 // new slide css start here
@@ -1286,14 +1286,14 @@ h1.buy1get1-text:after {
     color: #000;
 }
 .promotion-note {
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: 0px;
-    color: #fff;
+    color: #000;
     position: absolute;
     bottom: 25px;
     // left: 20px;
     margin: 0;
-    right: 120px;
+    right: 20px;
     z-index: 99;
 }
 
@@ -2254,7 +2254,7 @@ h1.buy1get1-text:after {
 
 @media only screen  and (max-width: 480px) {
     .carousel-caption.promotion {
-        bottom: 18%;
+        bottom: 10%;
         right: 50%;
         margin-right: -116px;
     }

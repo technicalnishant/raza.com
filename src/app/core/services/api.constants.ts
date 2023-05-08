@@ -122,9 +122,9 @@ export class Api {
 		getPopularDestinationPlans: base + "api/rates/PopularDestination/",
 		getXChageRateInfo: base + "api/Countries/XChageRateInfo/"
 	};
-
+	 
 	static countries = {
-		//getTopThreeCountries: base + "api/Countries/From", 
+		//getTopThreeCountries: base + "api/Countries/From",
 		// getCallDetails: base + "api/Rates/Lowests/",
 		 getCallDetails: base + "api/Rates/lowestrate/",
 		//getCallDetails: base + "api/Rates/Lowest/v1/",

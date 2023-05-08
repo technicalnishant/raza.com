@@ -43,7 +43,7 @@
 		 
         <mat-form-field appearance="" class="mobile-number ml-4">
           <!--<input type="text" matInput formControlName="username" placeholder="Enter your phone number" [textMask]="{mask: getmask()}">-->
-          <input  matInput formControlName="username" (keyup)="validateUsername()" ng-pattern="/^[1-9]{1}[0-9]{9}$/" maxlength="15" placeholder="Enter Mobile Number"/> 
+          <input matInput formControlName="username" (keyup)="validateUsername()" ng-pattern="/^[1-9]{1}[0-9]{9}$/" maxlength="15" placeholder="Enter Mobile Number"/> 
           <!--<input  matInput formControlName="username" placeholder="Enter Mobile Number/Email"/>-->
 			
             <mat-error *ngIf="loginForm.get('username').errors?.required">
@@ -72,7 +72,8 @@
             </mat-error>
 
             <mat-error *ngIf="loginForm.get('password').errors?.invalid">
-              Incorrect Mobile Number/Password.
+              <!-- Incorrect Mobile Number/Password. -->
+              {{error_response}}
             </mat-error>
 			
           <!--<a href="#" class="resend">Resend Code</a> -->
@@ -94,12 +95,12 @@
       <input  matInput formControlName="username" (keyup)="validateEmail()"  placeholder="Enter Email Address"/> 
       <!--<input  matInput formControlName="username" placeholder="Enter Mobile Number/Email"/>-->
      
-        <mat-error *ngIf="loginForm.get('username').errors?.invalid_input">
-          Invalid Phone Number.
-        </mat-error>
-        <span *ngIf="invalidEmail" class="span_error">
+        <mat-error *ngIf="loginForm.get('username').errors?.invalid_input && invalidEmail">
           Please enter a valid email.
-        </span>
+        </mat-error>
+        <!-- <span *ngIf="invalidEmail" class="span_error">
+          
+        </span> -->
     </mat-form-field>
     </div>
     <mat-form-field appearance="" class="full-width" *ngIf="showPassWord">
@@ -118,7 +119,8 @@
         </mat-error>
 
         <mat-error *ngIf="loginForm.get('password').errors?.invalid">
-          Incorrect Username/Password.
+          <!-- Incorrect Username/Password. -->
+          {{error_response}}
         </mat-error>
   
       <!--<a href="#" class="resend">Resend Code</a> -->
@@ -162,9 +164,11 @@
         <button mat-dialog-close class="bg-white"><mat-icon class="text-dark">close</mat-icon></button>
       </div>
 
-<h1 mat-dialog-title class="text-center">Forgot your password? No problem</h1>
-  <p class="text-center subtitle" *ngIf="loginWith == 'phone'">Enter your mobile number to receive your password.</p>
-  <p class="text-center subtitle" *ngIf="loginWith == 'email'">Enter your email address to receive your password.</p>
+<h1 mat-dialog-title class="text-center" *ngIf="loginWith == 'phone'">Forgot your passcode? No problem</h1>
+<h1 mat-dialog-title class="text-center" *ngIf="loginWith == 'email'">Forgot your password? No problem</h1>
+
+  <p class="text-center subtitle" *ngIf="loginWith == 'phone'">Enter your mobile number to receive the verification code.</p>
+  <p class="text-center subtitle" *ngIf="loginWith == 'email'">Enter your email address to receive the verification link.</p>
   
 <div class="example-container">
       <form name="forgotPasswordForm" [formGroup]="forgotPasswordForm" (ngSubmit)="submitForgotPasswordForm()">
@@ -199,7 +203,8 @@
             </mat-error>
 
             <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.invalid">
-              {{loginWith == 'email'?'Email address':'Mobile number'}} does not exist.
+              <!-- {{loginWith == 'email'?'Email address':'Mobile number'}} does not exist. -->
+              {{err_forgot_pass}}
             </mat-error>
           </mat-form-field>
         </div>
@@ -212,7 +217,8 @@
             <a tabindex="0" (click)="sendOtp()">Resend Passcode</a>
           </span>
             <mat-error *ngIf="forgotPasswordForm.get('otp').errors?.invalid">
-              Incorrect Mobile Number/Password.
+              <!-- Incorrect Mobile Number/Password. -->
+              {{error_response}}
             </mat-error>
           </mat-form-field>
 
