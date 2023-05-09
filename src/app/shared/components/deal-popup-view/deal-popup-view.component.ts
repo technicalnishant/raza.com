@@ -62,11 +62,13 @@ export class DealPopupViewComponent implements OnInit, OnDestroy {
     });
     localStorage.removeItem("promotionCode");
     localStorage.removeItem("promotionCode");
+    this.denominationList = this.inputData.Plans[0].Denominations;//.reverse();
   }
 
   
   get Denominations() {
    
+    
     return this.inputData.Plans[0].Denominations;
     
   }

@@ -12,17 +12,7 @@
 
         <mat-dialog-content #matContent>
             <div class="selectRechargeamount pt-0">
-                <!-- <div class="bonusArea">
-                    <span>Regular mins</span>
-                    <span class="relative">
-                        <mat-slide-toggle [(checked)]="isAutorefill" (change)="onChange($event)">PROMO MINS
-                        </mat-slide-toggle><img loading="lazy" class="i_icon" matTooltip="1. Enroll to Auto-refill and earn 20% bonus minutes.
-                            2. We will recharge your plan only when the account balance falls below $2.
-                            3. Cancel online or by calling customer service anytime." matTooltipPosition="right"
-                            src="/assets/images/i_icon.png" alt="" />
-                    </span>
-                    <span class="bonusMin2"><img loading="lazy" src="/assets/images/bonus20.png" alt="" /></span>
-                </div> -->
+               
                 <div class="selectRechargeAmnt">
                     <ul class="d-none">
                         <li class="d-none d-md-block">
@@ -36,9 +26,11 @@
                         </li>
 
 
+
                         
-                        <li *ngFor="let item of Denominations.slice().reverse(); let i = index" class="rate-item ng-star-inserted"
-                            style="margin:20px 10px 0 0" (click)="buyPlan(item)">
+                          <li *ngFor="let item of denominationList.slice().reverse(); let i = index" class="rate-item ng-star-inserted"
+                            style="margin:20px 10px 0 0" (click)="buyPlan(item)"> 
+                            
                             <div class="commonpriceArea popular ripple-container mat-ripple" matripple="">
                                 <div class="commonminArea">
                                     <small class="text-left text-uppercase"><b>Bonus</b></small>
@@ -56,11 +48,11 @@
 
                     <div class="popup-card">
                         <div class="promotions-wrapper">
-                            <div class="box-wrapper" *ngFor="let item of Denominations; let i = index">
+                            <div class="box-wrapper" *ngFor="let item of Denominations.slice().reverse(); let i = index">
                                 <!--<div class="box-wrapper" *ngFor="let item of Denominations.slice().reverse(); let i = index">-->
                                 <div class="card-wrapper">
                                     <div class="card-head">
-                                        <p>Bonus</p>
+                                        <p>Bonus</p>   
                                         <h1 class="discount-percentage">{{item.OfferPercentage}}%</h1>
                                     </div>
                                     <hr>

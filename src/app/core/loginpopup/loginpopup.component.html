@@ -95,12 +95,12 @@
       <input  matInput formControlName="username" (keyup)="validateEmail()"  placeholder="Enter Email Address"/> 
       <!--<input  matInput formControlName="username" placeholder="Enter Mobile Number/Email"/>-->
      
-        <mat-error *ngIf="loginForm.get('username').errors?.invalid_input">
-          Invalid Phone Number.
-        </mat-error>
-        <span *ngIf="invalidEmail" class="span_error">
+        <mat-error *ngIf="loginForm.get('username').errors?.invalid_input && invalidEmail">
           Please enter a valid email.
-        </span>
+        </mat-error>
+        <!-- <span *ngIf="invalidEmail" class="span_error">
+          Please enter a valid email.
+        </span> -->
     </mat-form-field>
     </div>
     <mat-form-field appearance="" class="full-width" *ngIf="showPassWord">

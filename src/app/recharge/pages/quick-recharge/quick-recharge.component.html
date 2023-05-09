@@ -57,10 +57,10 @@
                                             <mat-form-field class="example-full-width">
                                                 <input matInput placeholder="Password" type="password" formControlName="password">
                                                 <mat-error *ngIf="rechargeForm.get('password').errors?.required">
-                                                    Password is required.
+                                                     Password is required. 
                                                 </mat-error>
-                                                <mat-error *ngIf="rechargeForm.get('phoneNumber').errors?.Invalid_grant">
-                                                    Phone Number/Password is not valid.
+                                                <mat-error *ngIf="rechargeForm.get('password').errors?.Invalid_grant">
+                                                    {{error_response}}  <!--   Phone Number/Password is not valid. -->
                                                 </mat-error>
                                             </mat-form-field>
                                         
@@ -95,8 +95,8 @@
                                         </div>
                                         
                                     </div>
-                                
-                            
+                                    <a (click)="contactUs()" style="color: #007bff; text-decoration: underline!important;" >I've changed my phone number</a>
+                                    
 
                                     <!-- <div class="row ml-4 exc_center">
                                         <div class="col-sm-6 existing">

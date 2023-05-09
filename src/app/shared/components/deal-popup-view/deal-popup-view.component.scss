@@ -217,7 +217,7 @@ h1 {
 
 .popup-card {
     .col-md-3 {
-        &:nth-child(3) {
+        &:nth-child(2) {
             .card-wrapper {
                 position: relative;
                 .card-head {
@@ -233,12 +233,13 @@ h1 {
     }
 }
 
+
 .promotions-wrapper {
     display: flex;
     justify-content: center;
     gap: 20px;
     .box-wrapper {
-        &:nth-child(3):before {
+        &:nth-child(2):before {
             content: '';
             background-image: url('https://d2uij5nbaiduhc.cloudfront.net/images/promotions/christmas/popular-tag.png');
             position: absolute;
@@ -247,7 +248,7 @@ h1 {
             top: 26%;
             left: -4px;
         }
-        &:nth-child(3) {
+        &:nth-child(2) {
             position: relative;
         }
     }
@@ -358,7 +359,7 @@ h1 {
     $background-image 2x);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-color: #fff!important;
     height: 155px;
     }

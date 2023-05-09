@@ -33,6 +33,7 @@ import { CurrentSetting } from 'app/core/models/current-setting';
 import { RazaEnvironmentService } from 'app/core/services/razaEnvironment.service';
 import { Country } from 'app/core/models/country.model';
 import { CountriesService } from 'app/core/services/country.service';
+import { CallUsComponent } from 'app/shared/dialog/call-us/call-us.component';
 @Component({
   selector: 'app-recharge',
   templateUrl: './quick-recharge.component.html',
@@ -68,11 +69,12 @@ export class QuickRechargeComponent implements OnInit, OnDestroy {
   showDropdown: boolean = false;
   showPlaceholder:boolean = false;
   currentCurrency:any;
+  error_response:any;
   searchicon: string = '../assets/images/search8.svg';
   ngOnInit() {
     this.currenctSetting$ = this.razaEnvService.getCurrentSetting().subscribe(a => {
       this.currentSetting = a;   
-      console.log("Quick recharge page is here", a);
+     // console.log("Quick recharge page is here", a);
       this.countryCode = (a.country.CountryId == 3)?'GBP':'USD';
     });
     this.getCountryFrom();
@@ -122,7 +124,9 @@ export class QuickRechargeComponent implements OnInit, OnDestroy {
     } else {
       this.authService.login(body).toPromise().then(res => {
         this.getPlanInfoAndProcess();
-      }).catch(err => {
+      }).catch(err => 
+        {
+          this.error_response = err.error.error_description
         this.rechargeForm.controls['password'].setErrors({ 'Invalid_grant': true });
       });
 
@@ -360,5 +364,9 @@ onClickClose(icon) {
       this.countryFrom = res;
       
     });
+  }
+
+  contactUs() {
+    this.dialog.open(CallUsComponent);
   }
 }
