@@ -751,8 +751,18 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
   }
 
+  resendCode()
+  {
+    this.invalidOtp = '';
+    this.form.reset();
+    // this.form.value.input1= '';
+    // this.form.value.input2= '';
+    // this.form.value.input3= '';
+    // this.form.value.input4= '';
+    // this.form.value.input5= '';
+    // this.form.value.input6= '';
+  }
  
-
 
   onSubmit(): void {
     
@@ -793,6 +803,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       }
     },
       (error) => {
+        this.invalidOtp = error.error.error_description
         this.forgotPasswordForm.controls['otp'].setErrors({ 'invalid': true });
       });
   }
