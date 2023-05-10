@@ -35,7 +35,8 @@ export class ForgotPasswordComponent extends AppBaseComponent implements OnInit 
   subscribeTimer: number;
   forgotPasswordForm: FormGroup;
   isEnableResendOtp: boolean = false;
-
+  phoneEmailError : any='';
+  passError:any='';
   ngOnInit() {
     this.razaLayoutService.setFixedHeader(true);
     this.forgotPasswordForm = this.formBuilder.group({
@@ -79,6 +80,8 @@ export class ForgotPasswordComponent extends AppBaseComponent implements OnInit 
     },
       (error) => {
         this.forgotPasswordForm.controls['otp'].setErrors({ 'invalid': true });
+        
+        this.passError = error.error.error_description
       });
   }
 
@@ -99,6 +102,8 @@ export class ForgotPasswordComponent extends AppBaseComponent implements OnInit 
         this.forgotPasswordForm.get('phoneEmailControl').disable();
       },
       err => {
+        
+        this.phoneEmailError = err.error.Message;
         this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
       }
     );

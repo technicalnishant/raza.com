@@ -26,7 +26,7 @@ import { PlanService } from '../../accounts/services/planService';
 import { ApiErrorResponse } from '../../core/models/ApiErrorResponse'; 
 import { Plan } from '../../accounts/models/plan';
 import { OtpDialogComponent } from '../otp-dialog/otp-dialog.component';
- 
+import { CallUsComponent } from 'app/shared/dialog/call-us/call-us.component';
 /*
 import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
@@ -81,6 +81,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
   moreOptions:boolean=false;
   form: FormGroup;
+  forgotPassError:String='';
+  invalidOtp:String='';
   formInput = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6'];
   @ViewChildren('formRow') rows: any;
     error_response:any='Incorrect Mobile Number/Password.';
@@ -373,17 +375,33 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       this.showForgotPass = false;
     } else 
     {
-      this.showForgotPass = true;
+      
       const phoneOrEmail = this.loginForm.value.username;
       this.forgotPasswordForm.controls['phoneEmailControl'].setValue(phoneOrEmail);
+
+      let reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
+
+      reciever = this.escapeRegExp(reciever);
+      reciever = reciever.replace(" ", "");
+      if(this.loginWith == 'phone')
+      {
+       reciever = autoCorrectIfPhoneNumber(this.currentSetting.country.CountryCode+reciever);
+       
+      } 
+       
+      if (!isValidPhoneOrEmail(reciever)) {
+       this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid_input': true });
+       return;
+     }
+
+   
 
       if(phoneOrEmail !='')
       {
 
         this.enteredPhone = phoneOrEmail;
         this.processForgot()
-       
-
+        this.showForgotPass = true;
         this.processOtp = true;
       }
       else{
@@ -413,14 +431,37 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
  
     this.executeCaptcha('login').toPromise().then(token => {
     this.authService.sendOtp(reciever, token).subscribe(
-      (res: boolean) => {
+      (res: boolean) => 
+      {
+        
         
       },
-      err => {
+      err => 
+      {
+       // this.processOtp = false;
         this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+       
+        this.err_forgot_pass = err.error.Message;
       }
     );
     })
+  }
+
+  processClose()
+  {
+    if(this.moreOptions == true)
+    {
+      this.moreOptions = false;
+      return false;
+    }
+
+    if(this.processOtp == true)
+    {
+      this.processOtp = false;
+      return false;
+    }
+ 
+
   }
   onOtpChange()
   {
@@ -436,7 +477,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
    { 
 
       if (!this.otpSend) {
-        this.sendOtp();
+ 
+        this.processForgot();
         return;
       } else {
         this.loginWithOtp();
@@ -488,6 +530,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       }
     }
   }
+
   loginWithOtp(): void {
     //var reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
     var reciever = this.forgotPasswordForm.value.phoneEmailControl;
@@ -531,6 +574,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       (error) => 
       {
        this.error_response = error.error.error_description
+       this.invalidOtp = error.error.error_description;
       //  console.log("OTP error message = ", error.error.error_description)
         this.forgotPasswordForm.controls['otp'].setErrors({ 'invalid': true });
       });
@@ -685,6 +729,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   }
 
   keyUpEvent(event, index) {
+    this.invalidOtp = '';
     let pos = index;
     if((event.target as HTMLInputElement).value == '')
     {
@@ -763,5 +808,11 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     this.loginWith = obj;
     this.processOtp = false;
     this.forgotPasswordForm.controls['phoneEmailControl'].setValue('');
+  }
+
+  chatWithUs()
+  {
+    this.closeModal();
+    this.matDialog.open(CallUsComponent);
   }
 }
