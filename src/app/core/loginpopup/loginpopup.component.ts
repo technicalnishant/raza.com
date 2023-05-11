@@ -462,6 +462,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   }
   submitForgotPasswordForm(): void {
 
+    this.moreOptions = false;
    if(this.loginWith == 'email')
    {
         this.sendpasswordlink()
@@ -809,6 +810,9 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   {
     this.processOtp = false;
     this.showForgotPass = true;
+    this.invalidOtp = ''; 
+    this.error_response='';
+    this.err_forgot_pass = '';
   }
 
   processWith(obj:any)
