@@ -192,8 +192,7 @@
 			  </div>
           <mat-form-field class="example-full-width full-width ml-4">
             <input matInput placeholder="Enter {{loginWith == 'email'?'Email address':'mobile number'}}" (keyup)="validateFUsername()" formControlName="phoneEmailControl">
-            <!--<input matInput placeholder="Enter mobile number/email" formControlName="phoneEmailControl">-->
-            <!-- <mat-hint>Start with +(country code), e.g +1, +44, or +91 </mat-hint> -->
+             
             <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required">
               {{loginWith == 'email'?'Email address':'Mobile number'}} is required.
             </mat-error>
@@ -202,9 +201,12 @@
             </mat-error>
 
             <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.invalid">
-              <!-- {{loginWith == 'email'?'Email address':'Mobile number'}} does not exist. -->
+              
               {{err_forgot_pass}}
-            </mat-error>
+            </mat-error> 
+
+           
+
           </mat-form-field>
         </div>
         </div>

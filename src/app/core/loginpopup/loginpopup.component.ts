@@ -379,20 +379,20 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       const phoneOrEmail = this.loginForm.value.username;
       this.forgotPasswordForm.controls['phoneEmailControl'].setValue(phoneOrEmail);
 
-      let reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
+      // let reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
 
-      reciever = this.escapeRegExp(reciever);
-      reciever = reciever.replace(" ", "");
-      if(this.loginWith == 'phone')
-      {
-       reciever = autoCorrectIfPhoneNumber(this.currentSetting.country.CountryCode+reciever);
+      // reciever = this.escapeRegExp(reciever);
+      // reciever = reciever.replace(" ", "");
+      // if(this.loginWith == 'phone')
+      // {
+      //  reciever = autoCorrectIfPhoneNumber(this.currentSetting.country.CountryCode+reciever);
        
-      } 
+      // } 
        
-      if (!isValidPhoneOrEmail(reciever)) {
-       this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid_input': true });
-       return;
-     }
+    //   if (!isValidPhoneOrEmail(reciever)) {
+    //    this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid_input': true });
+    //    return;
+    //  }
 
    
 
@@ -401,10 +401,12 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
         this.enteredPhone = phoneOrEmail;
         this.processForgot()
-        this.showForgotPass = true;
+        
         this.processOtp = true;
       }
       else{
+        this.showForgotPass = true;
+        this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'required': true });
         this.processOtp = false;
       }
     }
@@ -414,7 +416,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   processForgot()
   {
     let reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
-
+    this.enteredPhone = reciever;
     reciever = this.escapeRegExp(reciever);
     reciever = reciever.replace(" ", "");
  
@@ -428,20 +430,20 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid_input': true });
       return;
     }
- 
+
+    this.processOtp = true;
     this.executeCaptcha('login').toPromise().then(token => {
     this.authService.sendOtp(reciever, token).subscribe(
       (res: boolean) => 
       {
-        
+        this.processOtp = true;
         
       },
       err => 
       {
-       // this.processOtp = false;
-        this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
-       
-        this.err_forgot_pass = err.error.Message;
+         this.processOtp = false;
+          this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+          this.err_forgot_pass = (err.error.Message)?err.error.Message:'There must be some issue please try again after some time.';
       }
     );
     })
@@ -472,17 +474,21 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
    if(this.loginWith == 'email')
    {
         this.sendpasswordlink()
+
    }
    else
    { 
-
-      if (!this.otpSend) {
- 
-        this.processForgot();
-        return;
-      } else {
-        this.loginWithOtp();
-      }
+    this.processForgot();
+      // if (!this.otpSend) 
+      // {
+        
+      //   this.processForgot();
+        
+      // }
+      //  else
+      //  {
+      //   this.loginWithOtp();
+      // }
 
     }
     
@@ -704,9 +710,9 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       this.authService.sendpasswordlink(reciever).subscribe(
         (res: boolean) => {
           this.otpSend = true;
-          
+          this.processOtp = true;
           this.showOtpPopup()
-          this.dialogRef.close();
+         // this.dialogRef.close();
            
         },
         err => {
