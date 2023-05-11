@@ -13,16 +13,16 @@ $common-font-family: "Montserrat", sans-serif;
 @mixin button-text {
   border: 1px solid #f3c423;
   transition: 0.3s ease-in-out;
-  padding: 2px 100px;
+  padding: 5px 100px;
   text-decoration: none;
   background-color: #f3c423;
-  // border-radius: 20px;
   width: 100%;
   border-radius: 6px;
   font-weight: 700;
   font-size: 16px;
   color: #000000;
   font-family: "Montserrat";
+  border-radius: 30px;
 }
 
 ::ng-deep {
@@ -53,6 +53,9 @@ $common-font-family: "Montserrat", sans-serif;
   border: none;
   box-shadow: none;
   color: #000;
+  position: absolute;
+  top: 11px;
+  right: -12px;
 }
 ::ng-deep {
   .popup-wrapper .mat-dialog-content {
@@ -70,7 +73,7 @@ $common-font-family: "Montserrat", sans-serif;
   }
 
   .new-raza {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-weight: 500;
     margin-top: 20px;
   }

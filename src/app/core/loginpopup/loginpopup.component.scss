@@ -12,16 +12,17 @@ input:-webkit-autofill:active {
 }
 @mixin button-text {
     border: 1px solid #f3c423;
-      transition: 0.3s ease-in-out;
-      padding: 2px 100px;
-      text-decoration: none;
-      background-color: #f3c423;
-      width: 100%;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 16px;
-      color: #000000;
-      font-family: "Montserrat";
+    transition: 0.3s ease-in-out;
+    padding: 5px 100px;
+    text-decoration: none;
+    background-color: #f3c423;
+    width: 100%;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000000;
+    font-family: "Montserrat";
+    border-radius: 30px;
 }
 
 ::ng-deep{
@@ -82,7 +83,15 @@ input:-webkit-autofill:active {
   border: none;
   box-shadow: none;
   color: #000;
+  position: absolute;
+  top: 11px;
+  right: -12px;
 }
+
+.mat-dialog-container {
+  border-radius: 20px;
+}
+
 ::ng-deep{
   .popup-wrapper .mat-dialog-content {
     -webkit-overflow-scrolling: auto !important;
@@ -107,7 +116,7 @@ input:-webkit-autofill:active {
 
 
   .new-raza {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-weight: 500;
     margin-top: 20px;
   }
@@ -230,16 +239,66 @@ input:-webkit-autofill:active {
   }
   h1 {
     margin-bottom: 10px;
-    font-size: 26px;
+    font-size: 24px;
     letter-spacing: 0px;
     color: #000000;
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
     text-align: center;
 }
-p{
-  font-size: 16px;
-}
+  p {
+      font-size: 14px;
+      font-weight: 500;
+  }
+  h2 {
+      font-size: 18px;
+      font-weight: 600;
+  }
+  a {
+      font-size: 14px;
+      color: #007BFF;
+      font-weight: 500;
+      display: inline-block;
+  }
+  .titleTex {
+    font-weight: 500;
+    font-size: 14px;
+    color: #222222;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .error {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      color: #B97B7B;
+      background: #FFEFED;
+      border-radius: 8px;
+      padding: 13px 30px;
+      display: inline-block;
+      margin: 20px 0 15px;
+  }
+  .sendAgain {
+      margin-left: 4px;
+  }
+  .moreOpt {
+      margin-bottom: 15px;
+  }
+  .changeNum {
+    text-decoration: underline;
+    margin-bottom: 30px;
+  }
+  input.form-control {
+      height: 60px;
+      background: #FFFFFF;
+      border: 1px solid #E7E7E9;
+      border-radius: 8px;
+      box-shadow: none !important;
+  }
+  .row {
+    justify-content: center;
+  }
   }
 
   .forgetPass{
@@ -416,7 +475,7 @@ p{
 
 .login-button {
   width: 100%;
-  text-align: left;
+  text-align: center;
   background-color: #f3f3f3;
   padding: 7px 19px;
   font-size: 16px;
@@ -424,6 +483,7 @@ p{
   font-weight: 600;
   margin-bottom: 10px;
   border: 1px solid #d8d8d8;
+  border-radius: 30px;
   @include comman-font-family;
    img {
     margin-right: 20px;
@@ -563,30 +623,26 @@ span.note {
      margin-bottom: 5px !important;
   }}
 
-  .options{
-  
-   
-
+  .options {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
     cursor: pointer;
-    /* identical to box height */
-
     color: #007BFF;
+    + .options {
+      margin: 25px 0 25px;
+    }
   }
   .contact_div{
-
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
-    
-    /* identical to box height */
     text-align: center;
+    margin-bottom: 20px;
     
     .phone_text{
       color: #007BFF;

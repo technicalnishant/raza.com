@@ -5151,3 +5151,9 @@ app-add-creditcard-dialog a.what-cvv {
 .textclass-popup .mat-dialog-container {
     padding: 0;
 }
+
+div .mat-dialog-container {
+    border-radius: 20px;
+    max-width: 520px;
+}
+  
