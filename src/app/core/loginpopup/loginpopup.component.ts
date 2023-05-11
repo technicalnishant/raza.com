@@ -378,30 +378,15 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       
       const phoneOrEmail = this.loginForm.value.username;
       this.forgotPasswordForm.controls['phoneEmailControl'].setValue(phoneOrEmail);
-
-      // let reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
-
-      // reciever = this.escapeRegExp(reciever);
-      // reciever = reciever.replace(" ", "");
-      // if(this.loginWith == 'phone')
-      // {
-      //  reciever = autoCorrectIfPhoneNumber(this.currentSetting.country.CountryCode+reciever);
-       
-      // } 
-       
-    //   if (!isValidPhoneOrEmail(reciever)) {
-    //    this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid_input': true });
-    //    return;
-    //  }
-
-   
-
+ 
+      console.log("Step 11");
       if(phoneOrEmail !='')
       {
 
         this.enteredPhone = phoneOrEmail;
         this.processForgot()
-        
+        this.showForgotPass = true;
+        console.log("Step 111");
         this.processOtp = true;
       }
       else{
@@ -415,6 +400,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
   processForgot()
   {
+    console.log("Step 1");
     let reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
     this.enteredPhone = reciever;
     reciever = this.escapeRegExp(reciever);
@@ -426,12 +412,16 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       
      } 
       
-     if (!isValidPhoneOrEmail(reciever)) {
+     if (!isValidPhoneOrEmail(reciever)) 
+     {
+      this.showForgotPass = true;
+      console.log("Step 2");
       this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid_input': true });
       return;
     }
 
     this.processOtp = true;
+   
     this.executeCaptcha('login').toPromise().then(token => {
     this.authService.sendOtp(reciever, token).subscribe(
       (res: boolean) => 
@@ -442,6 +432,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       err => 
       {
          this.processOtp = false;
+         this.showForgotPass = true;
           this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
           this.err_forgot_pass = (err.error.Message)?err.error.Message:'There must be some issue please try again after some time.';
       }
