@@ -416,7 +416,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      {
       this.showForgotPass = true;
       console.log("Step 2");
-      this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid_input': true });
+      this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid': true });
       return;
     }
 
@@ -701,7 +701,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       this.authService.sendpasswordlink(reciever).subscribe(
         (res: boolean) => {
           this.otpSend = true;
-          this.processOtp = true;
+        //  this.processOtp = true;
           this.showOtpPopup()
          // this.dialogRef.close();
            
