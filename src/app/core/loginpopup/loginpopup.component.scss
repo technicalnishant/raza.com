@@ -247,22 +247,22 @@ input:-webkit-autofill:active {
     text-align: center;
 }
   p {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 500;
   }
   h2 {
-      font-size: 18px;
+      font-size: 24px;
       font-weight: 600;
   }
   a {
-      font-size: 14px;
+      font-size: 15px;
       color: #007BFF;
       font-weight: 500;
       display: inline-block;
   }
   .titleTex {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 15px;
     color: #222222;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -288,13 +288,21 @@ input:-webkit-autofill:active {
   .changeNum {
     text-decoration: underline;
     margin-bottom: 30px;
+    background-image: url(../../../assets/images/edit.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 25px;
   }
   input.form-control {
-      height: 60px;
-      background: #FFFFFF;
-      border: 1px solid #E7E7E9;
-      border-radius: 8px;
-      box-shadow: none !important;
+    height: 60px;
+    background: #FFFFFF;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    box-shadow: none !important;
+    font-size: 30px;
+    color: #222;
+    font-weight: 600;
+    text-align: center;
   }
   .row {
     justify-content: center;
@@ -627,19 +635,27 @@ span.note {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 20px;
     cursor: pointer;
     color: #007BFF;
     + .options {
-      margin: 25px 0 25px;
+      margin: 32px 0;
     }
+  }
+  .contact_div_wrap {
+      display: flex;
+      justify-content: center;
+  }
+
+  .contact_div_wrap p {
+      margin: 0 25px;
   }
   .contact_div{
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 15px;
     line-height: 17px;
     text-align: center;
     margin-bottom: 20px;

@@ -305,13 +305,14 @@
          <!-- <h3 class="options" *ngIf="loginWith == 'phone'" (click)="processWith('email')">Login with Email us</h3>  
          <h3 class="options" *ngIf="loginWith == 'email'" (click)="processWith('phone')">Login with Phone</h3>   -->
          <p></p>
-         <div class="contact_div"><span class="phone_text">1877-463-4233</span> 24/7</div>
-      </div>
-
-      <div>
-         <p>Or</p>
-          <h3 class="options" *ngIf="loginWith == 'phone'" (click)="processWith('email')">Login with Email</h3>  
-         <h3 class="options" *ngIf="loginWith == 'email'" (click)="processWith('phone')">Login with Phone</h3> 
+         <div class="contact_div_wrap">
+            <div class="contact_div">
+              <span class="phone_text">1877-463-4233</span> 24/7
+            </div>
+             <p>Or</p>
+              <h3 class="options" *ngIf="loginWith == 'phone'" (click)="processWith('email')">Login with Email</h3>  
+              <h3 class="options" *ngIf="loginWith == 'email'" (click)="processWith('phone')">Login with Phone</h3> 
+          </div>
       </div>
   </div>
 
