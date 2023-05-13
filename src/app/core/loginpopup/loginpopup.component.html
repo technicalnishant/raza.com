@@ -282,7 +282,7 @@
                   
                 <div class="row">
                     <div class="form-group col-sm-2" *ngFor="let input of formInput;  index as i">
-                        <input #formRow type="text" formControlName="{{input}}" class="form-control" maxlength="1" (keyup)="keyUpEvent($event, i)">
+                        <input #formRow type="text" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)">
                       </div>
                 </div>
                 <div class="row titleTex">

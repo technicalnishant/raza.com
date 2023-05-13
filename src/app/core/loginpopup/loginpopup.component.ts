@@ -2,7 +2,7 @@ import { Component, OnInit, Injector, Optional, Inject, ViewChild, ViewChildren}
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 //import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel';
 //import { TextMaskModule } from 'angular2-text-mask';
-
+import { ElementRef, Renderer2  } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CountriesService } from '../../core/services/country.service';
 import { Country } from '../../core/models/country.model';
@@ -87,6 +87,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   @ViewChildren('formRow') rows: any;
     error_response:any='Incorrect Mobile Number/Password.';
  err_forgot_pass:any='';
+ 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -100,6 +101,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     private razaEnvService: RazaEnvironmentService,
     public matDialog: MatDialog,
     public signupDialog: MatDialog,
+    private el: ElementRef,
+    private renderer: Renderer2,
     //private sauthService: SocialAuthService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
     
@@ -729,23 +732,29 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   keyUpEvent(event, index) {
     this.invalidOtp = '';
     let pos = index;
-    if((event.target as HTMLInputElement).value == '')
-    {
-      return false
-    }
-    if (event.keyCode === 8 && event.which === 8) {
+   
+    if ((event.keyCode === 8 && event.which === 8) || (event.keyCode === 37 && event.which === 37)) {
       pos = index - 1 ;
     } else {
       pos = index + 1 ;
     }
-   
+    
     if (pos > -1 && pos < this.formInput.length ) {
       this.rows._results[pos].nativeElement.focus();
       
     }
-
+    if((event.target as HTMLInputElement).value == '')
+    {
+      return false
+    }
     if(pos == this.formInput.length)
       this.onSubmit()
+
+  }
+
+
+  keyPressEvent(event, index) {
+    
 
   }
 
@@ -824,7 +833,13 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
   chatWithUs()
   {
-    this.closeModal();
-    this.matDialog.open(CallUsComponent);
+    //this.closeModal();
+    //this.matDialog.open(CallUsComponent);
+    // document.getElementsByClassName("LPMcontainer") as HTMLElement
+    // let element:HTMLElement = document.getElementsByClassName('LPMcontainer') as HTMLElement;
+    // window.lpTag.engage('myButton', { name: 'John', age: 25 }, () => {
+    //   console.log('Chat triggered!');
+    // });
+
   }
 }
