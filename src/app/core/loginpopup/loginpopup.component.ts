@@ -83,6 +83,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   form: FormGroup;
   forgotPassError:String='';
   invalidOtp:String='';
+  forgotPassSubmitted:boolean=false;
   formInput = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6'];
   @ViewChildren('formRow') rows: any;
     error_response:any='Incorrect Mobile Number/Password.';
@@ -466,6 +467,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   submitForgotPasswordForm(): void {
 
     this.moreOptions = false;
+    this.forgotPassSubmitted = true;
    if(this.loginWith == 'email')
    {
         this.sendpasswordlink()
@@ -699,15 +701,13 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
        
       var reciever = this.forgotPasswordForm.value.phoneEmailControl;
       reciever = autoCorrectIfPhoneNumber(this.forgotPasswordForm.get('phoneEmailControl').value);
-
-
-
+      //this.enteredPhone = reciever;
       this.authService.sendpasswordlink(reciever).subscribe(
         (res: boolean) => {
-          this.otpSend = true;
-        //  this.processOtp = true;
-          this.showOtpPopup()
-         // this.dialogRef.close();
+           this.otpSend = true;
+         // this.processOtp = true;
+           this.showOtpPopup()
+          this.dialogRef.close();
            
         },
         err => {
@@ -829,6 +829,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     this.loginWith = obj;
     this.processOtp = false;
     this.forgotPasswordForm.controls['phoneEmailControl'].setValue('');
+    this.err_forgot_pass = '';
+    this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'required': false });
   }
 
   chatWithUs()
