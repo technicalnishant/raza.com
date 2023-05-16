@@ -995,6 +995,7 @@ a {
         // min-height: 100vh;
         // object-fit: fill;
         object-fit: cover;
+        max-height: 85vh;
     }
     ::ng-deep {
         .carousel-indicators {
@@ -1501,7 +1502,7 @@ h1.buy1get1-text:after {
         font-weight: 400;
         font-family: "Montserrat";
         text-align: center;
-        margin-top: 36px;
+        margin-top: 10px;
     }
     .reward-mob {
         padding-right: 58px;
@@ -2230,6 +2231,9 @@ h1.buy1get1-text:after {
     .promotion-offer .promo-btn {
         width: 160px;
     }
+    .home-slider .bg-image {
+        min-height: 650px;
+    }
 }
 
 @media only screen  and (max-width: 950px) {
@@ -2249,6 +2253,10 @@ h1.buy1get1-text:after {
         bottom: 18%;
         right: 50%;
         margin-right: -116px;
+    }
+    .home-slider .bg-image {
+        min-height: 620px;
+        max-height: 620px;
     }
 }
 
