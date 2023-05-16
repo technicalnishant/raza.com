@@ -835,8 +835,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
   chatWithUs()
   {
-    //this.closeModal();
-    //this.matDialog.open(CallUsComponent);
+    this.closeModal();
+    this.matDialog.open(CallUsComponent);
     // document.getElementsByClassName("LPMcontainer") as HTMLElement
     // let element:HTMLElement = document.getElementsByClassName('LPMcontainer') as HTMLElement;
     // window.lpTag.engage('myButton', { name: 'John', age: 25 }, () => {
