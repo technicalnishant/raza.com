@@ -621,6 +621,17 @@ span.note {
   font-weight: 600;
   margin-bottom: 10px;
 }
+.forgotPasswordForm .form-group.col-sm-2 {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.forgotPasswordForm .row {
+  margin: 0;
+}
+.popup-wrapper .forgot input.form-control {
+    height: 52px;
+ }
 }
 
 @media (min-width: 0px) and (max-width: 576px) {

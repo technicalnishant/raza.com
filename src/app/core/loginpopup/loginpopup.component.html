@@ -275,13 +275,13 @@
     <a href="javascript:void(0)" *ngIf="loginWith == 'phone'" (click)="changeNumber()" class="changeNum">Change Number<i class="fa fa-pencil" aria-hidden="true"></i></a>
     <a href="javascript:void(0)" *ngIf="loginWith == 'email'" (click)="changeNumber()" class="changeNum">Change Email<i class="fa fa-pencil" aria-hidden="true"></i></a>
 
-      <div class="example-container" *ngIf="!moreOptions">
+      <div class="example-container forgotPasswordForm" *ngIf="!moreOptions">
             <form name="forgotPasswordForm"  [formGroup]="form">
               
               
                   
                 <div class="row">
-                    <div class="form-group col-sm-2" *ngFor="let input of formInput;  index as i">
+                    <div class="form-group col-sm-2 col" *ngFor="let input of formInput;  index as i">
                         <input #formRow type="text" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)">
                       </div>
                 </div>
