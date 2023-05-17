@@ -978,13 +978,13 @@ a {
 .home-slider {
     .bg-image {
         width: 100%;
-        min-height: 699px;
+        min-height: 799px;
         //min-height: 799px;
         max-height: 799px;
         // min-height: 100vh;
         // object-fit: fill;
         object-fit: cover;
-        max-height: 85vh;
+       // max-height: 85vh;
     }
     ::ng-deep {
         .carousel-indicators {
