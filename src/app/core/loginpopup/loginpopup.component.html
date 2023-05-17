@@ -269,7 +269,7 @@
    <p class="text-center subtitle" *ngIf="moreOptions">We'll text you at</p>
 
 
-    <h2 *ngIf="loginWith == 'phone'" >(+{{currentSetting.country.CountryCode}}){{enteredPhone}}</h2>
+    <h2 *ngIf="loginWith == 'phone'" >(+{{currentSetting.country.CountryCode}}) {{formattedNumber(enteredPhone)}}</h2>
     <h2 *ngIf="loginWith == 'email'" >{{enteredPhone}}</h2>
 
     <a href="javascript:void(0)" *ngIf="loginWith == 'phone'" (click)="changeNumber()" class="changeNum">Change Number<i class="fa fa-pencil" aria-hidden="true"></i></a>

@@ -844,4 +844,11 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     // });
 
   }
+  formattedNumber(obj)
+  {
+    const phoneNumber = obj;
+    const formattedNumber = phoneNumber.toString().replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
+    return formattedNumber; // Output: 312 975 8545
+ 
+  }
 }
