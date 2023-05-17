@@ -288,10 +288,20 @@ input:-webkit-autofill:active {
   .changeNum {
     text-decoration: underline;
     margin-bottom: 30px;
-    background-image: url(../../../assets/images/edit.png);
     background-repeat: no-repeat;
     background-position: right center;
-    padding-right: 25px;
+    position: relative;
+    // padding-right: 25px;
+    &::before {
+      content: "";
+      background-image: url(../../../assets/images/edit.png);
+      background-repeat: no-repeat;
+      position: absolute;
+      right: -22px;
+      bottom: 5px;
+      width: 15px;
+      height: 15px;
+    } 
   }
   input.form-control {
     height: 60px;
