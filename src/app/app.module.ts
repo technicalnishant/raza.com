@@ -77,7 +77,8 @@ import { BottomUpComponent } from './mobile-pay/dialog/bottom-up/bottom-up.compo
 import { DialogCofirmComponent } from './mobile-pay/dialog/dialog-cofirm/dialog-cofirm.component'; 
 var google: any;
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import { GlobalCallRatesComponent } from './global-call-rates/global-call-rates.component';
+
+import { GlobalcallComponent } from './globalcall/globalcall.component';
 
  
 
@@ -125,7 +126,8 @@ export function LocationProviderFactory(provider: RazaEnvironmentService) {
    // AutoComponent, //27-12-22
     BottomUpComponent,
     DialogCofirmComponent,
-    GlobalCallRatesComponent
+    
+    GlobalcallComponent
          
 
   ],

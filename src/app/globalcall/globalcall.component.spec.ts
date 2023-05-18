@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GlobalCallRatesComponent } from './global-call-rates.component';
+import { GlobalcallComponent } from './globalcall.component';
 
-describe('GlobalCallRatesComponent', () => {
-  let component: GlobalCallRatesComponent;
-  let fixture: ComponentFixture<GlobalCallRatesComponent>;
+describe('GlobalcallComponent', () => {
+  let component: GlobalcallComponent;
+  let fixture: ComponentFixture<GlobalcallComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GlobalCallRatesComponent ]
+      declarations: [ GlobalcallComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GlobalCallRatesComponent);
+    fixture = TestBed.createComponent(GlobalcallComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

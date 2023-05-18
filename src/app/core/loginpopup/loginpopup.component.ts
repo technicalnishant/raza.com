@@ -88,6 +88,9 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   @ViewChildren('formRow') rows: any;
     error_response:any='Incorrect Mobile Number/Password.';
  err_forgot_pass:any='';
+
+ dataPhone:any='';
+ quickRecharge:any;
  
   constructor(
     private router: Router,
@@ -110,11 +113,12 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     _injector: Injector
   ) {
     super(_injector); 
-    this.form = this.toFormGroup(this.formInput);
-    this.fromPage   = (data.redirect_path)?data.redirect_path:'';
-    this.module     = (data.module)?data.module:'';
-    this.plan_id    = (data.plan_id)?data.plan_id:'';
-    console.log(data);
+    this.form           = this.toFormGroup(this.formInput);
+    this.fromPage       = (data.redirect_path)?data.redirect_path:'';
+    this.module         = (data.module)?data.module:'';
+    this.plan_id        = (data.plan_id)?data.plan_id:'';
+    this.dataPhone      = (data.number)?data.number:'';
+    this.quickRecharge  = (data.quickRecharge)?data.quickRecharge:false;
 
   }
 
@@ -177,7 +181,19 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
         localStorage.removeItem('signup_no');
         this.signupNoExist = true;
       }
+
+     // { number: reciever, loginWith:'phone', quickRecharge:true }
+
+     if(this.dataPhone !='')
+     {
       
+      this.forgotPasswordForm.controls['phoneEmailControl'].setValue(this.dataPhone);
+      this.enteredPhone = this.dataPhone;
+      this.processForgot()
+      this.showForgotPass = true;
+     
+      this.processOtp = true;
+     }
   }
  /*
   signInWithGoogle(): void {
@@ -373,30 +389,47 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     //this.plan_id    = (data.plan_id)?data.plan_id:'';
   }
 
+ 
+
   showHideForgotForm() {
     
     if (this.showForgotPass) {
       this.showForgotPass = false;
     } else 
     {
-      
+
+      this.moreOptions = false;
+      this.forgotPassSubmitted = true;
       const phoneOrEmail = this.loginForm.value.username;
       this.forgotPasswordForm.controls['phoneEmailControl'].setValue(phoneOrEmail);
+      this.showForgotPass = true;
+     if(this.loginWith == 'email')
+     {
+          
+          this.sendpasswordlink()
+  
+     }
+    else
+    {
  
-      console.log("Step 11");
-      if(phoneOrEmail !='')
-      {
+       
+  
+        console.log("Step 11");
+        if(phoneOrEmail !='')
+        {
 
-        this.enteredPhone = phoneOrEmail;
-        this.processForgot()
-        this.showForgotPass = true;
-        console.log("Step 111");
-        this.processOtp = true;
-      }
-      else{
-        this.showForgotPass = true;
-        this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'required': true });
-        this.processOtp = false;
+          this.enteredPhone = phoneOrEmail;
+          this.processForgot()
+          this.showForgotPass = true;
+          console.log("Step 111");
+          this.processOtp = true;
+        }
+        else{
+          this.showForgotPass = true;
+          this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'required': true });
+          this.processOtp = false;
+        }
+
       }
     }
 
@@ -563,7 +596,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       console.log(response);
       if (response != null) 
       {
-        this.router.navigateByUrl('/account/update-password');
+        //this.router.navigateByUrl('/account/update-password');
+        this.router.navigate([this.returnUrl]);
         this.closeModal();
       } else if (response == null) 
       {
@@ -701,7 +735,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
        
       var reciever = this.forgotPasswordForm.value.phoneEmailControl;
       reciever = autoCorrectIfPhoneNumber(this.forgotPasswordForm.get('phoneEmailControl').value);
-      //this.enteredPhone = reciever;
+       
       this.authService.sendpasswordlink(reciever).subscribe(
         (res: boolean) => {
            this.otpSend = true;
@@ -795,12 +829,16 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
     console.log(body);
     this.authService.login(body, true).subscribe((response) => {
-      console.log(response);
+      
       if (response != null) 
       {
-        this.router.navigateByUrl('/account/update-password');
+       // this.router.navigateByUrl('/account/update-password');
+       //if(!this.quickRecharge)
+       this.router.navigate([this.returnUrl]);
+
         this.closeModal();
-      } else if (response == null) 
+      } 
+      else if (response == null) 
       {
        // this.router.navigateByUrl('/auth/sign-in');
          this.closeModal();

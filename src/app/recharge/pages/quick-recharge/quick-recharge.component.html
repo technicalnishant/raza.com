@@ -51,9 +51,18 @@
                                         </div>
                                         <div class="clear"></div>
                                         <div *ngIf="!isAuthenticated" class="col-sm-12 formRowM15">
+
                                             <span class="floatRight forgetPass">
-                                                <a routerLink='/auth/forgot-password' href="#">Forgot Password?</a>
+                                                <!-- <a routerLink='/auth/forgot-password' href="#" >
+                                                    Forgot Password?
+                                                </a> -->
+
+
+                                                <a href="javascript:void(0)" (click)="forgotpassclick()">
+                                                    Forgot Password?
+                                                </a>
                                             </span>
+
                                             <mat-form-field class="example-full-width">
                                                 <input matInput placeholder="Password" type="password" formControlName="password">
                                                 <mat-error *ngIf="rechargeForm.get('password').errors?.required">

@@ -33,6 +33,9 @@ import { CurrentSetting } from 'app/core/models/current-setting';
 import { RazaEnvironmentService } from 'app/core/services/razaEnvironment.service';
 import { Country } from 'app/core/models/country.model';
 import { CountriesService } from 'app/core/services/country.service';
+
+import { autoCorrectIfPhoneNumber, isValidPhoneOrEmail, isValidaEmail } from '../../../shared/utilities';
+
 @Component({
   selector: 'app-recharge',
   templateUrl: './quick-recharge.component.html',
@@ -361,4 +364,44 @@ onClickClose(icon) {
       
     });
   }
+
+  forgotpassclick()
+  {
+   let phoneOrEmail = this.rechargeForm.value.phoneNumber
+
+
+    if(phoneOrEmail !='')
+        {
+
+          
+          this.processForgot()
+          
+        }
+        else{
+          
+          this.rechargeForm.controls['phoneNumber'].setErrors({ 'required': true });
+          
+        }
+
+  }
+
+
+  escapeRegExp = (string) => {
+    return string.replace(/[*+?^${}()|[\]\\-]/g, '');
+  }
+  processForgot()
+  {
+    
+    let reciever = this.rechargeForm.value.phoneNumber;
+    reciever = this.escapeRegExp(reciever);
+    reciever = reciever.replace(" ", "");
+   
+
+    this.dialog.open(LoginpopupComponent, {
+     
+      data: { number: reciever, loginWith:'phone', quickRecharge:true }
+    });
+ 
+  }
+
 }
