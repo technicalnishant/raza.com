@@ -905,6 +905,21 @@ font-family: "Montserrat";
         margin: 0 0 10px 90px;
 
     }
+    .countryIcon.col-sm-3 {
+        flex: 0 0 75%;
+        max-width: calc(25% - 15px);
+        padding-right: 0;
+        padding-left: 6px;
+        margin-left: 15px;
+    }    
+    .col-sm-9.phoneNo {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    .select_top1:after {
+        right: 5px;
+    }
+    
 }
 
 @media only screen and (min-width: 568px){
