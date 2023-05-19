@@ -283,7 +283,7 @@
                   
                 <div class="row">
                     <div class="form-group col-sm-2 col" *ngFor="let input of formInput;  index as i">
-                        <input #formRow type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)">
+                        <input #formRow type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)" autofocus>
                       </div>
                 </div>
                 <div class="row titleTex">
