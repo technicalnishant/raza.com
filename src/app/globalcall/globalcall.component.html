@@ -171,7 +171,8 @@
                 <div class="row">
                     <div class="col-md-4 p-0"><span class="reg_text">Regular</span></div>
                     <div class="col-md-3 p-0"><label class="switch">
-                            <input type="checkbox" id="checkboxbonus2" onchange="check_bonus2()">
+                       
+                            <input type="checkbox" id="checkboxbonus3" checked="{{isAutoRefill?true:false}}" (click)="setPlanType(false)">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -215,8 +216,10 @@
 
                                                 <div class="bgsvgimage">
                                                     <div class="ano-col">
-                                                        <span class="bonus-new " style="opacity: 0;">5% BONUS
+                                                        <span class="bonus-bg-short ">
+                                                             <span class="bonus-new "   *ngIf="item.DiscountApplied > 0">{{item.DiscountApplied}}% BONUS
                                                         </span>
+                                                    </span>
                                                         <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
                                                         <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
                                                         <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
@@ -239,7 +242,10 @@
 
                                                 <div class="bgsvgimage">
                                                     <div class="ano-col">
-                                                        <span class="bonus-new " style="opacity: 0;">5% BONUS
+                                                        
+                                                        <span class="bonus-bg-short ">
+                                                            <span class="bonus-new " *ngIf="item.DiscountApplied > 0">{{item.DiscountApplied}}% BONUS
+                                                            </span>
                                                         </span>
                                                         <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
                                                         <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
@@ -272,7 +278,7 @@
                                         <div class="inner-cell-list">
                                             <div *ngFor="let item of FilteredSubPlans"> 
                                                 {{getNameOfCountry(item.CountryName)}} 
-                                                </div>
+                                            </div>
                                              
                                         </div>
                                     </div>
@@ -281,7 +287,7 @@
                                         <div class="active col-wrapper" *ngFor="let den of denominationList; let i = index">
 
                                             <div class="inner-cell-list-price">
-                                                <div class="inner-cell" *ngFor="let item of SubPlans | filter:item.Price==den">
+                                                <div class="inner-cell" *ngFor="let item of filteredItems(den)">
                                                     {{item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes}} min
                                                 </div>
                                                  
@@ -305,23 +311,91 @@
     
 
     <!--Mobile price box-->
+    
+<div class="d-md-none d-block">
+
+
+
+
     <div class="container-fluid  mb-3  bg-white price_mobile_one_html hide_bonus" id="mobile_box_full">
         <div class="top-header">
             <div class="country">
-                <img src="images/jamaica.png" alt="Jamaica" class="ng-star-inserted">
+                <img *ngIf="flag_exists" src="./assets/images/flag/{{getcountryName()}}.png" alt="{{countryName}}">
+                         <div *ngIf="!flag_exists" class="country-text">{{flag_name}}</div>
                 <div class="country-name">
-                    <h1 class="text-center"> Call Jamaica </h1>
+                    <h1 class="text-center"> Call  {{countryName}} </h1>
                 </div>
             </div>
         </div>
-  
+         
+
+        <div class="container-fluid px-0">
+            <div class="denomination-wrapper">
+                <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)"
+                    (change)="getChangeData($event)" (changed)="getChangedData($event)" #owlCar>
+                    <ng-container *ngFor="let item of Plans; let i = index">
+                        <ng-template carouselSlide [id]="item.id" [width]="282">
+                            <div class="denomination-box">
+                                
+                                <table class="table">
+                                    <thead>
+                                         
+
+                                        <div class="active col-wrapper ">
+                                            <div class="ano-col">
+                                                <span class="bonus-bg-short">  <span class="bonus-new ">{{item.DiscountApplied}}% BONUS
+                                                </span></span>
+                                                <div id="10_offer2"><span class="slice" *ngIf="item.Price==90">$100</span>
+                                                    {{ item.Price | bCurrency : countryCode }} </div>
+                                                <span class="inner_price">8.85₵ / min</span>
+        
+                                                <div class="button"><button (click)="onClickRateTab(item)" mat-button=""
+                                                        class="mat-focus-indicator mat-button mat-button-base">
+                                                        <span class="mat-button-wrapper">Buy Now
+                                                        </span>
+                                                        <span matripple="" class="mat-ripple mat-button-ripple">
+                                                        </span>
+                                                        <span class="mat-button-focus-overlay">
+                                                        </span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of filteredItems(item.Price)" >
+                                            <td> <div class="d-flex " style="align-items: center;">
+                                                <!-- <div class="icon_div_mobile"><img class="icon_img" src="images/landline.png"></div>  -->
+                                                <div class="text_div_mobile">{{getNameOfCountry(item.CountryName)}} </div> 
+                                                </div>
+                                            </td>
+                                            <td class="text-right"> {{item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes}} min</td>
+                                        </tr>
+       
+                                         
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+    
+    
+            </div>
+        </div>
+
+
         <div class="mobile_footer_design">
             <div class="list_price_html">
                 <ul class="price_list">
-                    <li id="7_offer4" data-slide="0" class="active_li">$7</li>
-                    <li id="10_offer4" data-slide="1">$10</li>
-                    <li id="20_offer4" data-slide="2" class="feature_li" >$20</li>
-                    <li id="50_offer4" data-slide="3">$50</li>
+                    <li [class.selected]="clicked === i" (click)="clicked = i"
+                    *ngFor="let item of Plans; let i = index" class="deno-box {{getSelected_box(i)}}">
+                    <a (click)="owlCar.to(item.id)" id="class_box_{{i}}"> <span *ngIf="item.Price == 90">{{ 100 | bCurrency :
+                        countryCode }}</span>
+                    {{ item.Price | bCurrency : countryCode }}</a>
+                    </li>
+                    
                 </ul>
             </div>
             <div class="switch_content">
@@ -329,7 +403,7 @@
                     <div class="row pt-0">
                         <div class="col-xs-4 p-0"><span class="reg_text">Regular</span></div>
                         <div class="col-xs-2 p-0"><label class="switch">
-                                <input type="checkbox" id="checkboxbonus3" onchange="check_bonus3()">
+                                <input type="checkbox" id="checkboxbonus3" checked="{{isAutoRefill?true:false}}"(click)="setPlanType(false)">
                                 <span class="slider round"></span>
                             </label>
                         </div>
@@ -347,340 +421,248 @@
                 </div>
             </div>
         </div>
-        <div class="slider_content owl-carousel">
-            <div class="denomination-box ng-star-inserted">
-                <table class="table">
-                    <thead>
-                        <th colspan="2">
-                            <div class="active col-wrapper ">
-                                <div class="ano-col">
-                                    <span class="bonus-new " style="opacity: 0;">&nbsp;
-                                    </span>
-                                    <div id="7_offer2">$7 </div>
-                                    <span class="inner_price">8.85₵ / min</span>
-
-                                    <div class="button"><button mat-button=""
-                                            class="mat-focus-indicator mat-button mat-button-base">
-                                            <span class="mat-button-wrapper">Buy Now
-                                            </span>
-                                            <span matripple="" class="mat-ripple mat-button-ripple">
-                                            </span>
-                                            <span class="mat-button-focus-overlay">
-                                            </span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td> <div class="d-flex " style="align-items: center;">
-                                <div class="icon_div_mobile"><img class="icon_img" src="images/landline.png"></div> 
-                                <div class="text_div_mobile">Jamaica Landline</div> 
-                                </div>
-                            </td>
-                            <td class="text-right">20 min</td>
-                        </tr>
-                        <tr>
-
-                            <td> <div class="d-flex " style="align-items: center;">
-                                <div class="icon_div_mobile"><img class="icon_img" src="images/mobile.png"></div> 
-                                <div class="text_div_mobile">Jamaica Mobile</div> 
-                                </div>
-                            </td>                            
-                            <td class="text-right">22 min</td>
-                        </tr>
-                        <tr>
-                            <td> Jamaica Lagos
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Mtelt
-                            </td>
-                            <td class="text-right">20 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Zain Econet
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Jamaica Lagos
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Mtelt
-                            </td>
-                            <td class="text-right">20 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Zain Econet
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="denomination-box ng-star-inserted">
-                <table class="table">
-                    <thead>
-                        <th colspan="2">
-                            <div class="active col-wrapper ">
-                                <div class="ano-col">
-                                    <span class="bonus-new ">5% BONUS
-                                    </span>
-                                    <div id="10_offer2">$10 </div>
-                                    <span class="inner_price">8.85₵ / min</span>
-
-                                    <div class="button"><button mat-button=""
-                                            class="mat-focus-indicator mat-button mat-button-base">
-                                            <span class="mat-button-wrapper">Buy Now
-                                            </span>
-                                            <span matripple="" class="mat-ripple mat-button-ripple">
-                                            </span>
-                                            <span class="mat-button-focus-overlay">
-                                            </span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td> <div class="d-flex " style="align-items: center;">
-                                <div class="icon_div_mobile"><img class="icon_img" src="images/landline.png"></div> 
-                                <div class="text_div_mobile">Jamaica Landline</div> 
-                                </div>
-                            </td>
-                            <td class="text-right">20 min</td>
-                        </tr>
-                        <tr>
-
-                            <td> <div class="d-flex " style="align-items: center;">
-                                <div class="icon_div_mobile"><img class="icon_img" src="images/mobile.png"></div> 
-                                <div class="text_div_mobile">Jamaica Mobile</div> 
-                                </div>
-                            </td>                            
-                            <td class="text-right">22 min</td>
-                        </tr>
-                        <tr>
-                            <td> Jamaica Lagos
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Mtelt
-                            </td>
-                            <td class="text-right">20 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Zain Econet
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Jamaica Lagos
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Mtelt
-                            </td>
-                            <td class="text-right">20 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Zain Econet
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="denomination-box ng-star-inserted">
-                <table class="table">
-                    <thead>
-                        <th colspan="2">
-                            <div class="active col-wrapper feature_active">
-                                <div class="ano-col">
-                                    <span class="bonus-new ">7% BONUS
-                                    </span>
-                                    <div id="20_offer2">$20 </div>
-                                    <span class="inner_price">8.85₵ / min</span>
-
-                                    <div class="button"><button mat-button=""
-                                            class="mat-focus-indicator mat-button mat-button-base">
-                                            <span class="mat-button-wrapper">Buy Now
-                                            </span>
-                                            <span matripple="" class="mat-ripple mat-button-ripple">
-                                            </span>
-                                            <span class="mat-button-focus-overlay">
-                                            </span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td> <div class="d-flex " style="align-items: center;">
-                                <div class="icon_div_mobile"><img class="icon_img" src="images/landline.png"></div> 
-                                <div class="text_div_mobile">Jamaica Landline</div> 
-                                </div>
-                            </td>
-                            <td class="text-right">20 min</td>
-                        </tr>
-                        <tr>
-
-                            <td> <div class="d-flex " style="align-items: center;">
-                                <div class="icon_div_mobile"><img class="icon_img" src="images/mobile.png"></div> 
-                                <div class="text_div_mobile">Jamaica Mobile</div> 
-                                </div>
-                            </td>                            
-                            <td class="text-right">22 min</td>
-                        </tr>
-                        <tr>
-                            <td> Jamaica Lagos
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Mtelt
-                            </td>
-                            <td class="text-right">20 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Zain Econet
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Jamaica Lagos
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Mtelt
-                            </td>
-                            <td class="text-right">20 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Zain Econet
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="denomination-box ng-star-inserted">
-                <table class="table">
-                    <thead>
-                        <th colspan="2">
-                            <div class="active col-wrapper ">
-                                <div class="ano-col">
-                                    <span class="bonus-new ">10% BONUS
-                                    </span>
-                                    <div id="50_offer2">$50 </div>
-                                    <span class="inner_price">8.85₵ / min</span>
-
-                                    <div class="button"><button mat-button=""
-                                            class="mat-focus-indicator mat-button mat-button-base">
-                                            <span class="mat-button-wrapper">Buy Now
-                                            </span>
-                                            <span matripple="" class="mat-ripple mat-button-ripple">
-                                            </span>
-                                            <span class="mat-button-focus-overlay">
-                                            </span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td> <div class="d-flex " style="align-items: center;">
-                                <div class="icon_div_mobile"><img class="icon_img" src="images/landline.png"></div> 
-                                <div class="text_div_mobile">Jamaica Landline</div> 
-                                </div>
-                            </td>
-                            <td class="text-right">20 min</td>
-                        </tr>
-                        <tr>
-
-                            <td> <div class="d-flex " style="align-items: center;">
-                                <div class="icon_div_mobile"><img class="icon_img" src="images/mobile.png"></div> 
-                                <div class="text_div_mobile">Jamaica Mobile</div> 
-                                </div>
-                            </td>                            
-                            <td class="text-right">22 min</td>
-                        </tr>
-                        <tr>
-                            <td> Jamaica Lagos
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Mtelt
-                            </td>
-                            <td class="text-right">20 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Zain Econet
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Jamaica Lagos
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Mtelt
-                            </td>
-                            <td class="text-right">20 min
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jamaica Mobile - Zain Econet
-                            </td>
-                            <td class="text-right">25 min
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+       
+       
+     
+ 
     </div>
+</div>
      
     <div class="footer_block">
-        <div class="footer_box_content">Have a question? <a href="#">Chat</a> Or <a href="#">Call Us</a></div>
+        <div class="footer_box_content">Have a question? 
+            <a href="javascript:void(0)" (click)="contactUs()">Chat</a> Or 
+            <a href="javascript:void(0)" (click)="contactUs()">Call Us</a></div>
     </div>
     
 </section>
-<section>
-    <img class="show_desktop" src="raza-bottom.jpg" width="100%">
-    <img class="hide_desktop" src="raza-bottom-mobile.png" width="100%">
-</section>
+
+
+
+<section class="plan-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title">This Plan Includes</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-4 col-md-6">
+          <div class="box">
+            <img
+              src="../../../../assets/images/new_design_images/global_calling.png"
+              alt="global_calling"
+            />
+            <div class="box-title">Global Calling</div>
+            <div class="box-description">
+              Best Rates to call any Landlines and Cell phones worldwide!
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+          <div class="box">
+            <img
+              src="../../../../assets/images/new_design_images/mobile_app.png"
+              alt="global_calling"
+            />
+            <div class="box-title">Mobile App</div>
+            <div class="box-description">
+              Download the app and call directly without having to dialaccess
+              number.
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+          <div class="box">
+            <img
+              src="../../../../assets/images/new_design_images/call_quality.png"
+              alt="global_calling"
+            />
+            <div class="box-title">Exceptional Call Quality</div>
+            <div class="box-description">
+              Our State of the Art fiber optic network keeps you in touch with
+              high quality.
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+          <div class="box">
+            <img
+              src="../../../../assets/images/new_design_images/raza_rewards.png"
+              alt="global_calling"
+            />
+            <div class="box-title">Raza Rewards</div>
+            <div class="box-description">
+              Signup for Raza Rewards and earn points on every dollar spent.
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-xl-4 col-md-6">
+          <div class="box">
+            <img
+              src="../../../../assets/images/new_design_images/money_back.png"
+              alt="global_calling"
+            />
+            <div class="box-title">100% Money Back Guarantee </div>
+            <div class="box-description">
+              Get your unused balance refunded at any time if you are not
+              completed satisfied.
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-xl-4 col-md-6">
+          <div class="box">
+            <img
+              src="../../../../assets/images/new_design_images/account_management.png"
+              alt="global_calling"
+            />
+            <div class="box-title">Online Account Management</div>
+            <div class="box-description">
+              Keep track of your calls, orders and rewards anywhere anytime..
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="faq-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    FAQs
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+              <mat-accordion>
+                  <mat-expansion-panel hideToggle="true" #example>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Once I purchase a calling plan, how do I place my first call?
+                      </mat-panel-title>
+                      <mat-icon *ngIf="!example.expanded">add</mat-icon>
+                      <mat-icon *ngIf="example.expanded">remove</mat-icon>
+                    </mat-expansion-panel-header>
+                    <p>
+                      Upon purchasing a calling plan you will receive a confirmation Email
+                      providing you with a local access number to dial out.
+                    </p>
+                    <p>1. Use your registered phone and dial the local access number.</p>
+                    <p>2. Dial 011+ Country code + Destination number to get connected.</p>
+                    <p>3. Keep Talking!</p>
+                    
+                  </mat-expansion-panel>
+              
+                  <mat-expansion-panel hideToggle="true" #example2>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Can I use my calling plan to dial any country other than what I
+                        selected while sign up.
+                      </mat-panel-title>
+                      <mat-icon *ngIf="!example2.expanded">add</mat-icon>
+                      <mat-icon *ngIf="example2.expanded">remove</mat-icon>
+                    </mat-expansion-panel-header>
+                    <p>
+                      Yes, however the rates advertised on the web only apply to the specific
+                      country of selection. Please visit our “search rate” page to view all
+                      rates.
+                    </p>
+                  </mat-expansion-panel>
+              
+                  <mat-expansion-panel hideToggle="true" #example3>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title> Will my calling plan expire? </mat-panel-title>
+                      <mat-icon *ngIf="!example3.expanded">add</mat-icon>
+                      <mat-icon *ngIf="example3.expanded">remove</mat-icon>
+                    </mat-expansion-panel-header>
+                    <p>
+                      Most of our calling plans have no expiration date; there is 6 month
+                      validity on our special or discounted plans.
+                    </p>
+                  </mat-expansion-panel>
+              
+                  <mat-expansion-panel hideToggle="true" #example4>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Why do I have to wait for my account to be activated?
+                      </mat-panel-title>
+                      <mat-icon *ngIf="!example4.expanded">add</mat-icon>
+                      <mat-icon *ngIf="example4.expanded">remove</mat-icon>
+                    </mat-expansion-panel-header>
+                    <p>
+                      At Raza Communications confirming your order is our way of ensuring
+                      consumer protection against credit card fraud. Our highly trained
+                      customer service representatives inspect and verify all new orders to
+                      guarantee your online security. You can recharge anytime once your
+                      account is verified successfully.
+                    </p>
+                  </mat-expansion-panel>
+              
+                  <mat-expansion-panel hideToggle="true" #example5>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        How do I know which Calling Plan is right for me?
+                      </mat-panel-title>
+                      <mat-icon *ngIf="!example5.expanded">add</mat-icon>
+                      <mat-icon *ngIf="example5.expanded">remove</mat-icon>
+                    </mat-expansion-panel-header>
+                    <p>
+                      Calling rates differ from Country to Country and to Mobile and
+                      Landlines. All our plans are tailored to call anywhere in the world at
+                      the best rates possible. Chat or call our 24/7 customer service for any
+                      additional assistance.
+                    </p>
+                  </mat-expansion-panel>
+              
+                  <mat-expansion-panel hideToggle="true" #example6>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        How do I make purchase without using Credit Card?
+                      </mat-panel-title>
+                      <mat-icon *ngIf="!example6.expanded">add</mat-icon>
+                      <mat-icon *ngIf="example6.expanded">remove</mat-icon>
+                    </mat-expansion-panel-header>
+                    <p>Yes, you can mail us a money order to:</p>
+                    <p>Raza communications</p>
+                    <p>5219 N. Harlem Ave.</p>
+                    <p>Chicago IL, 60656</p>
+                    <p>
+                      Please be sure to include your Name, Address, Phone Number and Email.
+                      Once we receive your payment we will call or e-mail your plan details.
+                    </p>
+                  </mat-expansion-panel>
+                  
+                  
+                </mat-accordion>
+          </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="search-strip">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="title">
+            Download <br>
+            Raza mobile app <br>
+            and start calling now
+          </div>
+          <div class="d-flex align-items-center mt-5">
+            <img src="../../../assets/images/new_design_images/qr_code.png" alt="qr" class="mr-4 qrimage">
+            <div>
+              <a href="https://play.google.com/store/apps/details?id=com.razacomm.universe"><img src="../../../assets/images/new_design_images/play_store.png" alt="play" class="mb-3 mb-lg-0"></a>
+              <a href="https://apps.apple.com/ca/app/raza-universe/id1226298666" class="ml-0 ml-lg-3"><img src="../../../assets/images/new_design_images/app_store.png" alt="app"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 text-right">
+          <img src="../../../assets/images/new_design_images/strip_mob.png" alt="mob" class="mt-5 mt-lg-0 img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>

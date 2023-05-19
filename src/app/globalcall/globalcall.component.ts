@@ -586,7 +586,10 @@ export class GlobalcallComponent implements OnInit {
     this.filterDetailRate(this.selectedPrice);
   }
  
- 
+  filteredItems(price: number) {
+    //this.FilteredSubPlans = this.SubPlans.filter(a => a.Price == price); 
+    return this.SubPlans.filter(a => a.Price == price);
+  }
   filterDetailRate(price: number) {
     //this.FilteredSubPlans = this.SubPlans.filter(a => a.Price == price); 
     this.FilteredSubPlans = this.SubPlans.filter(a => a.Price == this.selectedPrice);
@@ -718,7 +721,7 @@ export class GlobalcallComponent implements OnInit {
     {
       if((obj) == this.sliderPosition)
       {
-        return 'selected active';
+        return 'selected active active_li';
       }
       else{
         return '';
