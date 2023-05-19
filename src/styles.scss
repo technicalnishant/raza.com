@@ -285,7 +285,7 @@ mat-toolbar-row {
         transform: translate(-50%, -50%);
         left: 53%;
         -webkit-transform: translate(-50%, -50%);
-        width: 90%;
+        width: auto
     }
     
     @include breakpoint(md-lg) {
@@ -294,7 +294,12 @@ mat-toolbar-row {
         -webkit-transform: translate(-40%, -50%);
     }
 }
-
+.row.rechargbstrip_class {
+    @include breakpoint(md) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
 .second_fold {
     padding: 60px 0px 70px 0;
     margin: 0;
