@@ -259,12 +259,12 @@ export class GlobalcallComponent implements OnInit {
     element.click();
     }, 100);
   }
-  setPlanType(obj)
+  setPlanType()
   {
     var current_position = this.sliderPosition;
      
-    this.isAutoRefill = obj;
-    if(obj == true)
+    this.isAutoRefill = !this.isAutoRefill;
+    if(this.isAutoRefill == true)
     {
       this.is_autorefill = true;
       this.Plans = this.AutorefillPlans;
