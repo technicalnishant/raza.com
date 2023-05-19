@@ -113,7 +113,8 @@ export class GlobalcallComponent implements OnInit {
 
   baseCountryId:string = '';
   baseCountryName:string = '';
-
+  showMore:boolean=false;
+  showButton:boolean=true;
   denominationSelectControl: FormControl = new FormControl();
   @ViewChild('matContent',{static: true}) matContent: ElementRef;
   constructor(
@@ -755,4 +756,9 @@ export class GlobalcallComponent implements OnInit {
       else
       return obj;
     }
+
+    isVisibleFaq(){
+      this.showMore = true;
+      this.showButton = false;
+     }
 }
