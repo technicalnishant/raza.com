@@ -1,3 +1,7 @@
+/* search box css */
+@import '__variables';
+@import '__mixins';
+$background-color_1: #293a6a;
 .activerow .sticky_row th .ano-col,
 .bonus-new,
 .col-wrapper.active .button button,
@@ -1225,3 +1229,116 @@ input:checked + .slider:before {
         top: -600px;
     }
 }
+
+
+//////////////////////////////////
+  
+
+
+.country-search{
+    .countries{
+      border-bottom: 1px solid #e7e7e7;
+    }
+      @include breakpoint(sm) {
+          .container{
+              width: 100%;
+          }
+      }
+      .search-input {
+          margin-top: -50px;
+          padding: 14px;
+          border-radius: 8px;
+          background-color: $background-color_1;
+          border: 1px solid #1c294d;
+          @include breakpoint(sm) {
+              padding: 4px;
+              border-radius: 8px;
+              margin-top: -50px;
+          }
+          input {
+              height: 71px;
+              font-size: 22px;
+              line-height: 28px;
+              color: $primary-color2;
+              font-weight: 500;
+              font-family: $font-family;
+              @include breakpoint(sm) {
+                  height: 48px;
+                  font-size: 16px;
+                  padding: 0;
+              }
+          }
+          &::placeholder {
+              font-size: 22px;
+              line-height: 28px;
+              color: $primary-color2;
+              font-weight: 500;
+              font-family: $font-family;
+              opacity: 1;
+      
+              @include breakpoint(sm) {
+                  font-size: 16px;
+              }
+          }
+      
+          .form-control {
+              &:focus {
+                  border: 0;
+                  box-shadow: none;
+                  outline: none;
+              }
+      
+              &:focus-visible {
+                  border: 0;
+                  box-shadow: none;
+                  outline: none;
+              }
+          }
+      }
+      
+  }
+
+  .flag_list1 {
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	left: 17px;
+	width: 58px;
+	z-index: 3;
+	top: 64px;
+	ul {
+		padding: 0;
+		margin: 10px 0 0 0;
+		list-style-type: none;
+		display: block;
+		max-height: 216px;
+		overflow: auto;
+		background-color: #fff;
+		li {
+			                  /* padding: 9px 2px; */
+    /* margin: 0 0 5px 0; */
+    //display: block;
+    cursor: pointer;
+    position: relative;
+    height: 50px;
+    border-bottom: 1px solid #999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+			&:last-of-type {
+				margin: 0;
+			}
+			span {
+				display: block;
+				// margin-left: 7px;
+			}
+		}
+	}
+}
+.showPlacholder {
+	position: absolute;
+	top: 34%;
+	left: 13%;
+	z-index: 99;
+}
+  // Search box Css end here

@@ -24,7 +24,7 @@ import { CheckoutService } from '../checkout/services/checkout.service';
  
 
 import { SlidesOutputData, OwlOptions } from 'ngx-owl-carousel-o';
-import { filter, tap } from '../../../node_modules/rxjs/operators';
+import { filter, map, startWith, tap } from '../../../node_modules/rxjs/operators';
 import { Country } from '../rates/model/country';
 import { MetaTagsService } from 'app/core/services/meta.service';
 
@@ -94,6 +94,7 @@ export class GlobalcallComponent implements OnInit {
   carouselData: any[]; 
   ratesLoaded=false;
   filteredCountry: Country[];
+  filteredCountryList: Observable<any[]>;
   is_autorefill:boolean=false;
   wauto_data_arr: any = {  
     id:'',
@@ -115,7 +116,11 @@ export class GlobalcallComponent implements OnInit {
   baseCountryName:string = '';
   showMore:boolean=false;
   showButton:boolean=true;
+  showDropdown:boolean=false
   denominationSelectControl: FormControl = new FormControl();
+  serchdata: any; autoControl = new FormControl(); allCountryList: any[];
+  searchicon: string = '../assets/images/search8.svg';
+  showPlaceholder: boolean = true;
   @ViewChild('matContent',{static: true}) matContent: ElementRef;
   constructor(
     public dialog: MatDialog,
@@ -144,6 +149,16 @@ export class GlobalcallComponent implements OnInit {
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
   
+    this.searchRatesService.getAllCountries().subscribe(
+      (data: Country[]) => {
+        if(data)
+        {
+        this.allCountry = data;
+      }
+      },
+      (err: ApiErrorResponse) => console.log(err),
+    );
+
     if(this.route.snapshot.paramMap.get('country_name'))
     {
       let current_route = this.route.snapshot.paramMap.get('country_name')
@@ -172,32 +187,13 @@ export class GlobalcallComponent implements OnInit {
 
       // Meta Description: 
 
-      
-      this.searchRatesService.getAllCountries().subscribe(
-        (data: Country[]) => {
-          if(data)
-          {
-          this.allCountry = data;
-          this.filteredCountry = this._filter(country_name);
-          if(this.filteredCountry[0])
-          {
+      this.filteredCountry = this._filter(country_name);
+      if(this.filteredCountry[0])
+      {
           this.countryId = this.filteredCountry[0].CountryId;
-              this.getRates();
-          }
-
-         /* this.allCountry.map(function(item){
-            console.log(item);
-             if(item.CountryName == country_name )
-             {
-              this.countryId = item.CountryId;
-              this.getRates();
-             } 
-         })  */
-         
-        }
-        },
-        (err: ApiErrorResponse) => console.log(err),
-      );
+          this.getRates();
+      }
+    
     }
     
     else{
@@ -244,13 +240,25 @@ export class GlobalcallComponent implements OnInit {
       behavior: 'smooth'
     });
 
-    this.viewAllRatesTab()
-  }
+  this.viewAllRatesTab()
 
+    this.filteredCountryList = this.autoControl.valueChanges
+    .pipe(
+      startWith<string | any>(''),
+      map(value => typeof value === 'string' ? value : value.CountryName),
+      map(CountryName => CountryName ? this._filter(CountryName) : this.allCountry)
+    );
+
+  }
+  
   private _filter(value: any): Country[] {
+    console.log('value is ', value)
     const filterValue = value.toLowerCase();
     return this.allCountry.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
   }
+
+
+  
 
   clickSliderButton(current_position)
   {
@@ -449,6 +457,14 @@ export class GlobalcallComponent implements OnInit {
        }
     );
   }
+
+  viewRates(event, countryId)
+  {
+    this.countryId = countryId;
+    this.getRates()
+    this.viewAllRatesTab()
+  }
+
   getRates()
   {
     this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, this.countryId).subscribe(
@@ -456,8 +472,7 @@ export class GlobalcallComponent implements OnInit {
          
         this.ratesLoaded = true;
         this.countryCode = data.CountryCode;
-       // this.countryId = data.CountryId;
-       // this.countryName = data.CountryName;
+      
         this.baseCountryId = data.CountryId;
         this.baseCountryName = data.CountryName;
 
@@ -761,4 +776,26 @@ export class GlobalcallComponent implements OnInit {
       this.showMore = true;
       this.showButton = false;
      }
+
+     openFlagDropDown() {
+
+      if (this.showDropdown) {
+        this.showDropdown = false;
+      } else {
+        this.showDropdown = true;
+      }
+    }
+
+    onClickInput() {
+      this.searchicon = '../assets/images/search8.svg';
+    }
+    displayFn(country?: any): string | undefined {
+      return country ? country.CountryName : undefined;
+    }
+    onInputFocus() {
+      this.searchicon = '../assets/images/cross8.png';
+      this.showDropdown = false;
+      this.showPlaceholder = false;
+    }
+
 }
