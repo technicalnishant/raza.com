@@ -774,12 +774,31 @@ export class GlobalcallComponent implements OnInit {
       }
     }
     getNameOfCountry(obj){
-      if(obj == this.baseCountryName)
+      if(obj == this.countryName)
       {
         return obj+' landline'
       }
       else
       return obj;
+    }
+
+
+    getClassIcon(obj)
+    {
+      if(obj == this.countryName)
+      {
+        return 'landline_icon';
+      }
+
+      else if(obj == this.countryName+' Mobile')
+      {
+        return 'mobile_icon';
+      }
+      else
+      {
+        return '';
+      }
+
     }
 
     isVisibleFaq(){

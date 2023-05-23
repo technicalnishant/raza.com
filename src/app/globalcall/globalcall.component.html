@@ -7,7 +7,7 @@
 
             <button (click)="goBack()">Go Back</button>
 
-            
+
             <div class="country-search">
                 <div>
                     <div class="country-searchnew">
@@ -285,7 +285,8 @@
                                     <div class="first-col">
                                         <div class="inner-cell-list">
                                             <div *ngFor="let item of FilteredSubPlans"> 
-                                                {{getNameOfCountry(item.CountryName)}} 
+                                              <span class="{{getClassIcon(item.CountryName)}}"></span>  {{getNameOfCountry(item.CountryName)}} 
+
                                             </div>
                                              
                                         </div>
@@ -374,7 +375,9 @@
                                         <tr *ngFor="let item of filteredItems(item.Price)" >
                                             <td> <div class="d-flex " style="align-items: center;">
                                                 <!-- <div class="icon_div_mobile"><img class="icon_img" src="images/landline.png"></div>  -->
-                                                <div class="text_div_mobile">{{getNameOfCountry(item.CountryName)}} </div> 
+                                                <div class="text_div_mobile">
+                                                  <span class="{{getClassIcon(item.CountryName)}}"></span>
+                                                  {{getNameOfCountry(item.CountryName)}} </div> 
                                                 </div>
                                             </td>
                                             <td class="text-right"> {{item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes}} min</td>
