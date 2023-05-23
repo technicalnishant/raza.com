@@ -485,6 +485,9 @@ export class GlobalcallComponent implements OnInit {
         var multi_data_arr = [];
         this.fileExists();
         this.getFlagName();
+
+       
+
         
         if(data.DiscountedPlansWithAutoRefill.Denominations)
         {
@@ -507,9 +510,10 @@ export class GlobalcallComponent implements OnInit {
              multi_data_arr[j] = data_arr;
              j++;
              data_arr = {};
-            if( i+1 == data.DiscountedPlansWithAutoRefill.Denominations.length)
+            if( j+1 == data.DiscountedPlansWithAutoRefill.Denominations.length)
             {
-              this.AutorefillPlans = multi_data_arr
+              this.AutorefillPlans = multi_data_arr.filter(a => a.Price != 90);
+               
               this.Plans = this.AutorefillPlans;
             }           
                       
@@ -536,9 +540,10 @@ export class GlobalcallComponent implements OnInit {
            wmulti_data_arr[j] = wdata_arr;
            j++;
            wdata_arr = {};
-           if( i+1 == data.DiscountedPlans.Denominations.length)
+           if( j+1 == data.DiscountedPlans.Denominations.length)
             {
-              this.WithoutAutorefillPlans = wmulti_data_arr;
+              this.WithoutAutorefillPlans = wmulti_data_arr.filter(a => a.Price != 90)
+              //this.WithoutAutorefillPlans = wmulti_data_arr;
             }    
             
                      
@@ -578,12 +583,13 @@ export class GlobalcallComponent implements OnInit {
     this.searchRatesService.getSearchGlobalRatesSubPlans(this.currentSetting.currentCountryId, this.countryId).subscribe(
       (data: any) => {
         this.SubPlans = data
-        if (this.SubPlans.length > 0) {
+        if (this.SubPlans.length > 0) 
+        {
           this.denominationList = Array.from(new Set(this.SubPlans.map(item => item.Price)));
           this.denominationList = this.denominationList.sort( (a, b)=> a-b)
+          this.denominationList = this.denominationList.filter(a=> a != 90 )
 
-
-          console.log('this.denominationList', this.denominationList);
+ 
         //  this.denominationSelectControl.setValue(this.denominationList[0]); 
           this.denominationSelectControl.setValue(this.selectedPrice);  
           this.filterDetailRate(this.denominationList[0]);
