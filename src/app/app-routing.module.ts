@@ -73,8 +73,10 @@ const routes: Routes = [
   { path:'404', loadChildren:()=>import('./page404/page404.module').then(m=>(m.Page404Module))},
   //{path: '404', component: Page404Component},
   { path: 'buy_five_get_five', component: Buy5get5Component},
-  { path: 'globalcallrates', component: GlobalCallratesComponent},
+ // { path: 'globalcallrates', component: GlobalCallratesComponent},
+  { path: 'globalcallrates', component: GlobalcallComponent},
   { path: 'globalcallrates_new', component: GlobalcallComponent},
+
   { path: 'globalcallrates/:country_name', component: GlobalCallratesComponent},
   { path: 'call/:country_name', component: GlobalCallratesComponent},
   { path: 'rates/:country_name', component: GlobalCallratesComponent},

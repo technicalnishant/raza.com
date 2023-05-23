@@ -29,6 +29,9 @@ import { Country } from '../rates/model/country';
 import { MetaTagsService } from 'app/core/services/meta.service';
 
 import { Title, Meta } from '@angular/platform-browser';
+
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-globalcall',
   templateUrl: './globalcall.component.html',
@@ -135,7 +138,8 @@ export class GlobalcallComponent implements OnInit {
     private checkoutService: CheckoutService,
     private metaTagsService:MetaTagsService,
     private _titleService: Title,
-    private _metaService: Meta
+    private _metaService: Meta,
+    private location: Location
     ) { 
 
     
@@ -802,6 +806,10 @@ export class GlobalcallComponent implements OnInit {
       this.searchicon = '../assets/images/cross8.png';
       this.showDropdown = false;
       this.showPlaceholder = false;
+    }
+
+    goBack(): void {
+      this.location.back();
     }
 
 }
