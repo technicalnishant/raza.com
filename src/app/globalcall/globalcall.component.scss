@@ -1459,3 +1459,13 @@ section.plan-section {
 	z-index: 99;
 }
   // Search box Css end here
+
+.info_country img {
+    max-width: 100%;
+}
+section.plan-section {
+    .sticky {
+        position: sticky;
+        top: 0;
+      }
+}

@@ -31,7 +31,7 @@ import { MetaTagsService } from 'app/core/services/meta.service';
 import { Title, Meta } from '@angular/platform-browser';
 
 import { Location } from '@angular/common';
-
+import { HostListener } from '@angular/core';
 @Component({
   selector: 'app-globalcall',
   templateUrl: './globalcall.component.html',
@@ -42,7 +42,7 @@ export class GlobalcallComponent implements OnInit {
   countryId:any;
   currentSetting: CurrentSetting;
   currentSetting$: Subscription;
-
+  isSticky: boolean = false;
 
     countryCode :any;
     
@@ -125,6 +125,7 @@ export class GlobalcallComponent implements OnInit {
   searchicon: string = '../assets/images/search8.svg';
   showPlaceholder: boolean = true;
   @ViewChild('matContent',{static: true}) matContent: ElementRef;
+  sticky_class:any='';
   constructor(
     public dialog: MatDialog,
     private razalayoutService: RazaLayoutService,
@@ -830,5 +831,23 @@ export class GlobalcallComponent implements OnInit {
     goBack(): void {
       this.location.back();
     }
+
+
+    @HostListener('window:scroll', ['$event'])
+    handleScroll() {
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      this.isSticky = scrollPosition >= 100; // Adjust the value based on when you want the div to become sticky
+     let scroll:number = scrollPosition
+      console.log('scrollPosition', scrollPosition);
+      if(scroll >= 650)
+      {
+       this.sticky_class = 'activerow_full';
+      }
+      else{
+         this.sticky_class = '';
+      }
+    
+    }
+   
 
 }
