@@ -173,15 +173,15 @@ $background-color_1: #293a6a;
 .denomination-box table .button small {
     margin-bottom: 0;
 }
-.denomination-box table .button button {
-    margin: 0 auto 8px;
-    border: 0;
-    color: #fff;
-    height: 46px;
-    border-radius: 12px;
-    background-color: #f15d2e;
-    width: 100%;
-}
+// .denomination-box table .button button {
+//     margin: 0 auto 8px;
+//     border: 0;
+//     color: #fff;
+//     height: 46px;
+//     border-radius: 12px;
+//     background-color: #f15d2e;
+//     width: 100%;
+// }
 .denomination-box thead th {
     border-top: none;
     border-bottom: 1px solid #000;
@@ -886,7 +886,92 @@ input:checked + .slider:before {
 .price_mobile_one_html {
     display: none;
 }
-
+button.back_btn {
+    display: none;
+}
+  
+section.faq-section {
+    margin-bottom: 40px;
+    .section-title {
+        color: #132f79;
+        text-align: center;
+        font-size: 46px;
+        font-weight: 700;
+        margin: 30px 0 61px;
+    }
+    .mat-expansion-panel-header-title {
+        color: #09293e;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+    .mat-expansion-panel-body {
+        color: #333;
+    }    
+    .mat-expansion-panel-header mat-icon {
+        position: relative;
+        top: 15px;
+    }
+}
+button.loadmore {
+    background: #fcc802;
+    border: 1px solid #fcc802;
+    border-radius: 30px;
+    display: block;
+    margin: 40px auto;
+    padding: 10px 33px;
+    color: #09293e;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 18px;
+}
+button.loadmore:hover {
+    opacity: .8;
+}
+section.search-strip {
+    background: #fcc802;
+    padding-top: 50px;
+    .title {
+        color: #132f79;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 1;
+    }
+    img.qrimage {
+        box-shadow: 10px 10px 0px hsl(0deg 0% 0% / 20%);
+    }
+}
+.info_country img {
+    max-width: 100%;
+}
+section.plan-section {
+    background: #e1f1ff;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    .box-title {
+        color: #09293e;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }    
+    .section-title {
+        color: #132f79;
+        text-align: center;
+        font-size: 46px;
+        font-weight: 700;
+        margin: 30px 0 61px;
+    }    
+    .box {
+        text-align: center;
+        padding: 20px 30px;
+        margin-bottom: 10px;
+    }    
+    .box-description {
+        font-weight: 500;
+    }
+}
 
 @media only screen and (max-width: 1387px) {
     .inner-cell-list div {
@@ -947,7 +1032,7 @@ input:checked + .slider:before {
         border-left: 1px solid #3b489f;
         border-right: 1px solid #3b489f;
         border-top: 1px solid #3b489f;
-
+        display: block;
     }
     .bonus-bg-short{
         right: -1px;top:-1px;
@@ -1193,6 +1278,24 @@ input:checked + .slider:before {
         padding-top: 0;
         padding-bottom: 20px;
     }
+    .heading_style1.heading_style-new {
+        display: none;
+    }
+    table.table {
+        display: block;
+    }
+    section.plan-section .section-title,
+    section.faq-section .section-title {
+        font-size: 32px;
+        margin: 10px 0 30px;
+    }    
+    section.search-strip .title {
+        font-size: 30px;
+    }
+    button.loadmore{
+        padding: 8px 28px;
+        font-size: 15px;
+    }
 }
 @media only screen and (max-width: 420px) {
     .country-searchnew #searchInput {
@@ -1356,34 +1459,3 @@ input:checked + .slider:before {
 	z-index: 99;
 }
   // Search box Css end here
-
-.info_country img {
-    max-width: 100%;
-}
-section.plan-section {
-    background: #e1f1ff;
-    padding: 20px 0;
-    margin-bottom: 20px;
-    .box-title {
-        color: #09293e;
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 15px;
-        margin-top: 15px;
-    }    
-    .section-title {
-        color: #132f79;
-        text-align: center;
-        font-size: 46px;
-        font-weight: 700;
-        margin: 30px 0 61px;
-    }    
-    .box {
-        text-align: center;
-        padding: 20px 30px;
-        margin-bottom: 10px;
-    }    
-    .box-description {
-        font-weight: 500;
-    }
-}
