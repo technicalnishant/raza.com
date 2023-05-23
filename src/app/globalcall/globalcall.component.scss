@@ -1321,6 +1321,12 @@ section.plan-section {
     section.faq-section .col-md-12 {
         padding: 0 5px;
     }
+    .home_banner.searchrate_banner {
+        display: none;
+    }    
+    section.bg-white {
+        margin-top: 68px;
+    }
 }
 @media only screen and (max-width: 420px) {
     .country-searchnew #searchInput {
