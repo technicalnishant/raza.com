@@ -78,7 +78,7 @@
  
 <section class="bg-white">
     <!--top scroll header box-->
-    <div class="full_width_scroll" id="full_width_scroll_div">
+    <div class="full_width_scroll {{sticky_class}}" id="full_width_scroll_div" [class.sticky]="isSticky">
         <div class="container-fluid  container-fluid-new  pt-0   price_big_one_html">
             <table class="sticky activerow">
                 <tr class="sticky_row ">
@@ -397,7 +397,7 @@
         </div>
 
 
-        <div class="mobile_footer_design">
+        <div class="mobile_footer_design" >
             <div class="list_price_html">
                 <ul class="price_list">
                     <li [class.selected]="clicked === i" (click)="clicked = i"
