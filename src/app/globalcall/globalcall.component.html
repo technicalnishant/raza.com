@@ -122,7 +122,9 @@
                                             <div class="active col-wrapper" *ngFor="let item of AutorefillPlans; let i = index">
                                                <div class="bgsvgimage">
                                                     <div class="ano-col">
-                                                        <span class="bonus-new" *ngIf="item.DiscountApplied > 0">{{item.DiscountApplied}}% BONUS </span>
+                                                        <span class="bonus-bg-short" *ngIf="item.DiscountApplied > 0">
+                                                         <span class="bonus-new">{{item.DiscountApplied}}% BONUS </span>
+                                                        </span>
                                                         <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }} </div>
                                                        
                                                         <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
@@ -143,7 +145,9 @@
                                             <div class="active col-wrapper" *ngFor="let item of WithoutAutorefillPlans; let i = index">
                                                <div class="bgsvgimage">
                                                     <div class="ano-col">
-                                                        <span class="bonus-new" *ngIf="item.DiscountApplied > 0">{{item.DiscountApplied}}% BONUS </span>
+                                                        <span class="bonus-bg-short" *ngIf="item.DiscountApplied > 0">
+                                                          <span class="bonus-new">{{item.DiscountApplied}}% BONUS </span>
+                                                        </span>
                                                         <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }} </div>
                                                        
                                                         <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>

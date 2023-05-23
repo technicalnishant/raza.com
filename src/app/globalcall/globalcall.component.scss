@@ -568,7 +568,7 @@ body.mat-drawer-container {
 }
 .header_row_div .row {
     position: relative;
-    z-index: 1000;
+    z-index: 10;
 }
 .activerow .sticky_row th .bottom_bg {
     top: -100px;
@@ -594,11 +594,8 @@ body.mat-drawer-container {
     top: 0;
 }
 .activerow .bonus-new {
-    margin-bottom: 15px;
-    font-size: 14px;
-    line-height: 20px;
-    top: 15px;
-    left: 6px;
+    top: 30px;
+    left: 14px;
 }
 .country_name_text {
     padding: 9px 4px;
@@ -1295,6 +1292,34 @@ section.plan-section {
     button.loadmore{
         padding: 8px 28px;
         font-size: 15px;
+    }
+    button.back_btn {
+        display: block;
+        background: #fcc802;
+        border: 1px solid #fcc802;
+        border-radius: 7px;
+        padding: 2px 15px 2px 25px;
+        position: absolute;
+        top: 85px;
+        left: 18px;
+        font-size: 16px;
+        font-weight: 600;
+        background-image: url(../../assets/images/left-arrow.png);
+        background-size: 13px;
+        background-repeat: no-repeat;
+        background-position: left 8px top 7px;
+        &:hover {
+            opacity: .8;
+        }
+    }
+    .mat-expansion-panel-header {
+        padding: 0 !important;
+    }
+    section.faq-section .mat-expansion-panel-header-title {
+        font-size: 16px;
+    }
+    section.faq-section .col-md-12 {
+        padding: 0 5px;
     }
 }
 @media only screen and (max-width: 420px) {
