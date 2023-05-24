@@ -1301,20 +1301,22 @@ section.plan-section {
         font-size: 15px;
     }
     button.back_btn {
-        display: block;
-        background: #fcc802;
-        border: 1px solid #fcc802;
-        border-radius: 7px;
-        padding: 2px 15px 2px 25px;
-        position: absolute;
-        top: 85px;
-        left: 18px;
-        font-size: 16px;
-        font-weight: 600;
         background-image: url(../../assets/images/left-arrow.png);
-        background-size: 13px;
+        display: block;
+        /* background: #fcc802; */
+        border: none;
+        position: absolute;
+        top: 33px;
+        left: 8px;
+        font-size: 0;
+        font-weight: 600;
         background-repeat: no-repeat;
         background-position: left 8px top 7px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        padding: 0;
+        background-color: transparent;        
         &:hover {
             opacity: .8;
         }
