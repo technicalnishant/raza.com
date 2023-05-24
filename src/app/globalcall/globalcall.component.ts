@@ -32,10 +32,12 @@ import { Title, Meta } from '@angular/platform-browser';
 
 import { Location } from '@angular/common';
 import { HostListener } from '@angular/core';
+
 @Component({
   selector: 'app-globalcall',
   templateUrl: './globalcall.component.html',
-  styleUrls: ['./globalcall.component.scss']
+  styleUrls: ['./globalcall.component.scss'],
+   
 })
 export class GlobalcallComponent implements OnInit {
   isSmallScreen;
@@ -838,7 +840,7 @@ export class GlobalcallComponent implements OnInit {
       const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
       this.isSticky = scrollPosition >= 100; // Adjust the value based on when you want the div to become sticky
      let scroll:number = scrollPosition
-      console.log('scrollPosition', scrollPosition);
+      
       if(scroll >= 650)
       {
        this.sticky_class = 'activerow_full';
