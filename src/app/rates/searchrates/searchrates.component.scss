@@ -136,12 +136,12 @@ $background-color_1: #ffffff;
             object-fit: contain;
         }
     }
-.flag_round{
-    height: 40px;
-            width: 40px;
-            -o-object-fit: contain;
-            object-fit: contain;
-}
+    .flag_round{
+        height: 40px;
+        width: 40px;
+        -o-object-fit: contain;
+        object-fit: contain;
+    }
     .country-name {
         font-size: 20px;
         line-height: 28px;
@@ -188,8 +188,10 @@ $background-color_1: #ffffff;
     }
 
 }
-.qrimage
-{
+.row.countries_row {
+    justify-content: center;
+}
+.qrimage {
 	box-shadow: 7px 10px #cc9f23;
 }
 // country grid css end here
