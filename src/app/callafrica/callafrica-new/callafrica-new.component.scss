@@ -47,7 +47,9 @@ $background-color_1: #293a6a;
     }
   }
   
-  
+  .row.countries_row {
+    justify-content: center;
+}
   
   @media only screen and (max-width: 650px) {
   

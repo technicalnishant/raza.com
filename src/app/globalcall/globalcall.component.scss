@@ -969,7 +969,21 @@ section.plan-section {
         font-weight: 500;
     }
 }
-
+.landline_icon,
+.mobile_icon {
+    background-image: url(../../assets/images/landline.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: text-bottom;
+    width: 18px;
+    height: 16px;
+    margin-right: 6px;
+}
+.mobile_icon {
+    background-image: url(../../assets/images/mobile.png);
+    width: 12px;
+    height: 18px;
+}
 @media only screen and (max-width: 1387px) {
     .inner-cell-list div {
         padding: 16px 1px;
@@ -1015,10 +1029,8 @@ section.plan-section {
         padding-bottom: 0 !important;
     }
     .bonus-new{
-        top: 24px;
-    left: 10px;
-    font-size: 15px;
-    transform: rotate(42deg);
+        top: 33px;
+        left: 17px;
     }
     .active.col-wrapper {
         background-image: url(../../assets/images/bgshortmenu.png);
@@ -1031,27 +1043,21 @@ section.plan-section {
         border-top: 1px solid #3b489f;
         display: block;
     }
-    .bonus-bg-short{
-        right: -1px;top:-1px;
-        width: 122px;
-        height: 110px;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-    }
     .denomination-box table tbody{
         border-left: 1px solid #ddd;
         border-right: 1px solid #ddd;
         
 
     }
-
-    .feature_active .ano-col div, .feature_active .ano-col .inner_price
-{
+    .bonus-bg-short {
+        right: -12px;
+    }
+    .feature_active .ano-col div, .feature_active .ano-col .inner_price {
         color: #fcc802 !important;
     }
     .price_list li.feature_li:after {
         content: "";
-       background-image: url(../../assets/images/select-star.png);
+        background-image: url(../../assets/images/select-star.png);
         position: absolute;
         width: 20px;
         height: 20px;
