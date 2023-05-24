@@ -15,7 +15,8 @@ import { CallafricaNewComponent } from './callafrica-new/callafrica-new.componen
       FormsModule,
       ReactiveFormsModule,
       RouterModule.forChild([
-        { path: '', component: CallafricaComponent },    
+     //   { path: '', component: CallafricaComponent },    
+        { path: '', component: CallafricaNewComponent },    
         { path: 'new', component: CallafricaNewComponent },    
       ]) 
    ],

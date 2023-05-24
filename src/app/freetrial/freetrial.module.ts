@@ -17,7 +17,8 @@ import { FreetrialNewComponent } from './freetrial-new/freetrial-new.component';
 	  FormsModule,
 	  ReactiveFormsModule,
       RouterModule.forChild([
-        { path: '', component: FreeTrialComponent },    
+       // { path: '', component: FreeTrialComponent },    
+        { path: '', component: FreetrialNewComponent },    
         { path: 'new', component: FreetrialNewComponent },    
       ]) 
    ],

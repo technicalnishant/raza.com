@@ -169,7 +169,7 @@
                     </div>
                 </a>
 
-                <a routerLink="/mobiletopup" *ngIf="currentSetting?.country?.CountryId !=3">
+                <a (click)="goTomobileTopup()" *ngIf="currentSetting?.country?.CountryId !=3">
                     <div class="icon_holder1">
                         <img loading="lazy" src="./assets/images/mobile_topup_white.svg" alt="icon">
                         <img loading="lazy" src="./assets/images/mobile_topup_blue.svg" alt="icon">

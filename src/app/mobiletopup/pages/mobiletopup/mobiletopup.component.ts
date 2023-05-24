@@ -21,6 +21,7 @@ import { CurrentSetting } from '../../../core/models/current-setting';
 import { isNullOrUndefined } from "../../../shared/utilities";
 import { Location } from '@angular/common';
 import { MetaTagsService } from 'app/core/services/meta.service';
+import { PreviousRouteService } from 'app/core/services/previous-route.service';
 @Component({
   selector: 'app-mobiletopup',
   templateUrl: './mobiletopup.component.html',
@@ -59,12 +60,19 @@ export class MobiletopupComponent implements OnInit, OnDestroy {
     private authService: AuthenticationService,
     private razaEnvService: RazaEnvironmentService,
 	private location:Location,
-  private metaTagsService:MetaTagsService
+  private metaTagsService:MetaTagsService,
+  private previousRouteService: PreviousRouteService,
   ) {
 
   }
 
   ngOnInit() {
+
+    let previous = this.previousRouteService.getPreviousUrl();
+    let currnet = this.previousRouteService.getCurrentUrl();
+ 
+     
+    
     this.titleService.setTitle('Mobile Topup');
     this.metaTagsService.getMetaTagsData('mobiletopup');
     this.sideBarService.toggle();

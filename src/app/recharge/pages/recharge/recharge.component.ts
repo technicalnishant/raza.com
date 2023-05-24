@@ -272,8 +272,8 @@ export class RechargeComponent implements OnInit {
         
         this.ratesLoaded = true;
         this.countryCode = data.CountryCode;
-        this.countryId = data.CountryId;
-        this.countryName = data.CountryName;
+        this.countryId = data.ParentCountryId;
+        this.countryName = data.ParentCountryName;
         //this.Plans = data.DiscountedPlans.Denominations;
         this.getcountryName();
 
