@@ -39,11 +39,9 @@ $background-color_1: #293a6a;
 .col-wrapper .inner-cell,
 .first-col div {
     border-bottom: 0 solid #e5e5e5;
-    padding: 16px;
+    padding: 16px 10px 16px 14px;
 }
-.active {
- 
-    
+.active {    
     margin-top: -2px;
 }
 .first-col {
@@ -106,10 +104,7 @@ $background-color_1: #293a6a;
 
 .activerow .sticky_row th .ano-col{
     padding-top: 20px!important;
-  }
-
- 
-
+}
 .col-wrapper .inner-cell-list-price {
     position: relative;
     border-bottom: 2px solid #ececec;
@@ -133,13 +128,6 @@ $background-color_1: #293a6a;
 .body_no_scroll .d-flex.flex-grow-1 {
     margin-bottom: 15px;
 
-}
-
-
-
-
-.active.col-wrapper:after{
-  
 }
 .marginTop15 {
     font-size: 12px;
@@ -241,10 +229,6 @@ $background-color_1: #293a6a;
     color: #364360;
     font-weight: 500;
     font-family: Montserrat;
-}
-.denomination-box tbody tr td div {
-    
-    
 }
 .denomination-box tbody tr td mat-icon {
     color: #55ab17;
@@ -406,11 +390,7 @@ span.input-group-text.caret.bg-white.border-right-0 {
     box-shadow: 0px -26px 35px 0px rgba(0,0,0,0.14);
 }
 .body_no_scroll .active.col-wrapper  {
- 
     box-shadow: 0px 15px 35px 0px rgba(0,0,0,0.14);
-    
-    
-    
 }
 .ano-col {
     background: transparent;
@@ -418,8 +398,7 @@ span.input-group-text.caret.bg-white.border-right-0 {
     color: #fff !important;
     position: relative;
 }
-.bgsvgimage
- {
+.bgsvgimage {
     background-position: top;
     background-repeat: no-repeat;
 }   
@@ -509,7 +488,7 @@ span.input-group-text.caret.bg-white.border-right-0 {
 
 .hide_bonus .bonus-new,.hide_bonus .bonus-bg,.hide_bonus .bonus-bg-short{
 //opacity: 0;
-transition: 0.2s ease-in;
+    transition: 0.2s ease-in;
 }
 .icon_img {
     width: auto;
@@ -616,6 +595,7 @@ body.mat-drawer-container {
     font-size: 28px;
     line-height: 28px;
     font-weight: 700;
+    word-wrap: break-word;
 }
 .first-col {
     background-color: #fff;
@@ -984,6 +964,22 @@ section.plan-section {
     width: 12px;
     height: 18px;
 }
+.country_nm {
+    display: flex;
+    span {
+        display: inline-block;
+        min-width: 19px;
+        margin-right: 6px;
+    }
+}
+.text_div_mobile {
+    display: flex;
+}
+.text_div_mobile span {
+    min-width: 14px;
+    margin-right: 6px;
+}
+
 @media only screen and (max-width: 1387px) {
     .inner-cell-list div {
         padding: 16px 1px;
@@ -1046,8 +1042,7 @@ section.plan-section {
     .denomination-box table tbody{
         border-left: 1px solid #ddd;
         border-right: 1px solid #ddd;
-        
-
+        display: block;
     }
     .bonus-bg-short {
         right: -12px;
@@ -1107,7 +1102,9 @@ section.plan-section {
     }
     .denomination-box tbody tr td:nth-child(2) {
         font-size: 15px;
-        padding-left: 0;
+        padding-left: 10px;
+        padding-right: 8px;
+        white-space: nowrap;
     }
     th .col-wrapper,
     th .col-wrapper.selected_active {

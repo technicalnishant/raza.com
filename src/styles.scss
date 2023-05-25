@@ -1132,9 +1132,8 @@ p {
 
 .callUsPopup {
     width: 550px !important;
-    max-width: 550px !important;
+    // max-width: 550px !important;
     position: relative;
-
     h2 {
         color: #004090;
         font-size: 20px;
@@ -1143,14 +1142,19 @@ p {
         text-align: center;
         margin: 13px 0;
     }
-
     h4 {
-        color: #808080;
+        color: #555;
         font-size: 16px;
         font-family: $font-family;
-        font-weight: 400;
+        font-weight: 500;
         text-align: center;
         margin-bottom: 40px;
+    }
+    .col-sm-4.callusRow {
+        padding: 0 6px;
+    }
+    .mat-dialog-content {
+        padding: 0 8px;
     }
 }
 
@@ -1164,11 +1168,9 @@ p {
 .callusRow {
     text-align: center;
     border-right: 1px solid #e2e7ed;
-
     &:last-child {
         border: none;
     }
-
     h3 {
         color: #032140;
         font-size: 16px;
@@ -1177,7 +1179,6 @@ p {
         text-align: center;
         margin-bottom: 20px;
     }
-
     p {
         color: #808080;
         font-size: 16px;
@@ -1186,12 +1187,11 @@ p {
         text-align: center;
         margin-bottom: 8px;
     }
-
     a {
-        color: #808080;
+        color: #555;
         font-size: 16px;
         font-family: $font-family;
-        font-weight: 400;
+        font-weight: 500;
         text-align: center;
         margin-bottom: 8px;
         display: block;
@@ -1200,7 +1200,6 @@ p {
 
 .contactForm {
     padding: 20px 40px;
-
     .closeIconContactUs {
         top: -18px;
     }
@@ -1516,7 +1515,7 @@ table {
     }
 
     h3 {
-        font-weight: 500;
+        font-weight: 600;
     }
 
     h5 {
@@ -5166,3 +5165,7 @@ section.faq-section .mat-expansion-panel-body p {
     color: #333;
     font-weight: 400;
 }  
+
+// .price_mobile_one_html .owl-carousel .owl-item {
+//     min-width: 300px;
+// }

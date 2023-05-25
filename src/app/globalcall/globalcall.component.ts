@@ -738,10 +738,10 @@ export class GlobalcallComponent implements OnInit {
     activeSlides: SlidesOutputData;
 
     customOptions: OwlOptions = {
-      items: 2,
+      items: 1,
       loop: false,
-      center: true,
-      margin: 16,
+      center: false,
+      margin: 10,
       autoWidth: true,
       nav: false,
       dots : false,
