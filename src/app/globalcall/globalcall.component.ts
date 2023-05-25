@@ -324,7 +324,8 @@ export class GlobalcallComponent implements OnInit {
       if( num_amt > 5)
       {
        // console.log(num_amt);
-        amt[1] =  parseFloat(amt[1])+ (10 - num_amt);
+        //amt[1] =  parseFloat(amt[1])+ (10 - num_amt);
+        //amt[0] = amt[0]+1;
       }
       
      return this.toFixed(amt[0]+"."+amt[1]);
@@ -418,8 +419,25 @@ export class GlobalcallComponent implements OnInit {
   {
    //console.log (item.Price, item.TotalTime, item.PromoMinutes)
     return this.toFixed1((item.Price/(item.TotalTime+item.PromoMinutes))*100)
+   // return (item.Price/(item.TotalTime+item.PromoMinutes))*100
   }
 
+  getTotalMin(min, promomin, price)
+  {
+    if(!this.isAutoRefill)
+    {
+     var item:any = this.WithoutAutorefillPlans.filter(a => a.Price == price);
+    //  console.log('item is ', item)
+     
+     return Math.floor(min+ (min* item[0].DiscountApplied)/100);
+    }
+    else
+    {
+      var item:any = this.AutorefillPlans.filter(a => a.Price == price);
+      return Math.floor(min+ (min* item[0].DiscountApplied)/100);
+      //return Math.floor( min+promomin)
+    }
+  }
  getFlagName()
  {
   this.flag_name = '';
@@ -442,9 +460,12 @@ export class GlobalcallComponent implements OnInit {
     var string_name = '';
       if(this.countryName && this.countryName !=''){
         string_name =  this.countryName.toLowerCase();
+        
     }
-       string_name.replace(' ', '-');
-      
+      // string_name.replace(' ', '-');
+       string_name= string_name.replace(/ /g, "")
+       console.log('Your country name is ',string_name );
+
     var url = site_url+'/assets/images/flag/'+string_name+'.png';
     //var file_exist = this.globalRatesService.fileExists(url);
     const image = {
@@ -704,7 +725,8 @@ export class GlobalcallComponent implements OnInit {
       if(this.countryName && this.countryName !=''){
         string_name =  this.countryName.toLowerCase();
     }
-      return string_name.replace(' ', '-');
+    string_name = string_name.replace(/ /g, "")
+      return string_name;//.replace(\ \/g, '');
     }
     getcountryId(){
       var string_name =  this.countryId.toLowerCase();

@@ -269,7 +269,7 @@
                                                     <div class="ano-col">
                                                         
                                                         <span class="bonus-bg-short" *ngIf="item.DiscountApplied > 0">
-                                                            <span class="bonus-new " *ngIf="item.DiscountApplied > 0">{{item.DiscountApplied}}% BONUS
+                                                            <span class="bonus-new ">{{item.DiscountApplied}}% BONUS
                                                             </span>
                                                         </span>
                                                         <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
@@ -314,7 +314,7 @@
 
                                             <div class="inner-cell-list-price">
                                                 <div class="inner-cell" *ngFor="let item of filteredItems(den)">
-                                                    {{item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes}} min
+                                                 {{getTotalMin(item.DiscountedRate.TotalTime ,  item.DiscountedRate.PromoMinutes, den)}} min
                                                 </div>
                                                  
                                             </div>
@@ -369,11 +369,12 @@
 
                                         <div class="active col-wrapper ">
                                             <div class="ano-col">
-                                                <span class="bonus-bg-short">  <span class="bonus-new ">{{item.DiscountApplied}}% BONUS
+                                                <span class="bonus-bg-short" *ngIf="item.DiscountApplied>0">  
+                                                  <span class="bonus-new ">{{item.DiscountApplied}}% BONUS
                                                 </span></span>
                                                 <div id="10_offer2"><span class="slice" *ngIf="item.Price==90">$100</span>
                                                     {{ item.Price | bCurrency : countryCode }} </div>
-                                                <span class="inner_price">8.85₵ / min</span>
+                                                <span class="inner_price">{{getRatePerMin(item)}}₵ / min</span>
         
                                                 <div class="button"><button (click)="onClickRateTab(item)" mat-button=""
                                                         class="mat-focus-indicator mat-button mat-button-base">
@@ -397,7 +398,7 @@
                                                   {{getNameOfCountry(item.CountryName)}} </div> 
                                                 </div>
                                             </td>
-                                            <td class="text-right"> {{item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes}} min</td>
+                                            <td class="text-right"> {{getTotalMin(item.DiscountedRate.TotalTime , item.DiscountedRate.PromoMinutes, item.Price)}} min</td>
                                         </tr>
        
                                          
