@@ -126,6 +126,7 @@ export class GlobalcallComponent implements OnInit {
   serchdata: any; autoControl = new FormControl(); allCountryList: any[];
   searchicon: string = '../assets/images/search8.svg';
   showPlaceholder: boolean = true;
+  bottom_scroll:any;
   @ViewChild('matContent',{static: true}) matContent: ElementRef;
   sticky_class:any='';
   constructor(
@@ -861,8 +862,19 @@ export class GlobalcallComponent implements OnInit {
     handleScroll() {
       const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
       this.isSticky = scrollPosition >= 100; // Adjust the value based on when you want the div to become sticky
-     let scroll:number = scrollPosition
-      
+      let scroll:number = scrollPosition
+     
+
+      if(scroll >= 300)
+      {
+       this.bottom_scroll = scroll;
+      }
+      else
+      {
+         this.bottom_scroll = 0;
+      }
+
+
       if(scroll >= 650)
       {
        this.sticky_class = 'activerow_full';
@@ -872,6 +884,13 @@ export class GlobalcallComponent implements OnInit {
       }
     
     }
-   
+    buyScroll(item){
+      
+      if(this.bottom_scroll >=300)
+      {
+        this.onClickRateTab(item);
+      }
+      
+    }
 
 }

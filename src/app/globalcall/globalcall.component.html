@@ -420,7 +420,7 @@
                 <ul class="price_list">
                     <li [class.selected]="clicked === i" (click)="clicked = i"
                     *ngFor="let item of Plans; let i = index" class="deno-box {{getSelected_box(i)}}">
-                    <a (click)="owlCar.to(item.id)" id="class_box_{{i}}"> <span *ngIf="item.Price == 90">{{ 100 | bCurrency :
+                    <a (click)="owlCar.to(item.id); buyScroll(item)" id="class_box_{{i}}"> <span *ngIf="item.Price == 90">{{ 100 | bCurrency :
                         countryCode }}</span>
                     {{ item.Price | bCurrency : countryCode }}</a>
                     </li>
@@ -467,9 +467,9 @@
 </div>
      
     <div class="footer_block">
-        <div class="footer_box_content">Have a question? 
-            <!-- <a href="javascript:void(0)" (click)="contactUs()">Chat</a> Or  -->
-            <a href="javascript:void(0)" (click)="contactUs()">Call Us</a></div>
+        <!-- <div class="footer_box_content">Have a question? 
+             <a href="javascript:void(0)" (click)="contactUs()">Chat</a> Or 
+            <a href="javascript:void(0)" (click)="contactUs()">Call Us</a></div> -->
     </div>
     
 </section>
