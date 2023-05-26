@@ -1,24 +1,48 @@
 .otp-confirm {
 	text-align: center;
-	max-width: 400px;
+	width: 450px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
 	img {
-		height: 70px;
-		width: 70px;
 		margin-bottom: 20px;
 	}
 	h1 {
-		font-size: 24px;
+		font-size: 26px;
 		font-weight: 700;
+		margin-bottom: 15px;
 	}
 	p {
-		font-size: 14px;
+		font-size: 18px;
 		font-weight: 500;
-    	padding: 0 20px;
+		padding: 0 20px;
+		max-width: 240px;
+		margin: 0 auto 5px;
+		line-height: 1.3;
 	}
 }
 button.mx-auto.ok_btn {
-    background: #fcc802;
+    background: #fbc02e;
     border-radius: 30px;
-    padding: 1px 20px;
+    padding: 5px 47px;
     font-weight: 600;
+    width: 190px;
+    font-size: 22px;
+	box-shadow: none !important;
+}
+.more_opt {
+    text-align: center;
+    margin-top: 15px;
+}
+.more_opt a {
+    color: #145fd0;
+	font-size: 14px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+.otp-confirm-wrap {
+    border: 10px solid #145fd0;
+    margin: -24px;
+    border-radius: 19px;
+    padding: 24px;
 }
