@@ -685,7 +685,8 @@ export class GlobalcallComponent implements OnInit {
      
   }
     //GlobalPlansData
-    onClickRateTab1(item: Ratedenominations) {
+    onClickRateTab1(item: Ratedenominations) 
+    {
       const model: NewPlanCheckoutModel = new NewPlanCheckoutModel();
   
       model.CardId = this.globalPlanData.CardId;
@@ -703,7 +704,7 @@ export class GlobalcallComponent implements OnInit {
       model.transactiontype = this.authService.isNewUser() ? TransactionType.Activation : TransactionType.Sale;
       model.isAutoRefill = this.isAutorefill;
       this.checkoutService.setCurrentCart(model);
-      
+      localStorage.removeItem('history_search_country_id');
         if (this.authService.isAuthenticated()) {
           this.router.navigate(['/checkout/payment-info']);
         } else {
