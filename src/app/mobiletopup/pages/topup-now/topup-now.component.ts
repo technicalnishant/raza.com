@@ -54,6 +54,9 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   countryTo:number=0;
   selectionType:any; 
   currentOperator:string='';
+  bundleInfo:any;
+  topup_ctr: any;
+
   constructor(private router: Router, private titleService: Title,
     private formBuilder: FormBuilder,
     private countryService: CountriesService,
@@ -106,6 +109,37 @@ export class TopupNowComponent implements OnInit, OnDestroy {
       this.getInitialTopUpOperatorInfo();
       this.isTopUpEnable = true;  
     }
+
+
+    /**************/
+    if(parseFloat(localStorage.getItem("topupCountryId")) > 0)
+    {
+ 
+      let json_str            = JSON.parse(localStorage.getItem("topupCountry"));
+      this.mycountryId        = json_str.CountryId; 
+      
+      if(this.mycountryId > 0)
+      {
+
+        this.mobileTopupForm.controls["countryTo"].setValue(json_str);
+        this.countryName        = json_str.CountryName;
+        this.topup_ctr          = parseFloat(localStorage.getItem("topupCountryId"));
+        
+  
+        
+        
+        this.mobileTopupForm.controls["phoneNumber"].setValue(parseFloat(localStorage.getItem("topupPhone")))
+  
+       if(localStorage.getItem("topupTrigger") == 'clicked')
+       {
+        this.getTopUpOperatorInfo();
+       }
+        
+      }
+     
+
+    }
+
      
   }
 
@@ -136,7 +170,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
      
      
     let phoneNumberWithCode: number = this.pinnumber;
-    
+    this.getBundlesTopUpInfo();
     this.mobileTopupService.GetMobileTopUp(this.currentSetting.currentCountryId, phoneNumberWithCode).subscribe(
       (data: mobileTopupModel) => {
         console.log("step 1");
@@ -244,6 +278,8 @@ export class TopupNowComponent implements OnInit, OnDestroy {
         this.isTopUpEnable = true;
         this.mobileTopupForm.get('topUpAmount').updateValueAndValidity();
         this.mobileTopupForm.get('phoneNumber').disable();
+
+        this.getBundlesTopUpInfo()
       },
       (err: ApiErrorResponse) => console.log(err),
     );
@@ -337,8 +373,18 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   this.countryName = country.CountryName;
 
 	this.mycountryId= country.CountryId; 
+
+  localStorage.setItem("topupCountryId", country.CountryId.toString());
+  localStorage.setItem("topupCountry", JSON.stringify(country));
+
   } 
   
+  storePhoneNumber = () =>{
+    let phone = this.mobileTopupForm.get('phoneNumber').value;
+    localStorage.setItem("topupPhone", phone);
+   
+  }
+
   unsetFlag() {
     
     
@@ -351,6 +397,8 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.showOperators = false;
     this.currentOperator = obj;
     this.getOperatorDenominations();
+    this.getBundlesTopUpInfo();
+
   }
   get_optr_image(obj)
   {
@@ -381,5 +429,14 @@ export class TopupNowComponent implements OnInit, OnDestroy {
         dialogConfig.autoFocus = true;
         dialogConfig.panelClass = 'topup-plan-dialog'
       this.dialog.open(TopupDialogComponent,dialogConfig);
+  }
+
+/********** Bundles functionality*****************/
+  getBundlesTopUpInfo(){
+    this.mobileTopupService.getBundlesTopUp(this.currentSetting.currentCountryId, this.countryTo, this.currentOperator).subscribe(data =>{
+      if(data){
+        this.bundleInfo = data;
+      }
+    })
   }
 }
