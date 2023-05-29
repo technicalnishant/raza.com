@@ -92,7 +92,7 @@
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
             <div class="card p-3 p-md-5 shadow mt-4 rounded-lg">
-              <div class="operator-details border-bottom pb-4">
+              <div class="operator-details pb-4">
                 <div class="justify-content-md-between row align-items-center">
                   <div class="country col-auto col-md-4">Country:</div>
                   <div class="country-img col-auto col-md-4">
@@ -141,18 +141,18 @@
               </div>
   
 
-              <div class="row">
+              <div class="top_up_btn">
                 <mat-button-toggle-group  #topupType="matButtonToggleGroup" value="{{selectionType}}">
                     <mat-button-toggle value="topup">Topup+Bonus</mat-button-toggle>
                     <mat-button-toggle value="plans">Plans(Bundles)</mat-button-toggle>
                 </mat-button-toggle-group>
-             </div>
+              </div>
             
              <!------ Topup section --------->
              <div class="topup_section" *ngIf="topupType.value=='topup'"> 
-                <h2>Topup section {{topupType.value}}</h2>
-                <splide [options]="{ type: 'loop', perPage: 3, keyboard: false }">
-                    <splide-slide  *ngFor="let item of mobileTopupData?.OperatorDenominations; let i = index">
+                <!-- <h2>Topup section {{topupType.value}}</h2> -->
+                <div class="topup_items">
+                    <div class="topup_item" *ngFor="let item of mobileTopupData?.OperatorDenominations; let i = index">
                         <div class="col-md-12 topup_box denomination__box">
                             <div class="top_section">
                                 <h2>{{item.UsDenomination | bCurrency}}</h2>
@@ -166,20 +166,20 @@
                                 <div class="amount"><h3> <span>{{item.DestinationCurrency}} </span> {{item.DestinationAmount}}</h3></div>
                                 <p>Before GCT</p>
                             </div>
-                            <button (click)="buyNow(item)">Buy</button>
+                            <button class="buy_btn" (click)="buyNow(item)">Buy</button>
                            
                         </div>
-                    </splide-slide>
-                </splide>
+                      </div>
+                  </div>
             </div>
             <!------EOF Topup section --------->
             <!------ Plans (Bundels) section --------->
             <div class="topup_section" *ngIf="topupType.value=='plans'" > 
               
-                <h2>Plans(Bundels) section {{topupType.value}}</h2>
+                <!-- <h2>Plans(Bundels) section {{topupType.value}}</h2> -->
                 <div *ngIf="bundleInfo?.ProductDescritions && bundleInfo?.ProductDescritions.length > 0">
-                <splide [options]="{ type: 'loop', perPage: 3, keyboard: false }">
-                    <splide-slide  *ngFor="let item of bundleInfo?.ProductDescritions; let i = index">
+                <div class="topup_items">
+                    <div  class="topup_item" *ngFor="let item of bundleInfo?.ProductDescritions; let i = index">
                         <div class="col-md-12 bundle_box denomination__box">
                             <div class="top_section">
                                 <h2>{{item.Price | bCurrency}}</h2>
@@ -198,11 +198,11 @@
                                 </ul>
                                  
                             </div>
-                            <button (click)="buyNow(item.Price)">Buy</button>
+                            <button class="buy_btn" (click)="buyNow(item.Price)">Buy</button>
                            
                         </div>
-                    </splide-slide>
-                </splide>
+                      </div>
+                  </div>
               </div>
             </div>
 

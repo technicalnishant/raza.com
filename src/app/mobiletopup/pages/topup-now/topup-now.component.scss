@@ -365,20 +365,35 @@
   }
   
   .denomination__box {
-    border: 2px solid #b9b9b9;
-    border-radius: 10px;
-    padding: 16px 16px;
-    margin-bottom: 32px;
+    border-radius: 12px;
+    border: 1px solid #c8e8f6;
+    padding: 0;
+    height: auto;
   }
   .operator-details.border-bottom {
     border-color: #b9b9b9!important;
   }
   .amount {
-    font-size: 18px;
-    font-weight: 500;
-    color: #233d81;
+    font-size: 24px;
+    margin: 4px 0;
+    h3 {
+      font-weight: 700;
+      span {
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
   }
-  
+  button.buy_btn {
+    background: #ff5b46;
+    border: none;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 15px;
+    min-width: 85px;
+    font-weight: 600;
+    margin: 0 0 15px 15px;
+}
   .denomination__box.selected {
     // background: #04a2f6;
     border-color: #04a2f6;
@@ -410,22 +425,76 @@
     justify-content: flex-end;
     color: #0160e0;
   }
-  .card {
-    
+  .card {    
     border: 15px solid #283a69 !important;
   }
-  .bundle_box{
+  .bundle_box {
     height:450px;
   }
-  .topup_box{
-    height:350px;
-  }
-  .top_section{
-    height:200px;
+  .top_section { 
+    background-color: #ebf8fe;
+    border-bottom: 1px solid #c8e8f6;
+    padding: 15px;
+    border-radius: 12px 12px 0 0;
+    h2 {
+        font-size: 32px;
+        font-weight: bolder;
+        text-align: left;
+        color: #031a62;
+        margin: 10px 0;
+    }
+    p {
+      font-weight: 600;
+      font-size: 15px;
+      color: #031a62;
+      margin: 10px 0;
+    }
   }
   .bottom_section{
-    height:150px;
+    padding: 15px;
+    font-size: 14px;
+    color: #4b4b4b;
+    p {
+      font-weight: 500 !important;
+      margin-bottom: 0;;
+    }
   }
+  .top_up_btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.top_up_btn {
+  .mat-button-toggle {
+    background: #203676;
+    color: #fff !important;
+    font-family: "Montserrat", sans-serif;
+    padding: 0 8px;
+  }
+  .mat-button-toggle-group-appearance-standard {
+      border-radius: 30px;
+      background: #203676;
+      padding: 8px;
+      font-weight: 600;
+  }
+  .mat-button-toggle.mat-button-toggle-checked {
+      background: #ffc72c;
+      border-radius: 30px;
+      color: #000 !important;
+  }
+}
+
+.topup_items {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -8px;
+  .topup_item {
+    width: 33.33%;
+    padding: 0 8px;
+    margin-bottom: 20px;
+  }
+}
   
   // media quries for form
   
