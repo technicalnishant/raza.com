@@ -320,10 +320,13 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   }
   buyNow(item: any)
   {
+
+    
     this.mobileTopupForm.get('topUpAmount').setValue(item);
     this.isTopUpEnable = true;
     this. onMobileTopupFormSubmit();
   }
+
   onMobileTopupFormSubmit() {
     // stop here if form is invalid
     if (!this.isTopUpEnable) {
@@ -428,6 +431,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.panelClass = 'topup-plan-dialog'
+        dialogConfig.data={from_id:this.currentSetting.currentCountryId, to_id:this.countryTo, operator:this.currentOperator}
       this.dialog.open(TopupDialogComponent,dialogConfig);
   }
 
@@ -438,5 +442,10 @@ export class TopupNowComponent implements OnInit, OnDestroy {
         this.bundleInfo = data;
       }
     })
+  }
+
+  getFilterdArr(desc:String)
+  {
+    return desc.split(' ^ ');
   }
 }

@@ -160,7 +160,8 @@ export class Api {
 		PhoneNumberInfo: base + "api/MobileTopups/PhoneNumberInfo_v2",
 		getOperatorsDenomination:base+"api/MobileTopups/GetTopUpInfo", /***To get denomination operator wise https://restapi.razacomm.com/api/MobileTopups/GetTopUpInfo/{countryFrom}/{countryTo}/{operatorName} **/
 		mobiletopup: base + "api/MobileTopup",
-		getBundlesInfo:base + "api/MobileTopups/GetTopUpInfo_V1"
+		getBundlesInfo:base + "api/MobileTopups/GetTopUpInfo_V1",
+		getBundlesDetail:base + "api/MobileTopups/GetTopUpPromotions"
 	};
 
 	static features = {

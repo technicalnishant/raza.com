@@ -50,7 +50,7 @@
                     this.mobileTopupForm.get("countryTo").value?.CountryCode }}
                   </span>
   
-                  <input type="tel" matInput formControlName="phoneNumber" class="ml-2" />
+                  <input type="tel" matInput formControlName="phoneNumber" class="ml-2"  (keyup)="storePhoneNumber()" />
                   <span class="floatRight forgetPass" *ngIf="isTopUpEnable">
                     <a tabindex="3" (click)="changeNumber()">Change Number?</a></span>
                 </mat-form-field>
@@ -174,36 +174,36 @@
             </div>
             <!------EOF Topup section --------->
             <!------ Plans (Bundels) section --------->
-            <div class="topup_section" *ngIf="topupType.value=='plans'"> 
-              {{bundleInfo | json}}
+            <div class="topup_section" *ngIf="topupType.value=='plans'" > 
+              
                 <h2>Plans(Bundels) section {{topupType.value}}</h2>
+                <div *ngIf="bundleInfo?.ProductDescritions && bundleInfo?.ProductDescritions.length > 0">
                 <splide [options]="{ type: 'loop', perPage: 3, keyboard: false }">
-                    <splide-slide  *ngFor="let item of mobileTopupData?.OperatorDenominations; let i = index">
+                    <splide-slide  *ngFor="let item of bundleInfo?.ProductDescritions; let i = index">
                         <div class="col-md-12 bundle_box denomination__box">
                             <div class="top_section">
-                                <h2>{{item.UsDenomination | bCurrency}}</h2>
-                                <p>{{mobileTopupData.Operator}} {{countryName}} HUGE</p>
-                                <p>200% Bonus</p>
+                                <h2>{{item.Price | bCurrency}}</h2>
+                                <p>{{item.Operator}} </p>
+                                <p></p>
                                 <a (click)="showDetailTopup()">Detail</a>
                             </div>
 
                             <div class="bottom_section">
-                                <p>14 Day Stay Connected Plan<br />
-                                <span>Valid for 14 days</span></p>
+                                <p>{{item.DisplayText}}</p>
                                 <ul>
-                                    <li>Data LTE 10GB</li>
-                                    <li>Unlimited local Digi to Minutes</li>
-                                    <li>Magic Number</li>
-                                    <li>Unlimited WhatsApp</li>
-                                    <li>10GB for each of the following Night Data,d'Music Data, Bip Data, PlayGo</li>
+                                  <li *ngFor="let desinfo of getFilterdArr(item.Description)">
+                                    {{desinfo}}
+                                  </li>
+                                     
                                 </ul>
                                  
                             </div>
-                            <button (click)="buyNow(item)">Buy</button>
+                            <button (click)="buyNow(item.Price)">Buy</button>
                            
                         </div>
                     </splide-slide>
                 </splide>
+              </div>
             </div>
 
             
