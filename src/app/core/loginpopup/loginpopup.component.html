@@ -56,19 +56,31 @@
             </mat-error>
         </mat-form-field>
         </div>
+
         <mat-form-field appearance="" class="full-width">
           <input matInput #input maxlength="30" formControlName="password" type="" placeholder="Enter your passcode" [type]="hide ? 'text' : 'password'" class="password">
           <button type="button" mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="eyes">
-    <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-    </button>
-		  <span class="floatRight resend forget">
-            <a tabindex="3" (click)="showHideForgotForm()">Forgot code?</a></span>
-		  <mat-error *ngIf="loginForm.get('password').errors?.required">
-              Password is required. 
-            </mat-error> 
-            <mat-error *ngIf="loginForm.get('password').errors?.maxLength">
-              Password can not be more than 30 character.
-            </mat-error>
+            <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </button>
+          <div class="remembermMe">
+            <!-- <input id="remember" type="checkbox" > -->
+            <label class="switch">                       
+                <input *ngIf="isAutoRefill" type="checkbox" id="checkboxbonus3" checked (click)="setPlanType()">
+                <input *ngIf="!isAutoRefill" type="checkbox" id="checkboxbonus3" (click)="setPlanType()">
+                <span class="slider round"></span>
+            </label>
+            <label class="remember" for="remember">Remember me</label>
+            <span class="floatRight resend forget">
+                <a tabindex="3" (click)="showHideForgotForm()">Forgot code?</a>
+            </span>
+          </div>
+
+          <mat-error *ngIf="loginForm.get('password').errors?.required">
+            Password is required. 
+          </mat-error> 
+          <mat-error *ngIf="loginForm.get('password').errors?.maxLength">
+            Password can not be more than 30 character.
+          </mat-error>
 
             <mat-error *ngIf="loginForm.get('password').errors?.invalid">
               <!-- Incorrect Mobile Number/Password. -->
