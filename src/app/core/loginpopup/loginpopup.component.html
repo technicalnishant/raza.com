@@ -91,7 +91,7 @@
  
     <mat-form-field appearance="" class="mobile-number ml-0 w-100">  
       <!--<input type="text" matInput formControlName="username" placeholder="Enter your phone number" [textMask]="{mask: getmask()}">-->
-      <input  matInput formControlName="username" (keyup)="validateEmail()"  placeholder="Enter Email Address"/> 
+      <input autocomplete="on" matInput formControlName="username" (keyup)="validateEmail()"  placeholder="Enter Email Address"/> 
       <!--<input  matInput formControlName="username" placeholder="Enter Mobile Number/Email"/>-->
      
         <mat-error *ngIf="loginForm.get('username').errors?.invalid_input && invalidEmail">
@@ -103,7 +103,7 @@
     </mat-form-field>
     </div>
     <mat-form-field appearance="" class="full-width" *ngIf="showPassWord">
-      <input matInput #input maxlength="30" formControlName="password" type="" placeholder="Enter your passcode" [type]="hide ? 'text' : 'password'" class="password">
+      <input matInput #input maxlength="30" autocomplete="on" formControlName="password" type="" placeholder="Enter your passcode" [type]="hide ? 'text' : 'password'" class="password">
       <button type="button" mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="eyes">
 <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
 </button>
@@ -191,7 +191,7 @@
 			  </div>
 			  </div>
           <mat-form-field class="example-full-width full-width ml-4">
-            <input type="{{loginWith == 'email'?'email':'tel'}}" matInput placeholder="Enter {{loginWith == 'email'?'Email address':'mobile number'}}" (keyup)="validateFUsername()" formControlName="phoneEmailControl">
+            <input autocomplete="on" type="{{loginWith == 'email'?'email':'tel'}}" matInput placeholder="Enter {{loginWith == 'email'?'Email address':'mobile number'}}" (keyup)="validateFUsername()" formControlName="phoneEmailControl">
              
             <!-- <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required">
               {{loginWith == 'email'?'Email address':'Mobile number'}} is required.
@@ -229,7 +229,7 @@
         <div class="col-sm-12 formRowM15" [hidden]="!otpSend">
 
           <mat-form-field class="example-full-width full-width">
-            <input matInput type="password" maxlength="6" placeholder="Enter 6 digit passcode" formControlName="otp">
+            <input matInput type="password" autocomplete="on" maxlength="6" placeholder="Enter 6 digit passcode" formControlName="otp">
             <span class="floatRight resend" *ngIf="isEnableResendOtp">
             <a tabindex="0" (click)="sendOtp()">Resend Passcode</a>
           </span>
@@ -283,7 +283,7 @@
                   
                 <div class="row">
                     <div class="form-group col-sm-2 col" *ngFor="let input of formInput;  index as i">
-                        <input #formRow type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)" autofocus>
+                        <input #formRow autocomplete="on" type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)" autofocus>
                       </div>
                 </div>
                 <div class="row titleTex">

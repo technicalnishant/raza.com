@@ -609,6 +609,7 @@ export class GlobalcallComponent implements OnInit {
   }
 
   viewAllRatesTab() {
+     
     this.searchRatesService.getSearchGlobalRatesSubPlans(this.currentSetting.currentCountryId, this.countryId).subscribe(
       (data: any) => {
         this.SubPlans = data

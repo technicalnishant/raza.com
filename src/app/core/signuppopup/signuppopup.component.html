@@ -42,7 +42,7 @@
 
           <mat-form-field appearance="" class="mobile-number ml-4">
              <input matInput formControlName="phoneOrEmail" (keyup)="validateSignupUsername()"
-              placeholder="Enter your phone number" type="text" />  
+              placeholder="Enter your phone number" type="text"  autocomplete="on" />  
 
              <!--<input matInput formControlName="phoneOrEmail"
               placeholder="Enter your phone number" type="text" />-->
@@ -61,7 +61,7 @@
         
 
         <mat-form-field appearance="" class="mobile-number full-width" *ngIf="showPinBox">
-          <input matInput formControlName="otp" placeholder="Enter 6 digit Code" type="text" />
+          <input matInput formControlName="otp" autocomplete="on" placeholder="Enter 6 digit Code" type="text" />
           <mat-error *ngIf="signUpForm.get('otp').errors?.required">
             Enter Verification Code
           </mat-error>
