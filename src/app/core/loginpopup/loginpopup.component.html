@@ -63,13 +63,13 @@
             <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
           </button>
           <div class="remembermMe">
-            <!-- <input id="remember" type="checkbox" > -->
-            <label class="switch">                       
+             
+            <!-- <label class="switch">                       
                 <input *ngIf="isAutoRefill" type="checkbox" id="checkboxbonus3" checked (click)="setPlanType()">
                 <input *ngIf="!isAutoRefill" type="checkbox" id="checkboxbonus3" (click)="setPlanType()">
                 <span class="slider round"></span>
             </label>
-            <label class="remember" for="remember">Remember me</label>
+            <label class="remember" for="remember">Remember me</label> -->
             <span class="floatRight resend forget">
                 <a tabindex="3" (click)="showHideForgotForm()">Forgot code?</a>
             </span>
@@ -103,7 +103,7 @@
  
     <mat-form-field appearance="" class="mobile-number ml-0 w-100">  
       <!--<input type="text" matInput formControlName="username" placeholder="Enter your phone number" [textMask]="{mask: getmask()}">-->
-      <input autocomplete="on" matInput formControlName="username" (keyup)="validateEmail()"  placeholder="Enter Email Address"/> 
+      <input matInput formControlName="username" (keyup)="validateEmail()"  placeholder="Enter Email Address"/> 
       <!--<input  matInput formControlName="username" placeholder="Enter Mobile Number/Email"/>-->
      
         <mat-error *ngIf="loginForm.get('username').errors?.invalid_input && invalidEmail">
@@ -115,7 +115,7 @@
     </mat-form-field>
     </div>
     <mat-form-field appearance="" class="full-width" *ngIf="showPassWord">
-      <input matInput #input maxlength="30" autocomplete="on" formControlName="password" type="" placeholder="Enter your passcode" [type]="hide ? 'text' : 'password'" class="password">
+      <input matInput #input maxlength="30" formControlName="password" type="" placeholder="Enter your passcode" [type]="hide ? 'text' : 'password'" class="password">
       <button type="button" mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="eyes">
 <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
 </button>
@@ -203,7 +203,7 @@
 			  </div>
 			  </div>
           <mat-form-field class="example-full-width full-width ml-4">
-            <input autocomplete="on" type="{{loginWith == 'email'?'email':'tel'}}" matInput placeholder="Enter {{loginWith == 'email'?'Email address':'mobile number'}}" (keyup)="validateFUsername()" formControlName="phoneEmailControl">
+            <input type="{{loginWith == 'email'?'email':'tel'}}" matInput placeholder="Enter {{loginWith == 'email'?'Email address':'mobile number'}}" (keyup)="validateFUsername()" formControlName="phoneEmailControl">
              
             <!-- <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required">
               {{loginWith == 'email'?'Email address':'Mobile number'}} is required.
@@ -241,7 +241,7 @@
         <div class="col-sm-12 formRowM15" [hidden]="!otpSend">
 
           <mat-form-field class="example-full-width full-width">
-            <input matInput type="password" autocomplete="on" maxlength="6" placeholder="Enter 6 digit passcode" formControlName="otp">
+            <input matInput type="password" maxlength="6" placeholder="Enter 6 digit passcode" formControlName="otp">
             <span class="floatRight resend" *ngIf="isEnableResendOtp">
             <a tabindex="0" (click)="sendOtp()">Resend Passcode</a>
           </span>

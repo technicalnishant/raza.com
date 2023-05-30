@@ -5158,7 +5158,8 @@ app-add-creditcard-dialog a.what-cvv {
 
 div .mat-dialog-container {
     border-radius: 20px;
-    max-width: 540px;
+     min-width: 540px;
+     max-width: 940px;
 }
   
 section.faq-section .mat-expansion-panel-body p {

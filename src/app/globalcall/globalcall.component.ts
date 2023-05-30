@@ -32,13 +32,14 @@ import { Title, Meta } from '@angular/platform-browser';
 
 import { Location } from '@angular/common';
 import { HostListener } from '@angular/core';
-
+import { CountriesService } from 'app/core/services/country.service';
+ 
 @Component({
   selector: 'app-globalcall',
   templateUrl: './globalcall.component.html',
   styleUrls: ['./globalcall.component.scss'],
-   
 })
+
 export class GlobalcallComponent implements OnInit {
   isSmallScreen;
   countryId:any;
@@ -129,6 +130,8 @@ export class GlobalcallComponent implements OnInit {
   bottom_scroll:any;
   @ViewChild('matContent',{static: true}) matContent: ElementRef;
   sticky_class:any='';
+  countryFrom: Country[];
+  currentCurrency:any;
   constructor(
     public dialog: MatDialog,
     private razalayoutService: RazaLayoutService,
@@ -143,7 +146,9 @@ export class GlobalcallComponent implements OnInit {
     private metaTagsService:MetaTagsService,
     private _titleService: Title,
     private _metaService: Meta,
-    private location: Location
+    private location: Location,
+    private countryService: CountriesService,
+     
     ) { 
 
     
@@ -156,7 +161,7 @@ export class GlobalcallComponent implements OnInit {
 
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
-  
+    this.getCountryFrom();
     this.searchRatesService.getAllCountries().subscribe(
       (data: Country[]) => {
         if(data)
@@ -258,7 +263,44 @@ export class GlobalcallComponent implements OnInit {
     );
 
   }
-  
+
+  onSelectCountrFrom(country: Country) 
+  {
+    this.currentSetting.country = country;
+    this.razaEnvService.setCurrentSetting(this.currentSetting);
+    this.closeFlagDropDown();
+    this.setcurrentCurrency();
+    this.getRates();
+   // window.location.reload();
+  }
+  setcurrentCurrency()
+  {
+    if(this.currentSetting.country.CountryId == 1)
+      this.currentCurrency='USD';
+      if(this.currentSetting.country.CountryId == 2)
+      this.currentCurrency='CAD';
+      if(this.currentSetting.country.CountryId == 3)
+      this.currentCurrency='GBP';
+      if(this.currentSetting.country.CountryId == 8)
+      this.currentCurrency='AUD';
+      if(this.currentSetting.country.CountryId == 20)
+      this.currentCurrency='NZD';
+      if(this.currentSetting.country.CountryId == 26)
+      this.currentCurrency='INR';
+
+      //this.router.navigate(['./searchrates']);
+  }
+
+  closeFlagDropDown() {
+    this.showDropdown = false;
+  }
+
+  private getCountryFrom() {
+    this.countryService.getFromCountries().subscribe((res: Country[]) => {
+      this.countryFrom = res;
+      
+    });
+  }
   private _filter(value: any): Country[] {
     console.log('value is ', value)
     const filterValue = value.toLowerCase();
@@ -272,9 +314,9 @@ export class GlobalcallComponent implements OnInit {
   {
     setTimeout(()=>{  
       console.log("current slider is "+current_position);
-    let element:HTMLElement = document.getElementById('class_box_'+current_position) as HTMLElement;
-    element.click();
-    }, 100);
+      let element:HTMLElement = document.getElementById('class_box_'+current_position) as HTMLElement;
+      element.click();
+      }, 100);
   }
   setPlanType()
   {
@@ -290,7 +332,8 @@ export class GlobalcallComponent implements OnInit {
       this.Plans = this.WithoutAutorefillPlans;
       this.is_autorefill = false;
     }
-    this.clickSliderButton(current_position)
+     
+   // this.clickSliderButton(current_position)
   }
  
 
@@ -491,7 +534,7 @@ export class GlobalcallComponent implements OnInit {
   {
     this.countryId = countryId;
     this.getRates()
-    this.viewAllRatesTab()
+    
   }
 
   getRates()
@@ -515,7 +558,7 @@ export class GlobalcallComponent implements OnInit {
         this.fileExists();
         this.getFlagName();
 
-       
+        this.viewAllRatesTab()
 
         
         if(data.DiscountedPlansWithAutoRefill.Denominations)
@@ -886,13 +929,18 @@ export class GlobalcallComponent implements OnInit {
       }
     
     }
-    buyScroll(item){
-      
-      if(this.bottom_scroll >=300)
+    buyScroll(item)
+    {
+      // console.log("this.isSmallScreen", this.isSmallScreen, this.bottom_scroll);
+      if(this.bottom_scroll >=300 && this.isSmallScreen)
       {
-        this.onClickRateTab(item);
+         this.onClickRateTab(item);
       }
       
     }
 
+    getFilterdDropDown(obj)
+    {
+      return this.countryFrom.filter(option => option.CountryId  != 3);
+    }
 }

@@ -115,7 +115,8 @@ export class Api {
 		getSearchRates: base + "api/Rates/Lowests/",
 		getPopularRates: base + "api/Rates/AllCountries?countryFrom=",
 		//getSearchGlobalRates: base + "api/Rates/Plans/",
-		getSearchGlobalRates: base + "api/rates/Plans/LowestRate/",
+		 getSearchGlobalRates: base + "api/rates/Plans/LowestRate/",
+		//getSearchGlobalRates: base + "api/rates/Plans/LowestRate/v1/",
 		//getSearchGlobalRatesSubPlans: base + "api/Rates/SubPlans/",
 		getSearchGlobalRatesSubPlans: base + "api/Rates/GetSubPlansWithDistinctRate/",
 

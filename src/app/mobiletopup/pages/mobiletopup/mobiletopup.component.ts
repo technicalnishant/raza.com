@@ -374,7 +374,6 @@ export class MobiletopupComponent implements OnInit, OnDestroy {
     
     
     this.countryName = country.CountryName;
-
     this.mycountryId= country.CountryId; 
   } 
   storePhoneNumber = () =>{
