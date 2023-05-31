@@ -169,8 +169,8 @@ export class GlobalcallComponent implements OnInit {
         (data: Country[]) => {
           if(data)
           {
-          this.allCountry = data;
-        }
+            this.allCountry = data;
+          }
         },
         (err: ApiErrorResponse) => console.log(err),
       );
@@ -230,7 +230,7 @@ export class GlobalcallComponent implements OnInit {
       this.currentSetting = res;
       //this.getActivePromotion(this.currentSetting.currentCountryId);
     })
-
+    
     if( this.countryId != '')
     {
       this.getRates();
@@ -906,8 +906,10 @@ export class GlobalcallComponent implements OnInit {
     onClickInput() {
       this.searchicon = '../assets/images/search8.svg';
     }
-    displayFn(country?: any): string | undefined {
-      return country ? country.CountryName : undefined;
+
+    displayFn(country?: any): string | undefined 
+    {
+      return country ? country.CountryName : this.allCountry.filter(a=>a.CountryId = this.countryId) ;
     }
     onInputFocus() {
       this.searchicon = '../assets/images/cross8.png';
