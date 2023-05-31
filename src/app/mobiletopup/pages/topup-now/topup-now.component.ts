@@ -57,6 +57,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   bundleInfo:any;
   topup_ctr: any;
 
+  bundleTopupPlans:any;
   constructor(private router: Router, private titleService: Title,
     private formBuilder: FormBuilder,
     private countryService: CountriesService,
@@ -440,6 +441,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.mobileTopupService.getBundlesTopUp(this.currentSetting.currentCountryId, this.countryTo, this.currentOperator).subscribe(data =>{
       if(data){
         this.bundleInfo = data;
+
       }
     })
   }
@@ -448,4 +450,12 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   {
     return desc.split(' ^ ');
   }
+  buyBundle(item)
+  {
+    let productId = item.ProductId;
+
+    let new_item = this.bundleInfo.topupOperators.filter(a=> a.ProductId == productId)
+    this.buyNow(new_item);
+  }
+  /**********************/
 }
