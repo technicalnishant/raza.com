@@ -1,0 +1,30 @@
+.topuppPlanDialog {
+    position: relative;
+      a {
+        position: absolute;
+        color: #fff !important;
+        right: 18px;
+        top: 8px;
+        font-size: 30px;
+      }
+      .topuppPlanDialogTop {
+        background: #2b4798;
+        color: #fff;
+        padding: 70px 25px;
+        text-align: center;
+        h2 {
+          font-weight: 700;
+          font-size: 35px;
+          max-width: 400px;
+          margin: 0 auto 40px;
+      }
+      p {
+        font-weight: 500;
+        font-size: 18px;
+      }
+    }
+    >p {
+        padding: 50px;
+        text-align: center;
+    }
+}
