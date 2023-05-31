@@ -5172,6 +5172,17 @@ section.faq-section .mat-expansion-panel-body p {
     max-width: 700px;
     padding: 0;
 }
+.mat-option-text .width30 {
+    width: 210px;
+    .landlineRate {
+        margin-right: 0;
+    }
+    .mobileRate {
+        margin-right: 30px;
+        display: inline-block;
+        min-width: 85px;
+    }
+}
 // .price_mobile_one_html .owl-carousel .owl-item {
 //     min-width: 300px;
 // }
