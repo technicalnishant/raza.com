@@ -162,15 +162,22 @@ export class GlobalcallComponent implements OnInit {
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     this.getCountryFrom();
-    this.searchRatesService.getAllCountries().subscribe(
-      (data: Country[]) => {
-        if(data)
-        {
-        this.allCountry = data;
-      }
-      },
-      (err: ApiErrorResponse) => console.log(err),
-    );
+
+    this.razaEnvService.getCurrentSetting().subscribe(res => {
+      this.currentSetting = res;
+      this.globalRatesService.getAllCountriesRates(this.currentSetting.currentCountryId).subscribe(
+        (data: Country[]) => {
+          if(data)
+          {
+          this.allCountry = data;
+        }
+        },
+        (err: ApiErrorResponse) => console.log(err),
+      );
+    })
+
+    //this.searchRatesService.getAllCountries().subscribe(
+     
 
     if(this.route.snapshot.paramMap.get('country_name'))
     {
@@ -264,6 +271,16 @@ export class GlobalcallComponent implements OnInit {
 
   }
 
+  private searchRates() {
+    this.globalRatesService.getAllCountriesRates(this.currentSetting.currentCountryId).subscribe(
+      (data: any) => {
+        this.allCountry = data
+        
+
+      },
+      (err: ApiErrorResponse) => console.log(err),
+    )
+  }
   onSelectCountrFrom(country: Country) 
   {
     this.currentSetting.country = country;
