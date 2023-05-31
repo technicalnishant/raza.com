@@ -5171,6 +5171,7 @@ section.faq-section .mat-expansion-panel-body p {
 .topup-plan-dialog mat-dialog-container {
     max-width: 700px;
     padding: 0;
+    min-width: unset;
 }
 .mat-option-text .width30 {
     width: 210px;
@@ -5181,6 +5182,12 @@ section.faq-section .mat-expansion-panel-body p {
         margin-right: 30px;
         display: inline-block;
         min-width: 85px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .cdk-overlay-pane.topup-plan-dialog {
+        max-width: 98% !important;
+        margin-top: 25px;
     }
 }
 // .price_mobile_one_html .owl-carousel .owl-item {
