@@ -3866,7 +3866,7 @@ h2 {
 .form-wrapper {
     .mat-form-field-appearance-legacy {
         .mat-form-field-label {
-            top: 1.78125em !important;
+            top: 1.9em !important;
             left: 5px;
         }
     }
@@ -3907,7 +3907,7 @@ h2 {
 
 .mat-form-field-invalid {
     .mat-form-field-flex {
-        background: #ff000014;
+        // background: #ff000014;
 
         .mat-form-field-label-wrapper {
             span {
@@ -5188,6 +5188,9 @@ section.faq-section .mat-expansion-panel-body p {
     .cdk-overlay-pane.topup-plan-dialog {
         max-width: 98% !important;
         margin-top: 25px;
+    }
+    div .mat-dialog-container {
+        min-width: unset;
     }
 }
 // .price_mobile_one_html .owl-carousel .owl-item {
