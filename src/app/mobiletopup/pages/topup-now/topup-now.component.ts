@@ -455,10 +455,10 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   {
     let productId = item.ProductId;
 
-    let new_item = this.bundleInfo.topupOperators.filter(a=> a.ProductId == productId)
-    console.log('new_item', new_item);
-    if( new_item.CountryId && new_item.CountryId > 0 )
-    this.buyNow(new_item);
+   let new_item = this.bundleInfo.topupOperators.filter(a=> a.ProductId == productId)
+   
+    
+    this.buyNow(new_item[0]);
   }
   /**********************/
 }
