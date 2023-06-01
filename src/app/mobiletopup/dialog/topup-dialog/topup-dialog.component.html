@@ -4,5 +4,5 @@
         <h2>{{detailInfo?.Description.Headline}}</h2>
         <p>Valid:{{getValidity()}}</p>
     </div>
-    <p>{{detailInfo?.Description.TermsAndConditionsMarkDown}}</p>
+    <p [innerHTML]="htmlStrFixed(detailInfo?.Description.TermsAndConditionsMarkDown)"> </p>
 </div>

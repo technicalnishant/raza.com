@@ -322,7 +322,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   buyNow(item: any)
   {
 
-    
+    console.log("step 2 Item ", item);
     this.mobileTopupForm.get('topUpAmount').setValue(item);
     this.isTopUpEnable = true;
     this. onMobileTopupFormSubmit();
@@ -350,6 +350,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     checkoutModel.countryFrom = this.currentSetting.currentCountryId;
     checkoutModel.isHideCouponEdit = true;
 
+    console.log('step 3 checkoutModel', checkoutModel);
     this.checkoutService.setCurrentCart(checkoutModel);
 
     if (this.authService.isAuthenticated()) {
@@ -455,6 +456,8 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     let productId = item.ProductId;
 
     let new_item = this.bundleInfo.topupOperators.filter(a=> a.ProductId == productId)
+    console.log('new_item', new_item);
+    if( new_item.CountryId && new_item.CountryId > 0 )
     this.buyNow(new_item);
   }
   /**********************/
