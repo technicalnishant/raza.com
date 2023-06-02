@@ -191,6 +191,12 @@ $background-color_1: #ffffff;
 .row.countries_row {
     justify-content: center;
 }
+.countries:last-child {
+    .country-box {
+      border-right: 0;
+    }
+}
+  
 .qrimage {
 	box-shadow: 7px 10px #cc9f23;
 }

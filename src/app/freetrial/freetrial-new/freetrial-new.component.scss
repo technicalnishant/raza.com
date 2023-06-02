@@ -2086,19 +2086,24 @@ $common-boder-width: 3px solid #2172cb;
     color:#ccc;
   }
 }
+.countries:last-child {
+  .country-box {
+    border-right: 0;
+  }
+}
 
 .country-box {
   margin: 70px 0; 
-border-right: 1px solid #e7e7e7;
+  border-right: 1px solid #e7e7e7;
   @include breakpoint(sm) {
-      text-align: center;
-  margin: 30px 0;
-  border-right:0;
+    text-align: center;
+    margin: 30px 0;
+    border-right:0;
   }
-@include breakpoint(md) {
-      text-align: center;
-  margin: 30px 0;
-  border-right:0;
+  @include breakpoint(md) {
+        text-align: center;
+      margin: 30px 0;
+      border-right:0;
   }
 
   .country-flag {
