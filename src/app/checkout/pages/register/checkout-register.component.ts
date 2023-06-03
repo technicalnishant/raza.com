@@ -186,7 +186,9 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
       });
 
     dialogPassword.afterClosed().subscribe(res => {
+       
       if (res === true) {
+       
         this.redirectToPaymentInfo();
       }
     },
@@ -273,7 +275,8 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
             password: otp
           }
           this.authService.login(loginBody).toPromise().then(user => {
-            this.redirectToPaymentInfo();
+           // console.log("user info after login ",user);
+             this.redirectToPaymentInfo();
           })
         }
       }
@@ -284,9 +287,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
     });
   }
 
-  redirectToPaymentInfo() {
-    this.router.navigate(['/checkout/payment-info']);
-  }
+ 
 
 
 
@@ -310,6 +311,18 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
     this.closeFlagDropDown();
     this.setcurrentCurrency();
   }
+
+  redirectToPaymentInfo() {
+    this.authService.getCurrentUserCountry().subscribe(countryId => {
+      // console.log("user info after login ",user);
+      let country = this.countryFrom.filter(a=>a.CountryId == countryId);
+      this.currentSetting.country = country[0]
+         this.setcurrentCurrency();
+     })
+    
+   // this.router.navigate(['/checkout/payment-info']);
+  }
+
   setcurrentCurrency()
   {
     if(this.currentSetting.country.CountryId == 1)
@@ -326,6 +339,8 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
       this.currentCurrency='INR';
       
       const cart: NewPlanCheckoutModel = this.currentCart as NewPlanCheckoutModel;
+
+      console.log("current cart is", cart);
       //var cart_info = this.checkoutService.getCurrentCart().
       if(this.currentSetting.country.CountryId == 1)
       {

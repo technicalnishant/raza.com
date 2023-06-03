@@ -44,7 +44,11 @@ export class AuthenticationService {
 		let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 		return currentUser;
 	}
-	
+	public getCurrentUserCountry(): any {
+		const countryId = this.getCurrentUserFromLocalStorage().countryId;
+		return countryId;
+
+	}
 	 
 	public getCurrentUserPhone(): string {
 		const username = this.getCurrentUserFromLocalStorage().additionalId;
