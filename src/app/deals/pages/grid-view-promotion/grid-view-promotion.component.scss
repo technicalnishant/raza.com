@@ -2,9 +2,17 @@
 @import '__mixins';
 $background-color_1: #293a6a;
 
-.country-search{
+.country-search {
+    .countries_list {
+        justify-content: center;
+    }
     .countries{
 		border-bottom: 1px solid #e7e7e7;
+        &:last-child {
+            .country-box {
+                border-right: none;
+            }
+        }
 	}
     @include breakpoint(sm) {
         .container{

@@ -49,6 +49,12 @@ ul {
 .row.countries_row {
   justify-content: center;
 }
+.countries:last-child {
+  .country-box {
+    border-right: 0;
+  }
+}
+
 @media only screen and (max-width: 650px){
 
 ul.alphabet{
