@@ -134,6 +134,12 @@ export class PaymentOptionsComponent implements OnInit {
     const cart: RechargeCheckoutModel  = this.currentCart as RechargeCheckoutModel ;
     cart.cardId =  cardId;
     cart.planName = cardName;
+    cart.currencyCode = this.planInfo.CurrencyCode 
+    cart.countryFrom  = this.planInfo.CountryFrom;
+    
+ 
+
+
     this.checkoutService.setCurrentCart(cart);
     this.currentCart = this.route.parent.snapshot.data['cart'];
   }
