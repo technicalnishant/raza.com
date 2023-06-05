@@ -323,7 +323,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
          this.setcurrentCurrency(countryId);
      })
     
-   // this.router.navigate(['/checkout/payment-info']);
+   // 
   }
 
   setcurrentCurrency(obj)
@@ -364,6 +364,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
       
       this.checkoutService.setCurrentCart(cart);
       console.log(cart);
+      this.router.navigate(['/checkout/payment-info']);
        
   }
 
