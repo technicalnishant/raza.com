@@ -46,7 +46,7 @@ export class PasswordBoxComponent implements OnInit {
     this.authService.login(body).toPromise()
       .then((res) => {
         if (res) {
-          this.dialogRef.close(true);
+          this.dialogRef.close(res );
         }
       }).catch(err => {
         this.passwordForm.controls['password'].setErrors({ 'invalid': true });
