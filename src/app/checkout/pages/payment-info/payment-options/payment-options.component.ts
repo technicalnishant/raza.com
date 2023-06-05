@@ -88,28 +88,24 @@ export class PaymentOptionsComponent implements OnInit {
 
   ngOnInit() {
     this.currentCart = this.route.parent.snapshot.data['cart'];
-    console.log("Current Cart before is as ", this.currentCart);
-    if(this.currentCart.transactiontype == 1)
-    {
-      let usersPlan = JSON.parse(localStorage.getItem("currentPlan"));
-      if( usersPlan && usersPlan.CardId)
-      {
-        this.planInfo = usersPlan
+    
+    // if(this.currentCart.transactiontype == 1)
+    // {
+    //   let usersPlan = JSON.parse(localStorage.getItem("currentPlan"));
+    //   if( usersPlan && usersPlan.CardId)
+    //   {
+    //     this.planInfo = usersPlan
         
-        this.setCartPlanName();
-        console.log("Current Cart after is as ", this.currentCart);
-      }
-      this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe((data) =>{
+    //     this.setCartPlanName();
+    //     console.log("Current Cart after is as ", this.currentCart);
+    //   }
+    //   this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe((data) =>{
        
-       this.planInfo = data;  
-       this.setCartPlanName();
+    //    this.planInfo = data;  
+    //    this.setCartPlanName();
         
-      } )
-
-     
-      
-      
-    }
+    //   } )
+    // }
     
    
     //this.currentCart.transactiontype
@@ -136,10 +132,6 @@ export class PaymentOptionsComponent implements OnInit {
     cart.planName = cardName;
     cart.currencyCode = this.planInfo.CurrencyCode 
     cart.countryFrom  = this.planInfo.CountryFrom;
-    
- 
-
-
     this.checkoutService.setCurrentCart(cart);
     this.currentCart = this.route.parent.snapshot.data['cart'];
   }
