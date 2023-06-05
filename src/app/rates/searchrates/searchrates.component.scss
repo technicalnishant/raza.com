@@ -206,6 +206,10 @@ $background-color_1: #ffffff;
     background-color: #fff;
     padding: 50px 0;
     margin: 50px 0;
+    @include breakpoint(sm) {
+        padding: 20px 0;
+        margin: 20px 0;
+    }
 
     .section-title {
         font-size: 46px;
@@ -215,7 +219,7 @@ $background-color_1: #ffffff;
         text-align: center;
 		margin-bottom: 18px;
         @include breakpoint(sm) {
-            font-size:34px
+            font-size: 28px
         }
     }
 
