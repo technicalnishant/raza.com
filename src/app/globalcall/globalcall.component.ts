@@ -488,15 +488,16 @@ export class GlobalcallComponent implements OnInit {
     if(!this.isAutoRefill)
     {
      var item:any = this.WithoutAutorefillPlans.filter(a => a.Price == price);
-    //  console.log('item is ', item)
-     
-     return Math.floor(min+ (min* item[0].DiscountApplied)/100);
+    
+     return Math.floor(min+ promomin);
+     //return Math.floor(min+ (min* item[0].DiscountApplied)/100);
     }
     else
     {
       var item:any = this.AutorefillPlans.filter(a => a.Price == price);
-      return Math.floor(min+ (min* item[0].DiscountApplied)/100);
-      //return Math.floor( min+promomin)
+       return Math.floor(min+ (min* item[0].DiscountApplied)/100);
+     
+       
     }
   }
  getFlagName()
