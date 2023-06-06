@@ -68,10 +68,10 @@
               <span class="width70">{{option.CountryName}}&nbsp;(+{{option.CountryCode}})</span>
               <span class="width30">
                 <img src="./../../assets/images/phone-icon.png" alt="" loading="lazy">
-                <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
+                <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency | async}} </span>
                 <!-- <span class="mobileRate">{{setPrice(option.CallingRateMobile)}} </span> -->
                 <img src="./../../assets/images/icon-landphone.png" alt="" loading="lazy">
-                <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency}} </span>
+                <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency | async}} </span>
                 <!-- <span class="landlineRate">{{setPrice(option.CallingRateLandline)}} </span> -->
               </span>
             </mat-option>
@@ -144,10 +144,10 @@
           <span class="width70">{{option.CountryName}}&nbsp;(+{{option.CountryCode}})</span>
           <span class="width30">
             <img src="./../../assets/images/phone-icon.png" alt="" loading="lazy">
-            <span class="mobileRate">{{option.CallingRateMobile | sCurrency:currentCurrency}} </span>
+            <span class="mobileRate">{{option.CallingRateMobile | sCurrency:currentCurrency | async}} </span>
 
             <img src="./../../assets/images/icon-landphone.png" alt="" loading="lazy">
-            <span class="landlineRate">{{option.CallingRateLandline | sCurrency:currentCurrency}} </span>
+            <span class="landlineRate">{{option.CallingRateLandline | sCurrency:currentCurrency | async}} </span>
           </span>
         </mat-option>
       </mat-autocomplete>

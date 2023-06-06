@@ -293,18 +293,19 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     el.scrollIntoView();
   }
 
+  
+
   private searchRates() {
     this.globalRatesService.getAllCountriesRates(this.currentSetting.currentCountryId).subscribe(
       (data: any) => {
-        this.allCountry = data
-        
+        this.allCountry = data;
+        this.filterListing();
+        //console.log('this.allCountry ', this.allCountry );
 
       },
       (err: ApiErrorResponse) => console.log(err),
     )
   }
-
-
  
   public compareToken()
   {

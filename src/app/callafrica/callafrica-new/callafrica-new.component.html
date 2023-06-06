@@ -186,7 +186,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
                   <div class="country-name">{{item.CountryName}}</div>
                 </div>
                 <div class="country-rate">
-                  <span>From</span> {{getcountryrate(item.CallRate) | sCurrency : currentCurrency}} <span>/ min</span>
+                  <span>From</span> {{getcountryrate(item.CallRate) | sCurrency | async : currentCurrency}} <span>/ min</span>
                 </div>
                 <button
                   class="view-details-btn"
@@ -210,7 +210,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
     <img src="./../../assets/images/{{getImageName(option.CountryName) | lowercase}}.png">
     <p class="country">{{option.CountryName}}</p>
     <span>from</span> 
-    <p class="price"><b>{{getcountryrate(option.CallRate) | sCurrency : currentCurrency}}</b></p>
+    <p class="price"><b>{{getcountryrate(option.CallRate) | sCurrency | async : currentCurrency}}</b></p>
   </div>
 </div>
 
@@ -223,7 +223,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
       <span style="display: flex; align-items: center;">
         <img alt="" src="./../../assets/images/{{getImageName(option.CountryName) | lowercase}}.png" height="37" width="37"></span>
         <span class="mobileratestable-currencyName"><span>{{option.CountryName}}</span> </span>
-      </span><span class="mobileratestable-rate"><span class="">{{option.CallRate | sCurrency:currentCurrency}}</span></span>
+      </span><span class="mobileratestable-rate"><span class="">{{option.CallRate | sCurrency | async:currentCurrency | async}}</span></span>
     </div>
 </div> -->
 

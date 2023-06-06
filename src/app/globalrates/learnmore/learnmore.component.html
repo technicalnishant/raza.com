@@ -20,7 +20,7 @@
         <span>Call {{countryName}}</span>
          <!-- <img src="assets/images/nigeria_map.jpg" alt="" /> -->
          <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ countryId"  [alt]="countryId" /></span>
-          <span>{{RatePerMin | sCurrency}} / min</span>
+          <span>{{RatePerMin | sCurrency | async}} / min</span>
       </div>
 
       <ul class="learnmoreUl">
@@ -142,7 +142,7 @@
         <span>Call {{countryName}}</span> 
         <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ countryId"  [alt]="countryId" /></span>
         <!-- <img src="assets/images/nigeria_map.jpg" alt="" />  -->
-        <span>{{RatePerMin | sCurrency}} / min</span>
+        <span>{{RatePerMin | sCurrency | async}} / min</span>
       </div>
 
       <ul class="learnmoreUl">

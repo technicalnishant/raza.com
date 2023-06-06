@@ -12,6 +12,8 @@ import { ApiErrorResponse } from '../core/models/ApiErrorResponse';
 export class GlobalRatesService {
         constructor(private httpClient: HttpClient, private razaEnvService: RazaEnvironmentService) { }
 
+       
+
         public getAllCountries(): Observable<Country[] | ApiErrorResponse> {
                 return this.httpClient.get<Country[]>(`${Api.countries.getAllCountries}`)
                         .pipe(
@@ -20,25 +22,28 @@ export class GlobalRatesService {
         }
 
         public getAllCountriesRates(countryFrom: number): Observable<any[] | ApiErrorResponse> {
-                return this.httpClient.get<any[]>(`${Api.countries.getCallDetails}` + "/" + countryFrom)
-                        .pipe(
-                                catchError(err => this.handleHttpError(err))
-                        );
+                // return this.httpClient.get<any[]>(`${Api.countries.getCallDetails}` + "/" + countryFrom)
+                //         .pipe(
+                //                 catchError(err => this.handleHttpError(err))
+                //         );
 
 
-        // var file = 'countries_usa.json';
-        // if(countryFrom == 2)
-        // file = 'countries_cad.json';
-        // if(countryFrom == 3)
-        // file = 'countries_uk.json';
-        // if(countryFrom == 8)
-        // file = 'countries_aus.json';
-        // if(countryFrom == 20)
-        // file = 'countries_nz.json';
-        // if(countryFrom == 26)
-        // file = 'countries_in.json';
-        // console.log(file);
-        // return  this.httpClient.get<[]>("./assets/"+file) ;
+               var file = 'countries_usa.json';
+                if(countryFrom == 2)
+                file = 'countries_cad.json';
+
+                if(countryFrom == 3)
+                file = 'countries_uk.json';
+
+                if(countryFrom == 8)
+                file = 'countries_aus.json';
+                if(countryFrom == 20)
+                file = 'countries_nz.json';
+                if(countryFrom == 26)
+                file = 'countries_in.json';
+
+                console.log(file);
+                return  this.httpClient.get<[]>("./assets/"+file) ;
 
         }
 

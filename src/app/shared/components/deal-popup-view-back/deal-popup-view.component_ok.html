@@ -187,7 +187,7 @@
                                         <tr *ngFor="let item of FilteredSubPlans">
                                             <td>{{item.CountryName}}</td>
                                             <td>{{item.TotalTime}}</td>
-                                            <td>{{item.CallRate | sCurrency : globalPlanData.CurrencyCode }} / min</td>
+                                            <td>{{item.CallRate | sCurrency | async : globalPlanData.CurrencyCode }} / min</td>
                                         </tr>
                                     </tbody>
                                 </table>

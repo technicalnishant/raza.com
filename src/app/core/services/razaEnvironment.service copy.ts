@@ -9,7 +9,7 @@ import { isNullOrUndefined } from "../../shared/utilities";
  
 @Injectable()
 export class RazaEnvironmentService {
-    countries:any=['uk', 'us','ca','nz','au','in'];
+    
     constructor( 
         private http: HttpClient, 
     ) { }
@@ -22,10 +22,8 @@ export class RazaEnvironmentService {
 
     getToFixedTrunc(x:any) 
     {
-        
         let n = 2;
         const v = (typeof x === 'string' ? x : x.toString()).split('.');
-         
         if (n <= 0) return v[0];
         let f = v[1] || '';
         if (f.length > n) return `${v[0]}.${f.substr(0,n)}`;
@@ -36,6 +34,7 @@ export class RazaEnvironmentService {
     getCurrentSetting() {
         //return RazaEnvironmentService._currentSetting;
        
+
         if( localStorage.getItem('session_key') && localStorage.getItem('session_key') !='' && typeof localStorage.getItem('session_key') !== 'undefined')
             {
                 const sessionKey : CurrentSetting = new CurrentSetting();
@@ -69,48 +68,11 @@ export class RazaEnvironmentService {
         return echange_rate.CurrencySymbol;
     }
 
-    getCurrenciePrice(price:number, symbol):Promise<string> {
-        return new Promise<any>((resolve, reject) => {
- 
-                const sessionKey : CurrentSetting = new CurrentSetting();
-                var sess_key        = JSON.parse(localStorage.getItem('session_key'));
-                var sCountryId      = sess_key.country.CountryId;
-               
-                var echange_rate = JSON.parse(localStorage.getItem('exchangeRate'));
-               let curr_symbol = symbol=='sub'?echange_rate.SubCurrencySymbol:echange_rate.CurrencySymbol;
-
-               // let arr = {symbol: echange_rate.CurrencySymbol, sub_symbol:echange_rate.SubCurrencySymbol, price:price }
-              if( sCountryId >3 )
-                {
-                     
-                    let converted = this.getToFixedTrunc( (price * echange_rate.ExchangeRate))
-                    if(symbol=='sub')
-                    {converted = converted+""+curr_symbol}
-                    else 
-                    converted = curr_symbol+""+converted
-                    resolve(converted);
-                }
-                else
-                {
-                    let converted = '';
-                    if(symbol=='sub')
-                    {converted = price+""+curr_symbol}
-                    else 
-                    converted = curr_symbol+""+price
-                    resolve(converted);
-                }
-
-        })
-     }
     
     getFormatedPrice(price:number)
     {
-
-        var sess_key        = JSON.parse(localStorage.getItem('session_key'));
-        var sCountryId      = sess_key.country.CountryId;
-
-       // this.getCurrentSetting().subscribe(a => {}); ;
-            if(sCountryId >3 )
+        this.getCurrentSetting().subscribe(a => {
+            if(a.country.CountryId >3 )
             {
                 var echange_rate = JSON.parse(localStorage.getItem('exchangeRate'));
                 
@@ -119,9 +81,9 @@ export class RazaEnvironmentService {
             else
             {
                 
-                return price;
+                return of(price);
             }
-      
+      }); ;
        
     }
     getXChageRateInfo(countryFromId)
@@ -129,26 +91,23 @@ export class RazaEnvironmentService {
      return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`)
     }
 
-    setExchangeRate(countryId)
-    {
-        this.getXChageRateInfo(countryId).subscribe((data:any)=>{
-      
-            localStorage.setItem('currencySymbol', data.CurrencySymbol);
-            localStorage.setItem('subCurrencySymbol', data.SubCurrencySymbol);
-            localStorage.setItem('rate', data.ExchangeRate);
-            localStorage.setItem('exchangeRate', JSON.stringify(data));
-            
-        })
-    }
     setCurrentSetting(setting: CurrentSetting) {
         if (!isNullOrUndefined(setting)) {
             RazaEnvironmentService._setting = setting;
-            this.setExchangeRate(setting.country.CountryId);
+             
+            this.getXChageRateInfo(setting.country.CountryId).subscribe((data:any)=>{
+      
+                localStorage.setItem('currencySymbol', data.CurrencySymbol);
+                localStorage.setItem('subCurrencySymbol', data.SubCurrencySymbol);
+                localStorage.setItem('rate', data.ExchangeRate);
+
+                localStorage.setItem('exchangeRate', JSON.stringify(data));   
+            })
             localStorage.setItem('session_key', JSON.stringify(setting));
              
         }
 
-       // window.location.reload;
+        window.location.reload;
     }
 
     getCurrentCurrencySymbol() {
@@ -224,27 +183,27 @@ export class RazaEnvironmentService {
         }
 
         if( localStorage.getItem('session_key') && localStorage.getItem('session_key') !='' && typeof localStorage.getItem('session_key') !== 'undefined')
-            {
-                const sessionKey : CurrentSetting = new CurrentSetting();
-                var sess_key = JSON.parse(localStorage.getItem('session_key'));
-                var sCountryId = sess_key.country.CountryId;
-                var sCountryName = sess_key.country.CountryName;
-                var sCountryCode = sess_key.country.CountryCode;
+                    {
+                        const sessionKey : CurrentSetting = new CurrentSetting();
+                        var sess_key = JSON.parse(localStorage.getItem('session_key'));
+                        var sCountryId = sess_key.country.CountryId;
+                        var sCountryName = sess_key.country.CountryName;
+                        var sCountryCode = sess_key.country.CountryCode;
 
-                
-                    const array_session = {CountryId: sCountryId, CountryName: sCountryName, CountryCode: sCountryCode};
-                //console.log(array_session);
-                //sessionKey.country = array_session;
-                // RazaEnvironmentService._setting = sessionKey;
-                
-                return of(array_session);
-                
-                
-            }
-            else
-            {
-                return this.http.post<Country>(`${Api.auth.geoCountry}/default`, body);
-            }
+                        
+                         const array_session = {CountryId: sCountryId, CountryName: sCountryName, CountryCode: sCountryCode};
+                        //console.log(array_session);
+                        //sessionKey.country = array_session;
+                       // RazaEnvironmentService._setting = sessionKey;
+                        
+                        return of(array_session);
+                        
+                        
+                    }
+                    else
+                    {
+                        return this.http.post<Country>(`${Api.auth.geoCountry}/default`, body);
+                    }
                     
 
         

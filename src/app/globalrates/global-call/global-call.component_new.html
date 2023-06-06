@@ -10,7 +10,7 @@
                 </div>
                 <div class="rates">
                     <p class="text-muted mb-0">As low as</p>
-                    <span>{{RatePerMin | sCurrency : globalPlanData.CurrencyCode}} / min</span>
+                    <span>{{RatePerMin | sCurrency | async : globalPlanData.CurrencyCode}} / min</span>
                 </div>
             </div>
         <div class="bonusArea">
@@ -76,7 +76,7 @@
                                         <tr *ngFor="let item of FilteredSubPlans">
                                             <td>{{item.CountryName}}</td>
                                             <td>{{item.TotalTime}}</td>
-                                            <td>{{item.CallRate | sCurrency : globalPlanData.CurrencyCode }} / min</td>
+                                            <td>{{item.CallRate | sCurrency | async : globalPlanData.CurrencyCode }} / min</td>
                                         </tr>
                                     </tbody>
                                 </table>

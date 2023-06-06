@@ -12,7 +12,7 @@ export class Api {
 		referFriend: base + 'api/customers/refer',
 		referFriendnew: base + 'api/customers/ReferToEmail'
 	};
-
+ 
 	static auth = {
 		isInRole: base + 'api/auth/IsInRole/',
 		token: base + 'api/auth/token',
@@ -44,14 +44,13 @@ export class Api {
 
 	static accessNumbers = {
 		accessNumber: base + "api/AccessNumbers",
-	};
-
+	}; 
 	static moto = {
 		generateMotoOrder: base + "api/Transactions/GenerateMotoOrder",
 		//newPin: base + 'api/IssueNewPin/MOTO/ProcessNewPin',
 		newPin: base + 'api/IssueNewPin/ProcessMOTONewPin'
 	};
-
+	 
 	static myAccount = {
 		accessNumber: base + "api/AccessNumbers",
 		orderHistory: base + "api/FullOrderHistory",
@@ -70,18 +69,17 @@ export class Api {
 		completeCreditcards : base + 'api/customers/completeCreditcards',
 		saveCompleteCreditcard : base + 'api/Customers/SaveCompleteCreditcard_V1',
 	}
-
+ 
 	static callForwarding = {
 		CallForwardingSetup: base + "api/CallForwardingSetups",
 		deleteCallForwardingSetup: base + "api/CallForwardingSetups",
-	}
-
+	} 
 	static pinless = {
 		PinlessSetup: base + "api/PinlessSetups",
 		deletePinless: base + "api/PinlessSetups/delete",
 		getPinLess: base + "api/PinlessSetups",
 	}
-
+	 
 	static rewards = {
 		totalRewards: base + "api/Customers/RewardPoints",
 		friendsRefered: base + "api/Customers/ReferedFriends",
@@ -111,13 +109,15 @@ export class Api {
 	static Promotions = {
 		get: base + 'api/Promotions'
 	}
+ 
 	static rates = {
 		getSearchRates: base + "api/Rates/Lowests/",
 		getPopularRates: base + "api/Rates/AllCountries?countryFrom=",
 		//getSearchGlobalRates: base + "api/Rates/Plans/",
-		 getSearchGlobalRates: base + "api/rates/Plans/LowestRate/",
-		//getSearchGlobalRates: base + "api/rates/Plans/LowestRate/v1/",
+		 //getSearchGlobalRates: base + "api/rates/Plans/LowestRate/",
+		 getSearchGlobalRates: base + "api/rates/Plans/LowestRate/v1/",
 		//getSearchGlobalRatesSubPlans: base + "api/Rates/SubPlans/",
+		//getSearchGlobalRatesSubPlans: base + "api/Rates/SubPlans/v1/",
 		getSearchGlobalRatesSubPlans: base + "api/Rates/GetSubPlansWithDistinctRate/",
 
 		getPopularDestinationPlans: base + "api/rates/PopularDestination/",
@@ -127,8 +127,8 @@ export class Api {
 	static countries = {
 		//getTopThreeCountries: base + "api/Countries/From",
 		// getCallDetails: base + "api/Rates/Lowests/",
-		 getCallDetails: base + "api/Rates/lowestrate/",
-		//getCallDetails: base + "api/Rates/Lowest/v1/",
+		 //getCallDetails: base + "api/Rates/lowestrate/",
+		getCallDetails: base + "api/Rates/Lowest/v1/",
 		getAllCountries: base + "api/Countries/To/0",
 		getAllPostalCodes: base + "api/Countries",
 		base: base + "api/Countries"
@@ -154,7 +154,7 @@ export class Api {
 		becomeapartner: base + "api/Complaints/BecomePartner",
 		messageUs: base + "api/Complaints/Message"
 	};
-	
+	 
 	static mobiletopup = {
 		//PhoneNumberInfo: base + "api/MobileTopups/PhoneNumberInfo",
 		//https://restapi.razacomm.com/api/MobileTopups/PhoneNumberInfo_V2/{countryFrom}/{phoneNumber}
@@ -168,17 +168,18 @@ export class Api {
 	static features = {
 		setItUp: base + "api/Rates/AllCountries?countryFrom=1"
 	};
- 
+	 
 	static recharge = {
 		process: base + 'api/recharge',
 		processMobile: base + 'api/recharge/MobileApp',
+		processGlobal: base + 'api/recharge/v1/MobileApp',
 		getAmount: base + "api/recharge/amounts",
 		getWebAmount: base + "api/recharge/MobileAppAmounts"
 	}
 	static acivation = {
 		newPin: base + 'api/IssueNewPin',
 	}
-	 
+ 
 	static transactions = {
 		init: base + "api/transactions/init",
 		generate: base + "api/transactions/generate",

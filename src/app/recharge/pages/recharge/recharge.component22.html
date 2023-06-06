@@ -54,7 +54,7 @@
                           <h1 class="text-center">
                             Call {{countryName}}
                           </h1>
-                          <p>as low as {{RatePerMin | sCurrency : countryCode}}/min</p>
+                          <p>as low as {{RatePerMin | sCurrency | async : countryCode}}/min</p>
                       </div>
                   </div>
               </div>
@@ -157,7 +157,7 @@
                         <h1 class="text-center">
                             {{countryName}}
                         </h1>
-                        <p>as low as {{RatePerMin | sCurrency : countryCode}} / min</p>
+                        <p>as low as {{RatePerMin | sCurrency | async : countryCode}} / min</p>
                     </div>
                 </div>
                 <div class="auto-refiil mt-3">

@@ -20,7 +20,7 @@
         <div class="callRate">
           <img [class]="getCountryFlag(item.CountryToId)" height="32" src="./../../assets/images/blank.gif">
           <span>{{item.CountryToName}}</span>
-          <span>{{item.RatePerMin | sCurrency }} / min</span>
+          <span>{{item.RatePerMin | sCurrency | async }} / min</span>
         </div>
         <p class="mins">{{item.RegularMin + item.FreeMin}}
           <span>mins</span></p>

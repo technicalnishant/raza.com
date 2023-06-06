@@ -127,7 +127,7 @@
                 <div class="country-name">{{item.CountryName}}</div>
               </div>
               <div class="country-rate">
-                <span>From</span> {{item.CallingRateMobile | sCurrency}}
+                <span>From</span> {{item.CallingRateMobile | sCurrency | async}}
               </div>
               <button
                 class="view-details-btn"
@@ -167,7 +167,7 @@
 
           <div class="box-title">{{item.CountryName}}</div>
           <div class="box-description">
-            as low as {{ item.CallRate | sCurrency }}
+            as low as {{ item.CallRate | sCurrency | async }}
           </div>
         </div>
       </div>

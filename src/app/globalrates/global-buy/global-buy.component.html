@@ -4,7 +4,7 @@
             <div class="callRate">
                 <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
                     [alt]="countryId" /></span>
-            <span>{{RatePerMin| number:'1.0-0' | sCurrency : globalPlanData.CurrencyCode  }}/min</span>
+            <span>{{RatePerMin| number:'1.0-0' | sCurrency | async : globalPlanData.CurrencyCode  }}/min</span>
                 <p class="country-name">{{customCountry}}</p>
             </div>
         </div>
@@ -17,7 +17,7 @@
                 <p class="country-name">{{customCountry}}</p>
                 <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
                         [alt]="countryId" /></span>
-                <span>{{RatePerMin| number:'1.0-0' | sCurrency : globalPlanData.CurrencyCode  }}/min</span>
+                <span>{{RatePerMin| number:'1.0-0' | sCurrency | async : globalPlanData.CurrencyCode  }}/min</span>
             </div>
         </div>
         <mat-dialog-content #matContent>
@@ -30,7 +30,7 @@
                                     <p class="country-name">{{customCountry}}</p>
                                     <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
                                             [alt]="countryId" /></span>
-                                    <span>{{RatePerMin| number:'1.0-0' | sCurrency }} / min</span>
+                                    <span>{{RatePerMin| number:'1.0-0' | sCurrency | async }} / min</span>
                                 </div>
                             </div>
                         </li>-->
@@ -123,7 +123,7 @@
                                         <tr *ngFor="let item of FilteredSubPlans">
                                             <td>{{item.CountryName}}</td>
                                             <td>{{item.TotalTime}}</td>
-                                            <td>{{item.CallRate | sCurrency : globalPlanData.CurrencyCode }} / min</td>
+                                            <td>{{item.CallRate | sCurrency | async : globalPlanData.CurrencyCode }} / min</td>
                                         </tr>
                                     </tbody>
                                 </table>

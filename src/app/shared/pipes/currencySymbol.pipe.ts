@@ -13,39 +13,48 @@ import { Observable, of } from "rxjs";
 */
 @Pipe({ name: 'sCurrency' })
 export class currencySmallSymbolPipe implements PipeTransform {
+  result: string = '';
   constructor(private razaEnvService: RazaEnvironmentService) { }
   currencySymbol: string;
 
-  transform(value: number, currency: CurrencyCode): any {
+  transform(value: number, currency: CurrencyCode) {
    
     if (currency == CurrencyCode.GBP) 
     {
       this.currencySymbol = "p";
-      return value + "" + this.currencySymbol;
+     // return value + "" + this.currencySymbol;
     }
     else if (currency == CurrencyCode.INR) 
     {
       this.currencySymbol = "p";
-      return value + "" + this.currencySymbol;
+    //  return value + "" + this.currencySymbol;
     }
     else if (currency == CurrencyCode.AUD) 
     {
       this.currencySymbol = "¢";
-      return value + "" + this.currencySymbol;
+     // return value + "" + this.currencySymbol;
     }
     else if (currency == CurrencyCode.NZD) 
     {
       this.currencySymbol = "¢";
-      return value + "" + this.currencySymbol;
+     // return value + "" + this.currencySymbol;
     }
     else 
     {
       this.currencySymbol = "¢";
-      return value + "" + this.currencySymbol;
+    //  return value + "" + this.currencySymbol;
     }
-
-    //return value + "" +localStorage.getItem('subCurrencySymbol');
-    
+     
+    //console.log(currency);
+     //return value + "" +localStorage.getItem('subCurrencySymbol');
+    return  this.razaEnvService.getCurrenciePrice(value, 'sub').then(response => {                   
+       
+      
+       return this.result = response;//.price + "" +this.currencySymbol;
+  }
+);
+     //console.log(this.result);
+ // return this.result; 
   }
 }
 
@@ -53,21 +62,68 @@ export class currencySmallSymbolPipe implements PipeTransform {
 export class currencyMainSymbolPipe implements PipeTransform {
   constructor(private razaEnvService: RazaEnvironmentService) { }
   currencySymbol: string = "$";
-  transform(value: number, currency: CurrencyCode): string {
+   result:any
+  transform(value: number, currency: CurrencyCode)  {
     if (currency == CurrencyCode.GBP) 
     {
       this.currencySymbol = "£";
-      return this.currencySymbol + "" + value;
+     // return this.currencySymbol + "" + value;
     }
     else if (currency == CurrencyCode.INR) 
     {
       this.currencySymbol = "₹";
-      return value + "" + this.currencySymbol;
+     // return value + "" + this.currencySymbol;
     }
     else if (currency == CurrencyCode.AUD) 
     {
       this.currencySymbol = "$";
-      return value + "" + this.currencySymbol;
+     // return value + "" + this.currencySymbol;
+    }
+    else if (currency == CurrencyCode.NZD) 
+    {
+      this.currencySymbol = "$";
+      //return value + "" + this.currencySymbol;
+    }
+    else 
+    {
+      this.currencySymbol = "$";
+     // return this.currencySymbol + "" + value;
+    }
+    
+
+    return  this.razaEnvService.getCurrenciePrice(value, 'main').then(response => {                   
+       
+      
+      return this.result = response//this.currencySymbol+""+response;
+ }
+);
+
+  //  return this.razaEnvService.getCurrencySymbol()+ "" +this.razaEnvService.getFormatedPrice(value);
+     //return localStorage.getItem('currencySymbol')+ "" + value;
+
+  }
+}
+
+@Pipe({ name: 'cCurrency' })
+export class currencySymbolPipe implements PipeTransform {
+  constructor(private razaEnvService: RazaEnvironmentService) { }
+  currencySymbol: string = "$";
+   result:any
+  transform(value: number, currency: CurrencyCode)  {
+    if (currency == CurrencyCode.GBP) 
+    {
+      this.currencySymbol = "£";
+       return this.currencySymbol + "" + value;
+    }
+    else if (currency == CurrencyCode.INR) 
+    {
+      this.currencySymbol = "₹";
+       return value + "" + this.currencySymbol;
+    }
+    else if (currency == CurrencyCode.AUD) 
+    {
+      this.currencySymbol = "$";
+       return value + "" + this.currencySymbol;
     }
     else if (currency == CurrencyCode.NZD) 
     {
@@ -77,9 +133,13 @@ export class currencyMainSymbolPipe implements PipeTransform {
     else 
     {
       this.currencySymbol = "$";
-      return this.currencySymbol + "" + value;
+       return this.currencySymbol + "" + value;
     }
     
+
+  
+
+
   //  return this.razaEnvService.getCurrencySymbol()+ "" +this.razaEnvService.getFormatedPrice(value);
      //return localStorage.getItem('currencySymbol')+ "" + value;
 

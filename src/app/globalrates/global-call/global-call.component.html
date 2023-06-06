@@ -23,7 +23,7 @@
                                 <div class="callRate">
                                     <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ countryId"
                                             [alt]="countryId" /></span>
-                                    <span>{{RatePerMin | sCurrency : globalPlanData.CurrencyCode}} / min</span>
+                                    <span>{{RatePerMin | sCurrency | async : globalPlanData.CurrencyCode}} / min</span>
                                 </div>
                             </div>
                         </li>
@@ -74,7 +74,7 @@
                                         <tr *ngFor="let item of FilteredSubPlans">
                                             <td>{{item.CountryName}}</td>
                                             <td>{{item.TotalTime}}</td>
-                                            <td>{{item.CallRate | sCurrency : globalPlanData.CurrencyCode }} / min</td>
+                                            <td>{{item.CallRate | sCurrency | async : globalPlanData.CurrencyCode }} / min</td>
                                         </tr>
                                     </tbody>
                                 </table>

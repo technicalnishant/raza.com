@@ -43,10 +43,10 @@
                   <span class="width70">{{option.CountryName}}</span>
                   <!--<span class="width30">
                       <img src="./../../assets/images/phone-icon.png" alt="">
-                      <span class="mobileRate">{{option.CallingRateMobile | sCurrency}} </span>
+                      <span class="mobileRate">{{option.CallingRateMobile | sCurrency | async}} </span>
         
                       <img src="./../../assets/images/icon-landphone.png" alt="">
-                      <span class="landlineRate">{{option.CallingRateLandline | sCurrency}} </span>
+                      <span class="landlineRate">{{option.CallingRateLandline | sCurrency | async}} </span>
                     </span>-->
                 </mat-option>
               </mat-autocomplete>
@@ -62,7 +62,7 @@
           <img src="./../../assets/images/{{getImageName(option.CountryName) | lowercase}}.png">
           <p class="country">{{option.CountryName}}</p>
           <span>from</span>
-          <p class="price"><b>{{plandenomination(option)| sCurrency:currentCurrency}}</b></p>
+          <p class="price"><b>{{plandenomination(option)| sCurrency | async:currentCurrency | async}}</b></p>
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@
             <span style="display: flex; align-items: center;">
               <img alt="" src="./../../assets/images/{{getImageName(option.CountryName) | lowercase}}.png" height="37" width="37"></span>
               <span class="mobileratestable-currencyName"><span>{{option.CountryName}}</span><!-- <span>From</span> --></span>
-            </span><span class="mobileratestable-rate"><span class="">{{plandenomination(option)| sCurrency:currentCurrency}}</span></span>
+            </span><span class="mobileratestable-rate"><span class="">{{plandenomination(option)| sCurrency | async:currentCurrency | async}}</span></span>
           </div>
       </div>
   
@@ -203,7 +203,7 @@
         </tr>
         <tr>
           <td>Rate per minute</td>
-          <td>{{item.RatePerMin | sCurrency }}</td>
+          <td>{{item.RatePerMin | sCurrency | async }}</td>
         </tr>
         <tr class="total">
           <td>Total</td>
