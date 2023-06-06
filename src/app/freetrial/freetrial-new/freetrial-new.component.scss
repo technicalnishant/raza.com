@@ -2191,4 +2191,17 @@ $common-boder-width: 3px solid #2172cb;
   margin-bottom: 15px;
 }
 // mobile top country start here
-
+@include breakpoint(sm) {
+  .heading_style1 {
+    left: 40%;
+    margin-left: 0px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 40px;
+  }
+  .plan-info.info_bok {
+    padding: 0;
+  }
+}

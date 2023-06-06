@@ -1502,3 +1502,9 @@ border-right: 1px solid #e7e7e7;
   padding: 20% 0;
   margin-bottom: 15px;
 }
+
+@include breakpoint(sm) {
+  .plan-info.info_bok {
+    padding: 0;
+  }
+}
