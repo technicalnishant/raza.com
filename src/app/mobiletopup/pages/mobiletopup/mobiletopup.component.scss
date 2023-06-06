@@ -112,11 +112,12 @@ p {
     width: 62% !important;
   }
   .heading_style1{
-    left: 53%;
+    left: 20px;
+    right: 20px;
     margin-left: 0px;
-    font-size: 40px;
-
-
+    font-size: 38px;
+    transform: none;
+    top: 100px;
   }
   .heading_style1 span{
     font-size: 16px;
@@ -348,7 +349,11 @@ $common-bg-color: #ffffff;
   }
 }
 
-
+@media only screen and (max-width: 767px) {
+  .mobile-topup-wrapper .form-wrapper span.prefix-mobiletopup {
+      // margin-top: -15px;
+  }
+}
 
 ::ng-deep {
   .denomination .mat-checkbox-inner-container {
@@ -446,6 +451,7 @@ $common-bg-color: #ffffff;
 
   .mobile-topup-wrapper .container {
     margin-top: 50px;
+    width: 100%;
   }
 
   .title-wrapper h1 {
