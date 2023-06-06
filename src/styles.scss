@@ -2853,14 +2853,9 @@ p {
     }
 
     p {
-        color: grey;
+        color: #444;
         font-size: 16px;
-        font-family: $font-family, sans-serif;
         font-weight: 400;
-        line-height: 27px;
-        color: #808080;
-        font-size: 16px;
-        font-weight: 300;
         line-height: 28px;
         font-family: $font-family;
     }
@@ -2894,9 +2889,9 @@ p {
 }
 
 .mat-expansion-panel-header-title {
-    color: #808080;
+    color: #444;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     font-family: $font-family;
 }
 
@@ -4192,7 +4187,6 @@ h2 {
         margin-top: 25px;
 
         span {
-            &:first-child {
                 display: table;
                 margin: 15px auto;
                 float: none !important;
@@ -4200,7 +4194,6 @@ h2 {
                 a {
                     margin-right: 15px;
                 }
-            }
 
             &:last-child {
                 a {
@@ -4670,7 +4663,7 @@ h2 {
 
     .popupGlobalCall {
         .selectRechargeamount {
-            padding: 34px 0 62px 0;
+            padding: 10px 0 62px 0;
         }
 
         p {
