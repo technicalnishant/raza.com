@@ -228,8 +228,9 @@ export class PlanService {
     replaced = replaced.replace(/;/g, '');
     replaced = replaced.replace(/[\[\]']/g,'' );
 
-
-    return this.httpClient.get<[]>(`${Api.plan.pinlessNumber}/${replaced}`);;
+let plan_info = this.httpClient.get<[]>(`${Api.plan.pinlessNumber}/${replaced}`);
+localStorage.setItem("currentPlan", JSON.stringify(plan_info));
+    return plan_info;
 
 
     // this.currentPlan = JSON.parse(localStorage.getItem("currentPlan"))

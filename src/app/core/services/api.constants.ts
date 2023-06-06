@@ -115,7 +115,8 @@ export class Api {
 		getSearchRates: base + "api/Rates/Lowests/",
 		getPopularRates: base + "api/Rates/AllCountries?countryFrom=",
 		//getSearchGlobalRates: base + "api/Rates/Plans/",
-		getSearchGlobalRates: base + "api/rates/Plans/LowestRate/",
+		 getSearchGlobalRates: base + "api/rates/Plans/LowestRate/",
+		//getSearchGlobalRates: base + "api/rates/Plans/LowestRate/v1/",
 		//getSearchGlobalRatesSubPlans: base + "api/Rates/SubPlans/",
 		getSearchGlobalRatesSubPlans: base + "api/Rates/GetSubPlansWithDistinctRate/",
 
@@ -159,7 +160,9 @@ export class Api {
 		//https://restapi.razacomm.com/api/MobileTopups/PhoneNumberInfo_V2/{countryFrom}/{phoneNumber}
 		PhoneNumberInfo: base + "api/MobileTopups/PhoneNumberInfo_v2",
 		getOperatorsDenomination:base+"api/MobileTopups/GetTopUpInfo", /***To get denomination operator wise https://restapi.razacomm.com/api/MobileTopups/GetTopUpInfo/{countryFrom}/{countryTo}/{operatorName} **/
-		mobiletopup: base + "api/MobileTopup"
+		mobiletopup: base + "api/MobileTopup",
+		getBundlesInfo:base + "api/MobileTopups/GetTopUpInfo_V1",
+		getBundlesDetail:base + "api/MobileTopups/GetTopUpPromotions"
 	};
 
 	static features = {

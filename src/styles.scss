@@ -285,7 +285,7 @@ mat-toolbar-row {
         transform: translate(-50%, -50%);
         left: 53%;
         -webkit-transform: translate(-50%, -50%);
-        width: 90%;
+        width: auto
     }
     
     @include breakpoint(md-lg) {
@@ -294,7 +294,12 @@ mat-toolbar-row {
         -webkit-transform: translate(-40%, -50%);
     }
 }
-
+.row.rechargbstrip_class {
+    @include breakpoint(md) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
 .second_fold {
     padding: 60px 0px 70px 0;
     margin: 0;
@@ -1127,9 +1132,8 @@ p {
 
 .callUsPopup {
     width: 550px !important;
-    max-width: 550px !important;
+    // max-width: 550px !important;
     position: relative;
-
     h2 {
         color: #004090;
         font-size: 20px;
@@ -1138,14 +1142,19 @@ p {
         text-align: center;
         margin: 13px 0;
     }
-
     h4 {
-        color: #808080;
+        color: #555;
         font-size: 16px;
         font-family: $font-family;
-        font-weight: 400;
+        font-weight: 500;
         text-align: center;
         margin-bottom: 40px;
+    }
+    .col-sm-4.callusRow {
+        padding: 0 6px;
+    }
+    .mat-dialog-content {
+        padding: 0 8px;
     }
 }
 
@@ -1159,11 +1168,9 @@ p {
 .callusRow {
     text-align: center;
     border-right: 1px solid #e2e7ed;
-
     &:last-child {
         border: none;
     }
-
     h3 {
         color: #032140;
         font-size: 16px;
@@ -1172,7 +1179,6 @@ p {
         text-align: center;
         margin-bottom: 20px;
     }
-
     p {
         color: #808080;
         font-size: 16px;
@@ -1181,12 +1187,11 @@ p {
         text-align: center;
         margin-bottom: 8px;
     }
-
     a {
-        color: #808080;
+        color: #555;
         font-size: 16px;
         font-family: $font-family;
-        font-weight: 400;
+        font-weight: 500;
         text-align: center;
         margin-bottom: 8px;
         display: block;
@@ -1195,7 +1200,6 @@ p {
 
 .contactForm {
     padding: 20px 40px;
-
     .closeIconContactUs {
         top: -18px;
     }
@@ -1474,7 +1478,7 @@ table {
 }
 
 .commonPopup {
-    max-width: 450px;
+    // max-width: 450px;
     position: relative;
 
     h2 {
@@ -1511,7 +1515,7 @@ table {
     }
 
     h3 {
-        font-weight: 500;
+        font-weight: 600;
     }
 
     h5 {
@@ -2776,7 +2780,7 @@ ul {
 }
 
 .addNumber {
-    width: 400px !important;
+    // width: 400px !important;
 }
 
 .autoRefill {
@@ -2849,14 +2853,9 @@ p {
     }
 
     p {
-        color: grey;
+        color: #444;
         font-size: 16px;
-        font-family: $font-family, sans-serif;
         font-weight: 400;
-        line-height: 27px;
-        color: #808080;
-        font-size: 16px;
-        font-weight: 300;
         line-height: 28px;
         font-family: $font-family;
     }
@@ -2890,9 +2889,9 @@ p {
 }
 
 .mat-expansion-panel-header-title {
-    color: #808080;
+    color: #444;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     font-family: $font-family;
 }
 
@@ -3862,7 +3861,7 @@ h2 {
 .form-wrapper {
     .mat-form-field-appearance-legacy {
         .mat-form-field-label {
-            top: 1.78125em !important;
+            top: 1.9em !important;
             left: 5px;
         }
     }
@@ -3903,7 +3902,7 @@ h2 {
 
 .mat-form-field-invalid {
     .mat-form-field-flex {
-        background: #ff000014;
+        // background: #ff000014;
 
         .mat-form-field-label-wrapper {
             span {
@@ -4095,7 +4094,7 @@ h2 {
     }
 
     .form_holder {
-        padding: 10px !important;
+        padding: 15px !important;
         width: auto;
         margin-bottom: 25px;
     }
@@ -4188,7 +4187,6 @@ h2 {
         margin-top: 25px;
 
         span {
-            &:first-child {
                 display: table;
                 margin: 15px auto;
                 float: none !important;
@@ -4196,7 +4194,6 @@ h2 {
                 a {
                     margin-right: 15px;
                 }
-            }
 
             &:last-child {
                 a {
@@ -4336,10 +4333,10 @@ h2 {
     }
 
     .closeIcon {
-        position: absolute;
-        right: 10px;
-        top: -22px;
-        cursor: pointer;
+        // position: absolute;
+        // right: 10px;
+        // top: -22px;
+        // cursor: pointer;
     }
 
     .stickyMenu {
@@ -4666,7 +4663,7 @@ h2 {
 
     .popupGlobalCall {
         .selectRechargeamount {
-            padding: 34px 0 62px 0;
+            padding: 10px 0 62px 0;
         }
 
         p {
@@ -5151,3 +5148,44 @@ app-add-creditcard-dialog a.what-cvv {
 .textclass-popup .mat-dialog-container {
     padding: 0;
 }
+
+div .mat-dialog-container {
+    border-radius: 20px;
+    min-width: 540px;
+}
+  
+section.faq-section .mat-expansion-panel-body p {
+    color: #333;
+    font-weight: 400;
+}  
+.top_up_btn .mat-button-toggle-label-content {
+    line-height: 36px !important;
+}
+.topup-plan-dialog mat-dialog-container {
+    max-width: 700px;
+    padding: 0;
+    min-width: unset;
+}
+.mat-option-text .width30 {
+    width: 210px;
+    .landlineRate {
+        margin-right: 0;
+    }
+    .mobileRate {
+        margin-right: 30px;
+        display: inline-block;
+        min-width: 85px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .cdk-overlay-pane.topup-plan-dialog {
+        max-width: 98% !important;
+        margin-top: 25px;
+    }
+    div .mat-dialog-container {
+        min-width: unset;
+    }
+}
+// .price_mobile_one_html .owl-carousel .owl-item {
+//     min-width: 300px;
+// }

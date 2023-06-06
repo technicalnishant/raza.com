@@ -33,7 +33,9 @@ import { CurrentSetting } from 'app/core/models/current-setting';
 import { RazaEnvironmentService } from 'app/core/services/razaEnvironment.service';
 import { Country } from 'app/core/models/country.model';
 import { CountriesService } from 'app/core/services/country.service';
-import { CallUsComponent } from 'app/shared/dialog/call-us/call-us.component';
+
+import { autoCorrectIfPhoneNumber, isValidPhoneOrEmail, isValidaEmail } from '../../../shared/utilities';
+
 @Component({
   selector: 'app-recharge',
   templateUrl: './quick-recharge.component.html',
@@ -69,12 +71,11 @@ export class QuickRechargeComponent implements OnInit, OnDestroy {
   showDropdown: boolean = false;
   showPlaceholder:boolean = false;
   currentCurrency:any;
-  error_response:any;
   searchicon: string = '../assets/images/search8.svg';
   ngOnInit() {
     this.currenctSetting$ = this.razaEnvService.getCurrentSetting().subscribe(a => {
       this.currentSetting = a;   
-     // console.log("Quick recharge page is here", a);
+      console.log("Quick recharge page is here", a);
       this.countryCode = (a.country.CountryId == 3)?'GBP':'USD';
     });
     this.getCountryFrom();
@@ -124,9 +125,7 @@ export class QuickRechargeComponent implements OnInit, OnDestroy {
     } else {
       this.authService.login(body).toPromise().then(res => {
         this.getPlanInfoAndProcess();
-      }).catch(err => 
-        {
-          this.error_response = err.error.error_description
+      }).catch(err => {
         this.rechargeForm.controls['password'].setErrors({ 'Invalid_grant': true });
       });
 
@@ -366,7 +365,43 @@ onClickClose(icon) {
     });
   }
 
-  contactUs() {
-    this.dialog.open(CallUsComponent);
+  forgotpassclick()
+  {
+   let phoneOrEmail = this.rechargeForm.value.phoneNumber
+
+
+    if(phoneOrEmail !='')
+        {
+
+          
+          this.processForgot()
+          
+        }
+        else{
+          
+          this.rechargeForm.controls['phoneNumber'].setErrors({ 'required': true });
+          
+        }
+
   }
+
+
+  escapeRegExp = (string) => {
+    return string.replace(/[*+?^${}()|[\]\\-]/g, '');
+  }
+  processForgot()
+  {
+    
+    let reciever = this.rechargeForm.value.phoneNumber;
+    reciever = this.escapeRegExp(reciever);
+    reciever = reciever.replace(" ", "");
+   
+
+    this.dialog.open(LoginpopupComponent, {
+     
+      data: { number: reciever, loginWith:'phone', quickRecharge:true }
+    });
+ 
+  }
+
 }

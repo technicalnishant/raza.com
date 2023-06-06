@@ -818,9 +818,13 @@ font-family: "Montserrat";
     }
 
     .boxborderright {
-        padding: 0 16px;
+        padding: 0 5px;
         border-right: none !important;
         /*border-bottom: #e4e4e4 1px solid;*/
+    }
+
+    .radio_checkbox_wraper1 .col-md-12 {
+        padding: 0 5px;
     }
 
     .form_label1 {
@@ -877,9 +881,7 @@ font-family: "Montserrat";
     }
 
     .margin_class {
-        margin-top: 0px !important;
-        margin-bottom: 0px !important;
-
+        margin: 0px !important;
     }
 
     .submitButtonSmall {
@@ -905,6 +907,21 @@ font-family: "Montserrat";
         margin: 0 0 10px 90px;
 
     }
+    .countryIcon.col-sm-3 {
+        flex: 0 0 75%;
+        max-width: calc(25% - 15px);
+        padding-right: 0;
+        padding-left: 6px;
+        margin-left: 15px;
+    }    
+    .col-sm-9.phoneNo {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    .select_top1:after {
+        right: 5px;
+    }
+    
 }
 
 @media only screen and (min-width: 568px){

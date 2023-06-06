@@ -49,6 +49,7 @@ export class CheckoutPaymentComponent implements OnInit, OnDestroy {
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     this.currentCart = this.route.snapshot.data['cart'];
 
+    
    // this.isPromotion = this.currentCart.isPromotion;
     this.promoCode = this.currentCart.couponCode;
 

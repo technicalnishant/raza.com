@@ -78,6 +78,8 @@ import { DialogCofirmComponent } from './mobile-pay/dialog/dialog-cofirm/dialog-
 var google: any;
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
+import { GlobalcallComponent } from './globalcall/globalcall.component';
+ 
  
 
 export function LocationProviderFactory(provider: RazaEnvironmentService) {
@@ -123,7 +125,9 @@ export function LocationProviderFactory(provider: RazaEnvironmentService) {
     OtpDialogComponent,
    // AutoComponent, //27-12-22
     BottomUpComponent,
-    DialogCofirmComponent
+    DialogCofirmComponent,
+    
+    GlobalcallComponent
          
 
   ],
@@ -156,7 +160,7 @@ export function LocationProviderFactory(provider: RazaEnvironmentService) {
     MatTooltipModule,
     MatIconModule,
     MatBottomSheetModule, 
-	
+    
 
   ],
 

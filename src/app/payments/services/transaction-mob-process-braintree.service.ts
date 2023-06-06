@@ -140,10 +140,15 @@ export class TransactionMobProcessBraintreeService {
 
   /* Process recharge transaction. */
   processRecharge(transactionReq: TransactionRequest, nonce: any) {
+
+    
+
     let model = new MobileRechargeRequestModel();
     let order = transactionReq.Order;
     const orderInfo = transactionReq.checkoutOrderInfo as RechargeOrderInfo;
     const rechargeCheckOutModel = orderInfo.checkoutCart as RechargeCheckoutModel;
+
+    
     model.OrderId = order.OrderDetails.OrderNumber;
     //model.CustomerId: 
     model.Amount = order.OrderDetails.Amount / 100;

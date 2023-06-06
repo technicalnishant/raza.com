@@ -163,7 +163,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="row">
+          <div class="row countries_row">
             <div class="col-6 col-md-4 col-xl-3 col-lg-4 countries" *ngFor="let item of bindSearchRates; let i = index">
               <div class="country-box" >
                 <div class="country-flag">
@@ -186,7 +186,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
                   <div class="country-name">{{item.CountryName}}</div>
                 </div>
                 <div class="country-rate">
-                 {{getcountryrate(item.CallRate) | sCurrency : currentCurrency}} <span>/ min</span>
+                  <span>From</span> {{getcountryrate(item.CallRate) | sCurrency : currentCurrency}} <span>/ min</span>
                 </div>
                 <button
                   class="view-details-btn"
@@ -242,12 +242,12 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
 
 </div>
 <div class="call-us text-center" >
-    <p><span>Have a question? <a (click)=contactUs() >Call us</a></span></p>
+    <h3><span>Have a question? <a (click)=contactUs() >Call us</a></span></h3>
   </div>
 
 
 </div>
-<div class="plan-info d-block d-xl-flex">
+<div class="plan-info info_bok d-block d-xl-flex">
 
   <div class="text-section">
     <h1 class="text-center">THIS PLAN INCLUDES</h1>

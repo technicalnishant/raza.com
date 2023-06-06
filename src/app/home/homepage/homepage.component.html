@@ -2,7 +2,7 @@
     <div class="home-slider">
        <ngb-carousel [showNavigationArrows]="true" 
        [showNavigationIndicators]="true">
-             <!--<ng-template ngbSlide class="promotions" >
+           <!--  <ng-template ngbSlide class="promotions" >
                 <div class="picsum-img-wrapper" *ngIf="currentSetting?.country?.CountryId !=3">
                     <img loading="lazy" src="../../../assets/images/promotion/tg22bg.jpg" alt="Random first slide" class="bg-image promotion_image d-none d-md-block" >
                      
@@ -26,9 +26,9 @@
                          <div style="display:none;"><a *ngIf="currentSetting?.country?.CountryId !=3" routerLink="/mobiledeals" type="button" class="view-more">View Other Offers</a></div> 
                     </div>
                 </div>
-                  <p class="promotion-note" >*Conditions apply.</p>  
-            </ng-template>  -->   
-           <ng-template ngbSlide>
+                  <p class="promotion-note" >*Promotion minutes vary from country to country.</p>  
+            </ng-template>   -->
+            <ng-template ngbSlide>
                 <div class="picsum-img-wrapper">
                     <img src="./assets/images/slider-bg.webp" loading="lazy" alt="Random first slide" class="bg-image">
                 </div>
@@ -46,10 +46,10 @@
                                 <img src="./assets/images/was10now5.webp" alt="" loading="lazy" class="img-fluid">
                             </div>
                             <div class="img-1 d-none d-md-block" *ngIf="currentSetting?.country?.CountryId ==3">
-                                <img src="./assets/images/uk_left.webp" alt="" loading="lazy" class="img-fluid">
+                                <img src="./assets/images/uk_left_new.webp" alt="" loading="lazy" class="img-fluid">
                             </div>
-                            <div class="py-3 d-block d-md-none" *ngIf="currentSetting?.country?.CountryId ==3">
-                                <img src="./assets/images/mobile-uk.webp" alt="" loading="lazy" class="img-fluid">
+                            <div class="py-3 d-block d-md-none uk_mobile" *ngIf="currentSetting?.country?.CountryId ==3">
+                                <img src="./assets/images/uk_left_new.webp" alt="" loading="lazy" class="img-fluid">
                             </div>
                         </div>
                         <div class="button-wrapper text-center" style="width:100%; height:45px;">
@@ -169,7 +169,7 @@
                     </div>
                 </a>
 
-                <a routerLink="/mobiletopup" *ngIf="currentSetting?.country?.CountryId !=3">
+                <a (click)="goTomobileTopup()" *ngIf="currentSetting?.country?.CountryId !=3">
                     <div class="icon_holder1">
                         <img loading="lazy" src="./assets/images/mobile_topup_white.svg" alt="icon">
                         <img loading="lazy" src="./assets/images/mobile_topup_blue.svg" alt="icon">

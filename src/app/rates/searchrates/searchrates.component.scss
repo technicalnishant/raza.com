@@ -136,12 +136,12 @@ $background-color_1: #ffffff;
             object-fit: contain;
         }
     }
-.flag_round{
-    height: 40px;
-            width: 40px;
-            -o-object-fit: contain;
-            object-fit: contain;
-}
+    .flag_round{
+        height: 40px;
+        width: 40px;
+        -o-object-fit: contain;
+        object-fit: contain;
+    }
     .country-name {
         font-size: 20px;
         line-height: 28px;
@@ -188,8 +188,16 @@ $background-color_1: #ffffff;
     }
 
 }
-.qrimage
-{
+.row.countries_row {
+    justify-content: center;
+}
+.countries:last-child {
+    .country-box {
+      border-right: 0;
+    }
+}
+  
+.qrimage {
 	box-shadow: 7px 10px #cc9f23;
 }
 // country grid css end here
@@ -198,6 +206,10 @@ $background-color_1: #ffffff;
     background-color: #fff;
     padding: 50px 0;
     margin: 50px 0;
+    @include breakpoint(sm) {
+        padding: 20px 0;
+        margin: 20px 0;
+    }
 
     .section-title {
         font-size: 46px;
@@ -207,7 +219,7 @@ $background-color_1: #ffffff;
         text-align: center;
 		margin-bottom: 18px;
         @include breakpoint(sm) {
-            font-size:34px
+            font-size: 28px
         }
     }
 

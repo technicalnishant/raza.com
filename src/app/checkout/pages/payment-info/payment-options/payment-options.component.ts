@@ -12,7 +12,7 @@ import { Overlay, BlockScrollStrategy } from '@angular/cdk/overlay';
 import { IPaypalCheckoutOrderInfo, ActivationOrderInfo, RechargeOrderInfo, ICheckoutOrderInfo, MobileTopupOrderInfo } from '../../../../payments/models/planOrderInfo.model';
 import { IOnApproveCallbackData, IPayPalConfig } from '../../../../payments/paypal/model/paypal.model';
 import { TransactionType } from '../../../../payments/models/transaction-request.model';
-import { NewPlanCheckoutModel, ICheckoutModel } from '../../../models/checkout-model';
+import { NewPlanCheckoutModel, ICheckoutModel, RechargeCheckoutModel } from '../../../models/checkout-model';
 import { PurchasePlanReqModel } from '../../../../purchase/models/purchase-plan-req.model';
 import { Country } from '../../../../core/models/country.model';
 import { CodeValuePair } from '../../../../core/models/codeValuePair.model';
@@ -37,6 +37,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
  import { map } from 'rxjs/operators';
  import { ApiProcessResponse } from '../../../../core/models/ApiProcessResponse';  
  import { TransactionProcessBraintreeService } from "../../../../payments/services/transactionProcessBraintree";
+import { CheckoutService } from 'app/checkout/services/checkout.service';
+import { PlanService } from 'app/accounts/services/planService';
 export function scrollFactory(overlay: Overlay): () => BlockScrollStrategy {
   return () => overlay.scrollStrategies.block();
 }
@@ -67,7 +69,7 @@ export class PaymentOptionsComponent implements OnInit {
 
   hostedFieldsInstance: braintree.HostedFields;
   cardholdersName: string;
-  
+  planInfo:any;
   constructor(
     private transactionService: TransactionService,
     private transactionProcessFacade: TransactionProcessFacadeService,
@@ -79,11 +81,35 @@ export class PaymentOptionsComponent implements OnInit {
     private route: ActivatedRoute,
     private httpClient: HttpClient,
 	private braintreeService: BraintreeService,
+  private checkoutService: CheckoutService,
+  private planService: PlanService,
      
   ) { }
 
   ngOnInit() {
     this.currentCart = this.route.parent.snapshot.data['cart'];
+    
+    // if(this.currentCart.transactiontype == 1)
+    // {
+    //   let usersPlan = JSON.parse(localStorage.getItem("currentPlan"));
+    //   if( usersPlan && usersPlan.CardId)
+    //   {
+    //     this.planInfo = usersPlan
+        
+    //     this.setCartPlanName();
+    //     console.log("Current Cart after is as ", this.currentCart);
+    //   }
+    //   this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe((data) =>{
+       
+    //    this.planInfo = data;  
+    //    this.setCartPlanName();
+        
+    //   } )
+    // }
+    
+   
+    //this.currentCart.transactiontype
+
     this.razaLayoutService.setFixedHeader(true);
  
     this.initPaypalConfig();
@@ -95,6 +121,19 @@ export class PaymentOptionsComponent implements OnInit {
 	 //this.checkPaymentProcess();
     //this.getBraintreeToken();
      
+  }
+
+  setCartPlanName()
+  {
+    let cardId = this.planInfo.CardId;
+        let cardName = this.planInfo.CardName; 
+    const cart: RechargeCheckoutModel  = this.currentCart as RechargeCheckoutModel ;
+    cart.cardId =  cardId;
+    cart.planName = cardName;
+    cart.currencyCode = this.planInfo.CurrencyCode 
+    cart.countryFrom  = this.planInfo.CountryFrom;
+    this.checkoutService.setCurrentCart(cart);
+    this.currentCart = this.route.parent.snapshot.data['cart'];
   }
 /*
 	getBraintreeToken()

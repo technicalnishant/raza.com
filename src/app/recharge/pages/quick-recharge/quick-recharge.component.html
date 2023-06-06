@@ -19,7 +19,7 @@
                                 </h2>
                                     <div class="form form_margin">
 
-                                        <div class="input-group-prepend col-sm-3 f-left border-bottom">
+                                        <div class="input-group-prepend countryIcon col-sm-3 f-left border-bottom">
                                             <span class="caret margin-top-15">
                                               <div (click)="openFlagDropDown()" class="select_top1">
                                                 <img src="./../../assets/images/blank.gif" loading="lazy" alt="flag" width="30" height="20"
@@ -39,7 +39,7 @@
                                             </span>
                                           </div>
                                            
-                                        <div class="col-sm-9 formRowM15 f-left">
+                                        <div class="col-sm-9 phoneNo formRowM15 f-left">
                                             
                                             <mat-form-field class="example-full-width">
                                                 <!-- <span >+ {{currentSetting?.country.CountryCode}} &nbsp;</span> -->
@@ -51,16 +51,25 @@
                                         </div>
                                         <div class="clear"></div>
                                         <div *ngIf="!isAuthenticated" class="col-sm-12 formRowM15">
+
                                             <span class="floatRight forgetPass">
-                                                <a routerLink='/auth/forgot-password' href="#">Forgot Password?</a>
+                                                <!-- <a routerLink='/auth/forgot-password' href="#" >
+                                                    Forgot Password?
+                                                </a> -->
+
+
+                                                <a href="javascript:void(0)" (click)="forgotpassclick()">
+                                                    Forgot Password?
+                                                </a>
                                             </span>
+
                                             <mat-form-field class="example-full-width">
                                                 <input matInput placeholder="Password" type="password" formControlName="password">
                                                 <mat-error *ngIf="rechargeForm.get('password').errors?.required">
-                                                     Password is required. 
+                                                    Password is required.
                                                 </mat-error>
-                                                <mat-error *ngIf="rechargeForm.get('password').errors?.Invalid_grant">
-                                                    {{error_response}}  <!--   Phone Number/Password is not valid. -->
+                                                <mat-error *ngIf="rechargeForm.get('phoneNumber').errors?.Invalid_grant">
+                                                    Phone Number/Password is not valid.
                                                 </mat-error>
                                             </mat-form-field>
                                         
@@ -95,8 +104,8 @@
                                         </div>
                                         
                                     </div>
-                                    <a (click)="contactUs()" style="color: #007bff; text-decoration: underline!important;" >I've changed my phone number</a>
-                                    
+                                
+                            
 
                                     <!-- <div class="row ml-4 exc_center">
                                         <div class="col-sm-6 existing">

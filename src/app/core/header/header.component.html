@@ -175,7 +175,9 @@
         <li *ngIf="currentSetting.currentCountryId ==3" ><a routerLink="/deals/get-upto-1500">Deals</a></li>
         <li><a routerLink="/freetrial">Try us Free</a></li>
         <li><a routerLink="/searchrates">Rates</a></li>
-        <li *ngIf="currentSetting.country.CountryId !=3"><a routerLink="/mobiletopup">Send Mobile Topup</a></li>
+        <li *ngIf="currentSetting.country.CountryId !=3">
+          <a (click)="goTomobileTopup()">Send Mobile Topup</a>
+        </li>
         <li><a (click)="clickRecharge()">Recharge</a></li>
         <li><a routerLink="/features">Features</a></li>
       </ul>

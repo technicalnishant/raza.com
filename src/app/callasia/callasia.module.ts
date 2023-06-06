@@ -15,7 +15,8 @@ import { CallasiaNewComponent } from './callasia-new/callasia-new.component';
     ReactiveFormsModule,
     MatAutocompleteModule,
     RouterModule.forChild([
-      { path: '', component: CallasiaComponent },
+     // { path: '', component: CallasiaComponent },
+      { path: '', component: CallasiaNewComponent },
       { path: 'new', component: CallasiaNewComponent },
     ])
   ],

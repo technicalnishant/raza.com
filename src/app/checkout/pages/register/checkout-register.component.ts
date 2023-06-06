@@ -174,7 +174,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
     /*var phoneno = /^\d{10}$/;
     var reciever = phoneNumber;
     if( reciever.match(phoneno) )
-    {}
+    {}redirectToPaymentInfo
       
     */
    localStorage.setItem("login_no", phoneNumber);
@@ -186,8 +186,13 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
       });
 
     dialogPassword.afterClosed().subscribe(res => {
-      if (res === true) {
-        this.redirectToPaymentInfo();
+      console.log("Your response after login is  data is ", res);
+      if (res.countryId ) {
+        let country = this.countryFrom.filter(a=>a.CountryId == res.countryId);
+        console.log("Your filter data is ", country[0]);
+        this.currentSetting.country = country[0]
+            this.setcurrentCurrency(this.currentSetting.country.CountryId);
+         
       }
     },
       err => { },
@@ -273,7 +278,8 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
             password: otp
           }
           this.authService.login(loginBody).toPromise().then(user => {
-            this.redirectToPaymentInfo();
+           // console.log("user info after login ",user);
+             this.redirectToPaymentInfo();
           })
         }
       }
@@ -284,9 +290,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
     });
   }
 
-  redirectToPaymentInfo() {
-    this.router.navigate(['/checkout/payment-info']);
-  }
+ 
 
 
 
@@ -308,38 +312,59 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
     this.razaEnvService.setCurrentSetting(this.currentSetting);
  
     this.closeFlagDropDown();
-    this.setcurrentCurrency();
+    this.setcurrentCurrency(this.currentSetting.country.CountryId);
   }
-  setcurrentCurrency()
-  {
-    if(this.currentSetting.country.CountryId == 1)
-      this.currentCurrency='USD';
-      if(this.currentSetting.country.CountryId == 2)
-      this.currentCurrency='CAD';
-      if(this.currentSetting.country.CountryId == 3)
-      this.currentCurrency='GBP';
-      if(this.currentSetting.country.CountryId == 8)
-      this.currentCurrency='AUD';
-      if(this.currentSetting.country.CountryId == 20)
-      this.currentCurrency='NZD';
-      if(this.currentSetting.country.CountryId == 26)
-      this.currentCurrency='INR';
-      
-      const cart: NewPlanCheckoutModel = this.currentCart as NewPlanCheckoutModel;
-      //var cart_info = this.checkoutService.getCurrentCart().
-      if(this.currentSetting.country.CountryId == 1)
-      {
-        cart.details.ServiceCharge = 0
-      }
-      else{
-        cart.details.ServiceCharge = 10
-      }
-      
 
+  redirectToPaymentInfo() {
+    this.authService.getCurrentUserCountry().subscribe(countryId => {
+      // console.log("user info after login ",user);
+      let country = this.countryFrom.filter(a=>a.CountryId == countryId);
+      this.currentSetting.country = country[0]
+         this.setcurrentCurrency(countryId);
+     })
+    
+   // 
+  }
+
+  setcurrentCurrency(obj)
+  {
+    if(obj == 1)
+      this.currentCurrency='USD';
+      if(obj == 2)
+      this.currentCurrency='CAD';
+      if(obj == 3)
+      this.currentCurrency='GBP';
+      if(obj == 8)
+      this.currentCurrency='AUD';
+      if(obj == 20)
+      this.currentCurrency='NZD';
+      if(obj == 26)
+      this.currentCurrency='INR';
+     
+      console.log("currenct cart info is ", this.currentCart );
+      //currencyCode = this.currentCurrency
+     // countryFrom = obj;
+      const cart: NewPlanCheckoutModel = this.currentCart as NewPlanCheckoutModel;
       cart.CurrencyCode = this.currentCurrency;
       cart.currencyCode = this.currentCurrency;
+      cart.countryFrom  = obj;
+      console.log("current cart currency", cart.currencyCode );
+      console.log("current cart from", cart.countryFrom );
+      //var cart_info = this.checkoutService.getCurrentCart().
+      // if(obj == 1)
+      // {
+      //   cart.details.ServiceCharge = 0
+      // }
+      // if(obj == 2)
+      // {
+      //   cart.details.ServiceCharge = 10
+      // }
+      
+
+      
       this.checkoutService.setCurrentCart(cart);
       console.log(cart);
+      this.router.navigate(['/checkout/payment-info']);
        
   }
 

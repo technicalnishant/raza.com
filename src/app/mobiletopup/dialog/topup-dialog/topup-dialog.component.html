@@ -1,2 +1,9 @@
-<a (click)="close()">X</a>
-<p>topup-dialog works!</p>
+<div class="topuppPlanDialog">
+    <a (click)="close()"><mat-icon>close</mat-icon></a>
+    <div class="topuppPlanDialogTop">
+        <button class="promo">Promo</button>
+        <h2>{{detailInfo?.Description.Headline}}</h2>
+        <p>Valid:{{getValidity()}}</p>
+    </div>
+    <p [innerHTML]="htmlStrFixed(detailInfo?.Description.TermsAndConditionsMarkDown)"> </p>
+</div>

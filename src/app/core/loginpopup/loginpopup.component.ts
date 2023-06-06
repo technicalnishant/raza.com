@@ -1,8 +1,8 @@
-import { Component, OnInit, Injector, Optional, Inject} from '@angular/core';
+import { Component, OnInit, Injector, Optional, Inject, ViewChild, ViewChildren} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 //import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel';
 //import { TextMaskModule } from 'angular2-text-mask';
-
+import { ElementRef, Renderer2  } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CountriesService } from '../../core/services/country.service';
 import { Country } from '../../core/models/country.model';
@@ -14,7 +14,7 @@ import { SignuppopupComponent } from '../signuppopup/signuppopup.component';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Title } from '@angular/platform-browser';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { AuthenticationService } from '../../core/services/auth.service';
 import { AppBaseComponent } from '../../shared/components/app-base-component';
 import { timer } from 'rxjs';
@@ -26,6 +26,7 @@ import { PlanService } from '../../accounts/services/planService';
 import { ApiErrorResponse } from '../../core/models/ApiErrorResponse'; 
 import { Plan } from '../../accounts/models/plan';
 import { OtpDialogComponent } from '../otp-dialog/otp-dialog.component';
+import { CallUsComponent } from 'app/shared/dialog/call-us/call-us.component';
 /*
 import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
@@ -39,7 +40,7 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
 
 
 export class LoginpopupComponent extends AppBaseComponent implements OnInit {
-
+  
   public phonemask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   public phonemask1 = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   public phonemask2 = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
@@ -76,8 +77,21 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   enteredPhone:number;
   enteredEmail:string;
   signupNoExist:boolean=false;
-  error_response:any='Incorrect Mobile Number/Password.';
+  processOtp:boolean=false;
+
+  moreOptions:boolean=false;
+  form: FormGroup;
+  forgotPassError:String='';
+  invalidOtp:String='';
+  forgotPassSubmitted:boolean=false;
+  formInput = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6'];
+  @ViewChildren('formRow') rows: any;
+    error_response:any='Incorrect Mobile Number/Password.';
  err_forgot_pass:any='';
+
+ dataPhone:any='';
+ quickRecharge:any;
+ 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -91,15 +105,20 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     private razaEnvService: RazaEnvironmentService,
     public matDialog: MatDialog,
     public signupDialog: MatDialog,
+    private el: ElementRef,
+    private renderer: Renderer2,
     //private sauthService: SocialAuthService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
+    
     _injector: Injector
   ) {
     super(_injector); 
-    this.fromPage   = (data.redirect_path)?data.redirect_path:'';
-    this.module     = (data.module)?data.module:'';
-    this.plan_id    = (data.plan_id)?data.plan_id:'';
-    console.log(data);
+    this.form           = this.toFormGroup(this.formInput);
+    this.fromPage       = (data.redirect_path)?data.redirect_path:'';
+    this.module         = (data.module)?data.module:'';
+    this.plan_id        = (data.plan_id)?data.plan_id:'';
+    this.dataPhone      = (data.number)?data.number:'';
+    this.quickRecharge  = (data.quickRecharge)?data.quickRecharge:false;
 
   }
 
@@ -162,7 +181,19 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
         localStorage.removeItem('signup_no');
         this.signupNoExist = true;
       }
+
+     // { number: reciever, loginWith:'phone', quickRecharge:true }
+
+     if(this.dataPhone !='')
+     {
       
+      this.forgotPasswordForm.controls['phoneEmailControl'].setValue(this.dataPhone);
+      this.enteredPhone = this.dataPhone;
+      this.processForgot()
+      this.showForgotPass = true;
+     
+      this.processOtp = true;
+     }
   }
  /*
   signInWithGoogle(): void {
@@ -357,33 +388,137 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     //this.module     = (data.module)?data.module:'';
     //this.plan_id    = (data.plan_id)?data.plan_id:'';
   }
-  showHideForgotForm() {
 
+ 
+
+  showHideForgotForm() {
+    
     if (this.showForgotPass) {
       this.showForgotPass = false;
-    } else {
-      this.showForgotPass = true;
+    } else 
+    {
+
+      this.moreOptions = false;
+      this.forgotPassSubmitted = true;
       const phoneOrEmail = this.loginForm.value.username;
       this.forgotPasswordForm.controls['phoneEmailControl'].setValue(phoneOrEmail);
+      this.showForgotPass = true;
+     if(this.loginWith == 'email')
+     {
+          
+          this.sendpasswordlink()
+  
+     }
+    else
+    {
+ 
+       
+  
+        console.log("Step 11");
+        if(phoneOrEmail !='')
+        {
+
+          this.enteredPhone = phoneOrEmail;
+          this.processForgot()
+          this.showForgotPass = true;
+          console.log("Step 111");
+          this.processOtp = true;
+        }
+        else{
+          this.showForgotPass = true;
+          this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'required': true });
+          this.processOtp = false;
+        }
+
+      }
     }
 
   }
 
+  processForgot()
+  {
+    console.log("Step 1");
+    let reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
+    this.enteredPhone = reciever;
+    reciever = this.escapeRegExp(reciever);
+    reciever = reciever.replace(" ", "");
+ 
+    if(this.loginWith == 'phone')
+     {
+      reciever = autoCorrectIfPhoneNumber(this.currentSetting.country.CountryCode+reciever);
+      
+     } 
+      
+     if (!isValidPhoneOrEmail(reciever)) 
+     {
+      this.showForgotPass = true;
+      console.log("Step 2");
+      this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid': true });
+      return;
+    }
+
+    this.processOtp = true;
+   
+    this.executeCaptcha('login').toPromise().then(token => {
+    this.authService.sendOtp(reciever, token).subscribe(
+      (res: boolean) => 
+      {
+        this.processOtp = true;
+        
+      },
+      err => 
+      {
+         this.processOtp = false;
+         this.showForgotPass = true;
+          this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+          this.err_forgot_pass = (err.error.Message)?err.error.Message:'There must be some issue please try again after some time.';
+      }
+    );
+    })
+  }
+
+  processClose()
+  {
+    if(this.moreOptions == true)
+    {
+      this.moreOptions = false;
+      return false;
+    }
+
+    if(this.processOtp == true)
+    {
+      this.processOtp = false;
+      return false;
+    }
+ 
+
+  }
+  onOtpChange()
+  {
+
+  }
   submitForgotPasswordForm(): void {
 
+    this.moreOptions = false;
+    this.forgotPassSubmitted = true;
    if(this.loginWith == 'email')
    {
         this.sendpasswordlink()
+
    }
    else
    { 
-
-      if (!this.otpSend) {
-        this.sendOtp();
-        return;
-      } else {
-        this.loginWithOtp();
-      }
+    this.processForgot();
+      // if (!this.otpSend) 
+      // {
+        
+      //   this.processForgot();
+        
+      // }
+      //  else
+      //  {
+      //   this.loginWithOtp();
+      // }
 
     }
     
@@ -431,6 +566,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       }
     }
   }
+
   loginWithOtp(): void {
     //var reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
     var reciever = this.forgotPasswordForm.value.phoneEmailControl;
@@ -460,7 +596,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       console.log(response);
       if (response != null) 
       {
-        this.router.navigateByUrl('/account/update-password');
+        //this.router.navigateByUrl('/account/update-password');
+        this.router.navigate([this.returnUrl]);
         this.closeModal();
       } else if (response == null) 
       {
@@ -474,6 +611,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       (error) => 
       {
        this.error_response = error.error.error_description
+       this.invalidOtp = error.error.error_description;
       //  console.log("OTP error message = ", error.error.error_description)
         this.forgotPasswordForm.controls['otp'].setErrors({ 'invalid': true });
       });
@@ -597,14 +735,12 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
        
       var reciever = this.forgotPasswordForm.value.phoneEmailControl;
       reciever = autoCorrectIfPhoneNumber(this.forgotPasswordForm.get('phoneEmailControl').value);
-
-
-
+       
       this.authService.sendpasswordlink(reciever).subscribe(
         (res: boolean) => {
-          this.otpSend = true;
-          
-          this.showOtpPopup()
+           this.otpSend = true;
+         // this.processOtp = true;
+           this.showOtpPopup()
           this.dialogRef.close();
            
         },
@@ -616,4 +752,141 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      
   }
 
+
+
+  toFormGroup(elements) {
+    const group: any = {};
+
+    elements.forEach(key => {
+      group[key] = new FormControl('', Validators.required);
+    });
+    return new FormGroup(group);
+  }
+
+  keyUpEvent(event, index) {
+    this.invalidOtp = '';
+    let pos = index;
+   
+    if ((event.keyCode === 8 && event.which === 8) || (event.keyCode === 37 && event.which === 37)) {
+      pos = index - 1 ;
+    } else {
+      pos = index + 1 ;
+    }
+    
+    if (pos > -1 && pos < this.formInput.length ) {
+      this.rows._results[pos].nativeElement.focus();
+      
+    }
+    if((event.target as HTMLInputElement).value == '')
+    {
+      return false
+    }
+    if(pos == this.formInput.length)
+      this.onSubmit()
+
+  }
+
+
+  keyPressEvent(event, index) {
+    
+
+  }
+
+  resendCode()
+  {
+    this.invalidOtp = '';
+    this.form.reset();
+    // this.form.value.input1= '';
+    // this.form.value.input2= '';
+    // this.form.value.input3= '';
+    // this.form.value.input4= '';
+    // this.form.value.input5= '';
+    // this.form.value.input6= '';
+  }
+ 
+
+  onSubmit(): void {
+    
+    let otp = this.form.value.input1+this.form.value.input2+this.form.value.input3+this.form.value.input4+this.form.value.input5+this.form.value.input6;
+    var reciever = this.forgotPasswordForm.value.phoneEmailControl;
+   
+  if(this.loginWith  != 'email')
+  {
+    reciever = autoCorrectIfPhoneNumber(this.currentSetting.country.CountryCode+this.forgotPasswordForm.get('phoneEmailControl').value);
+  }
+  else
+  reciever = autoCorrectIfPhoneNumber(this.forgotPasswordForm.get('phoneEmailControl').value);
+   
+  
+   
+
+    
+    let body = {
+      username: reciever,
+      password: otp,
+      phone:this.forgotPasswordForm.get('phoneEmailControl').value
+    }
+
+    console.log(body);
+    this.authService.login(body, true).subscribe((response) => {
+      
+      if (response != null) 
+      {
+       // this.router.navigateByUrl('/account/update-password');
+       //if(!this.quickRecharge)
+       this.router.navigate([this.returnUrl]);
+
+        this.closeModal();
+      } 
+      else if (response == null) 
+      {
+       // this.router.navigateByUrl('/auth/sign-in');
+         this.closeModal();
+      } else 
+      {
+        this.forgotPasswordForm.controls['otp'].setErrors({ 'invalid': true });
+      }
+    },
+      (error) => {
+        this.invalidOtp = error.error.error_description
+        this.forgotPasswordForm.controls['otp'].setErrors({ 'invalid': true });
+      });
+  }
+
+  changeNumber()
+  {
+    this.processOtp = false;
+    this.showForgotPass = true;
+    this.invalidOtp = ''; 
+    this.error_response='';
+    this.err_forgot_pass = '';
+  }
+
+  processWith(obj:any)
+  {
+    this.loginWith = obj;
+    this.processOtp = false;
+    this.forgotPasswordForm.controls['phoneEmailControl'].setValue('');
+    this.err_forgot_pass = '';
+    this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'required': false });
+  }
+
+  chatWithUs()
+  {
+    this.closeModal();
+    this.matDialog.open(CallUsComponent);
+    // document.getElementsByClassName("LPMcontainer") as HTMLElement
+    // let element:HTMLElement = document.getElementsByClassName('LPMcontainer') as HTMLElement;
+    // window.lpTag.engage('myButton', { name: 'John', age: 25 }, () => {
+    //   console.log('Chat triggered!');
+    // });
+
+  }
+  formattedNumber(obj)
+  {
+    const phoneNumber = obj;
+    const formattedNumber = phoneNumber.toString().replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
+    return formattedNumber; // Output: 312 975 8545
+ 
+  }
 }

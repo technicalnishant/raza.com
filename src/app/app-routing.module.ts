@@ -15,6 +15,7 @@ import { Buy5get5Component } from './deals/pages/buy5get5/buy5get5.component';
 
  import { AutoLoginComponent } from './auto-login/auto-login.component';
 import { GlobalCallratesComponent } from './global-callrates/global-callrates.component';
+import { GlobalcallComponent } from './globalcall/globalcall.component';
 //import { BuyFiveGetFiveComponent } from './buy-five-get-five/buy-five-get-five.component';
 //import { SitemapComponent } from './sitemap/sitemap.component';
 import { MotoComponent } from './moto/moto.component';
@@ -72,8 +73,10 @@ const routes: Routes = [
   { path:'404', loadChildren:()=>import('./page404/page404.module').then(m=>(m.Page404Module))},
   //{path: '404', component: Page404Component},
   { path: 'buy_five_get_five', component: Buy5get5Component},
-  { path: 'globalcallrates', component: GlobalCallratesComponent},
-  
+ // { path: 'globalcallrates', component: GlobalCallratesComponent},
+  { path: 'globalcallrates', component: GlobalcallComponent},
+  { path: 'globalcallrates_new', component: GlobalcallComponent},
+
   { path: 'globalcallrates/:country_name', component: GlobalCallratesComponent},
   { path: 'call/:country_name', component: GlobalCallratesComponent},
   { path: 'rates/:country_name', component: GlobalCallratesComponent},

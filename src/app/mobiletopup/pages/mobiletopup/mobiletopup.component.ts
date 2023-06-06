@@ -21,6 +21,7 @@ import { CurrentSetting } from '../../../core/models/current-setting';
 import { isNullOrUndefined } from "../../../shared/utilities";
 import { Location } from '@angular/common';
 import { MetaTagsService } from 'app/core/services/meta.service';
+import { PreviousRouteService } from 'app/core/services/previous-route.service';
 @Component({
   selector: 'app-mobiletopup',
   templateUrl: './mobiletopup.component.html',
@@ -59,12 +60,19 @@ export class MobiletopupComponent implements OnInit, OnDestroy {
     private authService: AuthenticationService,
     private razaEnvService: RazaEnvironmentService,
 	private location:Location,
-  private metaTagsService:MetaTagsService
+  private metaTagsService:MetaTagsService,
+  private previousRouteService: PreviousRouteService,
   ) {
 
   }
 
   ngOnInit() {
+
+    let previous = this.previousRouteService.getPreviousUrl();
+    let currnet = this.previousRouteService.getCurrentUrl();
+ 
+     
+    
     this.titleService.setTitle('Mobile Topup');
     this.metaTagsService.getMetaTagsData('mobiletopup');
     this.sideBarService.toggle();
@@ -330,7 +338,7 @@ export class MobiletopupComponent implements OnInit, OnDestroy {
     checkoutModel.country = this.mobileTopupForm.get('countryTo').value as Country; // this.autoControl.value.countryTo as Country;
     checkoutModel.topupOption = this.mobileTopupForm.value.topUpAmount as OperatorDenominations;
     checkoutModel.currencyCode = this.currentSetting.currency;
-    checkoutModel.phoneNumber = this.mobileTopupForm.get('phoneNumber').value;
+    checkoutModel.phoneNumber = this.mobileTopupForm.get("countryTo").value?.CountryCode+' '+this.mobileTopupForm.get('phoneNumber').value;
     checkoutModel.operatorCode = this.mobileTopupData.OperatorCode;
     checkoutModel.countryFrom = this.currentSetting.currentCountryId;
     checkoutModel.isHideCouponEdit = true;
@@ -366,7 +374,6 @@ export class MobiletopupComponent implements OnInit, OnDestroy {
     
     
     this.countryName = country.CountryName;
-
     this.mycountryId= country.CountryId; 
   } 
   storePhoneNumber = () =>{

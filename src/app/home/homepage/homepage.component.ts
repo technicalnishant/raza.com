@@ -83,8 +83,8 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
   contentLoaded: boolean = false;
   isFixHeader: boolean = false;
   //promtionCode:string='RAMADAN2023';
- // promtionCode:string='EID2023';
-  promtionCode:string='MOM2023';
+  //promtionCode:string='EID2023';
+  promtionCode:string='MA2023';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';
@@ -134,6 +134,9 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     let previous = this.previousRouteService.getPreviousUrl();
     let currnet = this.previousRouteService.getCurrentUrl();
     
+    console.log("currnet page path is ", currnet);
+    console.log("previous page path is ", previous);
+
     if(previous == '/globalcallrates' && currnet == '/')
     {
       localStorage.removeItem('history_search_country_id');
@@ -148,11 +151,40 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     {
      
      localStorage.setItem('rate_country_id', localStorage.getItem('history_search_country_id'));
-     localStorage.removeItem('history_search_country_id')
+     //localStorage.removeItem('history_search_country_id')
      this.router.navigate(['globalcallrates']); 
     }
     
+
+    
+    
+    if(previous == '/mobiletopup' && currnet == '/')
+    {
+      localStorage.removeItem("topupCountry");
+      localStorage.removeItem("topupPhone");
+      localStorage.removeItem("topupCountryId");
+      localStorage.removeItem("topupTrigger");
+       
+    }
+    else if(previous != '/mobiletopup' && previous != '/')
+    {
+      localStorage.removeItem("topupCountry");
+      localStorage.removeItem("topupPhone");
+      localStorage.removeItem("topupCountryId");
+      localStorage.removeItem("topupTrigger");
+     
+    }
+   else if( localStorage.getItem('topupCountryId') && parseFloat(localStorage.getItem('topupCountryId'))> 0) 
+    {
+     
+      
+     this.router.navigate(['mobiletopup']); 
+    }
+
+
 /******************* EOF Remember & redirect  rate page search functioanlity ********************/
+
+
 
     window.scroll({ 
       top: 10, 
@@ -178,7 +210,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     {
       var code = this.route.snapshot.params['signup_code'];
       localStorage.setItem('promo_code', code);
-      console.log("You are here", code);
+      
       this.signupModal();
     }
   }
@@ -557,7 +589,15 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
 
 
  
-    
+ goTomobileTopup()
+ {
+  localStorage.removeItem("topupCountry");
+  localStorage.removeItem("topupPhone");
+  localStorage.removeItem("topupCountryId");
+  localStorage.removeItem("topupTrigger");
+  this.router.navigateByUrl('mobiletopup');
+  
+ }
   
   
 

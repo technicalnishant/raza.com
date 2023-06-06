@@ -12,16 +12,17 @@ input:-webkit-autofill:active {
 }
 @mixin button-text {
     border: 1px solid #f3c423;
-      transition: 0.3s ease-in-out;
-      padding: 2px 100px;
-      text-decoration: none;
-      background-color: #f3c423;
-      width: 100%;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 16px;
-      color: #000000;
-      font-family: "Montserrat";
+    transition: 0.3s ease-in-out;
+    padding: 5px 100px;
+    text-decoration: none;
+    background-color: #f3c423;
+    width: 100%;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000000;
+    font-family: "Montserrat";
+    border-radius: 30px;
 }
 
 ::ng-deep{
@@ -82,7 +83,17 @@ input:-webkit-autofill:active {
   border: none;
   box-shadow: none;
   color: #000;
+  position: absolute;
+  top: 10px;
+  right: -16px;
+  height: 26px;
+  padding: 0;
 }
+
+.mat-dialog-container {
+  border-radius: 20px;
+}
+
 ::ng-deep{
   .popup-wrapper .mat-dialog-content {
     -webkit-overflow-scrolling: auto !important;
@@ -107,7 +118,7 @@ input:-webkit-autofill:active {
 
 
   .new-raza {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-weight: 500;
     margin-top: 20px;
   }
@@ -213,6 +224,24 @@ input:-webkit-autofill:active {
     @include comman-font-family;
     color: #333;
  }
+ .remembermMe {
+    position: absolute;
+    // left: 0;
+    right: 0;
+    top: 52px;
+    .resend { 
+      position: static;
+    }
+    label {
+      font-size: 16px;
+      margin: 0;
+      &.remember {
+        margin-left: 10px;
+        position: relative;
+        top: 4px;
+      }
+    }
+  }
 }
   
 
@@ -230,16 +259,84 @@ input:-webkit-autofill:active {
   }
   h1 {
     margin-bottom: 10px;
-    font-size: 26px;
+    font-size: 24px;
     letter-spacing: 0px;
     color: #000000;
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
     text-align: center;
 }
-p{
-  font-size: 16px;
-}
+  p {
+      font-size: 15px;
+      font-weight: 500;
+  }
+  h2 {
+      font-size: 24px;
+      font-weight: 600;
+  }
+  a {
+      font-size: 15px;
+      color: #007BFF;
+      font-weight: 500;
+      display: inline-block;
+  }
+  .titleTex {
+    font-weight: 500;
+    font-size: 15px;
+    color: #222222;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .error {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      color: #B97B7B;
+      background: #FFEFED;
+      border-radius: 8px;
+      padding: 13px 30px;
+      display: inline-block;
+      margin: 20px 0 15px;
+  }
+  .sendAgain {
+      margin-left: 4px;
+  }
+  .moreOpt {
+      margin-bottom: 15px;
+  }
+  .changeNum {
+    text-decoration: underline;
+    margin-bottom: 30px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    position: relative;
+    // padding-right: 25px;
+    &::before {
+      content: "";
+      background-image: url(../../../assets/images/edit.png);
+      background-repeat: no-repeat;
+      position: absolute;
+      right: -22px;
+      bottom: 5px;
+      width: 15px;
+      height: 15px;
+    } 
+  }
+  input.form-control {
+    height: 60px;
+    background: #FFFFFF;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    box-shadow: none !important;
+    font-size: 30px;
+    color: #222;
+    font-weight: 600;
+    text-align: center;
+  }
+  .row {
+    justify-content: center;
+  }
   }
 
   .forgetPass{
@@ -416,7 +513,7 @@ p{
 
 .login-button {
   width: 100%;
-  text-align: left;
+  text-align: center;
   background-color: #f3f3f3;
   padding: 7px 19px;
   font-size: 16px;
@@ -424,6 +521,7 @@ p{
   font-weight: 600;
   margin-bottom: 10px;
   border: 1px solid #d8d8d8;
+  border-radius: 30px;
   @include comman-font-family;
    img {
     margin-right: 20px;
@@ -553,5 +651,114 @@ span.note {
   font-weight: 600;
   margin-bottom: 10px;
 }
+.forgotPasswordForm .form-group.col-sm-2 {
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
+.forgotPasswordForm .row {
+  margin: 0;
+}
+.popup-wrapper .forgot input.form-control {
+    height: 52px;
+ }
+}
+
+@media (min-width: 0px) and (max-width: 576px) {
+  ::ng-deep .ng-otp-input-wrapper .otp-input {
+     width: 2rem !important;
+     height: 2rem !important;
+     margin-right: 5px !important;
+     margin-bottom: 5px !important;
+  }}
+
+  .options {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    cursor: pointer;
+    color: #007BFF;
+    + .options {
+      margin: 32px 0;
+    }
+  }
+  .contact_div_wrap {
+      display: flex;
+      justify-content: center;
+  }
+
+  .contact_div_wrap p {
+      margin: 0 25px;
+  }
+  .contact_div{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 17px;
+    text-align: center;
+    margin-bottom: 20px;
+    
+    .phone_text{
+      color: #007BFF;
+    }
+  }
+  
+  .switch {
+    position: relative;
+    width: 60px;
+    height: 28px;
+    margin-left: 8px;
+}
+.slider,
+.slider:before {
+    position: absolute;
+    bottom: 0;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: inset 0 1px 2px #666;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    display: inline-block !important;
+}
+.slider:before {
+    content: "";
+    height: 27px;
+    width: 27px;
+    left: -2px;
+     background-image: url(../../../assets/images/on-off.svg);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    display: block;
+}
+input:checked + .slider {
+    background: linear-gradient(#30b348, #129e51);
+    box-shadow: inset 0 1px 2px #222;
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px #129e51;
+    box-shadow: inset 0 1px 2px #222;
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(34px);
+    -ms-transform: translateX(34px);
+    transform: translateX(34px);
+}
+.slider.round {
+    border-radius: 30px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}

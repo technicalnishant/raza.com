@@ -46,6 +46,14 @@ ul {
 	}
 }
 
+.row.countries_row {
+  justify-content: center;
+}
+.countries:last-child {
+  .country-box {
+    border-right: 0;
+  }
+}
 
 @media only screen and (max-width: 650px){
 
@@ -1704,7 +1712,7 @@ border-right: 1px solid #e7e7e7;
       color: $primary-color2;
       font-weight: 700;
       font-family: $font-family;
-      padding: 4px 18px;
+      padding: 4px 28px;
       transition: ease-in-out .3s;
       margin-left: 20px;
 
@@ -1713,5 +1721,19 @@ border-right: 1px solid #e7e7e7;
           transition: bakground ease-in-out .3s;
       }
   }
-
+}
+.call-us h3 {
+  font-size: 30px;
+  color: #162f75;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin-bottom: 40px;
+  a {
+    color: #0160e0 !important;
+  }
+}
+.plan-info.info_bok {
+  padding: 20% 0;
+  margin-bottom: 15px;
 }

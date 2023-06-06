@@ -1,12 +1,17 @@
-<div mat-dialog-content class="otp-confirm">
-  <img src="assets/images/checked.png" alt="checked"/>
-  <h1>Code Sent</h1>
-  <p><b>See if your code has arrived.</b></p>
-  <!-- <p>Please allow up to 60 seconds for your code to reach you before
-    requesting a new code.</p> -->
-    <p>For further assistance, please call <a href="/contactus" mat-dialog-close>customer service.</a>
-      </p>
-</div>
-<div mat-dialog-actions class="text-center">
-  <button mat-button mat-dialog-close class="px-5 my-3 btn btn-primary mx-auto">OK</button>
+<div class="otp-confirm-wrap">
+  <div mat-dialog-content class="otp-confirm">
+    <img src="assets/images/email_send.png" alt="checked"/>
+    <h1>E-mail Sent</h1>
+    <p>Click the link in your e-mail for access</p>
+    <!-- <p>See if your link to login has arrived.</p> -->
+    <!-- <p>Please allow up to 60 seconds for your code to reach you before
+      requesting a new code.</p> -->
+      <!-- <p>For further assistance, please call <a href="/contactus" mat-dialog-close>customer service.</a> </p> -->
+  </div>
+  <div mat-dialog-actions class="text-center">
+    <button mat-button mat-dialog-close class="px-5 my-3 btn btn-primary mx-auto ok_btn">OK</button>
+  </div>
+  <div class="more_opt">
+    <a href="#">More options</a>
+  </div>
 </div>

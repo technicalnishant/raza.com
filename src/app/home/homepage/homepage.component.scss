@@ -978,12 +978,13 @@ a {
 .home-slider {
     .bg-image {
         width: 100%;
-        min-height: 699px;
+        min-height: 799px;
         //min-height: 799px;
         max-height: 799px;
         // min-height: 100vh;
         // object-fit: fill;
         object-fit: cover;
+       // max-height: 85vh;
     }
     ::ng-deep {
         .carousel-indicators {
@@ -1363,12 +1364,12 @@ h1.buy1get1-text:after {
     }
     .home-slider .bg-image {
           min-height: 649px;
-        // object-fit: cover;
+          object-fit: cover;
         // padding-top: 50px;
          max-height: 650px;
        // min-height: 700px;
         object-fit: cover;
-        padding-top: 70px;
+        padding-top: 32px;
        // max-height: 700px;
     }
     .collection {
@@ -1490,7 +1491,7 @@ h1.buy1get1-text:after {
         font-weight: 400;
         font-family: "Montserrat";
         text-align: center;
-        margin-top: 36px;
+        margin-top: 10px;
     }
     .reward-mob {
         padding-right: 58px;
@@ -1981,8 +1982,8 @@ h1.buy1get1-text:after {
 
     @media only screen and (min-width: 1920px) and (max-width: 3000px) {
         .home-slider .bg-image{
-            min-height: 925px;
-             max-height: 990px;
+            // min-height: 925px;
+            //  max-height: 990px;
         }
     }
     
@@ -2199,5 +2200,70 @@ h1.buy1get1-text:after {
     }
     .topup-btn {
         bottom: 45%;
+    }
+}
+
+@media only screen  and (max-width: 1900px) {
+    .carousel-caption.promotion {
+        bottom: 24%;
+    }
+}
+
+@media only screen  and (max-width: 1600px) {
+    .carousel-caption.promotion {
+        bottom: 23%;
+    }
+}
+
+@media only screen  and (max-width: 1300px) {
+    .carousel-caption.promotion {
+        bottom: 22%;
+    }
+    .promotion-offer .promo-btn {
+        width: 180px;
+    }
+}
+
+@media only screen  and (max-width: 1100px) {
+    .promotion-offer .promo-btn {
+        width: 160px;
+    }
+    .home-slider .bg-image {
+        min-height: 650px;
+    }
+}
+
+@media only screen  and (max-width: 950px) {
+    .promotion-offer .promo-btn {
+        width: 140px;
+    }
+}
+
+@media only screen  and (max-width: 767px) {
+    .promotion-offer .promo-btn {
+        width: 132px;
+    }
+    .home-slider {
+        margin-top: 50px;
+    }
+    .carousel-caption.promotion {
+        bottom: 18%;
+        right: 50%;
+        margin-right: -116px;
+    }
+    .home-slider .bg-image {
+        min-height: 620px;
+        max-height: 620px;
+    }
+}
+
+@media only screen  and (max-width: 480px) {
+    .carousel-caption.promotion {
+        bottom: 10%;
+        right: 50%;
+        margin-right: -116px;
+    }
+    .uk_mobile {
+        margin: 0 -20px;
     }
 }

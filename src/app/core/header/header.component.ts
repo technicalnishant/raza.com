@@ -552,4 +552,15 @@ onClickClose(icon)
 
     return obj;
   }
+
+  goTomobileTopup()
+  {
+   localStorage.removeItem("topupCountry");
+   localStorage.removeItem("topupPhone");
+   localStorage.removeItem("topupCountryId");
+   localStorage.removeItem("topupTrigger");
+   this.router.navigateByUrl('mobiletopup');
+   
+  }
+  
 }
