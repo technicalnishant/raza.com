@@ -194,6 +194,13 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      
       this.processOtp = true;
      }
+    if(this.data.loginWith  && this.data.loginWith == 'email')
+    {
+      this.loginWith = 'email';
+      this.showPassWord = true;
+      this.loginForm.controls['username'].setValue(this.data.email);
+    } 
+
   }
  /*
   signInWithGoogle(): void {
@@ -657,7 +664,18 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     })
   }
   showOtpPopup(){
-    const  dialog =  this.matDialog.open(OtpDialogComponent);
+
+    let email = this.forgotPasswordForm.get('phoneEmailControl').value
+
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.id = "otp-confirmation";
+     
+      dialogConfig.data = {
+        email: email, 
+      }
+
+    const  dialog =  this.matDialog.open(OtpDialogComponent, dialogConfig);
 
      // Create subscription
      dialog.afterClosed().subscribe(() => {

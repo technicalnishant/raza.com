@@ -9,9 +9,31 @@
       <!-- <p>For further assistance, please call <a href="/contactus" mat-dialog-close>customer service.</a> </p> -->
   </div>
   <div mat-dialog-actions class="text-center">
-    <button mat-button mat-dialog-close class="px-5 my-3 btn btn-primary mx-auto ok_btn">OK</button>
+    <button mat-button class="px-5 my-3 btn btn-primary mx-auto ok_btn" (click)="goToLogin()">OK</button>
   </div>
   <div class="more_opt">
-    <a href="#">More options</a>
+    <a href="javascript:void(0)" (click)="showMoreOptions()" *ngIf="!moreOptions">More options</a>
   </div>
+
+
+  <div class="example-container" *ngIf="moreOptions">
+
+    <!-- <h3 class="options" (click)="chatWithUs()">Chat with us</h3>   -->
+    <h3 class="options" (click)="sendPasswordAgain(); moreOptions=!moreOptions" >Resend code</h3>  
+    
+     
+    <h3 class="options" (click)="loginWithPhone();"  >Login with phone</h3>    
+    <!-- <p></p> -->
+    <!-- <p>Or</p> -->
+    <div class="contact_div_wrap">
+       <div class="contact_div">
+         <span class="phone_text"><a href="tel:+18774634233">1877-463-4233</a></span> 24/7
+       </div>
+
+        <!-- <p>Or</p>
+         <h3 class="options" *ngIf="loginWith == 'phone'" (click)="processWith('email')">Login with Email</h3>  
+         <h3 class="options" *ngIf="loginWith == 'email'" (click)="processWith('phone')">Login with Phone</h3>  -->
+     </div>
+ </div>
+
 </div>
