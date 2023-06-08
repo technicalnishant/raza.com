@@ -163,7 +163,7 @@
 
                             <div class="bottom_section">
                                 <p>They Get</p>
-                                <div class="amount"><h3> <span>{{item.DestinationCurrency}} </span> {{item.DestinationAmount}}</h3></div>
+                                <div class="amount"><h3> <span>{{item.DestinationCurrency}} </span> {{item?.DestinationAmount| number:'1.2-2'}}</h3></div>
                                 <p>Before GCT</p>
                             </div>
                             <button class="buy_btn" (click)="buyNow(item)">Buy</button>

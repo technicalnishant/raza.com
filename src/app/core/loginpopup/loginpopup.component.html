@@ -114,8 +114,8 @@
         </span> -->
     </mat-form-field>
     </div>
-    <mat-form-field appearance="" class="full-width" *ngIf="showPassWord">
-      <input matInput #input maxlength="30" formControlName="password" type="" placeholder="Enter your passcode" [type]="hide ? 'text' : 'password'" class="password">
+    <mat-form-field appearance="" class="full-width" >
+      <input matInput #input maxlength="30" formControlName="password" type="" placeholder="Enter your password" [type]="hide ? 'text' : 'password'" class="password">
       <button type="button" mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="eyes">
 <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
 </button>
@@ -274,12 +274,13 @@
         </div>
   <div *ngIf="invalidOtp!=''" class="error">{{invalidOtp}}</div>
 
-  <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions">We just texted you</h1>
-   <p class="text-center subtitle" *ngIf="!moreOptions">Please enter the verification code sent to</p>
+  <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions && loginWith == 'phone'">We just texted you</h1>
+   <p class="text-center subtitle" *ngIf="!moreOptions && loginWith == 'phone'">Please enter the verification code sent to</p>
 
    <h1 mat-dialog-title class="text-center" *ngIf="moreOptions && loginWith == 'phone'">Verify your phone number</h1>
    <p class="text-center subtitle" *ngIf="moreOptions && loginWith == 'phone'">We'll text you at</p>
-
+   
+   <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions && loginWith == 'email'">Please enter the verification code sent to</h1>
 
     <h2 *ngIf="loginWith == 'phone'" >(+{{currentSetting.country.CountryCode}}) {{formattedNumber(enteredPhone)}}</h2>
     <h2 *ngIf="loginWith == 'email'" >{{enteredPhone}}</h2>
@@ -299,8 +300,10 @@
                       </div>
                 </div>
                 <div class="row titleTex">
-                  Didn’t get code? <a href="javascript:void(0)" (click)="processForgot()" class="sendAgain"> Send Again</a> 
+                  <p *ngIf="sendAgainMsg" class="text_green">Code has been sent. Please check your email. </p>
+                  Didn’t get code? <a href="javascript:void(0)" (click)="processForgot1();" class="sendAgain"> Send Again</a> 
                 </div>
+                
                 <div class="row">
                   <a href="javascript:void(0)" (click)="moreOptions=!moreOptions" class="moreOpt">More Options</a>
                 </div>

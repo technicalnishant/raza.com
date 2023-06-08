@@ -235,10 +235,10 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.mobileTopupForm.get('topUpAmount').updateValueAndValidity();
     this.mobileTopupForm.get('phoneNumber').enable();
 
-    this.mobileTopupForm.patchValue({
-      phoneNumber: '',
-      topUpAmount: null
-    });
+    // this.mobileTopupForm.patchValue({
+    //    phoneNumber: '',
+    //   topUpAmount: null
+    // });
 
     this.mobileTopupData = null;
    this.isTopUpEnable = false;

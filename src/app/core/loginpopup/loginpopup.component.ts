@@ -91,7 +91,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
  dataPhone:any='';
  quickRecharge:any;
- 
+ sendAgainMsg:boolean=false;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -448,7 +448,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
   processForgot()
   {
-    console.log("Step 1");
+  
     let reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
     this.enteredPhone = reciever;
     reciever = this.escapeRegExp(reciever);
@@ -488,6 +488,48 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     })
   }
 
+  processForgot1()
+  {
+    this.sendAgainMsg = false;
+    let reciever = this.forgotPasswordForm.get('phoneEmailControl').value;
+    this.enteredPhone = reciever;
+    reciever = this.escapeRegExp(reciever);
+    reciever = reciever.replace(" ", "");
+ 
+    if(this.loginWith == 'phone')
+     {
+      reciever = autoCorrectIfPhoneNumber(this.currentSetting.country.CountryCode+reciever);
+      
+     } 
+      
+     if (!isValidPhoneOrEmail(reciever)) 
+     {
+      this.showForgotPass = true;
+      console.log("Step 2");
+      this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid': true });
+      return;
+    }
+
+    this.processOtp = true;
+   
+    this.executeCaptcha('login').toPromise().then(token => {
+    this.authService.sendOtp(reciever, token).subscribe(
+      (res: boolean) => 
+      {
+        this.processOtp = true;
+        this.sendAgainMsg = true;
+      },
+      err => 
+      {
+         this.processOtp = false;
+         this.showForgotPass = true;
+          this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+          this.err_forgot_pass = (err.error.Message)?err.error.Message:'There must be some issue please try again after some time.';
+      }
+    );
+    })
+
+  }
   processClose()
   {
     if(this.moreOptions == true)
@@ -673,7 +715,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
 
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.id = "otp-confirmation";
+    dialogConfig.id = "otp-confirmation1";
      
       dialogConfig.data = {
         email: email, 
