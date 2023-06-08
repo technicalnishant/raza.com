@@ -198,6 +198,10 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     {
       this.loginWith = 'email';
       this.showPassWord = true;
+      this.showForgotPass = true;
+      this.processOtp = true;
+      this.enteredPhone = this.data.email;
+      this.forgotPasswordForm.controls['phoneEmailControl'].setValue(this.data.email);
       this.loginForm.controls['username'].setValue(this.data.email);
     } 
 
