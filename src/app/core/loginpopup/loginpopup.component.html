@@ -277,15 +277,15 @@
   <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions">We just texted you</h1>
    <p class="text-center subtitle" *ngIf="!moreOptions">Please enter the verification code sent to</p>
 
-   <h1 mat-dialog-title class="text-center" *ngIf="moreOptions">Verify your phone number</h1>
-   <p class="text-center subtitle" *ngIf="moreOptions">We'll text you at</p>
+   <h1 mat-dialog-title class="text-center" *ngIf="moreOptions && loginWith == 'phone'">Verify your phone number</h1>
+   <p class="text-center subtitle" *ngIf="moreOptions && loginWith == 'phone'">We'll text you at</p>
 
 
     <h2 *ngIf="loginWith == 'phone'" >(+{{currentSetting.country.CountryCode}}) {{formattedNumber(enteredPhone)}}</h2>
     <h2 *ngIf="loginWith == 'email'" >{{enteredPhone}}</h2>
       <div> 
         <a href="javascript:void(0)" *ngIf="loginWith == 'phone'" (click)="changeNumber()" class="changeNum">Change Number</a>
-        <a href="javascript:void(0)" *ngIf="loginWith == 'email'" (click)="changeNumber()" class="changeNum">Change Email </a>
+        <!-- <a href="javascript:void(0)" *ngIf="loginWith == 'email'" (click)="changeNumber()" class="changeNum">Change Email </a> -->
         <i class="fa fa-pencil" aria-hidden="true"></i>
       </div>
       <div class="example-container forgotPasswordForm" *ngIf="!moreOptions">
