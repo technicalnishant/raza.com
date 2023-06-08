@@ -433,6 +433,8 @@ export class TopupNowComponent implements OnInit, OnDestroy {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.panelClass = 'topup-plan-dialog'
+        dialogConfig.minHeight = "500px";
+        dialogConfig.width = "700px";
         dialogConfig.data={from_id:this.currentSetting.currentCountryId, to_id:this.countryTo, operator:this.currentOperator}
       this.dialog.open(TopupDialogComponent,dialogConfig);
   }
