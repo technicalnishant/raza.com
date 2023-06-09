@@ -186,10 +186,10 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
       });
 
     dialogPassword.afterClosed().subscribe(res => {
-      console.log("Your response after login is  data is ", res);
+     // console.log("Your response after login is  data is ", res);
       if (res.countryId ) {
         let country = this.countryFrom.filter(a=>a.CountryId == res.countryId);
-        console.log("Your filter data is ", country[0]);
+       // console.log("Your filter data is ", country[0]);
         this.currentSetting.country = country[0]
             this.setcurrentCurrency(this.currentSetting.country.CountryId);
          

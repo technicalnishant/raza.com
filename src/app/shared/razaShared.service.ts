@@ -17,8 +17,11 @@ export class RazaSharedService {
         // .pipe(
         //     catchError(err=> this.handleHttpError(err))
         // );   
-
-        return  this.httpClient.get<[]>("./assets/country_from.json") ;
+        let country_list = this.httpClient.get<[]>("./assets/country_from.json") ;
+       
+       
+        return  country_list;
+       // return  this.httpClient.get<[]>("./assets/country_from.json") ;
     }
 
     handleHttpError(err: HttpErrorResponse): Observable<ApiErrorResponse>

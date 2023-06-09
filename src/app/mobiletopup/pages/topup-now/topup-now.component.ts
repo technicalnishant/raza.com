@@ -100,6 +100,11 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
     });
+
+    // let country = this.countryFrom.filter(a=>a.CountryId == res.countryId);
+    // // console.log("Your filter data is ", country[0]);
+    //  this.currentSetting.country = country[0]
+
 	  
 	  this.pinnumber = (history.state.pin)?history.state.pin:'';
     this.topup_no = (history.state.pin)?history.state.pin:'';
