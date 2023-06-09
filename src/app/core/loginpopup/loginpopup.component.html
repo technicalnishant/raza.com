@@ -299,9 +299,10 @@
                         <input #formRow autocomplete="on" type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)" autofocus>
                       </div>
                 </div>
+                <p *ngIf="sendAgainMsg" class="text_green">Code has been sent. Please check your email. </p>
                 <div class="row titleTex">
-                  <p *ngIf="sendAgainMsg" class="text_green">Code has been sent. Please check your email. </p>
-                  Didn’t get code? <a href="javascript:void(0)" (click)="processForgot1();" class="sendAgain"> Send Again</a> 
+                 
+                   Didn’t get code? <a href="javascript:void(0)" (click)="processForgot1();" class="sendAgain"> Send Again</a> 
                 </div>
                 
                 <div class="row">

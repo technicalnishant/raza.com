@@ -98,7 +98,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
                     <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
                         [ngClass]="'flag flag-'+ option.CountryId" height="25">
                         <span class="width70">{{option.CountryName}}</span>
-                        <span class="width30" >From{{getcountryrate(option.CallRate) | sCurrency : currentCurrency}} / min</span>
+                        <span class="width30" > {{getcountryrate(option.CallRate) | sCurrency : currentCurrency}} / min</span>
                     </mat-option>
                 </mat-autocomplete>
             <div class="input-group-append">
