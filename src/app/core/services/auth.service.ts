@@ -16,6 +16,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { RazaEnvironmentService } from './razaEnvironment.service';
 import { CurrentSetting } from '../models/current-setting';
 import { CountriesService } from './country.service';
+import { Country } from '../models/country.model';
 @Injectable()
 export class AuthenticationService {
 	static username = new BehaviorSubject<string>('');
@@ -224,18 +225,20 @@ export class AuthenticationService {
 	}
 	setUsersCurrentCountry()
 	{
+		 
+		this.countryService.getFromCountries().subscribe((res: Country[]) => {
+			let country:any  = res.filter(obj=>{ if(obj.CountryId == this.user_country_id) return obj});
+			this.onSelectCountrFrom(country[0]) 
+			  
+		  });
 		
-		// this.countryService.getFromCountries().subscribe((res: any) => {
-			 
-			 
-		// 	this.fromCountry = res.filter(a=>a.CountryId == this.user_country_id);
-		// 	console.log("countries this.currentSetting list is ", this.fromCountry[0])
-		// 	this.currentSetting.country = this.fromCountry[0];
-		// 	console.log("countries this.currentSetting list is ", this.currentSetting)
-		// 	this.razaEnvService.setCurrentSetting(this.currentSetting);
-		//   });
- 
-		
+	}
+	onSelectCountrFrom(country: Country) 
+	{
+   
+	   let key:any = {country :country}
+	  this.razaEnvService.setCurrentSetting(key);
+	 
 	}
 	logout() {
 		localStorage.removeItem('fromCountries');
