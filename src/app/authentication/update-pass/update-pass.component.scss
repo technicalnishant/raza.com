@@ -989,9 +989,18 @@ p {
 	z-index: 1;
 	border-radius: 25px;
 	overflow: hidden;
-	margin: 0 auto;
+	margin: 0;
   }
-  
+  .skip_div a {
+    display: inline-block;
+    background: #848484;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 8px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-left: 10px;
+  }
   .login100-form-bgbtn {
 	position: absolute;
 	z-index: -1;
