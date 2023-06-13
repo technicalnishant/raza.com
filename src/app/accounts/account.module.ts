@@ -49,6 +49,7 @@ import { MobileYourRazaComponent } from './component/mobile-your-raza/mobile-you
 import { MobileMyNumbersComponent } from './component/mobile-my-numbers/mobile-my-numbers.component';
 import { MobileOnetouchDialComponent } from './component/mobile-onetouch-dial/mobile-onetouch-dial.component';
 import { MobileCallFarwordingComponent } from './component/mobile-call-farwording/mobile-call-farwording.component';
+import { AccountRechargeComponent } from './pages/account-recharge/account-recharge.component';
 // import { MobileOrderHistoryComponent } from './component/mobile-order-history/mobile-order-history.component';
 // import { MobileRewardsComponent } from './component/mobile-rewards/mobile-rewards.component';
 // import { MobileMyaccountComponent } from './component/mobile-myaccount/mobile-myaccount.component';
@@ -145,6 +146,7 @@ import { MobileCallFarwordingComponent } from './component/mobile-call-farwordin
         MobileMyNumbersComponent,
         MobileOnetouchDialComponent,
         MobileCallFarwordingComponent,
+        AccountRechargeComponent,
         // MobileOrderHistoryComponent,
         // MobileRewardsComponent,
         // MobileMyaccountComponent,

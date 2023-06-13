@@ -28,7 +28,7 @@ export class UpdatePassComponent implements OnInit {
   number_err:boolean=true
   atoz_err:boolean=true
   spcl_err:boolean=true
-  showPass:boolean=false
+  showPass:boolean=true
   showConfPass:boolean=false
   submitted:boolean=false;
   ngOnInit() {
@@ -119,32 +119,33 @@ export class UpdatePassComponent implements OnInit {
     let string = event.target.value;
     var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?\d]+/;
     var atz = /[a-zA-Z]+/;
-    // number_err:boolean=true
-    //   atoz_err:boolean=true
-    //   spcl_err:boolean=true
+    
+    this.atoz_err = true
+    this.spcl_err = true
+    this.number_err = true
 
-    if(atz.test(string)){
-      this.atoz_err = false;
-    }
-    else{
-      this.atoz_err = true;
-    }
+    // if(atz.test(string)){
+    //   this.atoz_err = false;
+    // }
+    // else{
+    //   this.atoz_err = true;
+    // }
 
-    if(format.test(string)){
-      this.spcl_err = false;
-    }
-    else{
-      this.spcl_err = true;
-    }
+    // if(format.test(string)){
+    //   this.spcl_err = false;
+    // }
+    // else{
+    //   this.spcl_err = true;
+    // }
 
-    if(string.length>=8 && string.length <= 15)
-    {
-    this.number_err = false;
-    }
-    else{
-      this.number_err = true
-    }
-       // console.log(event.target.value);
+    // if(string.length>=8 && string.length <= 15)
+    // {
+    // this.number_err = false;
+    // }
+    // else{
+    //   this.number_err = true
+    // }
+       
     
     }
 
