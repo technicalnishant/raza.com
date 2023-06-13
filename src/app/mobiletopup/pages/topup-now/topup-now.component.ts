@@ -100,6 +100,11 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
     });
+
+    // let country = this.countryFrom.filter(a=>a.CountryId == res.countryId);
+    // // console.log("Your filter data is ", country[0]);
+    //  this.currentSetting.country = country[0]
+
 	  
 	  this.pinnumber = (history.state.pin)?history.state.pin:'';
     this.topup_no = (history.state.pin)?history.state.pin:'';
@@ -235,10 +240,10 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.mobileTopupForm.get('topUpAmount').updateValueAndValidity();
     this.mobileTopupForm.get('phoneNumber').enable();
 
-    this.mobileTopupForm.patchValue({
-      phoneNumber: '',
-      topUpAmount: null
-    });
+    // this.mobileTopupForm.patchValue({
+    //    phoneNumber: '',
+    //   topUpAmount: null
+    // });
 
     this.mobileTopupData = null;
    this.isTopUpEnable = false;
@@ -433,6 +438,8 @@ export class TopupNowComponent implements OnInit, OnDestroy {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.panelClass = 'topup-plan-dialog'
+        dialogConfig.minHeight = "500px";
+        dialogConfig.width = "700px";
         dialogConfig.data={from_id:this.currentSetting.currentCountryId, to_id:this.countryTo, operator:this.currentOperator}
       this.dialog.open(TopupDialogComponent,dialogConfig);
   }

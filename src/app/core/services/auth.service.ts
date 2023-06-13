@@ -13,16 +13,25 @@ import { RegisterCustomerModel } from '../models/register-customer.model';
 import { ReCaptchaV3Service, OnExecuteData } from "ng-recaptcha";
 import { LoginpopupComponent } from '../loginpopup/loginpopup.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { RazaEnvironmentService } from './razaEnvironment.service';
+import { CurrentSetting } from '../models/current-setting';
+import { CountriesService } from './country.service';
+import { Country } from '../models/country.model';
 @Injectable()
 export class AuthenticationService {
 	static username = new BehaviorSubject<string>('');
 	static userLoggedInSuccessfully = new BehaviorSubject<boolean>(false);
-
+	 
+	currentSetting: CurrentSetting;
+	user_country_id:any;
+	fromCountry:any;
 	constructor(
 		private httpClient: HttpClient,
 		private helperService: HelperService,
 		private errorHandleService: CustomErrorHandlerService,
 		private recaptchaV3Service: ReCaptchaV3Service,
+		private razaEnvService: RazaEnvironmentService,
+		private countryService: CountriesService,
 		public dialog: MatDialog,
 	) {
 
@@ -118,8 +127,9 @@ export class AuthenticationService {
 							localStorage.setItem("login_with", 'email');
 						}
 					}
-
+					this.user_country_id = user.countryId;
 					//user.additionalId localStorage.removeItem("login_no")
+					localStorage.setItem('fromCountries', user.countryId);
 					let context = new userContext(
 						user.userName,
 						user.access_token,
@@ -139,6 +149,7 @@ export class AuthenticationService {
 					}
 					AuthenticationService.username.next(user.userName);
 					this.saveCurrentUsertoLocalStorage(context);
+					this.setUsersCurrentCountry()
 					this.EmitLoggedInEvent(true);
 					return context;
 				}
@@ -172,6 +183,8 @@ export class AuthenticationService {
 				// login successful if there's a jwt token in the response
 				if (user && user.access_token) {
 					// store user details and jwt token in local storage to keep user logged in between page refreshes
+					this.user_country_id = user.countryId;
+					localStorage.setItem('fromCountries', user.countryId);
 					let context = new userContext(
 						user.userName,
 						user.access_token,
@@ -191,6 +204,7 @@ export class AuthenticationService {
 					 
 					AuthenticationService.username.next(user.userName);
 					this.saveCurrentUsertoLocalStorage(context);
+					this.setUsersCurrentCountry()
 					this.EmitLoggedInEvent(true);
 					return context;
 				}
@@ -209,8 +223,25 @@ export class AuthenticationService {
 
 		// });
 	}
-
+	setUsersCurrentCountry()
+	{
+		 
+		this.countryService.getFromCountries().subscribe((res: Country[]) => {
+			let country:any  = res.filter(obj=>{ if(obj.CountryId == this.user_country_id) return obj});
+			this.onSelectCountrFrom(country[0]) 
+			  
+		  });
+		
+	}
+	onSelectCountrFrom(country: Country) 
+	{
+   
+	   let key:any = {country :country}
+	  this.razaEnvService.setCurrentSetting(key);
+	 
+	}
 	logout() {
+		localStorage.removeItem('fromCountries');
 		localStorage.removeItem('currentUser');
 		localStorage.removeItem("login_no");
 		localStorage.removeItem('redirect_path')

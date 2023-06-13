@@ -1,0 +1,33 @@
+<div class="forgetPassword">
+    <div class="forgetPassContent" *ngIf="!delteAccountSubmit">
+      <h1>Deleting your account</h1>
+      <p>Enter your Phone number to delete your account.</p>
+      <div class="passFieldArea">
+        <form name="forgotPasswordForm" [formGroup]="forgotPasswordForm" (ngSubmit)="submitForgotPasswordForm()">
+          <div class="col-sm-12 formRowM15">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Enter Mobile Number" formControlName="phoneEmailControl">
+              <mat-hint>Start with +(country code), e.g +1, +44, or +91 </mat-hint>
+              <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required">
+                Mobile number is required.
+              </mat-error>
+              <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.invalid">
+                Mobile number does not exist.
+              </mat-error>
+            </mat-form-field>
+          </div>
+           
+          <div class="form_row1">
+            <div class="input_holder1">
+              <button type="submit" mat-button class="submitButton">Submit</button>
+              <p *ngIf="subscribeTimer > 0">{{subscribeTimer}}</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="forgetPassContent" *ngIf="delteAccountSubmit">
+        <h1>Sorry to see you go. Your account has been deleted.</h1>
+    </div>
+  </div>

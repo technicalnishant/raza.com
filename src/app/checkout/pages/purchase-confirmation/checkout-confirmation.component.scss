@@ -23,7 +23,7 @@
   .header_style{ background:#fff; }
   
   
-  .recharge_block{padding:60px 0; margin:0; width:100%; background-color:#f6f8fa; }
+  .recharge_block{padding:20px 0 60px; margin:0; width:100%; background-color:#f6f8fa; }
   .heading_style4{padding:0; margin:0 0 25px 0; color:#0b203e; font-size:24px;text-align:center; position:relative;}
   h2.heading_style4 span{font-family: 'Montserrat', sans-serif; font-size:24px; color:#0B203E; font-size:24px;text-align:center; }
   .heading_style4:after{padding:0; margin:0; width:100%; height:1px; background-color:#0b203e; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); -webkit-transform:translate(-50%,-50%); content:"";}
@@ -101,7 +101,7 @@
   .cvvCard{ padding-left: 20px;}
   .cardOpacity{ opacity: 0.5;}
   
-  p.updateCard{color:#919EAE; font-size: 26px; font-family: 'Montserrat', sans-serif; text-align: center;    padding: 15px 0;}
+  p.updateCard{color:#919EAE; font-size: 26px; font-family: 'Montserrat', sans-serif; text-align: center;    padding: 0 0 15px;}
   .rechargeStepMain{ clear: both; overflow: hidden; background: #fff;padding: 33px 0 21px 0;position: fixed;
       width: 100%;z-index: 9;}
   .rechargeStep{width: 80%; display: block; margin: 0 auto; }

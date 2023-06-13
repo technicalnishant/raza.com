@@ -118,8 +118,8 @@
         </span> -->
     </mat-form-field>
     </div>
-    <mat-form-field appearance="" class="full-width" *ngIf="showPassWord">
-      <input matInput #input maxlength="30" formControlName="password" type="" placeholder="Enter your passcode" [type]="hide ? 'text' : 'password'" class="password">
+    <mat-form-field appearance="" class="full-width" >
+      <input matInput #input maxlength="30" formControlName="password" type="" placeholder="Enter your password" [type]="hide ? 'text' : 'password'" class="password">
       <button type="button" mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="eyes">
 <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
 </button>
@@ -278,18 +278,19 @@
         </div>
   <div *ngIf="invalidOtp!=''" class="error">{{invalidOtp}}</div>
 
-  <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions">We just texted you</h1>
-   <p class="text-center subtitle" *ngIf="!moreOptions">Please enter the verification code sent to</p>
+  <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions && loginWith == 'phone'">We just texted you</h1>
+   <p class="text-center subtitle" *ngIf="!moreOptions && loginWith == 'phone'">Please enter the verification code sent to</p>
 
-   <h1 mat-dialog-title class="text-center" *ngIf="moreOptions">Verify your phone number</h1>
-   <p class="text-center subtitle" *ngIf="moreOptions">We'll text you at</p>
-
+   <h1 mat-dialog-title class="text-center" *ngIf="moreOptions && loginWith == 'phone'">Verify your phone number</h1>
+   <p class="text-center subtitle" *ngIf="moreOptions && loginWith == 'phone'">We'll text you at</p>
+   
+   <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions && loginWith == 'email'">Please enter the verification code sent to</h1>
 
     <h2 *ngIf="loginWith == 'phone'" >(+{{currentSetting.country.CountryCode}}) {{formattedNumber(enteredPhone)}}</h2>
     <h2 *ngIf="loginWith == 'email'" >{{enteredPhone}}</h2>
       <div> 
         <a href="javascript:void(0)" *ngIf="loginWith == 'phone'" (click)="changeNumber()" class="changeNum">Change Number</a>
-        <a href="javascript:void(0)" *ngIf="loginWith == 'email'" (click)="changeNumber()" class="changeNum">Change Email </a>
+        <!-- <a href="javascript:void(0)" *ngIf="loginWith == 'email'" (click)="changeNumber()" class="changeNum">Change Email </a> -->
         <i class="fa fa-pencil" aria-hidden="true"></i>
       </div>
       <div class="example-container forgotPasswordForm" *ngIf="!moreOptions">
@@ -302,9 +303,12 @@
                         <input #formRow autocomplete="on" type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)" autofocus>
                       </div>
                 </div>
+                <p *ngIf="sendAgainMsg" class="text_green">Code has been sent. Please check your email. </p>
                 <div class="row titleTex">
-                  Didn’t get code? <a href="javascript:void(0)" (click)="processForgot()" class="sendAgain"> Send Again</a> 
+                 
+                   Didn’t get code? <a href="javascript:void(0)" (click)="processForgot1();" class="sendAgain"> Send Again</a> 
                 </div>
+                
                 <div class="row">
                   <a href="javascript:void(0)" (click)="moreOptions=!moreOptions" class="moreOpt">More Options</a>
                 </div>
