@@ -389,6 +389,18 @@ a {
 }
 .home_mobile_div a{cursor: pointer;}
 
+
+.carousel-caption-promotion {
+    position: absolute;
+    top: 245px;
+    left: 50%;
+    width: 195px;
+    margin-left: -136px;
+}
+.carousel-caption-promotion img.promo-btnimg {
+    max-width: 100%;
+}
+
 @include breakpoint(md-lg) {
     .mobileImageSlider {
         right: -21px;
@@ -1206,13 +1218,15 @@ h1.buy1get1-text:after {
     max-width: 100%;
     z-index: -1;
 }
-
+.home-slider {
+    margin-top: 77px;
+}
 .promotion-offer {
     position: absolute;
     bottom: 25%;
     display: flex;
     justify-content: center;
-    left: -15%;
+    left: 0;
     right: 0;
     margin: auto;
     a {
@@ -1220,7 +1234,7 @@ h1.buy1get1-text:after {
         // bottom: 180px;
         img {
           
-            width: 85% !important;
+            width: 100% !important;
         }
     }
     div {
@@ -1247,16 +1261,20 @@ h1.buy1get1-text:after {
         font-size: 18px;
     }
     .promo-btn {
-        padding: 12px 21px;
+        padding: 0;
         font-size: 18px;
         letter-spacing: 1px;
         line-height: 36px;
         font-weight: bold;
         color: #fff;
         border-radius: 10px;
+        bottom: 113px;
+        width: 210px;
+        margin-left: -122px;
+        left: 50%;
     }
     .promo-btnimg {
-      max-width: 75%;
+    //   max-width: 75%;
     }
 }
 
@@ -1523,7 +1541,7 @@ h1.buy1get1-text:after {
         bottom: 0%;
         display: flex;
         justify-content: center;
-        left: -15%;
+        left: 0;
         margin: auto;
     }
     .promotion-offer .promo-btn {
@@ -1743,9 +1761,7 @@ h1.buy1get1-text:after {
     // }
     .promotion-inner {
         max-width: 75%;
-    margin: auto;
-    
-    
+        margin: auto;        
     }
     .carousel-caption.promotion {
         padding-bottom: 80px;
@@ -1817,8 +1833,8 @@ h1.buy1get1-text:after {
         right:20%
     }  
     .promotion-offer .promo-btn {
-        position: relative;
-        top: 0px;
+        // position: relative;
+        // top: 0px;
     }
 }
 
@@ -1867,11 +1883,11 @@ h1.buy1get1-text:after {
         bottom: 14px;
     }
 
-    .promotion-offer .promo-btnimg{
-        max-width: 85%;
+    .promotion-offer .promo-btnimg {
+        // max-width: 85%;
     }
     .promotion-offer {
-        left: -18%;
+        // left: -18%;
     }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1230px) {
@@ -1913,7 +1929,7 @@ h1.buy1get1-text:after {
 }  
 .promotion-offer {
     bottom: 0%;
-    left:-15%;
+    left: 0;
      
 }
 
@@ -2203,12 +2219,29 @@ h1.buy1get1-text:after {
     }
 }
 
+@media only screen  and (min-width: 2300px) {
+    .carousel-caption-promotion {
+        top: 212px;
+        margin-left: -148px;
+    }
+}
 @media only screen  and (max-width: 1900px) {
     .carousel-caption.promotion {
         bottom: 24%;
     }
 }
 
+@media only screen  and (max-width: 1799px) {
+    .carousel-caption-promotion {
+        top: 336px;
+        margin-left: -132px;
+    }
+}
+@media only screen  and (max-width: 1649px) {
+    .carousel-caption-promotion {
+        top: 255px;
+    }
+}
 @media only screen  and (max-width: 1600px) {
     .carousel-caption.promotion {
         bottom: 23%;
@@ -2223,7 +2256,13 @@ h1.buy1get1-text:after {
         width: 180px;
     }
 }
-
+@media only screen  and (max-width: 1200px) {
+    .carousel-caption-promotion {
+        top: 230px;
+        margin-left: -91px;
+        width: 130px;
+    }
+}
 @media only screen  and (max-width: 1100px) {
     .promotion-offer .promo-btn {
         width: 160px;
@@ -2255,6 +2294,13 @@ h1.buy1get1-text:after {
         min-height: 620px;
         max-height: 620px;
     }
+    .carousel-caption-promotion {
+        top: 175px;
+        margin-left: 0;
+        width: 145px;
+        left: unset;
+        right: 11%;
+    }
 }
 
 @media only screen  and (max-width: 480px) {
@@ -2265,5 +2311,9 @@ h1.buy1get1-text:after {
     }
     .uk_mobile {
         margin: 0 -20px;
+    }
+    .carousel-caption-promotion {
+        top: 225px;
+        right: 5%;
     }
 }

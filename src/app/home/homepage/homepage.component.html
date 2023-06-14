@@ -16,7 +16,7 @@
                     <img loading="lazy" src="../../../assets/images/promotion/tg22-mobile-uk.jpg" alt="Random first slide" class="bg-image d-block d-md-none" >
                      
                 </div>
-                <div class="carousel-caption promotion">
+                <!-- <div class="carousel-caption promotion">
                       <div class="promotion_img_div">
  
                     </div>  
@@ -24,6 +24,12 @@
                     <div class="promotion-offer" >
                         <a type="button" (click)="onopenchristmas(typedEl)" class="promo-btn d-flex"><img src="../../../assets/images/promotion/buynow.png" class="promo-btnimg">{{name__p}}</a>
                          <div style="display:none;"><a *ngIf="currentSetting?.country?.CountryId !=3" routerLink="/mobiledeals" type="button" class="view-more">View Other Offers</a></div> 
+                    </div>
+                </div> -->
+                <div class="carousel-caption-promotion">
+                    <div class="promotion-offer-new" >
+                        <a type="button" (click)="onopenchristmas(typedEl)" class="promo-btn d-flex"><img src="../../../assets/images/promotion/buynow.png" class="promo-btnimg">{{name__p}}</a>
+                        <div style="display:none;"><a *ngIf="currentSetting?.country?.CountryId !=3" routerLink="/mobiledeals" type="button" class="view-more">View Other Offers</a></div> 
                     </div>
                 </div>
                   <p class="promotion-note" >*Promotion minutes vary from country to country.</p>  
