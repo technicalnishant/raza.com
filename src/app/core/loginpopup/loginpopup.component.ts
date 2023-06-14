@@ -512,22 +512,44 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
     this.processOtp = true;
    
-    this.executeCaptcha('login').toPromise().then(token => {
-    this.authService.sendOtp(reciever, token).subscribe(
-      (res: boolean) => 
-      {
-        this.processOtp = true;
-        this.sendAgainMsg = true;
-      },
-      err => 
-      {
-         this.processOtp = false;
-         this.showForgotPass = true;
-          this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
-          this.err_forgot_pass = (err.error.Message)?err.error.Message:'There must be some issue please try again after some time.';
-      }
-    );
-    })
+    if(this.loginWith == 'email')
+    {
+       
+        this.authService.sendpasswordlink(reciever).subscribe(
+          (res: boolean) => {
+            this.otpSend = true;
+            this.processOtp = true;
+            this.sendAgainMsg = true;
+            
+          },
+          err => {
+            this.processOtp = false;
+              this.showForgotPass = true;
+            this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+          }
+        );
+
+
+    }
+    else
+    {
+        this.executeCaptcha('login').toPromise().then(token => {
+        this.authService.sendOtp(reciever, token).subscribe(
+            (res: boolean) => 
+            {
+              this.processOtp = true;
+              this.sendAgainMsg = true;
+            },
+            err => 
+            {
+              this.processOtp = false;
+              this.showForgotPass = true;
+                this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+                this.err_forgot_pass = (err.error.Message)?err.error.Message:'There must be some issue please try again after some time.';
+            }
+          );
+        })
+    }
 
   }
   processClose()
@@ -809,6 +831,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
            
         },
         err => {
+          this.processOtp = false;
+          this.showForgotPass = true;
           this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
         }
       );
