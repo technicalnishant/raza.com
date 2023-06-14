@@ -84,7 +84,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
   isFixHeader: boolean = false;
   //promtionCode:string='RAMADAN2023';
   //promtionCode:string='EID2023';
-  promtionCode:string='MA2023';
+  promtionCode:string='DAD2023';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';
