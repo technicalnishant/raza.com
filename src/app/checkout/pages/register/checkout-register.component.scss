@@ -623,3 +623,26 @@ p {
   .phoneExistError{
     color:#0056b3
   }
+
+  .or {
+    font-size: 16px;
+    line-height: 20px;
+    color: #99999b;
+    font-weight: 500;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+}
+  .login-button{
+    width: 100%;
+    text-align: center;
+    background-color: #f3f3f3;
+    padding: 7px 19px;
+    font-size: 16px;
+    color: #3e3e3e;
+    font-weight: 600;
+    margin-bottom: 10px;
+    border: 1px solid #d8d8d8;
+    border-radius: 30px;
+    font-family: "Montserrat", sans-serif;
+}

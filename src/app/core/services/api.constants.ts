@@ -126,8 +126,8 @@ export class Api {
 	 
 	static countries = {
 		//getTopThreeCountries: base + "api/Countries/From",
-		// getCallDetails: base + "api/Rates/Lowests/",
-		 getCallDetails: base + "api/Rates/lowestrate/",
+		  getCallDetails: base + "api/Rates/Lowests/",
+		// getCallDetails: base + "api/Rates/LowestRate_v1/",
 		//getCallDetails: base + "api/Rates/Lowest/v1/",
 		getAllCountries: base + "api/Countries/To/0",
 		getAllPostalCodes: base + "api/Countries",

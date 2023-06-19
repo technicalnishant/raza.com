@@ -107,7 +107,10 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
 
   ngOnInit() {
 
-
+    this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
+      this.currentSetting = res;
+      this.getActivePromotion(this.currentSetting.currentCountryId);
+    })
 
 
   
@@ -123,6 +126,12 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     {
       this.showHeader = true;
       this.blueBg = 0;
+      this.setCurrentSetting()
+      if (!isNullOrUndefined(this.currentSetting)) {
+        this.searchRates();
+      }
+
+      console.log("Your are on home page");
 
     }
     else if(event.url == '/sitemap'){
@@ -140,11 +149,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       else{
         this.blueBg = 1;
       }
-      
-      
       this.showHeader = false;
     }  
-   
     else
     {
       this.showHeader = false;
@@ -157,8 +163,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   
       if (this.authService.isAuthenticated()) {
       this.isAuthenticated = true;
-     
-    }
+      }
 
     this.razaLayoutService.isFixHeader$.subscribe(res => {
       this.isFixHeader = res;
@@ -168,11 +173,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
         this.headerValue = 1;
       }
     });
-    this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
-      this.currentSetting = res;
-      this.getActivePromotion(this.currentSetting.currentCountryId);
-    })
-
+    
+    
        this.compareToken();
 
       // this.filteredCountry = this.autoControl.valueChanges
@@ -185,13 +187,20 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     this.getCountryFrom();
 
     if (!isNullOrUndefined(this.currentSetting)) {
-      this.searchRates();
+     // this.searchRates();
     }
 
     this.setMobileHeader();
   }
   //this.renderer.setStyle(this.dealsDropMenu.nativeElement, 'display', 'none')
 
+  setCurrentSetting()
+  {
+    this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
+      this.currentSetting = res;
+      this.getActivePromotion(this.currentSetting.currentCountryId);
+    })
+  }
   filterListing(){
     this.filteredCountry = this.autoControl.valueChanges
       .pipe(

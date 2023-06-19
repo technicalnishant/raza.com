@@ -11,7 +11,12 @@
             <mat-error *ngIf="otpConfirmForm.get('otp').errors?.required">
               Enter Verification Code
             </mat-error>
+            
+
           </mat-form-field>
+          <div *ngIf="wrongOtp" style="color:#ff0000">
+            Please enter the verification code which was send to your mobile.
+          </div>
         </div>
       </div>
       <div class="form_row1">
