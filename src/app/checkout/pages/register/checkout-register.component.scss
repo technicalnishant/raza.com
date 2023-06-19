@@ -45,6 +45,10 @@
 	.mat-form-field {
 		display: block !important;
 	}
+	@media only screen and (max-width:767px) {
+		padding: 35px 0 20px;
+		margin-top: 67px !important;
+	}
 }
 .heading_style4 {
 	padding: 0;
@@ -534,7 +538,7 @@ p {
 		text-transform: uppercase;
 		font-size: 15px;
 		font-family: "Montserrat", sans-serif;
-		font-weight: 500;
+		font-weight: 600;
 		transition: background 0.3s ease-in-out;
 		text-align: center;
 		margin: auto;
@@ -600,15 +604,32 @@ p {
   
   
   
-  @media only screen and (max-width: 768px){
-    .express_checkout {margin-bottom: 25px !important;}
+  @media only screen and (max-width: 768px) {
+    .express_checkout {margin-bottom: 25px !important; border-radius: 10px;}
     .express_checkout p.haveAccountTxt,.express_checkout p.noWorryText{ font-size: 13px;}
     .rechargeStepMain {margin-top: -105px;}
     .containerMobile{width: 100%;}
-	.img-fluid{ width: auto;
+	.img-fluid { 
+		width: auto;
 		height: 120px;
-		object-fit: cover;}
-  
+		object-fit: cover;
+	}
+	.col-xl-6.expCheck {
+		padding: 0 5px;
+	}
+	.yourOrder {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.yourOrder .col-md-12 {
+		padding: 0;
+	}
+	.express_checkout p.mobile_guest {
+		margin-bottom: 5px;
+	}
+	p.updateCard {
+		margin-bottom: 0;
+	}
   }
 
   .current-country {
