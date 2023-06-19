@@ -23,6 +23,8 @@ import { switchMap } from 'rxjs/operators';
 import { CurrentSetting } from '../../../core/models/current-setting';
 import { RazaEnvironmentService } from '../../../core/services/razaEnvironment.service';
 import { RazaSnackBarService } from 'app/shared/razaSnackbar.service';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
+import { LoginpopupComponent } from '../../../core/loginpopup/loginpopup.component';
 @Component({
   selector: 'app-register',
   templateUrl: './checkout-register.component.html',
@@ -200,10 +202,12 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
   }
 
 
-  private sendOtp() {
+  private sendOtp() 
+  {
     const phoneWithCountryCode = `${this.currentCountry.CountryCode}${this.purchaseInfoForm.value.phoneNumber}`
-    this.executeCaptcha('login').toPromise().then(token => {
-    this.authService.sendOtpForRegister(phoneWithCountryCode, token).toPromise()
+    this.executeCaptcha('login').toPromise().then(token => 
+      {
+       this.authService.sendOtpForRegister(phoneWithCountryCode, token).toPromise()
       .then(res => {
         this.openOtpConfirmDialog(this.purchaseInfoForm.value.phoneNumber);
       })
@@ -278,8 +282,9 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
             password: otp
           }
           this.authService.login(loginBody).toPromise().then(user => {
-           // console.log("user info after login ",user);
-             this.redirectToPaymentInfo();
+            //console.log("user info after login ", user);
+            // this.redirectToPaymentInfo();
+             this.router.navigate(['/checkout/payment-info']);
           })
         }
       }
@@ -316,14 +321,14 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
   }
 
   redirectToPaymentInfo() {
-    this.authService.getCurrentUserCountry().subscribe(countryId => {
-      // console.log("user info after login ",user);
+    this.authService.getCurrentUserCountry().subscribe((countryId: number) => {
+       
       let country = this.countryFrom.filter(a=>a.CountryId == countryId);
       this.currentSetting.country = country[0]
          this.setcurrentCurrency(countryId);
      })
     
-   // 
+  
   }
 
   setcurrentCurrency(obj)
@@ -363,9 +368,23 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
 
       
       this.checkoutService.setCurrentCart(cart);
-      console.log(cart);
+     
       this.router.navigate(['/checkout/payment-info']);
        
+  }
+
+
+  loginWithEmail()
+  {
+    const dialogConfig = new MatDialogConfig();
+       dialogConfig.data = {
+        loginWith: "email",
+        navigateTo:"cartpage"
+        
+      }
+     
+      const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
+     
   }
 
 }

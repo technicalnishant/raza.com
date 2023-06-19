@@ -84,7 +84,7 @@
                 </svg>
                   You are in {{currentSetting.country?.CountryName}}
               </div>
-              <div class="flag_list1" *ngIf="showDropdown">
+              <!-- <div class="flag_list1" *ngIf="showDropdown">
                 <ul>
                   <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)" >
                     <span *ngIf="item.CountryId !=3">
@@ -94,7 +94,7 @@
                     </span>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
 
               <div class="col-sm-12 formRowM15">
@@ -108,6 +108,13 @@
               <div class="form_row1">
                 <div class="input_holder1 text-center">
                   <button mat-button class="submitButton_confirms">{{ submitButtonText }}</button>
+                  <div class="or">
+                    or
+                  </div>
+                  <button mat-button class="login-button" (click)="loginWithEmail()">
+                    <img src="./assets/images/app-icons/email.png" alt=""> Continue with Email
+                  </button> 
+                   
                 </div>
               </div>
             </div>
