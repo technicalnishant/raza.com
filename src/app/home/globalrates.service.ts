@@ -22,13 +22,13 @@ export class GlobalRatesService {
 
         public getAllCountriesRates(countryFrom: number): Observable<any[] | ApiErrorResponse> {
                 let api_type = 'old';
-               // if(this.authService.isAuthenticated())
-                 //api_type = 'old';
-        // return this.httpClient.get<any[]>(`${Api.countries.getCallDetails}` + "/" + countryFrom+"/"+api_type)
-        //         .pipe(
-        //                 catchError(err => this.handleHttpError(err))
-        //         );
-                return this.httpClient.get<any[]>(`${Api.countries.getCallDetails}` + "/" + countryFrom)
+        //        if(this.authService.isAuthenticated())
+        //          api_type = 'old';
+        //         return this.httpClient.get<any[]>(`${Api.countries.getCallDetails}` + "/" + countryFrom+"/"+api_type)
+        //                 .pipe(
+        //                         catchError(err => this.handleHttpError(err))
+        //                 );
+                return this.httpClient.get<any[]>(`${Api.countries.getCallDetailsOld}` + "/" + countryFrom)
                 .pipe(
                         catchError(err => this.handleHttpError(err))
                 );

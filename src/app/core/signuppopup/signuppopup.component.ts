@@ -181,11 +181,11 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
 
   private registerUsingPhoneNumber(phoneNumber: string, country: Country) {
     this.executeCaptcha('login').toPromise().then(token => {
-
+      this.showPinBox = true;
     this.authService.sendOtpForRegister(phoneNumber, token).toPromise()
       .then(res => {
         //this.openOtpConfirmDialog(phoneNumber);
-        this.dialog.open(OtpDialogComponent);
+       // this.dialog.open(OtpDialogComponent);
         this.showPinBox = true;
       });
     })
@@ -299,7 +299,8 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
     this.loginPopup();
   }
 
-  loginPopup() {
+  loginPopup() 
+  {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -311,6 +312,7 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
       title: "Are you sure you want to logout?",
       description: "Pretend this is a convincing argument on why you shouldn't logout :)",
       actionButtonText: "Logout",
+
     }
 
     const modalDialog = this.loginDialog.open(LoginpopupComponent, dialogConfig);

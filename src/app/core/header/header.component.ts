@@ -131,7 +131,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
         this.searchRates();
       }
 
-      console.log("Your are on home page");
+      //console.log("Your are on home page");
 
     }
     else if(event.url == '/sitemap'){
