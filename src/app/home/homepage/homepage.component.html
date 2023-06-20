@@ -1,8 +1,8 @@
 <div class="first_fold">
     <div class="home-slider">
-       <ngb-carousel [showNavigationArrows]="false" 
-       [showNavigationIndicators]="false">
-           <ng-template ngbSlide class="promotions" >
+       <ngb-carousel [showNavigationArrows]="true" 
+       [showNavigationIndicators]="true">
+           <!-- <ng-template ngbSlide class="promotions" >
                 <div class="picsum-img-wrapper" *ngIf="currentSetting?.country?.CountryId !=3">
                     <img loading="lazy" src="../../../assets/images/promotion/tg22bg.jpg" alt="Random first slide" class="bg-image promotion_image d-none d-md-block" >
                      
@@ -16,16 +16,7 @@
                     <img loading="lazy" src="../../../assets/images/promotion/tg22-mobile-uk.jpg" alt="Random first slide" class="bg-image d-block d-md-none" >
                      
                 </div>
-                <!-- <div class="carousel-caption promotion">
-                      <div class="promotion_img_div">
- 
-                    </div>  
-                    <div class="clear"></div>
-                    <div class="promotion-offer" >
-                        <a type="button" (click)="onopenchristmas(typedEl)" class="promo-btn d-flex"><img src="../../../assets/images/promotion/buynow.png" class="promo-btnimg">{{name__p}}</a>
-                         <div style="display:none;"><a *ngIf="currentSetting?.country?.CountryId !=3" routerLink="/mobiledeals" type="button" class="view-more">View Other Offers</a></div> 
-                    </div>
-                </div> -->
+                 
                 <div class="carousel-caption-promotion">
                     <div class="promotion-offer-new" >
                         <a type="button" (click)="onopenchristmas(typedEl)" class="promo-btn d-flex"><img src="../../../assets/images/promotion/buynow.png" class="promo-btnimg">{{name__p}}</a>
@@ -33,8 +24,8 @@
                     </div>
                 </div>
                   <p class="promotion-note" >*Promotion minutes vary from country to country.</p>  
-            </ng-template>   
-            <!-- <ng-template ngbSlide>
+            </ng-template>    -->
+             <ng-template ngbSlide>
                 <div class="picsum-img-wrapper">
                     <img src="./assets/images/slider-bg.webp" loading="lazy" alt="Random first slide" class="bg-image">
                 </div>
@@ -148,7 +139,7 @@
                         </div>
                     </div>
                 </div>
-            </ng-template>   -->
+            </ng-template>  
 
          
 
