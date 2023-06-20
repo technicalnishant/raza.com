@@ -252,7 +252,7 @@ h2 {
 
 .form_row1 {
 	padding: 0;
-    margin: 0 0 15px 0;
+    margin: 0 0 35px 0;
     width: 100%;
 }
 
@@ -703,14 +703,14 @@ font-family: "Montserrat";
 }
 
 .margin_class {
-    margin-top: 87px;
+    margin-top: 65px;
     margin-bottom: 88px;
 }
 
 .rechargbstrip_class {
     margin-top: 10px;
     margin-bottom: 50px;
-    border-top: #e4e4e4 1px solid;
+    // border-top: #e4e4e4 1px solid;
     text-align: center;
     padding-top: 25px;
     align-items: center;
@@ -985,4 +985,7 @@ font-family: "Montserrat";
 
 .submit_button_margin2 {
     margin-left: 10px;
+}
+.containerMobile h2.heading_style4 {
+    margin: 0 0 10px;
 }
