@@ -106,6 +106,11 @@ export class CallasiaNewComponent implements OnInit {
     this.getCountryFrom();
 
   }
+
+  isUserAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
   openLoginPopup()
   {
     this.authService.loginPopup();
@@ -117,8 +122,8 @@ export class CallasiaNewComponent implements OnInit {
      // },
      // (err: ApiErrorResponse) => console.log(err),  )
 
-
-    this.dealsService.getCountryCallAsia(this.currentSetting.currentCountryId).subscribe((data: any) => {
+     let type = this.isUserAuthenticated() == true?'old':'new';
+    this.dealsService.getCountryCallAsia1(this.currentSetting.currentCountryId, type).subscribe((data: any) => {
       if(data && data.length > 0)
       {
         this.allCountriesData = data;
@@ -175,12 +180,20 @@ export class CallasiaNewComponent implements OnInit {
   
   getcountryrate(obj)
   {
-    var price = obj;
-    if(this.currentSetting.country.CountryId == 3)
-    {
-      //price = price/2;
-    }
-    return price;
+    // var price = obj;
+    //return price;
+    // if(this.currentSetting.country.CountryId == 3)
+    // {
+      
+    // }
+  
+   if( obj.CallingRateLandline > obj.CallingRateMobile)
+    return obj.CallingRateMobile;
+   else
+    return obj.CallingRateLandline;
+  
+  
+    
   }
   private getCountryFrom() {
     this.countryService.getFromCountries().subscribe((res: Country[]) => {

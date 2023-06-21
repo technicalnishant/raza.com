@@ -99,8 +99,18 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
                     (onSelectionChange)="viewRates($event,option.CountryId)">
                     <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
                         [ngClass]="'flag flag-'+ option.CountryId" height="25">
-                        <span class="width70">{{option.CountryName}}</span>
-                        <span class="width30" >{{getcountryrate(option.CallRate) | sCurrency : currentCurrency}} / min</span>
+                        <span class="width60">{{option.CountryName}}</span>
+
+                        <span class="width40">
+                          <img src="./../../assets/images/phone-icon.png" alt="" loading="lazy">
+                          <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
+                          <!-- <span class="mobileRate">{{setPrice(option.CallingRateMobile)}} </span> -->
+                          <img src="./../../assets/images/icon-landphone.png" alt="" loading="lazy">
+                          <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency}} </span>
+                          <!-- <span class="landlineRate">{{setPrice(option.CallingRateLandline)}} </span> -->
+                        </span>
+
+                        <!-- <span class="width30" >{{getcountryrate(option.CallRate) | sCurrency : currentCurrency}} / min</span> -->
                     </mat-option>
                 </mat-autocomplete>
             <div class="input-group-append">
@@ -186,7 +196,8 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
                   <div class="country-name">{{item.CountryName}}</div>
                 </div>
                 <div class="country-rate">
-                  <span>From</span> {{getcountryrate(item.CallRate) | sCurrency : currentCurrency}} <span>/ min</span>
+                  <!-- <span>From</span> {{getcountryrate(item.CallRate) | sCurrency : currentCurrency}} <span>/ min</span> -->
+                  <span>From</span> {{getcountryrate(item) | sCurrency : currentCurrency}} <span>/ min</span>
                 </div>
                 <button
                   class="view-details-btn"
