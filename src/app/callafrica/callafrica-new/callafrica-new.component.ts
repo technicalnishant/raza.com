@@ -92,7 +92,9 @@ export class CallafricaNewComponent implements OnInit {
       );
     this.getCountryFrom();
   }
-
+  isUserAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
 
   openLoginPopup()
   {
@@ -126,12 +128,20 @@ setcurrentCurrency()
 
 getcountryrate(obj)
 {
-  var price = obj;
-  if(this.currentSetting.country.CountryId == 3)
-  {
-    //price = price/2;
-  }
-  return price;
+  // var price = obj;
+  //return price;
+  // if(this.currentSetting.country.CountryId == 3)
+  // {
+    
+  // }
+
+ if( obj.CallingRateLandline > obj.CallingRateMobile)
+  return obj.CallingRateMobile;
+ else
+  return obj.CallingRateLandline;
+
+
+  
 }
 
   private getCountryFrom() {
@@ -142,7 +152,9 @@ getcountryrate(obj)
 
   private getCountryRateOfAfrica() {
 
-    this.dealsService.getCountryCallAfrica(this.currentSetting.currentCountryId).subscribe((data: any) => {
+    let type = this.isUserAuthenticated() == true?'old':'new';
+    
+    this.dealsService.getCountryCallAfrica1(this.currentSetting.currentCountryId, type).subscribe((data: any) => {
       if(data && data.length > 0)
       {
         this.allCountriesData = data;
@@ -156,16 +168,15 @@ getcountryrate(obj)
       {
         this.allCountriesData = [];
         this.allCountryFilteredList = [];
-      this.allCountry = [];
-      this.allCountryList = [];
-      this.bindSearchRates = [];
+        this.allCountry = [];
+        this.allCountryList = [];
+        this.bindSearchRates = [];
 
         this.dialog.open(NodataFoundComponent, {
           data:{
             msg:'No Data Found' },
-           
-          width: '85vw',
-          maxWidth: '1235px'
+            width: '85vw',
+            maxWidth: '1235px'
         });
 
       }

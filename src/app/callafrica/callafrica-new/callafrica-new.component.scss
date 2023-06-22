@@ -397,6 +397,21 @@ $background-color_1: #293a6a;
       width: 70%;
       font-family: 'Nunito', sans-serif;
   }
+
+  .width40 {
+    width: 40%;
+    float: right;
+    font-family: 'Nunito', sans-serif;
+}
+.width60 {
+    width: 60%;
+    font-family: 'Nunito', sans-serif;
+}
+.width50 {
+  width: 50%;
+  font-family: 'Nunito', sans-serif;
+}
+
   p {
       &.downloadText {
           font-size: 17px !important;
