@@ -57,7 +57,7 @@ $bg-blue-color : #0160e0;
       line-height: 1;
 
       span {
-        color: #8b8b8b;
+        color: #666;
         font-size: 16px;
         line-height: 20px;
         font-weight: 400;
@@ -132,34 +132,32 @@ $bg-blue-color : #0160e0;
 
 
 @media only screen and (min-width:100px) and (max-width:1200px) {  
-
-  .plan-info{
+  .plan-info {
     padding: 0;
     margin-bottom: 0;
   }
-    .plan-info .text-section h1 {
+  .plan-info .text-section h1 {
       font-size: 26px;
-    }
-    .plan-info .blue-section img {
+   }
+  .plan-info .blue-section img {
       max-width: 200px;
   }
-  
-    .plan-info .text-section {
-      width: 100%;
-      position: static;
-      margin: auto;
-      padding: 10px;
-      border-radius: 0;
-      box-shadow: none;
-      border: 0;
-    }
-  
+  .plan-info .text-section {
+    width: 100%;
+    position: static;
+    margin: auto;
+    padding: 10px;
+    border-radius: 0;
+    box-shadow: none;
+    border: 0;
+  }
+
     .plan-info .text-section .text-part {
       display: block;
     }
   
     .plan-info .text-section p {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 400;
       padding: 20px 0 20px;
       line-height: 28px;
@@ -348,6 +346,19 @@ $bg-blue-color : #0160e0;
     }
   
   }
+
+  @media only screen and (max-width: 767px) {
+    .call-us {
+      padding-top: 35px;
+      h3 {
+        font-size: 25px !important;
+        margin-bottom: 25px !important;
+      }
+    }
+    .plan-info .text-section h1 {
+        font-size: 22px;
+    }
+}
   
   // plan info media quries end here
   
