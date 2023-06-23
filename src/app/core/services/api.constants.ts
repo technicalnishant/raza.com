@@ -119,7 +119,7 @@ export class Api {
 		//getSearchGlobalRates: base + "api/rates/Plans/LowestRate/v1/",
 		//getSearchGlobalRatesSubPlans: base + "api/Rates/SubPlans/",
 		getSearchGlobalRatesSubPlans: base + "api/Rates/GetSubPlansWithDistinctRate/",
-
+		getSpecificRateDetails: base + "/api/rates/GetSpecificRateDetailByParentCountryId/",
 		getPopularDestinationPlans: base + "api/rates/PopularDestination/",
 		getXChageRateInfo: base + "api/Countries/XChageRateInfo/"
 	};

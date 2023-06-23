@@ -159,4 +159,8 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   showPlanDetails=()=>{
     this.showPlan=true;
   }
+
+  onPaymentInfoFormSubmit(event){
+    
+  }
 }

@@ -50,6 +50,7 @@ import { MobileMyNumbersComponent } from './component/mobile-my-numbers/mobile-m
 import { MobileOnetouchDialComponent } from './component/mobile-onetouch-dial/mobile-onetouch-dial.component';
 import { MobileCallFarwordingComponent } from './component/mobile-call-farwording/mobile-call-farwording.component';
 import { AccountRechargeComponent } from './pages/account-recharge/account-recharge.component';
+import { MyCardsComponent } from './pages/my-cards/my-cards.component';
 // import { MobileOrderHistoryComponent } from './component/mobile-order-history/mobile-order-history.component';
 // import { MobileRewardsComponent } from './component/mobile-rewards/mobile-rewards.component';
 // import { MobileMyaccountComponent } from './component/mobile-myaccount/mobile-myaccount.component';
@@ -147,6 +148,7 @@ import { AccountRechargeComponent } from './pages/account-recharge/account-recha
         MobileOnetouchDialComponent,
         MobileCallFarwordingComponent,
         AccountRechargeComponent,
+        MyCardsComponent,
         // MobileOrderHistoryComponent,
         // MobileRewardsComponent,
         // MobileMyaccountComponent,

@@ -87,4 +87,13 @@ export class SearchRatesService {
 
                 return throwError(errorResposne);
         }
+
+
+        public getSpecificRateDetails(countryFromId: number, countryId, phone): Observable<GlobalSubPlans[] | ApiErrorResponse> {
+                return this.httpClient.get<GlobalSubPlans[]>(`${Api.rates.getSpecificRateDetails}` + countryFromId + '/' + countryId+ '/' +phone)
+                        .pipe(
+                                catchError(err => this.handleHttpError(err))
+                        );
+        }
+
 }
