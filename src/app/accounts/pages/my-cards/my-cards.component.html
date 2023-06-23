@@ -178,9 +178,9 @@
         <div class="cvvCard" *ngIf="item.CardId === selectedCard?.CardId">
           <div class="col-sm-6">
             <mat-form-field class="example-full-width">
-              <input matInput type="password" maxlength="4" placeholder="Security code" name="{{item.CardId}}"
+              <input matInput type="password" maxlength="4" placeholder="CVV" name="{{item.CardId}}"
                 [(ngModel)]="item.Cvv">
-              <span class="lock"><img src="assets/images/lock_icon.png" alt="" /></span>
+              <span class="lock" (click)="whatiscvv()"><img src="assets/images/lock_icon.png" alt="" /></span>
             </mat-form-field>
             <mat-error *ngIf="isDisplayCvvRequired(item)">
               CVV is .
