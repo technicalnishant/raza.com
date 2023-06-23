@@ -30,9 +30,10 @@ import { BraintreeCard } from '../../../accounts/models/braintreeCard';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as braintree from 'braintree-web';
 
-
+import { CvvBottomComponent } from 'app/cvv-bottom/cvv-bottom.component';
 import { ViewChild, AfterViewInit, NgZone} from '@angular/core';
  import { Subscription } from 'rxjs';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 @Component({
   selector: 'app-my-cards',
   templateUrl: './my-cards.component.html',
@@ -90,6 +91,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
       private razaSnackbarService: RazaSnackBarService,
       private authService: AuthenticationService,
       private httpClient: HttpClient,
+      private _bottomSheet: MatBottomSheet,
     ) { }
     ngAfterViewInit(): void {
       //throw new Error('Method not implemented.');
@@ -794,7 +796,16 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
         phone = this.getAddrComponent(place, COMPONENT_TEMPLATE);
       return phone;
     }
+    whatiscvv()
+  {
+   this._bottomSheet.open(CvvBottomComponent);
+  /* const dialogRef = this.dialog.open(BottomUpComponent, {
+     data: {
+       success: 'success'
+     }
+   });*/
     
+  }
      /********************/
   
   }
