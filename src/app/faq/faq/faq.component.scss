@@ -11,10 +11,7 @@
 		color: #152f75;
 	}
 	.loadmore{
-	background-color: #ffc50b;
-		
-		
-		
+		background-color: #ffc50b;
 		border-radius: 24px !important;
 		-moz-border-radius: 24px !important;
 		-webkit-border-radius: 24px !important;
@@ -39,7 +36,7 @@
     margin: 50px 0;
     @include breakpoint(sm) {
         font-size:34px;
-        margin-bottom: 30;
+		margin: 25px 0 20px;
     }
    
 }
@@ -55,4 +52,14 @@
         font-weight: 500;
         font-family: "Montserrat";
     }
+}
+
+@include breakpoint(sm) {
+	.container {
+		width: 100%;
+		padding: 0 25px;
+	}
+	h1.heading_style1 {
+		display: none;
+	}
 }

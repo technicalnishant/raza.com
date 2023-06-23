@@ -68,6 +68,7 @@ sans-serif;
 
   .mat-tab-label {
     height: 120px !important;
+    padding: 0 12px;
     opacity: 1;
     background: none;
   }
@@ -91,6 +92,10 @@ sans-serif;
 
   .mat-tab-body-content{
     margin-top: 100px;
+    @include breakpoint(sm){
+      margin-top: 80px;
+      margin-bottom: 35px;
+    }
   }
   .content-wrapper {
     background: $content-bg-color;
@@ -100,6 +105,9 @@ sans-serif;
     filter: drop-shadow(0 0 15px rgba(0,0,0,0.6));
     background-color: #ffffff;
     margin: 30px;
+    @include breakpoint(sm) {
+      padding: 20px;
+    }
 
     h1 {
       font-size: 43px;
@@ -298,5 +306,10 @@ sans-serif;
   }
   .tab-wrapper .content-wrapper h1 {
     font-size: 32px;
+  }
+  .tab-wrapper .content-wrapper button {
+      padding: 0 10px;
+      font-size: 14px;
+      min-width: unset;
   }
 }
