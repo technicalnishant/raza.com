@@ -1,18 +1,8 @@
 .swicth_container {
     width: 340px;
-    padding: 10px 40px;
-     
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    right: 0;
-  
-  
-    background-size: 100%;
-    background-position: bottom;
-    background-repeat: no-repeat;
+    padding: 10px 40px;    
+    margin: 50px auto 0;
 }
-
 .switch {
     position: relative;
     width: 60px;
@@ -97,4 +87,31 @@ input:checked .slider {
     animation-name: fadeIn;
     animation-duration: 0.4s;
     animation-iteration-count: 1;
+}
+.denomination__box_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.denomination__box {
+    width: 100px;
+    height: 90px;
+    border-radius: 10px;
+    border: 3px solid #016aea;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.denomination__box .discount_applied {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #016aea;
+    color: #fff;
+    font-size: 12px;
+    padding: 2px;
 }

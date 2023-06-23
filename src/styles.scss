@@ -854,11 +854,12 @@ button {
     width: 100% !important;
 }
 
-.mat-radio-label-content {
+div .mat-radio-label-content {
     color: #808080;
     font-size: 16px;
     font-weight: 400;
     font-family: $font-family;
+    display: flex;
 }
 
 .mat-form-field-underline {

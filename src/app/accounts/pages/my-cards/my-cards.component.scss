@@ -387,6 +387,7 @@ h3 {
 .savedCard {
 	padding: 5px 20px;
 	border-bottom: 1px solid #eee;
+	display: flex;
 }
 .cardImg,.cardDetails {
 	float: left;
@@ -609,4 +610,9 @@ p.haveAccountAlready {
 
 .submitButton_confirms:hover {
     background: #ffde57;
+}
+.saveCardWrap {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin-top: 20px;
 }

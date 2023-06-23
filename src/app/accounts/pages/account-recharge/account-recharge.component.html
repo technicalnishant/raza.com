@@ -1,5 +1,5 @@
-<div *ngIf="!isAutorefill"> 
-  <div class="col-md-6" *ngFor="let item of denominatons?.Denominations; let i = index">
+<div *ngIf="!isAutorefill" class="denomination__box_wrap"> 
+  <div class="" *ngFor="let item of denominatons?.Denominations; let i = index">
     <div class="denomination__box" (click)="onClickAmountOption(item)">
      <div class="d-flex justify-content-between">
           <div class="amount">{{item.Price | bCurrency}}</div>
@@ -11,8 +11,8 @@
  
 
 
-<div *ngIf="isAutorefill">
-  <div class="col-md-6" *ngFor="let item of denominatons?.Denominations; let i = index">
+<div *ngIf="isAutorefill" class="denomination__box_wrap">
+  <div class="" *ngFor="let item of denominatons?.Denominations; let i = index">
     <div class="denomination__box" (click)="onClickAmountOption(item)">
      <div class="d-flex justify-content-between">
           <div class="amount">{{item.Price | bCurrency}}</div>
