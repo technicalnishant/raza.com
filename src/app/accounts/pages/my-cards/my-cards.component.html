@@ -157,7 +157,8 @@
     </form>
   </div>
   
-  <div *ngIf="havingExistingCard">
+  <div *ngIf="havingExistingCard" class="saveCardWrap">
+    <h3>Payment Details</h3>
     <mat-radio-group class="example-radio-group" name="cardNumber" [(ngModel)]="selectedCard">
       <div class="savedCard" *ngFor="let item of customerSavedCards; let ind = index"
         [ngClass]="{'cardOpacity': selectedCard?.CardId != item.CardId }">
