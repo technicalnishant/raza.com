@@ -5200,9 +5200,9 @@ section.faq-section .mat-expansion-panel-body p {
     .mat-form-field-appearance-legacy .mat-form-field-wrapper {
         padding: 0;
     }
-    label {
-        margin: 0;
-    }
+}
+label.mat-radio-label {
+    margin-bottom: 0;
 }
 @media only screen and (max-width: 767px) {
     .cdk-overlay-pane.topup-plan-dialog {

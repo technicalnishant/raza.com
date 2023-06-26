@@ -23,7 +23,10 @@
 	color: #0B203E;
 }
 .mat-radio-button {
-	padding-right: 60px;
+	padding-right: 115px;
+	label {
+		margin: 0;
+	}
 }
 .header_style {
 	background: #fff;
@@ -458,6 +461,7 @@ a {
 }
 .cvvCard {
 	padding-left: 20px;
+	padding-top: 2px;
 }
 .cardOpacity {
 	opacity: 0.5;
@@ -511,8 +515,12 @@ p {
 }
 .lock {
 	position: absolute;
-	right: 5px;
-	top: 7px;
+    left: 86px;
+    top: 16px;
+    font-size: 12px;
+    white-space: nowrap;
+    border-bottom: 1px dotted;
+    cursor: pointer;
 }
 .i_icon {
 	padding-left: 5px;
@@ -622,4 +630,36 @@ p.haveAccountAlready {
 }
 .cvvCard input {
     border: 1px solid #bbb;
+	width: 72px;
+    height: 34px;
+    border-radius: 6px;
+    padding: 0 10px;
+}
+.addCard {
+    background-image: url( ../../../../assets/images/plus_icon.png);
+    background-size: 20px;
+    display: inline-block;
+    width: 80px;
+    height: 46px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px dashed #444;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.updateCard {
+    margin-left: 6px;
+}
+.editDelete {
+    margin-left: auto;
+    margin-right: 25px;
+	button {
+		border: none;
+		background: transparent;
+		padding: 0;
+		margin-top: 5px;
+	}
+	.material-icons {
+		font-size: 32px;
+	}
 }

@@ -108,6 +108,11 @@ h3.selectRechg {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+}
+.active .denomination__box {
+    background: #016aea;
+    color: #fff;
 }
 .denomination__box .discount_applied {
     &::before {
