@@ -23,7 +23,7 @@
 	color: #0B203E;
 }
 .mat-radio-button {
-	padding-right: 6px;
+	padding-right: 60px;
 }
 .header_style {
 	background: #fff;
@@ -107,8 +107,8 @@ h2 {
 }
 .form_row1 {
 	padding: 20px 0;
-	background: #fafafa;
-	border-top: 1px solid #c6c6c6;
+	// background: #fafafa;
+	border-top: 1px solid #ddd;
 }
 .input_holder1 {
 	padding: 0;
@@ -386,31 +386,29 @@ h3 {
 }
 .savedCard {
 	padding: 5px 20px;
-	border-bottom: 1px solid #eee;
+	// border-bottom: 1px solid #eee;
 	display: flex;
 }
 .cardImg,.cardDetails {
 	float: left;
 }
 .cardImg {
-	padding: 30px 4px 0 15px;
+	width: 55px;
+	margin-right: 15px;
+	img {
+		max-width: 100%;
+	}
 }
 .cardDetails {
-	padding: 23px 4px 0 15px;
-	width: 78%;
 	p {
 		&.cardNumber {
-			font-family: 'Montserrat', sans-serif;
-			font-weight: 400;
 			color: #0B203E;
-			font-size: 16px;
-			margin-bottom: 10px;
+			margin-bottom: 5px;
 		}
 		&.cardExpires {
-			font-family: 'Montserrat', sans-serif;
-			font-weight: 400;
 			color: #0B203E;
 			font-size: 14px;
+			margin: 0;
 		}
 		span {
 			a {
@@ -557,22 +555,20 @@ p {
   }
   .submitButton_confirms {
     background: #f4cb26;
-    border-radius: 24px !important;
-    -moz-border-radius: 24px !important;
-    -webkit-border-radius: 24px !important;
+    border-radius: 18px !important;
+    -moz-border-radius: 18px !important;
+    -webkit-border-radius: 18px !important;
     border: none;
-    padding: 3px 20px !important;
-    width: 150px;
+    padding: 16px 20px !important;
+    width: 220px;
     display: block !important;
     color: #0b203e;
-    // margin-left: auto;
     text-transform: uppercase;
-    // margin-right: 50px;
-    font-size: 15px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
     transition: background 0.3s ease-in-out;
-  }
+    margin: 35px auto 0;
+}
 @media only screen and (max-width:768px){
   .submitButton_confirms {
     margin: 0px auto 0 !important;
@@ -615,4 +611,15 @@ p.haveAccountAlready {
     border: 2px solid #ddd;
     border-radius: 10px;
     margin-top: 20px;
+	background: #fff;
+}
+.saveCardWrap h3 {
+    text-align: center;
+    margin: 18px 0 0;
+    padding-bottom: 18px;
+    font-size: 24px;
+    border-bottom: 1px solid #ddd;
+}
+.cvvCard input {
+    border: 1px solid #bbb;
 }

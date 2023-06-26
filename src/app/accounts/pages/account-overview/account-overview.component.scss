@@ -505,7 +505,7 @@ a {
 .myaccountTabArea {
 	clear: both;
 	overflow: hidden;
-	padding: 136px 0;
+	padding: 0 0;
 	margin: 0;
 	width: 100%;
 	background-color: #f6f8fa;
@@ -768,6 +768,7 @@ table {
 	.leftTabArea {
 		float: left;
 		width: 17%;
+		padding-top: 160px;
 		h5 {
 			color: #0B203E;
 			font-size: 22px;
@@ -826,6 +827,8 @@ table {
 		float: left;
 		width: 920px;
 		margin-left: 36px;
+		background: #fff;
+		padding: 120px 30px 50px;
 	}
 }
 .onlySmallScreenAccount {

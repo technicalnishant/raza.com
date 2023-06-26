@@ -177,7 +177,6 @@
           </div>
         </mat-radio-button>
         <div class="cvvCard" *ngIf="item.CardId === selectedCard?.CardId">
-          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <input matInput type="password" maxlength="4" placeholder="CVV" name="{{item.CardId}}"
                 [(ngModel)]="item.Cvv">
@@ -186,7 +185,6 @@
             <mat-error *ngIf="isDisplayCvvRequired(item)">
               CVV is .
             </mat-error>
-          </div>
         </div>
       </div>
   
@@ -200,19 +198,18 @@
         <section class="submit-wrapper">
             <div class="d-block d-lg-flex px-4 justify-content-between align-items-center">
               <div class="order-2 mr-0">
-                <button mat-button (click)="onClickCreditCardPayment()" class="submitButton_confirms">Confirm</button>
+                <!-- <button mat-button (click)="onClickCreditCardPayment()" class="submitButton_confirms">Confirm</button> -->
                 <!-- <a href="/features" class="small mt-2">100% Money Back Guarantee</a> -->
                 <!-- <a href="/support">Privacy Policy</a>
                 <a href="/termsandcondition">Terms of service</a> -->
               </div>
               <p class="haveAccountAlready text-center text-lg-right mb-0 order-1"> <a (click)="addNewCard()">Add New Card</a></p>
             </div>
-        </section>
-  
-        
+        </section>        
       </div>
     </div>
   </div>
+  <button mat-button (click)="onClickCreditCardPayment()" class="submitButton_confirms overviewRechg">Recharge</button>
   <!--Open dialog if error comes. Do not remove this functionality is attached with this.-->
   <button type="hidden" style="display:none!important;" id="auto_trigger" (click)="editModal()"class="btn btn-warning"></button>
   <!--EOF Open dialog if error comes -->

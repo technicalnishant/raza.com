@@ -1,15 +1,15 @@
 .commonmyaccountareaforallpages {
-	height: 184px;
-	margin-bottom: 20px;
-	padding: 35px;
+	margin-bottom: 45px;
+    padding: 5px 0 15px;
+    border-bottom: 1px solid #ddd;
 	.leftArea {
 		float: left;
 		width: 60%;
 		border-right: 1px solid #C7C7C7;
 	}
 	.rightArea {
-		float: left;
-		width: 40%;
+		// float: left;
+		// width: 40%;
 	}
 }
 .global_planArea {
@@ -35,23 +35,15 @@
 	margin: 0 29px 0 0;
 	.currentPlanText {
 		color: #000;
-		font-size: 11px;
-		margin: 0px;
-		font-family: 'Montserrat', sans-serif;
-		@media only screen and (max-width: 700px){
-			font-weight: 700;
-		}
-		
+		font-size: 22px;
+    	margin: 0 0 5px;		
 	}
 }
 p {
 	&.currentPlanTextRate {
 		color: #0B203E;
 		font-size: 35px;
-		font-family: 'Montserrat', sans-serif;
-		@media only screen and (max-width: 700px){
-			font-weight: 600;
-		}
+		font-weight: 600;
 	}
 }
 .otherPlans {
