@@ -23,7 +23,14 @@
 	color: #0B203E;
 }
 .mat-radio-button {
+<<<<<<< HEAD
 	padding-right: 6px;
+=======
+	padding-right: 60px;
+	label {
+		margin: 0;
+	}
+>>>>>>> 9fe85f76be470eca34192e136d906f1087a2387e
 }
 .header_style {
 	background: #fff;
@@ -501,8 +508,13 @@ a {
 }
 .lock {
 	position: absolute;
+<<<<<<< HEAD
 	right: -20px;
 	top: 17px;
+=======
+	right: 9px;
+    top: 13px;
+>>>>>>> 9fe85f76be470eca34192e136d906f1087a2387e
 }
 .i_icon {
 	position: absolute;
