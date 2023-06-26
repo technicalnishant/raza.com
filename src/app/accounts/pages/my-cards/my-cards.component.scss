@@ -663,3 +663,17 @@ p.haveAccountAlready {
 		font-size: 32px;
 	}
 }
+
+@media only screen and (max-width:768px){
+	.saveCardWrap {
+		width: 93%;
+		margin: 15px auto 20px;
+	}
+	.savedCard {
+		flex-wrap: wrap;
+	}
+	.cvvCard {
+		padding-left: 45px;
+		padding-top: 2px;
+	}
+}

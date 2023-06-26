@@ -885,7 +885,7 @@ h2.welcomeText{font-size: 30px; font-weight: 700; margin-bottom: 10px;}
 .onlySmallScreenAccount {display: block}
 .myAccountMobileSelect{ display: block; text-align: center;}
 .mat-select{ margin-bottom: 0px !important;}
-.myAccountMobTabContArea{ background: #fff; }
+.myAccountMobTabContArea{ background: #fff; padding-bottom: 40px; }
 .myAccountMobTabContArea .rechargeLeft{width: 100%;text-align: center;padding: 15px 0;display: block;margin: 24px auto;}
 .myAccountMobTabContArea .rechargeRight{width: 50%;text-align: center;display: block; margin: 24px auto; padding-top: 40px; border-top: 1px solid #E4E4E4; border-left: none; float: none;  clear: both;}
 .planDetails{ padding: 50px 0px;}
@@ -977,6 +977,7 @@ table.showAlltable tr td{width: 33.33% !important;}
 }
 .commonBg {
 	background: #f6f8fa;
+	background: transparent;
 	clear: both;
 	overflow: hidden;
 }
