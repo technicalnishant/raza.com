@@ -72,8 +72,13 @@ import { MyCardsComponent } from './pages/my-cards/my-cards.component';
             {
                 path: '', component: AccountOverviewComponent, data: { isFixedHeader: true }, children: [
                     { path: '', redirectTo: 'overview', pathMatch: 'full' },
-                    { path: 'overview', component: AccountOptionsComponent },
-                    { path: 'overview/:notification', component: AccountOptionsComponent },
+                    // { path: 'overview', component: AccountOptionsComponent },
+                    // { path: 'overview/:notification', component: AccountOptionsComponent },
+
+                    { path: 'overview', component: AccountRechargeComponent },
+                    { path: 'overview/:notification', component: AccountRechargeComponent },
+                    
+                    
                     { path: 'payment-details/:planId', component: AccountPaymentDetailsComponent },
                     { path: 'payment-details', component: AccountPaymentDetailsComponent },
                     { path: 'order-history', component: AccountPurchaseHistoryComponent },
