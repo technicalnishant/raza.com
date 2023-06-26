@@ -1,9 +1,5 @@
 <div class="form_holder commonPopup mw-100">
-
-
-    <mat-horizontal-stepper [linear]="true" #stepper [selectedIndex]="selectepage" (selectionChange)="stepChange($event)">
-        <mat-step [stepControl]="paymentDetailForm">
-            <form [formGroup]="paymentDetailForm">
+ <form [formGroup]="paymentDetailForm">
                 <ng-template matStepLabel>Payment Detail</ng-template>
                 <div class="row">
                     <div class="col-md-12">
@@ -43,24 +39,14 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <div class="input_holder1">
+                <!-- <div class="input_holder1">
                     <button matStepperNext class="submitButton">Next</button>
-                </div>
+                </div> -->
             </form>
-        </mat-step>
-
-        <mat-step [stepControl]="billingInfoForm"> 
+       
             <form [formGroup]="billingInfoForm">
                 <ng-template matStepLabel>Billing Address</ng-template>
-                <div class="row">
-                    <div class="col-md-12">
-                        <button class="closeIcon left-0" matStepperPrevious><mat-icon>keyboard_arrow_left</mat-icon>
-                        </button>
-                        <span class="closeIcon top-0" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
-                        <h2>Add Credit Card</h2>
-                    </div>
-                </div>
-
+                
 
                 <div class="row commonPopupRow">
                     <div class="col-sm-6">
@@ -125,8 +111,6 @@
 
                 </div>
             </form>
-        </mat-step>
-
-    </mat-horizontal-stepper>
+        
 
 </div>

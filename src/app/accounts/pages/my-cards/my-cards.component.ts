@@ -36,6 +36,7 @@ import { ViewChild, AfterViewInit, NgZone} from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { BottomUpComponent } from 'app/mobile-pay/dialog/bottom-up/bottom-up.component';
 import { WhatIsCvvComponent } from 'app/accounts/dialog/what-is-cvv/what-is-cvv.component';
+import { AddEditCardComponent } from 'app/accounts/dialog/add-edit-card/add-edit-card.component';
 @Component({
   selector: 'app-my-cards',
   templateUrl: './my-cards.component.html',
@@ -583,7 +584,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
   
     addNewCard() {
       this.removeLocalStorage();
-      const dialogRefCard = this.dialog.open(AddCreditcardPayDialog, {
+      const dialogRefCard = this.dialog.open(AddEditCardComponent, {
         maxHeight: '550px',
         maxWidth: '550px',
         data: {

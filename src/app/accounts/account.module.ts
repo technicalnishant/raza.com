@@ -52,6 +52,7 @@ import { MobileCallFarwordingComponent } from './component/mobile-call-farwordin
 import { AccountRechargeComponent } from './pages/account-recharge/account-recharge.component';
 import { MyCardsComponent } from './pages/my-cards/my-cards.component';
 import { WhatIsCvvComponent } from './dialog/what-is-cvv/what-is-cvv.component';
+import { AddEditCardComponent } from './dialog/add-edit-card/add-edit-card.component';
 // import { MobileOrderHistoryComponent } from './component/mobile-order-history/mobile-order-history.component';
 // import { MobileRewardsComponent } from './component/mobile-rewards/mobile-rewards.component';
 // import { MobileMyaccountComponent } from './component/mobile-myaccount/mobile-myaccount.component';
@@ -156,6 +157,7 @@ import { WhatIsCvvComponent } from './dialog/what-is-cvv/what-is-cvv.component';
         AccountRechargeComponent,
         MyCardsComponent,
         WhatIsCvvComponent,
+        AddEditCardComponent,
         // MobileOrderHistoryComponent,
         // MobileRewardsComponent,
         // MobileMyaccountComponent,
