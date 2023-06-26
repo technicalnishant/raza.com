@@ -5178,6 +5178,32 @@ section.faq-section .mat-expansion-panel-body p {
         min-width: 85px;
     }
 }
+.cvvCard {
+    .mat-form-field-appearance-legacy .mat-form-field-label {
+        position: absolute;
+        transform: unset !important;
+        left: -42px;
+        top: 14px !important;
+        font-size: 15px;
+    }
+    .mat-form-field-label-wrapper {
+        position: static;
+        padding: 0;
+    }
+    .mat-form-field-infix {
+        width: auto;
+        border: none !important;
+    }
+    .mat-form-field-appearance-legacy .mat-form-field-underline {
+        display: none;
+    }
+    .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+        padding: 0;
+    }
+    label {
+        margin: 0;
+    }
+}
 @media only screen and (max-width: 767px) {
     .cdk-overlay-pane.topup-plan-dialog {
         max-width: 98% !important;

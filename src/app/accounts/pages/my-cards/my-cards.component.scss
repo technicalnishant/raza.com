@@ -24,6 +24,9 @@
 }
 .mat-radio-button {
 	padding-right: 60px;
+	label {
+		margin: 0;
+	}
 }
 .header_style {
 	background: #fff;
@@ -511,8 +514,8 @@ p {
 }
 .lock {
 	position: absolute;
-	right: 5px;
-	top: 7px;
+	right: 9px;
+    top: 13px;
 }
 .i_icon {
 	padding-left: 5px;
@@ -621,5 +624,24 @@ p.haveAccountAlready {
     border-bottom: 1px solid #ddd;
 }
 .cvvCard input {
-    border: 1px solid #bbb;
+	border: 1px solid #bbb;
+    width: 80px;
+    height: 34px;
+    border-radius: 6px;
+    padding: 0 10px;
+}
+.addCard {
+    background-image: url( ../../../../assets/images/plus_icon.png);
+    background-size: 20px;
+    display: inline-block;
+    width: 80px;
+    height: 46px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px dashed #444;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.updateCard {
+    margin-left: 6px;
 }

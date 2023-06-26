@@ -170,7 +170,7 @@
           <div class="cardDetails">
             <p class="cardNumber">Card Ending in … {{ item.CardNumber | creditCard }}</p>
             <p class="cardExpires">Expires {{item.ExpiryMonth}}/{{item.ExpiryYear}}
-              <span>
+              <span class="updateCard">
                 <a (click)="editCardDetails(item)">Update Card/Billing Details</a>
               </span>
             </p>
@@ -203,7 +203,12 @@
                 <!-- <a href="/support">Privacy Policy</a>
                 <a href="/termsandcondition">Terms of service</a> -->
               </div>
-              <p class="haveAccountAlready text-center text-lg-right mb-0 order-1"> <a (click)="addNewCard()">Add New Card</a></p>
+              <p class="haveAccountAlready text-center text-lg-right mb-0 order-1"> 
+                <a (click)="addNewCard()">
+                  <span class="addCard"></span>
+                  Add New Card
+                </a>
+              </p>
             </div>
         </section>        
       </div>
