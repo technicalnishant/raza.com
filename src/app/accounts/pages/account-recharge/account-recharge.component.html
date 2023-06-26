@@ -1,6 +1,6 @@
 <h3 class="selectRechg">Select a recharge amount</h3>
 <div *ngIf="!isAutorefill" class="denomination__box_wrap"> 
-  <div class="" *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index">
+  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index" class="{{getActiveClass(item)}}">
     <div class="denomination__box" (click)="onClickAmountOption(item)">
      <div class="d-flex justify-content-between">
           <div class="amount">{{item.Price | bCurrency}}</div>
@@ -15,8 +15,8 @@
 </div>
 
 <div *ngIf="isAutorefill" class="denomination__box_wrap">
-  <div class="" *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index">
-    <div class="denomination__box" (click)="onClickAmountOption(item)">
+  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index"  class="{{getActiveClass(item)}}">
+    <div class="denomination__box" (click)="onClickAmountOption(item)" >
      <div class="d-flex justify-content-between">
           <div class="amount">{{item.Price | bCurrency}}</div>
           <div class="discount_applied">

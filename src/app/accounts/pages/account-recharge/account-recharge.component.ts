@@ -36,7 +36,7 @@ export class AccountRechargeComponent implements OnInit {
   myModel:boolean=true;
   isSmallScreen: boolean=false;
   showPlan: boolean;
-
+  selectedDenomination:number=10;
   constructor(
     private searchRatesService: SearchRatesService,
     private titleService: Title,
@@ -81,7 +81,10 @@ export class AccountRechargeComponent implements OnInit {
     
   }
   
-
+  getActiveClass(item)
+  {
+    return this.selectedDenomination == item.Price?'active':'';
+  }
    
     getRates()
     {
@@ -108,6 +111,6 @@ export class AccountRechargeComponent implements OnInit {
 
    onClickAmountOption(item)
    {
-
+    this.selectedDenomination=item.Price;
    }
 }

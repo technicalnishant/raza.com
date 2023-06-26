@@ -515,11 +515,16 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     }
   
     editCardDetails(card) {
-      this.removeLocalStorage();
-      this.customerService.EditCreditCard(card).subscribe(data => {
+      // this.removeLocalStorage();
+      // this.customerService.EditCreditCard(card).subscribe(data => {
         
-        this.cardBillingAddress(data, card);
-      });
+      //   this.cardBillingAddress(data, card);
+      // });
+    }
+
+    deleteCardDetails(card)
+    {
+
     }
   
     cardBillingAddress(data, card:any) {
