@@ -51,6 +51,7 @@ import { MobileOnetouchDialComponent } from './component/mobile-onetouch-dial/mo
 import { MobileCallFarwordingComponent } from './component/mobile-call-farwording/mobile-call-farwording.component';
 import { AccountRechargeComponent } from './pages/account-recharge/account-recharge.component';
 import { MyCardsComponent } from './pages/my-cards/my-cards.component';
+import { WhatIsCvvComponent } from './dialog/what-is-cvv/what-is-cvv.component';
 // import { MobileOrderHistoryComponent } from './component/mobile-order-history/mobile-order-history.component';
 // import { MobileRewardsComponent } from './component/mobile-rewards/mobile-rewards.component';
 // import { MobileMyaccountComponent } from './component/mobile-myaccount/mobile-myaccount.component';
@@ -154,6 +155,7 @@ import { MyCardsComponent } from './pages/my-cards/my-cards.component';
         MobileCallFarwordingComponent,
         AccountRechargeComponent,
         MyCardsComponent,
+        WhatIsCvvComponent,
         // MobileOrderHistoryComponent,
         // MobileRewardsComponent,
         // MobileMyaccountComponent,
