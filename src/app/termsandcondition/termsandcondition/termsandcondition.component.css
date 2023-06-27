@@ -29,11 +29,9 @@
   .deskTopOnly{ display: block;}
   
   
-  @media only screen and (max-width: 650px)  { 
-    
+@media only screen and (max-width: 650px)  {     
     .hideinMobile{display: none;}
-    .showInmobile { display: block;}
-    
+    .showInmobile { display: block;}    
     .three_service{ height: 360px;}
     .second_fold {padding: 30px 14px;}
     .deskTopOnly{ display: none;}
@@ -46,4 +44,17 @@
         font-size: 18px;
         font-weight: 600;
     }
-  }
+    h1.heading_style1 {
+        display: none;
+    }
+    .home_banner.terms_banner {
+      height: 410px !important;
+      background-position: left 0 top -60px;
+      border-bottom-left-radius: 100% 80px;
+      border-bottom-right-radius: 100% 80px;
+    }
+    .mat-expansion-panel:last-child {
+        border-bottom: none !important;
+        margin-bottom: 40px;
+    }
+}

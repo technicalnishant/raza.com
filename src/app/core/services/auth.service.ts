@@ -229,8 +229,7 @@ export class AuthenticationService {
 		this.countryService.getFromCountries().subscribe((res: Country[]) => {
 			let country:any  = res.filter(obj=>{ if(obj.CountryId == this.user_country_id) return obj});
 			this.onSelectCountrFrom(country[0]) 
-			  
-		  });
+		});
 		
 	}
 	onSelectCountrFrom(country: Country) 
@@ -268,7 +267,7 @@ export class AuthenticationService {
 		localStorage.removeItem("subCurrencySymbol");
 		localStorage.removeItem("rate");
 		localStorage.removeItem("exchangeRate");
-		localStorage.removeItem("session_key");
+		 
 		localStorage.removeItem("signup_no");
 		localStorage.removeItem("currentCart");
 		localStorage.removeItem('promo_code');

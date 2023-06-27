@@ -60,8 +60,8 @@
 	font-weight: 800;
 	text-align: center;
 	@include breakpoint(sm){
-		font-size: 34px;
-		margin-top: 20px;
+		font-size: 32px;
+		margin-top: 40px;
 	}
 }
 
@@ -183,8 +183,15 @@
 		padding: 20px;
 		border-radius: 10px;
 		font-size: 40px;
+		display: none;
 	}
 	.contact-header span {
 		color: #fff;
+	}
+	.home_banner.contactus_banner {
+		height: 410px !important;
+		background-position: center;
+		border-bottom-left-radius: 100% 80px;
+		border-bottom-right-radius: 100% 80px;
 	}
 }

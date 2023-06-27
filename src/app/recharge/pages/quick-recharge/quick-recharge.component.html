@@ -14,11 +14,10 @@
                     <form [formGroup]="rechargeForm" (ngSubmit)='onRechargeFormSubmit()' novalidate> 
                             <div class="row margin_class">
                             <div class="col-md-6 boxborderright order-2 order-1">
-                                <h2 class="heading_style4 d-none d-md-block">
-                                    <span>Quick Recharge/Top Up</span>
-                                </h2>
-                                    <div class="form form_margin">
-
+                                    <h2 class="heading_style4 d-none d-md-block">
+                                        <span>Quick Recharge</span>
+                                    </h2>
+                                    <div class="form form_margin">        
                                         <div class="input-group-prepend countryIcon col-sm-3 f-left border-bottom">
                                             <span class="caret margin-top-15">
                                               <div (click)="openFlagDropDown()" class="select_top1">
@@ -105,7 +104,17 @@
                                         
                                     </div>
                                 
-                            
+                                    <div class="row rechargbstrip_class">
+                                        <div class="form_row1">
+                                                <button mat-button class="submitButton">Submit</button>
+                                        </div>
+                        
+                        
+                                        <div class="col-sm-12 existing">
+                                            Existing Customer? <a (click)="openPopup('login')" href="javascript:void(0);">Login</a> &nbsp;
+                                            New Customer? <a (click)="openPopup('signup')" href="javascript:void(0);">Sign up now</a>
+                                        </div>
+                                    </div>
 
                                     <!-- <div class="row ml-4 exc_center">
                                         <div class="col-sm-6 existing">
@@ -185,17 +194,7 @@
             </div>
 
             </div>
-            <div class="row rechargbstrip_class">
-                <div class="form_row1">
-                        <button mat-button class="submitButton">Recharge</button>
-                </div>
-
-
-                <div class="col-sm-12 existing">
-                    Existing Customer? <a (click)="openPopup('login')" href="javascript:void(0);">Login</a> &nbsp;
-                    New Customer? <a (click)="openPopup('signup')" href="javascript:void(0);">Sign up now</a>
-                </div>
-            </div>
+           
                         
             </form>      
         </div>

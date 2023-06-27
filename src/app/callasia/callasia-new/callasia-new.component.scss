@@ -391,6 +391,21 @@ h2 {
 	width: 70%;
 	font-family: 'Nunito', sans-serif;
 }
+
+.width40 {
+  width: 40%;
+  float: right;
+  font-family: 'Nunito', sans-serif;
+}
+.width60 {
+  width: 60%;
+  font-family: 'Nunito', sans-serif;
+}
+.width50 {
+width: 50%;
+font-family: 'Nunito', sans-serif;
+}
+
 p {
 	&.downloadText {
 		font-size: 17px !important;
@@ -1614,7 +1629,7 @@ $common-boder-width: 3px solid #2172cb;
     }
 	@include breakpoint(md) {
         margin: 30px 0;
-		flex-direction: row;
+		  flex-direction: row;
     }
     li {
         font-size: 16px;
@@ -1645,20 +1660,20 @@ $common-boder-width: 3px solid #2172cb;
 border-right: 1px solid #e7e7e7;
   @include breakpoint(sm) {
       text-align: center;
-  margin: 30px 0;
-  border-right:0;
+      margin: 30px 0;
+      border-right:0;
   }
 @include breakpoint(md) {
-      text-align: center;
-  margin: 30px 0;
-  border-right:0;
+    text-align: center;
+    margin: 30px 0;
+    border-right:0;
   }
 
   .country-flag {
       display: flex;
       align-items: center;
       @include breakpoint(sm) {
-          justify-content:center;
+          // justify-content:center;
       }
       img {
           // height: 40px;
@@ -1672,10 +1687,10 @@ border-right: 1px solid #e7e7e7;
       }
   }
 .flag_round{
-  height: 40px;
-          width: 40px;
-          -o-object-fit: contain;
-          object-fit: contain;
+      height: 40px;
+      width: 40px;
+      -o-object-fit: contain;
+      object-fit: contain;
 }
   .country-name {
       font-size: 20px;
@@ -1736,4 +1751,39 @@ border-right: 1px solid #e7e7e7;
 .plan-info.info_bok {
   padding: 20% 0;
   margin-bottom: 15px;
+}
+@include breakpoint(sm) {
+  .plan-info.info_bok {
+    padding: 0;
+  }
+  .country-box .country-name {
+    font-size: 17px;
+    line-height: 23px;
+    text-align: left;
+  }
+  .country-box .country-rate {
+    font-size: 17px;
+    line-height: 22px;
+    margin-top: 12px;
+    margin-bottom: 15px;
+  }
+  .linethroughArea {
+    margin: 15px 0 0px;
+  }
+  section.country-search .container > .col-lg-8 {
+      padding: 0;
+  }
+  .alphabet_links {
+      display: none;
+  }
+  .country-box .country-rate span {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .country-box .view-details-btn {
+    padding: 2px 18px;
+  }
+  .search__wrapper_new {
+      margin-top: 12px;
+  }
 }

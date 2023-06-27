@@ -269,25 +269,18 @@ mat-toolbar-row {
         font-size: 16px;
         text-transform: capitalize;
         width: 82%;
-        @include breakpoint(sm) {
-            width: 100%;
-        }
     }
 
     @include breakpoint(sm) {
-        font-size: 44px;
-        left: 23%;
-        top: 60%;
+        font-size: 38px;
+        left: 25px;
+        right: 25px;
+        top: unset;
+        bottom: 90px;
         text-align: left;
-        transform: translate(-12%, -50%);
+        transform: unset;
     }
-    @include breakpoint(md) {
-        transform: translate(-50%, -50%);
-        left: 53%;
-        -webkit-transform: translate(-50%, -50%);
-        width: auto
-    }
-    
+
     @include breakpoint(md-lg) {
         transform: translate(-40%, -50%);
        // left: 35%;
@@ -3975,8 +3968,11 @@ h2 {
     }
 
     .still-searching p {
-        font-size: 28px;
+        font-size: 25px;
         font-weight: 500;
+    }
+    .still-searching a {
+        font-size: 18px;
     }
 
     .search-main {
@@ -4021,7 +4017,7 @@ h2 {
         &>div {
             &>div {
                 &:first-of-type {
-                    padding-bottom: 30px;
+                    // padding-bottom: 30px;
                 }
             }
         }
@@ -4076,7 +4072,7 @@ h2 {
     }
 
     .footer_section1 {
-        padding: 0 0 30px 0;
+        padding: 0;
     }
 
     .colorWhite {
@@ -4297,10 +4293,9 @@ h2 {
 
     .heading_style1 {
         span {
-            font-weight: 700;
-            font-size: 18px;
+            font-size: 17px;
+            margin-top: 15px;
             width: 100%;
-            margin-top: 10px;
         }
     }
 
@@ -4354,6 +4349,7 @@ h2 {
 
     .bordertop {
         border-top: none;
+        padding-top: 20px;
     }
 
     .viewAllRatesPanel {
@@ -5184,6 +5180,9 @@ section.faq-section .mat-expansion-panel-body p {
     }
     div .mat-dialog-container {
         min-width: unset;
+    }
+    .still-searching {
+        padding: 50px 0;
     }
 }
 // .price_mobile_one_html .owl-carousel .owl-item {

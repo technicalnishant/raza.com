@@ -241,6 +241,9 @@ ul.alphabet ul li{
 		left: 41%;
 		top: -26px;
 	}
+  @media only screen and (max-width: 650px) {
+    margin: 15px 0 0;
+  }
 }
 .line {
 	height: 1px;
@@ -2113,7 +2116,7 @@ $common-boder-width: 3px solid #2172cb;
       display: flex;
       align-items: center;
       @include breakpoint(sm) {
-          justify-content:center;
+          // justify-content:center;
       }
       img {
           // height: 40px;
@@ -2139,6 +2142,9 @@ $common-boder-width: 3px solid #2172cb;
       font-weight: 700;
       font-family: $font-family;
       margin-left: 16px;
+      @include breakpoint(sm) {
+          text-align: left;
+      }
   }
 
   .country-rate {
@@ -2187,6 +2193,9 @@ $common-boder-width: 3px solid #2172cb;
   margin-bottom: 40px;
   a {
     color: #0160e0 !important;
+  }
+  @include breakpoint(sm) {
+    font-size: 25px;
   }
 }
 .plan-info.info_bok {
