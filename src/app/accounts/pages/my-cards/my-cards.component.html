@@ -145,7 +145,7 @@
           <div class="cardDetails">
             <p class="cardNumber">Card Ending in … {{ item.CardNumber | creditCard }}</p>
             <p class="cardExpires">Expires {{item.ExpiryMonth}}/{{item.ExpiryYear}}
-              <span class="updateCard">
+              <span>
                 <a (click)="editCardDetails(item)">Update Card/Billing Details</a>
               </span>
             </p>
@@ -155,35 +155,39 @@
             <mat-form-field class="example-full-width">
               <input matInput type="password" maxlength="4" placeholder="CVV" name="{{item.CardId}}"
                 [(ngModel)]="item.Cvv">
-              <span class="lock" (click)="whatiscvv()">
-                What is CVV
-                <!-- <img src="assets/images/lock_icon.png" alt="" /> -->
-              </span>
+              <span class="lock" (click)="whatiscvv()"><img src="assets/images/lock_icon.png" alt="" /></span>
             </mat-form-field>
             <mat-error *ngIf="isDisplayCvvRequired(item)">
               CVV is .
             </mat-error>
-        </div>
-        <div class="editDelete">
-          <button mat-icon-button [matMenuTriggerFor]="moreMenu">
-            <mat-icon>more_horiz</mat-icon>
-          </button>
-          <mat-menu #moreMenu="matMenu" class="editDeleteAreaMain">
-            <ul>
-              <li><a (click)="editCardDetails(item)">Edit</a></li>
-              <li><a (click)="deleteCardDetails(item)">Delete</a></li>
-            </ul>
-          </mat-menu>
+
+
+            <button mat-icon-button [matMenuTriggerFor]="moreMenu">
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+            <mat-menu #moreMenu="matMenu" class="editDeleteAreaMain">
+              <ul>
+                <li><a (click)="editCardDetails(item)">Edit</a></li>
+                <li><a (click)="deleteCardDetails(item)">Delete</a></li>
+              </ul>
+            </mat-menu>
+
         </div>
       </div>
+  
     </mat-radio-group>
     <div class="form_row1">
+  
       <div class="input_holder1"> 
+  
+         
+         
         <section class="submit-wrapper">
             <div class="d-block d-lg-flex px-4 justify-content-between align-items-center">
-              <div class="order-2 mr-0">                
+              <div class="order-2 mr-0">
+                
               </div>
-              <p class="haveAccountAlready text-center text-lg-right mb-0 order-1"> <a (click)="addNewCard()"><span class="addCard"></span> Add New Card</a></p>
+              <p class="haveAccountAlready text-center text-lg-right mb-0 order-1"> <a (click)="addNewCard()">Add New Card</a></p>
             </div>
         </section>        
       </div>
@@ -194,7 +198,7 @@
   <button type="hidden" style="display:none!important;" id="auto_trigger" (click)="editModal()"class="btn btn-warning"></button>
   <!--EOF Open dialog if error comes -->
   
-  <div id="mybraintreeDiv" style="">
+  <div id="mybraintreeDiv" style="position:absolute; width:100%;height:100%; z-index:9999;">
     <div id="el" style="position:absolute; z-index:9999; width:auto; background-color:#fff;height:auto; left:40%;top:40%;"></div>
   </div>
   

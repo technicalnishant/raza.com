@@ -110,8 +110,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
           ExpMonth: this.data.result.ExpiryMonth,
           ExpYear: this.data.result.ExpiryYear
         });
-        //localStorage.setItem('selectedCard', this.data.result.CardId);
-        //this.processedCard.cardId = this.data.result.CardNumber;
+         
         if(localStorage.getItem('selectedCvv'))
         {
           this.paymentDetailForm.patchValue({Cvv2:localStorage.getItem('selectedCvv')});
@@ -121,25 +120,11 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
           if(Number(localStorage.getItem('errorCode'))== 2 )
           {
             this.selectepage = 1;
-            
-            //billingInfoForm
+             
           }
         }
       }
-  
-      // if (!isNullOrUndefined(this.data.result2)) {
-      //   this.billingInfoForm.patchValue({
-      //     FullName: this.data.result2.FirstName + " " + this.data.result2.LastName,
-      //     Country: this.data.result2.Address.Country.CountryId,
-      //     State: this.data.result2.Address.State,
-      //     BillingAddress: this.data.result2.Address.StreetAddress,
-      //     City: this.data.result2.Address.City,
-      //     PostalCode: this.data.result2.Address.ZipCode,
-      //   });
-  
-      //   this.search_country_id = this.data.result2.Address.Country.CountryId;
-      // }
-  
+   
   
      if (!isNullOrUndefined(this.data.cardFull) && this.data.cardFull.CreditCardAddress) {
       let address = this.data.cardFull.CreditCardAddress;
@@ -225,8 +210,6 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
   
         (res: boolean) => {
           if (res) {
-             //this.razaSnackBarService.openSuccess("Credit card saved successfully.");
-            //this.dialogRef.close('success');
             this.dialogRef.close(data);
           }
           else
@@ -240,7 +223,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
           this.isLoading = false;
           
           this.razaSnackBarService.openError(err.error)
-         // this.razaSnackBarService.openError("An error occurred!! Please try again.")
+        
       }
       )
     }
