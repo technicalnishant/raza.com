@@ -622,4 +622,50 @@ p.haveAccountAlready {
 }
 .cvvCard input {
     border: 1px solid #bbb;
+	width: 72px;
+    height: 34px;
+    border-radius: 6px;
+    padding: 0 10px;
+}
+.addCard {
+    background-image: url( ../../../../assets/images/plus_icon.png);
+    background-size: 20px;
+    display: inline-block;
+    width: 80px;
+    height: 46px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px dashed #444;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.updateCard {
+    margin-left: 6px;
+}
+.editDelete {
+    margin-left: auto;
+    margin-right: 25px;
+	button {
+		border: none;
+		background: transparent;
+		padding: 0;
+		margin-top: 5px;
+	}
+	.material-icons {
+		font-size: 32px;
+	}
+}
+
+@media only screen and (max-width:768px){
+	.saveCardWrap {
+		width: 93%;
+		margin: 15px auto 20px;
+	}
+	.savedCard {
+		flex-wrap: wrap;
+	}
+	.cvvCard {
+		padding-left: 45px;
+		padding-top: 2px;
+	}
 }

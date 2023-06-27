@@ -96,22 +96,19 @@ p {
 	}
 }
 
-@media only screen and (max-width: 700px)  {
-    
-.global_planArea{
-    text-align: center;
-  }
-   .globalIcon{
-    display: none;
-  }
-  
+@media only screen and (max-width: 700px)  {    
+	.global_planArea {
+		text-align: center;
+	}
+	.globalIcon{
+		display: none;
+	}
     .otherPlans p.otherPlansText{ color: #000;}
     .otherPlans{opacity:1;}
     .commonmyaccountareaforallpages{padding: 0px;}
-    .commonmyaccountareaforallpages .leftArea{ 
+    .commonmyaccountareaforallpages .leftArea { 
         width: 100%;
         border-right: none;
-        padding-bottom: 20px;
     }
     .global_planArea{
         display: table;
@@ -127,8 +124,8 @@ p {
         width: 100%;
         text-align: center;
         float: right;
-        border-bottom: 1px solid #C7C7C7;
-        padding: 20px 0;
+        // border-bottom: 1px solid #C7C7C7;
+        padding: 10px 0 0;
     }
     .otherPlans{
         float: none;
@@ -136,14 +133,17 @@ p {
         margin: 0px auto;
         padding-top: 23px;
     }
-    .planBalanceRecharge{float: none;
+    .planBalanceRecharge{
+		float: none;
         display: table;
         margin: 0 auto;}
     
-.commonmyaccountareaforallpages {
-    background: none !important;
-}
-    
+	.commonmyaccountareaforallpages {
+		background: none !important;
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 30px;
+	}    
 }
 
 .commonmyaccountareaforallpages {
