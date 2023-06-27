@@ -1810,7 +1810,7 @@ h1.buy1get1-text:after {
 
 @media only screen and (min-width: 1650px) and (max-width: 1799.9px) {
     .picsum-img-wrapper {
-        height: 774px;
+        // height: 774px;
     }
     .home-slider .promotion_image {
         min-height: 975px!important;
@@ -1965,7 +1965,7 @@ h1.buy1get1-text:after {
 
 @media only screen and (min-width: 1000px) and (max-width: 1200px) {
 
-    .promotion .promotion_img_div{
+    .promotion .promotion_img_div {
         width: 60%;
         margin: 0 0 0 auto;
         right:20%
@@ -1988,45 +1988,43 @@ h1.buy1get1-text:after {
     }
     .home-slider .bg-image{
         width: 100%;
-        min-height: 0;
-        -o-object-fit: cover;
-        object-fit: contain;
-        }
-        .promotion-offer .promo-btnimg{
-            max-width: 55%;
-        }
-        
-
+        // min-height: 0;
+        // -o-object-fit: cover;
+        // object-fit: contain;
     }
+    .promotion-offer .promo-btnimg {
+        max-width: 55%;
+    }    
+}
 
 
-    @media only screen and (min-width: 1920px) and (max-width: 3000px) {
-        .home-slider .bg-image{
-            // min-height: 925px;
-            //  max-height: 990px;
-        }
+@media only screen and (min-width: 1920px) and (max-width: 3000px) {
+    .home-slider .bg-image{
+        // min-height: 925px;
+        //  max-height: 990px;
     }
-    
-    @media only screen and (min-width: 1850px) and (max-width: 1920px) {
-  
-        .promotion-offer a{
-            margin-bottom: 30px;
-        }  
-        .promotion-offer{
-            // top: -308px;
-        }
-        .home-slider .promotion_image{
-            // min-height: 1000px!important;
-            // max-height: 1000px!important;
-        }
+}
+
+@media only screen and (min-width: 1850px) and (max-width: 1920px) {
+
+    .promotion-offer a{
+        margin-bottom: 30px;
+    }  
+    .promotion-offer{
+        // top: -308px;
     }
-    
-    @media only screen and (min-width: 1706px) and (max-width: 1850px) {
-        .home-slider .bg-image {
-            // min-height: 1000px!important;
-            // max-height: 1000px!important;
-        }
+    .home-slider .promotion_image{
+        // min-height: 1000px!important;
+        // max-height: 1000px!important;
     }
+}
+
+@media only screen and (min-width: 1706px) and (max-width: 1850px) {
+    .home-slider .bg-image {
+        // min-height: 1000px!important;
+        // max-height: 1000px!important;
+    }
+}
 
 @media only screen and (min-width: 2000px) {
     .home-slider .promotion_image {
@@ -2242,6 +2240,9 @@ h1.buy1get1-text:after {
     .promotion-offer .promo-btn {
         width: 180px;
     }
+    .reward-content {
+        margin-left: 0;
+    }
 }
 
 @media only screen  and (max-width: 1100px) {
@@ -2274,6 +2275,51 @@ h1.buy1get1-text:after {
     .home-slider .bg-image {
         min-height: 620px;
         max-height: 620px;
+        // object-position: right;
+    }
+    .carousel-caption.tpSlider_1 {
+        top: -20px;
+    }    
+    .carousel-caption.tpSlider_1 .divider {
+        margin: 22px auto;
+    }    
+    .buy-btn {
+        margin-left: 0;
+    }
+    .bonus-ms {
+        font-size: 34px;
+        line-height: 1;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: -70px;
+    }    
+    .carousel-caption.reward {
+        top: 100px;
+    }    
+    .bonus-sm-text {
+        background: rgba(0, 0, 0, 0.2);
+        font-size: 16px;
+        max-width: 210px;
+        padding: 4px 7px;
+        margin: 10px auto 18px;
+    }    
+    a.enroll-btn {
+        padding: 2px 20px;
+        font-size: 16px;
+    }
+    .topup-btn {
+        width: 160px;
+        padding: 5px 15px;
+        font-size: 20px;
+        bottom: 32%;
+    }
+    .carousel-caption.download {
+        left: 10px;
+        right: 10px;
+        top: 23%;
+    }    
+    .btn-slider {
+        margin-top: 30px;
     }
 }
 

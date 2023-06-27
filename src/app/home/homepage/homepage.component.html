@@ -79,11 +79,16 @@
                     <img loading="lazy" src="./assets/images/mobile_app_v2.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId ==3">
                     <img loading="lazy" src="./assets/images/download_get_img.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId ==3">
                     <!-- <img loading="lazy" src="./assets/images/mobile_app_us_ypncgi.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId !=3"> -->
-                    <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId !=3">
-                    <img loading="lazy" src="./assets/images/download_get_us.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId !=3">
-                    <div  style="width:100%; height:45px;">
+                    <a href="javascript:void(0)" (click)="downloadApp()" type="button" mat-button>
+                        <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId !=3">
+                    </a>
+                    <!-- <img loading="lazy" src="./assets/images/download_get_us.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId !=3"> -->
+                    <a href="javascript:void(0)" (click)="downloadApp()" type="button" mat-button>
+                        <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId !=3">
+                    </a>
+                    <!-- <div  style="width:100%; height:45px;">
                         <a href="javascript:void(0)" (click)="downloadApp()" class="btn-slider" type="button" mat-button>Download Now</a>
-                    </div>
+                    </div> -->
                 </div>
             </ng-template>
 
@@ -91,7 +96,8 @@
                 <div class="picsum-img-wrapper">
                     <!-- <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image d-none d-md-block"> -->
                     <img loading="lazy" src="./assets/images/home_banner_new/slider-bg.webp" alt="Random first slide" class="bg-image d-none d-md-block">
-                    <img loading="lazy" src="./assets/images/slider-bg.webp" alt="" class="bg-image d-block d-md-none">
+                    <!-- <img loading="lazy" src="./assets/images/slider-bg.webp" alt="" class="bg-image d-block d-md-none"> -->
+                    <img loading="lazy" src="./assets/images/home_banner_new/slider-bg.webp" alt="" class="bg-image d-block d-md-none">
                 </div>
                 <div class="carousel-caption refer it-topup">
                     <a href="#"><img loading="lazy" src="./assets/images/int-top-img.webp" alt="" class="img-fluid d-md-none d-block m-auto topup-img"></a>
@@ -144,18 +150,25 @@
                         </div>
                     </div>
                     <div class="d-block d-md-none">
-                        <img loading="lazy" src="./assets/images/reward-mobile.webp" alt="" class="img-fluid d-block d-md-none reward-mob" *ngIf="currentSetting?.country?.CountryId !=3">
+                        <!-- <img loading="lazy" src="./assets/images/reward-mobile.webp" alt="" class="img-fluid d-block d-md-none reward-mob" *ngIf="currentSetting?.country?.CountryId !=3"> -->
+                        <img loading="lazy" src="./assets/images/home_banner_new/star_iiewat.webp" alt="" class="img-fluid d-block d-md-none reward-mob" *ngIf="currentSetting?.country?.CountryId !=3">
                         <img loading="lazy" src="./assets/images/reward-mobile-uk.webp" alt="" *ngIf="currentSetting?.country?.CountryId ==3" class="img-fluid d-block d-md-none reward-mob">
-                        <div class="collection">Collect 1000 points and get $10 FREE. </div>
+                        <!-- <div class="collection">Collect 1000 points and get $10 FREE. </div> -->
+                        <div class="bonus-ms">
+                            ENROLL <br> EARN <br> Redeem
+                        </div>
+                        <div class="bonus-sm-text">
+                            No Purchase Necessary. 
+                            Get 200 points instantly.                                                        
+                        </div>
                         <a href="javascript:void(0)" (click)="enrollNow()" mat-button class="enroll-btn" mat-button>Enroll Now</a>
-                        <div class="enroll-wrappers">
+                        <!-- <div class="enroll-wrappers">
                             <a href="javascript:void(0)" (click)="howItWorksPopup(6)">How it works</a>
                             <a href="javascript:void(0)" (click)="faqPopup(6)">FAQs</a>
-
-                        </div>
-                        <div class="collection_note">
+                        </div> -->
+                        <!-- <div class="collection_note">
                             No Purchase Necessary. Get 200 points instantly.
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </ng-template>  
