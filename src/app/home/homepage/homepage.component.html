@@ -30,20 +30,28 @@
             </ng-template>   -->
             <ng-template ngbSlide>
                 <div class="picsum-img-wrapper">
-                    <img src="./assets/images/slider-bg.webp" loading="lazy" alt="Random first slide" class="bg-image">
+                    <!-- <img src="./assets/images/slider-bg.webp" loading="lazy" alt="Random first slide" class="bg-image"> -->
+                    <img src="./assets/images/home_banner_new/slider-bg.webp" loading="lazy" alt="Random first slide" class="bg-image">
+                    <!-- <img src="./assets/images/home_banner_new/slider-bg-us.webp" loading="lazy" alt="Random first slide" class="bg-image"> -->
+                    <!-- <img src="./assets/images/home_banner_new/slider-bg-uk.webp" loading="lazy" alt="Random first slide" class="bg-image"> -->
                 </div>
                 <div class="carousel-caption">
                     <div class="d-flex justify-content-center align-items-center flex-column">
                         <div class="d-md-flex align-items-center justify-content-center mt-5 mt-md-0">
                             <div class="img-1 mt-5">
-                                <img  src="./assets/images/buy1get1.webp" loading="lazy" alt="" class="img-fluid">
+                                <!-- <img  src="./assets/images/buy1get1.webp" loading="lazy" alt="" class="img-fluid"> -->
+                                <img  src="./assets/images/home_banner_new/buy1get1.webp" loading="lazy" alt="" class="img-fluid">
                             </div>
                             <div class="py-3 d-block d-md-none w-75 m-auto" *ngIf="currentSetting?.country?.CountryId ==3">
                                 <img src="./assets/images/buy1get1.webp" alt="" loading="lazy" class="img-fluid">
                             </div>
                             <div class="divider"></div>
-                            <div class="img-1 " *ngIf="currentSetting?.country?.CountryId !=3">
-                                <img src="./assets/images/was10now5.webp" alt="" loading="lazy" class="img-fluid">
+                            <div class="img-1 " *ngIf="currentSetting?.country?.CountryId !=3 && currentSetting?.country?.CountryId !=1">
+                                <!-- <img src="./assets/images/was10now5.webp" alt="" loading="lazy" class="img-fluid"> -->
+                                <img src="./assets/images/home_banner_new/was10now5.webp" alt="" loading="lazy" class="img-fluid">
+                            </div>
+                            <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 1">
+                                <img src="./assets/images/home_banner_new/was5now5_us.webp" alt="" loading="lazy" class="img-fluid">
                             </div>
                             <div class="img-1 d-none d-md-block" *ngIf="currentSetting?.country?.CountryId ==3">
                                 <img src="./assets/images/uk_left_new.webp" alt="" loading="lazy" class="img-fluid">
@@ -64,12 +72,14 @@
  
              <ng-template ngbSlide>
                 <div class="picsum-img-wrapper">
-                    <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image">
+                    <!-- <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image"> -->
+                    <img loading="lazy" src="./assets/images/home_banner_new/slider-bg.webp" alt="Random first slide" class="bg-image">
                 </div>
                 <div class="carousel-caption download">
                     <img loading="lazy" src="./assets/images/mobile_app_v2.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId ==3">
                     <img loading="lazy" src="./assets/images/download_get_img.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId ==3">
-                    <img loading="lazy" src="./assets/images/mobile_app_us_ypncgi.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId !=3">
+                    <!-- <img loading="lazy" src="./assets/images/mobile_app_us_ypncgi.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId !=3"> -->
+                    <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId !=3">
                     <img loading="lazy" src="./assets/images/download_get_us.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId !=3">
                     <div  style="width:100%; height:45px;">
                         <a href="javascript:void(0)" (click)="downloadApp()" class="btn-slider" type="button" mat-button>Download Now</a>
@@ -79,13 +89,15 @@
 
             <ng-template ngbSlide *ngIf="currentSetting?.country?.CountryId !=3">
                 <div class="picsum-img-wrapper">
-                    <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image d-none d-md-block">
+                    <!-- <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image d-none d-md-block"> -->
+                    <img loading="lazy" src="./assets/images/home_banner_new/slider-bg.webp" alt="Random first slide" class="bg-image d-none d-md-block">+
                     <img loading="lazy" src="./assets/images/slider-bg.webp" alt="" class="bg-image d-block d-md-none">
                 </div>
                 <div class="carousel-caption refer it-topup">
                     <a href="#"><img loading="lazy" src="./assets/images/int-top-img.webp" alt="" class="img-fluid d-md-none d-block m-auto topup-img"></a>
                     <img loading="lazy" src="./assets/images/int-top-bottom.webp" alt="" class="img-fluid d-md-none d-block m-auto int-bottom">
-                    <img loading="lazy" src="./assets/images/it-topup-inner_g7bpbe.webp" alt="" class="img-fluid d-md-block d-none m-auto">
+                    <!-- <img loading="lazy" src="./assets/images/it-topup-inner_g7bpbe.webp" alt="" class="img-fluid d-md-block d-none m-auto"> -->
+                    <img loading="lazy" src="./assets/images/home_banner_new/it-topup-inner_g7bpbe.webp" alt="" class="img-fluid d-md-block d-none m-auto">
                     
                     <div  style="width:100%; height:35px;">
                         <a href="" [routerLink]="[ '/mobiletopup' ]" class="topup-btn" type="button" mat-button>TOP-UP</a>
@@ -95,17 +107,19 @@
 
             <ng-template ngbSlide>
                 <div class="picsum-img-wrapper">
-                    <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image">
+                    <!-- <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image"> -->
+                    <img loading="lazy" src="./assets/images/home_banner_new/slider-bg.webp" alt="Random first slide" class="bg-image">
                 </div>
                 <div class="carousel-caption reward">
                     <div class="container d-none d-md-block">
                         <div class="row align-items-center">
                             <div class="col-md-8">
-                                <img loading="lazy" src="./assets/images/star_iiewat.webp" alt="" class="img-fluid">
+                                <!-- <img loading="lazy" src="./assets/images/star_iiewat.webp" alt="" class="img-fluid"> -->
+                                <img loading="lazy" src="./assets/images/home_banner_new/star_iiewat.webp" alt="" class="img-fluid">
                             </div>
                             <div class="col-md-4">
                                 <div class="reward-content">
-                                    <img loading="lazy" src="./assets/images/free_10.webp" alt="" class="img-fluid" *ngIf="currentSetting?.country?.CountryId !=3">
+                                    <!-- <img loading="lazy" src="./assets/images/free_10.webp" alt="" class="img-fluid" *ngIf="currentSetting?.country?.CountryId !=3"> -->
                                     <img loading="lazy" src="./assets/images/free-uk.webp" alt="" class="img-fluid" *ngIf="currentSetting?.country?.CountryId ==3">
 
                                     <div class="bonus-ms">
