@@ -407,8 +407,6 @@ a {
 
 @include breakpoint(sm-md) {
 
-    
-
     .mobileImageSlider {
         right: 0;
         left: 0;
@@ -890,7 +888,7 @@ a {
 /* new css start here */
 
 .divider {
-    background: #fff;
+    background: #444e6d;
     width: 1px;
     // height: 60%;
     height: 300px;
@@ -927,6 +925,38 @@ a {
     visibility: hidden;
 }
 
+.carousel-caption.tpSlider_1 {
+    top: 20%;
+}
+.carousel-caption.tpSlider_1 .divider {
+    margin-left: 45px;
+    margin-right: 35px;
+}
+.buy-btn {
+    margin-left: -50px;
+    margin-top: 40px;
+}
+.carousel-caption.download {
+    top: 15%;
+}
+.topup-btn {
+    color: #000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+    bottom: 34%;
+    font-weight: 600;
+    background: #000;
+    border-radius: 30px;
+    background-color: #fea304;
+    padding: 10px 20px;
+    font-size: 25px;
+    &:hover {
+        opacity: .8;
+    }
+}
 @media only screen and (max-width: 675px) {
     .divider {
         background: #ffffff40;
@@ -941,8 +971,7 @@ a {
     }
 }
 
-@media only screen and (min-width: 300px) and (max-width: 650px) 
-{
+@media only screen and (min-width: 300px) and (max-width: 650px) {
     .img-1 img {
         width: 65%;
         // width: 53%;
@@ -978,9 +1007,9 @@ a {
 .home-slider {
     .bg-image {
         width: 100%;
-        min-height: 799px;
+        min-height: 700px;
         //min-height: 799px;
-        max-height: 799px;
+        max-height: 700px;
         // min-height: 100vh;
         // object-fit: fill;
         object-fit: cover;
@@ -1099,22 +1128,27 @@ a {
 }
 
 .carousel-caption.reward {
-    left: 0;
-    bottom: 0;
+    left: 75px;
+    bottom: 5%;
 }
 
 .reward-content {
     text-align: left;
-    margin-left: 24px;
-    margin-top: 50px;
+    margin-left: -50px;
+    margin-top: 35px;
     .bonus-ms {
-        font-size: 48px;
+        font-size: 62px;
+        line-height: 1;
         font-weight: 700;
         text-transform: uppercase;
-        line-height: 53px;
-        text-align: left;
         margin-top: -12px;
-        letter-spacing: 1px;
+    }
+    .bonus-sm-text {
+        background: rgb(0 0 0 / 20%);
+        font-size: 16px;
+        max-width: 210px;
+        padding: 4px 7px;
+        margin-top: 6px;
     }
     .border {
         width: 64%;
@@ -1125,35 +1159,21 @@ a {
         font-size: 12px;
     }
     .btn {
-        background: #ffd005;
+        background: #ffcf05;
         text-transform: uppercase;
         border-radius: 50px;
         font-weight: 600;
         color: #170a50;
-        margin-top: 24px;
-        margin-bottom: 16px;
+        margin-top: 18px;
+        font-size: 20px;
+        padding: 4px 16px;
+        &:hover {
+            opacity: .8;
+        }
     }
     p {
         font-size: 13px;
     }
-}
-
-.topup-btn {
-    color: #fff;
-    font-style: italic;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 120px;
-    bottom: 25%;
-    font-weight: 600;
-    background: #000;
-    border-radius: 20px;
-    background-color: #000000;
-    border: 2px solid #ffbe00;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .enroll-wrappers a {

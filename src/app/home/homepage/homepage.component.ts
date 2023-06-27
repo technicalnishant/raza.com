@@ -60,7 +60,8 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
         'slidesToShow': 2,
         'slidesToScroll': 1,
         'arrows': false,
-        'dots': false
+        'dots': false,
+        'autoplay': false,
       }
     }]
   };
