@@ -37,6 +37,7 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { BottomUpComponent } from 'app/mobile-pay/dialog/bottom-up/bottom-up.component';
 import { WhatIsCvvComponent } from 'app/accounts/dialog/what-is-cvv/what-is-cvv.component';
 import { AddEditCardComponent } from 'app/accounts/dialog/add-edit-card/add-edit-card.component';
+import { ConfirmPopupDialog } from 'app/accounts/dialog/confirm-popup/confirm-popup-dialog';
 @Component({
   selector: 'app-my-cards',
   templateUrl: './my-cards.component.html',
@@ -366,13 +367,14 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
       this.paymentSubmitted = true;
       if (this.selectedCard === null)
         return;
+        
       if (this.selectedCard.Cvv.length < 3)
         return;
   
       this.selectedCard.CardHolderName = `${this.billingInfo.FirstName} ${this.billingInfo.LastName}`;
       this.selectedCard.FullName = this.selectedCard.CardHolderName;
       this.selectedCard.PhoneNumber = this.billingInfo.Address.HomePhone;
-      this.onPaymentSubmit.emit(this.selectedCard);
+      this.selectedCard;
     }
     
     onPaymentInfoFormSubmit() {
@@ -516,16 +518,94 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     }
   
     editCardDetails(card) {
-      // this.removeLocalStorage();
-      // this.customerService.EditCreditCard(card).subscribe(data => {
-        
-      //   this.cardBillingAddress(data, card);
-      // });
+      const dialogRefCard = this.dialog.open(AddEditCardComponent, {
+        maxHeight: '550px',
+        maxWidth: '550px',
+        data: {
+          result: card,
+          cardFull:card,
+           
+        }
+      });
+  
+      dialogRefCard.afterClosed().subscribe(result => {
+        if(result)
+        {
+            this.cvvStored=result.split(",")[1];
+            
+            if (result.split(",")[0] == "success") {
+              this.getCustomerCards();
+          
+                this.customerService.GetBillingInfo().subscribe(
+                  (res: any) => { this.billingInfo = res;
+                  
+                    this.onClickCreditCardPay();
+                  },
+                  (err: ApiErrorResponse) => console.log(err),
+                )
+              }
+        }
+      },
+        err => this.razaSnackbarService.openError("An error occurred!! Please try again.")
+      )
     }
 
-    deleteCardDetails(card)
-    {
-
+ addNewCard() {
+      this.removeLocalStorage();
+      const dialogRefCard = this.dialog.open(AddEditCardComponent, {
+        maxHeight: '550px',
+        maxWidth: '550px',
+        data: {
+          result: null,
+          result2: this.billingInfo
+        }
+      });
+  
+      dialogRefCard.afterClosed().subscribe(result => {
+        if(result)
+        {
+          this.cvvStored=result.split(",")[1];
+          if (result.split(",")[0] == "success") {
+            this.getCustomerCards();
+        
+              this.customerService.GetBillingInfo().subscribe(
+                (res: any) => { this.billingInfo = res;
+                
+                  this.onClickCreditCardPay();
+                },
+                (err: ApiErrorResponse) => console.log(err),
+              )
+              
+          }
+        }
+      },
+        err => this.razaSnackbarService.openError("An error occurred!! Please try again.")
+      )
+    }
+ 
+    deleteCardDetails(card) {
+      const dialogRef = this.dialog.open(ConfirmPopupDialog, {
+        data: {
+          success: 'success'
+        }
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+  
+        if (result == "success") {
+          this.customerService.DeleteCreditCard(card.CardId).subscribe(
+            (res: boolean) => {
+              if (res) {
+                this.razaSnackbarService.openSuccess("Credit card deleted successfully.");
+                this.getCustomerCards();
+              }
+              else
+                this.razaSnackbarService.openError("Unable to delete information, Please try again.");
+            },
+            err => this.razaSnackbarService.openError("An error occurred!! Please try again.")
+          )
+        }
+      });
     }
   
     cardBillingAddress(data, card:any) {
@@ -582,38 +662,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
       )
     }
   
-    addNewCard() {
-      this.removeLocalStorage();
-      const dialogRefCard = this.dialog.open(AddEditCardComponent, {
-        maxHeight: '550px',
-        maxWidth: '550px',
-        data: {
-          result: null,
-          result2: this.billingInfo
-        }
-      });
-  
-      dialogRefCard.afterClosed().subscribe(result => {
-        this.cvvStored=result.split(",")[1];
-        
-        if (result.split(",")[0] == "success") {
-          this.getCustomerCards();
-       
-            this.customerService.GetBillingInfo().subscribe(
-              (res: any) => { this.billingInfo = res;
-              
-                this.onClickCreditCardPay();
-              },
-              (err: ApiErrorResponse) => console.log(err),
-            )
-           
-  
-         // this.onClickCreditCardPay();
-        }
-      },
-        err => this.razaSnackbarService.openError("An error occurred!! Please try again.")
-      )
-    }
+   
   
     onClickCreditCardPay() {
       this.paymentSubmitted = true;

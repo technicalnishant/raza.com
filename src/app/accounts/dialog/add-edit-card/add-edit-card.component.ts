@@ -106,7 +106,6 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
       if (!isNullOrUndefined(this.data.result)) {
         this.paymentDetailForm.patchValue({
           CardNumber: this.data.result.CardNumber,
-          //Cvv2: this.data.result.Cvv,
           ExpMonth: this.data.result.ExpiryMonth,
           ExpYear: this.data.result.ExpiryYear
         });
@@ -115,14 +114,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
         {
           this.paymentDetailForm.patchValue({Cvv2:localStorage.getItem('selectedCvv')});
         }
-        if( localStorage.getItem('errorCode'))
-        {
-          if(Number(localStorage.getItem('errorCode'))== 2 )
-          {
-            this.selectepage = 1;
-             
-          }
-        }
+       
       }
    
   
@@ -136,22 +128,10 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
           City: address.City,
           PostalCode: address.ZipCode,
         });
-  
         this.search_country_id = address.Country.CountryId;
         
       }
-      else if (!isNullOrUndefined(this.data.result2)) {
-          this.billingInfoForm.patchValue({
-            FullName: this.data.result2.FirstName + " " + this.data.result2.LastName,
-            Country: this.data.result2.Address.Country.CountryId,
-            State: this.data.result2.Address.State,
-            BillingAddress: this.data.result2.Address.StreetAddress,
-            City: this.data.result2.Address.City,
-            PostalCode: this.data.result2.Address.ZipCode,
-          });
-    
-          this.search_country_id = this.data.result2.Address.Country.CountryId;
-        }
+       
     }
   
     get isFreeStateText() {
@@ -164,7 +144,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
     loadStates(flagDefault: boolean = false): void {
       
       if (flagDefault)
-        this.countryId = this.data.result2.Address.Country.CountryId;
+        this.countryId = this.search_country_id;
       else
         this.countryId = this.billingInfoForm.get('Country').value;
   

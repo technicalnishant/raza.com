@@ -4,10 +4,13 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Plan } from 'app/accounts/models/plan';
 import { PlanService } from 'app/accounts/services/planService';
+import { RechargeCheckoutModel } from 'app/checkout/models/checkout-model';
+import { CheckoutService } from 'app/checkout/services/checkout.service';
 import { ApiErrorResponse } from 'app/core/models/ApiErrorResponse';
 import { CurrentSetting } from 'app/core/models/current-setting';
 import { AuthenticationService } from 'app/core/services/auth.service';
 import { RazaLayoutService } from 'app/core/services/raza-layout.service';
+import { TransactionType } from 'app/payments/models/transaction-request.model';
 import { SearchRatesService } from 'app/rates/searchrates.service';
 
 @Component({
@@ -37,6 +40,7 @@ export class AccountRechargeComponent implements OnInit {
   isSmallScreen: boolean=false;
   showPlan: boolean;
   selectedDenomination:number=10;
+  isAutoRefillEnable: boolean;
   constructor(
     private searchRatesService: SearchRatesService,
     private titleService: Title,
@@ -46,6 +50,7 @@ export class AccountRechargeComponent implements OnInit {
 	private planService: PlanService,
 	private authService: AuthenticationService,
   private breakpointObserver: BreakpointObserver,
+  private checkoutService: CheckoutService,
   ) { }
 
   ngOnInit(): void {
@@ -109,8 +114,25 @@ export class AccountRechargeComponent implements OnInit {
     // this.clickSliderButton(current_position)
    }
 
-   onClickAmountOption(item)
+   onClickAmountOption(item: any)
    {
     this.selectedDenomination=item.Price;
-   }
+    const model: RechargeCheckoutModel = new RechargeCheckoutModel();
+
+    model.purchaseAmount = item.Price;
+    model.couponCode = item.PromoCode;
+    model.currencyCode = this.plan.CurrencyCode;
+    model.cvv = '';
+    model.planId = this.plan.PlanId
+    model.transactiontype = TransactionType.Recharge;
+    model.serviceChargePercentage = this.plan.ServiceChargePercent;
+    model.planName = this.plan.CardName;
+    model.countryFrom = this.plan.CountryFrom;
+    model.countryTo = this.plan.CountryTo;
+    model.cardId = this.plan.CardId;
+    model.isAutoRefill = this.isAutorefill;
+    model.offerPercentage = '';
+    this.checkoutService.setCurrentCart(model);
+    
+  }
 }
