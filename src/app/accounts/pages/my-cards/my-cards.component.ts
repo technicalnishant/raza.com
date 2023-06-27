@@ -598,9 +598,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
         
         if (result.split(",")[0] == "success") {
           this.getCustomerCards();
-          //this.loadBillingInfo();
-  
-           
+       
             this.customerService.GetBillingInfo().subscribe(
               (res: any) => { this.billingInfo = res;
               
@@ -623,7 +621,6 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
       this.selectedCardPay.FullName = this.selectedCardPay.CardHolderName;
       this.selectedCardPay.PhoneNumber = this.billingInfo.Address.HomePhone;
       this.selectedCardPay.Cvv= this.cvvStored;
-      
       this.onPaymentSubmit.emit(this.selectedCardPay);
     }
   
