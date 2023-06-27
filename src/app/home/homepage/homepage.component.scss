@@ -926,15 +926,19 @@ a {
 }
 
 .carousel-caption.tpSlider_1 {
-    top: 20%;
+    top: 16%;
 }
 .carousel-caption.tpSlider_1 .divider {
     margin-left: 45px;
-    margin-right: 35px;
+    margin-right: 45px;
 }
 .buy-btn {
     margin-left: -50px;
     margin-top: 40px;
+    background-color: #ffcf05;
+    &:hover {
+        opacity: .8;
+    }
 }
 .carousel-caption.download {
     top: 15%;
@@ -950,7 +954,7 @@ a {
     font-weight: 600;
     background: #000;
     border-radius: 30px;
-    background-color: #fea304;
+    background-color: #ffcf05;
     padding: 10px 20px;
     font-size: 25px;
     &:hover {
@@ -1134,7 +1138,6 @@ a {
 
 .reward-content {
     text-align: left;
-    margin-left: -50px;
     margin-top: 35px;
     .bonus-ms {
         font-size: 62px;
@@ -1166,7 +1169,7 @@ a {
         color: #170a50;
         margin-top: 18px;
         font-size: 20px;
-        padding: 4px 16px;
+        padding: 4px 24px;
         &:hover {
             opacity: .8;
         }
