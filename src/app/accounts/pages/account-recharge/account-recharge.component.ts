@@ -41,6 +41,7 @@ export class AccountRechargeComponent implements OnInit {
   showPlan: boolean;
   selectedDenomination:number=10;
   isAutoRefillEnable: boolean;
+  ratesLoaded:boolean=false;
   constructor(
     private searchRatesService: SearchRatesService,
     private titleService: Title,
@@ -60,7 +61,7 @@ export class AccountRechargeComponent implements OnInit {
     this.titleService.setTitle('Recharge');
     this.razalayoutService.setFixedHeader(true);
     this.uri = this.route.snapshot.paramMap.get('notification');//?this.route.snapshot.paramMap.get('notification'):'notification';
-	this.planService.getAllPlans().subscribe(
+	  this.planService.getAllPlans().subscribe(
       (data: Plan[]) => {
         this.plan = data[0];
         if(data.length > 0 )
@@ -68,7 +69,6 @@ export class AccountRechargeComponent implements OnInit {
 
           this.toCountryId    = this.plan.CountryTo;
           this.fromCountryId  = this.plan.CountryFrom;
-
           this.isEnableOtherPlan =false
         }
         else {
@@ -100,20 +100,28 @@ export class AccountRechargeComponent implements OnInit {
            
         })
    }
+
    filterDenomination(data:any)
    {
       this.denominatons = data[0];//.filter( a => {a.CountryId == this.fromCountryId})
+      this.ratesLoaded = true;
+      this.setCart()
    }
 
    setPlanType()
    {
      
      this.isAutorefill = !this.isAutorefill;
-   
-      
-    // this.clickSliderButton(current_position)
+     // this.clickSliderButton(current_position)
    }
-
+   setCart()
+   {
+    this.denominatons.Denominations.map(item=>{
+      if(item.Price == this.selectedDenomination){
+        this.onClickAmountOption(item);
+      }
+    })
+   }
    onClickAmountOption(item: any)
    {
     this.selectedDenomination=item.Price;
@@ -133,6 +141,6 @@ export class AccountRechargeComponent implements OnInit {
     model.isAutoRefill = this.isAutorefill;
     model.offerPercentage = '';
     this.checkoutService.setCurrentCart(model);
-    
+    console.log(model);
   }
 }
