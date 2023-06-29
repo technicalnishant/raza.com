@@ -375,6 +375,8 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
       this.selectedCard.FullName = this.selectedCard.CardHolderName;
       this.selectedCard.PhoneNumber = this.billingInfo.Address.HomePhone;
       this.selectedCard;
+
+      this.onPaymentSubmit.emit(this.selectedCard);
     }
     
     onPaymentInfoFormSubmit() {
