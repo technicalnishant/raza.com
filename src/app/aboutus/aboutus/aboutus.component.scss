@@ -63,10 +63,10 @@ margin-bottom: 10px;
   
   
 @include breakpoint(max-650)  { 
-    .three_service{ 
+    .three_service { 
 		height: 360px;
 		text-align: center !important;
-
+		padding-left: 15px;
 	}
     .second_fold {padding: 30px 14px;}
     .container{ width: 100%;}
@@ -74,8 +74,8 @@ margin-bottom: 10px;
 		left: 53%;
 		margin-left: 0px;
 		top: 60%;
+		display: none;
 	}
-
 	.aboutusCont {
 		h5 {
 			font-size: 25px;
@@ -85,5 +85,9 @@ margin-bottom: 10px;
 			font-size: 16px;
 			line-height: 1.6;
 		}
+	}
+	.home_banner.about_banner {
+		height: 430px !important;
+		background-position: left 0 bottom -50px;
 	}
 }

@@ -88,7 +88,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   @ViewChildren('formRow') rows: any;
     error_response:any='Incorrect Mobile Number/Password.';
  err_forgot_pass:any='';
-
+ navigateTo:String='';
  dataPhone:any='';
  quickRecharge:any;
  sendAgainMsg:boolean=false;
@@ -196,14 +196,23 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      }
     if(this.data.loginWith  && this.data.loginWith == 'email')
     {
-      this.loginWith = 'email';
-      this.showPassWord = true;
-      this.showForgotPass = true;
-      this.processOtp = true;
-      this.enteredPhone = this.data.email;
-      this.forgotPasswordForm.controls['phoneEmailControl'].setValue(this.data.email);
-      this.loginForm.controls['username'].setValue(this.data.email);
+      this.loginWith        = 'email';
+      
+      this.navigateTo = this.data.navigateTo && this.data.navigateTo!=''?this.data.navigateTo:'';
+
+      if(this.data.email)
+      {
+        this.showPassWord     = true;
+        this.showForgotPass   = true;
+        this.processOtp       = true;
+
+        this.enteredPhone = this.data.email;
+        this.forgotPasswordForm.controls['phoneEmailControl'].setValue(this.data.email);
+        this.loginForm.controls['username'].setValue(this.data.email);
+      }
     } 
+
+     
 
   }
  /*
@@ -338,7 +347,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       this.authService.login(body, false, "Y").subscribe((response) => {
         if (response != null) {
 
-          if(this.fromPage   =='' ) 
+          if(this.fromPage   == '' && this.navigateTo == '') 
           { 
             this.router.navigate([this.returnUrl]);
             this.closeModal();
@@ -373,7 +382,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   {
      var path = '/'+this.module+'/'+this.fromPage
     
-    
+     
 
     this.planService.getAllPlans().subscribe(
       (data: Plan[]) => {
@@ -382,8 +391,15 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
           this.plan = data[0];
           if(this.plan.PlanId !='')
           path = '/'+this.module+'/'+this.fromPage+'/'+this.plan.PlanId;
-
+          if(this.navigateTo !='' && this.navigateTo == 'cartpage')
+          {
+            this.router.navigate(['checkout/payment-info']); 
+          }
+          else
+          {
             this.router.navigateByUrl(path);
+          }
+            
             this.closeModal();
 
         }
@@ -512,22 +528,44 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
     this.processOtp = true;
    
-    this.executeCaptcha('login').toPromise().then(token => {
-    this.authService.sendOtp(reciever, token).subscribe(
-      (res: boolean) => 
-      {
-        this.processOtp = true;
-        this.sendAgainMsg = true;
-      },
-      err => 
-      {
-         this.processOtp = false;
-         this.showForgotPass = true;
-          this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
-          this.err_forgot_pass = (err.error.Message)?err.error.Message:'There must be some issue please try again after some time.';
-      }
-    );
-    })
+    if(this.loginWith == 'email')
+    {
+       
+        this.authService.sendpasswordlink(reciever).subscribe(
+          (res: boolean) => {
+            this.otpSend = true;
+            this.processOtp = true;
+            this.sendAgainMsg = true;
+            
+          },
+          err => {
+            this.processOtp = false;
+              this.showForgotPass = true;
+            this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+          }
+        );
+
+
+    }
+    else
+    {
+        this.executeCaptcha('login').toPromise().then(token => {
+        this.authService.sendOtp(reciever, token).subscribe(
+            (res: boolean) => 
+            {
+              this.processOtp = true;
+              this.sendAgainMsg = true;
+            },
+            err => 
+            {
+              this.processOtp = false;
+              this.showForgotPass = true;
+                this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+                this.err_forgot_pass = (err.error.Message)?err.error.Message:'There must be some issue please try again after some time.';
+            }
+          );
+        })
+    }
 
   }
   processClose()
@@ -650,7 +688,15 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       if (response != null) 
       {
         //this.router.navigateByUrl('/account/update-password');
-        this.router.navigate([this.returnUrl]);
+        
+
+        if(this.navigateTo !='' && this.navigateTo == 'cartpage')
+          {
+            this.router.navigate(['checkout/payment-info']); 
+          }
+          else{
+            this.router.navigate([this.returnUrl]);
+          }
         this.closeModal();
       } else if (response == null) 
       {
@@ -809,6 +855,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
            
         },
         err => {
+          this.processOtp = false;
+          this.showForgotPass = true;
           this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
         }
       );
@@ -897,8 +945,15 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       if (response != null) 
       {
        // this.router.navigateByUrl('/account/update-password');
+
+       if(this.navigateTo !='' && this.navigateTo == 'cartpage')
+          {
+            this.router.navigate(['checkout/payment-info']); 
+          }
+          else
+          this.router.navigate([this.returnUrl]);
        //if(!this.quickRecharge)
-       this.router.navigate([this.returnUrl]);
+       
 
         this.closeModal();
       } 

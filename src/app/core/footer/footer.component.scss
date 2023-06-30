@@ -1,9 +1,8 @@
 .margin .footer_style{ margin-top: -95px;} 
 
-@media only screen and (max-width: 480px)
-{
- .ph_no{
-    font-size: 20px;
+@media only screen and (max-width: 480px) {
+ .ph_no {
+    font-size: 17px;
     font-weight: 600;
  }
 
@@ -17,20 +16,16 @@
     }
 }
 
+.social_list .h4 {
+    font-size: 20px;
+}
+
 .footer_menu {
-
-    ul {
-     
-
-        li {
-        
-        
+    ul {     
+        li {            
             a {
-               
                 font-size: 13px;
                 font-weight: 400;
-
-               
             }
         }
     }

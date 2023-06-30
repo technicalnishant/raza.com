@@ -123,7 +123,7 @@ $background-color_1: #ffffff;
         display: flex;
         align-items: center;
         @include breakpoint(sm) {
-            justify-content:center;
+            // justify-content:center;
         }
         img {
             // height: 40px;
@@ -309,7 +309,8 @@ $background-color_1: #ffffff;
         font-family: $font-family;
         text-align: center;
         @include breakpoint(sm) {
-            font-size:34px
+            font-size:30px;
+            margin-bottom: 0;
         }
     }
 
@@ -354,10 +355,9 @@ $background-color_1: #ffffff;
     text-align: center;
     margin-bottom: 50px;
     @include breakpoint(sm) {
-        font-size:34px;
-        margin-bottom: 30;
+        font-size:35px;
+        margin-bottom: 30px;
     }
-   
 }
 
 .faq-section {
@@ -432,4 +432,40 @@ $background-color_1: #ffffff;
     width: 40px;
     -o-object-fit: contain;
     object-fit: contain;
+}
+@include breakpoint(sm) {
+    .country-box .country-name {
+        font-size: 17px;
+        line-height: 1.3;
+        text-align: left;
+    }
+    .country-box .country-rate {
+        font-size: 17px;
+        line-height: 1.3;
+        margin-top: 12px;
+        margin-bottom: 15px;
+    }
+
+    section.country-search .container > .col-lg-8 {
+        padding: 0;
+    }
+    .alphabet_links {
+        display: none;
+    }
+    .country-box .country-rate span {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .country-box .view-details-btn {
+      padding: 2px 18px;
+    }
+    .heading_style1 {
+        font-size: 30px;
+    }
+    .home_banner.searchrate_banner {
+        height: 410px !important;
+        background-position: top;
+        border-bottom-left-radius: 100% 80px;
+        border-bottom-right-radius: 100% 80px;
+    }
 }

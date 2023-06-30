@@ -11,7 +11,8 @@ import { AppBaseComponent } from '../../components/app-base-component';
 export class OtpConfirmationComponent extends AppBaseComponent implements OnInit {
 
   otpConfirmForm: FormGroup;
-
+  wrongOtp:boolean=false;
+  phoneNumber:any;
   constructor(
     public dialogRef: MatDialogRef<OtpConfirmationComponent>,
     public dialog: MatDialog,
@@ -24,6 +25,7 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
   }
 
   ngOnInit() {
+    this.phoneNumber = this.data.phoneNumber
     this.otpConfirmForm = this.formBuilder.group({
       otp: ['', [Validators.required]],
     });
@@ -35,16 +37,19 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
   }
 
   onOtpConfirmFormSubmit() {
+    this.wrongOtp   = false;
     if (!this.otpConfirmForm.valid) {
       return;
     }
      this.executeCaptcha('login').toPromise().then(token => {
     this.authService.verifyOtp(this.data.phoneNumber, this.otpConfirmForm.value.otp, token).toPromise()
       .then((res: boolean) => {
+       console.log("api resp is ", res);
         if (res) {
           this.dialogRef.close(this.otpConfirmForm.value.otp);
         } else {
-          console.log("Invalid Otp.");
+          this.wrongOtp = true;
+         
         }
       });
     });

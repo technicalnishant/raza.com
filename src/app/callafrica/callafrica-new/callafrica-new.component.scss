@@ -397,6 +397,21 @@ $background-color_1: #293a6a;
       width: 70%;
       font-family: 'Nunito', sans-serif;
   }
+
+  .width40 {
+    width: 40%;
+    float: right;
+    font-family: 'Nunito', sans-serif;
+}
+.width60 {
+    width: 60%;
+    font-family: 'Nunito', sans-serif;
+}
+.width50 {
+  width: 50%;
+  font-family: 'Nunito', sans-serif;
+}
+
   p {
       &.downloadText {
           font-size: 17px !important;
@@ -1422,7 +1437,7 @@ border-right: 1px solid #e7e7e7;
       display: flex;
       align-items: center;
       @include breakpoint(sm) {
-          justify-content:center;
+          // justify-content:center;
       }
       img {
           // height: 40px;
@@ -1506,5 +1521,32 @@ border-right: 1px solid #e7e7e7;
 @include breakpoint(sm) {
   .plan-info.info_bok {
     padding: 0;
+  }
+  .country-box .country-name {
+    font-size: 17px;
+    line-height: 1.3;
+    text-align: left;
+  }
+  .country-box .country-rate {
+    font-size: 17px;
+    line-height: 1.3;
+    margin-top: 12px;
+    margin-bottom: 15px;
+  }
+  .linethroughArea {
+    margin: 15px 0 0px;
+  }
+  section.country-search .container > .col-lg-8 {
+      padding: 0;
+  }
+  .alphabet_links {
+      display: none;
+  }
+  .country-box .country-rate span {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .country-box .view-details-btn {
+    padding: 2px 18px;
   }
 }

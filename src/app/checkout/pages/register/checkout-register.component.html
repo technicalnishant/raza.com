@@ -19,19 +19,14 @@
   <!-- rechargeStep -->
      
   <p class="updateCard" *ngIf="!isPromotion" >Almost there...</p>
+   <div class="row">
+      <!--<div class="col-md-12 mb-5" *ngIf="promoCode =='DAD2023'">
+      <img src="./assets/images/promotion/{{promoCode}}.jpg" class="img-fluid" alt=" Diwali Banner" />
+    </div>  -->
+  </div>  
   <div class="container containerMobile">
-<<<<<<< HEAD
-    <!-- <div class="row">
-          <div class="col-md-12 mt-5 mb-4" *ngIf="promoCode =='MOM2023'">
-=======
     <div class="row">
-          <div class="col-md-12 mt-5 mb-4" *ngIf="promoCode =='MA2023'">
->>>>>>> 5799dd70f1b8f8a038ab7b151c837d534571d015
-          <img src="./assets/images/promotion/{{promoCode}}.jpg" class="img-fluid" alt=" Diwali Banner" />
-        </div> 
-  </div> -->
-    <div class="row">
-      <div class="col-xl-6">
+      <div class="col-xl-6 expCheck">
         <div class="col-md-12">
           <h2 class="heading_style4">
             <span>Express checkout</span>
@@ -89,7 +84,7 @@
                 </svg>
                   You are in {{currentSetting.country?.CountryName}}
               </div>
-              <div class="flag_list1" *ngIf="showDropdown">
+              <!-- <div class="flag_list1" *ngIf="showDropdown">
                 <ul>
                   <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)" >
                     <span *ngIf="item.CountryId !=3">
@@ -99,7 +94,7 @@
                     </span>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
 
               <div class="col-sm-12 formRowM15">
@@ -113,6 +108,13 @@
               <div class="form_row1">
                 <div class="input_holder1 text-center">
                   <button mat-button class="submitButton_confirms">{{ submitButtonText }}</button>
+                  <div class="or">
+                    or
+                  </div>
+                  <button mat-button class="login-button" (click)="loginWithEmail()">
+                    <img src="./assets/images/app-icons/email.png" alt=""> Continue with Email
+                  </button> 
+                   
                 </div>
               </div>
             </div>
@@ -120,7 +122,7 @@
         </div>
       </div>
       <div class="col-xl-1"></div>
-      <div class="col-xl-5">
+      <div class="col-xl-5 yourOrder">
         <div class="col-md-12">
           <h2 class="heading_style4">
             <span>Your order</span>

@@ -66,6 +66,7 @@
               <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
                 [ngClass]="'flag flag-'+ option.CountryId" height="25" loading="lazy">
               <span class="width70">{{option.CountryName}}&nbsp;(+{{option.CountryCode}})</span>
+              
               <span class="width30">
                 <img src="./../../assets/images/phone-icon.png" alt="" loading="lazy">
                 <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
@@ -74,6 +75,7 @@
                 <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency}} </span>
                 <!-- <span class="landlineRate">{{setPrice(option.CallingRateLandline)}} </span> -->
               </span>
+
             </mat-option>
           </mat-autocomplete>
           <div class="input-group-append">
