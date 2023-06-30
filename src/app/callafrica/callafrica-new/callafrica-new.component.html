@@ -139,7 +139,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
       <div class="row">
           <div class="col-md-9 mx-auto">
             
-        <div class="alphabet_links" *ngIf="allCountry">
+        <div class="alphabet_links" *ngIf="allCountriesDataOld">
                  
         <li class="active" [ngClass]="{'active': currentClickedChar === 'All' }" (click)="displayCountryList('All')">All</li>
         <li class="{{isDisabled('A')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'A' }" (click)="displayCountryList('A')">A</li>
