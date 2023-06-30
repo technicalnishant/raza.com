@@ -122,10 +122,20 @@
 		font-size: 22px;
 		padding-top: 0;
 	}
-	h1.heading_style1 {
-		display: none;
-	}
 	.mat-expansion-panel-header-title {
 		font-size: 16px;
 	}
+	h1.heading_style1 {
+		font-size: 30px;
+		background: rgba(0, 0, 0, 0.35);
+		left: 15px;
+		right: 15px;
+		padding: 15px;
+		border-radius: 10px;
+		bottom: 45px;
+		span {
+			margin-top: 10px;
+			line-height: 1.4;
+		}
+	}	
 }
