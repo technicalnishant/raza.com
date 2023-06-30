@@ -57,9 +57,10 @@ export class AccountRechargeComponent implements OnInit {
   isAutoRefillEnable: boolean;
   ratesLoaded:boolean=false;
   //currentCart: ICheckoutModel;
-  currentCart: any;
+   
   paymentProcessor:any;
   currentCartObs$: Subscription;
+  currentCart: ICheckoutModel;
   constructor(
 
     private searchRatesService: SearchRatesService,
@@ -149,7 +150,6 @@ export class AccountRechargeComponent implements OnInit {
    {
     this.selectedDenomination=item.Price;
     const model: RechargeCheckoutModel = new RechargeCheckoutModel();
-
     model.purchaseAmount = item.Price;
     model.couponCode = '';
     model.currencyCode = this.plan.CurrencyCode;
@@ -194,7 +194,7 @@ export class AccountRechargeComponent implements OnInit {
    */
   private onCreditCardPayment(creditCard: CreditCard, aniNumbers?: string[]) {
     let trans_type = '';
-    this.currentCart = this.checkoutService.getCurrentCart();
+    
     if(creditCard)
     {
     localStorage.setItem('selectedCard',  creditCard.CardId.toString());
