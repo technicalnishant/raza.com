@@ -4784,8 +4784,8 @@ h2 {
     }
 
     .deal1_banner {
-       //background: url("/assets/images/buy1get1_m.webp") no-repeat center 100%;
-       background: url("/assets/images/buy1get1-bg-mob.png") no-repeat center 100%;
+       // background: url("/assets/images/buy1get1_m.webp") no-repeat center 100%;
+       // background: url("/assets/images/buy1get1-bg-mob.png") no-repeat center 100%;
     }
 
     .searchAreaMain {
@@ -5183,6 +5183,10 @@ section.faq-section .mat-expansion-panel-body p {
     }
     .still-searching {
         padding: 50px 0;
+    }
+    section.faq-section .container {
+        padding: 0 20px;
+        width: 100%;
     }
 }
 // .price_mobile_one_html .owl-carousel .owl-item {

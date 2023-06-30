@@ -1531,11 +1531,6 @@ $common-boder-width: 3px solid #2172cb;
 
 @media only screen and (min-width: 300px) and (max-width: 767px) {
 
-  .search__wrapper_new {
-    margin: 50px 5px !important;
-    padding: 20px 0;
-  }
-
   .search__wrapper_new .bg-shapes img:nth-child(1) {
     width: 10%;
     top: -13px;
@@ -1692,11 +1687,6 @@ $common-boder-width: 3px solid #2172cb;
 
 
 @media only screen and (min-width: 300px) and (max-width: 767px) {
-
-  .search__wrapper_new {
-    margin: 50px 5px !important;
-    padding: 20px 0;
-  }
 
   .search__wrapper_new .bg-shapes img:nth-child(1) {
     width: 10%;
@@ -2006,8 +1996,6 @@ $common-boder-width: 3px solid #2172cb;
         border: 1px solid #1c294d;
         @include breakpoint(sm) {
             padding: 4px;
-            border-radius: 8px;
-            margin-top: -50px;
         }
         input {
             height: 71px;
@@ -2063,11 +2051,11 @@ $common-boder-width: 3px solid #2172cb;
 
     @include breakpoint(sm) {
         margin: 30px 0;
-		flex-direction: row;
+		    flex-direction: row;
     }
-	@include breakpoint(md) {
+	  @include breakpoint(md) {
         margin: 30px 0;
-		flex-direction: row;
+		    flex-direction: row;
     }
     li {
         font-size: 16px;
@@ -2077,7 +2065,7 @@ $common-boder-width: 3px solid #2172cb;
         cursor: pointer;
         font-family: $font-family;
         margin: 0 8px;
-		list-style: none;
+		    list-style: none;
     }
 	.active {
 		background-color: #ffc72b;
@@ -2102,12 +2090,12 @@ $common-boder-width: 3px solid #2172cb;
   margin: 70px 0; 
   border-right: 1px solid #e7e7e7;
   @include breakpoint(sm) {
-    text-align: center;
-    margin: 30px 0;
-    border-right:0;
+      text-align: center;
+      margin: 30px 0;
+      border-right:0;
   }
   @include breakpoint(md) {
-        text-align: center;
+      text-align: center;
       margin: 30px 0;
       border-right:0;
   }
@@ -2129,40 +2117,40 @@ $common-boder-width: 3px solid #2172cb;
           object-fit: contain;
       }
   }
-.flag_round{
-  height: 40px;
-          width: 40px;
-          -o-object-fit: contain;
-          object-fit: contain;
+.flag_round {
+    height: 40px;
+    width: 40px;
+    -o-object-fit: contain;
+    object-fit: contain;
 }
-  .country-name {
-      font-size: 20px;
-      line-height: 28px;
-      color: $primary-color2;
-      font-weight: 700;
-      font-family: $font-family;
-      margin-left: 16px;
-      @include breakpoint(sm) {
-          text-align: left;
-      }
-  }
+.country-name {
+    font-size: 20px;
+    line-height: 28px;
+    color: $primary-color2;
+    font-weight: 700;
+    font-family: $font-family;
+    margin-left: 16px;
+    @include breakpoint(sm) {
+        text-align: left;
+    }
+}
 
-  .country-rate {
-      font-size: 24px;
-      letter-spacing: 0px;
-      line-height: 28px;
-      color: $primary-color2;
-      font-weight: 700;
-      font-family: $font-family;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      margin-left: 21px;
+.country-rate {
+    font-size: 24px;
+    letter-spacing: 0px;
+    line-height: 28px;
+    color: $primary-color2;
+    font-weight: 700;
+    font-family: $font-family;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 21px;
 
-      span {
-          font-size: 16px;
-          text-transform: lowercase;
-      }
-  }
+    span {
+        font-size: 16px;
+        text-transform: lowercase;
+    }
+}
 
   .view-details-btn {
       border-radius: 20px;
@@ -2204,14 +2192,50 @@ $common-boder-width: 3px solid #2172cb;
 }
 // mobile top country start here
 @include breakpoint(sm) {
+  .home_banner.deal1_banner {
+      height: 410px !important;
+      background-position: left 82% top 0;
+      border-bottom-left-radius: 100% 80px;
+      border-bottom-right-radius: 100% 80px;
+  }
+  section.country-search .container > .col-lg-8 {
+      padding: 0;
+  }
+  .alphabet_links {
+      display: none;
+  }
+  .row.countries_list .col-md-4.countries {
+      width: 50%;
+  }
+  .country-box .country-name {
+      font-size: 17px;
+      line-height: 1.3;
+      text-align: left;
+  }
+  .country-box .country-rate {
+      font-size: 17px;
+      line-height: 1.3;
+      margin-top: 12px;
+      margin-bottom: 15px;
+  }
+  .country-box .country-rate span {
+      font-size: 14px;
+      font-weight: 500;
+  }
+  .country-box .view-details-btn {
+      padding: 2px 18px;
+  }
   .heading_style1 {
-    left: 40%;
-    margin-left: 0px;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 40px;
+      font-size: 30px;
+      background: rgb(0 0 0 / 35%);
+      left: 15px;
+      right: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      bottom: 70px;
+      span {
+          margin-top: 10px;
+      }
   }
   .plan-info.info_bok {
     padding: 0;

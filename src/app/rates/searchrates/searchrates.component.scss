@@ -462,4 +462,10 @@ $background-color_1: #ffffff;
     .heading_style1 {
         font-size: 30px;
     }
+    .home_banner.searchrate_banner {
+        height: 410px !important;
+        background-position: top;
+        border-bottom-left-radius: 100% 80px;
+        border-bottom-right-radius: 100% 80px;
+    }
 }
