@@ -4,9 +4,6 @@
 
 .faq-section{
 	padding-bottom: 100px;
-	@include breakpoint(sm){
-		margin-bottom: 50px;
-	}
 	mat-icon{
 		color: #152f75;
 	}
