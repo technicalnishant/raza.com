@@ -107,8 +107,17 @@
     .showInmobile { display: block;}
     .shadowtype2 { padding: 20px 0 !important;}
 	.howitworks_header {
-		color: white;
-		display: none;
+		font-size: 30px;
+		background: rgba(0, 0, 0, 0.35);
+		left: 15px;
+		right: 15px;
+		padding: 15px;
+		border-radius: 10px;
+		bottom: 40px;
+		span {
+			margin-top: 10px;
+			line-height: 1.4;
+		}
 	}
     .three_service { height: 360px;}
     .second_fold { 
@@ -138,5 +147,18 @@
 		border-bottom-left-radius: 100% 80px;
 		border-bottom-right-radius: 100% 80px;
 	}		
+	.second_fold {
+		margin-top: 0;
+		padding-top: 0;
+	}
+	.howitworksSection {
+		padding: 20px 0 10px 0;
+	}	
+	.howitworksSection h3.heading_style2 {
+		margin-bottom: 12px;
+	}	
+	.gradientArea p {
+		font-size: 18px;
+	}
 }
  

@@ -57,6 +57,28 @@
 		padding: 0 25px;
 	}
 	h1.heading_style1 {
-		display: none;
+		font-size: 30px;
+		background: rgba(0, 0, 0, 0.35);
+		left: 15px;
+		right: 15px;
+		padding: 15px;
+		border-radius: 10px;
+		bottom: 40px;
+		span {
+			margin-top: 10px;
+			line-height: 1.4;
+		}
+	}	
+	.home_banner.faq_banner {
+		height: 440px !important;
+		border-bottom-left-radius: 100% 80px;
+		border-bottom-right-radius: 100% 80px;
+		background-position: left 0 top -40px;
+	}
+	.faqCnt {
+		margin-top: 20px;
+	}
+	.faq-section .loadmore {
+		margin-top: 40px !important;
 	}
 }

@@ -45,8 +45,18 @@
         font-weight: 600;
     }
     h1.heading_style1 {
-        display: none;
-    }
+        font-size: 28px;
+        background: rgba(0, 0, 0, 0.35);
+        left: 15px;
+        right: 15px;
+        padding: 15px;
+        border-radius: 10px;
+        bottom: 45px;
+    }	  
+    h1.heading_style1 span {
+        margin-top: 10px;   
+        line-height: 1.4;   
+    }	 
     .home_banner.terms_banner {
       height: 410px !important;
       background-position: left 0 top -60px;
@@ -57,4 +67,5 @@
         border-bottom: none !important;
         margin-bottom: 40px;
     }
+
 }
