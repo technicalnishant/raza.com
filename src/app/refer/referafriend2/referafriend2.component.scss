@@ -266,20 +266,18 @@
 
 @include breakpoint(sm) {
 	h1.heading_style1 {
-		font-size: 0;
+		font-size: 30px;
+		background: rgba(0, 0, 0, 0.35);
 		left: 15px;
 		right: 15px;
-		background: rgba(0, 0, 0, 0.4);
-		padding: 12px;
+		padding: 15px;
 		border-radius: 10px;
-		bottom: 70px;
-		display: none;
-	}
-	.heading_style1 span {
-		font-size: 30px;
-		font-weight: 600;
-		line-height: 1.4;
-		margin: 0;
+		bottom: 45px;
+		z-index: 1;
+		span {
+			line-height: 1.4;
+			margin-top: 10px;
+		}
 	}
 	.container {
 		padding: 0 25px;
