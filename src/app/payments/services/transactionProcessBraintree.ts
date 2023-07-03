@@ -451,7 +451,8 @@ export class TransactionProcessBraintreeService {
 
   navigateToConfirmationPage(orderId: string) {
     this.ngZone.run(() => {
-      this.router.navigate(['checkout/confirmation', orderId]);
+     // this.router.navigate(['checkout/confirmation', orderId]);
+      this.router.navigate(['account/confirmation', orderId]);
     });
   }
   navigateToConfirmationFreePage(orderId: string) {
