@@ -50,6 +50,7 @@ import { MobileMyNumbersComponent } from './component/mobile-my-numbers/mobile-m
 import { MobileOnetouchDialComponent } from './component/mobile-onetouch-dial/mobile-onetouch-dial.component';
 import { MobileCallFarwordingComponent } from './component/mobile-call-farwording/mobile-call-farwording.component';
 import { AccountRechargeComponent } from './pages/account-recharge/account-recharge.component';
+import { RechargeConfirmationComponent } from './pages/recharge-confirmation/recharge-confirmation.component';
 // import { MobileOrderHistoryComponent } from './component/mobile-order-history/mobile-order-history.component';
 // import { MobileRewardsComponent } from './component/mobile-rewards/mobile-rewards.component';
 // import { MobileMyaccountComponent } from './component/mobile-myaccount/mobile-myaccount.component';
@@ -86,7 +87,8 @@ import { AccountRechargeComponent } from './pages/account-recharge/account-recha
                     { path: 'international-topup', component: AccountInternationalTopupComponent },
                     { path: 'virtualnumber', component: AccountVirtualnumberComponent },
                     { path: 'rewards', component: AccountRewardsComponent },
-                    { path: 'my-profile', component: AccountMyProfileComponent }
+                    { path: 'my-profile', component: AccountMyProfileComponent },
+                    { path: 'confirmation/:orderId', component: RechargeConfirmationComponent},
                 ]
             },
             { path: 'update-password', component: UpdatePasswordComponent },
@@ -147,6 +149,7 @@ import { AccountRechargeComponent } from './pages/account-recharge/account-recha
         MobileOnetouchDialComponent,
         MobileCallFarwordingComponent,
         AccountRechargeComponent,
+        RechargeConfirmationComponent,
         // MobileOrderHistoryComponent,
         // MobileRewardsComponent,
         // MobileMyaccountComponent,
