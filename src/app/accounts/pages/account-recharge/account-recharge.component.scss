@@ -116,6 +116,9 @@ h3.selectRechg {
     .discount_applied {
         &::before {
             border-left: 30px solid #fff;
+            @media only screen and (max-width: 767px) {
+                border-left: 25px solid #fff;
+            }
         }
         &_text {
             color: #016aea;
@@ -135,7 +138,9 @@ h3.selectRechg {
         right: -6px;
         transform: rotate(-45deg);
         @media only screen and (max-width: 767px) {
-            display: none;
+            border-top: 28px solid transparent;
+            border-bottom: 28px solid transparent;
+            border-left: 28px solid #016aea;
         }
     }
     &_text {
@@ -146,12 +151,8 @@ h3.selectRechg {
         font-size: 12px;
         transform: rotate(45deg);
         @media only screen and (max-width: 767px) {
-            background: #016aea;
-            transform: unset;
-            top: 0;
-            left: 0;
-            font-size: 10px;
-            text-align: center;
+            top: 4px;
+            right: -1px;
         }
     }
 }
@@ -212,7 +213,7 @@ input:checked + .slider:before {
         font-size: 20px;
         border: 2px solid #016aea;
         font-weight: 600;
-        padding-top: 2px;
+        padding-top: 5px;
     }
     .swicth_container {
         margin: 25px auto 25px;
