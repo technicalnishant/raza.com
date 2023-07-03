@@ -145,9 +145,9 @@
         <div class="cardDetails">
           <p class="cardNumber">Card Ending in … {{ item.CardNumber | creditCard }}</p>
           <p class="cardExpires">Expires {{item.ExpiryMonth}}/{{item.ExpiryYear}}
-            <span class="updateCard">
+            <!-- <span class="updateCard">
               <a (click)="editCardDetails(item)">Update Card/Billing Details</a>
-            </span>
+            </span> -->
           </p>
         </div>
       </mat-radio-button>
@@ -167,6 +167,7 @@
       <div class="editDelete">
         <button mat-icon-button [matMenuTriggerFor]="moreMenu">
           <mat-icon>more_horiz</mat-icon>
+          More
         </button>
         <mat-menu #moreMenu="matMenu" class="editDeleteAreaMain">
           <ul>

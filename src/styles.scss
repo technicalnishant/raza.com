@@ -1452,8 +1452,12 @@ table {
     }
 
     &.promoFailed {
-        top: -20px !important;
+        // top: -20px !important;
     }
+}
+
+.commonPopup .mat-horizontal-content-container {
+    padding: 0;
 }
 
 .selectRechargeamountMain {
@@ -2358,12 +2362,13 @@ ul {
 }
 
 .promoCode {
-    max-width: 390px;
+    max-width: 100%;
     position: relative;
-    width: 390px;
+    width: 500px;
 
     h2 {
         color: #103f8a !important;
+        line-height: 1.4;
     }
 
     .submitButton {

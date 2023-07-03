@@ -1,5 +1,8 @@
 .form_holder.commonPopup.cardPopUp {
     margin: -9px;
+    @media only screen and (max-width: 767px) {
+        padding: 0 !important;
+    }
 }
 .form_holder.commonPopup.cardPopUp span.closeIcon {
     right: 20px;

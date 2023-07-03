@@ -23,7 +23,7 @@
 	color: #0B203E;
 }
 .mat-radio-button {
-	padding-right: 115px;
+	padding-right: 145px;
 	label {
 		margin: 0;
 	}
@@ -658,6 +658,10 @@ p.haveAccountAlready {
 		background: transparent;
 		padding: 0;
 		margin-top: 5px;
+		display: flex;
+		flex-direction: column;
+		font-size: 12px;
+		line-height: 1;
 	}
 	.material-icons {
 		font-size: 32px;

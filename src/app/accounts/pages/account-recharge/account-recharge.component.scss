@@ -113,6 +113,14 @@ h3.selectRechg {
 .active .denomination__box {
     background: #016aea;
     color: #fff;
+    .discount_applied {
+        &::before {
+            border-left: 30px solid #fff;
+        }
+        &_text {
+            color: #016aea;
+        }
+    }
 }
 .denomination__box .discount_applied {
     &::before {
@@ -121,7 +129,7 @@ h3.selectRechg {
         height: 0;
         border-top: 30px solid transparent;
         border-bottom: 30px solid transparent;
-        border-left: 30px solid blue;
+        border-left: 30px solid #016aea;
         position: absolute;
         top: -20px;
         right: -6px;
