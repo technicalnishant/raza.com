@@ -577,26 +577,26 @@ p {
     transition: background 0.3s ease-in-out;
     margin: 35px auto 0;
 }
-@media only screen and (max-width:768px){
+@media only screen and (max-width:768px) {
   .submitButton_confirms {
-    margin: 0px auto 0 !important;
-    width: 50%;
-    max-width: 280px;
-}
-.form__wrapper {
- // height: 50vh;
-  height: 100%!important;
-  overflow-y: scroll;
-}
-  
-p.haveAccountAlready {
-  color: #0B203E;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  text-align: center;
-  margin-top: 10px;
-}
+		margin: 25px auto 0 !important;
+		max-width: 185px;
+		padding: 10px 20px !important;
+	}
+	.form__wrapper {
+		// height: 50vh;
+		height: 100%!important;
+		overflow-y: scroll;
+	}
+	
+	// p.haveAccountAlready {
+	//   color: #0B203E;
+	//   font-size: 16px;
+	//   font-family: 'Montserrat', sans-serif;
+	//   font-weight: 400;
+	//   text-align: center;
+	//   margin-top: 10px;
+	// }
 
 }
 
@@ -606,7 +606,7 @@ p.haveAccountAlready {
     overflow-x: hidden;
 }
 
-.gray{
+.gray {
     background: none;
     border: 1px solid #f4cb26;
     color: #0b203e!important;
@@ -668,16 +668,28 @@ p.haveAccountAlready {
 	}
 }
 
-@media only screen and (max-width:768px){
+@media only screen and (max-width:768px) {
 	.saveCardWrap {
 		width: 93%;
 		margin: 15px auto 20px;
 	}
 	.savedCard {
 		flex-wrap: wrap;
+		padding-top: 15px;
+		padding-bottom: 15px;
 	}
 	.cvvCard {
 		padding-left: 45px;
 		padding-top: 2px;
+	}
+	.editDelete {
+		margin-top: -27px;
+		margin-right: 0;
+	}
+	.cvvCard input {
+		height: 38px;
+	}
+	.form_row1 {
+		padding: 18px 0;
 	}
 }
