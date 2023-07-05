@@ -11,6 +11,9 @@ import { RazaSnackBarService } from "../../shared/razaSnackbar.service";
 import { PlanType } from "../../accounts/models/PlanType";
 import { AuthenticationService } from "../../core/services/auth.service";
 import { isNullOrUndefined } from "../../shared/utilities";
+import { ErrorDialogModel } from "app/shared/model/error-dialog.model";
+import { ErrorDialogComponent } from "app/shared/dialog/error-dialog/error-dialog.component";
+import { MatDialog } from "@angular/material/dialog";
 
 @Injectable({
     providedIn: 'root'
@@ -21,7 +24,8 @@ export class CartResolverService implements Resolve<any> {
         private planService: PlanService,
         private snackBarService: RazaSnackBarService,
         private authService: AuthenticationService,
-        private router: Router
+        private router: Router,
+        public dialog: MatDialog,
     ) {
 
     }
@@ -56,15 +60,25 @@ export class CartResolverService implements Resolve<any> {
                             /*if((code == "FREETRIAL" && userInfo.isnew == false )   || ( code == "BUY1GET1" && userInfo.isnew == false)  )*/
 					 		{
 								this.router.navigate(['/account/overview']);
-								this.snackBarService.openWarning("This offer is available for New customers only. Kindly recharge your account or call customer service for assistance. Thank you!");
+
+                                let error = new ErrorDialogModel();
+                                error.header = 'New customers only';
+                                error.message = 'This offer is available for New customers only. Kindly recharge your account or call customer service for assistance. Thank you!';
+                                this.openErrorDialog(error);
+
+							//	this.snackBarService.openWarning("This offer is available for New customers only. Kindly recharge your account or call customer service for assistance. Thank you!");
 							}
 							else
 							{
 								 if((res.CardId == 161 && code == "DIWALI2020"))
 								 {
 								 //serviceChargePercentage
-									this.snackBarService.openWarning("We have already applied the coupon code.  Please go ahead and recharge your plan.");
-								 }
+									//this.snackBarService.openWarning("We have already applied the coupon code.  Please go ahead and recharge your plan.");
+                                    let error = new ErrorDialogModel();
+                                    error.header = 'Already purchased';
+                                    error.message = 'We have already applied the coupon code.  Please go ahead and recharge your plan.';
+                                    this.openErrorDialog(error);
+                                }
 								 else
 								 {
 									//this.snackBarService.openWarning("You have already purchased this plan before, continue to recharge it!");
@@ -91,7 +105,11 @@ export class CartResolverService implements Resolve<any> {
 
         });
     }
-
+    openErrorDialog(error: ErrorDialogModel): void {
+        this.dialog.open(ErrorDialogComponent, {
+          data: { error }
+        });
+      }
     updateCartForRecharge(plan: Plan, cart: NewPlanCheckoutModel) {
         const model: RechargeCheckoutModel = new RechargeCheckoutModel();
         //console.log('cart is', cart);
