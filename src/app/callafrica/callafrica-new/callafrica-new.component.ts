@@ -179,7 +179,7 @@ getcountryrate(obj)
   }
   private getCountryRateOfAfrica() {
 
-    let type = this.isUserAuthenticated() == true?'old':'new';
+    let type = this.isUserAuthenticated() == true?'new':'old';
     
     this.dealsService.getCountryCallAfrica1(this.currentSetting.currentCountryId, type).subscribe((data: any) => {
       if(data && data.length > 0)

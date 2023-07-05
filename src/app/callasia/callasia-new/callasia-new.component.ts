@@ -145,7 +145,7 @@ export class CallasiaNewComponent implements OnInit {
   }
   private searchRates() 
   { 
-    let type = this.isUserAuthenticated() == true?'old':'new';
+    let type = this.isUserAuthenticated() == true?'new':'old';
      this.dealsService.getCountryCallAsia1(this.currentSetting.currentCountryId, type).subscribe((data: any) => {
       if(data && data.length > 0)
       {
