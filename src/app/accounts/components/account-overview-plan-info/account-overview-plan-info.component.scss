@@ -105,7 +105,7 @@ p {
 	}
     .otherPlans p.otherPlansText{ color: #000;}
     .otherPlans{opacity:1;}
-    .commonmyaccountareaforallpages{padding: 0px;}
+    .commonmyaccountareaforallpages{ padding: 0px; border: none;}
     .commonmyaccountareaforallpages .leftArea { 
         width: 100%;
         border-right: none;
@@ -142,8 +142,16 @@ p {
 		background: none !important;
 		display: inline-block;
 		width: 100%;
-		margin-bottom: 30px;
-	}    
+		margin-bottom: 0;
+	} 
+	.planBalanceRecharge .currentPlanText {
+		font-size: 18px;
+		margin: 0;
+	}
+	p.currentPlanTextRate {
+		font-size: 30px;
+	}  
+
 }
 
 .commonmyaccountareaforallpages {
