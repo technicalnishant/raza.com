@@ -482,21 +482,38 @@ export class GlobalcallComponent implements OnInit {
     return this.toFixed1((item.Price/(item.TotalTime+item.PromoMinutes))*100)
    // return (item.Price/(item.TotalTime+item.PromoMinutes))*100
   }
+//.DiscountedRate.TotalTime ,  item.DiscountedRate.PromoMinutes
+
+getTotalMin1(item, price)
+{
+
+
+ // var item:any = item.filter(a => a.Price == price);
+if(item.Price == price)
+{
+  return item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes;
+}
+ // console.log(price+ ' price den', items);
+
+   
+   
+}
+
 
   getTotalMin(min, promomin, price)
   {
     if(!this.isAutoRefill)
     {
-     var item:any = this.WithoutAutorefillPlans.filter(a => a.Price == price);
+      //var item:any = this.WithoutAutorefillPlans.filter(a => a.Price == price);
     
-     return Math.floor(min+ promomin);
-     //return Math.floor(min+ (min* item[0].DiscountApplied)/100);
+      return Math.floor(min+ promomin);
+     // return Math.floor(min+ (min* item[0].DiscountApplied)/100);
     }
     else
     {
-      var item:any = this.AutorefillPlans.filter(a => a.Price == price);
-       return Math.floor(min+ (min* item[0].DiscountApplied)/100);
-     
+     // var item:any = this.AutorefillPlans.filter(a => a.Price == price);
+      // return Math.floor(min+ (min* item[0].DiscountApplied)/100);
+       return Math.floor(min+ promomin);
        
     }
   }
@@ -676,11 +693,11 @@ export class GlobalcallComponent implements OnInit {
         this.SubPlans = data
         if (this.SubPlans.length > 0) 
         {
-          this.denominationList = Array.from(new Set(this.SubPlans.map(item => item.Price)));
-          this.denominationList = this.denominationList.sort( (a, b)=> a-b)
-          this.denominationList = this.denominationList.filter(a=> a != 90 )
+         this.denominationList = Array.from(new Set(this.SubPlans.map(item => item.Price)));
+         this.denominationList = this.denominationList.sort( (a, b)=> a-b)
+         this.denominationList = this.denominationList.filter(a=> a != 90 )
 
- 
+          console.log('this.denominationList', this.denominationList);
         //  this.denominationSelectControl.setValue(this.denominationList[0]); 
           this.denominationSelectControl.setValue(this.selectedPrice);  
           this.filterDetailRate(this.denominationList[0]);
@@ -701,11 +718,46 @@ export class GlobalcallComponent implements OnInit {
  
   filteredItems(price: number) {
     //this.FilteredSubPlans = this.SubPlans.filter(a => a.Price == price); 
-    return this.SubPlans.filter(a => a.Price == price);
+    let plans_list = this.SubPlans;
+    let plan_info = plans_list.filter(a => a.Price == price);
+    plan_info = plan_info.sort((a, b) => {
+      const countryNameA = a.CountryName.toLowerCase();
+      const countryNameB = b.CountryName.toLowerCase();
+      
+      if (countryNameA < countryNameB) {
+        return -1;
+      }
+      if (countryNameA > countryNameB) {
+        return 1;
+      }
+      
+      return 0;
+    })
+
+   // plan_info = plan_info.sort( (a, b)=> a-b)
+
+   // console.log('plan_info ', plan_info);
+    return plan_info;
   }
   filterDetailRate(price: number) {
     //this.FilteredSubPlans = this.SubPlans.filter(a => a.Price == price); 
-    this.FilteredSubPlans = this.SubPlans.filter(a => a.Price == this.selectedPrice);
+    let plan_info = this.SubPlans.filter(a => a.Price == this.selectedPrice);
+
+     this.FilteredSubPlans = plan_info.sort((a, b) => {
+      const countryNameA = a.CountryName.toLowerCase();
+      const countryNameB = b.CountryName.toLowerCase();
+      
+      if (countryNameA < countryNameB) {
+        return -1;
+      }
+      if (countryNameA > countryNameB) {
+        return 1;
+      }
+      
+      return 0;
+    })
+
+
   }
 
   getSubbCallRates(item)
@@ -910,7 +962,14 @@ export class GlobalcallComponent implements OnInit {
 
     displayFn(country?: any): string | undefined 
     {
-      return country ? country.CountryName : this.allCountry.filter(a=>a.CountryId = this.countryId) ;
+      // if(country.CountryName)
+      // return country.CountryName ;
+      //  if(this.allCountry && this.allCountry[0])
+      //  {
+      //    let cntry:any = this.allCountry.filter(a=>a.CountryId = this.countryId) ;
+      //    return cntry.CountryName;
+      //  }
+      return '';
     }
     onInputFocus() {
       this.searchicon = '../assets/images/cross8.png';

@@ -68,14 +68,25 @@ margin-bottom: 10px;
 		text-align: center !important;
 		padding-left: 15px;
 	}
-    .second_fold {padding: 30px 14px;}
+    .second_fold { padding: 15px 14px;}
     .container{ width: 100%;}
-	.heading_style1 {
-		left: 53%;
-		margin-left: 0px;
-		top: 60%;
-		display: none;
-	}
+	h1.heading_style1 {
+		font-size: 30px;
+		background: rgba(0, 0, 0, 0.35);
+		left: 15px;
+		right: 15px;
+		padding: 15px;
+		border-radius: 10px;
+		bottom: 45px;
+		margin: 0;
+		top: unset;
+		span {
+			line-height: 1.4;
+			width: 100%;
+			font-weight: normal;
+			font-size: 17px;
+		}
+	}	
 	.aboutusCont {
 		h5 {
 			font-size: 25px;

@@ -21,9 +21,9 @@ export class GlobalRatesService {
         }
 
         public getAllCountriesRates(countryFrom: number): Observable<any[] | ApiErrorResponse> {
-                let api_type = 'new';
+                let api_type = 'old';
                if(this.authService.isAuthenticated())
-                 api_type = 'old';
+                 api_type = 'new';
                 return this.httpClient.get<any[]>(`${Api.countries.getCallDetails}` + "/" + countryFrom+"/"+api_type)
                         .pipe(
                                 catchError(err => this.handleHttpError(err))

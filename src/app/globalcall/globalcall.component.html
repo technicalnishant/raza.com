@@ -321,9 +321,16 @@
                                         <div class="active col-wrapper" *ngFor="let den of denominationList; let i = index">
 
                                             <div class="inner-cell-list-price">
-                                                <div class="inner-cell" *ngFor="let item of filteredItems(den)">
-                                                 {{getTotalMin(item.DiscountedRate.TotalTime ,  item.DiscountedRate.PromoMinutes, den)}} min
-                                                </div>
+                                                   <div class="inner-cell" *ngFor="let item of filteredItems(den)">
+                                                {{getTotalMin(item.DiscountedRate.TotalTime ,  item.DiscountedRate.PromoMinutes, den)}} min  
+                                                 
+                                                <!-- <div *ngIf="den == 50">{{item|json}}</div> -->
+                                                </div>  
+
+                                                 <!-- <div class="inner-cell" *ngFor="let item of FilteredSubPlans">
+                                                  {{getTotalMin1(item, den)}} min 
+                                                   
+                                                  </div>   -->
                                                  
                                             </div>
 
