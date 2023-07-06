@@ -78,9 +78,12 @@ export class AccountRechargeComponent implements OnInit {
     private braintreeService: BraintreeService,
     private dialog: MatDialog,
 
-  ) { }
+  ) {
+    this.checkoutService.deleteCart();
+   }
 
   ngOnInit(): void {
+    
     this.phoneNumber    = localStorage.getItem("login_no");
     this.titleService.setTitle('Recharge');
     this.razalayoutService.setFixedHeader(true);
@@ -105,10 +108,9 @@ export class AccountRechargeComponent implements OnInit {
       },
       (err: ApiErrorResponse) => console.log(err)
     );
+ }
 
-
-    
-  }
+ 
   
   getActiveClass(item)
   {
@@ -166,13 +168,16 @@ export class AccountRechargeComponent implements OnInit {
     this.currentCart = model;
     this.checkoutService.setCurrentCart(model);
     
-    console.log(model);
+    
   }
 
   onPaymentInfoFormSubmit(creditCard: CreditCard) {
-    
+    //console.log(creditCard);
+    //return false;
     this.getCurrentCart(creditCard);
+    
   }
+
   getCurrentCart(creditCard: CreditCard) {
     this.currentCartObs$ = this.checkoutService.getCurrentCart().subscribe((model: ICheckoutModel) => {
       if (model === null) {

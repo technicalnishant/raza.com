@@ -1,4 +1,4 @@
-<div *ngIf="!havingExistingCard" class="new-payment-form">
+<!-- <div *ngIf="!havingExistingCard" class="new-payment-form">
   <form [formGroup]="paymentInfoForm" (ngSubmit)='onPaymentInfoFormSubmit()' novalidate>
     <div class="form__wrapper">
       <div class="row form_holder5Row">
@@ -130,9 +130,9 @@
       </div>
     </div>
   </form>
-</div>
+</div> -->
 
-<div *ngIf="havingExistingCard" class="saveCardWrap">
+<div  class="saveCardWrap">
   <h3>Payment Details</h3>
   <mat-radio-group class="example-radio-group" name="cardNumber" [(ngModel)]="selectedCard">
     <div class="savedCard" *ngFor="let item of customerSavedCards; let ind = index"
@@ -190,7 +190,7 @@
     </div>
   </div>
 </div>
-<button mat-button (click)="onClickCreditCardPayment()" class="submitButton_confirms overviewRechg">Recharge</button>
+<button *ngIf="havingExistingCard" mat-button (click)="onClickCreditCardPayment()" class="submitButton_confirms overviewRechg">Recharge</button>
 <!--Open dialog if error comes. Do not remove this functionality is attached with this.-->
 <button type="hidden" style="display:none!important;" id="auto_trigger" (click)="editModal()"class="btn btn-warning"></button>
 <!--EOF Open dialog if error comes -->
