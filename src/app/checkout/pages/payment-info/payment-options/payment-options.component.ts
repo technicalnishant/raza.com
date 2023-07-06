@@ -104,12 +104,18 @@ export class PaymentOptionsComponent implements OnInit {
         this.setCartPlanName();
         console.log("Current Cart after is as ", this.currentCart);
       }
-      this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe((data) =>{
-       
-       this.planInfo = data;  
-       this.setCartPlanName();
+      
+    }
+    else{
+
+      this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe((data:any) =>{
         
-      } )
+        this.planInfo = data;  
+        if(data.CardId)
+        this.setCartPlanName();
+         
+       } )
+       
     }
     
    
@@ -131,7 +137,7 @@ export class PaymentOptionsComponent implements OnInit {
   setCartPlanName()
   {
     let cardId = this.planInfo.CardId;
-        let cardName = this.planInfo.CardName; 
+    let cardName = this.planInfo.CardName; 
     const cart: RechargeCheckoutModel  = this.currentCart as RechargeCheckoutModel ;
     cart.cardId =  cardId;
     cart.planId = this.planInfo.PlanId;

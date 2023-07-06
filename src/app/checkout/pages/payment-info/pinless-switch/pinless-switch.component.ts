@@ -11,6 +11,9 @@ import { CheckoutService } from '../../../services/checkout.service';
 import { RazaLayoutService } from '../../../../core/services/raza-layout.service';
 import { isNullOrUndefined } from "../../../../shared/utilities";
 import { AuthenticationService } from "../../../../core/services/auth.service";
+import { ErrorDialogComponent } from 'app/shared/dialog/error-dialog/error-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogModel } from 'app/shared/model/error-dialog.model';
 @Component({
   selector: 'app-pinless-switch',
   templateUrl: './pinless-switch.component.html',
@@ -27,6 +30,7 @@ export class PinlessSwitchComponent implements OnInit {
     private planService: PlanService,
     private route: ActivatedRoute,
     private router: Router,
+    public dialog: MatDialog,
     private checkoutService: CheckoutService,
     private razaLayoutService: RazaLayoutService,
     private authService: AuthenticationService,
@@ -61,9 +65,20 @@ export class PinlessSwitchComponent implements OnInit {
     if( this.currentCart.couponCode == "BUY1GET1" && userInfo.isnew == false)
     {
       this.router.navigate(['/account/overview']);
-      this.snackBarService.openWarning("This offer is available for New customers only. Kindly recharge your account or call customer service for assistance. Thank you!");
+      let error = new ErrorDialogModel();
+              error.header = 'Invalid Coupon Code';
+              error.message = 'This offer is available for New customers only. Kindly recharge your account or call customer service for assistance. Thank you!';
+              this.openErrorDialog(error);
+      //this.snackBarService.openWarning("This offer is available for New customers only. Kindly recharge your account or call customer service for assistance. Thank you!");
     }
   }
+
+  openErrorDialog(error: ErrorDialogModel): void {
+    this.dialog.open(ErrorDialogComponent, {
+      data: { error }
+    });
+  }
+  
   get newPinFormArray() {
     return this.newPinFormGroup.get('numbers') as FormArray;
   }

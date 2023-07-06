@@ -954,10 +954,9 @@ a {
     }
 }
 
-@media only screen and (min-width: 300px) and (max-width: 650px) 
-{
+@media only screen and (min-width: 300px) and (max-width: 650px) {
     .img-1 img {
-        width: 65%;
+        width: 70%;
         // width: 53%;
         margin: auto;
         display: block;
@@ -1397,7 +1396,7 @@ h1.buy1get1-text:after {
     ::ng-deep {
         .carousel-control-next,
         .carousel-control-prev {
-            // display: none!important;
+            display: none !important;
             margin-right: 16px;
         }
         .carousel-control-prev-icon {
@@ -1445,7 +1444,7 @@ h1.buy1get1-text:after {
             margin-right: 15% !important;
             margin-left: 15% !important;
             bottom: 0 !important;
-            display: none!important;
+            margin-bottom: 10px;
         }
     }
     .carousel-caption.refer.it-topup {
@@ -1470,7 +1469,7 @@ h1.buy1get1-text:after {
     .carousel-caption.download {
         left: 20px;
         right: 20px;
-        top: 24%;
+        top: 20%;
     }
     .btn-slider {
         background: #000;
@@ -2311,10 +2310,20 @@ h1.buy1get1-text:after {
         margin-right: -116px;
     }
     .uk_mobile {
-        margin: 0 -20px;
+        margin: -30px -8px;
+    }
+    .uk_mb_by1 {
+        padding-bottom: 0 !important;
+        img {
+            width: 195px;
+        }
     }
     .carousel-caption-promotion {
         top: 225px;
         right: 5%;
+    }
+    .carousel-control-next, 
+    .carousel-control-prev {
+        display: none;
     }
 }
