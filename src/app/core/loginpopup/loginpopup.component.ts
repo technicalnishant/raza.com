@@ -92,6 +92,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
  dataPhone:any='';
  quickRecharge:any;
  sendAgainMsg:boolean=false;
+ rewardsRoute:any='';
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -173,6 +174,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
         this.reward_content   = true;
         this.is_redirect      = localStorage.getItem('redirect_path');
         this.returnUrl        = localStorage.getItem('redirect_path');
+        this.rewardsRoute     = localStorage.getItem('redirect_path');
       }
        
       if( localStorage.getItem('signup_no'))
@@ -391,12 +393,16 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
           this.plan = data[0];
           if(this.plan.PlanId !='')
           path = '/'+this.module+'/'+this.fromPage+'/'+this.plan.PlanId;
+          
           if(this.navigateTo !='' && this.navigateTo == 'cartpage')
           {
             this.router.navigate(['checkout/payment-info']); 
           }
           else
           {
+            if(this.rewardsRoute !='')
+            this.router.navigateByUrl(this.rewardsRoute);
+            else
             this.router.navigateByUrl(path);
           }
             

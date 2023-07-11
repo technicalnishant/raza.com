@@ -121,7 +121,9 @@ export class Api {
 		getSearchGlobalRatesSubPlans: base + "api/Rates/GetSubPlansWithDistinctRate/",
 
 		getPopularDestinationPlans: base + "api/rates/PopularDestination/",
-		getXChageRateInfo: base + "api/Countries/XChageRateInfo/"
+		getXChageRateInfo: base + "api/Countries/XChageRateInfo/",
+
+		getSpecificRateDetailByParentCountryId : base + "api/rates/GetSpecificRateDetailByParentCountryId/"
 	};
 	 
 	static countries = {

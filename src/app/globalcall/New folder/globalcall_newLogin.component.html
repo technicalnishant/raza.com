@@ -118,9 +118,8 @@
                                                                         class="bonus_text_offer">10%</span>
                                                                         <img
                                                                         class="bonus_text_info"
-                                                                        src="../../assets/images/info.png"  matTooltip="1. Enroll to Auto-refill and earn 10% bonus minutes.
-                                                                        2. We will recharge your plan only when the account balance falls below $2.
-                                                                        3. Cancel online or by calling customer service anytime." />
+                                                                        src="../../assets/images/info.png"  matTooltip="Enroll to Auto-refill and earn 10% bonus minutes.We will recharge your plan only when the account balance falls below $2.
+                                                                        Cancel online or by calling customer service anytime." />
                                                                          
                                                                     <span class="bonus_small_text">with auto-refill</span>
                                                                 </div>
@@ -205,9 +204,9 @@
                             <img
                                 class="bonus_text_info"
                                 src="../../assets/images/info.png" 
-                                matTooltip="1. Enroll to Auto-refill and earn 10% bonus minutes.
-                                2. We will recharge your plan only when the account balance falls below $2.
-                                3. Cancel online or by calling customer service anytime."
+                                matTooltip="Enroll to Auto-refill and earn 10% bonus minutes.
+                                We will recharge your plan only when the account balance falls below $2.
+                                Cancel online or by calling customer service anytime."
                                 />
 
                                  
@@ -231,7 +230,7 @@
                                             <div class="first-inner">
                                                 <div class="info_country">
                                                     <div class="row mt-3 p-0">
-                                                        <div class="col-md-4" style="    padding:10px;">
+                                                        <div class="col-md-4" style="padding:10px;">
                                                              
                                                                 <img *ngIf="flag_exists" src="./assets/images/flag/{{getcountryName()}}.png" alt="{{baseCountryName}}">
                                                                 <div *ngIf="!flag_exists" class="country-text">{{flag_name}}</div>
@@ -244,8 +243,8 @@
                                             </div>
                                         </div>
 
-                                       
-                                        <div class="d-flex flex-grow-1" *ngIf="isAutoRefill">
+                                       <!------------ When user is not logged In ----------->
+                                        <div class="d-flex flex-grow-1" *ngIf="isAutoRefill && !isUserAuthenticated() ">
                                             <div class="active col-wrapper" *ngFor="let item of AutorefillPlans; let i = index">
 
                                                 <div class="bgsvgimage">
@@ -254,7 +253,7 @@
                                                              <span class="bonus-new"   >{{item.DiscountApplied}}% BONUS
                                                         </span>
                                                     </span>
-                                                        <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
+                                                        <div id="7_offer"> {{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
                                                         <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
                                                         <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
 
@@ -269,8 +268,9 @@
                                             </div>
                                         </div>
 
- 
-                                        <div class="d-flex flex-grow-1" *ngIf="!isAutoRefill">
+
+
+                                        <div class="d-flex flex-grow-1" *ngIf="!isAutoRefill && !isUserAuthenticated()">
                                             <div class="active col-wrapper" *ngFor="let item of WithoutAutorefillPlans; let i = index">
 
                                                 <div class="bgsvgimage">
@@ -280,7 +280,7 @@
                                                             <span class="bonus-new ">{{item.DiscountApplied}}% BONUS
                                                             </span>
                                                         </span>
-                                                        <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
+                                                        <div id="7_offer"> {{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
                                                         <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
                                                         <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
 
@@ -294,6 +294,60 @@
                                                 <div class="dummy_border"> &nbsp;</div>
                                             </div>
                                         </div>
+                                          <!------------ EOF When user is not logged In ----------->
+
+
+                                        <!------------ When user is logged In ----------->
+                                        <div class="d-flex flex-grow-1" *ngIf="isAutoRefill && isUserAuthenticated() ">
+                                          <div class="active col-wrapper" *ngFor="let item of logedDenomination let i = index">
+
+                                              <div class="bgsvgimage">
+                                                  <div class="ano-col">
+                                                      <span class="bonus-bg-short" >
+                                                           <span class="bonus-new"   >10% BONUS
+                                                      </span>
+                                                  </span>
+                                                      <div id="7_offer"> {{ item.Price | bCurrency : currentCurrency }}</div>
+                                                      <span class="inner_price" >{{item.DiscountedCallingRate}}₵ / min</span>
+                                                      
+
+                                                  </div>
+                                                  <div class="button button_bg_price"><button mat-button=""
+                                                          class="mat-focus-indicator mat-button mat-button-base">
+                                                          <span class="mat-button-wrapper" (click)="onClickRateTab(item)">Buy Now</span>
+                                                      </button>
+                                                  </div>
+                                              </div>
+                                              <div class="dummy_border"> &nbsp;</div>
+                                          </div>
+                                      </div>
+
+
+
+                                      <div class="d-flex flex-grow-1" *ngIf="!isAutoRefill && isUserAuthenticated() ">
+                                        <div class="active col-wrapper" *ngFor="let item of logedDenomination let i = index">
+
+                                            <div class="bgsvgimage">
+                                                <div class="ano-col">
+                                                    <span class="bonus-bg-short" *ngIf="item.DiscountApplied > 0">
+                                                         <span class="bonus-new"   >{{item.DiscountApplied}}% BONUS
+                                                    </span>
+                                                </span>
+                                                    <div id="7_offer"> {{ item.Price | bCurrency : currentCurrency }}</div>
+                                                    <span class="inner_price" >{{item.DiscountedCallingRate}}₵ / min</span>
+
+                                                </div>
+                                                <div class="button button_bg_price"><button mat-button=""
+                                                        class="mat-focus-indicator mat-button mat-button-base">
+                                                        <span class="mat-button-wrapper" (click)="onClickRateTab(item)">Buy Now</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="dummy_border"> &nbsp;</div>
+                                        </div>
+                                    </div>
+                                        <!------------ EOF When user is logged In ----------->
+
 
 
                                     </div>
@@ -306,40 +360,53 @@
                     <td class="body_no_scroll">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="d-flex ">
+                              <!------ Country listings --------->
+                                <div class="d-flex" *ngIf="!isUserAuthenticated()">
                                     <div class="first-col">
                                         <div class="inner-cell-list">
-                                            <div *ngFor="let item of FilteredSubPlans" class="country_nm"> 
+                                          <div *ngFor="let item of FilteredSubPlans" class="country_nm"> 
                                               <span class="{{getClassIcon(item.CountryName)}}"></span>  {{getNameOfCountry(item.CountryName)}} 
                                             </div>
                                              
                                         </div>
                                     </div>
-
                                     <div class="d-flex flex-grow-1 ">
                                         <div class="active col-wrapper" *ngFor="let den of denominationList; let i = index">
 
                                             <div class="inner-cell-list-price">
                                                    <div class="inner-cell" *ngFor="let item of filteredItems(den)">
                                                 {{getTotalMin(item.DiscountedRate.TotalTime ,  item.DiscountedRate.PromoMinutes, den)}} min  
-                                                 
-                                                <!-- <div *ngIf="den == 50">{{item|json}}</div> -->
-                                                </div>  
-
-                                                 <!-- <div class="inner-cell" *ngFor="let item of FilteredSubPlans">
-                                                  {{getTotalMin1(item, den)}} min 
-                                                   
-                                                  </div>   -->
-                                                 
+                                               </div>  
                                             </div>
-
-
-                                        </div>
-                                         
-                                         
-                                      
+                                        </div>                                    
+            
                                     </div>
                                 </div>
+
+                                <div class="d-flex" *ngIf="isUserAuthenticated()">
+                                  <div class="first-col">
+                                      <div class="inner-cell-list">
+                                        <div *ngFor="let item of SubPlans" class="country_nm"> 
+                                            <span class="{{getClassIcon(item.CountryName)}}"></span>  {{getNameOfCountry(item.CountryName)}} 
+                                          </div>
+                                           
+                                      </div>
+                                  </div>
+                                  <div class="d-flex flex-grow-1 ">
+                                      <div class="active col-wrapper" *ngFor="let den of denominationList; let i = index">
+
+                                          <div class="inner-cell-list-price">
+                                                 <div class="inner-cell" *ngFor="let item of SubPlans"> 
+                                              {{getTotalMin1(item , den)}} min  
+                                             </div>  
+                                          </div>
+                                      </div>                                    
+          
+                                  </div>
+                              </div>
+                              <!------ EOF country listings --------->
+
+
                             </div>
                        </div>
                             
@@ -456,8 +523,8 @@
                         <div class="col-xs-6 text-left p-0 rel_class">
                             <span class="bonus_text">Bonus</span><span class="bonus_text_offer">10%</span>
                             <span matTooltip="1. Enroll to Auto-refill and earn 10% bonus minutes.
-                            2. We will recharge your plan only when the account balance falls below $2.
-                            3. Cancel online or by calling customer service anytime.">
+                            We will recharge your plan only when the account balance falls below $2.
+                            Cancel online or by calling customer service anytime.">
                                <svg class="bonus_text_info" fill="#fff" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24" width="18px" height="18px" >
                                 <path _ngcontent-rem-c244=""
@@ -482,11 +549,11 @@
     </div>
 </div>
      
-    <div class="footer_block">
+    <!-- <div class="footer_block">
         <div class="footer_box_content">Have a question? 
-             <!-- <a href="javascript:void(0)" (click)="contactUs()">Chat</a> Or  -->
+            
             <a href="javascript:void(0)" (click)="contactUs()">Call Us</a></div>
-    </div>
+    </div> -->
     
 </section>
 

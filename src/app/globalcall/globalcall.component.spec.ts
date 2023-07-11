@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GlobalcallComponent } from './globalcall.component';
+import { GlobalcallComponent } from './globalcall_newLogin.component';
 
 describe('GlobalcallComponent', () => {
   let component: GlobalcallComponent;

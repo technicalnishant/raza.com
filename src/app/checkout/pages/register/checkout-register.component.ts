@@ -192,7 +192,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
       if (res.countryId ) {
         let country = this.countryFrom.filter(a=>a.CountryId == res.countryId);
        // console.log("Your filter data is ", country[0]);
-        this.currentSetting.country = country[0]
+            this.currentSetting.country = country[0]
             this.setcurrentCurrency(this.currentSetting.country.CountryId);
          
       }
@@ -353,8 +353,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
       cart.CurrencyCode = this.currentCurrency;
       cart.currencyCode = this.currentCurrency;
       cart.countryFrom  = obj;
-      console.log("current cart currency", cart.currencyCode );
-      console.log("current cart from", cart.countryFrom );
+       
       //var cart_info = this.checkoutService.getCurrentCart().
       // if(obj == 1)
       // {

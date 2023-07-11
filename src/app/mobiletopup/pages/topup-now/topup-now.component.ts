@@ -350,7 +350,8 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     checkoutModel.country = this.mobileTopupForm.get('countryTo').value as Country; // this.autoControl.value.countryTo as Country;
     checkoutModel.topupOption = this.mobileTopupForm.value.topUpAmount as OperatorDenominations;
     checkoutModel.currencyCode = this.currentSetting.currency;
-    checkoutModel.phoneNumber = this.mobileTopupForm.get("countryTo").value?.CountryCode+' '+this.mobileTopupForm.get('phoneNumber').value;
+    //checkoutModel.phoneNumber = this.mobileTopupForm.get("countryTo").value?.CountryCode+' '+this.mobileTopupForm.get('phoneNumber').value;
+    checkoutModel.phoneNumber = this.mobileTopupForm.get('phoneNumber').value;
     checkoutModel.operatorCode = this.mobileTopupData.OperatorCode;
     checkoutModel.countryFrom = this.currentSetting.currentCountryId;
     checkoutModel.isHideCouponEdit = true;
