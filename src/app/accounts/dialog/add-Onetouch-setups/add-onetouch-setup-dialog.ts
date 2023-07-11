@@ -40,7 +40,7 @@ export class AddOnetouchSetupDialog implements OnInit {
   showPlaceholder : boolean = true;
   pin: string;
   searchicon:any;
-  
+  invalidForm:boolean = false;
   billingInfo: BillingInfo;
   constructor(
     public dialogRef: MatDialogRef<AddOnetouchSetupDialog>,
@@ -206,7 +206,12 @@ export class AddOnetouchSetupDialog implements OnInit {
   oneTouchFormSubmit(): void {
 
     if (!this.oneTouchDialToForm.valid)
+    {
+      //console.log(this.oneTouchDialToForm);
+      this.invalidForm = true;
       return;
+    }
+      
 
     let body = {
       Destination: `011${this.oneTouchDialToForm.get('CountryTo').value.CountryCode}${this.oneTouchDialToForm.get('PhoneWithCityCode').value}`,

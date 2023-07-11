@@ -66,11 +66,19 @@ export class SearchRatesService {
         }
 
         public getSearchGlobalRates(countryFromId: number, countryToId: number): Observable<GlobalPlansData[] | ApiErrorResponse> {
-                return this.httpClient.get<GlobalPlansData[]>(`${Api.rates.getSearchGlobalRates} ${countryFromId}/${countryToId}`)
+                return this.httpClient.get<GlobalPlansData[]>(`${Api.rates.getSearchGlobalRates}${countryFromId}/${countryToId}`)
                         .pipe(
                                 catchError(err => this.handleHttpError(err))
                         );
         }
+
+        public getMySearchGlobalRates(countryFromId: number, countryToId: number, phone:number): Observable<GlobalPlansData[] | ApiErrorResponse> {
+                return this.httpClient.get<GlobalPlansData[]>(`${Api.rates.getSpecificRateDetailByParentCountryId}${countryFromId}/${countryToId}/${phone}`)
+                        .pipe(
+                                catchError(err => this.handleHttpError(err))
+                        );
+        }
+
 
         public getSearchGlobalRatesSubPlans(countryFromId: number, countryId): Observable<GlobalSubPlans[] | ApiErrorResponse> {
                 return this.httpClient.get<GlobalSubPlans[]>(`${Api.rates.getSearchGlobalRatesSubPlans}` + countryFromId + '/' + countryId)
