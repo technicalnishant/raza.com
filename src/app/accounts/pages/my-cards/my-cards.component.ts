@@ -211,7 +211,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
             this.customerSavedCards = res.splice(0, 2);
        
             this.selectedCardPay=this.customerSavedCards[0];
-            console.log(this.selectedCardPay);
+           
             this.selectedCard = this.selectedCardPay;
             //localStorage.setItem('card':{card:this.selectedCardPay.CardId, selectedCard:this.selectedCardPay.Cvv});
            
@@ -375,7 +375,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
       this.selectedCard.FullName = this.selectedCard.CardHolderName;
       this.selectedCard.PhoneNumber = this.billingInfo.Address.HomePhone;
       this.selectedCard;
-
+       
       this.onPaymentSubmit.emit(this.selectedCard);
     }
     
@@ -415,11 +415,11 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
             .then(res => {
               this.customerService.getSavedCreditCards().toPromise().then((cr: CreditCard[]) => {
                 creditCard.CardId = cr[0].CardId;
-                this.onPaymentSubmit.emit(creditCard);
+                //this.onPaymentSubmit.emit(creditCard);
               })
             },(err: ApiErrorResponse) => { this.razaSnackbarService.openError(err.error) })
         } else {
-          this.onPaymentSubmit.emit(creditCard);
+        //  this.onPaymentSubmit.emit(creditCard);
         }
       });
     }
@@ -650,15 +650,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     loadBillingInfo(): void {
       this.customerService.GetBillingInfo().subscribe(
         (res: any) => { this.billingInfo = res;
-       /* if(res.Email && res.Email !='')
-        {
-          var user_email = res.Email;
-          if(user_email.includes("@raza.temp"))
-          {
-            this.billingInfo.Email = '';
-          }
-        }*/
-         // this.onClickCreditCardPay();
+        
         },
         (err: ApiErrorResponse) => console.log(err),
       )
@@ -672,7 +664,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
       this.selectedCardPay.FullName = this.selectedCardPay.CardHolderName;
       this.selectedCardPay.PhoneNumber = this.billingInfo.Address.HomePhone;
       this.selectedCardPay.Cvv= this.cvvStored;
-      this.onPaymentSubmit.emit(this.selectedCardPay);
+     // this.onPaymentSubmit.emit(this.selectedCardPay);
     }
   
     editModal()

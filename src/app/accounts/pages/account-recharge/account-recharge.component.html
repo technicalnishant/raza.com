@@ -63,4 +63,4 @@
       </div>
 </div>
 
-<app-my-cards *ngIf="plan" [plan]="plan" [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentInfoFormSubmit($event)" > </app-my-cards>
+<app-my-cards *ngIf="plan" [plan]="plan" [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentButtonTrigger($event)" > </app-my-cards>

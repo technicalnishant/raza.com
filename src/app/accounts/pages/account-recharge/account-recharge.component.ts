@@ -79,11 +79,11 @@ export class AccountRechargeComponent implements OnInit {
     private dialog: MatDialog,
 
   ) {
-    this.checkoutService.deleteCart();
+    
    }
 
   ngOnInit(): void {
-    
+    this.checkoutService.deleteCart();
     this.phoneNumber    = localStorage.getItem("login_no");
     this.titleService.setTitle('Recharge');
     this.razalayoutService.setFixedHeader(true);
@@ -172,20 +172,24 @@ export class AccountRechargeComponent implements OnInit {
   }
 
   onPaymentInfoFormSubmit(creditCard: CreditCard) {
-    //console.log(creditCard);
-    //return false;
-    this.getCurrentCart(creditCard);
+   
+   // this.getCurrentCarts(creditCard);
     
   }
 
-  getCurrentCart(creditCard: CreditCard) {
+  onPaymentButtonTrigger(creditCard: CreditCard) {
     this.currentCartObs$ = this.checkoutService.getCurrentCart().subscribe((model: ICheckoutModel) => {
-      if (model === null) {
-         
+      if (model === null ) {
+        creditCard = null;
+         return false;
       }
-     // this.currentCart = model;
-      console.log('Your model is as ', model);
-      this.onCreditCardPayment(creditCard);
+      else
+      {
+          // this.currentCart = model;
+          console.log('Your model is as ', model);
+          this.onCreditCardPayment(creditCard);
+      }
+      
        
       
     }, err => {
@@ -202,8 +206,8 @@ export class AccountRechargeComponent implements OnInit {
     
     if(creditCard)
     {
-    localStorage.setItem('selectedCard',  creditCard.CardId.toString());
-    let planOrderInfo: ICheckoutOrderInfo;
+      localStorage.setItem('selectedCard',  creditCard.CardId.toString());
+      let planOrderInfo: ICheckoutOrderInfo;
 
     planOrderInfo = new RechargeOrderInfo();
         trans_type = 'Recharge';
