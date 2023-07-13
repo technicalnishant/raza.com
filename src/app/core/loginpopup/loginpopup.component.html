@@ -64,12 +64,7 @@
           </button>
           <div class="remembermMe">
              
-            <!-- <label class="switch">                       
-                <input *ngIf="isAutoRefill" type="checkbox" id="checkboxbonus3" checked (click)="setPlanType()">
-                <input *ngIf="!isAutoRefill" type="checkbox" id="checkboxbonus3" (click)="setPlanType()">
-                <span class="slider round"></span>
-            </label>
-            <label class="remember" for="remember">Remember me</label> -->
+           
             <span class="floatRight resend forget">
                 <a tabindex="3" (click)="showHideForgotForm()">Forgot code?</a>
             </span>
@@ -110,11 +105,7 @@
           Please enter a valid email.
         </mat-error>
         <!-- <span *ngIf="invalidEmail" class="span_error">
-<<<<<<< HEAD
-          Please enter a valid email.
-=======
           
->>>>>>> 5799dd70f1b8f8a038ab7b151c837d534571d015
         </span> -->
     </mat-form-field>
     </div>
@@ -155,7 +146,16 @@
     </button>     
     <button *ngIf="loginWith == 'email'" mat-button class="login-button" (click)="setLoginWith('phone')">
       <img src="./assets/images/app-icons/email.png" alt=""> Continue with phone number
-    </button>      
+    </button>   
+    
+    <!-- <label class="switch">                       
+      <input *ngIf="rememberMe" type="checkbox" checked (click)="rememberMe=!rememberMe">
+      <input *ngIf="!rememberMe" type="checkbox" (click)="rememberMe=!rememberMe">
+      <span class="slider round"></span>
+  </label>
+  <label class="remember" for="remember">Remember me</label>  -->
+
+
     <!-- <button mat-button class="login-button"><img src="./assets/images/app-icons/fb.png" alt=""> Continue with Facebook</button>
     <button mat-button class="login-button"><img src="./assets/images/app-icons/apple.png" alt=""> Continue with Apple</button>
     <button mat-button class="login-button"><img src="./assets/images/app-icons/GPay-Light-themed-buttons.svg" alt=""> Continue with Google</button> -->

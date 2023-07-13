@@ -132,6 +132,7 @@ export class GlobalcallComponent implements OnInit {
   sticky_class:any='';
   countryFrom: Country[];
   currentCurrency:any;
+  loginPhone:any=''
   constructor(
     public dialog: MatDialog,
     private razalayoutService: RazaLayoutService,
@@ -156,9 +157,12 @@ export class GlobalcallComponent implements OnInit {
     }
 
  
-    
+    isUserAuthenticated(): boolean {
+      return this.authService.isAuthenticated();
+    } 
   ngOnInit(): void {
 
+    this.loginPhone = localStorage.getItem("login_no");
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     this.getCountryFrom();
@@ -574,7 +578,8 @@ if(item.Price == price)
 
   getRates()
   {
-    this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, this.countryId).subscribe(
+     
+    this.searchRatesService.getSearchGlobalRatesV1(this.currentSetting.currentCountryId, this.countryId, this.loginPhone).subscribe(
       (data: any) => {
          
         this.ratesLoaded = true;
@@ -619,7 +624,10 @@ if(item.Price == price)
              data_arr = {};
             if( j+1 == data.DiscountedPlansWithAutoRefill.Denominations.length)
             {
+              if(!this.isUserAuthenticated())
               this.AutorefillPlans = multi_data_arr.filter(a => a.Price != 90);
+              else
+              this.AutorefillPlans = multi_data_arr;
                
               this.Plans = this.AutorefillPlans;
             }           
@@ -649,7 +657,13 @@ if(item.Price == price)
            wdata_arr = {};
            if( j+1 == data.DiscountedPlans.Denominations.length)
             {
+
+              if(!this.isUserAuthenticated())
               this.WithoutAutorefillPlans = wmulti_data_arr.filter(a => a.Price != 90)
+              else
+              this.WithoutAutorefillPlans = wmulti_data_arr;//.filter(a => a.Price != 90)
+
+              
               //this.WithoutAutorefillPlans = wmulti_data_arr;
             }    
             
@@ -695,6 +709,8 @@ if(item.Price == price)
         {
          this.denominationList = Array.from(new Set(this.SubPlans.map(item => item.Price)));
          this.denominationList = this.denominationList.sort( (a, b)=> a-b)
+
+         if(!this.isUserAuthenticated())
          this.denominationList = this.denominationList.filter(a=> a != 90 )
 
           console.log('this.denominationList', this.denominationList);
