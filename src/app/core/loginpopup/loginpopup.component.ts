@@ -93,6 +93,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
  quickRecharge:any;
  sendAgainMsg:boolean=false;
  rewardsRoute:any='';
+ rememberMe:boolean=false;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -215,7 +217,24 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     } 
 
      
+    this.setCookieFields()
 
+  }
+
+  setCookieFields()
+  {
+    if(localStorage.getItem('rememberMe') && localStorage.getItem('rememberMe') == 'rememberMe')
+    {
+     const loginwith  = localStorage.getItem('cookieLoginWith');
+     const phoneEmail = localStorage.getItem('cookieLoginPhone');
+     const password   = localStorage.getItem('cookieLoginPass');
+     this.loginWith        = loginwith;
+     this.rememberMe = true;
+     this.loginForm.controls['username'].setValue(phoneEmail);
+     this.loginForm.controls['password'].setValue(password);
+     
+
+   }
   }
  /*
   signInWithGoogle(): void {
@@ -348,6 +367,10 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
         
       this.authService.login(body, false, "Y").subscribe((response) => {
         if (response != null) {
+
+          this.setCookie(this.loginWith, phone, userPassword)
+          
+          
 
           if(this.fromPage   == '' && this.navigateTo == '') 
           { 
@@ -1014,4 +1037,17 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     return formattedNumber; // Output: 312 975 8545
  
   }
+
+  setCookie(loginWith, phone, userPassword)
+  {
+    if(this.rememberMe == true)
+    {
+      localStorage.setItem('cookieLoginWith', loginWith);
+      localStorage.setItem('cookieLoginPhone', phone);
+      localStorage.setItem('cookieLoginPass', userPassword);
+      localStorage.setItem('rememberMe', 'rememberMe');
+    }
+  }
+          
+          
 }
