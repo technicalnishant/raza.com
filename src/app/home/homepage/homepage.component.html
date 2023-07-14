@@ -1,32 +1,32 @@
 <div class="first_fold">
     <div class="home-slider">
-       <ngb-carousel [showNavigationArrows]="true" 
+       <ngb-carousel [showNavigationArrows]="true"
        [showNavigationIndicators]="true">
            <!--  <ng-template ngbSlide class="promotions" >
                 <div class="picsum-img-wrapper" *ngIf="currentSetting?.country?.CountryId !=3">
                     <img loading="lazy" src="../../../assets/images/promotion/tg22bg.jpg" alt="Random first slide" class="bg-image promotion_image d-none d-md-block" >
-                     
+
                     <img loading="lazy" src="../../../assets/images/promotion/tg22-mobile-us.jpg" alt="Random first slide" class="bg-image d-block d-md-none" >
-                     
+
                 </div>
 
                 <div class="picsum-img-wrapper" *ngIf="currentSetting?.country?.CountryId ==3">
                     <img loading="lazy" src="../../../assets/images/promotion/tg22bg-uk.jpg" alt="Random first slide" class="bg-image promotion_image d-none d-md-block" >
-                     
+
                     <img loading="lazy" src="../../../assets/images/promotion/tg22-mobile-uk.jpg" alt="Random first slide" class="bg-image d-block d-md-none" >
-                     
+
                 </div>
                 <div class="carousel-caption promotion">
                       <div class="promotion_img_div">
- 
-                    </div>  
+
+                    </div>
                     <div class="clear"></div>
                     <div class="promotion-offer" >
                         <a type="button" (click)="onopenchristmas(typedEl)" class="promo-btn d-flex"><img src="../../../assets/images/promotion/buynow.png" class="promo-btnimg">{{name__p}}</a>
-                         <div style="display:none;"><a *ngIf="currentSetting?.country?.CountryId !=3" routerLink="/mobiledeals" type="button" class="view-more">View Other Offers</a></div> 
+                         <div style="display:none;"><a *ngIf="currentSetting?.country?.CountryId !=3" routerLink="/mobiledeals" type="button" class="view-more">View Other Offers</a></div>
                     </div>
                 </div>
-                  <p class="promotion-note" >*Promotion minutes vary from country to country.</p>  
+                  <p class="promotion-note" >*Promotion minutes vary from country to country.</p>
             </ng-template>   -->
             <ng-template ngbSlide>
                 <div class="picsum-img-wrapper" id={{currentSetting?.country?.CountryId}}>
@@ -48,9 +48,11 @@
                 <div class="carousel-caption tpSlider_1">
                     <div class="d-flex justify-content-center align-items-center flex-column">
                         <div class="d-md-flex align-items-center justify-content-center mt-5 mt-md-0 hpSlider_01">
-                            <div class="img-1 mt-5">
+                            <div class="img-1 mt-5 newSpelWrap">
+                                <span class="new_cust_spl showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 1">New Customer Special</span>
                                 <!-- <img  src="./assets/images/buy1get1.webp" loading="lazy" alt="" class="img-fluid"> -->
                                 <img  src="./assets/images/home_banner_new/buy1get1.webp" loading="lazy" alt="" class="img-fluid d-none d-md-block">
+                                <!-- <img  src="./assets/images/home_banner_new/new_cust_spl.webp" loading="lazy" alt="" class="img-fluid showMobileOnly new_cust_spl"  *ngIf="currentSetting?.country?.CountryId == 1"> -->
                                 <img  src="./assets/images/home_banner_new/hm_banner_mb-us.webp" loading="lazy" alt="" class="img-fluid showMobileOnly"  *ngIf="currentSetting?.country?.CountryId == 1">
                             </div>
                             <!-- <div class="py-3 d-block d-md-none w-75 m-auto" *ngIf="currentSetting?.country?.CountryId ==3">
@@ -80,12 +82,12 @@
                             Call over 200 countries <span>as low as 1¢</span>
                         </div>
                         <div class="button-wrapper text-center" style="width:100%;">
-                            <a mat-raised-button routerLink="deals/buy1-get1" type="button" class="rounded-pill btn-lg px-5 py-1 py-md-2 mb-3 buy-btn shadow">Buy Now</a>                            
+                            <a mat-raised-button routerLink="deals/buy1-get1" type="button" class="rounded-pill btn-lg px-5 py-1 py-md-2 mb-3 buy-btn shadow">Buy Now</a>
                         </div>
                     </div>
                 </div>
-            </ng-template> 
- 
+            </ng-template>
+
              <ng-template ngbSlide>
                 <div class="picsum-img-wrapper">
                     <!-- <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image"> -->
@@ -119,8 +121,8 @@
                         </div>
                     </div>
                     <div class="playStor_text d-block d-md-none">
-                        Download our app for the easiest 
-                        way to manage your account.  
+                        Download our app for the easiest
+                        way to manage your account.
                     </div>
                     <!-- <img loading="lazy" src="./assets/images/download_get_us.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId !=3"> -->
                     <!-- <div  style="width:100%; height:45px;">
@@ -150,7 +152,7 @@
                     <!-- <img loading="lazy" src="./assets/images/int-top-bottom.webp" alt="" class="img-fluid d-md-none d-block m-auto int-bottom"> -->
                     <!-- <img loading="lazy" src="./assets/images/it-topup-inner_g7bpbe.webp" alt="" class="img-fluid d-md-block d-none m-auto"> -->
                     <img loading="lazy" src="./assets/images/home_banner_new/it-topup-inner_g7bpbe.webp" alt="" class="img-fluid d-md-block d-none m-auto">
-                    
+
                     <div>
                         <a href="" [routerLink]="[ '/mobiletopup' ]" class="topup-btn" type="button" mat-button>TOP-UP</a>
                     </div>
@@ -161,8 +163,8 @@
                 <div class="picsum-img-wrapper">
                     <!-- <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" class="bg-image"> -->
                     <img src="./assets/images/home_banner_new/slider-bg.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">                
-                    
+                    <img src="./assets/images/home_banner_new/slider-bg-mb.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
+
                     <img src="./assets/images/home_banner_new/slider-bg-uk.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 3">
                     <img src="./assets/images/home_banner_new/slider-bg-mb-uk.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 3">
 
@@ -196,8 +198,8 @@
                                         <a href="javascript:void(0)" (click)="faqPopup(6)">FAQs</a> -->
                                     </div>
                                     <div class="bonus-sm-text">
-                                        No Purchase Necessary. 
-                                        Get 200 points instantly.                                                        
+                                        No Purchase Necessary.
+                                        Get 200 points instantly.
                                     </div>
                                     <!-- <p>No Purchase Necessary. Get 200 points instantly.</p> -->
                                 </div>
@@ -214,8 +216,8 @@
                         </div>
                         <a href="javascript:void(0)" (click)="enrollNow()" mat-button class="enroll-btn" mat-button>Enroll Now</a>
                         <div class="bonus-sm-text">
-                            No Purchase Necessary. 
-                            Get 200 points instantly.                                                        
+                            No Purchase Necessary.
+                            Get 200 points instantly.
                         </div>
                         <!-- <div class="enroll-wrappers">
                             <a href="javascript:void(0)" (click)="howItWorksPopup(6)">How it works</a>
@@ -226,9 +228,9 @@
                         </div> -->
                     </div>
                 </div>
-            </ng-template>  
+            </ng-template>
 
-         
+
 
         </ngb-carousel>
     </div>
@@ -375,7 +377,7 @@
                         <p>Search Rates to call anywhere in the world and select Purchase amount.</p>
                     </div>
                 </a>
-                
+
 
             </div>
             <div class="col-md-4">
@@ -424,7 +426,7 @@
                     <p>Send top-ups to over 300 Operators through the app instantly. We deliver most recharges in Seconds!</p>
                 </div>
 
- 
+
 
             </div>
             <div class="col-md-5 new_style_mobile_divall">
@@ -434,29 +436,29 @@
                     <div class="mobileImageSlider">
                        <!-- <video width="380" height="800" autoplay="autoplay" loop="loop"  muted="muted" controls="true"  class="gif-app">
                             <source src="../../../assets/images/mobile-video.mp4" type="video/mp4">
-                           
-                          
+
+
                           </video> -->
-                         <!-- <video 
+                         <!-- <video
                           src="./assets/images/mobile-video.mp4"
                           autoPlay = true
                           controls = false
                           loop = true
                           muted = true
-                        
+
                           id="raza_videoPlayer" width="380" height="800"
                           playsinline class="gif-app"
                        ></video>-->
 
-                       
 
-              <!-- <video id="raza_videoPlayer" width="380" height="800" autoplay="autoplay" loop="loop"  muted="muted" controls="true"  class="gif-app"> 
-                  
+
+              <!-- <video id="raza_videoPlayer" width="380" height="800" autoplay="autoplay" loop="loop"  muted="muted" controls="true"  class="gif-app">
+
                     <source src="./assets/images/mobile-video.mp4" type='video/mp4' />
-                   
+
                 </video> -->
 
-                        <img loading="lazy" src="./assets/images/download2dollor.jpg" class="gif-app" alt="icon" /> 
+                        <img loading="lazy" src="./assets/images/download2dollor.jpg" class="gif-app" alt="icon" />
 
                         <div class="home_mobile_div" >
                             <a href="https://play.google.com/store/apps/details?id=com.razacomm.universe">
@@ -553,7 +555,7 @@
 <div class="streakBannerBottom">
     <!-- <p>Existing Customers? <span>Get something awesome!</span>
          <a href="/mobiledeals">View Offers</a>  -->
-         <p>Existing Customers? <span>Check out our awesome features!</span>  
+         <p>Existing Customers? <span>Check out our awesome features!</span>
         <a href="/features">View</a>
 
     </p>

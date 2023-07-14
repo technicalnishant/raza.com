@@ -783,7 +783,7 @@ a {
     .home_mobile_div{
         position: absolute; bottom: 50px; left: 30px;z-index: 99;
     }
-    
+
     .home_mobile_div a img{ width:40%; padding: 5px;}
     .new_style_mobile {
         width: 350px;
@@ -1111,7 +1111,7 @@ a {
         z-index: 99;
     }
     .carousel-control-next:hover .carousel-control-next-icon {
-        
+
        // background-image: url("/assets/images/arrow-left-blue.png");
 
        // height:50px;
@@ -1120,7 +1120,7 @@ a {
         background-color: #fff;
     }
     .carousel-control-prev:hover .carousel-control-prev-icon {
-       
+
       //  background-image: url("/assets/images/arrow-right-blue.png");
         background: url("/assets/images/new_design_images/icon_sprite.png") 100px 294px;
         background-color: #fff;
@@ -1261,7 +1261,7 @@ h1.buy1get1-text:after {
         position: absolute;
         // bottom: 180px;
         img {
-          
+
             width: 85% !important;
         }
     }
@@ -1356,7 +1356,7 @@ h1.buy1get1-text:after {
         bottom: 0%;
         display: flex;
         justify-content: center;
-         
+
         right: 0;
         margin: auto;
     }
@@ -1445,11 +1445,11 @@ h1.buy1get1-text:after {
 
         }
 
-        
+
         .carousel-control-next-icon {
             height: 32px;
             width: 32px;
-           
+
             background: url(/assets/images/new_design_images/icon_sprite.png) 0px 244px;
         }
 
@@ -1552,7 +1552,7 @@ h1.buy1get1-text:after {
         padding-right: 75px;
         padding-left: 25px;
         margin-bottom: 10px;
-        max-width: 100%;
+        max-width: 390px;
     }
     .carousel-caption.buy5get5 {
         left: 0;
@@ -1795,8 +1795,8 @@ h1.buy1get1-text:after {
     .promotion-inner {
         max-width: 75%;
     margin: auto;
-    
-    
+
+
     }
     .carousel-caption.promotion {
         padding-bottom: 80px;
@@ -1814,7 +1814,7 @@ h1.buy1get1-text:after {
         bottom: 45%;
     }
     .promotion-inner {
-        
+
         max-width: 55%;
         margin: auto;
         margin-bottom: 510px;
@@ -1828,11 +1828,11 @@ h1.buy1get1-text:after {
     //     margin-bottom: -53px;
     //     right: 0%;
     // }
-     
+
     // .promotion-offer {
-        
-        
-       
+
+
+
     //     left: 7%;
     //     top: -235px;
     // }
@@ -1866,7 +1866,7 @@ h1.buy1get1-text:after {
         width: 60%;
         margin: 0 0 0 auto;
         right:20%
-    }  
+    }
     .promotion-offer .promo-btn {
         position: relative;
         top: 0px;
@@ -1903,7 +1903,7 @@ h1.buy1get1-text:after {
         right: 0;
         margin: auto;
     }
-    
+
     .promotion-offer a{
         margin-bottom:90px;
     }
@@ -1930,7 +1930,7 @@ h1.buy1get1-text:after {
         position: relative;
         // top: -23px;
         left: 0px
-       
+
     }
 }
 @media only screen and (min-width: 1231px) and (max-width: 1397px) {
@@ -1938,19 +1938,19 @@ h1.buy1get1-text:after {
         position: relative;
         // top: -23px;
         left: 135px
-       
+
     }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1200px) {
     .promotion-offer[_ngcontent-wbf-c368] .promo-btn[_ngcontent-wbf-c368] {
-         
+
         top: -45px;
-        
+
     }
 
     .promotion-offer a {
         position: absolute;
-         bottom: null; 
+         bottom: null;
     }
 }
 
@@ -1961,11 +1961,11 @@ h1.buy1get1-text:after {
     width: 60%;
     margin: 0 0 0 auto;
     right:20%
-}  
+}
 .promotion-offer {
     bottom: 0%;
     left:-15%;
-     
+
 }
 
 .promotion-offer a img {
@@ -1990,7 +1990,7 @@ h1.buy1get1-text:after {
     .promotion-offer {
         bottom: 0%;
         left:-33%;
-         
+
     }
 }
 
@@ -2000,14 +2000,14 @@ h1.buy1get1-text:after {
         width: 60%;
         margin: 0 0 0 auto;
         right:20%
-    }  
+    }
     .promotion-offer{bottom: 0;}
     .promotion-offer .promo-btn {
         position: relative;
         top: -50px;
         left:25px;
     }
-    
+
     .carousel-caption.promotion{
         position: absolute;
         bottom: 29%;
@@ -2025,7 +2025,7 @@ h1.buy1get1-text:after {
     }
     .promotion-offer .promo-btnimg {
         max-width: 55%;
-    }    
+    }
 }
 
 
@@ -2040,7 +2040,7 @@ h1.buy1get1-text:after {
 
     .promotion-offer a{
         margin-bottom: 30px;
-    }  
+    }
     .promotion-offer{
         // top: -308px;
     }
@@ -2291,6 +2291,34 @@ h1.buy1get1-text:after {
     }
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1100px) {
+    .carousel-caption.tpSlider_1 .divider {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .hpSlider_01 > .img-1 {
+        width: 285px;
+    }
+    .desk_app_us_text {
+        position: static;
+        margin-top: -33px;
+        margin-left: 200px;
+        font-size: 17px;
+    }
+    .desk_app_us_img_wrap {
+        max-width: 560px;
+    }
+    .reward-content .bonus-sm-text {
+        min-width: 210px;
+    }
+    .reward-content .bonus-ms {
+        font-size: 49px;
+    }
+    .carousel-caption.reward {
+        bottom: 15%;
+    }
+}
+
 @media only screen  and (max-width: 767px) {
     .promotion-offer .promo-btn {
         width: 132px;
@@ -2310,10 +2338,10 @@ h1.buy1get1-text:after {
     }
     .carousel-caption.tpSlider_1 {
         top: -20px;
-    }    
+    }
     .carousel-caption.tpSlider_1 .divider {
         margin: 22px auto;
-    }    
+    }
     .buy-btn {
         margin-left: 0;
     }
@@ -2325,15 +2353,15 @@ h1.buy1get1-text:after {
         text-align: left;
         max-width: 200px;
         margin: 0 auto 20px;
-    }    
+    }
     .carousel-caption.reward {
         top: 100px;
-    }    
+    }
     .bonus-sm-text {
         font-size: 16px;
         max-width: 210px;
         margin: 20px auto 0;
-    }    
+    }
     a.enroll-btn {
         padding: 2px 20px;
         font-size: 16px;
@@ -2351,7 +2379,7 @@ h1.buy1get1-text:after {
         img {
             max-width: 330px;;
         }
-    }    
+    }
     .btn-slider {
         margin-top: 30px;
     }
@@ -2374,14 +2402,14 @@ h1.buy1get1-text:after {
         position: static;
         font-size: 17px;
         margin: 5px 0 18px;
-    }    
+    }
     .playStor_text {
         font-size: 16px;
         max-width: 297px;
         margin: 0 auto;
     }
     .img-1 img {
-        width: 80%;
+        width: 86%;
         margin: auto;
         display: block;
     }
@@ -2398,6 +2426,26 @@ h1.buy1get1-text:after {
     }
     .topup-img {
         max-width: 430px;
+    }
+    .img-1.mt-5.newSpelWrap {
+        width: 360px !important;
+        margin: 0 auto;
+        position: relative;
+        img {
+          width: 100%;
+        }
+    }
+    .new_cust_spl {
+        position: absolute;
+        top: 20px;
+        left: -3px;
+        width: 80px;
+        color: #000;
+        font-size: 13px;
+        font-weight: 600;
+        text-align: center;
+        line-height: 1.2;
+        letter-spacing: -.5px;
     }
 }
 
