@@ -43,6 +43,10 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
 
   ngOnInit() 
   {
+    if(!this.authService.isAuthenticated())
+    {
+      this.router.navigate(['/']);
+    }
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     //Loading All customer plans.
