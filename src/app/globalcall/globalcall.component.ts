@@ -749,10 +749,7 @@ if(item.Price == price)
       
       return 0;
     })
-
-   // plan_info = plan_info.sort( (a, b)=> a-b)
-
-   // console.log('plan_info ', plan_info);
+ 
     return plan_info;
   }
   filterDetailRate(price: number) {

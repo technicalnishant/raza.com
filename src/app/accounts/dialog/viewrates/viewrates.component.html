@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="d-flex ">
+            <div class="first-col">
+                <div class="inner-cell-list">
+                    <div class="country_nm"> </div>
+                    <div *ngFor="let item of FilteredSubPlans" class="country_nm"> 
+                      <span class="{{getClassIcon(item.CountryName)}}"></span>  {{getNameOfCountry(item.CountryName)}} 
+                    </div>
+                     
+                </div>
+            </div>
+
+            <div class="d-flex flex-grow-1 " *ngIf="denominationList">
+                <div class="active col-wrapper">
+                    <div class="inner-cell-list-price">
+                        <div class="inner-cell" *ngFor="let amt of denominationList">
+                            {{ amt}}
+                        </div>
+                    </div>
+                </div>
+                <div class="active col-wrapper" *ngFor="let den of denominationList; let i = index">
+
+                    <div class="inner-cell-list-price">
+                           <div class="inner-cell" *ngFor="let item of filteredItems(den)">
+                        {{getTotalMin(item.DiscountedRate.TotalTime ,  item.DiscountedRate.PromoMinutes, den)}} min  
+                         
+                         
+                        </div>  
+ 
+                         
+                    </div>
+
+
+                </div>
+                 
+                 
+              
+            </div>
+        </div>
+    </div>
+</div>

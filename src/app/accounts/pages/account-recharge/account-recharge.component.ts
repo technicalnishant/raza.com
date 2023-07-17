@@ -27,6 +27,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MAT_SELECT_SCROLL_STRATEGY } from '@angular/material/select';
 import { isNullOrUndefined } from "../../../shared/utilities";
 import { Subscription } from 'rxjs';
+import { ViewratesComponent } from 'app/accounts/dialog/viewrates/viewrates.component';
 @Component({
   selector: 'app-account-recharge',
   templateUrl: './account-recharge.component.html',
@@ -148,6 +149,7 @@ export class AccountRechargeComponent implements OnInit {
       }
     })
    }
+
    onClickAmountOption(item: any)
    {
     this.selectedDenomination=item.Price;
@@ -334,5 +336,19 @@ validateCoupon(req: ValidateCouponCodeRequestModel): Promise<ValidateCouponCodeR
     });
   }
 
+
+  getRateDetail(): void 
+  {
+    this.toCountryId    = this.plan.CountryTo;
+          this.fromCountryId  = this.plan.CountryFrom;
+    this.dialog.open(ViewratesComponent, {
+      data: { 
+        denominations: this.denominatons,
+        countryFrom:this.fromCountryId,
+        countryTo:this.toCountryId,
+         
+       }
+    });
+  }
   
 }

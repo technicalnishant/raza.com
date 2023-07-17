@@ -56,6 +56,7 @@ import { WhatIsCvvComponent } from './dialog/what-is-cvv/what-is-cvv.component';
 import { AddEditCardComponent } from './dialog/add-edit-card/add-edit-card.component';
  
 import { RechargeConfirmationComponent } from './pages/recharge-confirmation/recharge-confirmation.component';
+import { ViewratesComponent } from './dialog/viewrates/viewrates.component';
  
 // import { MobileOrderHistoryComponent } from './component/mobile-order-history/mobile-order-history.component';
 // import { MobileRewardsComponent } from './component/mobile-rewards/mobile-rewards.component';
@@ -166,6 +167,7 @@ import { RechargeConfirmationComponent } from './pages/recharge-confirmation/rec
         AddEditCardComponent,
  
         RechargeConfirmationComponent,
+           ViewratesComponent,
  
         // MobileOrderHistoryComponent,
         // MobileRewardsComponent,

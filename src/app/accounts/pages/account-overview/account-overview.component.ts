@@ -74,12 +74,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
         else{
           this.getAllPlans();
         }
-        // let error={message:err.error.Message} 
-        //  this.authService.logout()
-        //  this.router.navigate(['/']);
-        // this.dialog.open(ErrorDialogComponent, {
-        //   data: { error }
-        // });
+        
          
         }
     )
@@ -130,7 +125,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
           }
       },
       (err: ApiErrorResponse) => {
-        console.log(err)
+      
         this.showBuyNow = true;
          
         }
@@ -144,7 +139,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
     else{
       this.showMobileStats = false;
     }
-    console.log(this.innerWidth);
+     
   }
   ngOnDestroy() {
     this.newDesign = false;
