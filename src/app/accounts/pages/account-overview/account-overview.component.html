@@ -13,7 +13,7 @@
          <!---------- EOF Show mobile stats ------------>
       </div>
         <!-- <app-account-recharge *ngIf="plan" [plan]="plan"></app-account-recharge>  -->
-     <router-outlet></router-outlet> 
+     <router-outlet *ngIf="plan" [plan]="plan"></router-outlet> 
       
     </div>
   </div>
@@ -66,6 +66,7 @@
           <a routerLink="/account/other-plans" routerLinkActive="active-link">Other Plans</a>
         </li>
         <li><a routerLink="/account/overview/notification" routerLinkActive="active-link">Notifications</a></li>
+        <!-- <li><a routerLink="/account/rates" routerLinkActive="active-link">Search Rates</a></li> -->
       </ul>
     </div>
     <div class="rightTabArea">
@@ -78,7 +79,7 @@
       <!-- commonmyaccountareaforallpages -->
         <!-- <app-account-recharge *ngIf="plan" [plan]="plan" ></app-account-recharge>  
         <app-my-cards *ngIf="plan" [plan]="plan"> </app-my-cards> -->
-      <router-outlet></router-outlet>
+      <router-outlet *ngIf="plan" [plan]="plan" ></router-outlet>
       
     </div>
   </div>

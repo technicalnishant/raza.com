@@ -88,7 +88,8 @@ export class RazaEnvironmentService {
     }
     getXChageRateInfo(countryFromId)
     {
-     return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`)
+     //return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`)
+     return null
     }
 
     setCurrentSetting(setting: CurrentSetting) {

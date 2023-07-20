@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { RazaSnackBarService } from '../../../shared/razaSnackbar.service';
 import { RazaLayoutService } from '../../../core/services/raza-layout.service';
 import { autoCorrectIfPhoneNumber, isValidPhoneOrEmail } from '../../../shared/utilities';
-import { OnExecuteData, ReCaptchaV3Service } from 'ng-recaptcha';
+// import { OnExecuteData, ReCaptchaV3Service } from 'ng-recaptcha';
 //import { environment } from 'environments/environment';
 
 import { environment } from '../../../../environments/environment';

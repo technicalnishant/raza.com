@@ -57,6 +57,7 @@ import { AddEditCardComponent } from './dialog/add-edit-card/add-edit-card.compo
  
 import { RechargeConfirmationComponent } from './pages/recharge-confirmation/recharge-confirmation.component';
 import { ViewratesComponent } from './dialog/viewrates/viewrates.component';
+import { AccountSearchRatesComponent } from './pages/account-search-rates/account-search-rates.component';
  
 // import { MobileOrderHistoryComponent } from './component/mobile-order-history/mobile-order-history.component';
 // import { MobileRewardsComponent } from './component/mobile-rewards/mobile-rewards.component';
@@ -101,6 +102,9 @@ import { ViewratesComponent } from './dialog/viewrates/viewrates.component';
                     { path: 'rewards', component: AccountRewardsComponent },
                     { path: 'my-profile', component: AccountMyProfileComponent },
                     { path: 'confirmation/:orderId', component: RechargeConfirmationComponent},
+                    { path: 'rates', component: AccountSearchRatesComponent},
+
+                    
                 ]
             },
             { path: 'update-password', component: UpdatePasswordComponent },
@@ -168,6 +172,7 @@ import { ViewratesComponent } from './dialog/viewrates/viewrates.component';
  
         RechargeConfirmationComponent,
            ViewratesComponent,
+           AccountSearchRatesComponent,
  
         // MobileOrderHistoryComponent,
         // MobileRewardsComponent,

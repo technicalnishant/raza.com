@@ -218,11 +218,11 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
            
            
   
-           // this.loadBillingInfo();
+            this.loadBillingInfo();
         //this.onClickCreditCardPay();
           } else {
            // this.getCreditCardValidityOptions();
-           // this.getBillingInfo();
+            this.getBillingInfo();
             this.havingExistingCard = false;
         //this.onClickCreditCardPay();
           }
