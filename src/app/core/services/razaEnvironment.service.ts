@@ -95,7 +95,7 @@ export class RazaEnvironmentService {
     setCurrentSetting(setting: CurrentSetting) {
         if (!isNullOrUndefined(setting)) {
             RazaEnvironmentService._setting = setting;
-             
+              
             this.getXChageRateInfo(setting.country.CountryId).subscribe((data:any)=>{
       
                 localStorage.setItem('currencySymbol', data.CurrencySymbol);
