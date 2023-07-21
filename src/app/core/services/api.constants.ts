@@ -150,7 +150,8 @@ export class Api {
 	static autoRefill = {
 		postAutoRefill: base + "api/AutoRefillSetups",
 		getAutoRefill: base + "api/AutoRefillSetups",
-		deleteAutoRefill: base + "api/AutoRefillSetups"
+		deleteAutoRefill: base + "api/AutoRefillSetups",
+		deleteAutoRefillV1 : base + "api/AutoRefillSetUps/Remove",
 	};
 
 	static company = {

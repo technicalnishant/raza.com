@@ -233,13 +233,24 @@ export class CustomerService {
     }
 
     public deleteAutoRefill(planId: string): Observable<any | ApiErrorResponse> {
-        return this.httpClient.delete<any>(`${Api.autoRefill.getAutoRefill}/${planId}`)
-            .pipe(
-                map(res => {
-                    return true;
-                }),
-                catchError(err => this.errorHandleService.handleHttpError(err))
-            );
+
+        
+
+        return this.httpClient.delete<any>(`${Api.autoRefill.deleteAutoRefillV1}/${planId}`)
+        .pipe(
+            map(res => {
+                return true;
+            }),
+            catchError(err => this.errorHandleService.handleHttpError(err))
+        );
+
+        // return this.httpClient.delete<any>(`${Api.autoRefill.getAutoRefill}/${planId}`)
+        //     .pipe(
+        //         map(res => {
+        //             return true;
+        //         }),
+        //         catchError(err => this.errorHandleService.handleHttpError(err))
+        //     );
     }
 
     public editAutoRefill(planId: string): Observable<any | ApiErrorResponse> {
