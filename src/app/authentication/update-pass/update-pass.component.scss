@@ -565,7 +565,7 @@ p {
 }
 
   @media only screen and (max-width: 700px)  {
-  
+
    .forgetPassContent{ width: 80%;}
    .passFieldArea { padding: 20px;}
   }
@@ -582,11 +582,11 @@ p {
       }
     }
   }
-  
+
   */
 
 
-  
+
 
 
 
@@ -595,46 +595,46 @@ p {
 
 
 
-@font-face {
-	font-family: 'Montserrat Bold';
-	src: url('../../../assets/font/Montserrat-Bold.eot');
-	src: url('../../../assets/font/Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
-		url('../../../assets/font/Montserrat-Bold.woff2') format('woff2'),
-		url('../../../assets/font/Montserrat-Bold.woff') format('woff');
-	font-weight: bold;
-	font-style: normal;
-	font-display: swap;
-  }
-  
-  @font-face {
-	font-family: 'Montserrat';
-	src: url('../../../assets/font/Montserrat-Medium.eot');
-	src: url('../../../assets/font/Montserrat-Medium.eot?#iefix') format('embedded-opentype'),
-		url('../../../assets/font/Montserrat-Medium.woff2') format('woff2'),
-		url('../../../assets/font/Montserrat-Medium.woff') format('woff');
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-  }
-  
-  @font-face {
-	font-family: 'Montserrat Medium';
-	src: url('../../../assets/font/Montserrat-Black.eot');
-	src: url('../../../assets/font/Montserrat-Black.eot?#iefix') format('embedded-opentype'),
-		url('../../../assets/font/Montserrat-Black.woff2') format('woff2'),
-		url('../../../assets/font/Montserrat-Black.woff') format('woff');
-	font-weight: 900;
-	font-style: normal;
-	font-display: swap;
-  }
-  
+// @font-face {
+// 	font-family: 'Montserrat Bold';
+// 	src: url('../../../assets/font/Montserrat-Bold.eot');
+// 	src: url('../../../assets/font/Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
+// 		url('../../../assets/font/Montserrat-Bold.woff2') format('woff2'),
+// 		url('../../../assets/font/Montserrat-Bold.woff') format('woff');
+// 	font-weight: bold;
+// 	font-style: normal;
+// 	font-display: swap;
+//   }
+
+//   @font-face {
+// 	font-family: 'Montserrat';
+// 	src: url('../../../assets/font/Montserrat-Medium.eot');
+// 	src: url('../../../assets/font/Montserrat-Medium.eot?#iefix') format('embedded-opentype'),
+// 		url('../../../assets/font/Montserrat-Medium.woff2') format('woff2'),
+// 		url('../../../assets/font/Montserrat-Medium.woff') format('woff');
+// 	font-weight: 500;
+// 	font-style: normal;
+// 	font-display: swap;
+//   }
+
+//   @font-face {
+// 	font-family: 'Montserrat Medium';
+// 	src: url('../../../assets/font/Montserrat-Black.eot');
+// 	src: url('../../../assets/font/Montserrat-Black.eot?#iefix') format('embedded-opentype'),
+// 		url('../../../assets/font/Montserrat-Black.woff2') format('woff2'),
+// 		url('../../../assets/font/Montserrat-Black.woff') format('woff');
+// 	font-weight: 900;
+// 	font-style: normal;
+// 	font-display: swap;
+//   }
+
   .field-icon {
 	float: right;
 	left: -15px;
 	margin-top: -25px;
 	position: relative;
 	z-index: 2;
-	 
+
   }
   .p-b-3 {padding-bottom: 3px;}
   .m-t-20 {margin-top: 20px;}
@@ -642,30 +642,30 @@ p {
   /* ------------------------------------ */
   .text-white {color: white;}
   .text-black {color: black;}
-  
+
   .text-hov-white:hover {color: white;}
-  
+
   /* ------------------------------------ */
   .text-up {text-transform: uppercase;}
-  
+
   /* ------------------------------------ */
   .text-center {text-align: center;}
   .text-left {text-align: left;}
   .text-right {text-align: right;}
   .text-middle {vertical-align: middle;}
-  
-  
+
+
   /*//////////////////////////////////////////////////////////////////
   [ RESTYLE TAG ]*/
-  
+
   * {
-	  margin: 0px; 
-	  padding: 0px; 
+	  margin: 0px;
+	  padding: 0px;
 	  box-sizing: border-box;
   }
-  
- 
-  
+
+
+
   /*---------------------------------------------*/
   a {
 	  font-family: Montserrat;
@@ -682,11 +682,11 @@ p {
   .para-style{
 	color: #0c2054;
   }
-  
+
   a:focus {
 	  outline: none !important;
   }
-  
+
   a:hover {
 	  text-decoration: none;
 	color: #6a7dfe;
@@ -695,12 +695,12 @@ p {
 	color: -moz-linear-gradient(left, #0c2054, #0c2054);
 	color: linear-gradient(left, #0c2054, #0c2054);
   }
-  
+
   /*---------------------------------------------*/
   h1,h2,h3,h4,h5,h6 {
 	  margin: 0px;
   }
-  
+
   p {
 	  font-family: Montserrat;
 	  font-size: 14px;
@@ -708,64 +708,64 @@ p {
 	  color: #666666;
 	  margin: 0px;
   }
-  
+
   ul, li {
 	  margin: 0px;
 	  list-style-type: none;
   }
-  
-  
+
+
   /*---------------------------------------------*/
   input {
 	  outline: none;
 	  border: none;
   }
-  
+
   textarea {
 	outline: none;
 	border: none;
   }
-  
+
   textarea:focus, input:focus {
 	border-color: transparent !important;
   }
-  
+
   input:focus::-webkit-input-placeholder { color:transparent; }
   input:focus:-moz-placeholder { color:transparent; }
   input:focus::-moz-placeholder { color:transparent; }
   input:focus:-ms-input-placeholder { color:transparent; }
-  
+
   textarea:focus::-webkit-input-placeholder { color:transparent; }
   textarea:focus:-moz-placeholder { color:transparent; }
   textarea:focus::-moz-placeholder { color:transparent; }
   textarea:focus:-ms-input-placeholder { color:transparent; }
-  
+
   input::-webkit-input-placeholder { color: #adadad;}
   input:-moz-placeholder { color: #adadad;}
   input::-moz-placeholder { color: #adadad;}
   input:-ms-input-placeholder { color: #adadad;}
-  
+
   textarea::-webkit-input-placeholder { color: #adadad;}
   textarea:-moz-placeholder { color: #adadad;}
   textarea::-moz-placeholder { color: #adadad;}
   textarea:-ms-input-placeholder { color: #adadad;}
-  
+
   /*---------------------------------------------*/
   button {
 	  outline: none !important;
 	  border: none;
 	  background: transparent;
   }
-  
+
   button:hover {
 	  cursor: pointer;
   }
-  
+
   iframe {
 	  border: none !important;
   }
-  
-  
+
+
   /*//////////////////////////////////////////////////////////////////
   [ Utility ]*/
   .txt1 {
@@ -774,17 +774,17 @@ p {
 	color: #666666;
 	line-height: 1.5;
   }
-  
+
   .txt2 {
 	font-family: Montserrat;
 	font-size: 13px;
 	color: #333333;
 	line-height: 1.5;
   }
-  
+
   /*//////////////////////////////////////////////////////////////////
   [ login ]*/
-  
+
   .limiter {
 	width: 100%;
 	margin: 0 auto;
@@ -803,12 +803,12 @@ p {
   }
   .lock_icons img{
   border-radius: 50px;
-  
+
   background: #f2f2f2;
   padding: 10px;
   }
   .container-login100 {
-	width: 100%;  
+	width: 100%;
 	min-height: 100vh;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -819,18 +819,18 @@ p {
 	justify-content: center;
 	align-items: center;
 	padding: 15px;
-	background: #f2f2f2;  
+	background: #f2f2f2;
   }
-  
+
   .wrap-login100 {
 	width: 650px;
 	top: 70px;
 	position: relative;
 	background: #fff;
 	border-radius: 16px;
-	
+
 	padding: 40px 0px 0px 0px;
-  
+
 	box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
 	-webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -840,22 +840,22 @@ p {
   .input_style{
 	padding: 0px 60px 0px 60px;
   }
-  
+
   .container-login100-form-btn{
 	border-radius: 0 0 16px 16px;
 	background: #f3f3f3;
 	padding: 30px 40px;
 	border-top: 1px solid #ddd;
-  
+
   }
-  
+
   /*------------------------------------------------------------------
   [ Form ]*/
-  
+
   .login100-form {
 	width: 100%;
   }
-  
+
   .login100-form-title {
 	display: block;
 	font-family: Montserrat Bold;
@@ -867,31 +867,31 @@ p {
   .login100-form-title i {
 	font-size: 60px;
   }
-  
+
   /*------------------------------------------------------------------
   [ Input ]*/
-  
+
   .wrap-input100 {
 	width: 100%;
 	position: relative;
 	border-bottom: 1px solid #8d8d8d;
 	margin-bottom: 30px;
   }
-  
+
   .input100 {
 	font-family: Montserrat;
 	font-size: 15px;
 	color: #000;
 	line-height: 1.2;
-  
+
 	display: block;
 	width: 100%;
 	height: 45px;
 	background: transparent;
 	padding: 0 5px;
   }
-  
-  /*---------------------------------------------*/ 
+
+  /*---------------------------------------------*/
   .focus-input100 {
 	position: absolute;
 	display: block;
@@ -901,7 +901,7 @@ p {
 	left: 0;
 	pointer-events: none;
   }
-  
+
   .focus-input100::before {
 	content: "";
 	display: block;
@@ -910,25 +910,25 @@ p {
 	left: 0;
 	width: 0;
 	height: 1px;
-  
+
 	-webkit-transition: all 0.4s;
 	-o-transition: all 0.4s;
 	-moz-transition: all 0.4s;
 	transition: all 0.4s;
-  
+
 	background: #0c2054;
 	background: -webkit-linear-gradient(left, #0c2054, #0c2054);
 	background: -o-linear-gradient(left, #0c2054, #0c2054);
 	background: -moz-linear-gradient(left, #0c2054, #0c2054);
 	background: linear-gradient(left, #0c2054, #0c2054);
   }
-  
+
   .focus-input100::after {
 	font-family: Montserrat;
 	font-size: 14px;
 	color: #8d8d8d;
 	line-height: 1.2;
-  
+
 	content: attr(data-placeholder);
 	display: block;
 	width: 100%;
@@ -936,29 +936,29 @@ p {
 	top: 16px;
 	left: 0px;
 	padding-left: 0px;
-  
+
 	-webkit-transition: all 0.4s;
 	-o-transition: all 0.4s;
 	-moz-transition: all 0.4s;
 	transition: all 0.4s;
   }
-  
+
   .input100:focus + .focus-input100::after {
 	top: -15px;
   }
-  
+
   .input100:focus + .focus-input100::before {
 	width: 100%;
   }
-  
+
   .has-val.input100 + .focus-input100::after {
 	top: -15px;
   }
-  
+
   .has-val.input100 + .focus-input100::before {
 	width: 100%;
   }
-  
+
   .tip-list-image-right{
 	width: 12px;
 	margin-right: 9px;
@@ -967,8 +967,8 @@ p {
 	width: 10px;
 	margin-right: 10px;
   }
-  
-  
+
+
   /*------------------------------------------------------------------
   [ Button ]*/
   .container-login100-form-btn {
@@ -979,9 +979,9 @@ p {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-  
+
   }
-  
+
   .wrap-login100-form-btn {
 	width: auto;
 	display: block;
@@ -1007,10 +1007,10 @@ p {
 	width: 300%;
 	height: 100%;
 	background: #ffbf10;
-	
+
 	top: 0;
 	left: -100%;
-  
+
 	-webkit-transition: all 0.4s;
 	-o-transition: all 0.4s;
 	-moz-transition: all 0.4s;
@@ -1027,16 +1027,16 @@ p {
 	color: #484848;
 	line-height: 20px;
 	margin-bottom: 30px;
-	
+
   }
-  
+
   .login100-form-btn {
 	font-family:Montserrat;
 	font-size: 18px;
 	font-weight: 600;
 	color: #0c2054;
 	line-height: 1;
-  
+
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -moz-box;
@@ -1048,15 +1048,15 @@ p {
 	width: 100%;
 	height: 40px;
   }
-  
+
   .wrap-login100-form-btn:hover .login100-form-bgbtn {
 	left: 0;
   }
   .input_holder1{text-align:center}
-  
+
   /*------------------------------------------------------------------
   [ Responsive ]*/
-  
+
   @media (max-width: 576px) {
 	.wrap-login100 {
 	  padding: 40px 0px 0px 0px;
@@ -1069,22 +1069,21 @@ p {
   }
   .tip-list-text {
 	font-size: 10px;
-  
+
   }
   .para-style {
 	font-size: 14px;
   }
   .login100-form-title {
-   
+
 	font-size: 24px;
 	color: #0c2054;
 	line-height: 1.2;
-	
+
   }
   }
-  
-  
-  
-  
-  
-  
+
+
+
+
+
