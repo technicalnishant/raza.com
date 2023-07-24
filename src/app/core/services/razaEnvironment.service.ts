@@ -88,22 +88,25 @@ export class RazaEnvironmentService {
     }
     getXChageRateInfo(countryFromId)
     {
-     //return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`)
-     return null
+     return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`)
+    
     }
 
     setCurrentSetting(setting: CurrentSetting) {
-        if (!isNullOrUndefined(setting)) {
+        if (!isNullOrUndefined(setting) && !isNullOrUndefined(setting.country)) {
             RazaEnvironmentService._setting = setting;
-              
-            this.getXChageRateInfo(setting.country.CountryId).subscribe((data:any)=>{
-      
-                localStorage.setItem('currencySymbol', data.CurrencySymbol);
-                localStorage.setItem('subCurrencySymbol', data.SubCurrencySymbol);
-                localStorage.setItem('rate', data.ExchangeRate);
+              console.log(setting.country)
+              if(setting.country.CountryId > 0)
+                {   
+                    this.getXChageRateInfo(setting.country.CountryId).subscribe((data:any)=>{
+            
+                        localStorage.setItem('currencySymbol', data.CurrencySymbol);
+                        localStorage.setItem('subCurrencySymbol', data.SubCurrencySymbol);
+                        localStorage.setItem('rate', data.ExchangeRate);
 
-                localStorage.setItem('exchangeRate', JSON.stringify(data));   
-            })
+                        localStorage.setItem('exchangeRate', JSON.stringify(data));   
+                    })
+                }
             localStorage.setItem('session_key', JSON.stringify(setting));
              
         }

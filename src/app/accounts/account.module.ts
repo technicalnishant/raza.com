@@ -64,10 +64,20 @@ import { AccountSearchRatesComponent } from './pages/account-search-rates/accoun
 // import { MobileMyaccountComponent } from './component/mobile-myaccount/mobile-myaccount.component';
 // import { MobileNotificationsComponent } from './component/mobile-notifications/mobile-notifications.component';
  
+
+
+ 
+
+
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { NgxSplideModule } from 'ngx-splide';
+
+
 @NgModule({
     imports: [
         MaterialModule,
-        
+        MatButtonToggleModule,
+        NgxSplideModule,
         SharedModule,
         CoreModule,
         CommonModule,

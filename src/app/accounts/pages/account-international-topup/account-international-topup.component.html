@@ -1,4 +1,77 @@
-<div class="tabContentMyaccount pt-5 pb-0" id="virtualNumber">
+
+
+<div class="tabContentMyaccount pt-5 pb-0" id="virtualNumber" *ngIf="showTopupForm">
+<a href="javascript:void(0)" (click)="goBack()">Go Back</a>
+
+
+<div *ngIf="!mobileTopupData">
+   
+    <div class="row">
+    
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
+        <div class="card p-3 p-md-5 shadow mt-4 rounded-lg">
+          <form class="example-form mobileTopup" [formGroup]="mobileTopupForm" (ngSubmit)="onMobileTopupFormSubmit()" autocomplete="off">
+            <mat-form-field class="example-full-width">
+              <mat-label class="font-weight-bold text-dark">Choose Country</mat-label>
+
+               <span *ngIf="mycountryId > 0" matPrefix class="prefix-mobiletopup">
+                <img src="assets/images/blank.gif" [ngClass]="'flag flag-' + mycountryId" />
+              </span>
+              <input matInput type="text" [matAutocomplete]="auto" formControlName="countryTo" (keyup)="unsetFlag()"
+                class="ml-2" />
+              <mat-icon matSuffix>search</mat-icon>
+
+              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let country of filteredCountry | async" [value]="country"
+                  (click)="onSelectCountrFrom(country)">
+                  <span class="mr-2">
+                    <img src="assets/images/blank.gif" [ngClass]="'flag flag-' + country.CountryId"
+                      [alt]="country.CountryName" />
+                  </span>
+                  {{ country.CountryName }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width input-number">
+              <mat-label class="font-weight-bold text-dark">Enter Mobile Number</mat-label>
+              <span matPrefix class="prefix-mobiletopup"
+                *ngIf="this.mobileTopupForm.get('countryTo').value?.CountryCode">+{{
+                this.mobileTopupForm.get("countryTo").value?.CountryCode }}
+              </span>
+
+              <input type="tel" matInput formControlName="phoneNumber" class="ml-2"  (keyup)="storePhoneNumber()" />
+              <span class="floatRight forgetPass" *ngIf="isTopUpEnable">
+                <a tabindex="3" (click)="changeNumber()">Change Number?</a></span>
+            </mat-form-field>
+            <!--<p class="numberXX">+971 5299XXXXX</p>-->
+            <mat-error *ngIf="
+              mobileTopupForm.get('phoneNumber').errors?.Invalid_Operator
+            ">
+              Top-up to this number is not available at this time.
+            </mat-error>
+
+
+            <!--<a mat-button href="#" class="submit-btn">SUBMIT</a>-->
+
+            <div class="button-wrapper">
+              <button mat-button class="submit-btn btn-block mb-3 mb-md-0 w-50">{{ buttonText }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    
+
+    </div>
+   
+</div>
+
+
+</div>
+<!---------- Mobile topup listing ---------->
+<div class="tabContentMyaccount pt-5 pb-0" id="virtualNumber" *ngIf="!showTopupForm">
   <p class="tabTitle">International Topup</p>
   <p class="desc">Worldwide top-up to over 500 networks across 140 countris</p>
   <div class="input_holder1 myNumberButtonArea">
@@ -44,75 +117,4 @@
     </div>
     </div>
 </div>
-
-
-<!-- <div class="tabContentMyaccount planDetails tableNewSpaceN" id="internationalTopup">
-  <p class="tabTitle">International Topup</p>
-  <p class="desc">Worldwide top-up to over 500 networks across 140 countries</p>
-  <div class="input_holder1">
-    <button mat-button class="submitButton">Topup Now</button>
-  </div>
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">S.No</th>
-        <th scope="col">Date & Time</th>
-        <th scope="col">Name</th>
-        <th scope="col">Plan</th>
-        <th scope="col">Mobile No.</th>
-        <th scope="col">Amount</th>
-        <th scope="col">Payment</th>
-        <th scope="col">Destination</th>
-        <th scope="col">Plan 2</th>
-
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>5</td>
-        <td>3/25/2019<br /> 10:31 AM</td>
-        <td>Amin Hemani</td>
-        <td>Pakistan Mobilink</td>
-        <td>4167271966</td>
-        <td>$1</td>
-        <td>Cash</td>
-        <td>carchicago<br /> 50.206.133.226</td>
-        <td>Mobile TopUp</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>3/25/2019<br /> 10:31 AM</td>
-        <td>Amin Hemani</td>
-        <td>Pakistan Mobilink</td>
-        <td>4167271966</td>
-        <td>$1</td>
-        <td>Cash</td>
-        <td>carchicago<br /> 50.206.133.226</td>
-        <td>Mobile TopUp</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>3/25/2019<br /> 10:31 AM</td>
-        <td>Amin Hemani</td>
-        <td>Pakistan Mobilink</td>
-        <td>4167271966</td>
-        <td>$1</td>
-        <td>Cash</td>
-        <td>carchicago<br /> 50.206.133.226</td>
-        <td>Mobile TopUp</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>3/25/2019<br /> 10:31 AM</td>
-        <td>Amin Hemani</td>
-        <td>Pakistan Mobilink</td>
-        <td>4167271966</td>
-        <td>$1</td>
-        <td>Cash</td>
-        <td>carchicago<br /> 50.206.133.226</td>
-        <td>Mobile TopUp</td>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
+ 
