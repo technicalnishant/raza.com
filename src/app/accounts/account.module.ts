@@ -58,7 +58,7 @@ import { AddEditCardComponent } from './dialog/add-edit-card/add-edit-card.compo
 import { RechargeConfirmationComponent } from './pages/recharge-confirmation/recharge-confirmation.component';
 import { ViewratesComponent } from './dialog/viewrates/viewrates.component';
 import { AccountSearchRatesComponent } from './pages/account-search-rates/account-search-rates.component';
- 
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 // import { MobileOrderHistoryComponent } from './component/mobile-order-history/mobile-order-history.component';
 // import { MobileRewardsComponent } from './component/mobile-rewards/mobile-rewards.component';
 // import { MobileMyaccountComponent } from './component/mobile-myaccount/mobile-myaccount.component';
@@ -76,6 +76,7 @@ import { AccountSearchRatesComponent } from './pages/account-search-rates/accoun
         CreditCardDirectivesModule,
         MatAutocompleteModule,
         MatIconModule,
+        MatButtonToggleModule,
         RouterModule.forChild([
             {
                 path: '', component: AccountOverviewComponent, data: { isFixedHeader: true }, children: [
