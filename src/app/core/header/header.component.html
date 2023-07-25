@@ -18,7 +18,7 @@
 </div>
 <header [ngClass]="{'headerBackground': headerValue == 2 , 'bg-darkblue': headerValue == 1}"
   [ngClass]="status ? '' : 'header-top'" class="header_style2 active pb-0 border-0 bg-darkblue" id="hd-bg" *ngIf="showHeader">
-  
+
 
   <mat-toolbar >
     <mat-toolbar-row>
@@ -66,7 +66,7 @@
               <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
                 [ngClass]="'flag flag-'+ option.CountryId" height="25" loading="lazy">
               <span class="width70">{{option.CountryName}}&nbsp;(+{{option.CountryCode}})</span>
-              
+
               <span class="width30">
                 <img src="./../../assets/images/phone-icon.png" alt="" loading="lazy">
                 <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
@@ -96,7 +96,7 @@
           </button>
 
           <!--<div *ngIf="!isAuthenticated" class="login-text d-none d-md-block">login</div>-->
-         
+
         </div>
       </div>
 
@@ -170,7 +170,7 @@
     </div>
     <div class="deal-menu">
       <ul class="d-none d-lg-flex pl-0">
-        
+
         <!-- <li>
           <ng-container *ngTemplateOutlet="DealsDropMenu"></ng-container>
         </li> -->
@@ -186,15 +186,22 @@
     </div>
     <div class="app-menu">
       <div class="mr-2">Download Raza App</div>
-      <div><a href="https://play.google.com/store/apps/details?id=com.razacomm.universe" target="_blank"><img
-            src="../../../assets/images/playstore.svg" alt="" loading="lazy"></a></div>
-      <div><a href="https://apps.apple.com/ca/app/raza-universe/id1226298666" target="_blank"><img
-            src="../../../assets/images/apple.svg" alt="" loading="lazy"></a></div>
+      <div>
+        <a href="https://play.google.com/store/apps/details?id=com.razacomm.universe" target="_blank">
+          <!-- <img src="../../../assets/images/playstore.svg" alt="" loading="lazy"> -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="M5.4 21c-.17.003-.34-.026-.5-.086l8.054-8.057l2.666 2.669l-9.255 5.2A1.998 1.998 0 0 1 5.4 21Zm-1.164-.665a1.9 1.9 0 0 1-.236-.97V4.66a2.13 2.13 0 0 1 .1-.658l8.233 8.235l-8.1 8.1l.003-.002Zm12.179-5.258l-2.841-2.839l3.133-3.132l2.783 1.563c.534.24.892.755.928 1.339a1.574 1.574 0 0 1-.929 1.34l-3.074 1.729Zm-3.461-3.463l-8.34-8.339c.229-.17.506-.26.791-.261c.336.012.664.107.955.277l9.551 5.368l-2.956 2.955h-.001Z"/></svg>
+        </a>
+      </div>
+      <div>
+        <a href="https://apps.apple.com/ca/app/raza-universe/id1226298666" target="_blank">
+          <!-- <img src="../../../assets/images/apple.svg" alt="" loading="lazy"> -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24"><path fill="#fff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47c-1.34.03-1.77-.79-3.29-.79c-1.53 0-2 .77-3.27.82c-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51c1.28-.02 2.5.87 3.29.87c.78 0 2.26-1.07 3.81-.91c.65.03 2.47.26 3.64 1.98c-.09.06-2.17 1.28-2.15 3.81c.03 3.02 2.65 4.03 2.68 4.04c-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5c.13 1.17-.34 2.35-1.04 3.19c-.69.85-1.83 1.51-2.95 1.42c-.15-1.15.41-2.35 1.05-3.11Z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
-
-
   </header>
+
   <header *ngIf="!showHeader && blueBg==0" [ngClass]="{'headerBackground': headerValue == 2 , '': headerValue == 1}" class="header_style2 active pb-0 border-0">
   <mat-toolbar >
 
@@ -224,7 +231,7 @@
        <button mat-icon-button class="p-0"
         [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}"
         #accountDropMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu">
-        <mat-icon>account_circle</mat-icon>  
+        <mat-icon>account_circle</mat-icon>
       </button>
 
       <mat-menu #menu="matMenu" class="loginDropDown">
@@ -238,7 +245,7 @@
   </mat-toolbar>
 </header>
 
- <header *ngIf="!showHeader && blueBg==1" 
+ <header *ngIf="!showHeader && blueBg==1"
 [ngClass]="{'headerBackground': headerValue == 2 , '': headerValue == 1}"
 [ngClass]="status ? '' : 'header-top'" class="header_style2 active pb-0 border-0 bg-darkblue"
 >
@@ -251,7 +258,7 @@
       </button>
 
       <!-- <ng-container *ngTemplateOutlet="DealsDropMenu"></ng-container> -->
- 
+
       <span class="example-spacer"></span>
       <span class="logo" >
         <a routerLink="/">
@@ -260,7 +267,7 @@
         </a>
       </span>
 
-     
+
 
       <span class="example-spacer"></span>
       <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span>
@@ -279,18 +286,18 @@
 
     </mat-toolbar-row>
   </mat-toolbar>
-</header> 
+</header>
 
- 
+
 
 <!-- <ng-template #DealsDropMenu>
   <span class="colorWhite dropbtn dealbtndrop  px-0 " *ngIf="currentSetting.currentCountryId !=3"  >
-    
+
     <em class="mobile_text " #myDEAL>Deals</em>
 
     <div class="dropdown" #dropdown>
       <div class="bckgrd-white dropdown-content full-width">
-         
+
 
         <app-deals-tab></app-deals-tab>
 
@@ -301,5 +308,5 @@
     </div>
   </span>
 
-  
+
 </ng-template> -->
