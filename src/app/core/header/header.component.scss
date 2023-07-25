@@ -54,11 +54,6 @@
   height: 18px;
   background: url("/assets/images/new_design_images/icon_sprite.png") -40px 234px;
 }
-@media only screen and (max-width: 675px) {
-  .dealbtndrop {
-    margin-left: 20px;
- }
-}
 .dealimgcard {
   margin-top: 25px;
   margin-left: 20px;
@@ -85,17 +80,6 @@
 }
 .icon-margin-left {
   margin-left: -25px;
-}
-@media (max-width: 480px) and (min-width: 320px) {
-  .dealimgcard-wid-top {
-    width: 100%;
- }
-  .dealimgcardfirst {
-    margin-left: -5%;
- }
-  .dealimgcard {
-    margin-left: -5%;
- }
 }
 .scnd-img {
   margin-top: 10px;
@@ -280,25 +264,7 @@
 .displayDsk {
   display: block;
 }
-@media (max-width: 1266px) and (min-width: 320px) {
-  bckgrd-white {
-    background: white !important;
- }
-}
-@media (max-width: 480px) and (min-width: 320px) {
-  .container-fluid {
-    width: 90%;
- }
-  .dealimgcard-wid-top {
-    width: 100%;
- }
-  .dealimgcardfirst {
-    margin-left: -10%;
- }
-  .dealimgcard {
-    margin-left: -10%;
- }
-}
+
 @media (max-width: 1200px) and (min-width: 320px) {
   .displayMob {
     display: block;
@@ -311,6 +277,9 @@
     margin-left: 10px;
     margin-right: 10px;
  }
+ .colorWhite em {
+    display: none;
+  }
 }
 .scnd-img {
   margin-top: 10px;
@@ -376,43 +345,6 @@
 .close_icons_deal i {
   color: grey;
 }
-@media (min-width: 1px) and (max-width: 767px) {
- /* .mobile_text{
-    display: block;
- }
-  .hide_phone{
-    display: none;
- }
-  */
-  .dropdown-content {
-    width: 320px !important;
- }
-  .buyNowMobileDeals {
-    background: transparent !important;
-    color: #005be4 !important;
-    font-weight: bold;
- }
-  .dropdown-content ul li .dropdown-Individualmenu {
-    padding: 12px 5px 5px !important;
- }
-  .dropdown-content ul li:nth-child(3) .Text-position-2 img.small_img_deal {
-    width: 90px !important;
- }
-  .dropdown-content ul li:last-child .Text-position-2 img.small_img_deal {
-    width: 90px !important;
- }
-  .dealbtndrop {
-    margin-left: 0px;
- }
-  .logo {
-    max-width: 120px;
-    height: auto;
-    margin-left: -20px;
- }
-  .buyNowMobileDeals {
-    border: none;
- }
-}
 .pad0 {
   padding: 0px;
 }
@@ -441,19 +373,8 @@
 .cdk-overlay-connected-position-bounding-box {
   top: 5px !important;
 }
-/* deals tab css start here */
-@media only screen and (max-width: 1200px) {
-  .colorWhite em {
-    display: none;
- }
-}
 .full-width {
   width: 1300px !important;
-}
-@media only screen and (min-width: 568px) {
-  .moibile-strip {
-    display: none !important;
- }
 }
 .top-flag {
   display: flex;
@@ -597,11 +518,6 @@
 .flag_list1 ul li span {
   display: block;
 }
-@media only screen and (max-width: 675px) {
-  .logo-whiteimg {
-    width: 65%;
- }
-}
 .login-text {
   cursor: pointer;
 }
@@ -656,36 +572,75 @@ input#searchInput::placeholder {
   font-weight: 500;
   font-family: 'Montserrat';
 }
-@media screen and (max-width: 675px) {
+.bg-darkblue {
+  background-color: #244481;
+}
+.bg-darkblues {
+  background-color: #244481;
+}
+.language {
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 16px;
+}
+.language img {
+  margin-right: 9px;
+}
+.language span {
+  position: relative;
+}
+.language span:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: -2px;
+  background: #fff;
+}
+.language2 {
+  color: #0b203e;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 16px;
+}
+.language2 img {
+  margin-right: 9px;
+}
+.language2 span {
+  position: relative;
+}
+.language2 span:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: -2px;
+  background: #0b203e;
+}
+.strip, .strip a {
+  font-size: 15px;
+  color: #656565;
+  font-weight: 500;
+  font-family: 'Montserrat';
+}
+.divider-top {
+  width: 1px;
+  background: #656565;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+@media only screen and (max-width: 767px) {
   ::ng-deep .cdk-overlay-pane {
     width: 100% !important;
     left: 0 !important;
     right: 0 !important;
     padding: 0 8px;
  }
-  .second-menu {
-    height: 36px;
- }
-  input#searchInput::placeholder {
-    color: #000;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: 'Montserrat';
- }
-}
-@media only screen and (max-width: 650px) {
- /* .downloadText{
-    display: none;
- }
-  */
- /* .palceholder-search{
-   display: none;
- }
-  */
- /*.activeArea{
-    padding-top: 0px;
- }
- */
+ .logo-whiteimg {
+    width: 65%;
+  }
  /*********Mobile Video ****/
   .select_top1 {
     left: 14px !important;
@@ -711,9 +666,6 @@ input#searchInput::placeholder {
  }
   .applinkForDesktop {
     display: none;
- }
-  .mobileAppcommon_area .app_list new {
-    display: block !important;
  }
   .mobileAppcommon_area.first, .mobileAppcommon_area.second, .mobileAppcommon_area.third {
     display: none;
@@ -918,67 +870,6 @@ input#searchInput::placeholder {
   .home_textarea .mat-form-field-underline {
     bottom: 60px !important;
  }
-}
-.bg-darkblue {
-  background-color: #244481;
-}
-.bg-darkblues {
-  background-color: #244481;
-}
-.language {
-  font-size: 14px;
-  font-weight: 500;
-  margin-right: 16px;
-}
-.language img {
-  margin-right: 9px;
-}
-.language span {
-  position: relative;
-}
-.language span:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  left: 0;
-  bottom: -2px;
-  background: #fff;
-}
-.language2 {
-  color: #0b203e;
-  font-size: 14px;
-  font-weight: 500;
-  margin-right: 16px;
-}
-.language2 img {
-  margin-right: 9px;
-}
-.language2 span {
-  position: relative;
-}
-.language2 span:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  left: 0;
-  bottom: -2px;
-  background: #0b203e;
-}
-.strip, .strip a {
-  font-size: 15px;
-  color: #656565;
-  font-weight: 500;
-  font-family: 'Montserrat';
-}
-.divider-top {
-  width: 1px;
-  background: #656565;
-  margin-left: 24px;
-  margin-right: 24px;
-}
-@media only screen and (max-width: 767px) {
   .language, .language2, .matButtonBGN2, .matButtonBGN1 {
     margin-right: 0px;
  }
@@ -1007,17 +898,39 @@ input#searchInput::placeholder {
   header.headerBackground {
     border-bottom: 1px solid #eaeaea !important;
  }
+ .dropdown-content {
+    width: 320px !important;
+  }
+  .buyNowMobileDeals {
+    background: transparent !important;
+    color: #005be4 !important;
+    font-weight: bold;
+  }
+  .dropdown-content ul li .dropdown-Individualmenu {
+    padding: 12px 5px 5px !important;
+  }
+  .dropdown-content ul li:nth-child(3) .Text-position-2 img.small_img_deal {
+    width: 90px !important;
+  }
+  .dropdown-content ul li:last-child .Text-position-2 img.small_img_deal {
+    width: 90px !important;
+  }
+  .dealbtndrop {
+    margin-left: 0px;
+  }
+  .logo {
+    max-width: 120px;
+    height: auto;
+    margin-left: -20px;
+  }
+  .buyNowMobileDeals {
+    border: none;
+  }
+  .moibile-strip {
+      display: none !important;
+  }
 }
-@media only screen and (min-width: 280px) and (max-width: 280px) {
-  .strip, .strip a {
-    font-size: 10px;
- }
-}
-@media only screen and (min-width: 300px) and (max-width: 578.9px) {
-  .strip, .strip a {
-    font-size: 12px;
- }
-}
+
 .alert {
   z-index: 9;
 }
@@ -1025,7 +938,7 @@ input#searchInput::placeholder {
   background: #ac1a3e;
 }
 
-::ng-deep{
+::ng-deep {
 	.mat-tab-label, .mat-tab-link {
 		font-family: Roboto, "Helvetica Neue", sans-serif;
 		font-size: 16px;
@@ -1037,4 +950,19 @@ input#searchInput::placeholder {
 	.goog-te-menu-frame mat-tab-group.mat-tab-group.mat-primary {
 		max-height: 700px;
 	}
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .container-fluid {
+    width: 90%;
+ }
+  .dealimgcard-wid-top {
+    width: 100%;
+ }
+  .dealimgcardfirst {
+    margin-left: -10%;
+ }
+  .dealimgcard {
+    margin-left: -10%;
+ }
 }
