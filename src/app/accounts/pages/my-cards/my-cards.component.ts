@@ -78,6 +78,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     autoRefillTipText: string;
     braintreeToken:any;
     paymentProcessor:any;
+    errorClass:any;
     @Input() checkOutModel: ICheckoutModel;
     @Output() onPaymentSubmit = new EventEmitter<CreditCard>();
     paymentSubmitted: boolean;
@@ -237,7 +238,14 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
         return;
         
       if (this.selectedCard.Cvv.length < 3)
+      {
+        this.errorClass = 'error';
         return;
+      }
+      else{
+        this.errorClass = '';
+      }
+       
   
       this.selectedCard.CardHolderName = `${this.billingInfo.FirstName} ${this.billingInfo.LastName}`;
       this.selectedCard.FullName = this.selectedCard.CardHolderName;

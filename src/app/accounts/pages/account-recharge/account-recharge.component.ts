@@ -350,5 +350,24 @@ validateCoupon(req: ValidateCouponCodeRequestModel): Promise<ValidateCouponCodeR
        }
     });
   }
+
+  getAutoRefillMin(item):void{
+
+    let discount = Math.round(item.TotalTime*10/100);
+    return item.TotalTime+discount;
+
+  }
+  toFixed(num) {
+    
+    return Math.floor(num*10)/10;
+     //return ( num * 10  / 10 ).toFixed(1)
+    }
+  getAutoRefillRatePerMin(item){
+    let discount = Math.round(item.TotalTime*10/100);
+    let min = item.Price / (item.TotalTime+discount);
+    return this.toFixed(min*100 );
+    
+
+  }
   
 }

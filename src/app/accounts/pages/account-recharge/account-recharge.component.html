@@ -11,6 +11,10 @@
           </div>
       </div>
     </div>
+    <div class="rates_info">
+      Total Minutes  {{item.TotalTime+item.PromoMinutes}} <br /> Rate : {{item.DiscountedCallingRate| sCurrency}} / m
+
+    </div>
   </div>
 </div>
 
@@ -25,9 +29,14 @@
             </div>
           </div>
        </div>
+
+       
     </div>
 
-    
+    <div class="rates_info">
+      Total Minutes  {{getAutoRefillMin(item)}} <br /> Rate : {{ getAutoRefillRatePerMin(item)| sCurrency }}  / m
+
+    </div>
   </div>
 </div>
 <!-- <a href="javascript:void(0)" (click)="getRateDetail()">View Rates</a> -->
