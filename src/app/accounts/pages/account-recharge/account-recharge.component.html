@@ -1,6 +1,6 @@
 <h3 class="selectRechg">Select a recharge amount</h3>
-<div *ngIf="!isAutorefill" class="denomination__box_wrap"> 
-  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index" class="{{getActiveClass(item)}}">
+<div *ngIf="!isAutorefill" class="denomination__box_wrap">
+  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index" class="{{getActiveClass(item)}}" class="demBoxWrp">
     <div class="denomination__box" (click)="onClickAmountOption(item)">
      <div class="d-flex justify-content-between">
           <div class="amount">{{item.Price | bCurrency}}</div>
@@ -19,7 +19,7 @@
 </div>
 
 <div *ngIf="isAutorefill" class="denomination__box_wrap">
-  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index"  class="{{getActiveClass(item)}}">
+  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index"  class="{{getActiveClass(item)}}" class="demBoxWrp">
     <div class="denomination__box" (click)="onClickAmountOption(item)" >
      <div class="d-flex justify-content-between">
           <div class="amount">{{item.Price | bCurrency}}</div>
@@ -30,7 +30,7 @@
           </div>
        </div>
 
-       
+
     </div>
 
     <div class="rates_info">
@@ -44,15 +44,15 @@
 <div class="swicth_container" *ngIf="ratesLoaded">
       <div class="reg_text">Regular</div>
       <div class="switch_label">
-          <label class="switch">         
+          <label class="switch">
             <input *ngIf="isAutorefill" type="checkbox" id="checkboxbonus3" checked (click)="setPlanType()">
             <input *ngIf="!isAutorefill" type="checkbox" id="checkboxbonus3" (click)="setPlanType()">
             <span class="slider round"></span>
         </label>
       </div>
-      <div class="bonusText"> 
+      <div class="bonusText">
         <span class="bonus_text">Bonus</span>
-        <span class="bonus_text_offer">10%</span>              
+        <span class="bonus_text_offer">10%</span>
         <span class="bonus_text_data">
           <span class="bonus_text_qst">
             ?
@@ -62,10 +62,10 @@
             We will recharge your plan only when the account balance falls below $2.<br>
             Cancel online or by calling customer service anytime.
           </span>
-        </span>              
+        </span>
         <!-- <img
               class="bonus_text_info"
-              src="../../assets/images/info.png" 
+              src="../../assets/images/info.png"
               matTooltip="
               Enroll to Auto-refill and earn 10% bonus minutes.
               We will recharge your plan only when the account balance falls below $2.
