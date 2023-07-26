@@ -17,7 +17,7 @@ import { MobiletopupService } from '../../../mobiletopup/mobiletopup.service';
 import { SideBarService } from '../../../core/sidemenu/sidemenu.service';
 import { TransactionType } from '../../../payments/models/transaction-request.model';
 import { CheckoutService } from '../../../checkout/services/checkout.service';
-import { MobileTopupCheckoutModel } from '../../../checkout/models/checkout-model';
+import { ICheckoutModel, MobileTopupCheckoutModel } from '../../../checkout/models/checkout-model';
 import { AuthenticationService } from '../../../core/services/auth.service';
 import { RazaEnvironmentService } from '../../../core/services/razaEnvironment.service';
 import { CurrentSetting } from '../../../core/models/current-setting';
@@ -28,7 +28,19 @@ import { TopupDialogComponent } from 'app/mobiletopup/dialog/topup-dialog/topup-
 import { BundleDialogComponent } from 'app/mobiletopup/dialog/bundle-dialog/bundle-dialog.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CreditCard } from '../../models/creditCard';
 
+
+import { IPaypalCheckoutOrderInfo, ActivationOrderInfo, RechargeOrderInfo, ICheckoutOrderInfo, MobileTopupOrderInfo } from '../../../payments/models/planOrderInfo.model';
+import { TransactionProcessBraintreeService } from 'app/payments/services/transactionProcessBraintree';
+import { TransactionService } from 'app/payments/services/transaction.service';
+import { TransactionProcessFacadeService } from 'app/payments/services/transactionProcessFacade';
+import { ApiProcessResponse } from 'app/core/models/ApiProcessResponse';
+import { BraintreeService } from 'app/payments/services/braintree.service';
+import { ValidateCouponCodeRequestModel, ValidateCouponCodeResponseModel } from 'app/payments/models/validate-couponcode-request.model';
+import { ErrorDialogModel } from 'app/shared/model/error-dialog.model';
+import { ErrorDialogComponent } from 'app/shared/dialog/error-dialog/error-dialog.component';
+import {  NewPlanCheckoutModel, RechargeCheckoutModel } from 'app/checkout/models/checkout-model'; 
 
 @Component({
   selector: 'app-account-international-topup',
@@ -68,8 +80,36 @@ export class AccountInternationalTopupComponent implements OnInit {
   topup_ctr: any;
 
   bundleTopupPlans:any;
+  showCredicard : boolean=false;
+
+ 
+  phoneNumber:any;
+  toCountryId:number;
+  fromCountryId:number;
+  denominatons:any;
+  isAutorefill:boolean=false;
 
 
+  username: string;
+ 
+	 
+	isEnableOtherPlan: boolean = false;
+  is_notification: boolean=false;
+  sendPushNotification: boolean=false;
+  sendSMSPromo: boolean=false;
+  uri:string='';
+  myModel:boolean=true;
+  isSmallScreen: boolean=false;
+  showPlan: boolean;
+  selectedDenomination:number=10;
+  isAutoRefillEnable: boolean;
+  ratesLoaded:boolean=false;
+  //currentCart: ICheckoutModel;
+   
+  paymentProcessor:any;
+  currentCartObs$: Subscription;
+  currentCart: ICheckoutModel;
+  
   constructor(private titleService: Title,
     private router: Router,
 	private customerService: CustomerService,
@@ -83,7 +123,13 @@ export class AccountInternationalTopupComponent implements OnInit {
     private razaEnvService: RazaEnvironmentService,
 	private location:Location,
   private metaTagsService:MetaTagsService,
-  private dialog:MatDialog
+  private dialog:MatDialog,
+
+  
+  private transactionService: TransactionService,
+  private transactionProcessFacade: TransactionProcessFacadeService,
+  private transactionProcessBraintree: TransactionProcessBraintreeService,
+  private braintreeService: BraintreeService,
 
   ) { }
 
@@ -127,8 +173,8 @@ this.mycountryId = 0;
   }
 
   internationalTopUp() {
-   this.router.navigate(['mobiletopup']);
-   // this.showTopupForm = true;
+  // this.router.navigate(['mobiletopup']);
+   this.showTopupForm = true;
   }
   
   recharge(instanceId) {
@@ -348,7 +394,7 @@ this.mycountryId = 0;
   buyNow(item: any)
   {
 
-    console.log("step 2 Item ", item);
+    
     this.mobileTopupForm.get('topUpAmount').setValue(item);
     this.isTopUpEnable = true;
     this. onMobileTopupFormSubmit();
@@ -376,15 +422,9 @@ this.mycountryId = 0;
     checkoutModel.operatorCode = this.mobileTopupData.OperatorCode;
     checkoutModel.countryFrom = this.currentSetting.currentCountryId;
     checkoutModel.isHideCouponEdit = true;
-
-    console.log('step 3 checkoutModel', checkoutModel);
     this.checkoutService.setCurrentCart(checkoutModel);
-
-    if (this.authService.isAuthenticated()) {
-      this.router.navigate(['checkout/payment-info']);
-    } else {
-      this.router.navigate(['checkout']);
-    }
+    this.showCreditCards()
+   
   }
 
   validateAmountSelection() {
@@ -491,4 +531,175 @@ this.mycountryId = 0;
   }
   /**********************/
   
+  showCreditCards()
+  {
+    this.showCredicard = !this.showCredicard;
+  }
+
+
+  
+  onPaymentInfoFormSubmit(creditCard: CreditCard) {
+   
+    // this.getCurrentCarts(creditCard);
+     
+   }
+ 
+   onPaymentButtonTrigger(creditCard: CreditCard) {
+     this.currentCartObs$ = this.checkoutService.getCurrentCart().subscribe((model: ICheckoutModel) => {
+       if (model === null ) {
+         creditCard = null;
+          return false;
+       }
+       else
+       {
+           // this.currentCart = model;
+           console.log('Your model is as ', model);
+           this.onCreditCardPayment(creditCard);
+       }
+       
+        
+       
+     }, err => {
+     }, () => {
+       this.checkoutService.deleteCart();
+     })
+   }
+ 
+   /**
+    * On credit card payment Option.
+    */
+   private onCreditCardPayment(creditCard: CreditCard, aniNumbers?: string[]) {
+     let trans_type = '';
+     
+     if(creditCard)
+     {
+       localStorage.setItem('selectedCard',  creditCard.CardId.toString());
+       let planOrderInfo: ICheckoutOrderInfo;
+ 
+     planOrderInfo = new RechargeOrderInfo();
+         trans_type = 'Recharge';
+  
+ 
+       if (this.currentCart.transactiontype === TransactionType.Recharge) {
+         planOrderInfo = new RechargeOrderInfo();
+         trans_type = 'Recharge';
+       } else if (this.currentCart.transactiontype === TransactionType.Activation || this.currentCart.transactiontype === TransactionType.Sale) {
+         planOrderInfo = new ActivationOrderInfo();
+         trans_type = 'Sale';
+       } else if (this.currentCart.transactiontype === TransactionType.Topup) {
+         planOrderInfo = new MobileTopupOrderInfo();
+         trans_type = 'Topup';
+       }
+    
+       if (this.currentCart.transactiontype === TransactionType.Activation) {
+         const cart = this.currentCart as NewPlanCheckoutModel;
+         cart.pinlessNumbers = [creditCard.PhoneNumber];
+       }
+ 
+       planOrderInfo.creditCard = creditCard;
+       planOrderInfo.checkoutCart = this.currentCart;
+ 
+        if(planOrderInfo.checkoutCart.couponCode == 'FREETRIAL')
+       {
+ 
+          
+         let service: TransactionProcessBraintreeService = this.transactionProcessBraintree;
+         let checkoutInfo = this.transactionService.processPaymentNormal(planOrderInfo);
+         
+       }
+       else
+       { 
+ 
+       
+         var first_fivenum = creditCard.CardNumber.substring(0, 5);
+         this.braintreeService.testProcess(first_fivenum, trans_type).subscribe( (data: ApiProcessResponse)=>{ 
+         this.paymentProcessor = data.ThreeDSecureGateway; 
+ 
+         
+           if(data.Use3DSecure)
+             {
+               
+               if (!isNullOrUndefined(planOrderInfo.checkoutCart.couponCode) && planOrderInfo.checkoutCart.couponCode.length > 0) {
+                 
+                 this.validateCoupon(planOrderInfo.checkoutCart.getValidateCouponCodeReqModel(planOrderInfo.checkoutCart.couponCode))
+                   .then((res: ValidateCouponCodeResponseModel) => {
+                     if (res.Status) 
+                     {
+                       if(planOrderInfo.checkoutCart.couponCode == 'FREETRIAL')
+                       {
+                         /********** Use3DSecure :false  then process transaction directly **********/
+                         let service: TransactionProcessBraintreeService = this.transactionProcessBraintree;
+                         let checkoutInfo = this.transactionService.processPaymentNormal(planOrderInfo);
+                       }
+                       else
+                       {
+                         
+ 
+                         if(this.paymentProcessor=='BrainTree')
+                         {
+                          
+                           this.transactionService.processPaymentToBraintree(planOrderInfo );
+                         }
+                         else
+                         {
+                           this.transactionService.processPaymentToCentinel(planOrderInfo);
+                         }
+                       }
+                     } else {
+                       this.handleInvalidCouponCodeError();
+                     }
+                   }).catch(err => {
+                     this.handleInvalidCouponCodeError();
+                   });
+               } 
+               else 
+               {
+             
+               
+                   if(this.paymentProcessor== 'BrainTree')
+                   {
+                     this.transactionService.processPaymentToBraintree(planOrderInfo);
+                   }
+                   else
+                   {
+                     this.transactionService.processPaymentToCentinel(planOrderInfo);
+                   }
+               } 
+           }
+           else
+           {
+             /********** Use3DSecure :false  then process transaction directly **********/
+             let service: TransactionProcessBraintreeService = this.transactionProcessBraintree;
+             let checkoutInfo = this.transactionService.processPaymentNormal(planOrderInfo);
+             
+           }
+         });
+       }
+   }
+   }
+ 
+ 
+ // Validate coupon code.
+ validateCoupon(req: ValidateCouponCodeRequestModel): Promise<ValidateCouponCodeResponseModel | ApiErrorResponse> {
+   return this.transactionService.validateCouponCode(req).toPromise();
+ }
+ 
+   handleInvalidCouponCodeError() {
+     let error = new ErrorDialogModel();
+     error.header = 'Invalid Coupon Code';
+     error.message = 'Please check your information and try again.';
+ 
+     this.currentCart.isHideCouponEdit = false;
+     this.currentCart.couponCode = null;
+ 
+     this.openErrorDialog(error);
+   }
+ 
+   openErrorDialog(error: ErrorDialogModel): void {
+     this.dialog.open(ErrorDialogComponent, {
+       data: { error }
+     });
+   }
+
+   
 }
