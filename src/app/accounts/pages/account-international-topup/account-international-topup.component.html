@@ -239,7 +239,7 @@
           </div>
 
             <div *ngIf="showCredicard">
-              
+              <app-my-cards [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentButtonTrigger($event)" > </app-my-cards>
             </div>
 
           </div>

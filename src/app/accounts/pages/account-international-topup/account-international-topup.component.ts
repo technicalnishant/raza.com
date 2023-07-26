@@ -552,8 +552,8 @@ this.mycountryId = 0;
        }
        else
        {
-           // this.currentCart = model;
-           console.log('Your model is as ', model);
+             this.currentCart = model;
+          // console.log('Your model is as ', model);
            this.onCreditCardPayment(creditCard);
        }
        
@@ -570,45 +570,19 @@ this.mycountryId = 0;
     */
    private onCreditCardPayment(creditCard: CreditCard, aniNumbers?: string[]) {
      let trans_type = '';
-     
      if(creditCard)
      {
        localStorage.setItem('selectedCard',  creditCard.CardId.toString());
        let planOrderInfo: ICheckoutOrderInfo;
  
-     planOrderInfo = new RechargeOrderInfo();
-         trans_type = 'Recharge';
+       planOrderInfo = new MobileTopupOrderInfo();
+       trans_type = 'Topup';
   
- 
-       if (this.currentCart.transactiontype === TransactionType.Recharge) {
-         planOrderInfo = new RechargeOrderInfo();
-         trans_type = 'Recharge';
-       } else if (this.currentCart.transactiontype === TransactionType.Activation || this.currentCart.transactiontype === TransactionType.Sale) {
-         planOrderInfo = new ActivationOrderInfo();
-         trans_type = 'Sale';
-       } else if (this.currentCart.transactiontype === TransactionType.Topup) {
-         planOrderInfo = new MobileTopupOrderInfo();
-         trans_type = 'Topup';
-       }
-    
-       if (this.currentCart.transactiontype === TransactionType.Activation) {
-         const cart = this.currentCart as NewPlanCheckoutModel;
-         cart.pinlessNumbers = [creditCard.PhoneNumber];
-       }
+   
  
        planOrderInfo.creditCard = creditCard;
        planOrderInfo.checkoutCart = this.currentCart;
- 
-        if(planOrderInfo.checkoutCart.couponCode == 'FREETRIAL')
-       {
- 
-          
-         let service: TransactionProcessBraintreeService = this.transactionProcessBraintree;
-         let checkoutInfo = this.transactionService.processPaymentNormal(planOrderInfo);
-         
-       }
-       else
-       { 
+  
  
        
          var first_fivenum = creditCard.CardNumber.substring(0, 5);
@@ -618,45 +592,7 @@ this.mycountryId = 0;
          
            if(data.Use3DSecure)
              {
-               
-               if (!isNullOrUndefined(planOrderInfo.checkoutCart.couponCode) && planOrderInfo.checkoutCart.couponCode.length > 0) {
-                 
-                 this.validateCoupon(planOrderInfo.checkoutCart.getValidateCouponCodeReqModel(planOrderInfo.checkoutCart.couponCode))
-                   .then((res: ValidateCouponCodeResponseModel) => {
-                     if (res.Status) 
-                     {
-                       if(planOrderInfo.checkoutCart.couponCode == 'FREETRIAL')
-                       {
-                         /********** Use3DSecure :false  then process transaction directly **********/
-                         let service: TransactionProcessBraintreeService = this.transactionProcessBraintree;
-                         let checkoutInfo = this.transactionService.processPaymentNormal(planOrderInfo);
-                       }
-                       else
-                       {
-                         
- 
-                         if(this.paymentProcessor=='BrainTree')
-                         {
-                          
-                           this.transactionService.processPaymentToBraintree(planOrderInfo );
-                         }
-                         else
-                         {
-                           this.transactionService.processPaymentToCentinel(planOrderInfo);
-                         }
-                       }
-                     } else {
-                       this.handleInvalidCouponCodeError();
-                     }
-                   }).catch(err => {
-                     this.handleInvalidCouponCodeError();
-                   });
-               } 
-               else 
-               {
-             
-               
-                   if(this.paymentProcessor== 'BrainTree')
+              if(this.paymentProcessor== 'BrainTree')
                    {
                      this.transactionService.processPaymentToBraintree(planOrderInfo);
                    }
@@ -664,7 +600,7 @@ this.mycountryId = 0;
                    {
                      this.transactionService.processPaymentToCentinel(planOrderInfo);
                    }
-               } 
+                
            }
            else
            {
@@ -674,32 +610,11 @@ this.mycountryId = 0;
              
            }
          });
-       }
+       
    }
    }
  
  
- // Validate coupon code.
- validateCoupon(req: ValidateCouponCodeRequestModel): Promise<ValidateCouponCodeResponseModel | ApiErrorResponse> {
-   return this.transactionService.validateCouponCode(req).toPromise();
- }
- 
-   handleInvalidCouponCodeError() {
-     let error = new ErrorDialogModel();
-     error.header = 'Invalid Coupon Code';
-     error.message = 'Please check your information and try again.';
- 
-     this.currentCart.isHideCouponEdit = false;
-     this.currentCart.couponCode = null;
- 
-     this.openErrorDialog(error);
-   }
- 
-   openErrorDialog(error: ErrorDialogModel): void {
-     this.dialog.open(ErrorDialogComponent, {
-       data: { error }
-     });
-   }
 
    
 }
