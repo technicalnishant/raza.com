@@ -513,18 +513,6 @@ button {
     }
 }
 
-.footer_section1 {
-    h4 {
-        &.heading_style3 {
-            font-family: $font-family;
-            font-size: 20px;
-            color: #ffffff;
-            font-weight: 700;
-            margin-bottom: 14px;
-        }
-    }
-}
-
 .tab2Service {
     padding-left: 5%;
 }
@@ -533,132 +521,9 @@ button {
     padding-left: 7%;
 }
 
-.footer_style {
-    margin: 0;
-    width: 100%;
-    background-color: #1c63f8;
-    position: relative;
-
-}
-
 .bordertop {
     border-top: 0px solid #ccc;
     padding: 60px 0 0 0;
-}
-
-.footer_section1 {
-    padding: 0 0 60px 0;
-    margin: 0;
-    width: 100%;
-}
-
-.raza_logo2 {
-    padding: 0;
-    margin: 0 0 30px 0;
-    max-width: 219px;
-    height: auto;
-
-    img {
-        padding: 0;
-        margin: 0;
-        height: 34px;
-
-    }
-}
-
-.ph_no {
-    padding: 0;
-    margin: 0;
-    color: #ffffff;
-    font-size: 36px;
-    font-weight: 700;
-
-    span {
-        padding: 0;
-        margin: 0 0 5px 0;
-        display: block;
-        color: #ffffff;
-        font-size: 13px;
-        font-family: $font-family;
-    }
-}
-
-.heading_style3 {
-    padding: 0;
-    margin: 0 0 1 0;
-    display: block;
-    color: #0b203e;
-}
-
-.footer_menu {
-    padding: 0;
-    margin: 0;
-
-    ul {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-
-        li {
-            padding: 0;
-            margin: 0 0 5px 0;
-            display: block;
-
-            &:last-of-type {
-                margin: 0;
-            }
-
-            a {
-                padding: 0;
-                margin: 0;
-                // color: #a2a8b0;
-                color: #e5f0ff;
-                font-size: 14px;
-                text-decoration: none;
-                font-family: $font-family;
-                font-weight: 500;
-
-                &:hover {
-                    color: #fff;
-                    text-decoration: none;
-                }
-            }
-        }
-    }
-}
-
-.footer_section2 {
-    padding: 0 0 33px 0;
-    margin: 0;
-    border-bottom: 1px solid #e3e8ee;
-}
-
-.app_list {
-    padding: 0;
-    margin: 0;
-
-    ul {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-
-        li {
-            padding: 0;
-            margin: 0 20px 0 0;
-            display: inline-block;
-
-            &:last-of-type {
-                margin: 0;
-            }
-
-            img {
-                padding: 0;
-                margin: 0;
-                max-width: 100%;
-                height: auto;
-            }
-        }
-    }
 }
 
 .social_list {
@@ -714,67 +579,6 @@ button {
                             color: #d34836;
                         }
                     }
-                }
-            }
-        }
-    }
-}
-
-.footer_section3 {
-    padding: 30px 0 30px 0;
-    margin: 0;
-    width: 100%;
-}
-
-.footer_menu2 {
-    padding: 0;
-    margin: 0 0 15px 0;
-
-    ul {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-
-        li {
-            padding: 0 10px 0 0;
-            margin: 0 10px 0 0;
-            position: relative;
-            display: inline-block;
-
-            &:after {
-                padding: 0;
-                margin: 0;
-                width: 1px;
-                height: 90%;
-                display: block;
-                background-color: #a2a8b0;
-                content: "";
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                -webkit-transform: translateY(-50%);
-            }
-
-            &:last-of-type {
-                padding: 0;
-                margin: 0;
-
-                &:after {
-                    display: none;
-                }
-            }
-
-            a {
-                color: #ffffff;
-                text-decoration: none;
-                font-family: $font-family;
-                font-size: 13px;
-                font-weight: 400;
-
-                &:hover {
-                    color: #0b203e;
-                    text-decoration: none;
                 }
             }
         }
@@ -874,26 +678,6 @@ div .mat-radio-label-content {
 
 
 /*=========*/
-
-.footer_column1 {
-    padding: 0 15px;
-    margin: 0;
-    flex: 0 0 33.333333%;
-    -ms-flex: 0 0 33.333333%;
-    //width: 100%;
-    max-width: 33.333333%;
-   // min-height: 1px;
-}
-
-.footer_column2 {
-    padding: 0 15px;
-    margin: 0;
-    flex: 0 0 16.666667%;
-    -ms-flex: 0 0 16.666667%;
-    //width: 100%;
-    max-width: 16.666667%;
-   // min-height: 1px;
-}
 
 .showInmobile {
     a {
@@ -1390,10 +1174,6 @@ p {
     top: 0px;
     z-index: 4;
     background: #fff;
-}
-
-.footerMargin {
-    margin-top: -95px;
 }
 
 .creditCard_paypal {
@@ -3409,7 +3189,6 @@ ul {
     margin: 72px auto;
 
     h4 {
-        font-family: $font-family;
         font-size: 26px;
         color: #fff;
         font-weight: 400;
@@ -3999,45 +3778,6 @@ h2 {
     .hideindesktop {
         display: none;
     }
-
-    .footer_column1 {
-        flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
-        width: 100%;
-        max-width: 100%;
-        padding-bottom: 30px;
-    }
-
-    .footer_column2 {
-        padding: 0 15px;
-        margin: 0;
-        flex: 0 0 50%;
-        -ms-flex: 0 0 50%;
-        width: 50%;
-        max-width: 50%;
-        padding-bottom: 30px;
-    }
-
-    .footer_section2 {
-        padding: 0 0 30px 0;
-
-        &>div {
-            &>div {
-                &:first-of-type {
-                    // padding-bottom: 30px;
-                }
-            }
-        }
-
-        .app_list {
-            ul {
-                li {
-                    max-width: 45%;
-                }
-            }
-        }
-    }
-
     .social_list {
         width: 100%;
         display: table;
@@ -4052,36 +3792,6 @@ h2 {
             }
         }
     }
-
-    .footer_section3 {
-        padding: 30px 0;
-
-        &>div {
-            &>div {
-                &:first-of-type {
-                    padding-bottom: 30px;
-                }
-
-                &:last-of-type {
-                    text-align: left !important;
-                }
-            }
-        }
-    }
-
-    .footer_menu2 {
-        ul {
-            li {
-                padding: 0 5px 0 0;
-                margin: 0 5px 0 0;
-            }
-        }
-    }
-
-    .footer_section1 {
-        padding: 0;
-    }
-
     .colorWhite {
         em {
             display: none;
@@ -4145,15 +3855,6 @@ h2 {
                 width: 100% !important;
                 display: block !important;
                 margin: 5px 0 !important;
-            }
-        }
-    }
-
-    .app_list {
-        ul {
-            li {
-                margin: 0 9px 0 0 !important;
-                float: left;
             }
         }
     }
