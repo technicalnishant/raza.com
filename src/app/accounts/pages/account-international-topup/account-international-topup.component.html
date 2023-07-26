@@ -24,23 +24,23 @@
           <tr *ngFor="let item of orderHistoryList; index as i" >
             <ng-container >
               <td>{{item.CardName}}</td>
-              <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td> 
+              <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td>
               <td>{{item.Price | bCurrency : item.CurrencyCode}}</td>
               <!--<td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td> -->
               <td *ngIf="item.IsAllowRecharge"><a (click)="rechargeRedirect(item)">Topup Now</a></td>
-               
+
               <td *ngIf="!item.IsAllowRecharge"><a>Monthly Recharge</a>&nbsp;<span
                   matTooltip="Monthly plans will recharge every 30 days from the date of purchase. Please Call us if you like to recharge now"><img loading="lazy"
                     src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></td>
-               
+
               <td >{{item.Pin}}</td>
           </ng-container>
           </tr>
-    
+
         </tbody>
       </table>
       <a class="showFullHistory" (click)="onClickShowMore()">Show More</a>
-    
+
     </div>
     </div>
 </div>
@@ -50,14 +50,14 @@
   <p class="desc">Worldwide top-up to over 500 networks across 140 countris</p>
 
 
-    
+
   <div class="container" *ngIf="!mobileTopupData">
     <div class="form-wrapper">
       <div class="row">
-      
+
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
-          <div class="card p-3 p-md-5 shadow mt-4 rounded-lg">
-            <form class="example-form mobileTopup" [formGroup]="mobileTopupForm" (ngSubmit)="onMobileTopupFormSubmit()" autocomplete="off">
+          <div class="p-3 mt-4 rounded-lg">
+            <form class="example-form intMobileTopup" [formGroup]="mobileTopupForm" (ngSubmit)="onMobileTopupFormSubmit()" autocomplete="off">
               <mat-form-field class="example-full-width">
                 <mat-label class="font-weight-bold text-dark">Choose Country</mat-label>
 
@@ -103,18 +103,18 @@
               <!--<a mat-button href="#" class="submit-btn">SUBMIT</a>-->
 
               <div class="button-wrapper">
-                <button mat-button class="submit-btn btn-block mb-3 mb-md-0 w-50">{{ buttonText }}</button>
+                <button mat-button class="submit-btn">{{ buttonText }}</button>
               </div>
             </form>
           </div>
         </div>
-        
-      
+
+
 
       </div>
     </div>
   </div>
-  
+
 
 
   <!-- country section section end here -->
@@ -123,7 +123,7 @@
   <div class="container" *ngIf="mobileTopupData">
     <div class="form-wrapper">
       <div class="row">
-        
+
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
           <div class="card p-3 p-md-5 shadow mt-4 rounded-lg">
             <div class="operator-details pb-4">
@@ -181,9 +181,9 @@
                   <mat-button-toggle value="plans">Plans (Bundles)</mat-button-toggle>
               </mat-button-toggle-group>
             </div>
-          
+
            <!------ Topup section --------->
-           <div class="topup_section" *ngIf="topupType.value=='topup'"> 
+           <div class="topup_section" *ngIf="topupType.value=='topup'">
               <!-- <h2>Topup section {{topupType.value}}</h2> -->
               <div class="topup_items">
                   <div class="topup_item" *ngFor="let item of mobileTopupData?.OperatorDenominations; let i = index">
@@ -201,14 +201,14 @@
                               <p>Before GCT</p>
                           </div>
                           <button class="buy_btn" (click)="buyNow(item)">Buy</button>
-                         
+
                       </div>
                     </div>
                 </div>
           </div>
-          
-          <div class="topup_section" *ngIf="topupType.value=='plans'" > 
-            
+
+          <div class="topup_section" *ngIf="topupType.value=='plans'" >
+
               <!-- <h2>Plans(Bundels) section {{topupType.value}}</h2> -->
               <div *ngIf="bundleInfo?.ProductDescritions && bundleInfo?.ProductDescritions.length > 0">
               <div class="topup_items">
@@ -228,10 +228,10 @@
                                   {{desinfo}}
                                 </li>
                               </ul>
-                               
+
                           </div>
                           <button class="buy_btn" (click)="buyBundle(item)">Buy</button>
-                         
+
                       </div>
                     </div>
                 </div>
