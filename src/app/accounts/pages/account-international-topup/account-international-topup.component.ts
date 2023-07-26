@@ -455,14 +455,12 @@ this.mycountryId = 0;
 
 	this.mycountryId= country.CountryId; 
 
-  localStorage.setItem("topupCountryId", country.CountryId.toString());
-  localStorage.setItem("topupCountry", JSON.stringify(country));
 
   } 
   
   storePhoneNumber = () =>{
     let phone = this.mobileTopupForm.get('phoneNumber').value;
-    localStorage.setItem("topupPhone", phone);
+    
    
   }
 
@@ -617,8 +615,7 @@ this.mycountryId = 0;
              /********** Use3DSecure :false  then process transaction directly **********/
              let service: TransactionProcessBraintreeService = this.transactionProcessBraintree;
              let checkoutInfo = this.transactionService.processPaymentNormal(planOrderInfo);
-             
-           }
+            }
          });
        
     }
