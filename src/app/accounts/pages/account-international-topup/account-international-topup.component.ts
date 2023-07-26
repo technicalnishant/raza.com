@@ -184,15 +184,24 @@ this.mycountryId = 0;
 
  rechargeRedirect(obj)
  {
-  //console.log(obj);
+  console.log(obj);
   //return false;
   //this.router.navigateByUrl("mobiletopup");
 
    var card = obj.CardName;
    card = card.split(' ');
    var iso = card[0];   
-   this.router.navigateByUrl('mobiletopup', { state: { pin: obj.Pin, iso:iso } });
+  // this.router.navigateByUrl('mobiletopup', { state: { pin: obj.Pin, iso:iso } });
    //this.router.navigateByUrl("mobiletopup"); 
+
+
+  this.pinnumber  = obj.Pin;
+  this.topup_no   = obj.Pin;
+  this.iso        = iso;
+  this.getInitialTopUpOperatorInfo();
+  this.isTopUpEnable = true; 
+  this.showTopupForm = true;
+
     
  }
  
@@ -568,6 +577,7 @@ this.mycountryId = 0;
    /**
     * On credit card payment Option.
     */
+
    private onCreditCardPayment(creditCard: CreditCard, aniNumbers?: string[]) {
      let trans_type = '';
      if(creditCard)
@@ -611,10 +621,13 @@ this.mycountryId = 0;
            }
          });
        
-   }
+    }
    }
  
- 
+   goBack()
+   {
+    this.showTopupForm = !this.showTopupForm;
+   }
 
    
 }
