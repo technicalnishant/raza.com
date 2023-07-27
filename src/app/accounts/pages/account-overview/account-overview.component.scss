@@ -763,7 +763,7 @@ table {
 	display: block;
 	clear: both;
 	overflow: hidden;
-	max-width: 1200px;
+	max-width: 1450px;
 	margin: 0 auto;
 	.leftTabArea {
 		float: left;
@@ -826,6 +826,7 @@ table {
 	.rightTabArea {
 		float: left;
 		width: 920px;
+    width: 80%;
 		margin-left: 36px;
 		background: #fff;
 		padding: 120px 30px 50px;
@@ -876,7 +877,7 @@ td {
 
 @media only screen and (max-width: 868px)  {
 .myaccountTabArea {
-  padding: 0 0 0 0; 
+  padding: 0 0 0 0;
   margin-bottom: 0px;
   padding-top: 80px;
   background: transparent;
@@ -898,7 +899,7 @@ p.disclaimer{ display: none;}
 .razaNumberLeft table tr th,.razaNumberLeft table tr td{ width: 50%;padding: 10px 25px !important;}
 .tabContentMyaccount table tr th,.tabContentMyaccount table tr td{ /*width: 50%;*/padding: 10px 25px !important;}
 table.orderHistory tr td:first-child{font-family: 'Montserrat', sans-serif; font-weight: 500; color:#0B203E;}
-.razawebNumberRightApplinkArea{ margin: 25px 10px !important;padding: 20px 12px !important;} 
+.razawebNumberRightApplinkArea{ margin: 25px 10px !important;padding: 20px 12px !important;}
 .greyBg{background: #FAFAFA; margin: 0px;padding: 30px 0;}
 .cardDetails{ width:70%;}
 .cardDetails p{margin-bottom: 2px;}
@@ -916,13 +917,13 @@ table.orderHistory tr td:first-child{font-family: 'Montserrat', sans-serif; font
 .autorefillTextarea p.enabledText{ color: #1A9259; font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 500;}
 .enabledText .mat-icon{ font-size:16px;}
 .autorefillTextarea p.autoTextcommon button:focus{ background: none; outline: none;}
-.autorefillTextarea p.autoTextcommon span.iconSpan{padding-left: 15px;} 
+.autorefillTextarea p.autoTextcommon span.iconSpan{padding-left: 15px;}
 .autorefillTextarea p.autoTextcommon span .mat-icon{color: #103F8A; font-size: 30px; display: -webkit-inline-box;}
 .autorefill p.tabTitle{ color: #0B203E; font-size: 28px;font-family: 'Montserrat', sans-serif; font-weight: 400;line-height: 20px; margin-bottom: 40px;}
 .autorefill p.tabTitle span{color: #808080; font-size: 14px;}
 .myaccountTabArea .callForward table{ margin-top: 0px;}
 table.showAlltable tr td{width: 33.33% !important;}
-.rewardsOverview table tr th:last-child,.rewardsOverview table tr td:last-child{ text-align: right !important;} 
+.rewardsOverview table tr th:last-child,.rewardsOverview table tr td:last-child{ text-align: right !important;}
 
 .app_list ul{ display: table; margin: 0 auto;}
 .app_list{ clear: both; overflow: hidden;}
@@ -931,9 +932,9 @@ table.showAlltable tr td{width: 33.33% !important;}
 }
 .tabContentMyaccount table tr th, .tabContentMyaccount table tr td{padding: 10px 17px !important;}
 
-} 
+}
 
- 
+
 
 .tabContentMyaccount1 {
 	clear: both;

@@ -48,10 +48,12 @@
 <div class="tabContentMyaccount pt-5 pb-0" id="virtualNumber" *ngIf="showTopupForm">
   <p class="tabTitle">International Topup</p>
   <p class="desc">Worldwide top-up to over 500 networks across 140 countris</p>
-<a href="javascript:void(0)" (click)="goBack()" >Go Back</a>
+  <a href="javascript:void(0)" (click)="goBack()" class="backBtnInt">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.25 3.75L5.75 8l4.5 4.25"/></svg>
+    Go Back
+  </a>
 
-
-  <div class="container" *ngIf="!mobileTopupData">
+  <div class="containerInt" *ngIf="!mobileTopupData">
     <div class="form-wrapper">
       <div class="row">
 
@@ -120,12 +122,11 @@
   <!-- country section section end here -->
 
 
-  <div class="container" *ngIf="mobileTopupData">
+  <div class="containerIntTop" *ngIf="mobileTopupData">
     <div class="form-wrapper">
       <div class="row">
-
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
-          <div class="card p-3 p-md-5 shadow mt-4 rounded-lg">
+          <div class="mobileIntTopupSec">
             <div class="operator-details pb-4">
               <div class="justify-content-md-between row align-items-center">
                 <div class="country col-auto col-md-4">Country:</div>
@@ -177,8 +178,8 @@
 
             <div class="top_up_btn">
               <mat-button-toggle-group  #topupType="matButtonToggleGroup" value="{{selectionType}}">
-                  <mat-button-toggle value="topup">Topup+Bonus</mat-button-toggle>
-                  <mat-button-toggle value="plans">Plans (Bundles)</mat-button-toggle>
+                  <mat-button-toggle value="topup" class="tpItm">Topup+Bonus</mat-button-toggle>
+                  <mat-button-toggle value="plans" class="tpItm">Plans (Bundles)</mat-button-toggle>
               </mat-button-toggle-group>
             </div>
 
@@ -187,8 +188,9 @@
               <!-- <h2>Topup section {{topupType.value}}</h2> -->
               <div class="topup_items">
                   <div class="topup_item" *ngFor="let item of mobileTopupData?.OperatorDenominations; let i = index">
-                      <div class="col-md-12 topup_box denomination__box">
+                      <div class="topup_box denomination__box">
                           <div class="top_section">
+                              <div class="promo_word" (click)="showDetailTopup()"><span>Promo</span></div>
                               <h2>{{item.UsDenomination | bCurrency}}</h2>
                               <p>{{mobileTopupData.Operator}} {{countryName}} HUGE</p>
                               <p>200% Bonus</p>
@@ -199,9 +201,8 @@
                               <p>They Get</p>
                               <div class="amount"><h3> <span>{{item.DestinationCurrency}} </span> {{item?.DestinationAmount| number:'1.2-2'}}</h3></div>
                               <p>Before GCT</p>
+                              <button class="buy_btn" (click)="buyNow(item)">Buy</button>
                           </div>
-                          <button class="buy_btn" (click)="buyNow(item)">Buy</button>
-
                       </div>
                     </div>
                 </div>
@@ -215,6 +216,7 @@
                   <div  class="topup_item" *ngFor="let item of bundleInfo?.ProductDescritions; let i = index">
                       <div class="col-md-12 bundle_box denomination__box">
                           <div class="top_section">
+                              <div class="promo_word" (click)="showDetailTopup()"><span>Promo</span></div>
                               <h2>{{item.Price | bCurrency}}</h2>
                               <p>{{item.Operator}} </p>
                               <p></p>
@@ -228,10 +230,8 @@
                                   {{desinfo}}
                                 </li>
                               </ul>
-
+                              <button class="buy_btn" (click)="buyBundle(item)">Buy</button>
                           </div>
-                          <button class="buy_btn" (click)="buyBundle(item)">Buy</button>
-
                       </div>
                     </div>
                 </div>
