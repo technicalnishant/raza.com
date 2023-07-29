@@ -109,7 +109,7 @@ export class AccountInternationalTopupComponent implements OnInit {
   paymentProcessor:any;
   currentCartObs$: Subscription;
   currentCart: ICheckoutModel;
-  
+  topupOperators:any;
   constructor(private titleService: Title,
     private router: Router,
 	private customerService: CustomerService,
@@ -494,6 +494,7 @@ this.mycountryId = 0;
       if(data)
       {
         this.mobileTopupData.OperatorDenominations = data;
+        this.topupOperators = data.AvaliableOperators;
         this.onClickAmountOption(this.mobileTopupData.OperatorDenominations[1]) ;
       }
       
@@ -517,7 +518,7 @@ this.mycountryId = 0;
   getBundlesTopUpInfo(){
     this.mobileTopupService.getBundlesTopUp(this.currentSetting.currentCountryId, this.countryTo, this.currentOperator).subscribe(data =>{
       if(data){
-        this.bundleInfo = data;
+         this.bundleInfo = data;
 
       }
     })
@@ -533,7 +534,7 @@ this.mycountryId = 0;
 
    let new_item = this.bundleInfo.topupOperators.filter(a=> a.ProductId == productId)
    
-    
+    //console.log('new_item[0]', new_item[0]);
     this.buyNow(new_item[0]);
   }
   /**********************/
