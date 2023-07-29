@@ -211,10 +211,10 @@
           <div class="topup_section" *ngIf="topupType.value=='plans'" >
 
              <!-- <h2>Plans(Bundels) section </h2>   -->
-               
-              <div class="topup_items">                                          
+
+              <div class="topup_items">
                   <div  class="topup_item" *ngFor="let item of mobileTopupData?.ProductDescriptions; let i = index">
-                      <div class="col-md-12 bundle_box denomination__box">
+                      <div class="bundle_box denomination__box">
                           <div class="top_section">
                               <div class="promo_word" (click)="showDetailTopup()"><span>Promo</span></div>
                               <h2>{{item.Price | bCurrency}}</h2>
@@ -235,7 +235,7 @@
                       </div>
                     </div>
                 </div>
-            
+
           </div>
 
             <div *ngIf="showCredicard">
