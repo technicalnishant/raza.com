@@ -1,6 +1,5 @@
 $font-family:'Montserrat',sans-serif;
 .margin .footer_style { margin-top: -95px;}
-
 .display6 {
     display: none;
 }
@@ -19,10 +18,10 @@ $font-family:'Montserrat',sans-serif;
     width: 40px;
     background: url("/assets/images/new_design_images/icon_sprite.png") -41px 168px;
 }
-.twitter_icon{
+.twitter_icon {
     background: url("/assets/images/new_design_images/icon_sprite.png") 0px 168px;
 }
-.fb_icon{
+.fb_icon {
     background:url("/assets/images/new_design_images/icon_sprite.png") -82px 168px;
 }
 .footer_style {
@@ -45,6 +44,8 @@ $font-family:'Montserrat',sans-serif;
 }
 .footer_section3 {
   padding: 30px 0;
+  margin: 0;
+  width: 100%;
   &>div {
       &>div {
           &:last-of-type {
@@ -53,45 +54,28 @@ $font-family:'Montserrat',sans-serif;
       }
   }
 }
-.footer_menu2 {
-  ul {
-      li {
-          padding: 0 5px 0 0;
-          margin: 0 5px 0 0;
-      }
-  }
-}
-.footer_section1 {
-  padding: 0;
-}
 .footer_menu {
   padding: 0;
   margin: 0;
-
   ul {
       padding: 0;
       margin: 0;
       list-style-type: none;
-
       li {
           padding: 0;
           margin: 0 0 5px 0;
           display: block;
-
           &:last-of-type {
               margin: 0;
           }
-
           a {
               padding: 0;
               margin: 0;
-              // color: #a2a8b0;
               color: #e5f0ff;
               font-size: 14px;
               text-decoration: none;
               font-family: $font-family;
               font-weight: 500;
-
               &:hover {
                   color: #fff;
                   text-decoration: none;
@@ -100,14 +84,12 @@ $font-family:'Montserrat',sans-serif;
       }
   }
 }
-
 .ph_no {
   padding: 0;
   margin: 0;
   color: #ffffff;
   font-size: 36px;
   font-weight: 700;
-
   span {
       padding: 0;
       margin: 0 0 5px 0;
@@ -117,8 +99,10 @@ $font-family:'Montserrat',sans-serif;
       font-family: $font-family;
   }
 }
-
 .footer_section1 {
+  padding: 0 0 60px 0;
+  margin: 0;
+  width: 100%;
   h4 {
       &.heading_style3 {
           font-size: 20px;
@@ -128,34 +112,18 @@ $font-family:'Montserrat',sans-serif;
       }
   }
 }
-
-.footer_section1 {
-  padding: 0 0 60px 0;
-  margin: 0;
-  width: 100%;
-}
-
-.footer_section3 {
-  padding: 30px 0 30px 0;
-  margin: 0;
-  width: 100%;
-}
-
 .footer_menu2 {
   padding: 0;
   margin: 0 0 15px 0;
-
   ul {
       padding: 0;
       margin: 0;
       list-style-type: none;
-
       li {
           padding: 0 10px 0 0;
           margin: 0 10px 0 0;
           position: relative;
           display: inline-block;
-
           &:after {
               padding: 0;
               margin: 0;
@@ -170,22 +138,18 @@ $font-family:'Montserrat',sans-serif;
               transform: translateY(-50%);
               -webkit-transform: translateY(-50%);
           }
-
           &:last-of-type {
               padding: 0;
               margin: 0;
-
               &:after {
                   display: none;
               }
           }
-
           a {
               color: #ffffff;
               text-decoration: none;
               font-size: 15px;
               font-weight: 600;
-
               &:hover {
                   color: #0b203e;
                   text-decoration: none;
@@ -203,17 +167,14 @@ $font-family:'Montserrat',sans-serif;
   -ms-flex: 0 0 33.333333%;
   max-width: 33.333333%;
 }
-
 .footer_column2 {
   flex: 0 0 16.666667%;
   -ms-flex: 0 0 16.666667%;
   max-width: 16.666667%;
 }
-
 .footerMargin {
   margin-top: -95px;
 }
-
 .raza_logo2 {
   padding: 0;
   margin: 0 0 30px 0;
@@ -226,7 +187,6 @@ $font-family:'Montserrat',sans-serif;
 
   }
 }
-
 .app_list {
   ul {
       li {
@@ -235,25 +195,20 @@ $font-family:'Montserrat',sans-serif;
       }
   }
 }
-
 .app_list {
   padding: 0;
   margin: 0;
-
   ul {
       padding: 0;
       margin: 0;
       list-style-type: none;
-
       li {
           padding: 0;
-          margin: 0 20px 0 0;
-          display: inline-block;
-
+          margin: 0 9px 0 0 !important;
+          float: left;
           &:last-of-type {
               margin: 0;
           }
-
           img {
               padding: 0;
               margin: 0;
@@ -264,15 +219,15 @@ $font-family:'Montserrat',sans-serif;
   }
 }
 
-@media only screen and (max-width: 767px){
-  .copyright1{
+@media only screen and (max-width: 767px) {
+  .copyright1 {
       display: none !important;
   }
   .footer_menu2 ul li a {
       font-size: 13px;
       font-weight: 400;
   }
-  .copyright{
+  .copyright {
       display: block;
   }
   .footer_column1 {
@@ -282,7 +237,6 @@ $font-family:'Montserrat',sans-serif;
     max-width: 100%;
     padding-bottom: 30px;
   }
-
   .footer_column2 {
     padding: 0 15px;
     margin: 0;
@@ -296,7 +250,6 @@ $font-family:'Montserrat',sans-serif;
     font-size: 17px;
     font-weight: 600;
  }
-
  .footer_section1 {
     h4 {
         &.heading_style3 {
@@ -319,13 +272,13 @@ $font-family:'Montserrat',sans-serif;
           }
       }
   }
-  .raza_logo2 img{
+  .raza_logo2 img {
       height: 54px;
   }
-  .display5{
+  .display5 {
       display: none;
   }
-  .display6{
+  .display6 {
       display: block !important;
   }
 }
