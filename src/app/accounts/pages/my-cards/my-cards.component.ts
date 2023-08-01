@@ -38,6 +38,7 @@ import { BottomUpComponent } from 'app/mobile-pay/dialog/bottom-up/bottom-up.com
 import { WhatIsCvvComponent } from 'app/accounts/dialog/what-is-cvv/what-is-cvv.component';
 import { AddEditCardComponent } from 'app/accounts/dialog/add-edit-card/add-edit-card.component';
 import { ConfirmPopupDialog } from 'app/accounts/dialog/confirm-popup/confirm-popup-dialog';
+import { Plan } from 'app/accounts/models/plan';
 @Component({
   selector: 'app-my-cards',
   templateUrl: './my-cards.component.html',
@@ -81,6 +82,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     errorClass:any;
     @Input() checkOutModel: ICheckoutModel;
     @Output() onPaymentSubmit = new EventEmitter<CreditCard>();
+    @Input() plan: Plan;
     paymentSubmitted: boolean;
   
     
@@ -435,6 +437,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
         maxWidth: '550px',
         data: {
           result: null,
+          plan:this.plan,
           result2: this.billingInfo
         }
       });

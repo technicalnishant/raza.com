@@ -16,7 +16,7 @@
                        </div>
                        <div class="col-sm-4">
                            <mat-form-field class="example-full-width">
-                               <input matInput placeholder="CVV" maxlength="4" autocomplete="off" type="tel" type="password" formControlName="Cvv2" ccCvc>
+                               <input matInput placeholder="CVV" maxlength="4" autocomplete="off" type="tel" type="password" formControlName="Cvv2" ccCvc class="{{getErrorClass('Cvv2')}}">
                            </mat-form-field>
                            <div><a href="javascript:void(0);" (click)="whatiscvv()" class="what-cvv">What is
                                CVV</a></div>
