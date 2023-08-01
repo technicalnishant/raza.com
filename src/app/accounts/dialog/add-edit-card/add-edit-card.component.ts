@@ -76,7 +76,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
         this.fromCountry = res.slice(0, 3);
       });
   
-      this.loadStates(true);
+     
   
   
       this.years = this.razaEnvService.getYears();
@@ -134,7 +134,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
       }
 
       
-      if (this.data.result2.Address.StreetAddress) 
+      if (!isNullOrUndefined(this.data.result2) && this.data.result2.Address.StreetAddress) 
       {
         let address = this.data.result2.Address;
         let FirstName = this.data.result2.FirstName;
@@ -151,6 +151,8 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
           this.search_country_id = address.Country.CountryId;
           
         }
+
+        this.loadStates(true);
        
     }
   
