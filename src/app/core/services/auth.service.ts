@@ -484,9 +484,10 @@ export class AuthenticationService {
 			description: "Pretend this is a convincing argument on why you shouldn't logout :)",
 			actionButtonText: "Logout",
 		}
-		// https://material.angular.io/components/dialog/overview
+		 
 		const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
 	}
+	
 	sendpasswordlink(emailOrPhone: string): Observable<boolean> {
 		 
 		 

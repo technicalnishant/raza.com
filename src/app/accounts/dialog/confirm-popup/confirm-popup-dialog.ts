@@ -6,7 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
   templateUrl: './confirm-popup-dialog.html',
 })
 export class ConfirmPopupDialog implements OnInit {
-
+  message:any='';
   constructor(
     public dialogRef: MatDialogRef<ConfirmPopupDialog>,
     public dialog: MatDialog ,
@@ -14,7 +14,10 @@ export class ConfirmPopupDialog implements OnInit {
   ) {}
 
   ngOnInit() {
-
+    if(this.data.message && this.data.message != '')
+    {
+      this.message = this.data.message;
+    }
   }
 
 

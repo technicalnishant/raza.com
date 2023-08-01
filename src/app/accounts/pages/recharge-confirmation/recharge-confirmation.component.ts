@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { BillingInfo } from '../../../accounts/models/billingInfo';
+import { CustomerService } from '../../../accounts/services/customerService';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '../../../core/services/auth.service';
+import { userContext } from '../../../core/interfaces';
+import { ICheckoutModel } from '../../../checkout/models/checkout-model';
+import { PlanService } from 'app/accounts/services/planService';
+import { TransactionType } from 'app/payments/models/transaction-request.model';
 @Component({
   selector: 'app-recharge-confirmation',
   templateUrl: './recharge-confirmation.component.html',
@@ -7,9 +14,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RechargeConfirmationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private authService: AuthenticationService,
+    
+  ) { }
 
-  ngOnInit(): void {
+  orderId: string = this.route.snapshot.paramMap.get('orderId');;
+  @Input() message: string;
+  @Input() userContext: userContext
+  ngOnInit() {
   }
 
+ 
 }

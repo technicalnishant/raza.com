@@ -80,7 +80,6 @@
 	background: #fff;
 	clear: both;
 	overflow: hidden;
-	margin-bottom: 30px;
 }
 p {
 	&.tabTitle {
@@ -399,8 +398,8 @@ td {
 	display: block;
 }
 
-  
-  @media only screen and (max-width: 868px)  {
+
+@media only screen and (max-width: 868px)  {
   .myaccountTabArea{padding: 120px 0 0 0; margin-bottom: 0px;}
   h2.welcomeText{font-size: 27px; margin-bottom: 10px;}
   .onlyDesktopAccount{ display: none;}
@@ -417,9 +416,9 @@ td {
   p.disclaimer{ display: none;}
   .planDetails p.tabTitle{ margin-bottom:50px; }
   .razaNumberLeft table tr th,.razaNumberLeft table tr td{ width: 50%;padding: 10px 25px !important;}
-  .tabContentMyaccount table tr th,.tabContentMyaccount table tr td{ /*width: 50%;*/padding: 10px 25px !important;}
+  .tabContentMyaccount table tr th,.tabContentMyaccount table tr td{ /*width: 50%;*/padding: 10px 12px !important;}
   table.orderHistory tr td:first-child{font-family: 'Montserrat', sans-serif; font-weight: 500; color:#0B203E;}
-  .razawebNumberRightApplinkArea{ margin: 25px 10px !important;padding: 20px 12px !important;} 
+  .razawebNumberRightApplinkArea{ margin: 25px 10px !important;padding: 20px 12px !important;}
   .greyBg{background: #FAFAFA; margin: 0px;padding: 30px 0;}
   .cardDetails{ width:70%;}
   .cardDetails p{margin-bottom: 2px;}
@@ -427,7 +426,7 @@ td {
   .cardDetails p.cardNumber span{padding: 0px;}
   .paymentDetails{padding: 60px 25px;}
   .myaccountTabArea .submitButton{margin-top: 40px;}
-  
+
   .myNumberButtonArea{ width: 100%; text-align: center; }
   .myNumberButtonArea button:first-child{float: none; display: block; margin: 0 auto 30px; width: 240px !important;}
   .myNumberButtonArea button:last-child{float: none; display: block; margin: 0 auto 30px; width: 240px !important;}
@@ -437,22 +436,24 @@ td {
   .autorefillTextarea p.enabledText{ color: #1A9259; font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 500;}
   .enabledText .mat-icon{ font-size:16px;}
   .autorefillTextarea p.autoTextcommon button:focus{ background: none; outline: none;}
-  .autorefillTextarea p.autoTextcommon span.iconSpan{padding-left: 15px;} 
+  .autorefillTextarea p.autoTextcommon span.iconSpan{padding-left: 15px;}
   .autorefillTextarea p.autoTextcommon span .mat-icon{color: #103F8A; font-size: 30px; display: -webkit-inline-box;}
   .autorefill p.tabTitle{ color: #0B203E; font-size: 28px;font-family: 'Montserrat', sans-serif; font-weight: 400;line-height: 20px; margin-bottom: 40px;}
   .autorefill p.tabTitle span{color: #808080; font-size: 14px;}
   .myaccountTabArea .callForward table{ margin-top: 0px;}
   table.showAlltable tr td{width: 33.33% !important;}
-  .rewardsOverview table tr th:last-child,.rewardsOverview table tr td:last-child{ text-align: right !important;} 
-  
+  .rewardsOverview table tr th:last-child,.rewardsOverview table tr td:last-child{ text-align: right !important;}
+
   .app_list ul{ display: flex; margin: 0 auto;}
   .app_list{ clear: both; overflow: hidden;}
   .app_list ul li:last-of-type {
       margin: 0px !important;
   }
-  
-  } 
-  
+  .tabContentMyaccount.planDetails {
+      overflow-x: auto;
+  }
+}
+
   .tabContentMyaccount1 .rechargeLeft .submitButton,.tabContentMyaccount1 .rechargeRight .submitButton {
     width: 255px !important;
   }
@@ -464,9 +465,168 @@ td {
         font-size: 16px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 300;
+        padding: 0 10px;
       }
     }
   }
   .tableNewSpaceN {
     padding: 60px 15px !important;
   }
+  .intMobileTopup {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+  .intMobileTopup {
+    mat-form-field {
+        width: 47%;
+    }
+    button.submit-btn {
+        background: #f4cb26;
+        padding: 9px 40px;
+        border-radius: 20px;
+        color: #000;
+        border: none;
+        font-weight: 500;
+    }
+    .button-wrapper {
+        width: 100%;
+        text-align: right;
+        margin-top: 8px;
+    }
+  }
+.top_up_btn {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    mat-button-toggle-group {
+      text-align: center;
+      padding: 7px;
+      background: #283a69;
+      border-radius: 30px;
+  }
+  .tpItm {
+      background: transparent;
+      color: #fff;
+      font-weight: 600;
+      font-family: Montserrat, sans-serif;
+      padding: 0 5px;
+      &.mat-button-toggle-checked {
+          background: #fff;
+          color: #283a69;
+          border-radius: 30px;
+      }
+  }
+}
+.topup_items {
+  display: flex;
+  flex-wrap: wrap;
+  .topup_item {
+    width: 31%;
+    border-radius: 12px;
+    border: 1px solid #c8e8f6;
+    margin: 0 8px 20px;
+  }
+}
+.backBtnInt {
+  background: #ddd;
+  padding: 7px 15px;
+  border-radius: 20px;
+  color: #000;
+  font-weight: 500;
+  font-size: 15px;
+  margin-left: 12px;
+  position: relative;
+  top: -37px;
+}
+.country-img .operator.mr-2 {
+  width: 50px;
+}
+.mobileIntTopupSec {
+    padding: 0 15px;
+}
+.topup_section {
+  .top_section {
+      background-color: #ebf8fe;
+      border-bottom: 1px solid #c8e8f6;
+      padding: 15px;
+      border-radius: 12px 12px 0 0;
+      h2 {
+          font-size: 32px;
+          font-weight: bolder;
+          text-align: left;
+          color: #031a62;
+          margin: 0 0 16px;
+      }
+      p {
+          text-align: left;
+          font-size: 15px;
+          color: #031a62;
+          margin: 10px 0;
+          line-height: 19px;
+          font-weight: 500;
+      }
+      a {
+          color: #1caef7;
+          margin: 12px 0 0;
+          display: block;
+      }
+      .promo_word {
+          float: right;
+          span {
+            background-color: #ffffff;
+            font-size: 13px;
+            padding: 5px 10px;
+            display: inline-block;
+            border-radius: 200px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+      }
+  }
+  .bottom_section {
+      text-align: left;
+      padding: 15px;
+      font-size: 15px;
+      color: #4b4b4b;
+      font-weight: 500;
+      .amount {
+          margin-bottom: 1rem;
+          h3 {
+              font-size: 24px;
+              font-weight: bold;
+              span {
+                  font-size: 16px;
+              }
+          }
+      }
+      ul {
+        padding-left: 25px;
+      }
+      button.buy_btn {
+          background: #f4cb26;
+          border: none;
+          font-weight: 600;
+          padding: 8px 30px;
+          border-radius: 20px;
+          text-transform: uppercase;
+      }
+  }
+}
+
+@media only screen and (max-width: 868px) {
+  .backBtnInt {
+    top: 0;
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+  .intMobileTopup {
+      display: block;
+      mat-form-field {
+          width: 100%;
+      }
+  }
+  .topup_items .topup_item {
+      width: 100%;
+  }
+}

@@ -8,9 +8,9 @@
     <div class="divider-top"></div>
     <div class="strip">Raza Mobile App <a
         href="https://play.google.com/store/apps/details?id=com.razacomm.universe">
-        <img src="./assets/images/playstore_grey.svg" width="16" alt="" loading="lazy" class="ml-1 ml-md-3"></a> <a
+        <img src="./assets/images/playstore_grey.svg" width="16" height="16" alt="img" loading="lazy" class="ml-1 ml-md-3"></a> <a
         href="https://apps.apple.com/ca/app/raza-universe/id1226298666"><img src="./assets/images/apple_grey.svg"
-          width="16" alt="" class="ml-1 ml-md-3"></a></div>
+          width="16" height="16" alt="img" class="ml-1 ml-md-3"></a></div>
   </div>
   <button type="button" class="close" (click)="closeStrip()">
     <span aria-hidden="true">&times;</span>
@@ -18,7 +18,7 @@
 </div>
 <header [ngClass]="{'headerBackground': headerValue == 2 , 'bg-darkblue': headerValue == 1}"
   [ngClass]="status ? '' : 'header-top'" class="header_style2 active pb-0 border-0 bg-darkblue" id="hd-bg" *ngIf="showHeader">
-  
+
 
   <mat-toolbar >
     <mat-toolbar-row>
@@ -27,7 +27,7 @@
         <mat-icon>menu</mat-icon>
       </button>
       <div class="logo-white">
-        <a routerLink="/"><img *ngIf="headerValue == 1" loading="lazy" src="../assets/images/raza_logo.png" alt="" /></a>
+        <a routerLink="/"><img *ngIf="headerValue == 1" loading="lazy" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" /></a>
         <a routerLink="/">
           <img *ngIf="headerValue == 2" width="180" height="60" loading="lazy" src="../assets/images/raza_logo_black.png" alt="" /></a>
       </div>
@@ -66,7 +66,7 @@
               <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
                 [ngClass]="'flag flag-'+ option.CountryId" height="25" loading="lazy">
               <span class="width70">{{option.CountryName}}&nbsp;(+{{option.CountryCode}})</span>
-              
+
               <span class="width30">
                 <img src="./../../assets/images/phone-icon.png" alt="" loading="lazy">
                 <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
@@ -96,7 +96,7 @@
           </button>
 
           <!--<div *ngIf="!isAuthenticated" class="login-text d-none d-md-block">login</div>-->
-         
+
         </div>
       </div>
 
@@ -170,7 +170,7 @@
     </div>
     <div class="deal-menu">
       <ul class="d-none d-lg-flex pl-0">
-        
+
         <!-- <li>
           <ng-container *ngTemplateOutlet="DealsDropMenu"></ng-container>
         </li> -->
@@ -209,7 +209,7 @@
       <span class="example-spacer"></span>
       <span class="logo" >
         <a routerLink="/">
-          <img *ngIf="headerValue == 1" src="../assets/images/raza_logo.png" alt="" loading="lazy" />
+          <img *ngIf="headerValue == 1" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" loading="lazy" />
           <img *ngIf="headerValue == 2" width="180" height="60" src="../assets/images/raza_logo_black.png" alt="" loading="lazy" />
         </a>
       </span>
@@ -224,7 +224,7 @@
        <button mat-icon-button class="p-0"
         [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}"
         #accountDropMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu">
-        <mat-icon>account_circle</mat-icon>  
+        <mat-icon>account_circle</mat-icon>
       </button>
 
       <mat-menu #menu="matMenu" class="loginDropDown">
@@ -238,7 +238,7 @@
   </mat-toolbar>
 </header>
 
- <header *ngIf="!showHeader && blueBg==1" 
+ <header *ngIf="!showHeader && blueBg==1"
 [ngClass]="{'headerBackground': headerValue == 2 , '': headerValue == 1}"
 [ngClass]="status ? '' : 'header-top'" class="header_style2 active pb-0 border-0 bg-darkblue"
 >
@@ -251,16 +251,16 @@
       </button>
 
       <!-- <ng-container *ngTemplateOutlet="DealsDropMenu"></ng-container> -->
- 
+
       <span class="example-spacer"></span>
       <span class="logo" >
         <a routerLink="/">
-          <img *ngIf="headerValue == 1" src="../assets/images/raza_logo.png" alt="" loading="lazy" />
+          <img *ngIf="headerValue == 1" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" loading="lazy" />
           <img *ngIf="headerValue == 2" width="180" height="60" src="../assets/images/raza_logo_black.png" alt="" loading="lazy"/>
         </a>
       </span>
 
-     
+
 
       <span class="example-spacer"></span>
       <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span>
@@ -279,18 +279,18 @@
 
     </mat-toolbar-row>
   </mat-toolbar>
-</header> 
+</header>
 
- 
+
 
 <!-- <ng-template #DealsDropMenu>
   <span class="colorWhite dropbtn dealbtndrop  px-0 " *ngIf="currentSetting.currentCountryId !=3"  >
-    
+
     <em class="mobile_text " #myDEAL>Deals</em>
 
     <div class="dropdown" #dropdown>
       <div class="bckgrd-white dropdown-content full-width">
-         
+
 
         <app-deals-tab></app-deals-tab>
 
@@ -301,5 +301,5 @@
     </div>
   </span>
 
-  
+
 </ng-template> -->

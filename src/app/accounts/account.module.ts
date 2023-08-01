@@ -50,7 +50,15 @@ import { MobileMyNumbersComponent } from './component/mobile-my-numbers/mobile-m
 import { MobileOnetouchDialComponent } from './component/mobile-onetouch-dial/mobile-onetouch-dial.component';
 import { MobileCallFarwordingComponent } from './component/mobile-call-farwording/mobile-call-farwording.component';
 import { AccountRechargeComponent } from './pages/account-recharge/account-recharge.component';
+ 
+import { MyCardsComponent } from './pages/my-cards/my-cards.component';
+import { WhatIsCvvComponent } from './dialog/what-is-cvv/what-is-cvv.component';
+import { AddEditCardComponent } from './dialog/add-edit-card/add-edit-card.component';
+ 
 import { RechargeConfirmationComponent } from './pages/recharge-confirmation/recharge-confirmation.component';
+import { ViewratesComponent } from './dialog/viewrates/viewrates.component';
+import { AccountSearchRatesComponent } from './pages/account-search-rates/account-search-rates.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 // import { MobileOrderHistoryComponent } from './component/mobile-order-history/mobile-order-history.component';
 // import { MobileRewardsComponent } from './component/mobile-rewards/mobile-rewards.component';
 // import { MobileMyaccountComponent } from './component/mobile-myaccount/mobile-myaccount.component';
@@ -68,12 +76,18 @@ import { RechargeConfirmationComponent } from './pages/recharge-confirmation/rec
         CreditCardDirectivesModule,
         MatAutocompleteModule,
         MatIconModule,
+        MatButtonToggleModule,
         RouterModule.forChild([
             {
                 path: '', component: AccountOverviewComponent, data: { isFixedHeader: true }, children: [
                     { path: '', redirectTo: 'overview', pathMatch: 'full' },
-                    { path: 'overview', component: AccountOptionsComponent },
-                    { path: 'overview/:notification', component: AccountOptionsComponent },
+                    // { path: 'overview', component: AccountOptionsComponent },
+                    // { path: 'overview/:notification', component: AccountOptionsComponent },
+
+                    { path: 'overview', component: AccountRechargeComponent },
+                    { path: 'overview/:notification', component: AccountRechargeComponent },
+                    
+                    
                     { path: 'payment-details/:planId', component: AccountPaymentDetailsComponent },
                     { path: 'payment-details', component: AccountPaymentDetailsComponent },
                     { path: 'order-history', component: AccountPurchaseHistoryComponent },
@@ -89,6 +103,9 @@ import { RechargeConfirmationComponent } from './pages/recharge-confirmation/rec
                     { path: 'rewards', component: AccountRewardsComponent },
                     { path: 'my-profile', component: AccountMyProfileComponent },
                     { path: 'confirmation/:orderId', component: RechargeConfirmationComponent},
+                    { path: 'rates', component: AccountSearchRatesComponent},
+
+                    
                 ]
             },
             { path: 'update-password', component: UpdatePasswordComponent },
@@ -149,7 +166,15 @@ import { RechargeConfirmationComponent } from './pages/recharge-confirmation/rec
         MobileOnetouchDialComponent,
         MobileCallFarwordingComponent,
         AccountRechargeComponent,
+ 
+        MyCardsComponent,
+        WhatIsCvvComponent,
+        AddEditCardComponent,
+ 
         RechargeConfirmationComponent,
+           ViewratesComponent,
+           AccountSearchRatesComponent,
+ 
         // MobileOrderHistoryComponent,
         // MobileRewardsComponent,
         // MobileMyaccountComponent,

@@ -1,1 +1,78 @@
-<p>account-recharge works!</p>
+<h3 class="selectRechg">Select a recharge amount</h3>
+<div *ngIf="!isAutorefill" class="denomination__box_wrap">
+  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index" class="{{getActiveClass(item)}}" class="demBoxWrp">
+    <div class="denomination__box" (click)="onClickAmountOption(item)">
+     <div class="d-flex justify-content-between">
+          <div class="amount">{{item.Price | bCurrency}}</div>
+          <div class="discount_applied" *ngIf="item.DiscountApplied > 0">
+            <div class="discount_applied_text">
+              {{item.DiscountApplied}} %
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="rates_info">
+      Total Minutes  {{item.TotalTime+item.PromoMinutes}} <br /> Rate : {{item.DiscountedCallingRate| sCurrency}} / m
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isAutorefill" class="denomination__box_wrap">
+  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index"  class="{{getActiveClass(item)}}" class="demBoxWrp">
+    <div class="denomination__box" (click)="onClickAmountOption(item)" >
+     <div class="d-flex justify-content-between">
+          <div class="amount">{{item.Price | bCurrency}}</div>
+          <div class="discount_applied">
+            <div class="discount_applied_text">
+              10 %
+            </div>
+          </div>
+       </div>
+
+
+    </div>
+
+    <div class="rates_info">
+      Total Minutes  {{getAutoRefillMin(item)}} <br /> Rate : {{ getAutoRefillRatePerMin(item)| sCurrency }}  / m
+
+    </div>
+  </div>
+</div>
+<!-- <a href="javascript:void(0)" (click)="getRateDetail()">View Rates</a> -->
+
+<div class="swicth_container" *ngIf="ratesLoaded">
+      <div class="reg_text">Regular</div>
+      <div class="switch_label">
+          <label class="switch">
+            <input *ngIf="isAutorefill" type="checkbox" id="checkboxbonus3" checked (click)="setPlanType()">
+            <input *ngIf="!isAutorefill" type="checkbox" id="checkboxbonus3" (click)="setPlanType()">
+            <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="bonusText">
+        <span class="bonus_text">Bonus</span>
+        <span class="bonus_text_offer">10%</span>
+        <span class="bonus_text_data">
+          <span class="bonus_text_qst">
+            ?
+          </span>
+          <span class="bonus_text_datas">
+            Enroll to Auto-refill and earn 10% bonus minutes.<br>
+            We will recharge your plan only when the account balance falls below $2.<br>
+            Cancel online or by calling customer service anytime.
+          </span>
+        </span>
+        <!-- <img
+              class="bonus_text_info"
+              src="../../assets/images/info.png"
+              matTooltip="
+              Enroll to Auto-refill and earn 10% bonus minutes.
+              We will recharge your plan only when the account balance falls below $2.
+              Cancel online or by calling customer service anytime."
+              />                    -->
+        <span class="bonus_small_text">with auto-refill</span>
+      </div>
+</div>
+
+<app-my-cards *ngIf="plan" [plan]="plan" [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentButtonTrigger($event)" > </app-my-cards>

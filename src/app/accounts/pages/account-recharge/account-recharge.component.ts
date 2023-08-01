@@ -27,7 +27,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MAT_SELECT_SCROLL_STRATEGY } from '@angular/material/select';
 import { isNullOrUndefined } from "../../../shared/utilities";
 import { Subscription } from 'rxjs';
-//import { ViewratesComponent } from 'app/accounts/dialog/viewrates/viewrates.component';
+import { ViewratesComponent } from 'app/accounts/dialog/viewrates/viewrates.component';
 @Component({
   selector: 'app-account-recharge',
   templateUrl: './account-recharge.component.html',
@@ -117,11 +117,10 @@ export class AccountRechargeComponent implements OnInit {
   {
     return this.selectedDenomination == item.Price?'active':'';
   }
-  
+   
     getRates()
     {
-     // this.searchRatesService.getSpecificRateDetails(this.fromCountryId, this.toCountryId, this.phoneNumber).subscribe(
-        this.searchRatesService.getSearchGlobalRates(this.fromCountryId, this.toCountryId).subscribe(
+      this.searchRatesService.getSpecificRateDetails(this.fromCountryId, this.toCountryId, this.phoneNumber).subscribe(
         (data: any) => {
           if( data )
           this.filterDenomination(data);
@@ -188,8 +187,8 @@ export class AccountRechargeComponent implements OnInit {
       }
       else
       {
-          // this.currentCart = model;
-          console.log('Your model is as ', model);
+            this.currentCart = model;
+          //console.log('Your model is as ', model);
           this.onCreditCardPayment(creditCard);
       }
       
@@ -342,15 +341,33 @@ validateCoupon(req: ValidateCouponCodeRequestModel): Promise<ValidateCouponCodeR
   {
     this.toCountryId    = this.plan.CountryTo;
           this.fromCountryId  = this.plan.CountryFrom;
-    // this.dialog.open(ViewratesComponent, {
-    //   data: { 
-    //     globalPlanData:this.plan,
-    //     denominations: this.denominatons,
-    //     countryFrom:this.fromCountryId,
-    //     countryTo:this.toCountryId,
+    this.dialog.open(ViewratesComponent, {
+      data: { 
+        denominations: this.denominatons,
+        countryFrom:this.fromCountryId,
+        countryTo:this.toCountryId,
          
-    //    }
-    // });
+       }
+    });
+  }
+
+  getAutoRefillMin(item):void{
+
+    let discount = Math.round(item.TotalTime*10/100);
+    return item.TotalTime+discount;
+
+  }
+  toFixed(num) {
+    
+    return Math.floor(num*10)/10;
+     //return ( num * 10  / 10 ).toFixed(1)
+    }
+  getAutoRefillRatePerMin(item){
+    let discount = Math.round(item.TotalTime*10/100);
+    let min = item.Price / (item.TotalTime+discount);
+    return this.toFixed(min*100 );
+    
+
   }
   
 }

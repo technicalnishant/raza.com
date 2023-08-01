@@ -1188,6 +1188,9 @@ input#searchInput::placeholder {
 	.header-top{
 		// top: 36px;
 	}
+	header.headerBackground {
+		border-bottom: 1px solid #eaeaea !important;
+	}
 }
 @media only screen and (min-width: 280px) and (max-width: 280px) {
 		.strip, .strip a {

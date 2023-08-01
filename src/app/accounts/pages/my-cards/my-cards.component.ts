@@ -38,6 +38,7 @@ import { BottomUpComponent } from 'app/mobile-pay/dialog/bottom-up/bottom-up.com
 import { WhatIsCvvComponent } from 'app/accounts/dialog/what-is-cvv/what-is-cvv.component';
 import { AddEditCardComponent } from 'app/accounts/dialog/add-edit-card/add-edit-card.component';
 import { ConfirmPopupDialog } from 'app/accounts/dialog/confirm-popup/confirm-popup-dialog';
+import { Plan } from 'app/accounts/models/plan';
 @Component({
   selector: 'app-my-cards',
   templateUrl: './my-cards.component.html',
@@ -58,7 +59,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
   formattedEstablishmentAddress: string;
   phone: string;
   search_country:any='US';
-  search_country_id:any=1;
+    search_country_id:any=1;
   /**********EOF Google place search **********/
     paymentInfoForm: FormGroup;
     existingCreditCardForm: FormGroup;
@@ -78,8 +79,10 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     autoRefillTipText: string;
     braintreeToken:any;
     paymentProcessor:any;
+    errorClass:any;
     @Input() checkOutModel: ICheckoutModel;
     @Output() onPaymentSubmit = new EventEmitter<CreditCard>();
+    @Input() plan: Plan;
     paymentSubmitted: boolean;
   
     
@@ -138,7 +141,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
   
   
       this.getCountryFrom();
-      this.onCountryChange(this.countryFromId);
+    //  this.onCountryChange(this.countryFromId);
       this.getCustomerCards();
       this._initAutoRefillTooltip();
       this.paymentProcessor = 'Cardinal'
@@ -211,178 +214,76 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
             this.customerSavedCards = res.splice(0, 2);
        
             this.selectedCardPay=this.customerSavedCards[0];
-            console.log(this.selectedCardPay);
+           
             this.selectedCard = this.selectedCardPay;
             //localStorage.setItem('card':{card:this.selectedCardPay.CardId, selectedCard:this.selectedCardPay.Cvv});
-           
+            this.havingExistingCard = true;
            
            
   
             this.loadBillingInfo();
         //this.onClickCreditCardPay();
           } else {
-            this.getCreditCardValidityOptions();
+           // this.getCreditCardValidityOptions();
             this.getBillingInfo();
+            this.customerSavedCards = null;
             this.havingExistingCard = false;
-        //this.onClickCreditCardPay();
+        
           }
       
         });
     }
-  
-    onClickCreditCardBraintree(){
-      this.paymentSubmitted = true;
-      if (this.selectedCard === null)
-        return;
-      if (this.selectedCard.Cvv.length < 3)
-        return;
-  
-      this.selectedCard.CardHolderName = `${this.billingInfo.FirstName} ${this.billingInfo.LastName}`;
-      this.selectedCard.FullName = this.selectedCard.CardHolderName;
-      this.selectedCard.PhoneNumber = this.billingInfo.Address.HomePhone;
-       
-      /*
-      this.braintreeCard.Address = this.billingInfo.Address.StreetAddress;
-      this.braintreeCard.Amount = 0;
-      this.braintreeCard.CardNumber = this.selectedCard.CardNumber;
-      this.braintreeCard.CvvValue = this.selectedCard.Cvv;
-      this.braintreeCard.ExpiryDate = this.selectedCard.ExpiryMonth+'/'+this.selectedCard.ExpiryYear;
+
+    getCustomerCards1() {
+      this.customerSavedCards = null;
+      this.selectedCard = null;
+      this.customerService.getSavedCreditCards().toPromise().then(
+        (res: CreditCard[]) => {
+          if (res.length > 0) {
+            this.customerSavedCards = res.splice(0, 2); 
+            
+            this.havingExistingCard = true;
+            
+          } else {
+           
+            
+            this.customerSavedCards = null;
+            this.havingExistingCard = false;
+        
+          }
       
-  
-      
-      this.braintreeCard.Comment1 = 'N/A';
-      this.braintreeCard.Comment2 = 'N/A';
-      
-      this.braintreeCard.CurrencyCode = 'USD';
-      
-      this.braintreeCard.DoAuthorize = true;
-      this.braintreeCard.EmailAddress = this.billingInfo.Email;
-      this.braintreeCard.FirstName = this.billingInfo.FirstName;
-      this.braintreeCard.HomePhone = this.billingInfo.Address.HomePhone;
-      this.braintreeCard.IpAddress = '111.111.111.111';
-      this.braintreeCard.LastName = this.billingInfo.LastName;
-      this.braintreeCard.OrderId = '';
-      this.braintreeCard.Country = 1;
-      this.braintreeCard.City = this.billingInfo.Address.City;
-      this.braintreeCard.State = this.billingInfo.Address.State;
-      this.braintreeCard.ZipCode = this.billingInfo.Address.ZipCode;
-  */
-     // this.onPaymentSubmit.emit(this.selectedCard.ExpiryMonth);
-  
-  
-     var data_param = {
-    
-      "Address1": this.billingInfo.Address.StreetAddress,
-      "Amount": "0",
-      "CardNumber": this.selectedCard.CardNumber,
-      "City": this.billingInfo.Address.City,
-      "Comment1": "",
-      "Comment2": "",
-      "Country": "1",
-      "CurrencyCode": "USD",
-      "CvvValue": this.selectedCard.Cvv,
-      "DoAuthorize": "true",
-      "EmailAddress": this.billingInfo.Email,
-      "ExpiryDate": this.selectedCard.ExpiryMonth+'/'+this.selectedCard.ExpiryYear,
-      "FirstName": this.billingInfo.FirstName,
-      "HomePhone": this.billingInfo.Address.HomePhone,
-      "IpAddress": "111.111.111.111",
-      "LastName": this.billingInfo.LastName,
-      "OrderId": "",
-      "State": this.billingInfo.Address.State,
-      "ZipCode": this.billingInfo.Address.ZipCode
-  
-  };
-  
-     this.httpClient.post<any>('https://restapi.razacomm.com/api/BrainTree/808319',data_param).subscribe(data => {
-    // this.postId = data.id;
-       this.varifyCard(data);
-      
-    });
-    
-    }
-    varifyCard(data)
-    {
-      var threeDSecure;
-      braintree.client.create({
-        // Use the generated client token to instantiate the Braintree client.
-        authorization: this.braintreeToken.token
-      }).then(function (clientInstance) {
-        return braintree.threeDSecure.create({
-        //  'version': '2', 
-        'client': clientInstance
         });
-      }).then(function (threeDSecureInstance) {
-        threeDSecure = threeDSecureInstance;
-        
-        var my3DSContainer;
-        threeDSecure.verifyCard({
-         nonce: data.Nonce,
-         amount: 123.45,
-         addFrame: function (err, iframe) {
-           // Set up your UI and add the iframe.
-            my3DSContainer = document.createElement('div');
-           //my3DSContainer = document.getElementById('el');
-           my3DSContainer.appendChild(iframe);
-           document.body.appendChild(my3DSContainer);
-           
-           
-         },
-         removeFrame: function () {
-           // Remove UI that you added in addFrame.
-          document.body.removeChild(my3DSContainer);
-           
-        }
-        }, function (err, payload) {
-         if (err) {
-           console.error(err);
-         return;
-         }
-        
-         console.log("Paymentnonce");
-           console.log(payload);
-  
-         if (payload.liabilityShifted) {
-           // Liablity has shifted
-           //console.log("Paymentnonce");
-          // console.log(payload);
-           //submitNonceToServer(payload.nonce);
-        } else if (payload.liabilityShiftPossible) {
-           // Liablity may still be shifted
-           // Decide if you want to submit the nonce
-        } else {
-           // Liablity has not shifted and will not shift
-          // Decide if you want to submit the nonce
-         }
-        });
-      
-      
-         
-        
-      }).catch(function (err) {
-        // Handle component creation error
-      });
     }
+
+  
+   
     onClickCreditCardPayment() {
       this.paymentSubmitted = true;
       if (this.selectedCard === null)
         return;
         
       if (this.selectedCard.Cvv.length < 3)
+      {
+        this.errorClass = 'error';
         return;
+      }
+      else{
+        this.errorClass = '';
+      }
+       
   
       this.selectedCard.CardHolderName = `${this.billingInfo.FirstName} ${this.billingInfo.LastName}`;
       this.selectedCard.FullName = this.selectedCard.CardHolderName;
       this.selectedCard.PhoneNumber = this.billingInfo.Address.HomePhone;
       this.selectedCard;
-
+       
       this.onPaymentSubmit.emit(this.selectedCard);
     }
     
     onPaymentInfoFormSubmit() {
-      console.log(this.paymentInfoForm);
+     
       if (!this.paymentInfoForm.valid) {
-        console.log("Invalid");
+         
         return;
       }
       const formValues = this.paymentInfoForm.value;
@@ -415,11 +316,11 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
             .then(res => {
               this.customerService.getSavedCreditCards().toPromise().then((cr: CreditCard[]) => {
                 creditCard.CardId = cr[0].CardId;
-                this.onPaymentSubmit.emit(creditCard);
+                //this.onPaymentSubmit.emit(creditCard);
               })
             },(err: ApiErrorResponse) => { this.razaSnackbarService.openError(err.error) })
         } else {
-          this.onPaymentSubmit.emit(creditCard);
+        //  this.onPaymentSubmit.emit(creditCard);
         }
       });
     }
@@ -541,7 +442,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
                 this.customerService.GetBillingInfo().subscribe(
                   (res: any) => { this.billingInfo = res;
                   
-                    this.onClickCreditCardPay();
+                   // this.onClickCreditCardPay();
                   },
                   (err: ApiErrorResponse) => console.log(err),
                 )
@@ -559,6 +460,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
         maxWidth: '550px',
         data: {
           result: null,
+          plan:this.plan,
           result2: this.billingInfo
         }
       });
@@ -568,12 +470,11 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
         {
           this.cvvStored=result.split(",")[1];
           if (result.split(",")[0] == "success") {
-            this.getCustomerCards();
-        
+            this.getCustomerCards1();
+            
               this.customerService.GetBillingInfo().subscribe(
                 (res: any) => { this.billingInfo = res;
-                
-                  this.onClickCreditCardPay();
+                 
                 },
                 (err: ApiErrorResponse) => console.log(err),
               )
@@ -588,6 +489,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     deleteCardDetails(card) {
       const dialogRef = this.dialog.open(ConfirmPopupDialog, {
         data: {
+          message:'Delete Credit Card ?',
           success: 'success'
         }
       });
@@ -598,8 +500,11 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
           this.customerService.DeleteCreditCard(card.CardId).subscribe(
             (res: boolean) => {
               if (res) {
-                this.razaSnackbarService.openSuccess("Credit card deleted successfully.");
+                this.selectedCard = null;
                 this.getCustomerCards();
+                
+                this.razaSnackbarService.openSuccess("Credit card deleted successfully.");
+                
               }
               else
                 this.razaSnackbarService.openError("Unable to delete information, Please try again.");
@@ -635,7 +540,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
           this.customerService.GetBillingInfo().subscribe(
             (res: any) => { this.billingInfo = res;
             
-              this.onClickCreditCardPay();
+             // this.onClickCreditCardPay();
             },
             (err: ApiErrorResponse) => console.log(err),
           ) 
@@ -650,15 +555,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     loadBillingInfo(): void {
       this.customerService.GetBillingInfo().subscribe(
         (res: any) => { this.billingInfo = res;
-       /* if(res.Email && res.Email !='')
-        {
-          var user_email = res.Email;
-          if(user_email.includes("@raza.temp"))
-          {
-            this.billingInfo.Email = '';
-          }
-        }*/
-         // this.onClickCreditCardPay();
+        
         },
         (err: ApiErrorResponse) => console.log(err),
       )
@@ -672,26 +569,26 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
       this.selectedCardPay.FullName = this.selectedCardPay.CardHolderName;
       this.selectedCardPay.PhoneNumber = this.billingInfo.Address.HomePhone;
       this.selectedCardPay.Cvv= this.cvvStored;
-      this.onPaymentSubmit.emit(this.selectedCardPay);
+     
     }
   
-    editModal()
-    {
+    // editModal()
+    // {
       
-      //this.loadBillingInfo(cardId);
-      var cardId = parseInt(localStorage.getItem('selectedCard'), 10);
-      this.customerService.GetBillingInfo().subscribe(
-        (res: any) => { this.billingInfo = res;
+    //   //this.loadBillingInfo(cardId);
+    //   var cardId = parseInt(localStorage.getItem('selectedCard'), 10);
+    //   this.customerService.GetBillingInfo().subscribe(
+    //     (res: any) => { this.billingInfo = res;
         
-            this.customerService.EditCreditCardbyId(cardId).subscribe(data => {
+    //         this.customerService.EditCreditCardbyId(cardId).subscribe(data => {
           
-              this.cardBillingAddress(data, []);
-            });
-          },
-        (err: ApiErrorResponse) => console.log(err),
-      )
-       this.loadBillingInfo();
-    }
+    //           this.cardBillingAddress(data, []);
+    //         });
+    //       },
+    //     (err: ApiErrorResponse) => console.log(err),
+    //   )
+    //    //this.loadBillingInfo();
+    // }
      /********************/
      getPlaceAutocomplete() {
        

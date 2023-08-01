@@ -1,6 +1,8 @@
 <div class="form_holder commonPopup">
     <span class="closeIcon" (click)="closeIcon()"  mat-dialog-close><i class="material-icons">close</i></span>
-    <h2>Are you sure you want to cancel? Remember, <br />you were receiving a 10% bonus on every auto recharge.</h2>
+   
+    <h2 *ngIf="message == ''">Are you sure you want to cancel? Remember, <br />you were receiving a 10% bonus on every auto recharge.</h2>
+    <h2 *ngIf="message != ''">{{message}}</h2>
     <mat-dialog-content>
     
 

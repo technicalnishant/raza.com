@@ -89,12 +89,13 @@ export class RazaEnvironmentService {
     getXChageRateInfo(countryFromId)
     {
      return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`)
+    // return null
     }
 
     setCurrentSetting(setting: CurrentSetting) {
         if (!isNullOrUndefined(setting)) {
             RazaEnvironmentService._setting = setting;
-             
+              
             this.getXChageRateInfo(setting.country.CountryId).subscribe((data:any)=>{
       
                 localStorage.setItem('currencySymbol', data.CurrencySymbol);
