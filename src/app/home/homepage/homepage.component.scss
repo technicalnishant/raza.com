@@ -2,7 +2,6 @@
 .home_howitworksmain a {
     text-decoration: none;
 }
-
 .example-container {
     position: absolute;
     top: 0;
@@ -10,42 +9,38 @@
     left: 0;
     right: 0;
 }
-
 .new_style_mobile button {
     position: absolute;
     z-index: 99;
     right: 13%;
     bottom: 1%;
+    svg {
+      width: 26px;
+      height: 26px;
+  }
 }
-
 .new_style_mobile button svg {
     width: 26px;
     height: 26px;
 }
-
 .applinkForDesktop {
     margin-bottom: 20px;
 }
-
 .july {
     padding-right: 13%;
 }
-
 .hideinMobile {
     display: block;
 }
-
 .showInmobile {
     display: none;
 }
-
 .homepage_bluearea {
     background: #0160e0;
     text-align: center;
     h3 {
         color: #fff;
         font-size: 19px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 500;
         padding: 10px 0;
     }
@@ -55,58 +50,45 @@
     p {
         color: #fff;
         font-size: 15px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 400;
     }
     a {
         color: #fff;
         font-size: 14px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 400;
     }
     .icon_holder1 {
         height: 90px;
     }
 }
-
 .homeBluecommon {
     padding: 50px 30px;
 }
-
 .home_howitworksmain {
     padding: 110px 0;
     h2 {
         color: #0b203e;
         text-align: center;
         font-size: 36px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 400;
     }
     p.howitText {
         color: #919eae;
         text-align: center;
         font-size: 16px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 400;
         width: 100%;
     }
 }
-
 .home_howitworksSection {
     padding: 0 50px 15px 48px;
-    -webkit-box-shadow: 25px 25px 65px 0px rgba(215, 228, 240, 1);
-    -moz-box-shadow: 25px 25px 65px 0px rgba(215, 228, 240, 1);
     box-shadow: 25px 25px 65px 0px rgba(215, 228, 240, 1);
     background: #fff;
-}
-
-.home_howitworksSection {
     .icon_holder1 {
         height: auto;
     }
     h3 {
         font-size: 23px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 400;
         margin-bottom: 14px;
     }
@@ -122,50 +104,40 @@
     p {
         color: #808080;
         font-size: 15px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 400;
         line-height: 28px;
     }
 }
-
 .mobileAppArea {
     p.mAppHowtxt {
         color: #919eae;
         font-size: 16px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 400;
     }
     h3 {
         color: #0b203e;
         font-size: 80px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 100;
-        /* margin-bottom: 40px; */
         margin-bottom: 100px;
     }
 }
-
 .mobileAppcommon_area {
     padding-left: 100px;
-    /* margin-bottom: 35px; */
     margin-bottom: 50px;
     padding-right: 57px;
     h4 {
         color: #0a1f3f;
         font-size: 17px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 500;
         line-height: 17px;
     }
     p {
         color: #808080;
         font-size: 16px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 400;
         line-height: 28px;
     }
 }
-
 .home_pageGreyarea {
     height: 215px;
     .leftareaNew {
@@ -177,18 +149,15 @@
         .textareaNew {
             float: left;
             h4 {
-                font-family: "Montserrat", sans-serif;
                 font-size: 36px;
                 font-weight: 300;
                 color: #000;
             }
             p {
-                font-family: "Montserrat", sans-serif;
                 font-size: 32px;
                 font-weight: 300;
                 color: #f34d3d;
                 &.smallText {
-                    font-family: "Montserrat", sans-serif;
                     font-size: 14px;
                     font-weight: 300;
                     color: #f34d3d;
@@ -228,18 +197,15 @@
             float: left;
             margin-right: 20px;
             h4 {
-                font-family: "Montserrat", sans-serif;
                 font-size: 36px;
                 font-weight: 300;
                 color: #000;
             }
             p {
-                font-family: "Montserrat", sans-serif;
                 font-size: 32px;
                 font-weight: 300;
                 color: #7c4d9e;
                 &.smallText {
-                    font-family: "Montserrat", sans-serif;
                     font-size: 14px;
                     font-weight: 400;
                     color: #7c4d9e;
@@ -265,13 +231,11 @@
         max-width: 100%;
     }
 }
-
 .home_pageGreyarea .leftareaNew .imageareaNew,
 .home_pageGreyarea .rightareaNew .imageareaNew {
     float: left;
     padding: 26px 0;
 }
-
 .button-wrapper{width:100%}
 .textareaNew {
     p {
@@ -286,28 +250,21 @@
         }
     }
 }
-
-.shadow1 {
+.shadow1, .shadow2, .shadow3 {
     position: relative;
     z-index: 1;
 }
-
 .shadow2 {
-    position: relative;
     z-index: 2;
 }
-
 .shadow3 {
-    position: relative;
     z-index: 3;
 }
-
 .testimonial_area_container {
     .ngxcarousel-inner {
         overflow: visible !important;
     }
 }
-
 .testimonial_area {
     padding: 30px 0;
     clear: both;
@@ -316,16 +273,13 @@
         text-align: center;
         font-size: 33px;
         font-weight: 600;
-        font-family: "Montserrat", sans-serif;
     }
     p {
         text-align: center;
-        font-family: "Montserrat", sans-serif;
         font-size: 20px;
         font-weight: 400;
     }
 }
-
 .activeArea {
     padding-bottom: 15px;
     clear: both;
@@ -333,23 +287,19 @@
     padding-top: 45px;
     h4 {
         font-size: 21px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 300;
         margin: 0;
         text-align: center;
     }
     p {
         font-size: 11px;
-        font-family: "Montserrat", sans-serif;
         font-weight: 600;
     }
 }
-
 .arrowArea {
     clear: both;
     position: relative;
 }
-
 a {
     &.leftArrow {
         position: absolute;
@@ -364,43 +314,25 @@ a {
         bottom: 0;
     }
 }
-
 .testPadding {
     padding: 35px 0 35px 0;
 }
-
 .mobileLine {
     display: none;
 }
-
 .bluecolor {
     color: #0160e0;
 }
-
 .whiteimg {
     display: none;
 }
-
 .blueimg {
     display: inline-block;
 }
 .home_mobile_div{
     position: absolute; bottom: 70px; left: 40px;z-index: 99;
 }
-.home_mobile_div a{cursor: pointer;}
-
-
-.carousel-caption-promotion {
-    position: absolute;
-    top: 245px;
-    left: 50%;
-    width: 195px;
-    margin-left: -136px;
-}
-.carousel-caption-promotion img.promo-btnimg {
-    max-width: 100%;
-}
-
+.home_mobile_div a { cursor: pointer; }
 @include breakpoint(md-lg) {
     .mobileImageSlider {
         right: -21px;
@@ -416,11 +348,7 @@ a {
         height: 759px !important;
     }
 }
-
 @include breakpoint(sm-md) {
-
-    
-
     .mobileImageSlider {
         right: 0;
         left: 0;
@@ -440,17 +368,6 @@ a {
         height: 665px !important;
     }
 }
-
-@media only screen and (min-width: 650px) and (max-width: 690px) {
-    .mobileImageSlider {
-        right: -65px;
-        top: 15px;
-    }
-    .mobileImageSliderMain {
-        background-size: auto;
-    }
-}
-
 @include breakpoint(max-600) {
     .home_pageGreyarea .rightareaNew .textareaNew {
         float: none !important;
@@ -461,67 +378,6 @@ a {
         margin-right: 0px;
     }
 }
-
-@media only screen and (min-width: 676px) and (max-width: 992px) {
-    .white_color {
-        background-color: #fff;
-    }
-    .bluecolor {
-        color: #0160e0 !important;
-    }
-    .whiteimg {
-        display: none !important;
-    }
-    .blueimg {
-        display: inline-block !important;
-    }
-    .leftareaNew,
-    .rightareaNew {
-        width: 100% !important;
-    }
-    .leftcontent {
-        float: left !important;
-        width: 100% !important;
-    }
-    .textareaNew {
-        width: 400px !important;
-    }
-    .home_pageGreyarea .leftareaNew,
-    .home_pageGreyarea .rightareaNew {
-        width: 100%;
-        padding-left: 0;
-    }
-    .home_pageGreyarea .leftareaNew .leftcontent,
-    .home_pageGreyarea .rightareaNew .rightcontent {
-        margin: 0 auto !important;
-        float: none !important;
-        width: 600px !important;
-    }
-}
-
-@media only screen and (min-width: 650px) and (max-width: 675px) {
-    .white_color {
-        background-color: #fff;
-    }
-    .bluecolor {
-        color: #0160e0 !important;
-    }
-    .whiteimg {
-        display: none !important;
-    }
-    .blueimg {
-        display: inline-block !important;
-    }
-    .leftareaNew,
-    .rightareaNew {
-        width: 100% !important;
-    }
-    .leftcontent {
-        float: left !important;
-        width: 100% !important;
-    }
-}
-
 @include breakpoint(max-675) {
     .home_pageGreyarea .leftareaNew,
     .home_pageGreyarea .rightareaNew {
@@ -539,7 +395,6 @@ a {
         float: none;
     }
 }
-
 @include breakpoint(max-650) {
     .showInmobile {
         display: block;
@@ -641,65 +496,7 @@ a {
         width: 310px !important;
         height: 665px !important;
     }
-    .white_color {
-        background-color: #fff;
-    }
 }
-
-@media only screen and (min-width: 361px) and (max-width: 649px) {
-    .white_color {
-        background-color: #fff;
-    }
-    .bluecolor {
-        color: #0160e0 !important;
-    }
-    .whiteimg {
-        display: none !important;
-    }
-    .blueimg {
-        display: inline-block !important;
-    }
-    .leftareaNew,
-    .rightareaNew {
-        width: 100% !important;
-    }
-    .leftcontent {
-        float: left !important;
-        width: 100% !important;
-    }
-}
-
-@media only screen and (min-width: 450px) and (max-width: 600px) {
-    .home_pageGreyarea .leftareaNew .imageareaNew {
-        padding: 0;
-    }
-    .search-box-placeholder {
-        left: 20%;
-    }
-}
-
-@media only screen and (max-width: 360px) {
-    .mobileImageSliderMain {
-        width: 100%;
-        margin: 0 auto;
-    }
-    .mobileImageSlider {
-        width: 100%;
-        margin: 0 auto;
-    }
-    .gif-app {
-        width: 256px !important;
-        height: 558px !important;
-    }
-    .white_color {
-        background-color: #fff;
-    }
-    .home_pageGreyarea .leftareaNew .textareaNew,
-    .home_pageGreyarea .rightareaNew .textareaNew {
-        text-align: center;
-    }
-}
-
 .mobileAppcommon_area {
     .app_list {
         new {
@@ -707,13 +504,8 @@ a {
         }
     }
 }
-
 .hideinMobile {
     .homeBluecommon {
-        -webkit-transition: left 1s;
-        -moz-transition: left 1s;
-        -o-transition: left 1s;
-        -ms-transition: left 1s;
         transition: left 1s;
         position: relative;
         left: 0px;
@@ -760,10 +552,6 @@ a {
             text-align: right;
             img {
                 position: relative;
-                -webkit-transition: left 0.5s;
-                -moz-transition: left 0.5s;
-                -o-transition: left 0.5s;
-                -ms-transition: left 0.5s;
                 transition: left 0.5s;
                 left: 0px;
                 &:first-child {
@@ -776,23 +564,18 @@ a {
         }
     }
 }
-
 .hideinMobile .homeBluecommon:hover h3,
 .hideinMobile .homeBluecommon:hover p {
     color: #0160e0;
 }
-
 .gif-app {
     width: 376px;
     height: 815px;
 }
-
 @media only screen and (max-width: 1250px) and (min-width: 361px) {
-
     .home_mobile_div{
         position: absolute; bottom: 50px; left: 30px;z-index: 99;
     }
-    
     .home_mobile_div a img{ width:40%; padding: 5px;}
     .new_style_mobile {
         width: 350px;
@@ -805,8 +588,7 @@ a {
     }
     .mobileImageSliderMain {
         height: 680px;
-        width: 100%;
-        background-size: contain !important;
+        background-size: contain;
     }
     .mobileImageSlider {
         right: 0px !important;
@@ -822,49 +604,13 @@ a {
         height: 650px !important;
     }
 }
-
-/***mobile ***/
-
 @media only screen and (max-width: 400px) and (min-width: 200px) {
     .new_style_mobile {
+        width: 300px;
         position: static;
     }
     .mobileImageSlider {
         right: 0px !important;
-    }
-    .new_style_mobile_divall {
-        padding: 0px;
-    }
-   /* .gif-app {
-        margin-left: -14px;
-    }*/
-}
-
-@media only screen and (max-width: 370px) and (min-width: 200px) {
-    .new_style_mobile .mobileImageSlider {
-        text-align: center;
-    }
-    .new_style_mobile {
-        width: 300px;
-    }
-    .mobileImageSliderMain {
-        height: 615px !important;
-        background-size: contain !important;
-    }
-    .gif-app {
-        width: 275px !important;
-        height: 100%;
-        margin-top: -2px !important;
-        height: 585px !important;
-    }
-}
-
-@media only screen and (max-width: 360px) and (min-width: 200px) {
-    .new_style_mobile .mobileImageSlider {
-        text-align: center;
-    }
-    .new_style_mobile {
-        width: 300px;
     }
     .mobileImageSliderMain {
         height: 615px !important;
@@ -877,126 +623,52 @@ a {
         height: 585px !important;
         margin-left: 20px;
     }
+    .new_style_mobile_divall {
+      padding: 0px;
+  }
 }
-
-@media only screen and (max-width: 350px) and (min-width: 200px) {
-    .gif-app {
-        width: 275px !important;
-        height: 100%;
-        margin-top: -2px !important;
-        height: 585px !important;
-        margin-left: 10px;
-    }
-}
-@media only screen and (max-width: 320px) and (min-width: 200px) {
-    .gif-app {
-        width: 230px !important;
-        height: 100%;
-        margin-top: -5px !important;
-        height: 487px !important;
-        margin-left: -50px;
-    }
-}
-
-/* css for home banner */
-
-/* new css start here */
-
 .divider {
     background: #fff;
     width: 1px;
-    // height: 60%;
     height: 300px;
     margin-top: auto;
     margin-bottom: auto;
 }
-
 .view-more {
     color: #fff;
     font-weight: 500;
     position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      background: #fff;
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: -6px;
+      margin: auto;
+      right: 0;
+  }
 }
-
-.view-more:after {
-    content: "";
-    position: absolute;
-    background: #fff;
-    width: 100%;
-    height: 1px;
-    left: 0;
-    bottom: -6px;
-    margin: auto;
-    right: 0;
-}
-
 .buy-btn {
     font-size: 24px;
     letter-spacing: -1px;
     color: #122b5d;
     font-weight: bold;
 }
-
 .vs-hiiden {
     visibility: hidden;
 }
-
-@media only screen and (max-width: 675px) {
-    .divider {
-        background: #ffffff40;
-        width: 60%;
-        height: 1px;
-        display: block;
-        margin: auto;
-    }
-    .vs-hiiden {
-        visibility: unset;
-        display: none;
-    }
-}
-
-@media only screen and (min-width: 300px) and (max-width: 650px) {
-    .img-1 img {
-        width: 70%;
-        // width: 53%;
-        margin: auto;
-        display: block;
-    }
-    .buy-btn {
-        font-size: 16px;
-        letter-spacing: inherit;
-    }
-    .view-more {
-        font-size: 12px;
-        font-weight: 700;
-    }
-    .img-1.mins img {
-        width: 90% !important;
-        padding-top: 16px;
-        padding-bottom: 16px;
-    }
-    .img-1.buy1get1 {
-        width: 75%;
-        margin: auto;
-    }
-}
-
-// promition css start here
 .view-more {
     position: relative;
     z-index: 9;
 }
-
-// new slide css start here
 .home-slider {
     .bg-image {
         width: 100%;
         min-height: 700px;
-        //min-height: 799px;
         max-height: 700px;
-        // min-height: 100vh;
-        // object-fit: fill;
         object-fit: cover;
-       // max-height: 85vh;
     }
     ::ng-deep {
         .carousel-indicators {
@@ -1042,7 +714,6 @@ a {
         opacity: 1;
     }
     .carousel-control-prev-icon {
-       // background-image: url("/assets/images/arrow-right.png");
        height:50px;
        width:50px;
         background: url("/assets/images/new_design_images/icon_sprite.png") 0px 294px;
@@ -1060,9 +731,8 @@ a {
         opacity: 1;
     }
     .carousel-control-next-icon {
-       // background-image: url("/assets/images/arrow-left.png");
-       height:50px;
-       width:50px;
+        height:50px;
+        width:50px;
         background: url("/assets/images/new_design_images/icon_sprite.png") -50px 294px;
     }
     .carousel-control-next,
@@ -1073,17 +743,10 @@ a {
         z-index: 99;
     }
     .carousel-control-next:hover .carousel-control-next-icon {
-        
-       // background-image: url("/assets/images/arrow-left-blue.png");
-
-       // height:50px;
-      // width:50px;
         background: url("/assets/images/new_design_images/icon_sprite.png") 50px 294px;
         background-color: #fff;
     }
     .carousel-control-prev:hover .carousel-control-prev-icon {
-       
-      //  background-image: url("/assets/images/arrow-right-blue.png");
         background: url("/assets/images/new_design_images/icon_sprite.png") 100px 294px;
         background-color: #fff;
     }
@@ -1100,21 +763,17 @@ a {
         right: 0;
     }
 }
-
 .slide-content {
     width: 100%;
     justify-content: space-around;
-    // position: absolute;
     top: 16%;
     display: flex;
     z-index: -1;
 }
-
 .carousel-caption.reward {
     left: 0;
     bottom: 0;
 }
-
 .reward-content {
     text-align: left;
     margin-left: 24px;
@@ -1149,7 +808,6 @@ a {
         font-size: 13px;
     }
 }
-
 .topup-btn {
     color: #fff;
     font-style: italic;
@@ -1162,45 +820,36 @@ a {
     font-weight: 600;
     background: #000;
     border-radius: 20px;
-    background-color: #000000;
     border: 2px solid #ffbe00;
     padding-left: 20px;
     padding-right: 20px;
 }
-
 .enroll-wrappers a {
     color: #fff;
     padding: 0 10px;
     border-right: 1px solid #fff;
     font-weight: 400;
-    font-family: "Montserrat";
     font-size: 14px;
 }
-
 .enroll-wrappers a:first-child,
 .enroll-wrappers a:last-child {
     border-right: 0;
 }
-
 .strip {
     margin-top: -46px;
     z-index: 1;
 }
-
 .reward-mob {
     margin-top: -56px;
     margin-bottom: 50px;
 }
-
 h1.buy1get1-text {
     font-size: 55px;
     color: #000000;
     font-weight: 700;
-    font-family: "Montserrat";
     position: relative;
     z-index: 1;
 }
-
 h1.buy1get1-text:after {
     content: "";
     background-image: url("/assets/images/canada_tag.png");
@@ -1212,165 +861,10 @@ h1.buy1get1-text:after {
     top: -28px;
     z-index: -1;
 }
-
-// eid promotion css start here
-.promotion-inner {
-    max-width: 100%;
-    z-index: -1;
-}
 .home-slider {
     margin-top: 77px;
 }
-.promotion-offer {
-    position: absolute;
-    bottom: 25%;
-    display: flex;
-    justify-content: center;
-    left: 0;
-    right: 0;
-    margin: auto;
-    a {
-        position: absolute;
-        // bottom: 180px;
-        img {
-          
-            width: 100% !important;
-        }
-    }
-    div {
-        a {
-            position: absolute;
-            left: 0;
-            right: 0;
-            margin-bottom: -53px;
-            &:after {
-                content: "";
-                position: absolute;
-                background: #d03b36;
-                width: 164px;
-                height: 1px;
-                left: 0;
-                bottom: -6px;
-                margin: auto;
-                right: 0;
-            }
-        }
-    }
-    .view-more {
-        color: #d03b36;
-        font-size: 18px;
-    }
-    .promo-btn {
-        padding: 0;
-        font-size: 18px;
-        letter-spacing: 1px;
-        line-height: 36px;
-        font-weight: bold;
-        color: #fff;
-        border-radius: 10px;
-        bottom: 113px;
-        width: 210px;
-        margin-left: -122px;
-        left: 50%;
-    }
-    .promo-btnimg {
-    //   max-width: 75%;
-    }
-}
-
-.carousel-caption.promotion {
-    position: absolute;
-    right: -37.5%;
-    bottom: 20%;
-    left: 0;
-    z-index: 10;
-    padding-top: 12px;
-    padding-bottom: 20px;
-    color: #fff;
-    text-align: center;
-}
-
-.buy5get5_promotion .buy-btn {
-    color: #000;
-}
-.promotion-note {
-    font-size: 14px;
-    letter-spacing: 0px;
-    color: #0c0c0c;
-    position: absolute;
-    bottom: 25px;
-    // left: 20px;
-    margin: 0;
-    right: 120px;
-    z-index: 99;
-}
-
-// eid promotion css end here
 @media only screen and (min-width: 300px) and (max-width: 578.9px) {
-    .promotion-note {
-        font-size: 12px;
-        bottom: 14px;
-        left: 11px;
-        line-height: 15px;
-    }
-    .promotion-offer {
-        position: absolute;
-        bottom: 0%;
-        display: flex;
-        justify-content: center;
-         
-        right: 0;
-        margin: auto;
-    }
-    .promotion-offer .promo-btn {
-        // padding: 8px 20px;
-        font-size: 16px;
-        line-height: 26px;
-    }
-    .promotion-offer img {
-        width: 56%;
-    }
-    .promotion-inner {
-        max-width: none;
-        width: 100%;
-    }
-    .carousel-caption.promotion {
-        // bottom: 56%;
-        // left: 65%;
-        bottom: -4%;
-        right: 0;
-        margin: auto;
-    }
-    .promotion-offer .view-more {
-        font-size: 14px;
-    }
-    .promotion-offer div a {
-        position: absolute;
-        margin-bottom: -33px;
-    }
-    .promotion-offer div a:after {
-        width: 139px;
-    }
-    .promotion-offer a {
-        position: absolute;
-        bottom: 200px;
-    }
-    .promotion-offer a img {
-        width: 60% !important;
-    }
-    .promotion-offer {
-        // top: 715%;
-        // left: -136%;
-    }
-    img.promotion-inner-bottom {
-        bottom: 0;
-        position: absolute;
-        right: 0;
-        width: 100%;
-    }
-    .carousel-caption.promotion:after {
-        content: none;
-    }
     .enroll-wrappers {
         margin-top: 10px;
     }
@@ -1381,14 +875,10 @@ h1.buy1get1-text:after {
         border-right: 0;
     }
     .home-slider .bg-image {
-          min-height: 649px;
-          object-fit: cover;
-        // padding-top: 50px;
-         max-height: 650px;
-       // min-height: 700px;
+        min-height: 649px;
+        max-height: 650px;
         object-fit: cover;
         padding-top: 32px;
-       // max-height: 700px;
     }
     .collection {
         display: none;
@@ -1402,19 +892,13 @@ h1.buy1get1-text:after {
         .carousel-control-prev-icon {
             height: 32px;
             width: 32px;
-            //background-size: 15px;
             background: url(/assets/images/new_design_images/icon_sprite.png) -30px 244px;
-
         }
-
-        
         .carousel-control-next-icon {
             height: 32px;
             width: 32px;
-           
             background: url(/assets/images/new_design_images/icon_sprite.png) 0px 244px;
         }
-
         .carousel-control-next:hover .carousel-control-next-icon {
             background: url(/assets/images/new_design_images/icon_sprite.png) -62px 244px;
             background-color: #fff;
@@ -1431,18 +915,10 @@ h1.buy1get1-text:after {
             opacity: 1;
         }
         .home-slider .carousel-indicators {
-            position: absolute !important;
-            z-index: 15 !important;
-            list-style: none !important;
             flex-direction: row !important;
             left: 0 !important;
             right: 0 !important;
-            display: flex !important;
-            align-items: unset !important;
             height: unset !important;
-            justify-content: center !important;
-            margin-right: 15% !important;
-            margin-left: 15% !important;
             bottom: 0 !important;
             margin-bottom: 10px;
         }
@@ -1498,7 +974,6 @@ h1.buy1get1-text:after {
         font-size: 16px;
         color: #ffffff;
         font-weight: 400;
-        font-family: "Montserrat";
         margin-bottom: 10px;
     }
     .collection_note {
@@ -1507,7 +982,6 @@ h1.buy1get1-text:after {
         line-height: 22px;
         color: #ffffff;
         font-weight: 400;
-        font-family: "Montserrat";
         text-align: center;
         margin-top: 10px;
     }
@@ -1529,786 +1003,96 @@ h1.buy1get1-text:after {
         bottom: 30%;
     }
 }
-@media only screen and (min-width: 280px) and (max-width: 320px) {
-    .promotion-note {
-        font-size: 12px;
-        bottom: 14px;
-        left: 11px;
-        line-height: 15px;
-    }
-    .promotion-offer {
-        position: absolute;
-        bottom: 0%;
-        display: flex;
-        justify-content: center;
-        left: 0;
-        margin: auto;
-    }
-    .promotion-offer .promo-btn {
-        // padding: 8px 20px;
-        font-size: 16px;
-        line-height: 26px;
-    }
-    .promotion-offer img {
-        width: 56%;
-    }
-    .promotion-inner {
-        max-width: none;
-        width: 100%;
-    }
-    .carousel-caption.promotion {
-        bottom: 56%;
-        left: 65%;
-        right: 0;
-        margin: auto;
-    }
-    .promotion-offer .view-more {
-        font-size: 14px;
-    }
-    .promotion-offer div a {
-        position: absolute;
-        margin-bottom: -33px;
-    }
-    .promotion-offer div a:after {
-        width: 139px;
-    }
-    .promotion-offer a {
-        position: absolute;
-        bottom: 0px;
-    }
-    .promotion-offer a img {
-        width: 60% !important;
-    }
-    .promotion-offer {
-        top: 33%;
-    }
-    img.promotion-inner-bottom {
-        bottom: 0;
-        position: absolute;
-        right: 0;
-        width: 100%;
-    }
-    .carousel-caption.promotion:after {
-        content: none;
-    }
-    .enroll-wrappers {
-        margin-top: 10px;
-    }
-    .enroll-wrappers a:first-child {
-        border-right: 1px solid #fff;
-    }
-    .enroll-wrappers a:last-child {
-        border-right: 0;
-    }
-    .home-slider .bg-image {
-        min-height: 649px;
-        object-fit: cover;
-        padding-top: 50px;
-        max-height: 650px;
-        // min-height: 700px;
-        // object-fit: cover;
-        // padding-top: 80px;
-        // max-height: 700px;
-    }
-    .collection {
-        display: none;
-    }
-    ::ng-deep {
-        .carousel-control-next,
-        .carousel-control-prev {
-            // display: none!important;
-            margin-right: 16px;
-        }
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            height: 30px;
-            width: 30px;
-            background-size: 15px;
-        }
-        .carousel-control-prev {
-            left: unset;
-            right: 0;
-            margin-bottom: 100px;
-            margin-top: 45px;
-            opacity: 1;
-        }
-        .home-slider .carousel-indicators {
-            position: absolute !important;
-            z-index: 15 !important;
-            list-style: none !important;
-            flex-direction: row !important;
-            left: 0 !important;
-            right: 0 !important;
-            display: flex !important;
-            align-items: unset !important;
-            height: unset !important;
-            justify-content: center !important;
-            margin-right: 15% !important;
-            margin-left: 15% !important;
-            bottom: 0 !important;
-            display: none!important;
-        }
-    }
-    .carousel-caption.refer.it-topup {
-        bottom: 0;
-        top: 0;
-        left: 0;
-        right: 0;
-    }
-    .int-bottom {
-        position: absolute;
-        left: 0;
-        right: 0;
-        width: 100%;
-        bottom: 0;
-    }
-    .topup-img {
-        left: 0;
-        right: 0;
-        position: absolute;
-        top: 20%;
-    }
-    .carousel-caption.download {
-        left: 20px;
-        right: 20px;
-        top: 24%;
-    }
-    .btn-slider {
-        background: #000;
-        border-radius: 20px;
-        background-color: #000000;
-        border: 2px solid #ffbe00;
-    }
-    ::ng-deep {
-        .btn-slider span {
-            font-size: 16px;
-            line-height: 0px;
-            color: #ffbe00;
-            font-weight: 700;
-            text-align: center;
-            text-transform: uppercase;
-            font-style: italic;
-        }
-    }
-    .carousel-caption.reward {
-        left: 0;
-        bottom: 0;
-        top: 22%;
-        right: 0;
-    }
-    .collection {
-        font-size: 16px;
-        color: #ffffff;
-        font-weight: 400;
-        font-family: "Montserrat";
-        margin-bottom: 10px;
-    }
-    .collection_note {
-        font-size: 13px;
-        letter-spacing: 0px;
-        line-height: 22px;
-        color: #ffffff;
-        font-weight: 400;
-        font-family: "Montserrat";
-        text-align: center;
-        margin-top: 36px;
-    }
-    .reward-mob {
-        padding-right: 58px;
-    }
-    a.enroll-btn {
-        background: #ffd005;
-        text-transform: uppercase;
-        border-radius: 50px;
-        font-weight: 600;
-        color: #170a50;
-    }
-    .carousel-caption.buy5get5 {
-        left: 0;
-        right: 0;
-    }
-    .topup-btn {
-        bottom: 30%;
-    }
-}
-
-
-
-
-@media only screen and (min-width: 769px) {
-    .btn-slider {
-        display: none;
-    }
-}
-
-@media only screen and (min-width: 990px) and (max-width: 1366px) {
-    .carousel-caption.promotion {
-        left: 0;
-        max-width: 80%;
-        right: 0;
-        margin: auto;
-        bottom: -10%;
-    }
-    // .promotion-offer .promo-btn {
-    //     padding: 6px 31px;
-    //     font-size: 16px;
-    //     letter-spacing: 1px;
-    //     line-height: 33px;
-    //     background: #2b0d04;
-    //     font-weight: bold;
-    //     color: #fff;
-    //     border-radius: 10px;
-    // }
-    .promotion-inner {
-        max-width: 75%;
-        margin: auto;        
-    }
-    .carousel-caption.promotion {
-        padding-bottom: 80px;
-    }
-}
-
-@media only screen and(min-width:1400px) and (max-width: 1649px) {
-    .carousel-caption.promotion {
-        left: 0;
-        max-width: 70%;
-        right: 0;
-        margin: auto;
-        // bottom: -10%;
-        // padding-bottom: 80px;
-        bottom: 45%;
-    }
-    .promotion-inner {
-        
-        max-width: 55%;
-        margin: auto;
-        margin-bottom: 510px;
-        padding-left: 260px;
-    }
-
-    // .promotion-offer div a {
-    //     position: absolute;
-    //     left: 0;
-    //     right: 0;
-    //     margin-bottom: -53px;
-    //     right: 0%;
-    // }
-     
-    // .promotion-offer {
-        
-        
-       
-    //     left: 7%;
-    //     top: -235px;
-    // }
-
-}
-
-@media only screen and (min-width: 1650px) and (max-width: 1799.9px) {
-    .picsum-img-wrapper {
-        height: 774px;
-    }
-    .home-slider .promotion_image {
-        min-height: 975px!important;
-        max-height: 975px!important;
-    }
-    .carousel-caption.promotion {
-        position: absolute;
-        right: 15%;
-        bottom: 23%;
-        left: 15%;
-        z-index: 10;
-        padding-top: 20px;
-        padding-bottom: 80px;
-        color: #fff;
-        text-align: center;
-    }
-    .promotion-inner {
-        max-width: 85%;
-        margin: auto;
-    }
-    .promotion .promotion_img_div{
-        width: 60%;
-        margin: 0 0 0 auto;
-        right:20%
-    }  
-    .promotion-offer .promo-btn {
-        // position: relative;
-        // top: 0px;
-    }
-}
-
-
-@media only screen and (min-width: 1800px) {
-    // .promotion-offer {
-    //     a {
-    //         position: absolute;
-    //         bottom: 0;
-    //         right: 24%;
-    //     }
-    // }
-    .promotion-offer div a {
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin-bottom: -53px;
-        right: 0%;
-    }
-    .carousel-caption.promotion {
-        position: absolute;
-        bottom: 45%;
-       // top:60px;
-        z-index: 10;
-        padding-top: 12px;
-        padding-bottom: 0px;
-        color: #fff;
-        text-align: center;
-        left: -35px;
-        max-width: 60%;
-        right: 0;
-        margin: auto;
-    }
-    
-    .promotion-offer a{
-        margin-bottom:90px;
-    }
-    .promotion-inner{
-        max-width: 35%;
-        margin: auto;
-        margin-right: 180px;
-        margin-bottom: 450px;
-    }
-    .promotion-note{
-        right: 14%;
-        bottom: 14px;
-    }
-
-    .promotion-offer .promo-btnimg {
-        // max-width: 85%;
-    }
-    .promotion-offer {
-        // left: -18%;
-    }
-}
-@media only screen and (min-width: 1200px) and (max-width: 1230px) {
-    .promotion-offer .promo-btn {
-        position: relative;
-        // top: -23px;
-        left: 0px
-       
-    }
-}
-@media only screen and (min-width: 1231px) and (max-width: 1397px) {
-    .promotion-offer .promo-btn {
-        position: relative;
-        // top: -23px;
-        left: 135px
-       
-    }
-}
-@media only screen and (min-width: 1024px) and (max-width: 1200px) {
-    .promotion-offer[_ngcontent-wbf-c368] .promo-btn[_ngcontent-wbf-c368] {
-         
-        top: -45px;
-        
-    }
-
-    .promotion-offer a {
-        position: absolute;
-         bottom: null; 
-    }
-}
-
-
-@media only screen and (min-width: 1200px) and (max-width: 1400px) {
-
-.promotion .promotion_img_div{
-    width: 60%;
-    margin: 0 0 0 auto;
-    right:20%
-}  
-.promotion-offer {
-    bottom: 0%;
-    left: 0;
-     
-}
-
-.promotion-offer a img {
-    width: 65% !important;
-}
-.carousel-caption.promotion{
-    position: absolute;
-    bottom: 40%;
-    left: 9%;
-    width: 62%;
-    /* right: 9%; */
-    color: #fff;
-    text-align: center;
-}
-
-
-
-}
-
-@media only screen and (min-width: 1228.80px) and (max-width: 1230px) {
-
-    .promotion-offer {
-        bottom: 0%;
-        left:-33%;
-         
-    }
-}
-
 @media only screen and (min-width: 1000px) and (max-width: 1200px) {
-
-    .promotion .promotion_img_div{
-        width: 60%;
-        margin: 0 0 0 auto;
-        right:20%
-    }  
-    .promotion-offer{bottom: 0;}
-    .promotion-offer .promo-btn {
-        position: relative;
-        top: -50px;
-        left:25px;
-    }
-    
-    .carousel-caption.promotion{
-        position: absolute;
-        bottom: 29%;
-        left: 0;
-        width: 62%;
-        /* right: 9%; */
-        color: #fff;
-        text-align: center;
-    }
     .home-slider .bg-image{
         width: 100%;
         min-height: 0;
         -o-object-fit: cover;
         object-fit: contain;
-        }
-        .promotion-offer .promo-btnimg{
-            max-width: 55%;
-        }
-        
-
-    }
-
-
-    @media only screen and (min-width: 1920px) and (max-width: 3000px) {
-        .home-slider .bg-image{
-            // min-height: 925px;
-            //  max-height: 990px;
-        }
-    }
-    
-    @media only screen and (min-width: 1850px) and (max-width: 1920px) {
-  
-        .promotion-offer a{
-            margin-bottom: 30px;
-        }  
-        .promotion-offer{
-            // top: -308px;
-        }
-        .home-slider .promotion_image{
-            // min-height: 1000px!important;
-            // max-height: 1000px!important;
-        }
-    }
-    
-    @media only screen and (min-width: 1706px) and (max-width: 1850px) {
-        .home-slider .bg-image {
-            // min-height: 1000px!important;
-            // max-height: 1000px!important;
-        }
-    }
-
-@media only screen and (min-width: 2000px) {
-    .home-slider .promotion_image {
-        // min-height: 1000px!important;
-        // max-height: 1000px!important;
-    }
-}
-
-@media only screen and (min-width: 280px) and (max-width: 280px) {
-    .promotion-offer .promo-btn {
-        // padding: 8px 20px;
-        font-size: 16px;
-        line-height: 26px;
-    }
-    .promotion-offer img {
-        width: 56%;
-    }
-    .promotion-inner {
-        max-width: none;
-        width: 100%;
-    }
-    .carousel-caption.promotion {
-        bottom: 100px;
-        left: 0%;
-        right: 0;
-        margin: auto;
-    }
-    .promotion-offer .view-more {
-        font-size: 14px;
-    }
-    .promotion-offer div a {
-        position: absolute;
-        margin-bottom: -33px;
-    }
-    .promotion-offer div a:after {
-        width: 139px;
-    }
-    .promotion-offer a {
-        position: absolute;
-        bottom: -15px;
-    }
-    .promotion-offer a img {
-        width: 60% !important;
-    }
-    .promotion-offer {
-        top: 33%;
-    }
-    img.promotion-inner-bottom {
-        bottom: 0;
-        position: absolute;
-        right: 0;
-        width: 100%;
-    }
-    .carousel-caption.promotion:after {
-        content: none;
-    }
-    .enroll-wrappers {
-        margin-top: 10px;
-    }
-    .enroll-wrappers a:first-child {
-        border-right: 1px solid #fff;
-    }
-    .enroll-wrappers a:last-child {
-        border-right: 0;
-    }
-    .home-slider .bg-image {
-        // min-height: 649px;
-        // object-fit: cover;
-        // padding-top: 50px;
-        // max-height: 650px;
-        min-height: 653px;
-        object-fit: cover;
-        max-height: 653px;
-    }
-    .collection {
-        display: none;
-    }
-    ::ng-deep {
-        .carousel-control-next,
-        .carousel-control-prev {
-            // display: none!important;
-            margin-right: 16px;
-        }
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            height: 30px;
-            width: 30px;
-            background-size: 15px;
-        }
-        .carousel-control-prev {
-            left: unset;
-            right: 0;
-            margin-bottom: 100px;
-            margin-top: 45px;
-            opacity: 1;
-        }
-        .home-slider .carousel-indicators {
-            position: absolute !important;
-            z-index: 15 !important;
-            list-style: none !important;
-            flex-direction: row !important;
-            left: 0 !important;
-            right: 0 !important;
-            display: flex !important;
-            align-items: unset !important;
-            height: unset !important;
-            justify-content: center !important;
-            margin-right: 15% !important;
-            margin-left: 15% !important;
-            bottom: 0 !important;
-            display: none!important;
-        }
-    }
-    .carousel-caption.refer.it-topup {
-        bottom: 0;
-        top: 0;
-        left: 0;
-        right: 0;
-    }
-    .int-bottom {
-        position: absolute;
-        left: 0;
-        right: 0;
-        width: 100%;
-        bottom: 0;
-    }
-    .topup-img {
-        left: 0;
-        right: 0;
-        position: absolute;
-        top: 20%;
-    }
-    .carousel-caption.download {
-        left: 20px;
-        right: 20px;
-        top: 24%;
-    }
-    .btn-slider {
-        background: #000;
-        border-radius: 20px;
-        background-color: #000000;
-        border: 2px solid #ffbe00;
-    }
-    ::ng-deep {
-        .btn-slider span {
-            font-size: 16px;
-            line-height: 0px;
-            color: #ffbe00;
-            font-weight: 700;
-            text-align: center;
-            text-transform: uppercase;
-            font-style: italic;
-        }
-    }
-    .carousel-caption.reward {
-        left: 0;
-        bottom: 0;
-        top: 22%;
-        right: 0;
-    }
-    .collection {
-        font-size: 16px;
-        color: #ffffff;
-        font-weight: 400;
-        font-family: "Montserrat";
-        margin-bottom: 10px;
-    }
-    .collection_note {
-        font-size: 13px;
-        letter-spacing: 0px;
-        line-height: 22px;
-        color: #ffffff;
-        font-weight: 400;
-        font-family: "Montserrat";
-        text-align: center;
-        margin-top: 36px;
-    }
-    .reward-mob {
-        padding-right: 58px;
-    }
-    a.enroll-btn {
-        background: #ffd005;
-        text-transform: uppercase;
-        border-radius: 50px;
-        font-weight: 600;
-        color: #170a50;
-    }
-    .carousel-caption.buy5get5 {
-        left: 0;
-        right: 0;
-    }
-    .topup-btn {
-        bottom: 45%;
-    }
-}
-
-@media only screen  and (min-width: 2300px) {
-    .carousel-caption-promotion {
-        top: 212px;
-        margin-left: -148px;
-    }
-}
-@media only screen  and (max-width: 1900px) {
-    .carousel-caption.promotion {
-        bottom: 24%;
-    }
-}
-
-@media only screen  and (max-width: 1799px) {
-    .carousel-caption-promotion {
-        top: 336px;
-        margin-left: -132px;
-    }
-}
-@media only screen  and (max-width: 1649px) {
-    .carousel-caption-promotion {
-        top: 255px;
-    }
-}
-@media only screen  and (max-width: 1600px) {
-    .carousel-caption.promotion {
-        bottom: 23%;
-    }
-}
-
-@media only screen  and (max-width: 1300px) {
-    .carousel-caption.promotion {
-        bottom: 22%;
-    }
-    .promotion-offer .promo-btn {
-        width: 180px;
-    }
-}
-@media only screen  and (max-width: 1200px) {
-    .carousel-caption-promotion {
-        top: 230px;
-        margin-left: -91px;
-        width: 130px;
     }
 }
 @media only screen  and (max-width: 1100px) {
-    .promotion-offer .promo-btn {
-        width: 160px;
-    }
     .home-slider .bg-image {
         min-height: 650px;
     }
 }
-
-@media only screen  and (max-width: 950px) {
-    .promotion-offer .promo-btn {
-        width: 140px;
-    }
+@media only screen and (min-width: 767px) {
+  .btn-slider {
+      display: none;
+  }
 }
-
 @media only screen  and (max-width: 767px) {
-    .promotion-offer .promo-btn {
-        width: 132px;
-    }
-    .home-slider {
-        margin-top: -20px;
-    }
-    .carousel-caption.promotion {
-        bottom: 18%;
-        right: 50%;
-        margin-right: -116px;
-    }
-    .home-slider .bg-image {
-        min-height: 620px;
-        max-height: 620px;
-    }
-    .carousel-caption-promotion {
-        top: 175px;
-        margin-left: 0;
-        width: 145px;
-        left: unset;
-        right: 11%;
-    }
+  .white_color {
+      background-color: #fff;
+  }
+  .bluecolor {
+      color: #0160e0 !important;
+  }
+  .whiteimg {
+      display: none !important;
+  }
+  .blueimg {
+      display: inline-block !important;
+  }
+  .leftareaNew,
+  .rightareaNew {
+      width: 100% !important;
+  }
+  .leftcontent {
+      float: left !important;
+      width: 100% !important;
+  }
+  .home_pageGreyarea .leftareaNew .imageareaNew {
+      padding: 0;
+  }
+  .search-box-placeholder {
+      left: 20%;
+  }
+  .home-slider {
+      margin-top: -20px;
+  }
+  .home-slider .bg-image {
+      min-height: 620px;
+      max-height: 620px;
+  }
+  .btn-slider {
+    display: none;
+  }
+  .divider {
+      background: #ffffff40;
+      width: 60%;
+      height: 1px;
+      display: block;
+      margin: auto;
+  }
+  .vs-hiiden {
+      visibility: unset;
+      display: none;
+  }
+  .img-1 img {
+      width: 70%;
+      margin: auto;
+      display: block;
+  }
+  .buy-btn {
+      font-size: 16px;
+      letter-spacing: inherit;
+  }
+  .view-more {
+      font-size: 12px;
+      font-weight: 700;
+  }
+  .img-1.mins img {
+      width: 90% !important;
+      padding-top: 16px;
+      padding-bottom: 16px;
+  }
+  .img-1.buy1get1 {
+      width: 75%;
+      margin: auto;
+  }
 }
-
 @media only screen  and (max-width: 480px) {
-    .carousel-caption.promotion {
-        bottom: 10%;
-        right: 50%;
-        margin-right: -116px;
-    }
     .uk_mobile {
         margin: -30px -8px;
     }
@@ -2318,11 +1102,7 @@ h1.buy1get1-text:after {
             width: 195px;
         }
     }
-    .carousel-caption-promotion {
-        top: 225px;
-        right: 5%;
-    }
-    .carousel-control-next, 
+    .carousel-control-next,
     .carousel-control-prev {
         display: none;
     }
