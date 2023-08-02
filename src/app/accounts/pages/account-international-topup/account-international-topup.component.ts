@@ -173,8 +173,8 @@ this.mycountryId = 0;
   }
 
   internationalTopUp() {
-  // this.router.navigate(['mobiletopup']);
-   this.showTopupForm = true;
+   this.router.navigate(['mobiletopup']);
+   //this.showTopupForm = true;
   }
   
   recharge(instanceId) {
@@ -191,16 +191,16 @@ this.mycountryId = 0;
    var card = obj.CardName;
    card = card.split(' ');
    var iso = card[0];   
-  // this.router.navigateByUrl('mobiletopup', { state: { pin: obj.Pin, iso:iso } });
+    this.router.navigateByUrl('mobiletopup', { state: { pin: obj.Pin, iso:iso } });
    //this.router.navigateByUrl("mobiletopup"); 
 
 
-  this.pinnumber  = obj.Pin;
-  this.topup_no   = obj.Pin;
-  this.iso        = iso;
-  this.getInitialTopUpOperatorInfo();
-  this.isTopUpEnable = true; 
-  this.showTopupForm = true;
+  // this.pinnumber  = obj.Pin;
+  // this.topup_no   = obj.Pin;
+  // this.iso        = iso;
+  // this.getInitialTopUpOperatorInfo();
+  // this.isTopUpEnable = true; 
+  // this.showTopupForm = true;
 
     
  }
