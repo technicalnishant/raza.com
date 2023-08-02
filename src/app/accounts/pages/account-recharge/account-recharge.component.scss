@@ -207,11 +207,23 @@ h3.selectRechg {
   background: #333;
   color: #fff;
   padding: 10px 13px;
-  font-size: 13px;
+  font-size: 16px;
   border-radius: 10px;
   position: absolute;
   z-index: 1;
-  margin: 2px 0 0 -16px;
+  margin: 16px 0 0 -16px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    margin-left: -19px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #333;
+  }
 }
 .demBoxWrp:hover .rates_info {
     display: block;
