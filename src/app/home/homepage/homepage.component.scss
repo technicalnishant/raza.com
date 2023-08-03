@@ -44,9 +44,6 @@
         font-weight: 500;
         padding: 10px 0;
     }
-    .icon_holder1 {
-        text-align: center;
-    }
     p {
         color: #fff;
         font-size: 15px;
@@ -58,7 +55,25 @@
         font-weight: 400;
     }
     .icon_holder1 {
+        text-align: center;
         height: 90px;
+        background-image: url(../../../assets/images/mobile_topup_white.svg);
+        background-repeat: no-repeat;
+        background-position: top 0 center;
+        &.callAfrica, &.callAsia, &.callAsiaMb {
+          background-image: url(../../../assets/images/callafrica_white.svg);
+        }
+        &.callAfricaMb {
+          background-image: url(../../../assets/images/callafrica_blue.png);
+        }
+    }
+    .homeBluecommon:hover {
+      .icon_holder1 {
+          background-image: url(../../../assets/images/mobile_topup_blue.svg);
+          &.callAfrica, &.callAsia {
+            background-image: url(../../../assets/images/callafrica_blue.png);
+          }
+      }
     }
 }
 .homeBluecommon {
@@ -863,6 +878,16 @@ h1.buy1get1-text:after {
 }
 .home-slider {
     margin-top: 77px;
+    .carousel.slide {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      .carousel-caption {
+          position: static;
+      }
+    }
 }
 @media only screen and (min-width: 300px) and (max-width: 578.9px) {
     .enroll-wrappers {
