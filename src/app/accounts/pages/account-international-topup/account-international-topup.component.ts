@@ -516,7 +516,7 @@ this.mycountryId = 0;
 
 /********** Bundles functionality*****************/
   getBundlesTopUpInfo(){
-    this.mobileTopupService.getBundlesTopUp(this.currentSetting.currentCountryId, this.countryTo, this.currentOperator).subscribe(data =>{
+    this.mobileTopupService.getBundlesTopUp2(this.currentSetting.currentCountryId, this.countryTo, this.currentOperator+' Bundle').subscribe(data =>{
       if(data){
          this.bundleInfo = data;
 

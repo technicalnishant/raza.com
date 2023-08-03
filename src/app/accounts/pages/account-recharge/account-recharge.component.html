@@ -1,3 +1,4 @@
+<div *ngIf="showRechargeList()">
 <h3 class="selectRechg">Select a recharge amount</h3>
 <div *ngIf="!isAutorefill" class="denomination__box_wrap">
   <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index" class="{{getActiveClass(item)}}" class="demBoxWrp">
@@ -41,9 +42,9 @@
 </div>
 <!-- <a href="javascript:void(0)" (click)="getRateDetail()">View Rates</a> -->
 
-<div class="swicth_container" *ngIf="ratesLoaded">
+<div class="swicth_container" *ngIf="ratesLoaded && !isAutoRefillEnable">
       <div class="reg_text">Regular</div>
-      <div class="switch_label">
+      <div class="switch_label"  >
           <label class="switch">
             <input *ngIf="isAutorefill" type="checkbox" id="checkboxbonus3" checked (click)="setPlanType()">
             <input *ngIf="!isAutorefill" type="checkbox" id="checkboxbonus3" (click)="setPlanType()">
@@ -76,3 +77,9 @@
 </div>
 
 <app-my-cards *ngIf="plan" [plan]="plan" [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentButtonTrigger($event)" > </app-my-cards>
+</div>
+ 
+  <div *ngIf="!showRechargeList()" style="text-align: center;">
+    <p style="font-size: 15px; ">This discounted plan is already enrolled to auto refill,<br/> we will recharge automatically on your billing cycle or when your balance falls bellow $2</p>
+  </div>
+ 
