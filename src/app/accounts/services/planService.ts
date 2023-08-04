@@ -64,7 +64,7 @@ export class PlanService {
 
   //Get Customer plans
   public getAllPlans(): Observable<Plan[] | ApiErrorResponse> {
-    
+
     return this.httpClient.get<Plan[]>(`${Api.plan.getPlan}`)
       .pipe(map(res => {
         return res.map(plan => Object.assign(new Plan(), plan));
@@ -75,9 +75,17 @@ export class PlanService {
   }
   //Get Customer plans
   public getCustomPlans(): Observable<Plan[] | ApiErrorResponse> {
+
+    let endpoint = 'plan_info_'+localStorage.getItem("login_no");
+    const cachedData = sessionStorage.getItem(endpoint);
+    if (cachedData) {
+      return of(JSON.parse(cachedData));
+    }
     return this.httpClient.get<Plan[]>(`${Api.plan.getCustomPlan}`)
       .pipe(map(res => {
-        return res.map(plan => Object.assign(new Plan(), plan));
+        let resp = res.map(plan => Object.assign(new Plan(), plan));
+        sessionStorage.setItem(endpoint, JSON.stringify(resp));
+        return resp
       }),
         catchError(err => this.errorHandleService.handleHttpError(err))
       );
