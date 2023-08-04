@@ -1001,22 +1001,12 @@ table.showAlltable tr td{width: 33.33% !important;}
   }
 }
 
-@media only screen and (min-width:1680px) {
-  .onlyDesktopAccount .rightTabArea {
-      width: 1150px;
-      margin: 0 auto;
-      float: none;
-  }
-  .onlyDesktopAccount .leftTabArea {
-      position: absolute;
-      left: 30px;
-      width: 220px;
-  }
+@media only screen and (min-width:869px) {
   ::ng-deep {
     span.logo {
         position: absolute;
-        left: 50%;
-        margin-left: -90px;
+        left: 75px;
+        max-width: 175px;
     }
   }
 }
