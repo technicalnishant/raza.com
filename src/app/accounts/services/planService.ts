@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { rxSubscriber } from 'rxjs/internal-compatibility';
 import { Api } from '../../core/services/api.constants';
 import { Plan } from '../models/plan';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { CustomErrorHandlerService } from '../../core/services/custom-error-handler.service';
 import { pinlessNumber } from '../models/pinlessNumber';
@@ -23,8 +23,19 @@ export class PlanService {
 
   //Get Customer plans
   public getPlan(planId: string): Observable<Plan | ApiErrorResponse> {
+
+    const cachedData = sessionStorage.getItem(planId);
+
+    if (cachedData) {
+      console.log("Plan Data is as ", cachedData);
+      return of(JSON.parse(cachedData));
+    }
+
     return this.httpClient.get<Plan>(`${Api.plan.getPlan}/${planId}`)
       .pipe(
+        tap(data => {
+          sessionStorage.setItem(planId, JSON.stringify(data));
+        }),
         catchError(err => this.errorHandleService.handleHttpError(err))
       );
   }
