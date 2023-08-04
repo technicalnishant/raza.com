@@ -96,7 +96,8 @@ export class AccountRechargeComponent implements OnInit {
         if(res.CardId)
         {
           this.clientCardId = res.CardId;
-          this.isAutoRefillEnable = res.IsAutoRefill
+          this.isAutoRefillEnable = res.ArStatus
+
        
            
         }
@@ -130,7 +131,8 @@ export class AccountRechargeComponent implements OnInit {
 
  showRechargeList()
  {
-  let cards = [88,89,90,91,120,121,125,126,129,130,145,146,163,175,176,177,178,179,180];
+ // let cards = [88,89,90,91,120,121,125,126,129,130,145,146,163,175,176,177,178,179,180];
+  let cards = [163,175,176,177,178,179,180];
   if(this.clientCardId > 0)
   {
     if(!cards.includes(this.clientCardId))
@@ -144,6 +146,26 @@ export class AccountRechargeComponent implements OnInit {
   return true;
   
  }
+
+
+ showRechargePct()
+ {
+   let cards = [88,89,90,91,120,121,125,126,129,130,145,146,163,175,176,177,178,179,180];
+   
+  if(this.clientCardId > 0)
+  {
+    if(!cards.includes(this.clientCardId))
+    {
+      return true;
+    }
+    else
+    return false;
+  }
+  else
+  return true;
+  
+ }
+
   
   getActiveClass(item)
   {

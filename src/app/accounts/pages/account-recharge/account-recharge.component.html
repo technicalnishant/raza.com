@@ -6,13 +6,13 @@
      <div class="d-flex justify-content-between">
           <div class="amount">{{item.Price | bCurrency}}</div>
           <div class="discount_applied" *ngIf="item.DiscountApplied > 0">
-            <div class="discount_applied_text">
+            <div class="discount_applied_text" *ngIf="showRechargePct()">
               {{item.DiscountApplied}} %
             </div>
           </div>
       </div>
     </div>
-    <div class="rates_info">
+    <div class="rates_info"  *ngIf="showRechargePct()">
       Total Min  {{item.TotalTime+item.PromoMinutes}} <br /> Rate : {{item.DiscountedCallingRate| sCurrency}} / min
     </div>
   </div>
