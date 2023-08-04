@@ -427,6 +427,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
       {
         this.mobileTopupData.OperatorDenominations = data;
         this.onClickAmountOption(this.mobileTopupData.OperatorDenominations[1]) ;
+        this.getBundlesTopUpInfo()
       }
       
     })
@@ -447,12 +448,20 @@ export class TopupNowComponent implements OnInit, OnDestroy {
 
 /********** Bundles functionality*****************/
   getBundlesTopUpInfo(){
-    this.mobileTopupService.getBundlesTopUp(this.currentSetting.currentCountryId, this.countryTo, this.currentOperator).subscribe(data =>{
+    // this.mobileTopupService.getBundlesTopUp(this.currentSetting.currentCountryId, this.countryTo, this.currentOperator).subscribe(data =>{
+    //   if(data){
+    //     this.bundleInfo = data;
+
+    //   }
+    // })
+    this.mobileTopupService.getBundlesTopUp2(this.currentSetting.currentCountryId, this.countryTo, this.currentOperator+' Bundle').subscribe(data =>{
       if(data){
         this.bundleInfo = data;
 
       }
     })
+
+    
   }
 
   getFilterdArr(desc:String)

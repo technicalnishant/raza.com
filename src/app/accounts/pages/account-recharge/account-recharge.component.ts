@@ -62,6 +62,7 @@ export class AccountRechargeComponent implements OnInit {
   paymentProcessor:any;
   currentCartObs$: Subscription;
   currentCart: ICheckoutModel;
+  clientCardId:any;
   constructor(
 
     private searchRatesService: SearchRatesService,
@@ -85,16 +86,33 @@ export class AccountRechargeComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkoutService.deleteCart();
+   
     this.phoneNumber    = localStorage.getItem("login_no");
     this.titleService.setTitle('Recharge');
     this.razalayoutService.setFixedHeader(true);
     this.uri = this.route.snapshot.paramMap.get('notification');//?this.route.snapshot.paramMap.get('notification'):'notification';
-	  this.planService.getAllPlans().subscribe(
+    this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe( 
+      (res:any)=>{
+        if(res.CardId)
+        {
+          this.clientCardId = res.CardId;
+          this.isAutoRefillEnable = res.ArStatus
+
+       
+           
+        }
+         
+      })
+
+    this.planService.getAllPlans().subscribe(
       (data: Plan[]) => {
         this.plan = data[0];
+        
+
         if(data.length > 0 )
         {
 
+ 
           this.toCountryId    = this.plan.CountryTo;
           this.fromCountryId  = this.plan.CountryFrom;
           this.isEnableOtherPlan =false
@@ -111,7 +129,43 @@ export class AccountRechargeComponent implements OnInit {
     );
  }
 
- 
+ showRechargeList()
+ {
+ // let cards = [88,89,90,91,120,121,125,126,129,130,145,146,163,175,176,177,178,179,180];
+  let cards = [163,175,176,177,178,179,180];
+  if(this.clientCardId > 0)
+  {
+    if(!cards.includes(this.clientCardId))
+    {
+      return true;
+    }
+    else
+    return false;
+  }
+  else
+  return true;
+  
+ }
+
+
+ showRechargePct()
+ {
+   let cards = [88,89,90,91,120,121,125,126,129,130,145,146,163,175,176,177,178,179,180];
+   
+  if(this.clientCardId > 0)
+  {
+    if(!cards.includes(this.clientCardId))
+    {
+      return true;
+    }
+    else
+    return false;
+  }
+  else
+  return true;
+  
+ }
+
   
   getActiveClass(item)
   {

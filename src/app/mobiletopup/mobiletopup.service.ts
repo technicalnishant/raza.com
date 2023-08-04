@@ -69,6 +69,14 @@ export class MobiletopupService {
             );
     }
 
+    public getBundlesTopUp2(from: number, to:number, operator:String): Observable<mobileTopupModel | ApiErrorResponse> {
+        return this.httpClient.get<mobileTopupModel>(`${Api.mobiletopup.getBundlesInfo}/${from}/${to}/${operator}`)
+            .pipe(
+                catchError(err => this.handleHttpError(err))
+            );
+    }
+
+
     public getBundlesInfo(from: number, to:number): Observable<mobileTopupModel | ApiErrorResponse> {
         return this.httpClient.get<mobileTopupModel>(`${Api.mobiletopup.getBundlesDetail}/${from}/${to}`)
             .pipe(

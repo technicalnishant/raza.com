@@ -29,6 +29,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   showMobileStats:boolean=false
   showPlan:boolean=false;
   newDesign:boolean=false;
+  clientCardId:any;
   constructor(
     private router: Router,
     private authService: AuthenticationService,
@@ -64,6 +65,8 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
       (res:any)=>{
          
         this.plan = res;
+        this.isEnableOtherPlan = true;
+        console.log('your card id is ', this.clientCardId);
         localStorage.setItem('currentPlan',JSON.stringify(this.plan));
   
       },
