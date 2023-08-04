@@ -66,8 +66,8 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
          
         this.plan = res;
         this.isEnableOtherPlan = true;
-        console.log('your card id is ', this.clientCardId);
-        localStorage.setItem('currentPlan',JSON.stringify(this.plan));
+       // console.log('your card id is ', this.clientCardId);
+      //  localStorage.setItem('currentPlan',JSON.stringify(this.plan));
   
       },
       (err: ApiErrorResponse) => {
