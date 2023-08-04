@@ -885,6 +885,17 @@ h1.buy1get1-text:after {
       bottom: 0;
       .carousel-caption {
           position: static;
+          margin-top: 30px;
+          &.download {
+            margin-top: 80px;
+          }
+          &.it-topup {
+            margin-top: 40px;
+          }
+          .rewardWrap {
+            left: -60px;
+            position: relative;
+          }
       }
     }
 }
@@ -948,10 +959,7 @@ h1.buy1get1-text:after {
         }
     }
     .carousel-caption.refer.it-topup {
-        bottom: 0;
-        top: 0;
-        left: 0;
-        right: 0;
+        height: 580px;
     }
     .int-bottom {
         position: absolute;
@@ -967,9 +975,7 @@ h1.buy1get1-text:after {
         top: 20%;
     }
     .carousel-caption.download {
-        left: 20px;
-        right: 20px;
-        top: 20%;
+        padding: 20px;
     }
     .btn-slider {
         background: #000;
@@ -988,11 +994,8 @@ h1.buy1get1-text:after {
             font-style: italic;
         }
     }
-    .carousel-caption.reward {
-        left: 0;
-        bottom: 0;
-        top: 22%;
-        right: 0;
+    .home-slider .carousel.slide .carousel-caption.reward {
+        margin-top: 150px;
     }
     .collection {
         font-size: 16px;
@@ -1079,9 +1082,6 @@ h1.buy1get1-text:after {
       min-height: 620px;
       max-height: 620px;
   }
-  .btn-slider {
-    display: none;
-  }
   .divider {
       background: #ffffff40;
       width: 60%;
@@ -1114,6 +1114,13 @@ h1.buy1get1-text:after {
   .img-1.buy1get1 {
       width: 75%;
       margin: auto;
+  }
+  .buyGetSlider {
+      max-width: 260px;
+      margin: 0 auto;
+  }
+  .home-slider .carousel.slide .carousel-caption.download {
+      margin-top: 120px;
   }
 }
 @media only screen  and (max-width: 480px) {
