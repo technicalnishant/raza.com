@@ -75,6 +75,22 @@
           }
       }
     }
+    .arrow {
+      margin: 0 auto;
+      width: 22px;
+      height: 20px;
+      background-image: url(../../../assets/images/home_arrow_white.png);
+      background-repeat: no-repeat;
+    }
+    .white {
+      .arrow {
+        background-image: url(../../../assets/images/home_arrow_blue.png);
+      }
+    }
+}
+.imageareaNew {
+  background-image: url(../../../assets/images/partnerwithus.png);
+  background-repeat: no-repeat;
 }
 .homeBluecommon {
     padding: 50px 30px;
@@ -96,11 +112,19 @@
     }
 }
 .home_howitworksSection {
-    padding: 0 50px 15px 48px;
+    padding: 15px 50px 15px 48px;
     box-shadow: 25px 25px 65px 0px rgba(215, 228, 240, 1);
     background: #fff;
     .icon_holder1 {
-        height: auto;
+        height: 62px;
+        background-image: url(../../../assets/images/pick_your_plan.svg);
+        background-repeat: no-repeat;
+        &.goMyAcc {
+          background-image: url(../../../assets/images/create_account_icon.svg);
+        }
+        &.startCall {
+          background-image: url(../../../assets/images/start_calling_icon.svg);
+        }
     }
     h3 {
         font-size: 23px;
@@ -527,44 +551,19 @@ a {
         &:hover {
             background: #fff;
             cursor: pointer;
-            .icon_holder1 {
-                img {
-                    &:first-child {
-                        display: none;
-                    }
-                    &:last-child {
-                        display: inline-block;
-                    }
-                }
-            }
             .arrow {
                 width: 50px;
-                img {
-                    &:first-child {
-                        display: none;
-                    }
-                    &:last-child {
-                        display: inline-block;
-                    }
-                }
-            }
-        }
-        .icon_holder1 {
-            img {
-                &:first-child {
-                    display: inline-block;
-                }
-                &:last-child {
-                    display: none;
-                }
+                background-image: url(../../../assets/images/home_arrow_blue.png);
             }
         }
         .arrow {
-            display: block;
             margin: 0 auto;
             width: 22px;
+            height: 20px;
             transition: width 0.5s ease;
-            text-align: right;
+            background-image: url(../../../assets/images/home_arrow_white.png);
+            background-position: right;
+            background-repeat: no-repeat;
             img {
                 position: relative;
                 transition: left 0.5s;
