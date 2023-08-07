@@ -116,13 +116,12 @@ getClientTokenFunction():void{
     processPaymentToBraintree(checkoutOrderInfo: ICheckoutOrderInfo): void {
 
         let transactionReq: TransactionRequest;
+        console.log(checkoutOrderInfo.checkoutCart);
         this.generate(checkoutOrderInfo.checkoutCart.getTransactionReqModel()).subscribe(
             (res: TransactionRequest) => {
                 //  console.log("Executing first observable response");
                 transactionReq = res;
-                console.log("Step 1");
-                console.log(transactionReq);
-                console.log(localStorage.getItem('IsMoto'));
+                 
                 if(localStorage.getItem('IsMoto') && localStorage.getItem('IsMoto') == 'yes')
                 {
                     transactionReq.Order.OrderDetails.OrderNumber = localStorage.getItem('moto_orderid');
@@ -139,8 +138,7 @@ getClientTokenFunction():void{
                 transactionReq.checkoutOrderInfo = checkoutOrderInfo;
                 transactionReq.Order.Consumer.Account = account;
                 transactionReq.TransactionType = checkoutOrderInfo.checkoutCart.transactiontype;
-                console.log("Step 2");
-                console.log(transactionReq);
+              
                  return this.braintreePaymentService.startCardinalTransaction(transactionReq);
             }
         );

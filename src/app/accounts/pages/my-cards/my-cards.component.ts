@@ -38,6 +38,7 @@ import { BottomUpComponent } from 'app/mobile-pay/dialog/bottom-up/bottom-up.com
 import { WhatIsCvvComponent } from 'app/accounts/dialog/what-is-cvv/what-is-cvv.component';
 import { AddEditCardComponent } from 'app/accounts/dialog/add-edit-card/add-edit-card.component';
 import { ConfirmPopupDialog } from 'app/accounts/dialog/confirm-popup/confirm-popup-dialog';
+import { Plan } from 'app/accounts/models/plan';
 @Component({
   selector: 'app-my-cards',
   templateUrl: './my-cards.component.html',
@@ -78,8 +79,10 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     autoRefillTipText: string;
     braintreeToken:any;
     paymentProcessor:any;
+    errorClass:any;
     @Input() checkOutModel: ICheckoutModel;
     @Output() onPaymentSubmit = new EventEmitter<CreditCard>();
+    @Input() plan: Plan;
     paymentSubmitted: boolean;
   
     
@@ -214,7 +217,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
            
             this.selectedCard = this.selectedCardPay;
             //localStorage.setItem('card':{card:this.selectedCardPay.CardId, selectedCard:this.selectedCardPay.Cvv});
-           
+            this.havingExistingCard = true;
            
            
   
@@ -223,12 +226,35 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
           } else {
            // this.getCreditCardValidityOptions();
             this.getBillingInfo();
+            this.customerSavedCards = null;
             this.havingExistingCard = false;
-        //this.onClickCreditCardPay();
+        
           }
       
         });
     }
+
+    getCustomerCards1() {
+      this.customerSavedCards = null;
+      this.selectedCard = null;
+      this.customerService.getSavedCreditCards().toPromise().then(
+        (res: CreditCard[]) => {
+          if (res.length > 0) {
+            this.customerSavedCards = res.splice(0, 2); 
+            
+            this.havingExistingCard = true;
+            
+          } else {
+           
+            
+            this.customerSavedCards = null;
+            this.havingExistingCard = false;
+        
+          }
+      
+        });
+    }
+
   
    
     onClickCreditCardPayment() {
@@ -237,7 +263,14 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
         return;
         
       if (this.selectedCard.Cvv.length < 3)
+      {
+        this.errorClass = 'error';
         return;
+      }
+      else{
+        this.errorClass = '';
+      }
+       
   
       this.selectedCard.CardHolderName = `${this.billingInfo.FirstName} ${this.billingInfo.LastName}`;
       this.selectedCard.FullName = this.selectedCard.CardHolderName;
@@ -409,7 +442,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
                 this.customerService.GetBillingInfo().subscribe(
                   (res: any) => { this.billingInfo = res;
                   
-                    this.onClickCreditCardPay();
+                   // this.onClickCreditCardPay();
                   },
                   (err: ApiErrorResponse) => console.log(err),
                 )
@@ -427,6 +460,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
         maxWidth: '550px',
         data: {
           result: null,
+          plan:this.plan,
           result2: this.billingInfo
         }
       });
@@ -436,12 +470,11 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
         {
           this.cvvStored=result.split(",")[1];
           if (result.split(",")[0] == "success") {
-            this.getCustomerCards();
-        
+            this.getCustomerCards1();
+            
               this.customerService.GetBillingInfo().subscribe(
                 (res: any) => { this.billingInfo = res;
-                
-                  this.onClickCreditCardPay();
+                 
                 },
                 (err: ApiErrorResponse) => console.log(err),
               )
@@ -456,6 +489,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     deleteCardDetails(card) {
       const dialogRef = this.dialog.open(ConfirmPopupDialog, {
         data: {
+          message:'Delete Credit Card ?',
           success: 'success'
         }
       });
@@ -466,8 +500,11 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
           this.customerService.DeleteCreditCard(card.CardId).subscribe(
             (res: boolean) => {
               if (res) {
-                this.razaSnackbarService.openSuccess("Credit card deleted successfully.");
+                this.selectedCard = null;
                 this.getCustomerCards();
+                
+                this.razaSnackbarService.openSuccess("Credit card deleted successfully.");
+                
               }
               else
                 this.razaSnackbarService.openError("Unable to delete information, Please try again.");
@@ -503,7 +540,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
           this.customerService.GetBillingInfo().subscribe(
             (res: any) => { this.billingInfo = res;
             
-              this.onClickCreditCardPay();
+             // this.onClickCreditCardPay();
             },
             (err: ApiErrorResponse) => console.log(err),
           ) 
@@ -532,7 +569,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
       this.selectedCardPay.FullName = this.selectedCardPay.CardHolderName;
       this.selectedCardPay.PhoneNumber = this.billingInfo.Address.HomePhone;
       this.selectedCardPay.Cvv= this.cvvStored;
-     // this.onPaymentSubmit.emit(this.selectedCardPay);
+     
     }
   
     // editModal()

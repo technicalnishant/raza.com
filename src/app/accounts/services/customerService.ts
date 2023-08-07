@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Api } from '../../core/services/api.constants';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 
 import { OrderHistory } from '../models/orderHistory';
@@ -15,6 +15,7 @@ import { AutoRefill } from '../models/autorefill';
 import { CustomErrorHandlerService } from '../../core/services/custom-error-handler.service';
 import { CreditCard } from '../models/creditCard';
 import {CreditCardFull } from '../models/creditCardFull';
+import { of } from 'rxjs';
 
 
 @Injectable({ providedIn: 'root' })
@@ -121,8 +122,21 @@ export class CustomerService {
     }
 
     public GetBillingInfo(): Observable<any | ApiErrorResponse> {
+
+        let number = localStorage.getItem("login_no");
+
+        const cachedData = sessionStorage.getItem('billing_info_'+number);
+
+            if (cachedData) {
+            return of(JSON.parse(cachedData));
+            }
+
+
         return this.httpClient.get<any>(`${Api.myAccount.getBillingInfo}`)
             .pipe(
+                tap(data => {
+                    sessionStorage.setItem('billing_info_'+number, JSON.stringify(data));
+                  }),
                 catchError(err => this.errorHandleService.handleHttpError(err))
             );
     }
@@ -233,13 +247,24 @@ export class CustomerService {
     }
 
     public deleteAutoRefill(planId: string): Observable<any | ApiErrorResponse> {
-        return this.httpClient.delete<any>(`${Api.autoRefill.getAutoRefill}/${planId}`)
-            .pipe(
-                map(res => {
-                    return true;
-                }),
-                catchError(err => this.errorHandleService.handleHttpError(err))
-            );
+
+        
+
+        return this.httpClient.delete<any>(`${Api.autoRefill.deleteAutoRefillV1}/${planId}`)
+        .pipe(
+            map(res => {
+                return true;
+            }),
+            catchError(err => this.errorHandleService.handleHttpError(err))
+        );
+
+        // return this.httpClient.delete<any>(`${Api.autoRefill.getAutoRefill}/${planId}`)
+        //     .pipe(
+        //         map(res => {
+        //             return true;
+        //         }),
+        //         catchError(err => this.errorHandleService.handleHttpError(err))
+        //     );
     }
 
     public editAutoRefill(planId: string): Observable<any | ApiErrorResponse> {

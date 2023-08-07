@@ -17,6 +17,7 @@ import { RazaEnvironmentService } from './razaEnvironment.service';
 import { CurrentSetting } from '../models/current-setting';
 import { CountriesService } from './country.service';
 import { Country } from '../models/country.model';
+import { Router } from '@angular/router';
 @Injectable()
 export class AuthenticationService {
 	static username = new BehaviorSubject<string>('');
@@ -25,6 +26,7 @@ export class AuthenticationService {
 	currentSetting: CurrentSetting;
 	user_country_id:any;
 	fromCountry:any;
+	 
 	constructor(
 		private httpClient: HttpClient,
 		private helperService: HelperService,
@@ -33,6 +35,7 @@ export class AuthenticationService {
 		private razaEnvService: RazaEnvironmentService,
 		private countryService: CountriesService,
 		public dialog: MatDialog,
+		private router: Router
 	) {
 
 	}
@@ -484,9 +487,10 @@ export class AuthenticationService {
 			description: "Pretend this is a convincing argument on why you shouldn't logout :)",
 			actionButtonText: "Logout",
 		}
-		// https://material.angular.io/components/dialog/overview
+		
 		const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
 	}
+	
 	sendpasswordlink(emailOrPhone: string): Observable<boolean> {
 		 
 		 

@@ -57,6 +57,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
     countryId: number;
     selectepage:number=0;
     isLoading:boolean=false;
+    countryFromId:number=1;
     public selectedIndex: number=0;
     constructor(
       private _bottomSheet: MatBottomSheet,
@@ -75,7 +76,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
         this.fromCountry = res.slice(0, 3);
       });
   
-      this.loadStates(true);
+     
   
   
       this.years = this.razaEnvService.getYears();
@@ -96,7 +97,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
       });
       this.billingInfoForm = this._formBuilder.group({
         FullName: ['', Validators.required],
-        Country: ['', Validators.required],
+        Country: [this.countryFromId, Validators.required],
         State: ['', Validators.required],
         BillingAddress: ['', Validators.required],
         City: ['', Validators.required],
@@ -117,7 +118,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
        
       }
    
-  
+ 
      if (!isNullOrUndefined(this.data.cardFull) && this.data.cardFull.CreditCardAddress) {
       let address = this.data.cardFull.CreditCardAddress;
         this.billingInfoForm.patchValue({
@@ -131,6 +132,33 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
         this.search_country_id = address.Country.CountryId;
         
       }
+
+      
+      if (!isNullOrUndefined(this.data.result2) && this.data.result2.Address.StreetAddress) 
+      {
+        let address = this.data.result2.Address;
+        let FirstName = this.data.result2.FirstName;
+        let LastName = this.data.result2.LastName;
+
+          this.billingInfoForm.patchValue({
+            FullName: FirstName+' '+LastName,
+            Country: address.Country.CountryId,
+            State: address.State,
+            BillingAddress: address.StreetAddress,
+            City: address.City,
+            PostalCode: address.ZipCode,
+          });
+          this.search_country_id = address.Country.CountryId;
+          
+        }
+
+        if(this.search_country_id !='')
+        {
+          this.fromCountry = this.fromCountry.filter((a)=>{a.CountryId == this.search_country_id})
+        }
+         
+
+        this.loadStates(true);
        
     }
   
@@ -165,12 +193,24 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
           (res: PostalCode[]) => { this.postalcodes = res; }
         )
     }
-  
+    getErrorClass(obj:any){
+      if(obj == 'Cvv2')
+      {
+        if(this.paymentDetailForm.get('Cvv2').value == '')
+        return 'red_text'
+      }
+    }
     paymentDetailFormSubmit(): void {
   
       if (!this.billingInfoForm.valid)
         return;
-  
+
+      if (!this.paymentDetailForm.valid)
+      {
+        return;
+      }
+      
+
       let body = {
         //CardNumber: this.paymentDetailForm.get('CardNumber').value,
         CardNumber: (this.paymentDetailForm.get('CardNumber').value as string).replace(/\s/g, ''),
@@ -196,13 +236,14 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
           {
             this.isLoading = false;
             this.razaSnackBarService.openError("Unable to save information, Please try again.");
+            this.closeIcon();
           }
             
         },
         err => {
           this.isLoading = false;
-          
           this.razaSnackBarService.openError(err.error)
+          this.closeIcon();
         
       }
       )

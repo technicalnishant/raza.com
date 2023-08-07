@@ -29,6 +29,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   showMobileStats:boolean=false
   showPlan:boolean=false;
   newDesign:boolean=false;
+  clientCardId:any;
   constructor(
     private router: Router,
     private authService: AuthenticationService,
@@ -43,6 +44,13 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
 
   ngOnInit() 
   {
+     
+    if(!this.authService.isAuthenticated())
+    {
+      this.router.navigate(['/']);
+      return false;
+    }
+    
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     //Loading All customer plans.
@@ -57,7 +65,9 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
       (res:any)=>{
          
         this.plan = res;
-        localStorage.setItem('currentPlan',JSON.stringify(this.plan));
+        this.isEnableOtherPlan = true;
+       // console.log('your card id is ', this.clientCardId);
+      //  localStorage.setItem('currentPlan',JSON.stringify(this.plan));
   
       },
       (err: ApiErrorResponse) => {

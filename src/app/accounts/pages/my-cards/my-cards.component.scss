@@ -5,6 +5,7 @@
 	left: 0;
 	right: 0;
 }
+.error{border-color: #ff0000!important;}
 .example-radio-group {
 	display: block;
 	border: 1px solid #555;
@@ -389,8 +390,11 @@ h3 {
 }
 .savedCard {
 	padding: 5px 20px;
-	// border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #eee;
 	display: flex;
+  &:last-child {
+    border-bottom: none;
+  }
 }
 .cardImg,.cardDetails {
 	float: left;
@@ -529,14 +533,14 @@ p {
 	padding: 15px 33px;
 }
 
-  @media only screen and (max-width: 1000px) { 
+  @media only screen and (max-width: 1000px) {
     .recharge_block{ margin-top: 104px !important;}
   }
-  @media only screen and (max-width: 675px) { 
-    .containerMobile{width: 100%;} 
+  @media only screen and (max-width: 675px) {
+    .containerMobile{width: 100%;}
     .recharge_block{ margin-top: 104px;}
   }
-  
+
   p {
     &.haveAccountAlready {
       color: #0B203E;
@@ -587,7 +591,7 @@ p {
 		// height: 50vh;
 		height: 100%!important;
 		overflow-y: scroll;
-	}	
+	}
 	p.haveAccountAlready {
 	  text-align: left !important;
 	}

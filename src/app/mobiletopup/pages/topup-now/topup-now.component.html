@@ -177,9 +177,9 @@
             <div class="topup_section" *ngIf="topupType.value=='plans'" > 
               
                 <!-- <h2>Plans(Bundels) section {{topupType.value}}</h2> -->
-                <div *ngIf="bundleInfo?.ProductDescritions && bundleInfo?.ProductDescritions.length > 0">
+                <div *ngIf="bundleInfo?.ProductDescriptions && bundleInfo?.ProductDescriptions.length > 0">
                 <div class="topup_items">
-                    <div  class="topup_item" *ngFor="let item of bundleInfo?.ProductDescritions; let i = index">
+                    <div  class="topup_item" *ngFor="let item of bundleInfo?.ProductDescriptions; let i = index">
                         <div class="col-md-12 bundle_box denomination__box">
                             <div class="top_section">
                                 <h2>{{item.Price | bCurrency}}</h2>

@@ -3813,6 +3813,8 @@ h2 {
         background-size: cover;
     }
     .becamepartner_banner {
+        //background: url("/assets/images/becomeapartner-m.jpg") no-repeat 0 0;
+
         background: url("/assets/images/new_design_images/become_a_partner_mobile.png") no-repeat center 100%;
     }
     .callafrica_banner {
@@ -3824,12 +3826,16 @@ h2 {
         height: 274px !important;
     }
     .feedback_banner {
+       // background: url("/assets/images/feedback_banner_m.webp") no-repeat center 100%;
+
        background: url("./assets/images/new_design_images/feedback_mobile.jpg") no-repeat center 100%;
     }
     .privacy_banner {
         background: url("/assets/images/privacypolicy-m.jpg") no-repeat 0 100%;
     }
     .terms_banner {
+       //background: url("/assets/images/tandc-m.jpg") no-repeat 0 100%;
+
         background: url("/assets/images/new_design_images/termsaconditions_mobile.png") no-repeat center 100%;
     }
     .mobileterms_banner {
@@ -3852,6 +3858,12 @@ h2 {
     }
     .terms_banner{
         background-position: 0 0;
+    }
+}
+
+@media only screen and (max-width: 375px) and (min-width: 370px) {
+    .mobileImageSliderMain {
+        background-size: 346px;
     }
 }
 [type=button],
@@ -3978,6 +3990,10 @@ section.faq-section .mat-expansion-panel-body p {
         margin: 0;
     }
 }
+.form-wrapper .intMobileTopup .mat-form-field-appearance-legacy .mat-form-field-label {
+  top: 20px !important;
+}
+
 @media only screen and (max-width: 767px) {
     .cdk-overlay-pane.topup-plan-dialog {
         max-width: 98% !important;

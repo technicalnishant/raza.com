@@ -6,6 +6,7 @@ import { Country } from "../models/country.model";
 import { HttpClient } from "@angular/common/http";
 import { Api } from "./api.constants";
 import { isNullOrUndefined } from "../../shared/utilities";
+import { catchError, tap } from "rxjs/operators";
  
 @Injectable()
 export class RazaEnvironmentService {
@@ -88,8 +89,26 @@ export class RazaEnvironmentService {
     }
     getXChageRateInfo(countryFromId)
     {
-     return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`)
+    // return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`)
+        let endpoint = 'country_'+countryFromId;
+        const cachedData = sessionStorage.getItem(endpoint);
+
+    if (cachedData) {
+      return of(JSON.parse(cachedData));
+    }
     
+     return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`).pipe(
+        tap(data => {
+          sessionStorage.setItem(endpoint, JSON.stringify(data));
+        }),
+        catchError(error => {
+          console.error('Error fetching data:', error);
+          return of(null);
+        })
+      );
+
+
+    // return null
     }
 
     setCurrentSetting(setting: CurrentSetting) {

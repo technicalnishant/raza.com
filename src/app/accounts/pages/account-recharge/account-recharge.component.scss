@@ -109,6 +109,7 @@ h3.selectRechg {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 .active .denomination__box {
     background: #016aea;
@@ -175,7 +176,7 @@ h3.selectRechg {
         @media only screen and (max-width: 767px) {
             margin-left: -232px;
         }
-    }    
+    }
     &_data {
         position: absolute;
         top: -10px;
@@ -184,8 +185,8 @@ h3.selectRechg {
             .bonus_text_datas {
                 display: block;
             }
-        }        
-    }    
+        }
+    }
     &_qst {
         cursor: pointer;
         width: 20px;
@@ -199,6 +200,34 @@ h3.selectRechg {
         font-size: 15px;
         font-weight: 600;
     }
+}
+.rates_info {
+  display: none;
+  font-weight: 500;
+  line-height: 1.3;
+  background: #333;
+  color: #fff;
+  padding: 10px 13px;
+  font-size: 16px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  margin: 16px 0 0 -16px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    margin-left: -19px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #333;
+  }
+}
+.demBoxWrp:hover .rates_info {
+    display: block;
 }
 .slider,
 .slider:before {
@@ -251,7 +280,7 @@ input:checked + .slider:before {
 
 @media only screen and (max-width: 767px) {
     .denomination__box {
-        margin: 0 5px 10px;
+        margin: 0 5px 4px;
         width: 63px;
         height: 60px;
         font-size: 17px;
@@ -264,5 +293,9 @@ input:checked + .slider:before {
     }
     h3.selectRechg {
         display: none;
+    }
+    .rates_info {
+      margin-top: 0;
+      padding: 8px;
     }
 }
