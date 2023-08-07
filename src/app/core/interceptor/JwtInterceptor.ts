@@ -66,8 +66,9 @@ export class JwtInterceptor implements HttpInterceptor {
           description: "Pretend this is a convincing argument on why you shouldn't logout :)",
           actionButtonText: "Logout",
         }
-        this.router.navigate(['/']);
+        
         const modalDialog = this.matDialog.open(LoginpopupComponent, dialogConfig);
+        this.router.navigate(['/']);
       }
     private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
         if (!this.isRefreshing) {
