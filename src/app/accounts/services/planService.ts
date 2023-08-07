@@ -34,6 +34,7 @@ export class PlanService {
     return this.httpClient.get<Plan>(`${Api.plan.getPlan}/${planId}`)
       .pipe(
         tap(data => {
+          if(data.PlanId && data.PlanId != '')
           sessionStorage.setItem(planId, JSON.stringify(data));
         }),
         catchError(err => this.errorHandleService.handleHttpError(err))
