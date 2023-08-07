@@ -71,8 +71,9 @@ export class PlanService {
       }),
         catchError(err => this.errorHandleService.handleHttpError(err))
       );
+}
 
-  }
+
   //Get Customer plans
   public getCustomPlans(): Observable<Plan[] | ApiErrorResponse> {
 
