@@ -106,6 +106,7 @@ $bg-blue-color : #0160e0;
 
     img {
       width: 45%;
+      height: auto;
     }
   }
 
@@ -131,7 +132,7 @@ $bg-blue-color : #0160e0;
 
 
 
-@media only screen and (min-width:100px) and (max-width:1200px) {  
+@media only screen and (min-width:100px) and (max-width:1200px) {
   .plan-info {
     padding: 0;
     margin-bottom: 0;
@@ -155,27 +156,27 @@ $bg-blue-color : #0160e0;
     .plan-info .text-section .text-part {
       display: block;
     }
-  
+
     .plan-info .text-section p {
       font-size: 18px;
       font-weight: 400;
       padding: 20px 0 20px;
       line-height: 28px;
     }
-  
+
     .plan-info .text-section p span {
       font-size: 18px;
       margin: 10px 0;
     }
-  
+
     .plan-info .text-section mat-list:first-child img {
       margin-right: 20px;
     }
-  
+
     .plan-info .text-section mat-list:last-child mat-list-item img {
       margin-left: 20px;
     }
-  
+
     .plan-info .blue-section {
       position: static;
       width: 100%;
@@ -184,21 +185,21 @@ $bg-blue-color : #0160e0;
       margin: auto;
       border-radius: 0 0 10px 10px;
     }
-  
+
     .plan-info .blue-section img {
       margin: 50px;
       transform: translate(0%, 0%);
     }
-  
+
     .searchic {
       display: none;
     }
-  
+
     .bg-shapes img:nth-child(1) {
       top: -50px;
       right: 80px;
     }
-  
+
     .bg-shapes img:nth-child(2),
     .bg-shapes img:nth-child(3),
     .bg-shapes img:nth-child(4),
@@ -207,42 +208,42 @@ $bg-blue-color : #0160e0;
     .bg-shapes img:nth-child(7) {
       display: none;
     }
-  
+
     .plan-info .text-section mat-list:last-child mat-list-item img {
       order: unset;
     }
-  
+
     .plan-info .text-section mat-list:last-child {
       text-align: left;
     }
-  
+
     .plan-info .text-section mat-list:last-child mat-list-item img {
       margin-left: 0 !important;
       margin-right: 20px;
       width: 70px;
     }
-  
+
     .call-us {
       padding: 0 15px;
     }
-  
+
     .search-main {
       padding: 30px 0px 0 !important;
     }
-  
+
     .plan-info .mat-list-base .mat-list-item .mat-list-item-content {
       display: block;
       text-align: center;
       padding: 20px 5px;
     }
-  
+
   }
-  
-  @media only screen and (min-width:481px) and (max-width:1200px) {  
+
+  @media only screen and (min-width:481px) and (max-width:1200px) {
     .plan-info .text-section h1 {
       font-size: 26px;
     }
-  
+
     .plan-info .text-section {
       width: 80%;
       position: static;
@@ -250,28 +251,28 @@ $bg-blue-color : #0160e0;
       padding: 10px;
       border-radius: 10px 10px 0 0;
     }
-  
+
     .plan-info .text-section .text-part {
       display: block;
     }
-  
+
     .plan-info .text-section p {
       font-size: 18px;
       padding: 20px 0;
     }
-  
+
     .plan-info .text-section p span {
       font-size: 14px;
     }
-  
+
     .plan-info .text-section mat-list:first-child img {
       margin-right: 20px;
     }
-  
+
     .plan-info .text-section mat-list:last-child mat-list-item img {
       margin-left: 20px;
     }
-  
+
     .plan-info .blue-section {
       position: static;
       width: 80%;
@@ -280,71 +281,71 @@ $bg-blue-color : #0160e0;
       margin: auto;
       border-radius: 0 0 10px 10px;
     }
-  
-  
+
+
     .plan-info .blue-section img {
       margin: 50px;
       transform: translate(0%, 0%);
     }
-  
+
     .plan-info .text-section mat-list:last-child mat-list-item img {
       order: unset;
     }
-  
+
     .plan-info .text-section mat-list:last-child {
       text-align: left;
     }
-  
+
     .plan-info .text-section mat-list:last-child mat-list-item img {
       margin-left: 0 !important;
       margin-right: 20px;
       width: 70px;
     }
-  
+
     .call-us {
       padding-top: 0px;
     }
-  
+
     .search-main {
       padding: 30px 0px 0 !important;
     }
-  
-  
+
+
   }
-  
+
   @media only screen and (min-width: 769px) and (max-width: 1200px) {
-  
+
     .plan-info .text-section mat-list:last-child mat-list-item img {
       order: unset;
     }
-  
+
     .plan-info .text-section mat-list:last-child {
       text-align: left;
     }
-  
+
     .plan-info .text-section mat-list:last-child mat-list-item img {
       margin-left: 0 !important;
       margin-right: 20px;
       width: 70px;
     }
-  
+
     .call-us {
       padding-top: 0px;
     }
-  
+
     .search-main {
       padding: 30px 0px 0 !important;
     }
-  
+
     .plan-info .text-section {
       width: 80%;
     }
-  
+
     .plan-info .blue-section {
       position: static;
       width: 80%;
     }
-  
+
   }
 
   @media only screen and (max-width: 767px) {
@@ -359,7 +360,6 @@ $bg-blue-color : #0160e0;
         font-size: 22px;
     }
 }
-  
+
   // plan info media quries end here
-  
-  
+
