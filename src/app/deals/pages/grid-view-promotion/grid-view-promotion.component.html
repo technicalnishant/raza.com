@@ -148,7 +148,7 @@
         <div class="country-box" >
           <div class="country-flag">
             <div class="div">
-               
+
               <img
               src="./../../assets/images/flag/{{
                 getImageName(option.CountryToName) | lowercase
@@ -158,7 +158,7 @@
             <div class="country-name">{{ option.CountryToName }}</div>
           </div>
           <div class="country-rate">
-            <span>From</span> {{ option.RatePerMin | sCurrency : option.CurrencyCode}}
+            <span>Up to</span> {{ option.RatePerMin | sCurrency : option.CurrencyCode}}
           </div>
           <button
             class="view-details-btn"

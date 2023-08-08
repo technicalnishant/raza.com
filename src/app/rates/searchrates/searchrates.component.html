@@ -35,7 +35,7 @@
               </div>
             </span>
           </div>
-          <input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto" 
+          <input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto"
           class="form-control form-control-lg border-right-0 border-left-0">
 
           <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
@@ -112,11 +112,11 @@
                 <!--<div class="div">
                   <img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ item.CountryId"
                         [alt]="item.CountryName" />
-                        
+
                 </div>-->
 
                 <div class="div">
-               
+
                   <img
                   src="./../../assets/images/flag/{{
                     getImageName(item.CountryName) | lowercase
@@ -127,7 +127,7 @@
                 <div class="country-name">{{item.CountryName}}</div>
               </div>
               <div class="country-rate">
-                <span>From</span> {{item.CallingRateMobile | sCurrency}}
+                <span>Up to</span> {{item.CallingRateMobile | sCurrency}}
               </div>
               <button
                 class="view-details-btn"
@@ -293,9 +293,9 @@
                   <p>1. Use your registered phone and dial the local access number.</p>
                   <p>2. Dial 011+ Country code + Destination number to get connected.</p>
                   <p>3. Keep Talking!</p>
-                  
+
                 </mat-expansion-panel>
-            
+
                 <mat-expansion-panel hideToggle="true" #example2>
                   <mat-expansion-panel-header>
                     <mat-panel-title>
@@ -311,7 +311,7 @@
                     rates.
                   </p>
                 </mat-expansion-panel>
-            
+
                 <mat-expansion-panel hideToggle="true" #example3>
                   <mat-expansion-panel-header>
                     <mat-panel-title> Will my calling plan expire? </mat-panel-title>
@@ -323,7 +323,7 @@
                     validity on our special or discounted plans.
                   </p>
                 </mat-expansion-panel>
-            
+
                 <mat-expansion-panel hideToggle="true" #example4>
                   <mat-expansion-panel-header>
                     <mat-panel-title>
@@ -340,7 +340,7 @@
                     account is verified successfully.
                   </p>
                 </mat-expansion-panel>
-            
+
                 <mat-expansion-panel hideToggle="true" #example5>
                   <mat-expansion-panel-header>
                     <mat-panel-title>
@@ -356,7 +356,7 @@
                     additional assistance.
                   </p>
                 </mat-expansion-panel>
-            
+
                 <mat-expansion-panel hideToggle="true" #example6>
                   <mat-expansion-panel-header>
                     <mat-panel-title>
@@ -374,7 +374,7 @@
                     Once we receive your payment we will call or e-mail your plan details.
                   </p>
                 </mat-expansion-panel>
-                
+
                 <button class="loadmore" *ngIf="showButton" (click)="isVisibleFaq()">Load More</button>
                 <div *ngIf="showMore">
                   <mat-expansion-panel hideToggle="true" #example7>
@@ -391,7 +391,7 @@
                       for certain countries it is cheaper to call Mobiles than landlines.
                     </p>
                   </mat-expansion-panel>
-              
+
                   <mat-expansion-panel hideToggle="true" #example8>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
@@ -407,7 +407,7 @@
                       certified secure by McAfee, Thawte and Visa/MasterCard.
                     </p>
                   </mat-expansion-panel>
-              
+
                   <mat-expansion-panel hideToggle="true" #example9>
                     <mat-expansion-panel-header>
                       <mat-panel-title> I lost my password, how do I reset? </mat-panel-title>
@@ -419,7 +419,7 @@
                       login page to receive your password by Text or E-mail.
                     </p>
                   </mat-expansion-panel>
-              
+
                   <mat-expansion-panel hideToggle="true" #example10>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
@@ -433,7 +433,7 @@
                       number.
                     </p>
                   </mat-expansion-panel>
-              
+
                   <mat-expansion-panel hideToggle="true" #example11>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
@@ -449,7 +449,7 @@
                       will refund your money back.
                     </p>
                   </mat-expansion-panel>
-              
+
                   <mat-expansion-panel hideToggle="true" #example12>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
@@ -464,7 +464,7 @@
                       cancellation.
                     </p>
                   </mat-expansion-panel>
-              
+
                   <mat-expansion-panel hideToggle="true" #example13>
                     <mat-expansion-panel-header>
                       <mat-panel-title> What is Money Back Guarantee? </mat-panel-title>
@@ -477,7 +477,7 @@
                       months or older will not be refunded.
                     </p>
                   </mat-expansion-panel>
-              
+
                   <mat-expansion-panel hideToggle="true" #example14>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
@@ -494,7 +494,7 @@
                       chat with a live agent for more details.
                     </p>
                   </mat-expansion-panel>
-              
+
                   <mat-expansion-panel hideToggle="true" #example15>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
@@ -508,7 +508,7 @@
                       recharge transactions.
                     </p>
                   </mat-expansion-panel>
-              
+
                   <mat-expansion-panel hideToggle="true" #example16>
                     <mat-expansion-panel-header>
                       <mat-panel-title>

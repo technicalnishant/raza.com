@@ -5,18 +5,18 @@
 	  </h1>
 	<div class="home_banner deal1_banner"></div>
 </div>
- 
+
 
 <!-- search section start here -->
 <div class="">
 	<!-- <div class="commonWrapperAreaShadowArea">
 		<div class="coverShadow"></div>
 	</div> -->
-	
+
 	<div class="wrappers">
 		<div class="search__wrapper_new">
-			 
-			 
+
+
 								<section class="country-search">
 									<div class="container">
 									  <div class="col-lg-8 col-md-12 mx-auto">
@@ -49,11 +49,11 @@
 
 											  </span>
 											</div>
-											<input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto" 
+											<input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto"
           class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder="State" (focusout)="onClickInput()" (focus)="onInputFocus()">
 											<!-- <input matInput aria-label="State" id="searchInput" [matAutocomplete]="auto" [formControl]="autoControl"
                 								ng-placeholder="State" (focusout)="onClickInput()" (focus)="onInputFocus()"> -->
-								  
+
 											<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
 												<mat-option *ngFor="let option of filteredCountry | async" [value]="option"
 													(onSelectionChange)="viewRates(option)">
@@ -89,9 +89,9 @@
 									<div class="container">
 									  <div class="row">
 										  <div class="col-md-9 mx-auto">
-											
+
 										<div class="alphabet_links" *ngIf="allCountry">
-												 
+
 										<li class="active" [ngClass]="{'active': currentClickedChar === 'All' }" (click)="displayCountryList('All')">All</li>
 										<li class="{{isDisabled('A')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'A' }" (click)="displayCountryList('A')">A</li>
 										<li class="{{isDisabled('B')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'B' }" (click)="displayCountryList('B')">B</li>
@@ -131,22 +131,22 @@
 												  <!--<div class="div">
 													<img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ item.CountryId"
 														  [alt]="item.CountryName" />
-														  
+
 												  </div>-->
-								  
+
 												  <div class="div">
-												 
+
 													<img
 													src="./../../assets/images/flag/{{
 													  getImageName(item.CountryName) | lowercase
 													}}.png"
 												  />
 												  </div>
-								  
+
 												  <div class="country-name">{{item.CountryName}}</div>
 												</div>
 												<div class="country-rate">
-												 <span>From</span> {{item.FreeMinutes}} <span>mins</span>
+												 <span>Up to</span> {{item.FreeMinutes}} <span>mins</span>
 												</div>
 												<button
 												  class="view-details-btn"
@@ -163,11 +163,11 @@
 									</div>
 								  </section>
 
- 
 
 
-								 
-									 
+
+
+
 										<!-- <div class="bg-shapes">
 											<img src="./../../assets/images/search/Image_57.png">
 												<img src="./../../assets/images/search/Ellipse_1.png">
@@ -178,11 +178,11 @@
 																	<img src="./../../assets/images/search/Polygon_4.png">
 																	</div> -->
 																</div>
-															 
+
 															</div>
 															<div class="call-us text-center">
 																<h3>
-																	<span>Have a question? 
+																	<span>Have a question?
 																		<a (click)=contactUs()>Call us</a>
 																	</span>
 																</h3>
@@ -195,21 +195,21 @@
 																	<mat-list>
 																		<mat-list-item>
 																			<img src="./../../assets/images/plan-include/global.png">
-																				<p>GLOBAL CALLING 
+																				<p>GLOBAL CALLING
 																					<br>
 																						<span>Best Rates to call any Landlines and Cell phones worldwide!</span>
 																					</p>
 																				</mat-list-item>
 																				<mat-list-item>
 																					<img src="./../../assets/images/plan-include/quality.png">
-																						<p>EXCEPTIONAL CALL QUALITY 
+																						<p>EXCEPTIONAL CALL QUALITY
 																							<br>
 																								<span>Our State of the Art fiber optic network keeps you in touch with high quality.</span>
 																							</p>
 																						</mat-list-item>
 																						<mat-list-item>
 																							<img src="./../../assets/images/plan-include/money-back.png">
-																								<p>100% MONEY BACK GUARANTEE 
+																								<p>100% MONEY BACK GUARANTEE
 																									<br>
 																										<span>Get your unused balance refunded at any time if you are not completed satisfied.</span>
 																									</p>
@@ -218,24 +218,24 @@
 																							<mat-list>
 																								<mat-list-item>
 																									<img src="./../../assets/images/plan-include/mobile-app.png">
-																										<p>MOBILE APP 
+																										<p>MOBILE APP
 																											<br>
 																												<span>
-            Download the app and call directly without having to dial 
+            Download the app and call directly without having to dial
 																													<br> access number.
 																													</span>
 																												</p>
 																											</mat-list-item>
 																											<mat-list-item>
 																												<img src="./../../assets/images/plan-include/reward.png">
-																													<p>RAZA REWARDS 
+																													<p>RAZA REWARDS
 																														<br>
 																															<span>Signup for Raza Rewards and earn points on every dollar spent.</span>
 																														</p>
 																													</mat-list-item>
 																													<mat-list-item>
 																														<img src="./../../assets/images/plan-include/account.png">
-																															<p>ONLINE ACCOUNT MANAGEMENT 
+																															<p>ONLINE ACCOUNT MANAGEMENT
 																																<br>
 																																	<span>Keep track of your calls, orders and rewards anywhere anytime..</span>
 																																</p>
@@ -248,7 +248,7 @@
 																													</div>
 																												</div>
 																												<div class="container search-main no-margin">
-																													 
+
 																													<div class="linethroughArea">
 																														<div class="line"></div>
 																														<span>FAQ’S</span>
@@ -342,7 +342,7 @@
           I lost my password, how do I reset?
         </mat-panel-title>
 																															</mat-expansion-panel-header>
-																															<p>Click 
+																															<p>Click
 																																<a href="javascript:void(0)" (click)="openLoginPopup()">Forgot Password</a> link on the login page to receive your password by
         Text or E-mail.
 																															</p>
@@ -417,4 +417,3 @@
 																														<a href="/searchrates" title="">View All Rates</a>
 																													</div>
 																												</div>
-																												 
