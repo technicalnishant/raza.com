@@ -1,23 +1,20 @@
 <div class="first_fold">
-
-    <h1 class="heading_style1">	
+    <h1 class="heading_style1">
         Quick<br> Recharge
-    
     </h1>
-    <div class="home_banner quick_recharge"> 
+    <div class="home_banner quick_recharge">
         <!-- <img src="assets/images/banner_image.png" alt="banner"> -->
     </div>
     </div>
-
             <div class="recharge_block">
                 <div class="container containerMobile">
-                    <form [formGroup]="rechargeForm" (ngSubmit)='onRechargeFormSubmit()' novalidate> 
+                    <form [formGroup]="rechargeForm" (ngSubmit)='onRechargeFormSubmit()' novalidate>
                             <div class="row margin_class">
                             <div class="col-md-6 boxborderright order-2 order-1">
                                     <h2 class="heading_style4 d-none d-md-block">
                                         <span>Quick Recharge</span>
                                     </h2>
-                                    <div class="form form_margin">        
+                                    <div class="form form_margin">
                                         <div class="input-group-prepend countryIcon col-sm-3 f-left border-bottom">
                                             <span class="caret margin-top-15">
                                               <div (click)="openFlagDropDown()" class="select_top1">
@@ -37,9 +34,8 @@
                                               </div>
                                             </span>
                                           </div>
-                                           
+
                                         <div class="col-sm-9 phoneNo formRowM15 f-left">
-                                            
                                             <mat-form-field class="example-full-width">
                                                 <!-- <span >+ {{currentSetting?.country.CountryCode}} &nbsp;</span> -->
                                                 <input matInput placeholder="Phone Number" type="tel" formControlName="phoneNumber" (keyup)="validateUsername()" ng-pattern="/^[1-9]{1}[0-9]{9}$/" maxlength="15">
@@ -71,9 +67,9 @@
                                                     Phone Number/Password is not valid.
                                                 </mat-error>
                                             </mat-form-field>
-                                        
+
                                         </div>
-                                        
+
                                         <div class="cardRow formRowM15">
                                             <div class="cardRowLeft">
                                                 <mat-form-field class="example-full-width">
@@ -94,109 +90,79 @@
                                                 </mat-form-field>
                                             </div>
                                         </div>
-
                                         <div class="col-sm-12 formRowM15">
                                             <mat-form-field class="example-full-width">
                                                 <input matInput placeholder="Do you have a Promo Code?(Optional)"
                                                     formControlName="couponCode">
                                             </mat-form-field>
                                         </div>
-                                        
                                     </div>
-                                
                                     <div class="row rechargbstrip_class">
                                         <div class="form_row1">
-                                                <button mat-button class="submitButton">Submit</button>
+                                              <button mat-button class="submitButton">Submit</button>
                                         </div>
-                        
-                        
                                         <div class="col-sm-12 existing">
                                             Existing Customer? <a (click)="openPopup('login')" href="javascript:void(0);">Login</a> &nbsp;
                                             New Customer? <a (click)="openPopup('signup')" href="javascript:void(0);">Sign up now</a>
                                         </div>
                                     </div>
-
-                                    <!-- <div class="row ml-4 exc_center">
-                                        <div class="col-sm-6 existing">
-                                            Existing Customer? <a (click)="openPopup('login')" href="javascript:void(0);">Login</a>
-                                        </div>
-                                        <div class="col-sm-6 new_customer">
-                                            New Customer? <a (click)="openPopup('signup')" href="javascript:void(0);">Sign up now</a>
-                                        </div>
-                                    </div> -->
-                        
-                            
-
             </div>
 
-
             <div class="col-md-6 button_margint order-1 order-md-2">
-
                 <div class="input_holder1">
                     <h2 class="heading_style4 rechargeamount mt-5 mt-lg-0 pb-4 pb-lg-0"><span>Recharge Amount</span></h2>
                     <div class="radio_checkbox_wraper1">
-
                         <mat-radio-group formControlName="rechargeAmount">
                             <!--<div class="row">-->
                                 <div class="col-md-12">
                                 <div class="rechargeamount">
                                     <div class="d-flex justify-content-between">
-                                    <div class="button-wrapper" (click)="setrechargeAmount(5)">
-                                        <button type="button" class="submitButtonSmall {{getActiveClass(5)}}" >
-                                    <!-- <div class="bonus">5% <br/> BONUS</div> -->
-                                         {{ 5 | bCurrency : countryCode }}
-                                </button></div>
-
-                                    <div class="button-wrapper" (click)="setrechargeAmount(10)">
-                                        <button type="button" class="submitButtonSmall {{getActiveClass(10)}}">
-                                            <div class="bonus">5% <br/> BONUS</div>
-                                        {{ 10 | bCurrency : countryCode }}    
-                                </button></div>
-                                <div class="button-wrapper" (click)="setrechargeAmount(20)">
-                                    <button type="button" class="submitButtonSmall {{getActiveClass(20)}}">
-                                        <div class="bonus">7% <br/> BONUS</div>
-                                    {{20 | bCurrency : countryCode }}     
-                                </button></div>
+                                      <div class="button-wrapper" (click)="setrechargeAmount(5)">
+                                          <button type="button" class="submitButtonSmall {{getActiveClass(5)}}" >
+                                      <!-- <div class="bonus">5% <br/> BONUS</div> -->
+                                          {{ 5 | bCurrency : countryCode }}
+                                          </button>
+                                      </div>
+                                      <div class="button-wrapper" (click)="setrechargeAmount(10)">
+                                          <button type="button" class="submitButtonSmall {{getActiveClass(10)}}">
+                                              <div class="bonus">5% <br/> BONUS</div>
+                                          {{ 10 | bCurrency : countryCode }}
+                                          </button>
+                                      </div>
+                                    <div class="button-wrapper" (click)="setrechargeAmount(20)">
+                                      <button type="button" class="submitButtonSmall {{getActiveClass(20)}}">
+                                          <div class="bonus">7% <br/> BONUS</div>
+                                          {{20 | bCurrency : countryCode }}
+                                      </button>
+                                    </div>
                                 </div>
                                 <div class="d-flex justify-content-between">
-
-                                <div class="button-wrapper" (click)="setrechargeAmount(50)"  >
-                                    <button type="button" class="submitButtonSmall {{getActiveClass(50)}}">
-                                    <div class="bonus">10% <br/> BONUS</div>
-                                    {{ 50 | bCurrency : countryCode }}
-                                </button>
-                                </div>
-                                 
-
-                               
-
-                                
-                                <div class="button-wrapper wrapper2" (click)="setrechargeAmount(90)" *ngIf="currentSetting?.country.CountryId !=3"> 
+                                  <div class="button-wrapper" (click)="setrechargeAmount(50)"  >
+                                      <button type="button" class="submitButtonSmall {{getActiveClass(50)}}">
+                                      <div class="bonus">10% <br/> BONUS</div>
+                                      {{ 50 | bCurrency : countryCode }}
+                                  </button>
+                                  </div>
+                                <div class="button-wrapper wrapper2" (click)="setrechargeAmount(90)" *ngIf="currentSetting?.country.CountryId !=3">
                                     <button type="button" class="submitButtonSmall2 {{getActiveClass(90)}} positon-relative" >
                                     <div class="bonus w-100">15% <br/> BONUS</div>
                                     <span class="slice striketext">{{ 100 | bCurrency : countryCode }}</span><br>
-                                    
+
                                     {{ 90 | bCurrency : countryCode }}
                                     </button></div>
                                     </div>
                                 </div>
-
                             </div>
                         </mat-radio-group>
                         <mat-error
                             *ngIf="rechargeForm.get('rechargeAmount').errors?.required && rechargeForm.get('rechargeAmount').touched">
                             Recharge amount is required.
                         </mat-error>
-
                     </div>
                 </div>
-
             </div>
-
             </div>
-           
-                        
-            </form>      
+            </form>
         </div>
             </div>
             <section class="search-strip">
@@ -209,26 +175,27 @@
                         and start calling now
                       </div>
                       <div class="d-flex align-items-center mt-5">
-                        <img src="../../../assets/images/new_design_images/qr_code.png" alt="qr" class="mr-4 qrimage">
+                        <img src="../../../assets/images/new_design_images/qr_code.png" alt="qr" width="122" height="157" class="mr-4 qrimage">
                         <div>
-                          <a href="https://play.google.com/store/apps/details?id=com.razacomm.universe"><img src="../../../assets/images/new_design_images/play_store.png" alt="play" class="mb-3 mb-lg-0"></a>
-                          <a href="https://apps.apple.com/ca/app/raza-universe/id1226298666" class="ml-0 ml-lg-3"><img src="../../../assets/images/new_design_images/app_store.png" alt="app"></a>
+                          <a href="https://play.google.com/store/apps/details?id=com.razacomm.universe">
+                            <img src="../../../assets/images/new_design_images/play_store.png" alt="play" width="137" height="46" class="mb-3 mb-lg-0"></a>
+                          <a href="https://apps.apple.com/ca/app/raza-universe/id1226298666" class="ml-0 ml-lg-3">
+                            <img src="../../../assets/images/new_design_images/app_store.png" alt="app" width="137" height="46"></a>
                         </div>
                       </div>
                     </div>
                     <div class="col-md-5 text-right">
-                      <img src="../../../assets/images/new_design_images/strip_mob.png" alt="mob" class="mt-5 mt-lg-0 img-fluid">
+                      <img src="../../../assets/images/new_design_images/strip_mob.png" alt="mob" width="362" height="402" class="mt-5 mt-lg-0 img-fluid">
                     </div>
                   </div>
                 </div>
               </section>
-        
-   
-<div class="last">
-    <p>Still Searching? For All Rates
-    <a mat-button type="submit" routerLink="/searchrates" class="submitButton1">View All Rates</a>
-</p>
-</div>
+
+              <div class="last">
+                  <p>Still Searching? For All Rates
+                    <a mat-button type="submit" routerLink="/searchrates" class="submitButton1">View All Rates</a>
+                </p>
+              </div>
 <!--<div id="mybraintreeDiv" class="payment__box">
     <div id="el" style="position:absolute; z-index:9999; width:auto; background-color:#fff;height:auto; left:40%;top:40%;"></div>
   </div>-->
