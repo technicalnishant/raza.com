@@ -9,10 +9,6 @@
 
 <!-- search section start here -->
 <div class="">
-	<!-- <div class="commonWrapperAreaShadowArea">
-		<div class="coverShadow"></div>
-	</div> -->
-
 	<div class="wrappers">
 		<div class="search__wrapper_new">
         <section class="country-search">
@@ -38,12 +34,6 @@
                     </li>
                     </ul>
                   </div>
-
-                  <!-- <div *ngIf="showPlaceholder" class="placeholder-search" (click)="onClickPlaceholder()">
-                    <p class="palceholder-searchs" (click)="onClickPlaceholder()">Where do you wish to call?</p>
-                  </div>
-                  <img [src]="searchicon" alt="" class="searchic" (click)="onClickClose(searchicon)"> -->
-
                 </span>
               </div>
               <input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto" class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder="State" (focusout)="onClickInput()" (focus)="onInputFocus()">
@@ -124,23 +114,16 @@
               <div class="col-6 col-md-4 col-xl-3 col-lg-4 countries" *ngFor="let item of bindSearchRates; let i = index">
                 <div class="country-box" >
                 <div class="country-flag">
-                  <!--<div class="div">
-                  <img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ item.CountryId"
-                      [alt]="item.CountryName" />
-
-                  </div>-->
-
-                  <div class="div">
-                    <img
-                    src="./../../assets/images/flag/{{
-                      getImageName(item.CountryName) | lowercase
-                    }}.png"
-                    alt="country flag"
-                    width="128"
-                    height="128"
-                    />
-                  </div>
-
+                    <div class="div">
+                      <img
+                      src="./../../assets/images/flag/{{
+                        getImageName(item.CountryName) | lowercase
+                      }}.png"
+                      alt="country flag"
+                      width="128"
+                      height="128"
+                      />
+                    </div>
                   <div class="country-name">{{item.CountryName}}</div>
                 </div>
                 <div class="country-rate">
@@ -160,15 +143,6 @@
             <!-- Alpahbet search end here-->
           </div>
           </section>
-										<!-- <div class="bg-shapes">
-											<img src="./../../assets/images/search/Image_57.png">
-												<img src="./../../assets/images/search/Ellipse_1.png">
-													<img src="./../../assets/images/search/Ellipse_7.png">
-														<img src="./../../assets/images/search/Polygon_4.png">
-															<img src="./../../assets/images/search/Rectangle_5.png">
-																<img src="./../../assets/images/search/Rectangle_48.png">
-																	<img src="./../../assets/images/search/Polygon_4.png">
-																	</div> -->
 																</div>
 
 															</div>
