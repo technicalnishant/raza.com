@@ -1,18 +1,25 @@
 <div class="first_fold">
-	<h1 class="heading_style1 contact-header">
-		Try Us Free!<br />
-		<span>No purchase necessary, No contract.</span>
-	  </h1>
-	<div class="home_banner deal1_banner"></div>
+  <div class="headerScanWrap">
+    <h1 class="contact-header heading_mobilePage">
+      It’s better in the <br />Raza app
+      <span></span>
+    </h1>
+    <div class="scanTextWrap">
+      <img src="../../../assets/images/new_design_images/mp_scan.jpg" alt=""  width="169" height="168"/>
+      <div class="textWrap">
+        Cheap International  Calling, Mobile Top-Up,  Rewards & more…
+        Anytime, Anywhere with the Raza app.
+      </div>
+    </div>
+  </div>
+	<div class="home_banner mobilePage_banner"></div>
 </div>
 
 
 <!-- search section start here -->
 <div class="">
-	 
-
-	<div class="wrappers">
-		<div class="search__wrapper_new">
+	<div class="wrappers container containerMp">
+		    <div class="search__wrapper_new">
             <h2>Connect. Communiate <br/>All  in one place</h2>
             <p>
                 Effortless account management, limitless controll.
@@ -22,7 +29,6 @@
             <a href="javascript:void(0)" (click)="searchRates()" >Search rates ></a>
         </div>
         <div>
-
             <div class="tab-wrapper">
                 <div *ngFor="let item of data;  let i = index" [ngClass]="main_bg == i? 'active' : ''" class="main_bg main_bg_{{i}}" style="background: url({{item.bg_img}}); background-size: cover"></div>
                 <div class="containers">
@@ -37,20 +43,20 @@
                         </div>
                       </ng-template>
                       <div class="content-wrapper mobiletab-content">
-                        <h1 [innerHTML]="item.heading"></h1> 
+                        <h1 [innerHTML]="item.heading"></h1>
                         <p [innerHTML]="item.subhead"></p>
-                        
+
                        <div class="list-wrapper">
                         <mat-list role="list" class="horizontal" *ngFor="let img_l of item.img_list;" (mouseover)="(main_img = img_l.img_hover)">
                           <mat-list-item role="listitem">
                               <div class="icon-wrapper" matTooltip="{{img_l.tool}}" matTooltipPosition="above">
-                        <img src="{{img_l.img}}" >
-                      <img src="{{img_l.img_hover}}"  >
-                      </div>
+                                  <img src="{{img_l.img}}" >
+                                  <img src="{{img_l.img_hover}}"  >
+                            </div>
                           </mat-list-item>
                         </mat-list>
                        </div>
-                        
+
                       </div>
                     </mat-tab>
                     <!-- one touch dialing -->
@@ -61,5 +67,5 @@
                 </div>
               </div>
         </div>
-
-    </div> 
+    </div>
+  </div>
