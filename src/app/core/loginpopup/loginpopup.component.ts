@@ -27,6 +27,9 @@ import { ApiErrorResponse } from '../../core/models/ApiErrorResponse';
 import { Plan } from '../../accounts/models/plan';
 import { OtpDialogComponent } from '../otp-dialog/otp-dialog.component';
 import { CallUsComponent } from 'app/shared/dialog/call-us/call-us.component';
+
+import { DialogService } from '../services/dialog.service';
+
 /*
 import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
@@ -110,6 +113,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     public signupDialog: MatDialog,
     private el: ElementRef,
     private renderer: Renderer2,
+    private dialogService: DialogService,
     //private sauthService: SocialAuthService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
     
@@ -144,7 +148,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   }
   ngOnInit() {
 
-    
+   
 
     this.loginForm = this.formBuilder.group({
       //username: ['', [Validators.required, Validators.pattern("^[1-9]{1}[0-9]{9}$")]],
@@ -216,7 +220,12 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       }
     } 
 
-     
+    if (!this.dialogService.getIsDialogOpen()) {
+     // this.dialogService.setIsDialogOpen(true);
+      }
+      else{
+      //  this.closeModal()
+      }
     this.setCookieFields()
 
   }
@@ -246,7 +255,9 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   }
 */
   closeModal() {
+    this.dialogService.setIsDialogOpen(false);
     this.dialogRef.close();
+   
     localStorage.removeItem('redirect_path')
   }
 

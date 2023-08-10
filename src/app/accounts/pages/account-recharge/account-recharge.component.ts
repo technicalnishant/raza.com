@@ -63,6 +63,7 @@ export class AccountRechargeComponent implements OnInit {
   currentCartObs$: Subscription;
   currentCart: ICheckoutModel;
   clientCardId:any;
+  selectedAmount:any;
   constructor(
 
     private searchRatesService: SearchRatesService,
@@ -86,7 +87,7 @@ export class AccountRechargeComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkoutService.deleteCart();
-   
+    this.selectedDenomination = (history.state.price)?history.state.price:10;
     this.phoneNumber    = localStorage.getItem("login_no");
     this.titleService.setTitle('Recharge');
     this.razalayoutService.setFixedHeader(true);

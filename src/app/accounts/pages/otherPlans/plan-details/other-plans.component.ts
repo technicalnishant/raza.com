@@ -59,7 +59,8 @@ export class OtherPlansComponent implements OnInit {
     this.razaSnackBarService.openWarning('This discounted plan is already enrolled to auto-refill, we will recharge automatically on your billing cycle or when your balance falls below $2. \n \n Please call customer service for help.')
   }
   recharge(instanceId) {
-    this.router.navigateByUrl("recharge/" + instanceId);
+   // this.router.navigateByUrl("recharge/" + instanceId);
+    this.router.navigateByUrl("/account/overview" );
   }
 
   pinlessSetup(instanceId) {
