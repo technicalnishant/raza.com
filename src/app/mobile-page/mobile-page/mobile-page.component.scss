@@ -42,6 +42,7 @@ $font-family:'Montserrat', sans-serif;
   text-align: center;
   h2 {
     font-size: 80px;
+    line-height: 1.1;
     font-weight: 700;
     letter-spacing: -3px;
     margin-bottom: 15px;
@@ -117,6 +118,25 @@ $font-family:'Montserrat', sans-serif;
         p.subhea2 {
             font-size: 22px;
         }
+    }
+  }
+
+  .experienceSecTop {
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px;
+      h2 {
+          font-size: 80px;
+          line-height: 1.1;
+          font-weight: 700;
+          max-width: 649px;
+          letter-spacing: -3px;
+      }
+      .desText {
+        font-size: 16px;
+        font-weight: 600;
+        max-width: 344px;
+        margin-left: auto;
     }
   }
 }
