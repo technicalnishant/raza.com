@@ -61,8 +61,10 @@ export class AccountPurchaseHistoryComponent implements OnInit {
     model.cardId = item.CardId;
     model.isAutoRefill = item.isAutoRefillEnable;
 	  model.offerPercentage = '';
-    this.checkoutService.setCurrentCart(model);
-    this.router.navigate(['/checkout/payment-info']);
+    this.checkoutService.setCurrentCart(model); 
+    //this.router.navigate(['/checkout/payment-info']);
+    //this.router.navigate(['/account/overview']);
+    this.router.navigateByUrl('/account/overview', { state: { price: item.Price } });
   
   }
 
