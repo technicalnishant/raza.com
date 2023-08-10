@@ -158,7 +158,7 @@
             <div class="country-name">{{ option.CountryToName }}</div>
           </div>
           <div class="country-rate">
-            <span>Up to</span> {{ option.RatePerMin | sCurrency : option.CurrencyCode}}
+            <span>From</span> {{ option.RatePerMin | sCurrency : option.CurrencyCode}} <span>/ min</span>
           </div>
           <button
             class="view-details-btn"

@@ -26,11 +26,11 @@
                 <br/>
                 Experience the power at your fingertips.
             </p>
-            <a href="javascript:void(0)" (click)="searchRates()" >Search rates ></a>
+            <a href="javascript:void(0)" (click)="searchRates()" class="searchRates">Search rates ></a>
         </div>
         <div>
-            <div class="tab-wrapper">
-                <div *ngFor="let item of data;  let i = index" [ngClass]="main_bg == i? 'active' : ''" class="main_bg main_bg_{{i}}" style="background: url({{item.bg_img}}); background-size: cover"></div>
+            <div class="tab-wrapper callSupportTab">
+                <div *ngFor="let item of data;  let i = index" [ngClass]="main_bg == i? 'active' : ''" class="main_bg main_bg_{{i}}" style="background-image: url({{item.bg_img}});"></div>
                 <div class="containers">
                   <div class="title-wrapper">
                   </div>
@@ -38,15 +38,16 @@
                     <mat-tab *ngFor="let item of data;  let i = index">
                       <ng-template mat-tab-label>
                         <div class="custom_label">
-                          <img src="{{item.tab.img}}">
+                          <!-- <img src="{{item.tab.img}}"> -->
                           <p>{{item.tab.title}}</p>
                         </div>
                       </ng-template>
                       <div class="content-wrapper mobiletab-content">
                         <h1 [innerHTML]="item.heading"></h1>
-                        <p [innerHTML]="item.subhead"></p>
+                        <p [innerHTML]="item.subhead" class="subhead"></p>
+                        <p [innerHTML]="item.subhead2" class="subhea2"></p>
 
-                       <div class="list-wrapper">
+                       <!-- <div class="list-wrapper">
                         <mat-list role="list" class="horizontal" *ngFor="let img_l of item.img_list;" (mouseover)="(main_img = img_l.img_hover)">
                           <mat-list-item role="listitem">
                               <div class="icon-wrapper" matTooltip="{{img_l.tool}}" matTooltipPosition="above">
@@ -55,7 +56,7 @@
                             </div>
                           </mat-list-item>
                         </mat-list>
-                       </div>
+                       </div> -->
 
                       </div>
                     </mat-tab>
@@ -65,6 +66,15 @@
                     <div *ngFor="let item of data;  let i = index" [ngClass]="main_bg == i? 'active' : ''" class="main_bg main_bg_{{i}}" style="background: url({{item.bg_img}}); background-size: cover; background-position: center;"></div>
                   </div>
                 </div>
+              </div>
+
+              <div class="experienceSec">
+                  <div class="experienceSecTop">
+                      <h2></h2>
+                      <div class="desText">
+
+                      </div>
+                  </div>
               </div>
         </div>
     </div>
