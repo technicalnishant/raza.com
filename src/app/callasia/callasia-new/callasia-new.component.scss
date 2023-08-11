@@ -129,7 +129,7 @@ ul.alphabet ul li{
 		}
 		&.countryName {
 			font-size: 21px;
-			font-family: 'Montserrat', 
+			font-family: 'Montserrat',
   sans-serif;
 			display: table;
 			margin: 0px auto;
@@ -257,18 +257,18 @@ h2 {
 
   .callasia_banner{
     background-position: top center!important;
-    
+
   background-size:cover;
-  
+
   }
   }
 @media only screen and (max-width: 650px)  {
 
-  
+
   .commonRateArea{margin-bottom: 10px; width: 100%;}
   .hideinMobile{display: none;}
   .showInmobile { display: block;}
-  
+
   .three_service{ height: 360px;}
 }
 
@@ -644,7 +644,7 @@ $common-boder-width: 3px solid #2172cb;
 
 .top-margin{
   top: unset!important;
-      
+
 }
 
 
@@ -1546,7 +1546,7 @@ $common-boder-width: 3px solid #2172cb;
 }
 
 //////////////////////////////////
-  
+
 
 
 .country-search{
@@ -1589,19 +1589,19 @@ $common-boder-width: 3px solid #2172cb;
               font-weight: 500;
               font-family: $font-family;
               opacity: 1;
-      
+
               @include breakpoint(sm) {
                   font-size: 16px;
               }
           }
-      
+
           .form-control {
               &:focus {
                   border: 0;
                   box-shadow: none;
                   outline: none;
               }
-      
+
               &:focus-visible {
                   border: 0;
                   box-shadow: none;
@@ -1609,11 +1609,11 @@ $common-boder-width: 3px solid #2172cb;
               }
           }
       }
-      
+
   }
   // Search box Css end here
 
-  
+
 
   .alphabet_links {
     display: flex;
@@ -1656,7 +1656,7 @@ $common-boder-width: 3px solid #2172cb;
 }
 
 .country-box {
-  margin: 70px 0; 
+  margin: 70px 0;
 border-right: 1px solid #e7e7e7;
   @include breakpoint(sm) {
       text-align: center;
@@ -1715,6 +1715,7 @@ border-right: 1px solid #e7e7e7;
       span {
           font-size: 16px;
           text-transform: lowercase;
+          font-weight: 500;
       }
   }
 

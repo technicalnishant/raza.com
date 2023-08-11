@@ -20,8 +20,8 @@ $background-color_1: #293a6a;
       align-items: center;
     }
   }
-  
-  
+
+
   .searchArea {
     width: 70%;
     margin: 0 auto;
@@ -30,7 +30,7 @@ $background-color_1: #293a6a;
       margin-bottom: 28px;
     }
   }
-  
+
   ul.alphabet {
     list-style-type: none;
     display: table;
@@ -46,7 +46,7 @@ $background-color_1: #293a6a;
       cursor: pointer;
     }
   }
-  
+
   .row.countries_row {
     justify-content: center;
   }
@@ -56,24 +56,24 @@ $background-color_1: #293a6a;
     }
   }
 
-  
+
   @media only screen and (max-width: 650px) {
-  
+
     ul.alphabet {
       padding-left: 0;
     }
-  
+
     ul.alphabet ul li {
       border-bottom: 1px solid #fff;
     }
-  
+
     .wrapper {
       padding: 50px 10px !important;
     }
   }
-  
+
   /* search box css */
-  
+
   // .example-container {
   //   position: absolute;
   //   top: 0;
@@ -81,19 +81,19 @@ $background-color_1: #293a6a;
   //   left: 0;
   //   right: 0;
   // }
-  
+
   .hideinMobile {
     display: block;
   }
-  
+
   .showInmobile {
     display: none;
   }
-  
+
   .mat-toolbar {
     background: none;
   }
-  
+
   .nobg {
     background: none;
     cursor: pointer;
@@ -260,38 +260,38 @@ $background-color_1: #293a6a;
   .showmore_country {
       cursor: pointer;
   }
-  
-  
+
+
   @media only screen and (max-width: 650px) {
-  
-  
+
+
     .commonRateArea {
       margin-bottom: 10px;
       width: 100%;
     }
-  
+
     .hideinMobile {
       display: none;
     }
-  
+
     .showInmobile {
       display: block;
     }
-  
+
     .three_service {
       height: 360px;
     }
   }
-  
+
   @media only screen and (max-width: 992px) {
-  
+
     .callafrica_banner {
       background-position: top left !important;
       background-size: cover;
-  
+
     }
   }
-  
+
   /* Search area */
   .searchAreaMain {
       position: relative;
@@ -479,7 +479,7 @@ $background-color_1: #293a6a;
           top: -12px;
       }
   }
-  
+
   /*200119 start*/
   .custom_select1 {
       padding: 0;
@@ -572,74 +572,74 @@ $background-color_1: #293a6a;
       left: 13%;
       z-index: 99;
   }
-  
-  
-  
-  
+
+
+
+
   /* Search area */
-  
-  
-  
+
+
+
   /* Media queris for new box layout */
-  
+
   @media only screen and (max-width: 768px) {
-  
+
     .commonRateArea {
       height: unset;
     }
-  
+
     .iconArea {
       display: none;
     }
-  
+
     span.countryName {
       font-size: 26px !important;
     }
-  
+
     span.from {
       display: none !important;
     }
-  
+
     span.price {
       font-size: 50px !important;
       margin-top: 10px !important;
       margin-bottom: 10px !important;
       position: relative;
     }
-  
+
     span.price:before {
       content: 'From';
       font-size: 19px;
       padding-right: 10px;
       font-weight: 600;
     }
-  
+
   }
-  
+
   /* .mat-form-field-flex{
         align-items: flex-end!important;
   } */
-  
-  
-  
-  
-  
+
+
+
+
+
   // new search start here
-  
+
   $common-boder-width: 3px solid #2172cb;
-  
-  
+
+
   .search-main {
     padding: 30px 0px;
   }
-  
+
   .search__wrapper_new {
     // margin-top: 100px;
     // border: $common-boder-width;
     // margin: 100px 50px 0!important;
     // position: relative;
     // padding: 100px 0;
-  
+
     h3.select-country {
       position: absolute;
       top: -28px;
@@ -655,13 +655,13 @@ $background-color_1: #293a6a;
       font-weight: 400;
       font-family: "Montserrat", sans-serif;
     }
-  
-  
+
+
     .stillSearchingArea {
       background: none;
       height: 210px;
     }
-  
+
     .searchAreaMain {
       width: 85%;
       border: 10px solid #233d81;
@@ -671,7 +671,7 @@ $background-color_1: #293a6a;
       -moz-box-shadow: -1px 0 0 3px rgba(0, 0, 0, .8);
       margin-top: 60px!important;
     }
-  
+
     .mat-list-base {
       padding-top: 8px;
       display: block;
@@ -680,14 +680,14 @@ $background-color_1: #293a6a;
       margin: 0 auto;
       display: flex;
     }
-  
+
     .mat-list-item-content {
       color: #262626;
       font-size: 24px;
       line-height: 70px;
       font-weight: 500;
       font-family: "Montserrat", sans-serif;
-  
+
       &:before {
         font-family: "Material Icons";
         content: "check_circle";
@@ -698,7 +698,7 @@ $background-color_1: #293a6a;
         padding-right: 5px;
       }
     }
-  
+
     .learn-more {
       text-align: center;
       margin: auto;
@@ -706,7 +706,7 @@ $background-color_1: #293a6a;
       display: flex;
       margin-top: 50px;
     }
-  
+
     a,
     p {
       display: flex;
@@ -718,49 +718,49 @@ $background-color_1: #293a6a;
       font-size: 24px;
       text-decoration: none;
     }
-  
+
     .bg-shapes img {
       position: absolute;
-  
+
       &:nth-child(1) {
         top: -50px;
         right: 80px;
       }
-  
+
       &:nth-child(2) {
         top: 5%;
         right: 31%;
       }
-  
+
       &:nth-child(3) {
         top: 55%;
         left: 5%;
       }
-  
+
       &:nth-child(4) {
         left: 20%;
       }
-  
+
       &:nth-child(5) {
         display:none;
       }
-  
+
       &:nth-child(6) {
         top: 41%;
         right: 8%;
       }
-  
+
       &:nth-child(6) {
         top: 41%;
         right: 8%;
       }
-  
+
       &:nth-child(7) {
         right: 20%;
         top: 45%;
       }
     }
-  
+
     p.palceholder-searchs {
       position: absolute;
       top: 34%;
@@ -772,18 +772,18 @@ $background-color_1: #293a6a;
       text-decoration: none;
       margin-top: -5px;
     }
-  
+
     .country-list-wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       align-items: center;
       text-align: center;
       margin: 0 50px;
-  
+
       p.country {
         margin: 20px 0 !important;
       }
-  
+
       span {
         font-size: 17px;
         font-family: "Montserrat", sans-serif;
@@ -791,27 +791,27 @@ $background-color_1: #293a6a;
         font-weight: 600;
         color: #000;
       }
-  
+
       p.price {
         b {
           font-size: 30px;
           line-height: 0px;
         }
       }
-  
+
       .country-list {
         border-right: 1px solid #9ab8db;
-  
+
         img {
           max-height: 60px;
           min-height: 60px;
           object-fit: contain;
         }
-  
+
         &:first-child {
           border-left: 1px solid #9ab8db;
         }
-  
+
         p {
           font-size: 24px;
           font-family: "Montserrat", sans-serif;
@@ -823,16 +823,16 @@ $background-color_1: #293a6a;
         }
       }
     }
-  
-  
+
+
   }
-  
+
   // new search end here
-  
-  
+
+
   // top 5 country media queries
-  
-  
+
+
   @media only screen and (min-width: 100px) and (max-width: 579px){
     .search__wrapper .country-list-wrapper .country-list img {
       max-height: 30px;
@@ -843,16 +843,16 @@ $background-color_1: #293a6a;
   .search__wrapper .country-list-wrapper .country-list p.price {
       font-size: 12px !important;
   }
-  
+
       .search__wrapper .country-list-wrapper .country-list p.country {
         font-size: 10px !important;
         margin: 10px 0 !important;
       }
-  
+
       .search__wrapper .country-list-wrapper .country-list p.price b {
         font-size: 12px !important;
       }
-  
+
       .search__wrapper .country-list-wrapper .country-list span {
         font-size: 10px !important;
       }
@@ -863,9 +863,9 @@ $background-color_1: #293a6a;
       text-align: center;
       margin: 0 5px!important;
   }
-  
+
   }
-  
+
   @media only screen and (min-width: 580px) and (max-width: 767px){
     .search__wrapper .country-list-wrapper {
       overflow: scroll;
@@ -874,22 +874,22 @@ $background-color_1: #293a6a;
         .search__wrapper .country-list-wrapper .country-list p.country {
         font-size: 16px !important;
       }
-  
+
       .search__wrapper .country-list-wrapper .country-list p.price b {
         font-size: 16px !important;
       }
-  
+
       .search__wrapper .country-list-wrapper .country-list span {
         font-size: 14px !important;
       }
   }
-  
+
   @media only screen and (min-width: 768px) and (max-width: 900px){
     .search__wrapper .country-list-wrapper .country-list p {
       font-size: 16px;
   }
-  
-  
+
+
   .search__wrapper .country-list-wrapper span {
       font-size: 14px;
       font-family: "Montserrat", sans-serif;
@@ -901,41 +901,41 @@ $background-color_1: #293a6a;
       font-size: 18px;
       line-height: 0px;
   }
-  
+
   }
-  
-  
+
+
   @media only screen and (min-width: 300px) and (max-width: 767px) {
-  
+
     .search__wrapper .bg-shapes img:nth-child(1) {
       width: 10%;
       top: -13px;
       right: 5%;
     }
-  
+
     .search__wrapper .mat-list-base {
       flex-direction: column;
       width: 100%;
     }
-  
+
     .search__wrapper .mat-list-item-content {
       font-size: 16px;
     }
-  
+
     .search__wrapper .mat-list-item-content:before {
       font-size: 16px;
     }
-  
+
     .search__wrapper a,
     .search__wrapper p {
       font-size: 16px;
     }
-  
+
     .search__wrapper .learn-more {
       margin: 31px auto;
     }
-  
-  
+
+
     .search__wrapper .searchAreaMain {
       border: 3px solid #000000;
       box-shadow: 0px 0 0 1px rgba(0, 0, 0, 0.8);
@@ -943,17 +943,17 @@ $background-color_1: #293a6a;
       -moz-box-shadow: 0px 0 0 3px rgba(0, 0, 0, 0.8);
       border-radius: 4px;
   }
-  
-  
-  
-  
+
+
+
+
   }
-  
+
   // new search end here
-  
+
   // top 5 country media queries
-  
-  
+
+
   @media only screen and (min-width: 100px) and (max-width: 579px) {
     .search__wrapper .country-list-wrapper .country-list img {
       max-height: 30px;
@@ -961,55 +961,55 @@ $background-color_1: #293a6a;
       -o-object-fit: contain;
       object-fit: contain;
     }
-  
+
     .search__wrapper .country-list-wrapper .country-list p.country {
       font-size: 10px !important;
       margin: 10px 0 !important;
     }
-  
+
     .search__wrapper .country-list-wrapper .country-list p.price b {
       font-size: 12px !important;
     }
-  
+
     .search__wrapper .country-list-wrapper .country-list span {
       font-size: 10px !important;
     }
     .country-list-wrapper {
       display: none !important;
     }
-  
-  
+
+
   }
-  
+
   @media only screen and (min-width: 580px) and (max-width: 767px) {
     .search__wrapper .country-list-wrapper {
       overflow: scroll;
       margin: 0 20px;
     }
-  
+
     .search__wrapper .country-list-wrapper .country-list p.country {
       font-size: 16px !important;
     }
-  
+
     .search__wrapper .country-list-wrapper .country-list p.price b {
       font-size: 16px !important;
     }
-  
+
     .search__wrapper .country-list-wrapper .country-list span {
       font-size: 14px !important;
     }
-  
+
     .country-list-wrapper {
       display: none !important;
     }
   }
-  
+
   @media only screen and (min-width: 768px) and (max-width: 900px) {
     .search__wrapper .country-list-wrapper .country-list p {
       font-size: 16px;
     }
-  
-  
+
+
     .search__wrapper .country-list-wrapper span {
       font-size: 14px;
       font-family: "Montserrat", sans-serif;
@@ -1017,148 +1017,148 @@ $background-color_1: #293a6a;
       font-weight: 600;
       color: #000;
     }
-  
+
     .search__wrapper .country-list-wrapper p.price b {
       font-size: 18px;
       line-height: 0px;
     }
-  
+
   }
-  
-  
-  
+
+
+
   // top 5 country media quries end here
-  
-  
+
+
   // new search and popup media quries
-  
-  
+
+
   @media only screen and (min-width: 300px) and (max-width: 767px) {
-  
+
     .search__wrapper {
       margin: 50px 5px !important;
       padding: 20px 0;
     }
-  
+
     .search__wrapper .bg-shapes img:nth-child(1) {
       width: 10%;
       top: -13px;
       right: 5%;
     }
-  
+
     .search__wrapper h3.select-country {
       font-size: 15px;
       width: 55%;
       top: -24px;
     }
-  
+
     .search__wrapper .mat-list-base {
       flex-direction: column;
       width: 100%;
     }
-  
+
     .search__wrapper .stillSearchingArea {
       height: unset;
       margin-bottom: 50px;
     }
-  
+
     .search__wrapper .mat-list-item-content {
       font-size: 16px;
     }
-  
+
     .search__wrapper .mat-list-item-content:before {
       font-size: 16px;
     }
-  
+
     .search__wrapper a,
     .search__wrapper p {
       font-size: 16px;
     }
-  
+
     .search__wrapper .learn-more {
       margin: 31px auto;
     }
-  
-  
+
+
     // .search__wrapper .searchAreaMain {
     //   border: 2px solid #2172cb;
     //       box-shadow: none;
     //   border-radius: 5px;
     // }
-  
+
   .search__wrapper  .mat-form-field-infix {
       margin-top: 17px !important;
     }
-  
+
     .homecountry_dropdown1 .mat-form-field-flex {
       padding-left: 75px !important;
     }
-  
+
   }
-  
-  
+
+
   // top 5 country media quries end here
-  
-  
+
+
   @media only screen and (max-width: 650px) {
     .searchAreaMain {
       width: 90% !important;
     }
-  
+
     .search-main .select_top1 {
       left: 20px !important;
       top: 12px !important;
     }
-  
+
     .homecountry_dropdown1 {
       height: 56px;
     }
-  
-  
-  
+
+
+
     .flag_list1 {
       top: 45px !important;
       left: 10px !important;
     }
-  
+
     .textImg a {
       background: #35a6f7;
     }
-  
+
     .textImg a span {
       opacity: 1 !important;
     }
-  
+
     .width70 {
       width: 40% !important;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-  
+
     .width30 {
       width: 34% !important;
     }
-  
+
     .width30 img {
       height: 13px;
     }
-  
+
     .mobileRate {
       margin-right: 0 !important;
     }
-  
+
     .landlineRate {
       margin-right: 0px;
     }
-  
-  
-  
+
+
+
     .mat-option {
       padding: 0 10px !important;
       font-size: 12px !important;
     }
-  
+
     .search__wrapper p.palceholder-searchs {
       position: absolute;
       top: 40%;
@@ -1166,57 +1166,57 @@ $background-color_1: #293a6a;
       font-size: 14px;
     }
   }
-  
-  
+
+
   @media only screen and (min-width: 767px) and (max-width: 1200px) {
-  
+
     .search__wrapper .mat-list-base {
       width: 100%;
     }
-  
+
     .search__wrapper .mat-list-item-content {
       font-size: 16px;
     }
-  
+
     .search__wrapper .bg-shapes img:nth-child(1) {
       width: 10%;
       top: -13px;
       right: 5%;
     }
-  
+
     .search__wrapper h3.select-country {
       width: 50%;
       top: -24px;
       font-size: 24px;
     }
-  
+
     .mat-list-base .mat-list-item {
       width: unset;
     }
-  
+
     .search__wrapper a,
     .search__wrapper p {
       font-size: 16px;
     }
-  
+
     .search__wrapper p.palceholder-searchs {
       position: absolute;
       top: 30px;
       left: 70px;
       font-size: 16px;
     }
-  
+
   }
-  
-  
-  
+
+
+
   // new search and media quiries end here
-  
+
   // mobile top country start here
   .mobileratestable {
     padding-bottom: 20px;
-  
-  
+
+
     .mobileratestable-row {
       display: flex;
       border-bottom: 1px solid #9ab8db;
@@ -1225,40 +1225,40 @@ $background-color_1: #293a6a;
       justify-content: unset;
       font-size: 5vw;
       height: 3.2em;
-  
+
       span {
         z-index: 1;
       }
-  
+
       &:last-child {
         border: 0;
       }
-  
+
     }
-  
+
     .mobileratestable-currencyLabel {
       width: 20%;
       font-size: 0.4em;
       text-align: center;
       padding-bottom: 5px;
     }
-  
+
     .mobileratestable-flagNameWrap {
       display: flex;
       justify-content: start;
       width: 74%;
-  
+
       img {
         object-fit: contain;
       }
     }
-  
+
     .mobileratestable-currencyName {
       display: flex;
       flex-direction: column;
       padding-left: 10px;
       justify-content: center;
-  
+
       span {
         &:first-of-type {
           font-size: 0.7em;
@@ -1266,16 +1266,16 @@ $background-color_1: #293a6a;
           text-align: left;
               color: #0c223d;
         }
-  
+
         &:nth-of-type(2) {
           font-size: 0.33em;
           text-align: left;
         }
       }
-  
-  
+
+
     }
-  
+
     span.mobileratestable-rate {
       text-align: right;
       width: 100%;
@@ -1283,7 +1283,7 @@ $background-color_1: #293a6a;
       font-weight: 700;
       position: relative;
           color: #0c223d;
-  
+
       &:before {
         content: 'From';
         position: absolute;
@@ -1295,22 +1295,22 @@ $background-color_1: #293a6a;
       }
     }
   }
-  
+
   @media only screen and (min-width: 767px) {
-  
+
     .mobileratestable {
       display: none;
     }
   }
-  
+
   // mobile top country start here
-  
+
   .linethroughArea{ position: relative;height: 40px;margin:68px 0 23px;}
   .line{ height: 1px; background: #0B203E;}
   .linethroughArea span{ background: #fff; color: #3A4B63; font-size: 24px; font-family: 'Montserrat', sans-serif; font-weight: 400; position: absolute; padding: 10px 40px;;left: 41%; top: -26px; }
-  
+
   //////////////////////////////////
-  
+
 
 
   .country-search{
@@ -1353,19 +1353,19 @@ $background-color_1: #293a6a;
               font-weight: 500;
               font-family: $font-family;
               opacity: 1;
-      
+
               @include breakpoint(sm) {
                   font-size: 16px;
               }
           }
-      
+
           .form-control {
               &:focus {
                   border: 0;
                   box-shadow: none;
                   outline: none;
               }
-      
+
               &:focus-visible {
                   border: 0;
                   box-shadow: none;
@@ -1373,11 +1373,11 @@ $background-color_1: #293a6a;
               }
           }
       }
-      
+
   }
   // Search box Css end here
 
-  
+
 
   .alphabet_links {
     display: flex;
@@ -1420,7 +1420,7 @@ $background-color_1: #293a6a;
 }
 
 .country-box {
-  margin: 70px 0; 
+  margin: 70px 0;
 border-right: 1px solid #e7e7e7;
   @include breakpoint(sm) {
       text-align: center;
@@ -1479,6 +1479,7 @@ border-right: 1px solid #e7e7e7;
       span {
           font-size: 16px;
           text-transform: lowercase;
+          font-weight: 500;
       }
   }
 

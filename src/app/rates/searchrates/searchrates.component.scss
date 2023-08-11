@@ -42,19 +42,19 @@ $background-color_1: #293a6a;
             font-weight: 500;
             font-family: $font-family;
             opacity: 1;
-    
+
             @include breakpoint(sm) {
                 font-size: 16px;
             }
         }
-    
+
         .form-control {
             &:focus {
                 border: 0;
                 box-shadow: none;
                 outline: none;
             }
-    
+
             &:focus-visible {
                 border: 0;
                 box-shadow: none;
@@ -62,7 +62,7 @@ $background-color_1: #293a6a;
             }
         }
     }
-    
+
 }
 // Search box Css end here
 
@@ -106,7 +106,7 @@ $background-color_1: #293a6a;
 $background-color_1: #ffffff;
 
 .country-box {
-    margin: 70px 0; 
+    margin: 70px 0;
 	border-right: 1px solid #e7e7e7;
     @include breakpoint(sm) {
         text-align: center;
@@ -165,6 +165,7 @@ $background-color_1: #ffffff;
         span {
             font-size: 16px;
             text-transform: lowercase;
+            font-weight: 500;
         }
     }
 
@@ -196,7 +197,7 @@ $background-color_1: #ffffff;
       border-right: 0;
     }
 }
-  
+
 .qrimage {
 	box-shadow: 7px 10px #cc9f23;
 }
