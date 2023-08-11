@@ -98,12 +98,29 @@ $font-family:'Montserrat', sans-serif;
       &.active {
         display: block;
       }
+      &_0, &_1, &_2, &_3 {
+        background-position: top 0 right;
+      }
     }
     .mobiletab-content {
         margin-top: 400px;
         margin-left: 80px;
         max-width: 310px;
         font-family: "Montserrat", sans-serif;
+        &.slideText_0 {
+          margin-top: 338px;
+          max-width: 414px;
+        }
+        &.slideText_1 {
+          margin-top: 360px;
+          max-width: 335px;
+        }
+        &.slideText_2 {
+          margin-top: 430px;
+          margin-left: 35px;
+          max-width: 400px;
+        }
+
         h1 {
             font-size: 45px;
             font-weight: 700;
