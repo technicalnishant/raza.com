@@ -14,28 +14,20 @@ sans-serif;
 }
 
 .tab-wrapper {
-  // margin-top: 100px;
-  // background-image: url($tab-bg);
-  // padding: 100px 0 200px;
   background-size: cover;
   position: relative;
-
-
   .title-wrapper {
     .heading_style1 {
-      top: 20%;
-  }
+        top: 20%;
+    }
   }
 
   mat-tab-group {
-    // padding: 400px 0 200px 00px;
     padding: 100px 0 200px 00px;
     @include breakpoint(sm){
       margin: 0 16px;
     }
   }
-
-
 
   .main_bg {
     transform: scale(1.05);
@@ -128,13 +120,12 @@ sans-serif;
       border-top: 1px solid #eaeaea;
       border-bottom: 1px solid #eaeaea;
       margin-bottom: 40px;
-      
-    .horizontal {
-      display: inline-flex;
-      margin-bottom: 8px;
-    }
-  }
 
+        .horizontal {
+          display: inline-flex;
+          margin-bottom: 8px;
+        }
+      }
 
     .bg-white {
       background-color: #ffF;
@@ -202,10 +193,10 @@ sans-serif;
     mat-tab-group {
       padding: 100px 0 0px 0px;
     }
-      .title-wrapper .heading_style1 {
-    top: 15%;
-}
 
+    .title-wrapper .heading_style1 {
+        top: 15%;
+    }
 
     .main_bg {
       transform: scale(1);
@@ -215,10 +206,6 @@ sans-serif;
     .mat-tab-header-pagination-chevron {
       border-color: #000 !important;
     }
-
-    // .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
-    //   display: none !important;
-    // }
   }
 
   .tab-wrapper .containers {
@@ -229,8 +216,7 @@ sans-serif;
   .tab-wrapper .content-wrapper {
     width: 100%;
   }
-  .mobiletab-content
-  {
+  .mobiletab-content {
     background: $content-bg-color;
     width: 41%;
     padding: 29px;
@@ -246,7 +232,6 @@ sans-serif;
   .hide_desktop {
     display: none;
   }
-
 }
 
 .mat-list {
@@ -291,16 +276,15 @@ sans-serif;
 	padding-left: 0!important;
 }
 
-
-
-@media only screen and (min-width: 1034px){
+@media only screen and (min-width: 1034px) {
     .main_bg {
-    background-repeat: no-repeat!important;
-    background-size: cover!important;
-    background-position: center!important;
+      background-repeat: no-repeat!important;
+      background-size: cover!important;
+      background-position: center!important;
+  }
 }
-}
-@media only screen and (max-width: 650px)  {
+
+@media only screen and (max-width: 650px) {
   .tab-wrapper button {
     margin-top: 20px !important;
   }
