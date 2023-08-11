@@ -28,6 +28,7 @@ import { MAT_SELECT_SCROLL_STRATEGY } from '@angular/material/select';
 import { isNullOrUndefined } from "../../../shared/utilities";
 import { Subscription } from 'rxjs';
 import { ViewratesComponent } from 'app/accounts/dialog/viewrates/viewrates.component';
+import { RechargeService } from 'app/recharge/services/recharge.Service';
 @Component({
   selector: 'app-account-recharge',
   templateUrl: './account-recharge.component.html',
@@ -41,12 +42,8 @@ export class AccountRechargeComponent implements OnInit {
   fromCountryId:number;
   denominatons:any;
   isAutorefill:boolean=false;
-
-
   username: string;
- 
-	 
-	isEnableOtherPlan: boolean = false;
+  isEnableOtherPlan: boolean = false;
   is_notification: boolean=false;
   sendPushNotification: boolean=false;
   sendSMSPromo: boolean=false;
@@ -64,6 +61,12 @@ export class AccountRechargeComponent implements OnInit {
   currentCart: ICheckoutModel;
   clientCardId:any;
   selectedAmount:any;
+  selectedPlanId:any='';
+  
+  rechargeAmounts: number[];
+  callingFrom: number;
+  callingTo: number;
+  isPremium:boolean=false;
   constructor(
 
     private searchRatesService: SearchRatesService,
@@ -80,12 +83,15 @@ export class AccountRechargeComponent implements OnInit {
     private transactionProcessBraintree: TransactionProcessBraintreeService,
     private braintreeService: BraintreeService,
     private dialog: MatDialog,
+    private rechargeService: RechargeService,
 
   ) {
     
    }
 
   ngOnInit(): void {
+
+    this.selectedPlanId = this.route.snapshot.paramMap.get('planId');
     this.checkoutService.deleteCart();
     this.selectedDenomination = (history.state.price)?history.state.price:10;
     this.phoneNumber    = localStorage.getItem("login_no");
@@ -105,30 +111,74 @@ export class AccountRechargeComponent implements OnInit {
          
       })
 
-    this.planService.getAllPlans().subscribe(
-      (data: Plan[]) => {
-        this.plan = data[0];
-        
-
-        if(data.length > 0 )
-        {
-
- 
-          this.toCountryId    = this.plan.CountryTo;
-          this.fromCountryId  = this.plan.CountryFrom;
-          this.isEnableOtherPlan =false
-        }
-        else {
-			if( this.authService.isNewUser() == true)
-			{
-				this.isEnableOtherPlan =true;
-			}
-        }
-        this.getRates();
-      },
-      (err: ApiErrorResponse) => console.log(err)
-    );
+      if(this.selectedPlanId && this.selectedPlanId !='')
+      {
+        this.getSelectedPlan()
+      }
+      else
+      {
+        this.getDefaultPlan()
+      }
  }
+
+ getDefaultPlan()
+ {
+  this.planService.getAllPlans().subscribe(
+    (data: Plan[]) => {
+      this.plan = data[0];
+      
+      
+      if(data.length > 0 )
+      {
+        this.toCountryId    = this.plan.CountryTo;
+        this.fromCountryId  = this.plan.CountryFrom;
+        this.isEnableOtherPlan =false
+      }
+      else 
+      {
+        if( this.authService.isNewUser() == true)
+        {
+          this.isEnableOtherPlan =true;
+        }
+      }
+      this.getRechargeOption();
+    },
+    (err: ApiErrorResponse) => console.log(err)
+  );
+ }
+ getSelectedPlan()
+ {
+  this.planService.getPlan(this.selectedPlanId).subscribe(
+    (res: Plan) =>{
+      this.plan = res;
+      this.callingFrom    = this.plan.CountryFrom;
+      this.callingTo      = this.plan.CountryTo;
+      this.toCountryId    = this.plan.CountryTo;
+      this.fromCountryId  = this.plan.CountryFrom;
+    },
+    err => console.log(err),
+    () => {
+      
+      if(this.callingFrom  == 1 || this.callingFrom == 2)
+      {
+        if(this.plan.CardName == 'CANADA SUPER ONE TOUCH DIAL' || this.plan.CardName == 'SUPER ONE TOUCH DIAL' || this.plan.CardName == 'ONE TOUCH DIAL' || this.plan.CardName == 'CANADA ONE TOUCH DIAL')
+        {
+          this.getRechargeOption()
+        }
+        else
+        {
+          this.getRechargeOption()
+        }
+      }
+      else
+      {
+        this.getRechargeOption()
+      }
+      
+    }
+  );
+ }
+
 
  showRechargeList()
  {
@@ -172,7 +222,22 @@ export class AccountRechargeComponent implements OnInit {
   {
     return this.selectedDenomination == item.Price?'active':'';
   }
-   
+  getRechargeOption() {
+    this.rechargeService.getRechargeAmounts(this.plan.CardId).subscribe(
+      (res: number[]) => {
+        this.rechargeAmounts = res;
+        this.isPremium = false;
+        if(res[0] && res.length >=4)
+        {
+          /************ To show new reate page enable this page uncomment this ***********/
+          this.isPremium = true;
+          this.getRates()
+
+        }
+ 
+      }
+    )
+  }
     getRates()
     {
       this.searchRatesService.getSpecificRateDetails(this.fromCountryId, this.toCountryId, this.phoneNumber).subscribe(

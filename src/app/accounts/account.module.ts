@@ -86,6 +86,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
                     { path: 'overview', component: AccountRechargeComponent },
                     { path: 'overview/:notification', component: AccountRechargeComponent },
+                    { path: 'recharge/:planId', component: AccountRechargeComponent },
                     
                     
                     { path: 'payment-details/:planId', component: AccountPaymentDetailsComponent },
