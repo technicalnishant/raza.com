@@ -98,18 +98,7 @@ export class AccountRechargeComponent implements OnInit {
     this.titleService.setTitle('Recharge');
     this.razalayoutService.setFixedHeader(true);
     this.uri = this.route.snapshot.paramMap.get('notification');//?this.route.snapshot.paramMap.get('notification'):'notification';
-    this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe( 
-      (res:any)=>{
-        if(res.CardId)
-        {
-          this.clientCardId = res.CardId;
-          this.isAutoRefillEnable = res.ArStatus
-
-       
-           
-        }
-         
-      })
+ 
 
       if(this.selectedPlanId && this.selectedPlanId !='')
       {
@@ -123,16 +112,31 @@ export class AccountRechargeComponent implements OnInit {
 
  getDefaultPlan()
  {
-  this.planService.getAllPlans().subscribe(
-    (data: Plan[]) => {
-      this.plan = data[0];
-      
-      
-      if(data.length > 0 )
+
+  this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe( 
+    (res:any)=>{
+      if(res.CardId)
       {
+        this.clientCardId = res.CardId;
+        this.isAutoRefillEnable = res.ArStatus
+        this.plan = res;
         this.toCountryId    = this.plan.CountryTo;
         this.fromCountryId  = this.plan.CountryFrom;
         this.isEnableOtherPlan =false
+         
+  //     }
+       
+  //   })
+
+
+  // this.planService.getAllPlans().subscribe(
+  //   (data: Plan[]) => {
+  //     this.plan = data[0];
+ 
+      
+  //     if(data.length > 0 )
+  //     {
+        
       }
       else 
       {
@@ -218,9 +222,16 @@ export class AccountRechargeComponent implements OnInit {
  }
 
   
-  getActiveClass(item)
+  getActiveClass(item, obj)
   {
-    return this.selectedDenomination == item.Price?'active':'';
+    if(obj == 'others')
+    {
+      return this.selectedDenomination == item?'active':'';
+    }
+    else{
+      return this.selectedDenomination == item.Price?'active':'';
+    }
+    
   }
   getRechargeOption() {
     this.rechargeService.getRechargeAmounts(this.plan.CardId).subscribe(
@@ -289,9 +300,35 @@ export class AccountRechargeComponent implements OnInit {
     model.offerPercentage = '';
     this.currentCart = model;
     this.checkoutService.setCurrentCart(model);
-    
+    console.log(item, model);
     
   }
+
+
+  onClickAmountOptionOthers(item: any)
+  {
+    console.log(item)
+   this.selectedDenomination=item;
+   const model: RechargeCheckoutModel = new RechargeCheckoutModel();
+   model.purchaseAmount = item;
+   model.couponCode = '';
+   model.currencyCode = this.plan.CurrencyCode;
+   model.cvv = '';
+   model.planId = this.plan.PlanId
+   model.transactiontype = TransactionType.Recharge;
+   model.serviceChargePercentage = this.plan.ServiceChargePercent;
+   model.planName = this.plan.CardName;
+   model.countryFrom = this.plan.CountryFrom;
+   model.countryTo = this.plan.CountryTo;
+   model.cardId = this.plan.CardId;
+   model.isAutoRefill = this.isAutorefill;
+   model.offerPercentage = '';
+   this.currentCart = model;
+   this.checkoutService.setCurrentCart(model);
+   
+   
+ }
+
 
   onPaymentInfoFormSubmit(creditCard: CreditCard) {
    

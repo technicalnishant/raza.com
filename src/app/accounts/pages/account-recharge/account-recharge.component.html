@@ -3,8 +3,8 @@
 <div *ngIf="!isPremium">
 
   <div class="denomination__box_wrap">
-    <div  *ngFor="let item of rechargeAmounts; let i = index" class="{{getActiveClass(item)}}" class="demBoxWrp">
-      <div class="denomination__box" (click)="onClickAmountOption(item)">
+    <div  *ngFor="let item of rechargeAmounts; let i = index" class="{{getActiveClass(item, 'others')}}" class="demBoxWrp">
+      <div class="denomination__box" (click)="onClickAmountOptionOthers(item)">
        <div class="d-flex justify-content-between">
             <div class="amount">{{item | bCurrency : plan?.CurrencyCode}}</div>
              
@@ -17,7 +17,7 @@
 </div>
 <div *ngIf="isPremium"> 
 <div *ngIf="!isAutorefill" class="denomination__box_wrap">
-  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index" class="{{getActiveClass(item)}}" class="demBoxWrp">
+  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index" class="{{getActiveClass(item, '')}}" class="demBoxWrp">
     <div class="denomination__box" (click)="onClickAmountOption(item)">
      <div class="d-flex justify-content-between">
           <div class="amount">{{item.Price | bCurrency}}</div>
@@ -35,7 +35,7 @@
 </div>
 
 <div *ngIf="isAutorefill" class="denomination__box_wrap">
-  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index"  class="{{getActiveClass(item)}}" class="demBoxWrp">
+  <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index"  class="{{getActiveClass(item, '')}}" class="demBoxWrp">
     <div class="denomination__box" (click)="onClickAmountOption(item)" >
      <div class="d-flex justify-content-between">
           <div class="amount">{{item.Price | bCurrency}}</div>
