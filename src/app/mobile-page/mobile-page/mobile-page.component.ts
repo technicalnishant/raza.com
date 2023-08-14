@@ -126,6 +126,6 @@ export class MobilePageComponent implements OnInit {
   }
 
   searchRates(){
-
+   // /searchrates
   }
 }

@@ -303,7 +303,7 @@
                         <input #formRow autocomplete="on" type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)" autofocus>
                       </div>
                 </div>
-                <p *ngIf="sendAgainMsg && loginWith == 'phone'" class="text_green" >Code has been sent. Please check your phone. </p>
+                <p *ngIf="sendAgainMsg && loginWith == 'phone'" class="text_green" >A code has been sent to your mobile. Kindly check and enter it. </p>
                 <p *ngIf="sendAgainMsg && loginWith == 'email'" class="text_green" >Code has been sent. Please check your email. </p>
                 <div class="row titleTex">
                  
