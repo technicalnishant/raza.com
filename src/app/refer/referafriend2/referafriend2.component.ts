@@ -119,6 +119,8 @@ export class Referafriend2Component implements OnInit {
     }
 
 
+    
+
     // if (emails.length > 0) {
     //   this.customerService.referFriends(emails).subscribe(res => {
     //     this.razaSnackBarService.openSuccess('Successfull Invited your friends.');
