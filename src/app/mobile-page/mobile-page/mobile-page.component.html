@@ -5,7 +5,8 @@
       <span></span>
     </h1>
     <div class="scanTextWrap">
-      <img src="../../../assets/images/new_design_images/mp_scan.jpg" alt=""  width="169" height="168"/>
+      <img src="../../../assets/images/new_design_images/mp_scan.jpg" alt="scaner" class="scaner" width="169" height="168"/>
+      <img src="../../../assets/images/new_design_images/mobile_app_us_ypncgi2.webp" class="download" width="522" height="102" alt="download"/>
       <div class="textWrap">
         Cheap International  Calling, Mobile Top-Up,  Rewards & more…
         Anytime, Anywhere with the Raza app.
@@ -46,18 +47,6 @@
                         <h1 [innerHTML]="item.heading"></h1>
                         <p [innerHTML]="item.subhead" class="subhead"></p>
                         <p [innerHTML]="item.subhead2" class="subhea2"></p>
-
-                       <!-- <div class="list-wrapper">
-                        <mat-list role="list" class="horizontal" *ngFor="let img_l of item.img_list;" (mouseover)="(main_img = img_l.img_hover)">
-                          <mat-list-item role="listitem">
-                              <div class="icon-wrapper" matTooltip="{{img_l.tool}}" matTooltipPosition="above">
-                                  <img src="{{img_l.img}}" >
-                                  <img src="{{img_l.img_hover}}"  >
-                            </div>
-                          </mat-list-item>
-                        </mat-list>
-                       </div> -->
-
                       </div>
                     </mat-tab>
                     <!-- one touch dialing -->
@@ -80,15 +69,20 @@
                   </div>
               </div>
 
-              <div>
-                <iframe width="100%" height="780"
+              <div class="videoContainer">
+                <!-- <iframe width="100%" height="780"
                   src="https://www.youtube.com/embed/Ao6ffJUECcQ?rel=0&controls=0&autoplay=1&start=10&loop=1&mute=1&showinfo=1"
                   title="Raza Mobile App"
                   frameborder="0"
-                  
+
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen>
-                </iframe>
+                </iframe> -->
+                <video width="100%" height="700" controls>
+                  <source src="../../../assets/video/raz_mobile_new.mp4" type="video/mp4">
+                  <source src="../../../assets/video/raz_mobile_new.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
               </div>
         </div>
     </div>

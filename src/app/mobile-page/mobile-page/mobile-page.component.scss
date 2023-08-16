@@ -6,60 +6,65 @@ $content-bg-color: #fff;
 $tab-bg-color: #ffffff;
 $font-family:'Montserrat', sans-serif;
 
-.mobilePage_banner {
-  background-image: url(../../../assets/images/new_design_images/mobile_page_banner.jpg);
-  margin-top: 77px;
-}
-.headerScanWrap {
-  position: absolute;
-  left: 13%;
-  bottom: 14%;
-  .heading_mobilePage {
-    font-size: 70px;
-    line-height: 1.1;
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 40px;
-  }
-  .scanTextWrap {
-    display: flex;
-    color: #fff;
-    align-items: center;
-  }
-  .scanTextWrap img {
-    margin-right: 35px;
-  }
-  .textWrap {
-    max-width: 370px;
-    font-size: 22px;
-    line-height: 1.3;
-  }
-}
-
-.search__wrapper_new {
-  margin-top: 80px;
-  margin-bottom: 60px;
-  text-align: center;
-  h2 {
-    font-size: 80px;
-    line-height: 1.1;
-    font-weight: 700;
-    letter-spacing: -3px;
-    margin-bottom: 15px;
-  }
-  p {
-      font-size: 22px;
-      font-weight: 600;
-  }
-  .searchRates {
-      font-size: 20px;
-      font-weight: 700;
-      color: #2c9af9;
-      display: inline-block;
-  }
-}
 
 ::ng-deep {
+  .mobilePage_banner {
+    background-image: url(../../../assets/images/new_design_images/mobile_page_banner.jpg);
+    margin-top: 77px;
+  }
+  .headerScanWrap {
+    position: absolute;
+    left: 13%;
+    bottom: 14%;
+    .heading_mobilePage {
+      font-size: 70px;
+      line-height: 1.1;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    .scanTextWrap {
+      display: flex;
+      color: #fff;
+      align-items: center;
+      img {
+        margin-right: 35px;
+        max-width: 100%;
+        height: auto;
+        &.download {
+          display: none;
+        }
+      }
+    }
+    .textWrap {
+      max-width: 370px;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+  }
+
+  .search__wrapper_new {
+    margin-top: 80px;
+    margin-bottom: 60px;
+    text-align: center;
+    h2 {
+      font-size: 80px;
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: -3px;
+      margin-bottom: 15px;
+    }
+    p {
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .searchRates {
+        font-size: 20px;
+        font-weight: 700;
+        color: #2c9af9;
+        display: inline-block;
+    }
+  }
   .callSupportTab {
     position: relative;
     height: 870px;
@@ -125,7 +130,7 @@ $font-family:'Montserrat', sans-serif;
           margin-left: 90px;
           max-width: 465px;
         }
-        &.slideText_2 {
+        &.slideText_3 {
           margin-top: 395px;
           max-width: 365px;
         }
@@ -166,6 +171,24 @@ $font-family:'Montserrat', sans-serif;
         margin-left: auto;
     }
   }
+  .videoContainer {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+  }
+}
+
+.containerMp {
+  padding-bottom: 65px;
 }
 
 @media only screen and (min-width: 1650px) {
@@ -174,5 +197,176 @@ $font-family:'Montserrat', sans-serif;
   }
   .containerMp {
       max-width: 1290px;
+  }
+}
+
+::ng-deep {
+  @media only screen and (max-width: 1299px) {
+    .callSupportTab {
+       height: 650px;
+      .mat-tab-label {
+          font-size: 16px;
+          height: 60px;
+          padding: 0;
+      }
+      .main_bg {
+          background-size: contain;
+      }
+      .mobiletab-content {
+        margin-left: 0;
+        margin-top: 362px;
+        &.slideText_0 {
+              margin-top: 274px;
+        }
+      }
+    }
+    .search__wrapper_new, .experienceSecTop {
+      h2 {
+        font-size: 60px;
+      }
+    }
+    .experienceSecTop {
+      h2 {
+        padding-right: 50px;
+      }
+    }
+  }
+}
+
+
+::ng-deep {
+  @media only screen and (max-width: 991px) {
+    .callSupportTab {
+      height: 500px;
+      .mat-tab-label {
+          font-size: 15px;
+          height: 55px;
+          min-width: 140px;
+          padding: 0 10px;
+          &:nth-child(1) {
+            padding-left: 20px;
+          }
+          &:nth-child(4) {
+            min-width: 180px;
+          }
+      }
+      .mobiletab-content {
+        margin-top: 260px;
+        h1 {
+          font-size: 36px;
+        }
+        p {
+          font-size: 16px;
+        }
+        &.slideText_0 {
+            margin-top: 98px;
+            max-width: 315px;
+        }
+        &.slideText_1 {
+            margin-top: 220px;
+        }
+        &.slideText_2 {
+            margin-top: 169px;
+            max-width: 290px;
+            margin-left: 0;
+        }
+        &.slideText_3 {
+          margin-top: 196px;
+          max-width: 325px;
+        }
+      }
+    }
+    .search__wrapper_new, .experienceSecTop {
+      h2 {
+        font-size: 40px;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  @media only screen and (max-width: 767px) {
+    .mobilePage_banner {
+      background-position: right 25% top;
+    }
+    .headerScanWrap {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.50);
+      padding: 18px 20px;
+      .heading_mobilePage {
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+      .scanTextWrap {
+        display: block;
+        img.scaner {
+          display: none;
+        }
+        img.download {
+          display: inline-block;
+          width: 270px;
+          margin-bottom: 20px;
+        }
+      }
+      .textWrap {
+        max-width: 100%;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+    .search__wrapper_new {
+        margin-top: 40px;
+        margin-bottom: 30px;
+        p {
+            font-size: 18px;
+        }
+    }
+    .container {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .callSupportTab {
+      height: 630px;
+      .main_bg {
+        height: 280px;
+        top: 80px;
+        background-size: auto 267px;
+        background-position: center;
+      }
+      .mobiletab-content {
+        margin-top: 330px !important;
+        h1 {
+          font-size: 30px;
+        }
+        p {
+          font-size: 16px;
+        }
+      }
+      .mat-tab-header {
+          margin: 0 -18px;
+      }
+    }
+    .experienceSecTop {
+      display: block;
+      .desText {
+        margin: 0;
+      }
+      h2 {
+        padding: 0;
+        max-width: 100%;
+      }
+    }
+    .search__wrapper_new, .experienceSecTop {
+      h2 {
+        font-size: 35px;
+        letter-spacing: -1px;
+      }
+    }
+    .mat-tab-header-pagination-chevron {
+      border-color: rgba(0,0,0,.87) !important;
+    }
   }
 }
