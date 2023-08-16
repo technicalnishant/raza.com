@@ -238,11 +238,32 @@ export class AccountRechargeComponent implements OnInit {
       (res: number[]) => {
         this.rechargeAmounts = res;
         this.isPremium = false;
-        if(res[0] && res.length >=4)
+        if(res[0] && res.length >0)
         {
+          this.denominatons = res[0];//.filter( a => {a.CountryId == this.fromCountryId})
+          this.ratesLoaded = true;
+
+          this.selectedDenomination = res[0];
+          const model: RechargeCheckoutModel = new RechargeCheckoutModel();
+          model.purchaseAmount = res[0];
+          model.couponCode = '';
+          model.currencyCode = this.plan.CurrencyCode;
+          model.cvv   = '';
+          model.planId = this.plan.PlanId
+          model.transactiontype = TransactionType.Recharge;
+          model.serviceChargePercentage = this.plan.ServiceChargePercent;
+          model.planName = this.plan.CardName;
+          model.countryFrom = this.plan.CountryFrom;
+          model.countryTo = this.plan.CountryTo;
+          model.cardId = this.plan.CardId;
+          model.isAutoRefill = this.isAutorefill;
+          model.offerPercentage = '';
+          this.currentCart = model;
+          this.checkoutService.setCurrentCart(model);
+      
           /************ To show new reate page enable this page uncomment this ***********/
-          this.isPremium = true;
-          this.getRates()
+        //  this.isPremium = true;
+        //  this.getRates()
 
         }
  

@@ -60,6 +60,7 @@ export class OtherPlansComponent implements OnInit {
   }
   recharge(instanceId) {
     //this.router.navigateByUrl("recharge/" + instanceId);
+    localStorage.setItem('orderId', instanceId);
      this.router.navigateByUrl("/account/recharge/"+ instanceId );
   }
 
