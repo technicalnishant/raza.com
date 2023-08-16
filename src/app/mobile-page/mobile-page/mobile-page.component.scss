@@ -166,6 +166,20 @@ $font-family:'Montserrat', sans-serif;
         margin-left: auto;
     }
   }
+  .videoContainer {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+  }
 }
 
 .containerMp {
@@ -281,9 +295,7 @@ $font-family:'Montserrat', sans-serif;
         margin-bottom: 20px;
       }
       .scanTextWrap img {
-        margin-right: 15px;
-        width: 90px;
-        height: auto;
+        display: none;
       }
       .textWrap {
         max-width: 100%;
@@ -308,7 +320,8 @@ $font-family:'Montserrat', sans-serif;
       .main_bg {
         height: 280px;
         top: 80px;
-        background-size: auto 267px
+        background-size: auto 267px;
+        background-position: center;
       }
       .mobiletab-content {
         margin-top: 330px !important;
