@@ -27,9 +27,14 @@ $font-family:'Montserrat', sans-serif;
       display: flex;
       color: #fff;
       align-items: center;
-    }
-    .scanTextWrap img {
-      margin-right: 35px;
+      img {
+        margin-right: 35px;
+        max-width: 100%;
+        height: auto;
+        &.download {
+          display: none;
+        }
+      }
     }
     .textWrap {
       max-width: 370px;
@@ -294,8 +299,16 @@ $font-family:'Montserrat', sans-serif;
         font-size: 35px;
         margin-bottom: 20px;
       }
-      .scanTextWrap img {
-        display: none;
+      .scanTextWrap {
+        display: block;
+        img.scaner {
+          display: none;
+        }
+        img.download {
+          display: inline-block;
+          width: 270px;
+          margin-bottom: 20px;
+        }
       }
       .textWrap {
         max-width: 100%;
