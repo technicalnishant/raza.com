@@ -2,11 +2,17 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { BillingInfo } from 'app/accounts/models/billingInfo';
+import { Plan } from 'app/accounts/models/plan';
+import { EarnedPoint, RedeemedPoint, Rewards } from 'app/accounts/models/rewardpoints';
 import { CustomerService } from 'app/accounts/services/customerService';
 import { MetaTagsService } from 'app/core/services/meta.service';
 import { RazaEnvironmentService } from 'app/core/services/razaEnvironment.service';
+import { RechargeRewardService } from 'app/recharge/services/recharge-reward.Service';
 import { RazaSnackBarService } from 'app/shared/razaSnackbar.service';
-
+import { isNullOrUndefined } from '../../shared/utilities'
+import { PlanService } from 'app/accounts/services/planService';
+import { ApiErrorResponse } from 'app/core/models/ApiErrorResponse';
 
 
 @Component({
@@ -30,6 +36,22 @@ export class RefferComponent implements OnInit {
   totalCompleted:any=0;
   totalRedemed:any=0;
   
+
+  rewardTotal: number;
+  referedFriends: Rewards[];
+  redeemedPoints: RedeemedPoint[];
+  allRewardPoints: EarnedPoint[];
+  isAbleToRedeemFlag: boolean = false;
+  plan: Plan;
+  isenableEnroll: boolean = false;
+  btnEnrollDisable = true;
+  rechargeOptions: any;
+  enrollPoints: number = 0;
+  enrollAmount: number = 10;
+  county_id:number = 0;
+  county_name:any;
+  billingInfo: BillingInfo;
+  
   constructor(
     private router: Router, 
     private titleService: Title, 
@@ -37,66 +59,95 @@ export class RefferComponent implements OnInit {
     private customerService: CustomerService,
     private razaSnackBarService: RazaSnackBarService,
     private razaEnvService: RazaEnvironmentService,
-    ) { }
+    private rechargeRewardService: RechargeRewardService,
+    private planService: PlanService,
+    ) { 
+      this.getRewardTotal();
+    }
 
   ngOnInit() {
     this.titleService.setTitle('Refer a friend'); 
     this.metaTagsService.getMetaTagsData('refer-a-friend');
     this.getCode();
     this.getReffDetails();
+
+    this.getReferedFriends(); //screen 2 -Refer
+    this.getRedeemedPoints(); //screen 3 -Redeemed
+
+    this.getPlanDetails();
+    this.getRechargeOptions();
+
   }
   getReffDetails(){
     
     this.customerService.referFriendsDetail().subscribe(res => {
        //console.log("Reff a friend new resp", res);
        this.rewardInfo = res;
-       this.getTotalPoints();
-       this.getTotalBalance();
-       this.getTotalEarned();
-       this.getTotalRefrals();
-       this.getTotalCompleted();
-       this.getTotalRedemed();
+       
     },
       err => {
         this.razaSnackBarService.openError('There must be some issue while fetching data.');
       }
     );
   }
-  getTotalPoints()
-  {
-    this.rewardInfo.RazaReward.map(point=>{
-     if(point.Point > 0)
-      this.totalPoints = this.totalPoints+point.Point;
-    console.log("Total reward points are ",this.totalPoints );
-    })
-    
+   
+  getRechargeOptions() {
+    this.rechargeRewardService.getRechargeOptions().subscribe(
+      (res: any) => {
+        this.rechargeOptions = res;
+        if (!isNullOrUndefined(res)) {
+          this.isenableEnroll = !res.IsActive;
+          if (res.Options && res.Options.length > 0) {
+            this.isAbleToRedeemFlag = true;
+            this.enrollPoints=res.Options[0].Points;
+            //this.enrollAmount=res.Options[0].Amount;
+            this.enrollAmount=10;
+          }
+        }
+      },
+      err => console.log(err));
   }
 
-  getTotalBalance()
-  {
-    this.rewardInfo.RedeemPoint.map(point=>{
-      
-      this.totalBalance = this.totalBalance+point.PointUsed;
-    })
+  getPlanDetails() {
+    this.planService.getAllPlans().subscribe(
+      (data: Plan[]) => {
+        this.plan = data[0];
+      },
+      (err: ApiErrorResponse) => console.log(err)
+    );
   }
-  getTotalEarned()
-  {
-    this.rewardInfo.RedeemPoint.map(point=>{
-       
-      this.totalEarned = this.totalEarned+point.PointUsed;
-    })
-  }
-  getTotalRefrals()
-  {
 
+  getRewardTotal() {
+    this.planService.getRewardTotal().subscribe(
+      (data: number) => {
+        this.rewardTotal = data;
+      },
+      (err: ApiErrorResponse) => console.log(err),
+    );
   }
-  getTotalCompleted()
-  {
 
+  getReferedFriends() {
+    this.planService.getReferedFriends().subscribe(
+      (data: Rewards[]) => {
+        this.referedFriends = data;
+      },
+      (err: ApiErrorResponse) => console.log(err),
+    );
   }
-  getTotalRedemed()
-  {
 
+  getRedeemedPoints() {
+    this.planService.getPointsRedeemed().subscribe(
+      (data: RedeemedPoint[]) => {
+        this.redeemedPoints = data;
+      },
+      (err: ApiErrorResponse) => console.log(err),
+    );
+  }
+
+  getAllEarnedPoints() {
+    this.planService.getAllEarnedPoints().subscribe((res: EarnedPoint[]) => {
+      this.allRewardPoints = res;
+    });
   }
   getCode()
   {
