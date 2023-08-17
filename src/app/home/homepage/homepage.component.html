@@ -26,7 +26,7 @@
                   <p class="promotion-note" >*Promotion minutes vary from country to country.</p>
             </ng-template>    -->
              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
+                <div class="picsum-img-wrapper" id={{currentSetting?.country?.CountryId}}>
                     <!-- <img src="./assets/images/home_banner_new/slider-bg.webp" loading="lazy" alt="Random first slide" width="1905" height="700" class="bg-image"> -->
                     <img src="./assets/images/home_banner_new/slider-bg.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
                     <img src="./assets/images/home_banner_new/slider-bg-mb.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
@@ -39,22 +39,22 @@
                     <div class="d-flex justify-content-center align-items-center flex-column">
                         <div class="d-md-flex align-items-center justify-content-center mt-5 mt-md-0">
                           <div class="img-1 mt-5 newSpelWrap">
-                            <span class="new_cust_spl showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 1">New Customer Special</span>
+                            <span class="new_cust_spl showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">New Customer Special</span>
                               <!-- <img  src="./assets/images/buy1get1.webp" loading="lazy" alt="" class="img-fluid"> -->
                               <img  src="./assets/images/home_banner_new/buy1get1.webp" loading="lazy" alt="img" class="img-fluid d-none d-md-block">
                               <!-- <img  src="./assets/images/home_banner_new/new_cust_spl.webp" loading="lazy" alt="" class="img-fluid showMobileOnly new_cust_spl"  *ngIf="currentSetting?.country?.CountryId == 1"> -->
-                              <img  src="./assets/images/home_banner_new/hm_banner_mb-us.webp" loading="lazy" alt="img" class="img-fluid showMobileOnly"  *ngIf="currentSetting?.country?.CountryId == 1">
+                              <img  src="./assets/images/home_banner_new/hm_banner_mb-us.webp" loading="lazy" alt="img" class="img-fluid showMobileOnly"  *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
                           </div>
                           <!-- <div class="py-3 d-block d-md-none w-75 m-auto" *ngIf="currentSetting?.country?.CountryId ==3">
                               <img src="./assets/images/buy1get1.webp" alt="" loading="lazy" class="img-fluid">
                           </div> -->
                           <div class="divider d-none d-md-block"></div>
-                          <div class="img-1 " *ngIf="currentSetting?.country?.CountryId !=1">
+                          <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 3">
                               <!-- <img src="./assets/images/was10now5.webp" alt="" loading="lazy" class="img-fluid"> -->
                               <img src="./assets/images/home_banner_new/was10now5.webp" alt="img" loading="lazy" class="img-fluid d-none d-md-block">
                               <img src="./assets/images/home_banner_new/was10now5_mb.webp" alt="img" loading="lazy" class="img-fluid showMobileOnly">
                           </div>
-                          <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 1">
+                          <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
                               <img src="./assets/images/home_banner_new/was5now5_us.webp" alt="img" loading="lazy" class="img-fluid d-none d-md-block">
                           </div>
                           <!-- <div class="img-1 d-none d-md-block" *ngIf="currentSetting?.country?.CountryId ==3"> -->
@@ -65,10 +65,10 @@
                               <img src="./assets/images/uk_left_new.webp" alt="" loading="lazy" class="img-fluid">
                           </div> -->
                         </div>
-                        <div class="hp_text2" *ngIf="currentSetting?.country?.CountryId == 1">
+                        <!-- <div class="hp_text2" *ngIf="currentSetting?.country?.CountryId == 1">
                             Call over 200 countries <span>as low as 1$</span>
-                        </div>
-                        <div class="hp_text2" *ngIf="currentSetting?.country?.CountryId !=1">
+                        </div> -->
+                        <div class="hp_text2">
                             Call over 200 countries <span>as low as 1¢</span>
                         </div>
                         <div class="button-wrapper text-center" style="width:100%;">
@@ -98,9 +98,11 @@
                   </a>
 
                   <div class="desk_app_us_img_wrap">
-                      <img loading="lazy" src="./assets/images/home_banner_new/desk_app_us_ypncgi.webp" alt="img" class="img-fluid d-none d-md-block m-auto">
+                      <a href="javascript:void(0)" (click)="downloadApp()">
+                        <img loading="lazy" src="./assets/images/home_banner_new/desk_app_us_ypncgi.webp" alt="img" class="img-fluid d-none d-md-block m-auto">
+                      </a>
                       <div class="desk_app_us_text">
-                          <a href="javascript:void(0)" (click)="downloadApp()">
+                          <a href="#">
                               Learn more
                           </a>
                       </div>
