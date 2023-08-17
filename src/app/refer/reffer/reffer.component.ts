@@ -29,12 +29,12 @@ export class RefferComponent implements OnInit {
   reff_text : string = `Enjoy FREE International calls with Raza! When you sign up and make your first purchase using my link, we'll both receive $5 credits - absolutely free. Follow this link to get started now!`
   rewardInfo:any = [];
   
-  totalPoints:any=0;
-  totalBalance:any=0;
-  totalEarned:any=0;
-  totalRefrals:any=0;
-  totalCompleted:any=0;
-  totalRedemed:any=0;
+  totalPoints:number=0;
+  totalBalance:number=0;
+  totalEarned:number=0;
+  totalRefrals:number=0;
+  totalCompleted:number=0;
+  totalRedemed:number=0;
   
 
   rewardTotal: number;
@@ -130,6 +130,17 @@ export class RefferComponent implements OnInit {
     this.planService.getReferedFriends().subscribe(
       (data: Rewards[]) => {
         this.referedFriends = data;
+        this.totalRefrals = data.length;
+        if(data[0])
+        {
+          data.map(p =>{
+            if(p.Point > 0)
+            {
+              this.totalCompleted = this.totalCompleted+1;
+            }
+          })
+           
+        }
       },
       (err: ApiErrorResponse) => console.log(err),
     );
@@ -139,6 +150,12 @@ export class RefferComponent implements OnInit {
     this.planService.getPointsRedeemed().subscribe(
       (data: RedeemedPoint[]) => {
         this.redeemedPoints = data;
+        data.map(p =>{
+          if(p.PointUsed > 0)
+          {
+            this.totalRedemed = this.totalRedemed+p.PointUsed;
+          }
+        })
       },
       (err: ApiErrorResponse) => console.log(err),
     );

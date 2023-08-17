@@ -26,21 +26,7 @@
                         </div>
                     </div>
 
-                    <!-- <div class="col-md-4 howitworksSection number1">
-                        <div class="icon_holder1"><img src="assets/images/howitworks_icon1.svg" alt="icon"></div>
-                        <h3 class="heading_style2">Sign up</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    </div>
-                    <div class="col-md-4 howitworksSection number2">
-                        <div class="icon_holder1"><img src="assets/images/howitworks_icon2.svg" alt="icon"></div>
-                        <h3 class="heading_style2">Enter friend’s email</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    </div>
-                    <div class="col-md-4 howitworksSection number3">
-                        <div class="icon_holder1"><img src="assets/images/howitworks_icon3.svg" alt="icon"></div>
-                        <h3 class="heading_style2">Earn $10 FREE min</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    </div> -->
+                     
                 </div>
 
                 <h3>Your reffral code is: {{referrerCode}}</h3>
@@ -51,12 +37,7 @@
                 <button type="button">
                     <a href="https://twitter.com/intent/tweet?text={{reff_text}} : {{reffralUrl}}" target="_blank">Twitter</a>
                 </button>
-
-                <!-- <button type="button">
-                    <a href="javascript:void(0)" (click)="shareinstaUrl()">Instagram</a>
-                </button>  -->
-
-
+ 
                 <button type="button">
                     <a href="http://pinterest.com/pin/create/link/?url={{reffralUrl}}" target="_blank">Pintrest</a>
                 </button>
@@ -77,29 +58,29 @@
             <div class="row">
                 <div class="col-md-3 ">
                     <div class="point_box">
-                        <h3>3325</h3>
+                        <h3>{{rewardTotal}}</h3>
                         <p>Earned</p>
                         <a href="">Learn more</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="point_box">
-                        <h3>3325</h3>
-                        <p>Earned</p>
+                        <h3>{{totalRefrals}}</h3>
+                        <p>Referrals</p>
                         <a href="">Learn more</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="point_box">
-                        <h3>3325</h3>
-                        <p>Earned</p>
+                        <h3>{{totalCompleted}}</h3>
+                        <p>Completed</p>
                         <a href="">Learn more</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="point_box">
-                        <h3>3325</h3>
-                        <p>Earned</p>
+                        <h3>{{totalRedemed}}</h3>
+                        <p>Redeemed</p>
                         <a href="">Learn more</a>
                     </div>
                 </div>
