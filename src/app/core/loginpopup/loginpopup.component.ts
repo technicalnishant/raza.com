@@ -204,20 +204,19 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      }
     if(this.data.loginWith  && this.data.loginWith == 'email')
     {
-      this.loginWith        = 'email';
-      
-      this.navigateTo = this.data.navigateTo && this.data.navigateTo!=''?this.data.navigateTo:'';
+        this.loginWith        = 'email';
+        this.navigateTo = this.data.navigateTo && this.data.navigateTo!=''?this.data.navigateTo:'';
+        
+        if(this.data.email)
+        {
+          this.showPassWord     = true;
+          this.showForgotPass   = true;
+          this.processOtp       = true;
 
-      if(this.data.email)
-      {
-        this.showPassWord     = true;
-        this.showForgotPass   = true;
-        this.processOtp       = true;
-
-        this.enteredPhone = this.data.email;
-        this.forgotPasswordForm.controls['phoneEmailControl'].setValue(this.data.email);
-        this.loginForm.controls['username'].setValue(this.data.email);
-      }
+          this.enteredPhone = this.data.email;
+          this.forgotPasswordForm.controls['phoneEmailControl'].setValue(this.data.email);
+          this.loginForm.controls['username'].setValue(this.data.email);
+        }
     } 
 
     if (!this.dialogService.getIsDialogOpen()) {
@@ -237,7 +236,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      const loginwith  = localStorage.getItem('cookieLoginWith');
      const phoneEmail = localStorage.getItem('cookieLoginPhone');
      const password   = localStorage.getItem('cookieLoginPass');
-     this.loginWith        = loginwith;
+     this.loginWith   = this.loginWith?this.loginWith : loginwith;
      this.rememberMe = true;
      this.loginForm.controls['username'].setValue(phoneEmail);
      this.loginForm.controls['password'].setValue(password);
@@ -805,6 +804,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      
       dialogConfig.data = {
         email: email, 
+        loginWit:this.loginWith
       }
 
     const  dialog =  this.matDialog.open(OtpDialogComponent, dialogConfig);
@@ -884,22 +884,31 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   sendpasswordlink(): void {
        
       var reciever = this.forgotPasswordForm.value.phoneEmailControl;
-      reciever = autoCorrectIfPhoneNumber(this.forgotPasswordForm.get('phoneEmailControl').value);
-       
-      this.authService.sendpasswordlink(reciever).subscribe(
-        (res: boolean) => {
-           this.otpSend = true;
-         // this.processOtp = true;
-           this.showOtpPopup()
-          this.dialogRef.close();
-           
-        },
-        err => {
-          this.processOtp = false;
-          this.showForgotPass = true;
-          this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
-        }
-      );
+      
+       if(!this.validateUserEmail(this.forgotPasswordForm.get('phoneEmailControl').value))
+       {
+        this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+       }
+       else
+       {
+      //  reciever = autoCorrectIfPhoneNumber(this.forgotPasswordForm.get('phoneEmailControl').value);
+          this.authService.sendpasswordlink(reciever).subscribe(
+            (res: boolean) => {
+              this.otpSend = true;
+            // this.processOtp = true;
+              this.showOtpPopup()
+              this.dialogRef.close();
+              
+            },
+            err => {
+              this.processOtp = false;
+              this.showForgotPass = true;
+              this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+            }
+          );
+       }
+
+     
 
      
   }

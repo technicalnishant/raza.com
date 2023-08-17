@@ -46,13 +46,13 @@
           <!--<input  matInput formControlName="username" placeholder="Enter Mobile Number/Email"/>-->
 			
             <mat-error *ngIf="loginForm.get('username').errors?.required">
-              Phone Number is required.
+              Phone number is required.
             </mat-error>
             <mat-error *ngIf="loginForm.get('username').errors?.pattern">
               Please enter a valid phone number.
             </mat-error>
             <mat-error *ngIf="loginForm.get('username').errors?.invalid_input">
-              Invalid Phone Number.
+              Invalid Phone number.
             </mat-error>
         </mat-form-field>
         </div>
@@ -142,7 +142,7 @@
   </div>
   <div class="login-options">
     <button *ngIf="loginWith != 'email'" mat-button class="login-button" (click)="setLoginWith('email')">
-      <img src="./assets/images/app-icons/email.png" alt=""> Continue with Email
+      <img src="./assets/images/app-icons/email.png" alt=""> Continue with email
     </button>     
     <button *ngIf="loginWith == 'email'" mat-button class="login-button" (click)="setLoginWith('phone')">
       <img src="./assets/images/app-icons/email.png" alt=""> Continue with phone number
@@ -207,7 +207,7 @@
 			  </div>
 			  </div>
           <mat-form-field class="example-full-width full-width ml-4">
-            <input type="{{loginWith == 'email'?'email':'tel'}}" matInput placeholder="Enter {{loginWith == 'email'?'Email address':'mobile number'}}" (keyup)="validateFUsername()" formControlName="phoneEmailControl">
+            <input type="{{loginWith == 'email'?'email':'tel'}}" matInput placeholder="Enter {{loginWith == 'email'?'email address':'mobile number'}}" (keyup)="validateFUsername()" formControlName="phoneEmailControl">
              
             <!-- <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required">
               {{loginWith == 'email'?'Email address':'Mobile number'}} is required.
@@ -228,9 +228,9 @@
         </div>
 
        <!-- {{forgotPasswordForm.get('phoneEmailControl').errors | json}} -->
-        <span class="error" *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required && forgotPassSubmitted">
+        <!-- <span class="error" *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required && forgotPassSubmitted">
           {{loginWith == 'email'?'Email address':'Mobile number'}} is required.
-        </span>
+        </span> -->
         <span class="error" *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.pattern && forgotPassSubmitted">
           Please enter a valid {{loginWith == 'email'?'email address':'mobile number'}}.
         </span>
@@ -247,7 +247,7 @@
           <mat-form-field class="example-full-width full-width">
             <input matInput type="password" maxlength="6" placeholder="Enter 6 digit passcode" formControlName="otp">
             <span class="floatRight resend" *ngIf="isEnableResendOtp">
-            <a tabindex="0" (click)="sendOtp()">Resend Passcode</a>
+            <a tabindex="0" (click)="sendOtp()">Resend passcode</a>
           </span>
             <mat-error *ngIf="forgotPasswordForm.get('otp').errors?.invalid">
               <!-- Incorrect Mobile Number/Password. -->
@@ -289,7 +289,7 @@
     <h2 *ngIf="loginWith == 'phone'" >(+{{currentSetting.country.CountryCode}}) {{formattedNumber(enteredPhone)}}</h2>
     <h2 *ngIf="loginWith == 'email'" >{{enteredPhone}}</h2>
       <div> 
-        <a href="javascript:void(0)" *ngIf="loginWith == 'phone'" (click)="changeNumber()" class="changeNum">Change Number</a>
+        <a href="javascript:void(0)" *ngIf="loginWith == 'phone'" (click)="changeNumber()" class="changeNum">Change number</a>
         <!-- <a href="javascript:void(0)" *ngIf="loginWith == 'email'" (click)="changeNumber()" class="changeNum">Change Email </a> -->
         <i class="fa fa-pencil" aria-hidden="true"></i>
       </div>
