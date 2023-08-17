@@ -19,6 +19,14 @@
 	cursor: pointer;
 	border: none;
 }
+.referafriend_banner {
+  background:url(../../../assets/images/new_design_images/Refer_a_Friend.jpg) no-repeat center 100%;
+  background-size: 100%;
+}
+h1.heading_style1 {
+  left: 22%;
+  line-height: 1;
+}
 .howitworksSection {
 	text-align: left;
 	padding: 20px 20px 20px 85px;
@@ -45,8 +53,22 @@
 .balDetails {
   max-width: 700px;
   margin: 0 auto;
+  color: #272c39;
   .col-md-6 {
     padding: 0 50px;
+    display: flex;
+    align-items: flex-start;
+    img {
+      margin-right: 25px;
+    }
+    p {
+        font-weight: 500;
+        margin-bottom: 4px;
+    }
+    h3 {
+        font-size: 30px;
+        font-weight: 700;
+    }
     &:first-child {
       border-right: 1px solid #ddd;
     }
