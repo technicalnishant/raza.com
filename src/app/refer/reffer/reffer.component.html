@@ -9,7 +9,7 @@
         <!-- <img src="assets/images/banner_image.png" alt="banner"> -->
     </div>
     </div>
-    <div *ngIf="userLoggedin"> 
+    <section *ngIf="userLoggedin"> 
         <div class="second_fold">
                 <div class="shadowtype2">
                     <h2 ><span class="heading_strong">Nagesh's </span> <span class="heading_light">Point</span></h2>
@@ -19,9 +19,9 @@
                             <h3>16,235</h3>
                         </div>
                         <div class="col-md-6">
-                            <p>Redeemable value</p>
-                            <h3>$10</h3>
-                            <div class="buttonArea">
+                            <p>Redeemable value {{enrollPoints}}</p>
+                            <h3>{{enrollAmount | bCurrency}}</h3>
+                            <div class="buttonArea" *ngIf="enrollPoints">
                                 <button mat-button class="submitButton" >Redeem now</button>
                             </div>
                         </div>
@@ -176,7 +176,7 @@
 
             </div>
         </div>
-    </div>
-    <div *ngIf="!userLoggedin">
+    </section>
+    <section *ngIf="!userLoggedin">
         <p>User is not logged in</p>
-    </div>
+    </section>
