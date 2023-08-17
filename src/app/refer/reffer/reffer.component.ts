@@ -20,8 +20,15 @@ export class RefferComponent implements OnInit {
   headerValue: number = 1;
   referrerCode:any;
   reffralUrl:string="https://raza.com/ref/";
-  
   reff_text : string = `Enjoy FREE International calls with Raza! When you sign up and make your first purchase using my link, we'll both receive $5 credits - absolutely free. Follow this link to get started now!`
+  rewardInfo:any = [];
+  totalPoints:any;
+  totalBalance:any;
+  totalEarned:any;
+  totalRefrals:any;
+  totalCompleted:any;
+  totalRedemed:any;
+  
   constructor(
     private router: Router, 
     private titleService: Title, 
@@ -35,8 +42,19 @@ export class RefferComponent implements OnInit {
     this.titleService.setTitle('Refer a friend'); 
     this.metaTagsService.getMetaTagsData('refer-a-friend');
     this.getCode();
+    this.getReffDetails();
   }
-
+  getReffDetails(){
+    
+    this.customerService.referFriendsDetail().subscribe(res => {
+       //console.log("Reff a friend new resp", res);
+       this.rewardInfo = res;
+    },
+      err => {
+        this.razaSnackBarService.openError('User already exists.');
+      }
+    );
+  }
   getCode()
   {
       let phone = localStorage.getItem("login_no");

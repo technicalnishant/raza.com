@@ -265,6 +265,13 @@ export class CustomerService {
         return this.httpClient.post(Api.customer.referFriend, emails);
     }
 
+    referFriendsDetail(): Observable<[] | ApiErrorResponse> {
+        return this.httpClient.get<[]>(`${Api.customer.referFrienddetail}`)
+            .pipe(
+                catchError(err => this.errorHandleService.handleHttpError(err))
+            );
+    }
+
     referFriendnew(emails: string[]) {
 
         let data = {
