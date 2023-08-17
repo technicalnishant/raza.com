@@ -19,11 +19,13 @@
                             <h3>16,235</h3>
                         </div>
                         <div class="col-md-6">
-                            <p>Redeemable value {{enrollPoints}}</p>
+                            <p>Redeemable value </p>
                             <h3>{{enrollAmount | bCurrency}}</h3>
-                            <div class="buttonArea" *ngIf="enrollPoints">
-                                <button mat-button class="submitButton" >Redeem now</button>
+                            <div class="buttonArea">
+                                <button mat-button *ngIf="enrollPoints > 1000" class="submitButton" >Redeem now</button> 
+                                <button mat-button *ngIf="enrollPoints > 1000" class="submitButton" >Redeem now</button> 
                             </div>
+
                         </div>
 
                         
