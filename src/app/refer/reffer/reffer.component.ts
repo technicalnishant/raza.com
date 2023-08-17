@@ -22,12 +22,13 @@ export class RefferComponent implements OnInit {
   reffralUrl:string="https://raza.com/ref/";
   reff_text : string = `Enjoy FREE International calls with Raza! When you sign up and make your first purchase using my link, we'll both receive $5 credits - absolutely free. Follow this link to get started now!`
   rewardInfo:any = [];
-  totalPoints:any;
-  totalBalance:any;
-  totalEarned:any;
-  totalRefrals:any;
-  totalCompleted:any;
-  totalRedemed:any;
+  
+  totalPoints:any=0;
+  totalBalance:any=0;
+  totalEarned:any=0;
+  totalRefrals:any=0;
+  totalCompleted:any=0;
+  totalRedemed:any=0;
   
   constructor(
     private router: Router, 
@@ -49,11 +50,53 @@ export class RefferComponent implements OnInit {
     this.customerService.referFriendsDetail().subscribe(res => {
        //console.log("Reff a friend new resp", res);
        this.rewardInfo = res;
+       this.getTotalPoints();
+       this.getTotalBalance();
+       this.getTotalEarned();
+       this.getTotalRefrals();
+       this.getTotalCompleted();
+       this.getTotalRedemed();
     },
       err => {
-        this.razaSnackBarService.openError('User already exists.');
+        this.razaSnackBarService.openError('There must be some issue while fetching data.');
       }
     );
+  }
+  getTotalPoints()
+  {
+    this.rewardInfo.RazaReward.map(point=>{
+     if(point.Point > 0)
+      this.totalPoints = this.totalPoints+point.Point;
+    console.log("Total reward points are ",this.totalPoints );
+    })
+    
+  }
+
+  getTotalBalance()
+  {
+    this.rewardInfo.RedeemPoint.map(point=>{
+      
+      this.totalBalance = this.totalBalance+point.PointUsed;
+    })
+  }
+  getTotalEarned()
+  {
+    this.rewardInfo.RedeemPoint.map(point=>{
+       
+      this.totalEarned = this.totalEarned+point.PointUsed;
+    })
+  }
+  getTotalRefrals()
+  {
+
+  }
+  getTotalCompleted()
+  {
+
+  }
+  getTotalRedemed()
+  {
+
   }
   getCode()
   {
