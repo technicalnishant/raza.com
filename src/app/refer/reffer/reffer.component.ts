@@ -13,6 +13,7 @@ import { RazaSnackBarService } from 'app/shared/razaSnackbar.service';
 import { isNullOrUndefined } from '../../shared/utilities'
 import { PlanService } from 'app/accounts/services/planService';
 import { ApiErrorResponse } from 'app/core/models/ApiErrorResponse';
+import { AuthenticationService } from 'app/core/services/auth.service';
 
 
 @Component({
@@ -36,7 +37,7 @@ export class RefferComponent implements OnInit {
   totalCompleted:number=0;
   totalRedemed:number=0;
   
-
+  userLoggedin:boolean=false;
   rewardTotal: number;
   referedFriends: Rewards[];
   redeemedPoints: RedeemedPoint[];
@@ -61,35 +62,35 @@ export class RefferComponent implements OnInit {
     private razaEnvService: RazaEnvironmentService,
     private rechargeRewardService: RechargeRewardService,
     private planService: PlanService,
+    private authService: AuthenticationService,
     ) { 
-      this.getRewardTotal();
+      
     }
 
   ngOnInit() {
     this.titleService.setTitle('Refer a friend'); 
     this.metaTagsService.getMetaTagsData('refer-a-friend');
-    this.getCode();
-    this.getReffDetails();
-
-    this.getReferedFriends(); //screen 2 -Refer
-    this.getRedeemedPoints(); //screen 3 -Redeemed
-
-    this.getPlanDetails();
-    this.getRechargeOptions();
-
-  }
-  getReffDetails(){
+    if(this.authService.isAuthenticated())
+    {
+      this.getRewardTotal();
+      this.userLoggedin = true;
+      this.getCode();
     
-    this.customerService.referFriendsDetail().subscribe(res => {
-       //console.log("Reff a friend new resp", res);
-       this.rewardInfo = res;
-       
-    },
-      err => {
-        this.razaSnackBarService.openError('There must be some issue while fetching data.');
-      }
-    );
+
+      this.getReferedFriends(); //screen 2 -Refer
+      this.getRedeemedPoints(); //screen 3 -Redeemed
+  
+      this.getPlanDetails();
+      this.getRechargeOptions();
+    }
+    else
+    {
+      this.userLoggedin = false;
+    }
+    
+
   }
+ 
    
   getRechargeOptions() {
     this.rechargeRewardService.getRechargeOptions().subscribe(
@@ -169,15 +170,17 @@ export class RefferComponent implements OnInit {
   getCode()
   {
       let phone = localStorage.getItem("login_no");
-      this.customerService.getReferrerCode(phone).subscribe((res:any) =>  {
-      this.referrerCode =  res.ReferrerCode ;
-      this.reffralUrl = this.reffralUrl+this.referrerCode;
-      
-    },
-      err => {
-        this.razaSnackBarService.openError('There must be some issue while fetching reffral code.');
-      }
-    );
+       
+        this.customerService.getReferrerCode(phone).subscribe((res:any) =>  {
+        this.referrerCode =  res.ReferrerCode ;
+        this.reffralUrl = this.reffralUrl+this.referrerCode;
+        
+        },
+          err => {
+            this.razaSnackBarService.openError('There must be some issue while fetching reffral code.');
+          }
+        );
+     
   }
   shareinstaUrl() {
     window.open('https://instagram.com/accounts/login/?text=%20Check%20up%20this%20awesome%20content' + encodeURIComponent("Custom Title") + ':%20 ' + encodeURIComponent(this.reffralUrl));

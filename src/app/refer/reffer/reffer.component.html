@@ -9,170 +9,174 @@
         <!-- <img src="assets/images/banner_image.png" alt="banner"> -->
     </div>
     </div>
+    <div *ngIf="userLoggedin"> 
+        <div class="second_fold">
+                <div class="shadowtype2">
+                    <h2 ><span class="heading_strong">Nagesh's </span> <span class="heading_light">Point</span></h2>
+                    <div class="row balDetails">
+                        <div class="col-md-6">
+                            <p>Current Balance</p>
+                            <h3>16,235</h3>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Redeemable value</p>
+                            <h3>$10</h3>
+                            <div class="buttonArea">
+                                <button mat-button class="submitButton" >Redeem now</button>
+                            </div>
+                        </div>
 
-    <div class="second_fold">
+                        
+                    </div>
+
+                    <h3>Your reffral code is: {{referrerCode}}</h3>
+
+                    <button type="button" data-href="reffralUrl">
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{reffralUrl}}&amp;src=sdkpreparse">Facebook</a>
+                    </button>
+                    <button type="button">
+                        <a href="https://twitter.com/intent/tweet?text={{reff_text}} : {{reffralUrl}}" target="_blank">Twitter</a>
+                    </button>
+    
+                    <button type="button">
+                        <a href="http://pinterest.com/pin/create/link/?url={{reffralUrl}}" target="_blank">Pintrest</a>
+                    </button>
+
+                    <button type="button">
+                        <a href="https://wa.me?text={{reff_text}} : {{reffralUrl}}" target="_blank">WhatsApp</a>
+                    </button>
+
+                </div>
+
+                <!-- <st-inline-share-buttons [config]="inlineShareButtonsConfig"></st-inline-share-buttons>  -->
+
+        </div>
+
+        <div class="second_fold">
             <div class="shadowtype2">
-                <h2 ><span class="heading_strong">Nagesh's </span> <span class="heading_light">Point</span></h2>
-                <div class="row balDetails">
-                    <div class="col-md-6">
-                        <p>Current Balance</p>
-                        <h3>16,235</h3>
+
+                <div class="row">
+                    <div class="col-md-3 ">
+                        <div class="point_box">
+                            <h3>{{rewardTotal}}</h3>
+                            <p>Earned</p>
+                            <a href="">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="point_box">
+                            <h3>{{totalRefrals}}</h3>
+                            <p>Referrals</p>
+                            <a href="">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="point_box">
+                            <h3>{{totalCompleted}}</h3>
+                            <p>Completed</p>
+                            <a href="">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="point_box">
+                            <h3>{{totalRedemed}}</h3>
+                            <p>Redeemed</p>
+                            <a href="">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="second_fold">
+            <div class="shadowtype2">
+
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <div class="point_box_bottom">
+
+                            <a href="">Send Reffral <br/>Link</a>
+                        </div>
                     </div>
                     <div class="col-md-6">
-                        <p>Redeemable value</p>
-                        <h3>$10</h3>
-                        <div class="buttonArea">
-                            <button mat-button class="submitButton" >Redeem now</button>
+                        <div class="point_box_bottom">
+
+                            <a href="">Call to <br/>Redeem</a>
                         </div>
                     </div>
 
-                     
-                </div>
-
-                <h3>Your reffral code is: {{referrerCode}}</h3>
-
-                <button type="button" data-href="reffralUrl">
-                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{reffralUrl}}&amp;src=sdkpreparse">Facebook</a>
-                </button>
-                <button type="button">
-                    <a href="https://twitter.com/intent/tweet?text={{reff_text}} : {{reffralUrl}}" target="_blank">Twitter</a>
-                </button>
- 
-                <button type="button">
-                    <a href="http://pinterest.com/pin/create/link/?url={{reffralUrl}}" target="_blank">Pintrest</a>
-                </button>
-
-                <button type="button">
-                    <a href="https://wa.me?text={{reff_text}} : {{reffralUrl}}" target="_blank">WhatsApp</a>
-                </button>
-
-            </div>
-
-            <!-- <st-inline-share-buttons [config]="inlineShareButtonsConfig"></st-inline-share-buttons>  -->
-
-    </div>
-
-    <div class="second_fold">
-        <div class="shadowtype2">
-
-            <div class="row">
-                <div class="col-md-3 ">
-                    <div class="point_box">
-                        <h3>{{rewardTotal}}</h3>
-                        <p>Earned</p>
-                        <a href="">Learn more</a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="point_box">
-                        <h3>{{totalRefrals}}</h3>
-                        <p>Referrals</p>
-                        <a href="">Learn more</a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="point_box">
-                        <h3>{{totalCompleted}}</h3>
-                        <p>Completed</p>
-                        <a href="">Learn more</a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="point_box">
-                        <h3>{{totalRedemed}}</h3>
-                        <p>Redeemed</p>
-                        <a href="">Learn more</a>
-                    </div>
-                </div>
-            </div>
-
-         </div>
-     </div>
-
-
-
-     <div class="second_fold">
-        <div class="shadowtype2">
-
-            <div class="row">
-                <div class="col-md-6 ">
-                    <div class="point_box_bottom">
-
-                        <a href="">Send Reffral <br/>Link</a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="point_box_bottom">
-
-                        <a href="">Call to <br/>Redeem</a>
-                    </div>
                 </div>
 
             </div>
-
-         </div>
-     </div>
+        </div>
 
 
-     <div class="second_fold">
-        <div class="shadowtype2">
+        <div class="second_fold">
+            <div class="shadowtype2">
 
-            <div class="row">
-                <div class="col-md-12 ">
-                    <div class="point_box_bottom">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="point_box_bottom">
 
-                        <a href="">Send Reffral <br/>Link</a>
+                            <a href="">Send Reffral <br/>Link</a>
+                        </div>
                     </div>
+
+
                 </div>
-
-
-            </div>
-            <div class="row">
-                <mat-tab-group>
-                    <mat-tab label="All">
-                        <div class="box_container">
-                            <div class="section">
-                                <div class="left_section">
-                                    <div class="buyer_title">Nagesh's Purcchase</div>
-                                    <div class="balance_div"> 40GB</div>
-                                    <div class="date_div">March 1 2012 $15</div>
+                <div class="row">
+                    <mat-tab-group>
+                        <mat-tab label="All">
+                            <div class="box_container">
+                                <div class="section">
+                                    <div class="left_section">
+                                        <div class="buyer_title">Nagesh's Purcchase</div>
+                                        <div class="balance_div"> 40GB</div>
+                                        <div class="date_div">March 1 2012 $15</div>
+                                    </div>
+                                    <div class="right_section">
+                                        <div class="points_div">+512 Points</div>
+                                    </div>
                                 </div>
-                                <div class="right_section">
-                                    <div class="points_div">+512 Points</div>
+                                    <div class="st_line"></div>
+                                <div class="section">
+                                    <div class="left_section">
+                                        <div class="buyer_title">Nagesh's Purcchase</div>
+                                        <div class="balance_div"> 40GB</div>
+                                        <div class="date_div">March 1 2012 $15</div>
+                                    </div>
+                                    <div class="right_section">
+                                        <div class="points_div">+512 Points</div>
+                                    </div>
                                 </div>
-                            </div>
+
                                 <div class="st_line"></div>
-                            <div class="section">
-                                <div class="left_section">
-                                    <div class="buyer_title">Nagesh's Purcchase</div>
-                                    <div class="balance_div"> 40GB</div>
-                                    <div class="date_div">March 1 2012 $15</div>
+                                <div class="section">
+                                    <div class="left_section">
+                                        <div class="buyer_title">Nagesh's Purcchase</div>
+                                        <div class="balance_div"> 40GB</div>
+                                        <div class="date_div">March 1 2012 $15</div>
+                                    </div>
+                                    <div class="right_section">
+                                        <div class="points_div">+512 Points</div>
+                                    </div>
                                 </div>
-                                <div class="right_section">
-                                    <div class="points_div">+512 Points</div>
-                                </div>
-                            </div>
 
-                            <div class="st_line"></div>
-                            <div class="section">
-                                <div class="left_section">
-                                    <div class="buyer_title">Nagesh's Purcchase</div>
-                                    <div class="balance_div"> 40GB</div>
-                                    <div class="date_div">March 1 2012 $15</div>
-                                </div>
-                                <div class="right_section">
-                                    <div class="points_div">+512 Points</div>
-                                </div>
                             </div>
+                        </mat-tab>
+                        <mat-tab label="Earned"> Content 2 </mat-tab>
+                        <mat-tab label="Completed"> Content 3 </mat-tab>
+                        <mat-tab label="Redeemed"> Content 3 </mat-tab>
+                    </mat-tab-group>
 
-                        </div>
-                    </mat-tab>
-                    <mat-tab label="Earned"> Content 2 </mat-tab>
-                    <mat-tab label="Completed"> Content 3 </mat-tab>
-                    <mat-tab label="Redeemed"> Content 3 </mat-tab>
-                  </mat-tab-group>
+                </div>
 
             </div>
-
-         </div>
-     </div>
+        </div>
+    </div>
+    <div *ngIf="!userLoggedin">
+        <p>User is not logged in</p>
+    </div>
