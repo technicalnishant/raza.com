@@ -54,7 +54,7 @@ h1.heading_style1 {
   max-width: 700px;
   margin: 0 auto;
   color: #272c39;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   .col-md-6 {
     padding: 20px 50px 0;
     display: flex;
@@ -86,6 +86,69 @@ h1.heading_style1 {
       margin-top: 5px;
   }
 }
+
+.yourReffralCode {
+  text-align: center;
+  h3 {
+      text-align: center;
+      color: #203676;
+      font-weight: 500;
+      font-size: 34px;
+      margin-bottom: 25px;
+      span {
+        font-weight: 600;
+    }
+  }
+  button {
+    border: none;
+    background: transparent;
+    margin: 0 8px;
+  }
+}
+
+.points_summary {
+  background: #f7f7f7;
+  border-bottom: 1px solid #ddd;
+  &.second_fold {
+    padding: 0;
+  }
+  .shadowtype2 {
+      display: flex;
+      padding: 40px 0;
+      align-items: center;
+      h3 {
+        color: #1e3370;
+        font-size: 25px;
+        font-weight: 700;
+    }
+    p {
+        color: #282a2f;
+        margin-bottom: 0;
+    }
+  }
+  .right_section {
+      margin-left: auto;
+      .viewAllTr {
+        border: 2px solid #f4cb26;
+        display: inline-block;
+        padding: 9px 15px;
+        color: #282a2f;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 20px;
+        background: #fff;
+    }
+  }
+}
+
+.earned_referrals {
+  background: #f7f7f7;
+  padding: 0;
+  .shadowtype2 {
+    padding: 60px 0;
+  }
+}
+
 .shadowtype2 {
 	width: 1100px;
 	margin: 0 auto;
@@ -171,26 +234,54 @@ h1.heading_style1 {
 }
 
 .point_box{
-	height:350px;
-	border:1px solid #ccc;
-	border-radius: 20px;
-    margin-right: 5px;
-	width:95%;
-	padding:5px 0px 0px 5px;
-    height: 350px;
-    border: 1px solid #ccc;
+  height: 280px;
+  border-radius: 20px;
+  padding: 25px 0px 22px;
+  background: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 22px;
+  h3 {
+    color: #1c2b58;
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 0;
+  }
+  p {
+    color: #1c2b58;
+    font-weight: 600;
+  }
+  a {
+    display: block;
+    font-size: 14px;
+    color: #21242a;
+    font-weight: 500;
+    text-decoration: underline;
+    margin-top: auto;
+  }
+  img {
+      max-height: 105px;
+      max-width: 150px;
+      width: auto;
+      height: auto;
+  }
 }
 
-
 .point_box_bottom{
-	height:150px;
-	border:1px solid #ccc;
-	border-radius: 20px;
-    margin-right: 5px;
-	width:95%;
-	padding:5px 0px 0px 5px;
-
-    border: 1px solid #ccc;
+  height:150px;
+  border-radius: 20px;
+  margin-right: 5px;
+  width:95%;
+  padding:5px 0px 0px 5px;
+  background: #fff;
+  a {
+    font-size: 18px;
+    color: #1c2b58;
+    font-weight: 600;
+    text-decoration: underline;
+  }
 }
 
 @media only screen and (max-width: 650px)  {

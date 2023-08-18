@@ -42,22 +42,32 @@
                         </div>
                     </div>
 
-                    <h3>Your reffral code is: {{referrerCode}}</h3>
+                    <div class="yourReffralCode">
+                        <h3>Your reffral code is: <span>{{referrerCode}}</span></h3>
+                        <button type="button" data-href="reffralUrl">
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{reffralUrl}}&amp;src=sdkpreparse">
+                              <img src="../../../assets/images/new_design_images/facebook.png" alt="facebook" />
+                            </a>
+                        </button>
+                        <button type="button">
+                            <a href="https://twitter.com/intent/tweet?text={{reff_text}} : {{reffralUrl}}" target="_blank">
+                              <img src="../../../assets/images/new_design_images/twitter.png" alt="twitter" />
+                            </a>
+                        </button>
 
-                    <button type="button" data-href="reffralUrl">
-                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{reffralUrl}}&amp;src=sdkpreparse">Facebook</a>
-                    </button>
-                    <button type="button">
-                        <a href="https://twitter.com/intent/tweet?text={{reff_text}} : {{reffralUrl}}" target="_blank">Twitter</a>
-                    </button>
+                        <button type="button">
+                            <a href="http://pinterest.com/pin/create/link/?url={{reffralUrl}}" target="_blank">
+                              <img src="../../../assets/images/new_design_images/pinterest.png" alt="pinterest" />
+                            </a>
+                        </button>
 
-                    <button type="button">
-                        <a href="http://pinterest.com/pin/create/link/?url={{reffralUrl}}" target="_blank">Pintrest</a>
-                    </button>
-
-                    <button type="button">
-                        <a href="https://wa.me?text={{reff_text}} : {{reffralUrl}}" target="_blank">WhatsApp</a>
-                    </button>
+                        <button type="button">
+                            <a href="https://wa.me?text={{reff_text}} : {{reffralUrl}}" target="_blank">
+                              <!-- <img src="../../../assets/images/new_design_images/call_us.png" alt="WhatsApp" /> -->
+                              <img src="../../../assets/images/new_design_images/facebook.png" alt="WhatsApp" />
+                            </a>
+                        </button>
+                    </div>
 
                 </div>
 
@@ -65,14 +75,26 @@
 
         </div>
 
-        <div class="second_fold">
-            <div class="shadowtype2">
+        <div class="second_fold points_summary">
+          <div class="shadowtype2">
+              <div class="left_section">
+                <h3>Points summary</h3>
+                <p>In the past 45 days, you’ve earned points from</p>
+              </div>
+              <div class="right_section">
+                <a href="#" class="viewAllTr">View all Transactions</a>
+              </div>
+          </div>
+        </div>
 
+        <div class="second_fold earned_referrals">
+            <div class="shadowtype2">
                 <div class="row">
                     <div class="col-md-3 ">
                         <div class="point_box">
                             <h3>{{rewardTotal+totalRedemed}}</h3>
                             <p>Earned</p>
+                            <img src="../../../assets/images/new_design_images/earned.svg" alt="earned" />
                             <a href="">Learn more</a>
                         </div>
                     </div>
@@ -80,6 +102,7 @@
                         <div class="point_box">
                             <h3>{{totalRefrals}}</h3>
                             <p>Referrals</p>
+                            <img src="../../../assets/images/new_design_images/referrals.svg" alt="referrals" />
                             <a href="">Learn more</a>
                         </div>
                     </div>
@@ -87,6 +110,7 @@
                         <div class="point_box">
                             <h3>{{totalCompleted}}</h3>
                             <p>Completed</p>
+                            <img src="../../../assets/images/new_design_images/completed.svg" alt="completed" />
                             <a href="">Learn more</a>
                         </div>
                     </div>
@@ -94,46 +118,33 @@
                         <div class="point_box">
                             <h3>{{totalRedemed}}</h3>
                             <p>Redeemed</p>
+                            <img src="../../../assets/images/new_design_images/redeemed.svg" alt="redeemed" />
                             <a href="">Learn more</a>
                         </div>
                     </div>
                 </div>
-
-            </div>
-        </div>
-
-
-
-        <div class="second_fold">
-            <div class="shadowtype2">
-
                 <div class="row">
                     <div class="col-md-6 ">
                         <div class="point_box_bottom">
-
+                            <img src="../../../assets/images/new_design_images/sendreferrallink.svg" alt="sendreferrallink" />
                             <a href="">Send Reffral <br/>Link</a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="point_box_bottom">
-
+                            <img src="../../../assets/images/new_design_images/calltoredeem.svg" alt="calltoredeem" />
                             <a href="">Call to <br/>Redeem</a>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
 
-
         <div class="second_fold">
             <div class="shadowtype2">
-
                 <div class="row">
                     <div class="col-md-12 ">
                         <div class="point_box_bottom">
-
                             <a href="">Send Reffral <br/>Link</a>
                         </div>
                     </div>
