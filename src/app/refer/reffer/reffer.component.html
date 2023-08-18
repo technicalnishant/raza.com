@@ -18,7 +18,7 @@
                             <img src="../../../assets/images/new_design_images/current_bal.png" alt="icon" />
                             <div>
                               <p>Current Balance</p>
-                              <h3>16,235</h3>
+                              <h3>{{plan.Balance | bCurrency}}</h3>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -183,9 +183,66 @@
 
                             </div>
                         </mat-tab>
-                        <mat-tab label="Earned"> Content 2 </mat-tab>
-                        <mat-tab label="Completed"> Content 3 </mat-tab>
-                        <mat-tab label="Redeemed"> Content 3 </mat-tab>
+                        <mat-tab label="Earned"> 
+                            <table class="table table-striped" *ngIf="allRewardPoints">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Recharge Date & Time</th>
+                                    <th scope="col">Points</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let item of allRewardPoints">
+                                    <td>
+                                      {{item.EarnedDate | date :'dd-MMM-yy  h:mm a ' }}
+                                    </td>
+                                    <td>{{item.Point}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </mat-tab>
+                        
+                        <mat-tab label="Completed">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Refer-A-Friend Email</th>
+                                  <th scope="col">Points</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of referedFriends; index as i">
+                                  <td>{{item.EmailId}}</td>
+                                  <td>{{item.Point}}</td>
+                                </tr>
+                      
+                              </tbody>
+                            </table>
+                            <table class="table">
+                              <tr class="total">
+                                <td>Total Refer A Friend Points</td>
+                                <td>{{rewardTotal}}</td>
+                              </tr>
+                            </table>
+                          </mat-tab>
+                        
+                        <mat-tab label="Redeemed">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Transaction Date</th>
+                                  <th scope="col">Points</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of redeemedPoints; index as i">
+                                  <td>{{item.RedeemDate | date :'dd-MMM-yy h:mm:ss a '}}</td>
+                                  <td>{{item.PointUsed}}</td>
+                                </tr>
+                      
+                              </tbody>
+                            </table>
+                          </mat-tab>
                     </mat-tab-group>
 
                 </div>

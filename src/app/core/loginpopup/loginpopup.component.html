@@ -209,7 +209,7 @@
           <mat-form-field class="example-full-width full-width ml-4">
             <input type="{{loginWith == 'email'?'email':'tel'}}" matInput placeholder="Enter {{loginWith == 'email'?'email address':'mobile number'}}" (keyup)="validateFUsername()" formControlName="phoneEmailControl">
              
-            <!-- <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required">
+             <!-- <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required">
               {{loginWith == 'email'?'Email address':'Mobile number'}} is required.
             </mat-error>
             <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.pattern">
@@ -219,7 +219,7 @@
             <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.invalid">
               
               {{err_forgot_pass}}
-            </mat-error>  -->
+            </mat-error>    -->
 
            
 
@@ -228,12 +228,14 @@
         </div>
 
        <!-- {{forgotPasswordForm.get('phoneEmailControl').errors | json}} -->
-        <!-- <span class="error" *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required && forgotPassSubmitted">
+          
+         <span class="error" *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required && forgotPassSubmitted">
           {{loginWith == 'email'?'Email address':'Mobile number'}} is required.
-        </span> -->
-        <span class="error" *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.pattern && forgotPassSubmitted">
+        </span>   
+
+          <span class="error" *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.pattern && forgotPassSubmitted">
           Please enter a valid {{loginWith == 'email'?'email address':'mobile number'}}.
-        </span>
+        </span>  
 
         <span class="error" *ngIf="err_forgot_pass !=''">
           

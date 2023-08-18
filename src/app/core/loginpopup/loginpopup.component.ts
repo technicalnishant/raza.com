@@ -888,6 +888,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
        if(!this.validateUserEmail(this.forgotPasswordForm.get('phoneEmailControl').value))
        {
         this.forgotPasswordForm.get('phoneEmailControl').setErrors({ 'invalid': true });
+        this.forgotPasswordForm.get('phoneEmailControl').errors.pattern = true;
        }
        else
        {
