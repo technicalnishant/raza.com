@@ -40,6 +40,7 @@ export class RefferComponent implements OnInit {
   userLoggedin:boolean=false;
   rewardTotal: number;
   referedFriends: Rewards[];
+  referedFriendsCompleted: Rewards[];
   redeemedPoints: RedeemedPoint[];
   allRewardPoints: EarnedPoint[];
   isAbleToRedeemFlag: boolean = false;
@@ -111,7 +112,8 @@ export class RefferComponent implements OnInit {
   }
 
   getPlanDetails() {
-    this.planService.getAllPlans().subscribe(
+   // this.planService.getAllPlans().subscribe(
+   this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe(
       (data: Plan[]) => {
         this.plan = data[0];
       },
@@ -133,6 +135,9 @@ export class RefferComponent implements OnInit {
       (data: Rewards[]) => {
         this.referedFriends = data;
         this.totalRefrals = data.length;
+
+        this.referedFriendsCompleted = data.filter(p =>{return p.Point > 0} )
+
         if(data[0])
         {
           data.map(p =>{
@@ -187,5 +192,10 @@ export class RefferComponent implements OnInit {
     window.open('https://instagram.com/accounts/login/?text=%20Check%20up%20this%20awesome%20content' + encodeURIComponent("Custom Title") + ':%20 ' + encodeURIComponent(this.reffralUrl));
     return false;
   }
+
+  redeemNow() {
+    this.router.navigateByUrl("recharge/reward/" + this.plan.PlanId);
+  }
+
 }
 
