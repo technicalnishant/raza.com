@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -14,6 +14,7 @@ import { isNullOrUndefined } from '../../shared/utilities'
 import { PlanService } from 'app/accounts/services/planService';
 import { ApiErrorResponse } from 'app/core/models/ApiErrorResponse';
 import { AuthenticationService } from 'app/core/services/auth.service';
+import { MatTabGroup } from '@angular/material/tabs';
 
 
 @Component({
@@ -22,7 +23,9 @@ import { AuthenticationService } from 'app/core/services/auth.service';
   styleUrls: ['./reffer.component.scss']
 })
 export class RefferComponent implements OnInit {
-
+  @ViewChild(MatTabGroup) tabGroup: MatTabGroup;
+  @ViewChild('tabContainer') tabContainer: ElementRef; // Add this line
+  
   mode = new FormControl('over');
   headerValue: number = 1;
   referrerCode:any;
@@ -196,6 +199,13 @@ export class RefferComponent implements OnInit {
   redeemNow() {
     this.router.navigateByUrl("recharge/reward/" + this.plan.PlanId);
   }
+  selectTab(index: number) {
+    this.tabGroup.selectedIndex = index;
 
+    if (this.tabContainer && this.tabContainer.nativeElement) {
+      this.tabContainer.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+  }
 }
 
