@@ -124,6 +124,7 @@ h1.heading_style1 {
     p {
         color: #282a2f;
         margin-bottom: 0;
+        font-weight: 500;
     }
   }
   .right_section {
@@ -233,7 +234,7 @@ h1.heading_style1 {
 	text-align: right;
 }
 
-.point_box{
+.point_box {
   height: 280px;
   border-radius: 20px;
   padding: 25px 0px 22px;
@@ -266,6 +267,12 @@ h1.heading_style1 {
       max-width: 150px;
       width: auto;
       height: auto;
+  }
+  &:hover {
+    background: #203676;
+    h3, p, a {
+      color: #fff;
+    }
   }
 }
 
@@ -324,10 +331,45 @@ h1.heading_style1 {
 
 ::ng-deep {
   .earnedTabs {
-    padding: 40px 0;
+    padding: 55px 0 !important;
     background: #ededed;
     .shadowtype2 {
       padding: 0;
+    }
+    .mat-tab-group {
+        width: 100%;
+    }
+    .mat-tab-label {
+        background: #fff;
+        border-radius: 25px;
+        margin-right: 25px;
+        margin-bottom: 30px;
+        color: #282a2f;
+        opacity: 1;
+        font-size: 16px;
+        font-weight: 700;
+        height: 52px;
+        padding: 0 32px;
+        font-family: "Montserrat", sans-serif;
+        &-active {
+          background: #1e3370 !important;
+          color: #fff;
+        }
+    }
+    .mat-ink-bar {
+      display: none;
+    }
+    .table th {
+      border: none;
+    }
+    .mat-tab-header {
+      border: none;
+    }
+    .mat-tab-body {
+      background: #fff;
+      border-radius: 30px;
+      padding: 30px;
+      max-height: 500px;
     }
   }
 }

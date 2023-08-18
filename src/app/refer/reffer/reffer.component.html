@@ -12,7 +12,7 @@
     <section *ngIf="userLoggedin">
         <div class="second_fold">
                 <div class="shadowtype2">
-                    <h2 ><span class="heading_strong">Nagesh's </span> <span class="heading_light">Point</span></h2>
+                    <h2 ><span class="heading_strong">Nagesh's </span> <span class="heading_light">Points</span></h2>
                     <div class="row balDetails">
                         <div class="col-md-6">
                             <img src="../../../assets/images/new_design_images/current_bal.png" alt="icon" />
@@ -31,10 +31,10 @@
                                 <!-- <button mat-button *ngIf="enrollPoints > 1000" class="submitButton" >Redeem now</button> -->
 
                                 <div *ngIf="isAbleToRedeemFlag" class="input_holder1">
-                                    <button mat-button class="submitButton" (click)="redeemNow()">Redeem Now</button>
+                                    <button mat-button class="refButton" (click)="redeemNow()">Redeem Now</button>
                                   </div>
                                   <div *ngIf="!isAbleToRedeemFlag" class="input_holder1 virtualCommingSoon">
-                                    <button mat-button class="submitButton">Redeem Now</button>
+                                    <button mat-button class="refButton">Redeem Now</button>
                                   </div>
 
                             </div>
@@ -151,21 +151,19 @@
         </div>
         <div class="second_fold earnedTabs">
             <div class="shadowtype2">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-12 ">
                         <div class="point_box_bottom">
                             <a href="">Send Reffral <br/>Link</a>
                         </div>
                     </div>
-
-
-                </div>
+                </div> -->
                 <div #tabContainer></div>
                 <div class="row">
-                    
+
                     <mat-tab-group #tabGroup>
-                        <mat-tab label="Reward Points"> 
-                  
+                        <mat-tab label="Reward Points">
+
                             <table class="table table-striped" *ngIf="allRewardPoints">
                                 <thead>
                                   <tr>
