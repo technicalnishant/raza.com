@@ -119,11 +119,11 @@
                     <div class="col-md-6 ">
                         <div class="point_box_bottom">
                             <img src="../../../assets/images/new_design_images/sendreferrallink.svg" alt="sendreferrallink" />
-                            <a href="">Send Reffral <br/>Link</a>
+                            <a href="">Send <br/>Reffral link</a>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="point_box_bottom">
+                        <div class="point_box_bottom callToRef">
                             <img src="../../../assets/images/new_design_images/calltoredeem.svg" alt="calltoredeem" />
                             <a href="">Call to <br/>Redeem</a>
                         </div>
@@ -132,17 +132,17 @@
             </div>
         </div>
 
-        <div class="second_fold">
+        <div class="second_fold rectTransation">
             <div class="shadowtype2">
-                <div class="row">
-                    <div class="col-md-12 ">
-                        <div class="point_box_bottom">
-                            <a href="">Send Reffral <br/>Link</a>
-                        </div>
-                    </div>
-
-
-                </div>
+                <h3>Recent Transactions</h3>
+                <p>
+                  Browse your points earned in the past 45 days. <br/>
+                  Missing a transaction? <a href="#">Let us help.</a>
+                </p>
+            </div>
+        </div>
+        <div class="second_fold earnedTabs">
+            <div class="shadowtype2">
                 <div class="row">
                     <mat-tab-group>
                         <mat-tab label="All">
@@ -183,7 +183,7 @@
 
                             </div>
                         </mat-tab>
-                        <mat-tab label="Earned"> 
+                        <mat-tab label="Earned">
                             <table class="table table-striped" *ngIf="allRewardPoints">
                                 <thead>
                                   <tr>
@@ -201,7 +201,7 @@
                                 </tbody>
                               </table>
                         </mat-tab>
-                        
+
                         <mat-tab label="Completed">
                             <table class="table table-striped">
                               <thead>
@@ -215,7 +215,7 @@
                                   <td>{{item.EmailId}}</td>
                                   <td>{{item.Point}}</td>
                                 </tr>
-                      
+
                               </tbody>
                             </table>
                             <table class="table">
@@ -225,7 +225,7 @@
                               </tr>
                             </table>
                           </mat-tab>
-                        
+
                         <mat-tab label="Redeemed">
                             <table class="table table-striped">
                               <thead>
@@ -239,7 +239,7 @@
                                   <td>{{item.RedeemDate | date :'dd-MMM-yy h:mm:ss a '}}</td>
                                   <td>{{item.PointUsed}}</td>
                                 </tr>
-                      
+
                               </tbody>
                             </table>
                           </mat-tab>
