@@ -18,7 +18,7 @@
                             <img src="../../../assets/images/new_design_images/current_bal.png" alt="icon" />
                             <div>
                               <p>Current Balance</p>
-                              <h3>{{plan.Balance | bCurrency}}</h3>
+                              <h3>{{rewardTotal}}</h3>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -27,8 +27,16 @@
                             <p>Redeemable value </p>
                             <h3>{{enrollAmount | bCurrency}}</h3>
                             <div class="buttonArea">
-                                <button mat-button *ngIf="enrollPoints > 1000" class="refButton" >Redeem now</button>
+                                <!-- <button mat-button *ngIf="enrollPoints > 1000" class="refButton" >Redeem now</button> -->
                                 <!-- <button mat-button *ngIf="enrollPoints > 1000" class="submitButton" >Redeem now</button> -->
+
+                                <div *ngIf="isAbleToRedeemFlag" class="input_holder1">
+                                    <button mat-button class="submitButton" (click)="redeemNow()">Redeem Now</button>
+                                  </div>
+                                  <div *ngIf="!isAbleToRedeemFlag" class="input_holder1 virtualCommingSoon">
+                                    <button mat-button class="submitButton">Redeem Now</button>
+                                  </div>
+
                             </div>
                           </div>
                         </div>
@@ -63,7 +71,7 @@
                 <div class="row">
                     <div class="col-md-3 ">
                         <div class="point_box">
-                            <h3>{{rewardTotal}}</h3>
+                            <h3>{{rewardTotal+totalRedemed}}</h3>
                             <p>Earned</p>
                             <a href="">Learn more</a>
                         </div>
@@ -134,45 +142,7 @@
                 </div>
                 <div class="row">
                     <mat-tab-group>
-                        <mat-tab label="All">
-                            <div class="box_container">
-                                <div class="section">
-                                    <div class="left_section">
-                                        <div class="buyer_title">Nagesh's Purcchase</div>
-                                        <div class="balance_div"> 40GB</div>
-                                        <div class="date_div">March 1 2012 $15</div>
-                                    </div>
-                                    <div class="right_section">
-                                        <div class="points_div">+512 Points</div>
-                                    </div>
-                                </div>
-                                    <div class="st_line"></div>
-                                <div class="section">
-                                    <div class="left_section">
-                                        <div class="buyer_title">Nagesh's Purcchase</div>
-                                        <div class="balance_div"> 40GB</div>
-                                        <div class="date_div">March 1 2012 $15</div>
-                                    </div>
-                                    <div class="right_section">
-                                        <div class="points_div">+512 Points</div>
-                                    </div>
-                                </div>
-
-                                <div class="st_line"></div>
-                                <div class="section">
-                                    <div class="left_section">
-                                        <div class="buyer_title">Nagesh's Purcchase</div>
-                                        <div class="balance_div"> 40GB</div>
-                                        <div class="date_div">March 1 2012 $15</div>
-                                    </div>
-                                    <div class="right_section">
-                                        <div class="points_div">+512 Points</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </mat-tab>
-                        <mat-tab label="Earned"> 
+                        <mat-tab label="Reward Points"> 
                             <table class="table table-striped" *ngIf="allRewardPoints">
                                 <thead>
                                   <tr>
@@ -190,8 +160,9 @@
                                 </tbody>
                               </table>
                         </mat-tab>
+                         
                         
-                        <mat-tab label="Completed">
+                        <mat-tab label="Referrals">
                             <table class="table table-striped">
                               <thead>
                                 <tr>
@@ -207,13 +178,28 @@
                       
                               </tbody>
                             </table>
-                            <table class="table">
-                              <tr class="total">
-                                <td>Total Refer A Friend Points</td>
-                                <td>{{rewardTotal}}</td>
-                              </tr>
-                            </table>
+                             
                           </mat-tab>
+
+                          <mat-tab label="Completed">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Refer-A-Friend Email</th>
+                                  <th scope="col">Points</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of referedFriendsCompleted; index as i" >
+                                  <td>{{item.EmailId}}</td>
+                                  <td>{{item.Point}}</td>
+                                </tr>
+                      
+                              </tbody>
+                            </table>
+                           
+                          </mat-tab>
+
                         
                         <mat-tab label="Redeemed">
                             <table class="table table-striped">
