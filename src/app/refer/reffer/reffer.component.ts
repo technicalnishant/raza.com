@@ -82,6 +82,7 @@ export class RefferComponent implements OnInit {
   
       this.getPlanDetails();
       this.getRechargeOptions();
+      this.getAllEarnedPoints();
     }
     else
     {
