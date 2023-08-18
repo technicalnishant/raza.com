@@ -46,6 +46,7 @@ export class RefferComponent implements OnInit {
   referedFriendsCompleted: Rewards[];
   redeemedPoints: RedeemedPoint[];
   allRewardPoints: EarnedPoint[];
+  allItems : EarnedPoint[];
   isAbleToRedeemFlag: boolean = false;
   plan: Plan;
   isenableEnroll: boolean = false;
@@ -57,6 +58,9 @@ export class RefferComponent implements OnInit {
   county_name:any;
   billingInfo: BillingInfo;
   
+  itemsPerPage = 10; // Number of items to load per page
+  currentPage = 1; // Current page
+  showLoadMore:boolean = false;
   constructor(
     private router: Router, 
     private titleService: Title, 
@@ -173,9 +177,23 @@ export class RefferComponent implements OnInit {
 
   getAllEarnedPoints() {
     this.planService.getAllEarnedPoints().subscribe((res: EarnedPoint[]) => {
-      this.allRewardPoints = res;
+      //this.allRewardPoints = res;
+      this.allItems = res;
+    this.loadItems();
     });
   }
+
+  loadItems() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    this.showLoadMore = true;
+    this.allRewardPoints = this.allItems.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
+  loadMore() {
+    this.currentPage++;
+    this.loadItems();
+  }
+
   getCode()
   {
       let phone = localStorage.getItem("login_no");
@@ -205,7 +223,7 @@ export class RefferComponent implements OnInit {
     if (this.tabContainer && this.tabContainer.nativeElement) {
       this.tabContainer.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }
-    
+
   }
 }
 
