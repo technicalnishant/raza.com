@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="yourReffralCode">
-                        <h3>Your reffral code is: <span>{{referrerCode}}</span></h3>
+                        <h3>Your unique referral code is: <span>{{referrerCode}}</span></h3>
                         <button type="button" data-href="reffralUrl">
                             <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{reffralUrl}}&amp;src=sdkpreparse">
                               <img src="../../../assets/images/new_design_images/facebook.png" alt="facebook" />
@@ -67,6 +67,7 @@
                               <img src="../../../assets/images/new_design_images/facebook.png" alt="WhatsApp" />
                             </a>
                         </button>
+                        <div class="shareText">Feel free to share it with others!</div>
                     </div>
 
                 </div>
@@ -79,7 +80,7 @@
           <div class="shadowtype2">
               <div class="left_section">
                 <h3>Points summary</h3>
-                <p>In the past 45 days, you’ve earned points from</p>
+                <p>You’ve earned points from:</p>
               </div>
               <div class="right_section">
                 <a href="javascript:void(0)" (click)="selectTab(0)" class="viewAllTr">View all Transactions</a>
@@ -167,7 +168,7 @@
                             <table class="table table-striped" *ngIf="allRewardPoints">
                                 <thead>
                                   <tr>
-                                    <th scope="col">Recharge Date & Time</th>
+                                    <th scope="col">Nagesh's Purchse / Refund</th>
                                     <th scope="col">Points</th>
                                   </tr>
                                 </thead>
@@ -181,7 +182,7 @@
                                 </tbody>
                               </table>
 
-                              <button *ngIf="showLoadMore" (click)="loadMore()">Load More</button>
+                              <button *ngIf="showLoadMore" (click)="loadMore()" class="load_more">Load More</button>
                         </mat-tab>
 
 
@@ -189,7 +190,7 @@
                             <table class="table table-striped">
                               <thead>
                                 <tr>
-                                  <th scope="col">Refer-A-Friend Email</th>
+                                  <th scope="col">Referral Emails</th>
                                   <th scope="col">Points</th>
                                 </tr>
                               </thead>
@@ -208,7 +209,7 @@
                             <table class="table table-striped">
                               <thead>
                                 <tr>
-                                  <th scope="col">Refer-A-Friend Email</th>
+                                  <th scope="col">Referral Emails</th>
                                   <th scope="col">Points</th>
                                 </tr>
                               </thead>
