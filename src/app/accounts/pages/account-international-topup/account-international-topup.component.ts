@@ -81,7 +81,7 @@ export class AccountInternationalTopupComponent implements OnInit {
 
   bundleTopupPlans:any;
   showCredicard : boolean=false;
-
+  topups:any;
  
   phoneNumber:any;
   toCountryId:number;
@@ -110,6 +110,7 @@ export class AccountInternationalTopupComponent implements OnInit {
   currentCartObs$: Subscription;
   currentCart: ICheckoutModel;
   topupOperators:any;
+  topupDialog:any=[]
   constructor(private titleService: Title,
     private router: Router,
 	private customerService: CustomerService,
@@ -355,13 +356,24 @@ this.mycountryId = 0;
         this.operatorsList = data.AvaliableOperators;
         this.countryTo = data.CountryId;
         this.mobileTopupData = data;
+
         this.currentOperator = data.Operator;
         this.onClickAmountOption(this.mobileTopupData.OperatorDenominations[1]) ;
         this.isTopUpEnable = true;
         this.mobileTopupForm.get('topUpAmount').updateValueAndValidity();
         this.mobileTopupForm.get('phoneNumber').disable();
 
-        this.getBundlesTopUpInfo()
+        this.topups = data.OperatorDenominations.filter(a=>{ 
+          //console.log(a.Operator, this.mobileTopupData.Operator) 
+           if(a.Operator == this.currentOperator)  
+           {
+             
+            return a;
+           }
+        });
+
+        this.getBundlesTopUpInfo();
+        this.getTopupDetail();
       },
       (err: ApiErrorResponse) => console.log(err),
     );
@@ -500,7 +512,15 @@ this.mycountryId = 0;
       
     })
   }
-
+  getTopupDetail()
+  {
+    this.mobileTopupService.getBundlesInfo(this.currentSetting.currentCountryId,this.countryTo ).subscribe(data =>{
+      if(data &&  data[0])
+      {
+        this.topupDialog = data[0];
+        }
+      })
+  }
   showDetailTopup()
   {
     const dialogConfig = new MatDialogConfig();
@@ -510,7 +530,12 @@ this.mycountryId = 0;
         dialogConfig.panelClass = 'topup-plan-dialog'
         dialogConfig.minHeight = "500px";
         dialogConfig.width = "700px";
-        dialogConfig.data={from_id:this.currentSetting.currentCountryId, to_id:this.countryTo, operator:this.currentOperator}
+        dialogConfig.data={
+          from_id:this.currentSetting.currentCountryId, 
+          to_id:this.countryTo, 
+          operator:this.currentOperator,
+          dialogDetail:this.topupDialog
+        }
       this.dialog.open(TopupDialogComponent,dialogConfig);
   }
 

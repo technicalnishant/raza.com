@@ -32,7 +32,10 @@ export class RefferComponent implements OnInit {
   reffralUrl:string="https://raza.com/ref/";
   reff_text : string = `Enjoy FREE International calls with Raza! When you sign up and make your first purchase using my link, we'll both receive $5 credits - absolutely free. Follow this link to get started now!`
   rewardInfo:any = [];
-  
+  /*Hi, use this link to signup with Referral Code: 0B5B95
+in Raza Universe and receive buy1get1 free
+Please use the link below
+*/
   totalPoints:number=0;
   totalBalance:number=0;
   totalEarned:number=0;
