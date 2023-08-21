@@ -45,26 +45,21 @@
                     <div class="yourReffralCode">
                         <h3>Your unique referral code is: <span>{{referrerCode}}</span></h3>
                         <button type="button" data-href="reffralUrl">
-                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{reffralUrl}}&amp;src=sdkpreparse">
-                              <img src="../../../assets/images/new_design_images/facebook.png" alt="facebook" />
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{reffralUrl}}&amp;src=sdkpreparse" class="facebook">
                             </a>
                         </button>
                         <button type="button">
-                            <a href="https://twitter.com/intent/tweet?text={{reff_text}} : {{reffralUrl}}" target="_blank">
-                              <img src="../../../assets/images/new_design_images/twitter.png" alt="twitter" />
-                            </a>
-                        </button>
-
-                        <button type="button">
-                            <a href="http://pinterest.com/pin/create/link/?url={{reffralUrl}}" target="_blank">
-                              <img src="../../../assets/images/new_design_images/pinterest.png" alt="pinterest" />
+                            <a href="https://twitter.com/intent/tweet?text={{reff_text}} : {{reffralUrl}}" target="_blank" class="twitter">
                             </a>
                         </button>
 
                         <button type="button">
-                            <a href="https://wa.me?text={{reff_text}} : {{reffralUrl}}" target="_blank">
-                              <!-- <img src="../../../assets/images/new_design_images/call_us.png" alt="WhatsApp" /> -->
-                              <img src="../../../assets/images/new_design_images/facebook.png" alt="WhatsApp" />
+                            <a href="http://pinterest.com/pin/create/link/?url={{reffralUrl}}" target="_blank" class="pinterest">
+                            </a>
+                        </button>
+
+                        <button type="button">
+                            <a href="https://wa.me?text={{reff_text}} : {{reffralUrl}}" target="_blank" class="whatsApp">
                             </a>
                         </button>
                         <div class="shareText">Feel free to share it with others!</div>
@@ -160,11 +155,9 @@
                     </div>
                 </div> -->
                 <div #tabContainer></div>
-                <div class="row">
-
+                <div class="rowDiv">
                     <mat-tab-group #tabGroup>
                         <mat-tab label="Reward Points">
-
                             <table class="table table-striped" *ngIf="allRewardPoints">
                                 <thead>
                                   <tr>
@@ -181,10 +174,8 @@
                                   </tr>
                                 </tbody>
                               </table>
-
                               <button *ngIf="showLoadMore" (click)="loadMore()" class="load_more">Load More</button>
                         </mat-tab>
-
 
                         <mat-tab label="Referrals">
                             <table class="table table-striped">
@@ -199,10 +190,8 @@
                                   <td>{{item.EmailId}}</td>
                                   <td>{{item.Point}}</td>
                                 </tr>
-
                               </tbody>
                             </table>
-
                           </mat-tab>
 
                           <mat-tab label="Completed">
@@ -218,14 +207,11 @@
                                   <td>{{item.EmailId}}</td>
                                   <td>{{item.Point}}</td>
                                 </tr>
-
                               </tbody>
                             </table>
-
                           </mat-tab>
 
-
-                        <mat-tab label="Redeemed">
+                          <mat-tab label="Redeemed">
                             <table class="table table-striped">
                               <thead>
                                 <tr>
@@ -238,14 +224,11 @@
                                   <td>{{item.RedeemDate | date :'dd-MMM-yy h:mm:ss a '}}</td>
                                   <td>{{item.PointUsed}}</td>
                                 </tr>
-
                               </tbody>
                             </table>
                           </mat-tab>
                     </mat-tab-group>
-
                 </div>
-
             </div>
         </div>
     </section>

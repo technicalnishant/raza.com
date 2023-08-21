@@ -103,6 +103,24 @@ h1.heading_style1 {
     border: none;
     background: transparent;
     margin: 0 8px;
+    a {
+      height: 40px;
+      width: 40px;
+      display: inline-block;
+      background-image: url(/assets/images/new_design_images/icon_sprite.png);
+      &.facebook {
+        background-position: -82px 168px;
+      }
+      &.twitter {
+        background-position: 0 168px;
+      }
+      &.pinterest {
+        background-position: -41px 168px;
+      }
+      &.whatsApp {
+        background-position: -122px 168px;
+      }
+    }
   }
 }
 
@@ -152,8 +170,11 @@ h1.heading_style1 {
 
 .shadowtype2 {
 	width: 1100px;
+  max-width: 100%;
 	margin: 0 auto;
-	padding: 60px 10px 0px 10px;
+	padding-top: 60px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
   h2 {
       text-align: center;
       color: #203676;
@@ -390,15 +411,103 @@ h1.heading_style1 {
   }
 }
 
+@media only screen and (max-width: 1650px)  {
+  .referafriend_banner {
+      background-size: cover;
+  }
+}
 
-
-@media only screen and (max-width: 650px)  {
+@media only screen and (max-width: 767px)  {
   .gradientArea{ padding: 30px 20px;}
   .hideinMobile{display: none;}
   .showInmobile { display: block;}
-  .shadowtype2{ padding: 20px 0 !important; width: 100%;}
   .howitworksSection{ padding: 61px 20px 25px 11px; background-position: center top;}
   .three_service{ height: 360px;}
-  .second_fold{ padding: 30px 42px;}
+  .second_fold{ padding: 30px 0;}
   .deals{padding: 40px 0 0 !important;}
+  .referafriend_banner {
+    background: url(../../../assets/images/new_design_images/referafriend_mobile.jpg);
+    background-size: cover;
+    height: 410px !important;
+    background-position: center;
+    border-bottom-left-radius: 100% 170px;
+    border-bottom-right-radius: 100% 170px;
+  }
+  h1.heading_style1 {
+    font-size: 30px;
+    background: rgba(0,0,0,.35);
+    left: 15px;
+    right: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    bottom: 55px;
+    z-index: 1;
+    line-height: 1.2;
+    transform: unset;
+    top: unset;
+  }
+  .shadowtype2 {
+    padding-top: 40px;
+    h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+  }
+  .balDetails .col-md-6 {
+    padding: 20px 30px 0;
+    &:first-child {
+      padding-bottom: 10px;
+      border-right: none;
+    }
+  }
+  .yourReffralCode h3 {
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .points_summary .shadowtype2 {
+    display: block;
+    padding: 28px 0;
+    .left_section {
+      margin-bottom: 20px;
+    }
+  }
+  .earned_referrals .shadowtype2 {
+    padding: 20px 0;
+  }
+  .point_box_bottom {
+    &:first-child {
+      margin-bottom: 22px;
+    }
+    a {
+      margin-right: 0;
+    }
+  }
+  ::ng-deep {
+    .earnedTabs {
+      padding-top: 0 !important;
+      .mat-tab-body {
+        padding: 15px;
+      }
+    }
+    .earnedTabs .mat-tab-label {
+        margin-right: 8px;
+        margin-bottom: 20px;
+        font-size: 15px;
+        font-weight: 600;
+        height: 45px;
+        padding: 0 20px;
+    }
+    .earnedTabs .mat-tab-header {
+      margin: 0 -18px;
+    }
+    .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+        height: 45px;
+        box-shadow: none;
+    }
+    .mat-tab-header-pagination-chevron {
+      border-color: #000 !important;
+    }
+  }
+
 }
