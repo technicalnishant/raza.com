@@ -28,23 +28,65 @@ h1.heading_style1 {
   line-height: 1;
 }
 .howitworksSection {
-	text-align: left;
-	padding: 20px 20px 20px 85px;
+  text-align: center;
+  margin-bottom: 40px;
 	h3 {
 		&.heading_style2 {
-			color: #103F8A;
-			font-size: 18px;
-			font-family: 'Montserrat', sans-serif;
-			font-weight: 500;
-			text-align: left;
+      color: #1c2b58;
+      font-size: 25px;
+      font-weight: 600;
+      margin: 0 0 20px;
 		}
 	}
 	p {
-		color: #919EAF;
-		font-size: 14px;
-		font-family: 'Montserrat', sans-serif;
+		color: #4b5358;
+		font-size: 16px;
 		font-weight: 400;
 	}
+  .icon_holder1 {
+      margin-bottom: 40px;
+      &.aarow1:after, &.aarow2:after {
+          background-image: url("../../../assets/images/new_design_images/arrow1.png");
+          content: "";
+          width: 99px;
+          height: 16px;
+          right: 0;
+          position: absolute;
+          top: 40px;
+      }
+      &.aarow2:after {
+        background-image: url("../../../assets/images/new_design_images/arrow2.png");
+        right: -40px;
+      }
+  }
+}
+.loginBoxSec {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1c2b58;
+  margin-bottom: 40px;
+  p {
+    margin: 0;
+    font-size: 20px;
+    margin-right: 50px;
+  }
+  button {
+      background: #f4cb26;
+      border-radius: 24px;
+      border: none;
+      padding: 8px 26px;
+      color: #08273a;
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.3s ease-in-out;
+      text-transform: uppercase;
+      min-width: 130px;
+  }
 }
 .second_fold {
 	padding-top: 0px;
@@ -175,6 +217,9 @@ h1.heading_style1 {
 	padding-top: 60px;
   padding-left: 20px !important;
   padding-right: 20px !important;
+  &.shadowtype3 {
+    width: 1210px;
+  }
   h2 {
       text-align: center;
       color: #203676;
@@ -201,30 +246,47 @@ h1.heading_style1 {
 		margin: 0px;
 	}
 }
-.deals {
-	padding: 57px 45px 0px 57px;
+.referedFriendsEarn {
+  margin-bottom: 60px;
+}
+.deals, .deals2 {
+	padding: 40px;
+  background: #fff6e1;
+  border: 1px solid #f2e6cb;
+  border-radius: 12px;
 	h3 {
-		color: #103F8A;
-		font-size: 20px;
-		font-family: 'Montserrat', sans-serif;
-		font-weight: 500;
-		margin-bottom: 30px;
+    color: #1c2b58;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 22px;
 	}
 	p {
-		color: #919EAF;
-		line-height: 21px;
-		font-size: 14px;
-		font-family: 'Montserrat', sans-serif;
+		color: #4b5358;
+		line-height: 1.5;
+		font-size: 16px;
 		font-weight: 400;
 	}
+  .deal-tab {
+      margin-top: 55px;
+      background: #fbcb54;
+      border: 1px solid #e5b94d;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+  }
+  .note_box {
+      margin-top: 55px;
+      background: #cce3ff;
+      border: 1px solid #bdd5f2;
+      border-radius: 12px;
+      padding: 25px;
+  }
 	.table {
-		margin-top: 60px;
 		thead {
 			th {
 				border: none;
 				color: #0B203E;
 				font-size: 18px;
-				font-family: 'Montserrat', sans-serif;
 				font-weight: 500;
 			}
 		}
@@ -232,7 +294,6 @@ h1.heading_style1 {
 			td {
 				color: #808080;
 				font-size: 16px;
-				font-family: 'Montserrat', sans-serif;
 				font-weight: 400;
 			}
 		}
@@ -247,12 +308,9 @@ h1.heading_style1 {
 		}
 	}
 }
-.deals .table td,.deals .table th {
-	border: none;
-	padding: 15px 30px;
-}
-.deals .table td:last-child, .deals .table th:last-child {
-	text-align: right;
+.deals2 {
+  background: #e6f1fe;
+  border: 1px solid #d4e9fc;
 }
 
 .point_box {
@@ -354,6 +412,20 @@ h1.heading_style1 {
   }
 }
 
+.heading_style3 {
+  font-size: 46px;
+  color: #162f75;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 95px;
+  span {
+      font-size: 16px;
+      color: #08273a;
+      font-weight: 600;
+      display: block;
+  }
+}
+
 ::ng-deep {
   .earnedTabs {
     padding: 55px 0 !important;
@@ -408,6 +480,16 @@ h1.heading_style1 {
         margin: 0 auto;
         display: block;
     }
+
+  }
+  .table-striped tbody tr:nth-of-type(odd) {
+    background: transparent;
+  }
+  table {
+    font-family: "Montserrat", sans-serif;
+      td {
+          padding: 15px 0.75rem;
+      }
   }
 }
 
