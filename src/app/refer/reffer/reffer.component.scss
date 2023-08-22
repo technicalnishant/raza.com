@@ -50,16 +50,70 @@ h1.heading_style1 {
           content: "";
           width: 99px;
           height: 16px;
-          right: 0;
+          right: -40px;
           position: absolute;
-          top: 40px;
+          top: 22px;
+          @media only screen and (max-width: 767px) {
+            content:none
+          }
       }
       &.aarow2:after {
         background-image: url("../../../assets/images/new_design_images/arrow2.png");
-        right: -40px;
+        right: -65px;
       }
   }
 }
+
+.howItworksSec {
+  ul {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      padding-bottom: 90px;
+      li {
+        width: 33.33%;
+        padding: 15px 65px;
+        margin-bottom: 10px;
+        position: relative;
+        img {
+          margin-bottom: 20px;
+        }
+        .description {
+            color: #1c2b58;
+            font-weight: 500;
+        }
+        &.tick {
+            position: absolute;
+            right: 85px;
+            bottom: 110px;
+            padding: 0;
+            width: auto;
+        }
+        &.rightArw::before {
+            content: "";
+            background-image: url(../../../assets/images/reffer/refer_arrow.png);
+            background-repeat: no-repeat;
+            width: 68px;
+            height: 34px;
+            position: absolute;
+            right: 0;
+            top: 77px;
+            @media only screen and (max-width: 767px) {
+              content:none
+            }
+        }
+      }
+      .number {
+          color: #c2cad3;
+          font-size: 30px;
+          font-weight: 700;
+          margin-bottom: 12px;
+      }
+  }
+}
+
 .loginBoxSec {
   background: #f0f0f0;
   border: 1px solid #ddd;
@@ -82,7 +136,7 @@ h1.heading_style1 {
       padding: 8px 26px;
       color: #08273a;
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       transition: 0.3s ease-in-out;
       text-transform: uppercase;
       min-width: 130px;
@@ -222,10 +276,10 @@ h1.heading_style1 {
   }
   h2 {
       text-align: center;
-      color: #203676;
+      color: #162f75;
       // text-transform: uppercase;
       font-weight: 700;
-      font-size: 44px;
+      font-size: 46px;
       margin-bottom: 60px;
       .heading_light {
           font-weight: 600;
@@ -248,9 +302,12 @@ h1.heading_style1 {
 }
 .referedFriendsEarn {
   margin-bottom: 60px;
+  > div {
+    display: flex;
+  }
 }
 .deals, .deals2 {
-	padding: 40px;
+	padding: 35px 40px;
   background: #fff6e1;
   border: 1px solid #f2e6cb;
   border-radius: 12px;
@@ -265,13 +322,20 @@ h1.heading_style1 {
 		line-height: 1.5;
 		font-size: 16px;
 		font-weight: 400;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &.note {
+      font-size: 13px;
+      font-weight: 500;
+    }
 	}
   .deal-tab {
       margin-top: 55px;
       background: #fbcb54;
       border: 1px solid #e5b94d;
       border-radius: 12px;
-      padding: 25px;
+      padding: 5px 25px 0;
       margin-bottom: 25px;
   }
   .note_box {
@@ -282,19 +346,21 @@ h1.heading_style1 {
       padding: 25px;
   }
 	.table {
+    margin-bottom: 0;
 		thead {
 			th {
 				border: none;
-				color: #0B203E;
+				color: #1c2b58;
 				font-size: 18px;
-				font-weight: 500;
+				font-weight: 700;
 			}
 		}
 		tr {
 			td {
-				color: #808080;
+				color: #1c2b58;
 				font-size: 16px;
-				font-weight: 400;
+				font-weight: 500;
+        border-top: 1px solid #e5b94e;
 			}
 		}
 	}
@@ -461,7 +527,8 @@ h1.heading_style1 {
         border: none;
         font-size: 19px;
         &:nth-child(2) {
-          padding-right: 13%;
+          // padding-right: 13%;
+          text-align: center;
         }
       }
       tbody td {
@@ -469,8 +536,8 @@ h1.heading_style1 {
         &:nth-child(2) {
           font-weight: 600;
           font-size: 20px;
-          text-align: right;
-          padding-right: 15%;
+          text-align: center;
+          // padding-right: 15%;
         }
       }
     }
@@ -508,7 +575,9 @@ h1.heading_style1 {
       }
   }
 }
-
+.showOnlyMb {
+  display: none;
+}
 @media only screen and (max-width: 1650px)  {
   .referafriend_banner {
       background-size: cover;
@@ -516,13 +585,17 @@ h1.heading_style1 {
 }
 
 @media only screen and (max-width: 767px)  {
+  .showOnlyMb {
+    display: block;
+  }
   .gradientArea{ padding: 30px 20px;}
   .hideinMobile{display: none;}
   .showInmobile { display: block;}
-  .howitworksSection{ padding: 61px 20px 25px 11px; background-position: center top;}
+  .howitworksSection{ padding: 35px 10px 10px; background-position: center top; margin-bottom: 0;}
   .three_service{ height: 360px;}
   .second_fold{ padding: 30px 0;}
-  .deals{padding: 40px 0 0 !important;}
+  .deals { padding: 20px 25px; margin-bottom: 25px;}
+  .deals2 { padding: 20px 25px;}
   .referafriend_banner {
     background: url(../../../assets/images/new_design_images/referafriend_mobile.jpg);
     background-size: cover;
@@ -530,6 +603,13 @@ h1.heading_style1 {
     background-position: center;
     border-bottom-left-radius: 100% 170px;
     border-bottom-right-radius: 100% 170px;
+  }
+  .loginBoxSec {
+    display: block;
+    p {
+      font-size: 17px;
+      margin: 0 0 12px;
+    }
   }
   h1.heading_style1 {
     font-size: 30px;
@@ -580,6 +660,19 @@ h1.heading_style1 {
     a {
       margin-right: 0;
     }
+  }
+  .howItworksSec ul {
+      padding: 0 0 40px;
+      li {
+        padding: 0 35px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+        &.tick {
+          position: static;
+          margin-bottom: 0;
+        }
+      }
   }
   ::ng-deep {
     .earnedTabs {

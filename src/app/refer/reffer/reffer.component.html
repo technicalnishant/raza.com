@@ -3,7 +3,7 @@
 
     <h1 class="heading_style1">
     Refer<br/> a Friend<br/>
-    <!-- <span>Easy as 1 2 3 and earn points!</span> -->
+    <span  class="showOnlyMb" *ngIf="!userLoggedin">Easy as 1 2 3 and earn points!</span>
     </h1>
     <div class="home_banner referafriend_banner">
         <!-- <img src="assets/images/banner_image.png" alt="banner"> -->
@@ -338,19 +338,20 @@
         </div>
 
         <div class="howItworksSec">
+          <h2>How it Works</h2>
           <ul>
-            <li>
+            <li class="rightArw">
               <div class="number">01</div>
-              <img src="" alt="icon" />
+              <img src="../../../assets/images/reffer/share_ref.png" alt="share" />
               <div class="description">
                 Share your referral Link
                 with your friends and
                 family.
               </div>
             </li>
-            <li>
+            <li class="rightArw">
               <div class="number">02</div>
-              <img src="" alt="icon" />
+              <img src="../../../assets/images/reffer/referee.png" alt="icon" />
               <div class="description">
                 Your referee will click the
                 link to signup and makes
@@ -359,31 +360,31 @@
             </li>
             <li>
               <div class="number">03</div>
-              <img src="" alt="icon" />
+              <img src="../../../assets/images/reffer/our_system.png" alt="icon" />
               <div class="description">
                 Our system will
                 automatically add 500 points
                 each. (Redeemable for $5)
               </div>
             </li>
-            <li>
+            <li class="rightArw">
               <div class="number">04</div>
-              <img src="" alt="icon" />
+              <img src="../../../assets/images/reffer/refer_more.png" alt="icon" />
               <div class="description">
-                Refer more and
+                Refer more and<br/>
                 earn more
               </div>
             </li>
             <li>
               <div class="number">05</div>
-              <img src="" alt="icon" />
+              <img src="../../../assets/images/reffer/track_refer.png" alt="icon" />
               <div class="description">
                 Track your Referral and
                 redeemable points
               </div>
             </li>
             <li class="tick">
-
+              <img src="../../../assets/images/reffer/refer_check.png" alt="icon" />
             </li>
           </ul>
         </div>
