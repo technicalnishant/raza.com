@@ -51,12 +51,12 @@ Please use the link below
   allRewardPoints: EarnedPoint[];
   allItems : EarnedPoint[];
   isAbleToRedeemFlag: boolean = false;
-  plan: Plan;
+  plan: any;
   isenableEnroll: boolean = false;
   btnEnrollDisable = true;
   rechargeOptions: any;
   enrollPoints: number = 0;
-  enrollAmount: number = 10;
+  enrollAmount: number = 0;
   county_id:number = 0;
   county_name:any;
   billingInfo: BillingInfo;
@@ -83,17 +83,16 @@ Please use the link below
     this.metaTagsService.getMetaTagsData('refer-a-friend');
     if(this.authService.isAuthenticated())
     {
+      
       this.getRewardTotal();
       this.userLoggedin = true;
       this.getCode();
-    
-
       this.getReferedFriends(); //screen 2 -Refer
       this.getRedeemedPoints(); //screen 3 -Redeemed
-  
-      this.getPlanDetails();
       this.getRechargeOptions();
       this.getAllEarnedPoints();
+      this.getPlanDetails();
+      
     }
     else
     {
@@ -114,7 +113,9 @@ Please use the link below
             this.isAbleToRedeemFlag = true;
             this.enrollPoints=res.Options[0].Points;
             //this.enrollAmount=res.Options[0].Amount;
-            this.enrollAmount=10;
+            //this.enrollAmount=10;
+   
+
           }
         }
       },
@@ -125,7 +126,9 @@ Please use the link below
    // this.planService.getAllPlans().subscribe(
    this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe(
       (data: Plan[]) => {
-        this.plan = data[0];
+        console.log(data);
+        this.plan = data ;
+         this.getEnrolmentAmount();
       },
       (err: ApiErrorResponse) => console.log(err)
     );
@@ -227,6 +230,20 @@ Please use the link below
       this.tabContainer.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }
 
+  }
+
+
+  getEnrolmentAmount()
+  {
+     
+    if(this.plan && this.plan.PlanId)
+    {
+      let country_from = this.plan.CountryFrom;
+      let rate = country_from==2?1100:1000;
+      this.enrollAmount = this.rewardTotal/rate;
+       
+    }
+     
   }
 }
 
