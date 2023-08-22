@@ -286,7 +286,7 @@ export class CustomerService {
     }
 
     public getReferrerCode(phone: any): Observable<[] | ApiErrorResponse> {
-        return this.httpClient.get<[]>(`${Api.rewards.getReferrerCode}/${phone}`)
+        return this.httpClient.get<[]>(`${Api.rewards.getReferrerCode}/${phone}/website`)
           .pipe(
             catchError(err => this.errorHandleService.handleHttpError(err))
           );
