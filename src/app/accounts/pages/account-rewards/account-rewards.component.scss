@@ -536,7 +536,7 @@ a {
 	table {
 		// margin-top: 40px;
 		tbody tr {
-			border-bottom: 1px solid #ddd;
+			border-top: 1px solid #ddd;
 		}
 		th {
 			color: #000;
@@ -922,6 +922,22 @@ td {
 		background: #203676;
 		h3, p, a {
 		color: #fff;
+		}
+	}
+	&.sendRef {
+		background: #f7ebd4;
+		a {
+			font-size: 18px;
+			color: #1c2b58;
+			font-weight: 700;
+		}
+	}
+	&.callToRef {
+		background: #cce3fd;
+		a {
+			font-size: 18px;
+			color: #1c2b58;
+			font-weight: 700;
 		}
 	}
 }
