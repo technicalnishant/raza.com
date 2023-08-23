@@ -119,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                  <div class="row">
                     <div class="col-md-6 ">
                         <div class="point_box_bottom">
                             <img src="../../../assets/images/new_design_images/sendreferrallink.svg" alt="sendreferrallink" />
@@ -129,10 +129,15 @@
                     <div class="col-md-6">
                         <div class="point_box_bottom callToRef">
                             <img src="../../../assets/images/new_design_images/calltoredeem.svg" alt="calltoredeem" />
-                            <a href="javascript:void(0)" (click)="openContactUsDialog()" >Call to <br/>Redeem</a>
+                            <a *ngIf="isAbleToRedeemFlag"  href="javascript:void(0)" (click)="redeemNow()" > Redeem now</a>
+                            <a *ngIf="!isAbleToRedeemFlag"  href="javascript:void(0)"  >Redeem now</a>
+
+                           
+
+
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
 
