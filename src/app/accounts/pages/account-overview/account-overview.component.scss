@@ -874,6 +874,47 @@ td {
 	display: block;
 }
 
+.point_box {
+  height: 280px;
+  border-radius: 20px;
+  padding: 25px 0px 22px;
+  background: #f6f8fa;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 22px;
+  h3 {
+    color: #1c2b58;
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 0;
+  }
+  p {
+    color: #1c2b58;
+    font-weight: 600;
+  }
+  a {
+    display: block;
+    font-size: 14px;
+    color: #21242a;
+    font-weight: 500;
+    text-decoration: underline;
+    margin-top: 30px;
+  }
+  img {
+      max-height: 105px;
+      max-width: 150px;
+      width: auto;
+      height: auto;
+  }
+  &:hover {
+    background: #203676;
+    h3, p, a {
+      color: #fff;
+    }
+  }
+}
 
 @media only screen and (max-width: 868px)  {
 .myaccountTabArea {
