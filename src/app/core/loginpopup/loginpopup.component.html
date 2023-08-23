@@ -63,8 +63,9 @@
             <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
           </button>
           <div class="remembermMe">
-             
-           
+            <input type="checkbox" id="remMe"/>
+            <span class="remBox"></span>
+            <label class="remember" for="remMe">Remember me</label>        
             <span class="floatRight resend forget">
                 <a tabindex="3" (click)="showHideForgotForm()">Forgot code?</a>
             </span>
@@ -114,10 +115,19 @@
       <button type="button" mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="eyes">
 <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
 </button>
-  <span class="floatRight resend forget">
-        <a tabindex="3" (click)="showHideForgotForm()">Forgot password?</a>
-      </span>
-  <mat-error *ngIf="loginForm.get('password').errors?.required">
+
+  <div class="remembermMe">
+    <input type="checkbox" id="remMe"/>
+    <span class="remBox"></span>
+    <label class="remember" for="remMe">Remember me</label>        
+    <span class="floatRight resend forget">
+      <a tabindex="3" (click)="showHideForgotForm()">Forgot password?</a>
+    </span>
+  </div>
+  <!-- <span class="floatRight resend forget">
+    <a tabindex="3" (click)="showHideForgotForm()">Forgot password?</a>
+  </span> -->
+        <mat-error *ngIf="loginForm.get('password').errors?.required">
           Password is required. 
         </mat-error> 
         <mat-error *ngIf="loginForm.get('password').errors?.maxLength">
