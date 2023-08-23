@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PlanService } from '../../services/planService';
 import { ApiErrorResponse } from '../../../core/models/ApiErrorResponse';
 import { Title } from '@angular/platform-browser';
@@ -22,6 +22,9 @@ import { CallUsComponent } from 'app/shared/dialog/call-us/call-us.component';
   styleUrls: ['./account-rewards.component.scss']
 })
 export class AccountRewardsComponent implements OnInit {
+
+  @ViewChild('reffer_a_friend') reffer_a_friend: ElementRef;
+  
   rewardTotal: number;
   referedFriends: Rewards[];
   redeemedPoints: RedeemedPoint[];
@@ -226,7 +229,14 @@ export class AccountRewardsComponent implements OnInit {
       (err: ApiErrorResponse) => console.log(err),
     );
   }
-  
+  scrollToSection() {
+    const targetPosition = this.reffer_a_friend.nativeElement.offsetTop;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  }
   getAllEarnedPoints() {
     this.planService.getAllEarnedPoints().subscribe((res: EarnedPoint[]) => {
       //this.allRewardPoints = res;
