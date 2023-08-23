@@ -15,7 +15,9 @@ import { PlanService } from 'app/accounts/services/planService';
 import { ApiErrorResponse } from 'app/core/models/ApiErrorResponse';
 import { AuthenticationService } from 'app/core/services/auth.service';
 import { MatTabGroup } from '@angular/material/tabs';
-
+import { CallUsComponent } from 'app/shared/dialog/call-us/call-us.component';
+import { LoginpopupComponent } from 'app/core/loginpopup/loginpopup.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-reffer',
@@ -25,7 +27,7 @@ import { MatTabGroup } from '@angular/material/tabs';
 export class RefferComponent implements OnInit {
   @ViewChild(MatTabGroup) tabGroup: MatTabGroup;
   @ViewChild('tabContainer') tabContainer: ElementRef; // Add this line
-  
+  @ViewChild('reffer_a_friend') reffer_a_friend: ElementRef;
   mode = new FormControl('over');
   headerValue: number = 1;
   referrerCode:any;
@@ -74,6 +76,7 @@ Please use the link below
     private rechargeRewardService: RechargeRewardService,
     private planService: PlanService,
     private authService: AuthenticationService,
+    public dialog: MatDialog,
     ) { 
       
     }
@@ -244,6 +247,26 @@ Please use the link below
        
     }
      
+  }
+  
+  scrollToSection() {
+    const targetPosition = this.reffer_a_friend.nativeElement.offsetTop;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  }
+   openContactUsDialog() {
+    const dialogRef1 = this.dialog.open(CallUsComponent);
+  }
+  
+  dialogLogin()
+  {
+	  const dialogConfig = new MatDialogConfig();
+       dialogConfig.data = { }
+     
+      const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
   }
 }
 

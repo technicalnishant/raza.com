@@ -42,7 +42,7 @@
                         </div>
                     </div>
 
-                    <div class="yourReffralCode">
+                    <div class="yourReffralCode" id="reffer_a_friend" #reffer_a_friend >
                         <h3>Your unique referral code is: <span>{{referrerCode}}</span></h3>
                         <button type="button" data-href="reffralUrl">
                             <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{reffralUrl}}&amp;src=sdkpreparse" class="facebook">
@@ -123,13 +123,13 @@
                     <div class="col-md-6 ">
                         <div class="point_box_bottom">
                             <img src="../../../assets/images/new_design_images/sendreferrallink.svg" alt="sendreferrallink" />
-                            <a href="">Send <br/>Reffral link</a>
+                            <a href="javascript:void(0)" (click)="scrollToSection()">Send <br/>Reffral link</a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="point_box_bottom callToRef">
                             <img src="../../../assets/images/new_design_images/calltoredeem.svg" alt="calltoredeem" />
-                            <a href="">Call to <br/>Redeem</a>
+                            <a href="javascript:void(0)" (click)="openContactUsDialog()" >Call to <br/>Redeem</a>
                         </div>
                     </div>
                 </div>
@@ -141,7 +141,7 @@
                 <h3>Recent Transactions</h3>
                 <p>
                   Browse your points earned in the past 45 days. <br/>
-                  Missing a transaction? <a href="#">Let us help.</a>
+                  Missing a transaction? <a href="javascript:void(0)" (click)="openContactUsDialog()">Let us help.</a>
                 </p>
             </div>
         </div>
@@ -277,7 +277,7 @@
 
         <div class="loginBoxSec">
           <p>You must be logged in to refer a friend</p>
-          <button>Login</button>
+          <button (click)="dialogLogin()">Login</button>
         </div>
 
         <div class="row referedFriendsEarn">

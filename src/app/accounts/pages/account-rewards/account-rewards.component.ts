@@ -14,6 +14,7 @@ import { isNullOrUndefined } from "../../../shared/utilities";
 
 import { BillingInfo } from '../../models/billingInfo';
 import { CustomerService } from '../../services/customerService';
+import { CallUsComponent } from 'app/shared/dialog/call-us/call-us.component';
 
 @Component({
   selector: 'app-account-rewards',
@@ -35,6 +36,23 @@ export class AccountRewardsComponent implements OnInit {
   county_id:number = 0;
   county_name:any;
   billingInfo: BillingInfo;
+
+  totalPoints:number=0;
+  totalBalance:number=0;
+  totalEarned:number=0;
+  totalRefrals:number=0;
+  totalCompleted:number=0;
+  totalRedemed:number=0;
+  referedFriendsCompleted: Rewards[];
+  referrerCode:any;
+  reffralUrl:string="https://raza.com/ref/";
+  reff_text : string = `Enjoy FREE International calls with Raza! When you sign up and make your first purchase using my link, we'll both receive $5 credits - absolutely free. Follow this link to get started now!`
+  rewardInfo:any = [];
+  itemsPerPage = 10; // Number of items to load per page
+  currentPage = 1; // Current page
+  showLoadMore:boolean = false;
+  allItems:any;
+
   constructor(private planService: PlanService,
     private razalayoutService: RazaLayoutService,
     private router: Router,
@@ -55,7 +73,8 @@ export class AccountRewardsComponent implements OnInit {
     this.getPlanDetails();
     this.getRechargeOptions();
 	  this.loadBillingInfo();
-
+    this.getCode()
+    this.getAllEarnedPoints()
     //localStorage.setItem("auto_action", "SubmitReward"); enrollNow()
     if(localStorage.getItem("auto_action") && localStorage.getItem("auto_action") == 'SubmitReward')
     {
@@ -63,7 +82,21 @@ export class AccountRewardsComponent implements OnInit {
       localStorage.removeItem("auto_action");
     }
   }
-
+  getCode()
+  {
+      let phone = localStorage.getItem("login_no");
+       
+        this.customerService.getReferrerCode(phone).subscribe((res:any) =>  {
+        this.referrerCode =  res.ReferrerCode ;
+        this.reffralUrl = this.reffralUrl+this.referrerCode;
+        
+        },
+          err => {
+           // this.razaSnackBarService.openError('There must be some issue while fetching reffral code.');
+          }
+        );
+     
+  }
   loadBillingInfo() {
     this.customerService.GetBillingInfo().subscribe(
       (res: BillingInfo) => {
@@ -112,6 +145,21 @@ export class AccountRewardsComponent implements OnInit {
     this.planService.getReferedFriends().subscribe(
       (data: Rewards[]) => {
         this.referedFriends = data;
+        this.totalRefrals = data.length;
+
+        this.referedFriendsCompleted = data.filter(p =>{return p.Point > 0} )
+
+        if(data[0])
+        {
+          data.map(p =>{
+            if(p.Point > 0)
+            {
+              this.totalCompleted = this.totalCompleted+1;
+            }
+          })
+           
+        }
+        
       },
       (err: ApiErrorResponse) => console.log(err),
     );
@@ -121,16 +169,18 @@ export class AccountRewardsComponent implements OnInit {
     this.planService.getPointsRedeemed().subscribe(
       (data: RedeemedPoint[]) => {
         this.redeemedPoints = data;
+        data.map(p =>{
+          if(p.PointUsed > 0)
+          {
+            this.totalRedemed = this.totalRedemed+p.PointUsed;
+          }
+        })
       },
       (err: ApiErrorResponse) => console.log(err),
     );
   }
 
-  getAllEarnedPoints() {
-    this.planService.getAllEarnedPoints().subscribe((res: EarnedPoint[]) => {
-      this.allRewardPoints = res;
-    });
-  }
+ 
 
   redeemNow() {
     this.router.navigateByUrl("recharge/reward/" + this.plan.PlanId);
@@ -176,5 +226,26 @@ export class AccountRewardsComponent implements OnInit {
       (err: ApiErrorResponse) => console.log(err),
     );
   }
+  
+  getAllEarnedPoints() {
+    this.planService.getAllEarnedPoints().subscribe((res: EarnedPoint[]) => {
+      //this.allRewardPoints = res;
+      this.allItems = res;
+    this.loadItems();
+    });
+  }
+  loadItems() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    this.showLoadMore = true;
+    this.allRewardPoints = this.allItems.slice(startIndex, startIndex + this.itemsPerPage);
+  }
 
+  loadMore() {
+    this.currentPage++;
+    this.loadItems();
+  }
+
+  openContactUsDialog() {
+    const dialogRef1 = this.dialog.open(CallUsComponent);
+  }
 }
