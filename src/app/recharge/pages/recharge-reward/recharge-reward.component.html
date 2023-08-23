@@ -3,8 +3,11 @@
   <div class="selectRechargeamount">
     <p class="selectAmountText">Select Redeem Amount</p>
     <div class="bonusArea">
-      <span *ngIf="enrollAmount==10">A maximum of {{ 30 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span>
-      <span *ngIf="enrollAmount!=10">A maximum of {{ 15 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span>
+      <span >A maximum of {{ 30 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span>
+   
+
+      <!-- <span *ngIf="enrollAmount==10">A maximum of {{ 30 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span>
+      <span *ngIf="enrollAmount!=10">A maximum of {{ 15 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span> -->
       <span class="relative"></span></div>
     <div class="selectRechargeAmnt">
       <ul>
