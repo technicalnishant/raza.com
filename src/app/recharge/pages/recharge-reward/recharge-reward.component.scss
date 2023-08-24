@@ -29,10 +29,11 @@
 	background: #fff;
 }
 .selectRechargeamountMain {
-	padding: 25px 0;
+	padding: 28px 0;
 	margin: 0;
 	width: 100%;
 	background-color: #f6f8fa;
+	background-color: #f5f7f9;
 	margin-top: 104px;
 	h1 {
 		color: #293b7c;
@@ -69,6 +70,7 @@ p {
 			color: #3e8906;
 			font-size: 24px;
 			font-weight: 500;
+			font-family: 'Caveat', cursive;
 		}
 		&:last-child {
 			color: #0B203E;
@@ -103,9 +105,9 @@ p {
 		justify-content: center;
 		li {
 			text-align: center;
-			margin: 20px 20px 0 0;
+			margin: 20px 16px 0;
 			width: 260px;
-			height: 215px;
+			height: 210px;
 			background: #fff;
 			border-radius: 15px;
 			position: relative;
@@ -138,7 +140,7 @@ p {
 }
 .newPrice {
     color: #000;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 600;
     position: absolute;
     top: -55px;
@@ -159,7 +161,8 @@ p {
 	}
 }
 p.points {
-    margin-top: 90px;
+    margin-top: 88px;
+	margin-bottom: 24px;
 	font-size: 18px;
     color: #3b3b3b;
     font-weight: 600;
