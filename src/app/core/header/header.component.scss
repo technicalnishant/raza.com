@@ -76,7 +76,7 @@
 	}
 	.mat-icon {
 		height: 40px;
-		width: 40px;
+		width: 36px;
 		font-size: 36px;
 		color: #ffffff;
 		line-height: 40px;
@@ -90,7 +90,7 @@
 	}
 	.mat-icon {
 		height: 40px;
-		width: 40px;
+		width: 36px;
 		font-size: 36px;
 		color: #0b203e;
 		line-height: 40px;
@@ -151,6 +151,14 @@ button.login_btn {
 			background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
 		}
 	}
+}
+
+.matButtonBGN1, .matButtonBGN2 {
+    height: 45px;
+    width: 45px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 675px) {
