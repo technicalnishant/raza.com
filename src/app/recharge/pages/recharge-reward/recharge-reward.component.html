@@ -12,9 +12,13 @@
     <div class="selectRechargeAmnt">
       <ul>
         <li *ngFor="let item of rechargeOptions?.Options" (click)="onClickAmountOption(item.Points)">
-          <div matRipple class="commonpriceArea mouse-pointer">
-            <p class="newPrice"> {{item.Amount | bCurrency : plan?.CurrencyCode}}</p>
-            <p>{{item.Points}} points</p>
+          <div class="commonpriceArea mouse-pointer">
+            <p class="newPrice">
+              <span>{{ '' | bCurrency : plan?.CurrencyCode}}</span>
+               {{item.Amount}}
+              </p>
+            <p class="points">{{item.Points}} points</p>
+            <button>Redeem</button>
           </div>
         </li>
       </ul>
