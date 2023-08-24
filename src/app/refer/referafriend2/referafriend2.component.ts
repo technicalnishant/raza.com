@@ -53,12 +53,23 @@ export class Referafriend2Component implements OnInit {
       friend4: [],
       friend5: [],
     });
+
+    this.getReffDetails();
   }
 
   get isLoggedIn() {
     return this.authService.isAuthenticated();
   }
-
+  getReffDetails(){
+    
+    this.customerService.referFriendsDetail().subscribe(res => {
+       console.log("Reff a friend new resp", res);
+    },
+      err => {
+        this.razaSnackBarService.openError('User already exists.');
+      }
+    );
+  }
   redirectToLogin() {
     //console.log(this.route);
 
@@ -118,6 +129,8 @@ export class Referafriend2Component implements OnInit {
       );
     }
 
+
+    
 
     // if (emails.length > 0) {
     //   this.customerService.referFriends(emails).subscribe(res => {

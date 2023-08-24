@@ -10,6 +10,7 @@ import { LoginpopupComponent } from '../loginpopup/loginpopup.component';
 export class OtpDialogComponent implements OnInit {
   otpSend:boolean=false;
   userEmail:string='';
+  loginWith:string='';
   moreOptions:boolean=false;
   constructor(
     private authService: AuthenticationService,
@@ -20,7 +21,7 @@ export class OtpDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.userEmail = this.data.email;
-    console.log('this.userEmail is', this.userEmail);
+    this.loginWith = this.data.loginWith;
   }
 
   showMoreOptions()

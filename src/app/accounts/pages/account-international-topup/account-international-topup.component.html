@@ -187,14 +187,15 @@
            <div class="topup_section" *ngIf="topupType.value=='topup'">
               <!-- <h2>Topup section {{topupType.value}}</h2> -->
               <div class="topup_items">
-                  <div class="topup_item" *ngFor="let item of mobileTopupData?.OperatorDenominations; let i = index">
-                      <div class="topup_box denomination__box">
+                  <!-- <div class="topup_item" *ngFor="let item of mobileTopupData?.OperatorDenominations; let i = index"> -->
+                    <div class="topup_item" *ngFor="let item of topups; let i = index">
+                    <div class="topup_box denomination__box">
                           <div class="top_section">
                               <div class="promo_word" (click)="showDetailTopup()"><span>Promo</span></div>
                               <h2>{{item.UsDenomination | bCurrency}}</h2>
                               <p>{{mobileTopupData.Operator}} {{countryName}} HUGE</p>
-                              <p>200% Bonus</p>
-                              <a (click)="showDetailTopup()">Detail</a>
+                              <!-- <p>200% Bonus</p> -->
+                              <a *ngIf="topupDialog.length > 0" (click)="showDetailTopup()">Detail</a>
                           </div>
 
                           <div class="bottom_section">
@@ -220,7 +221,7 @@
                               <h2>{{item.Price | bCurrency}}</h2>
                               <p>{{item.Operator}} </p>
                               <p></p>
-                              <a (click)="showDetailTopup()">Detail</a>
+                              <a *ngIf="topupDialog.length > 0" (click)="showDetailTopup()">Detail</a>
                           </div>
 
                           <div class="bottom_section">

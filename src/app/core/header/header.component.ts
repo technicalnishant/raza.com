@@ -134,6 +134,10 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       //console.log("Your are on home page");
 
     }
+    else if(event.url == '/mobile-page'){
+      this.showHeader = true;
+      this.blueBg = 0;
+    }
     else if(event.url == '/sitemap'){
       this.showHeader = true;
       this.blueBg = 0;

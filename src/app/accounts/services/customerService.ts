@@ -279,6 +279,13 @@ export class CustomerService {
         return this.httpClient.post(Api.customer.referFriend, emails);
     }
 
+    referFriendsDetail(): Observable<[] | ApiErrorResponse> {
+        return this.httpClient.get<[]>(`${Api.customer.referFrienddetail}`)
+            .pipe(
+                catchError(err => this.errorHandleService.handleHttpError(err))
+            );
+    }
+
     referFriendnew(emails: string[]) {
 
         let data = {
@@ -293,7 +300,7 @@ export class CustomerService {
     }
 
     public getReferrerCode(phone: any): Observable<[] | ApiErrorResponse> {
-        return this.httpClient.get<[]>(`${Api.rewards.getReferrerCode}/${phone}`)
+        return this.httpClient.get<[]>(`${Api.rewards.getReferrerCode}/${phone}/website`)
           .pipe(
             catchError(err => this.errorHandleService.handleHttpError(err))
           );

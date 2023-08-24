@@ -58,7 +58,7 @@ export class CheckoutPaymentComponent implements OnInit, OnDestroy {
     if(localStorage.getItem('promotionCode') != this.promoCode)
     this.promoCode = '';
     
-    console.log(TransactionType.Sale);
+     
     this.razaLayoutService.setFixedHeader(true);
     if (this.currentCart.transactiontype === TransactionType.Sale) {
       this.router.navigate(['/checkout/payment-info/switch-pinless']);

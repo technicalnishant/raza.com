@@ -4,15 +4,15 @@
       <!-- <img src="../assets/images/banner_image.png" alt="banner"> -->
     </div>
   </div>
-  
+
   <!-- search section start here -->
    <!-- still searching area -->
   <div class="commonWrapperArea1 search-main1 no-margin">
-     
+
     <div class="search__wrapper_new">
   <!-- <div class="stillSearchingArea">
     <h3 class="select-country">Select Country</h3>
-   
+
     <div class="searchAreaMain">
         <div class="select_top1" (click)="openFlagDropDown()">
             <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
@@ -28,13 +28,13 @@
                 </li>
             </ul>
         </div>
-  
-        <div *ngIf="showPlaceholder" class="placeholder-search" 
+
+        <div *ngIf="showPlaceholder" class="placeholder-search"
             (click)="onClickPlaceholder()">
             <p class="palceholder-searchs" (click)="onClickPlaceholder()">Where do you wish to call?</p>
         </div>
         <img [src]="searchicon" alt="" class="searchic" (click)="onClickClose(searchicon)">
-  
+
         <div class="homecountry_dropdown1">
             <mat-form-field class="example-full-width">
               <input matInput aria-label="State" id="searchInput" [matAutocomplete]="auto" [formControl]="autoControl"
@@ -45,15 +45,15 @@
                   <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
                     [ngClass]="'flag flag-'+ option.CountryId" height="25">
                   <span class="width70">{{option.CountryName}}</span>
-                  
+
                 </mat-option>
               </mat-autocomplete>
             </mat-form-field>
           </div>
     </div>
-    
+
   </div> -->
-       
+
 
   <section class="country-search">
     <div class="container">
@@ -72,7 +72,7 @@
                   <ul>
                     <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)">
                       <span>
-                        
+
                           <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
                             [ngClass]="'flag flag-f-'+ item.CountryId">
                       </span>
@@ -88,13 +88,13 @@
 
               </span>
             </div>
-            <input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto" 
+            <input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto"
 class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder="State" (focusout)="onClickInput()" (focus)="onInputFocus()">
-            
-  
+
+
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
                 <mat-option *ngFor="let option of filteredCountry | async" [value]="option"
-                    (onSelectionChange)="viewRates($event,option.CountryId)"> 
+                    (onSelectionChange)="viewRates($event,option.CountryId)">
                     <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
                         [ngClass]="'flag flag-'+ option.CountryId" height="25">
                         <span class="width60">{{option.CountryName}}</span>
@@ -136,9 +136,9 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
     <div class="container">
       <div class="row">
           <div class="col-md-9 mx-auto">
-            
+
         <div class="alphabet_links" *ngIf="allCountriesDataOld">
-                 
+
         <li class="active" [ngClass]="{'active': currentClickedChar === 'All' }" (click)="displayCountryList('All')">All</li>
         <li class="{{isDisabled('A')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'A' }" (click)="displayCountryList('A')">A</li>
         <li class="{{isDisabled('B')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'B' }" (click)="displayCountryList('B')">B</li>
@@ -178,19 +178,19 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
                   <!--<div class="div">
                     <img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ item.CountryId"
                           [alt]="item.CountryName" />
-                          
+
                   </div>-->
-  
+
                   <div class="div">
-                 
-                     
+
+
                   <img
                   src="./../../assets/images/flag/{{
                     getImageName(item.CountryName) | lowercase
                   }}.png"
                 />
                   </div>
-  
+
                   <div class="country-name">{{item.CountryName}}</div>
                 </div>
                 <div class="country-rate">
@@ -219,9 +219,9 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
       <span>from</span>
       <p class="price"><b>{{getcountryrate(option.CallRate) | sCurrency:currentCurrency}}</b></p>
     </div>
-  
+
   </div>
-  
+
   <div class="mobileratestable">
     <div class="mobileratestable-row" *ngFor="let option of allCountryList" (click)="openPlanDialog(option.CountryId)">
       <span class="mobileratestable-flagNameWrap">
@@ -230,10 +230,10 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
           <span class="mobileratestable-currencyName"><span>{{option.CountryName}}</span> </span>
         </span><span class="mobileratestable-rate"><span class="">{{option.CallRate | sCurrency:currentCurrency}}</span></span>
       </div>
-  
+
   </div> -->
-  
-<!--   
+
+<!--
       <div class="bg-shapes">
         <img src="./../../assets/images/search/Image_57.png">
         <img src="./../../assets/images/search/Ellipse_1.png">
@@ -248,16 +248,16 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
       <h3><span>Have a question? <a (click)=contactUs()>Call us</a></span></h3>
     </div>
   </div>
-  
-   
-  
-  
-  
+
+
+
+
+
    <!-- this plan include section start here -->
-  
-  
+
+
   <div class="plan-info info_bok d-block d-xl-flex">
-  
+
     <div class="text-section">
       <h1 class="text-center">THIS PLAN INCLUDES</h1>
       <div class="text-part">
@@ -302,10 +302,10 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
       <img src="./../../assets/images/bubble.png">
     </div>
   </div>
-  
-   
+
+
   <!-- still searching area -->
-  
+
   <!-- common wrapper -->
   <div class="container search-main no-margin">
   <div class="linethroughArea">
@@ -316,7 +316,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
           <mat-icon matSuffix>search</mat-icon>
         </mat-form-field> -->
     <!-- <div class="headingText">What is the coupon code for Buy 1 Get 1 Offer?</div> -->
-  
+
       <mat-accordion>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -330,18 +330,18 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         <p>2. Dial 011+ Country code + Destination number to get connected.</p>
         <p>3. Keep Talking!</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
             Can I use my calling plan to dial any country other than what I selected while sign up.
           </mat-panel-title>
-  
+
         </mat-expansion-panel-header>
         <p> Yes, however the rates advertised on the web only apply to the specific country of selection. Please visit our
           “search rate” page to view all rates.</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -351,7 +351,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         <p>Most of our calling plans have no expiration date; there is 6 month validity on our special or discounted
           plans.</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -362,7 +362,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
           fraud. Our highly trained customer service representatives inspect and verify all new orders to guarantee your
           online security. You can recharge anytime once your account is verified successfully. </p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -373,7 +373,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
           anywhere in the world at the best rates possible. Chat or call our 24/7 customer service for any additional
           assistance.</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -387,7 +387,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         <p>Please be sure to include your Name, Address, Phone Number and Email. Once we receive your payment we will call
           or e-mail your plan details. </p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -397,7 +397,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         <p>In most non-domestic countries, a surcharge is applied when calling a Mobile phone. This additional charge
           results in rate increases. However, for certain countries it is cheaper to call Mobiles than landlines.</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -408,7 +408,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
           is encrypted using proprietary and secure socket layer (SSL) technology. We are also certified secure by McAfee,
           Thawte and Visa/MasterCard.</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -418,7 +418,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         <p>Click <a href="javascript:void(0)" (click)="openLoginPopup()">Forgot Password</a> link on the login page to receive your password by
           Text or E-mail.</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -427,7 +427,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         </mat-expansion-panel-header>
         <p>Login and visit Account Overview page to view your current Raza access number.</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -437,7 +437,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         <p>If the rates on the site differ from the rate of the calling plan, call customer service immediately for
           assistance. In most of the cases we will refund your money back.</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -447,7 +447,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         <p>Only premium plans will allow you to use the remaining balance on the account. Discounted plans will cancel
           automatically upon auto-refill cancellation.</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -457,7 +457,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         <p>If for any reason you are not satisfied with our product, the unused balance on your account will be refunded
           back. Any Balance that is 6 months or older will not be refunded.</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -469,7 +469,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
           not allow you to recharge online. Please call the customers service or chat with a live agent for more details.
         </p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -478,7 +478,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         </mat-expansion-panel-header>
         <p>Yes, you must be enrolled to Raza Rewards to earn points on all eligible  recharge transactions.</p>
       </mat-expansion-panel>
-  
+
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -487,22 +487,22 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
         </mat-expansion-panel-header>
         <p> <a routerLink="/contactus">Click here</a> to Call, Chat or email us.</p>
       </mat-expansion-panel>
-  
+
     </mat-accordion>
-  
+
   </div>
   <!-- common wrapper -->
-  
+
   <div class="still-searching text-center" style="">
       <p>Still Searching?</p>
       <a href="/searchrates" title="">View All Rates</a>
-  
+
     </div>
-  
-  
-  
-  
-  
+
+
+
+
+
   <div class="streakBanner">
     <div class="backgroundTexture">
       <div class="maintextarea">
@@ -515,9 +515,9 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
   <div class="streakBannerBottom">
     <!-- <p>Existing Customers? <span>Get something awesome!</span>
       <a href="/mobiledeals">View Offers</a> -->
-      <p>Existing Customers? <span>Check out our awesome features!</span>  
+      <p>Existing Customers? <span>Check out our awesome features!</span>
         <a href="/features">View</a>
     </p>
-  
-    
+
+
   </div>

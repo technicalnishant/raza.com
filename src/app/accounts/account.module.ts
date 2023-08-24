@@ -92,6 +92,7 @@ import { NgxSplideModule } from 'ngx-splide';
 
                     { path: 'overview', component: AccountRechargeComponent },
                     { path: 'overview/:notification', component: AccountRechargeComponent },
+                    { path: 'recharge/:planId', component: AccountRechargeComponent },
                     
                     
                     { path: 'payment-details/:planId', component: AccountPaymentDetailsComponent },

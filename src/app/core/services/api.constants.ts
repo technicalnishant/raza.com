@@ -10,7 +10,8 @@ export class Api {
 
 	static customer = {
 		referFriend: base + 'api/customers/refer',
-		referFriendnew: base + 'api/customers/ReferToEmail'
+		referFriendnew: base + 'api/customers/ReferToEmail',
+		referFrienddetail: base + 'api/Customers/RazaPointDetail'
 	};
 
 	static auth = {

@@ -1,5 +1,162 @@
 <div class="tabContentMyaccount planDetails" id="rewards">
   <p class="tabTitle">Rewards Overview</p>
+
+  <div class="second_fold earned_referrals">
+    <div class="shadowtype2">
+        <div class="row">
+            <div class="col-md-3 col-6">
+                <div class="point_box">
+                    <h3>{{rewardTotal+totalRedemed}}</h3>
+                    <p>Earned</p>
+                    <img src="../../../assets/images/new_design_images/earned.svg" alt="earned" />
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="point_box">
+                    <h3>{{totalRefrals}}</h3>
+                    <p>Referrals</p>
+                    <img src="../../../assets/images/new_design_images/referrals.svg" alt="referrals" />
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="point_box">
+                    <h3>{{totalCompleted}}</h3>
+                    <p>Completed</p>
+                    <img src="../../../assets/images/new_design_images/completed.svg" alt="completed" />
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="point_box">
+                    <h3>-{{totalRedemed}}</h3>
+                    <p>Redeemed</p>
+                    <img src="../../../assets/images/new_design_images/redeemed.svg" alt="redeemed" />
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="point_box">
+                  <h3>{{rewardTotal}}</h3>
+                  <p>Current Balance</p>
+                  <img src="../../../assets/images/new_design_images/redeemed.svg" alt="redeemed" />
+              </div>
+          </div>
+          <div class="col-md-3 col-6">
+              <div class="point_box sendRef">
+                  <img src="../../../assets/images/new_design_images/sendreferrallink.svg" alt="sendreferrallink" />
+                  <a href="javascript:void(0)" (click)="scrollToSection()">Send Reffral link</a>
+              </div>
+          </div>
+          <div class="col-md-3 col-6">
+              <div class="point_box callToRef">
+                  <img src="../../../assets/images/new_design_images/calltoredeem.svg" alt="calltoredeem" />
+                  <a href="javascript:void(0)" (click)="redeemNow()"> Redeem now</a>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="yourReffralCode" id="reffer_a_friend" #reffer_a_friend >
+  <h3>Your unique referral code is: <span>{{referrerCode}}</span></h3>
+  <button type="button" data-href="reffralUrl">
+      <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{reffralUrl}}&amp;src=sdkpreparse" class="facebook">
+      </a>
+  </button>
+  <button type="button">
+      <a href="https://twitter.com/intent/tweet?text={{reff_text}} : {{reffralUrl}}" target="_blank" class="twitter">
+      </a>
+  </button>
+
+  <button type="button">
+      <a href="http://pinterest.com/pin/create/link/?url={{reffralUrl}}" target="_blank" class="pinterest">
+      </a>
+  </button>
+
+  <button type="button">
+      <a href="https://wa.me?text={{reff_text}} : {{reffralUrl}}" target="_blank" class="whatsApp">
+      </a>
+  </button>
+  <div class="shareText">Feel free to share it with others!</div>
+</div>
+
+
+
+<div #tabContainer></div>
+                <div class="rowDiv">
+                    <mat-tab-group #tabGroup>
+                        <mat-tab label="Reward Points">
+                            <table class="table table-striped" *ngIf="allRewardPoints">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Nagesh's Purchase / Refund</th>
+                                    <th scope="col">Points</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let item of allRewardPoints">
+                                    <td>
+                                      {{item.EarnedDate | date :'dd-MMM-yy  h:mm a ' }}
+                                    </td>
+                                    <td>{{item.Point}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <button *ngIf="showLoadMore" (click)="loadMore()" class="load_more">Load More</button>
+                        </mat-tab>
+
+                        <mat-tab label="Referrals">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Referral Emails</th>
+                                  <th scope="col">Points</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of referedFriends; index as i">
+                                  <td>{{item.EmailId}}</td>
+                                  <td>{{item.Point}}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </mat-tab>
+
+                          <mat-tab label="Completed">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Referral Emails</th>
+                                  <th scope="col">Points</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of referedFriendsCompleted; index as i" >
+                                  <td>{{item.EmailId}}</td>
+                                  <td>{{item.Point}}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </mat-tab>
+
+                          <mat-tab label="Redeemed">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Transaction Date</th>
+                                  <th scope="col">Points</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of redeemedPoints; index as i">
+                                  <td>{{item.RedeemDate | date :'dd-MMM-yy h:mm:ss a '}}</td>
+                                  <td>{{item.PointUsed}}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </mat-tab>
+                    </mat-tab-group>
+                </div>
+
+<!--- 
   <mat-tab-group>
 
     <mat-tab label="Raza Reward">
@@ -8,12 +165,6 @@
 		    <p *ngIf="county_id!=1" class="desc">Click to enroll and get 200 points instantly. <br />Get {{enrollAmount| bCurrency : plan?.CurrencyCode}} FREE worth of minutes for every 1100 points redeemed.
 		  </p>
 		  
-		   <!--<p  class="desc">Click enroll to earn 200 free points,
-        get {{enrollAmount| bCurrency : plan?.CurrencyCode}} free
-          minutes for every {{enrollPoints}} points.</p>-->
-        <!-- <div class="input_holder1">
-          <button mat-button class="submitButton" (click)="enrollNow()">Enroll</button>
-       </div> -->
         <div *ngIf="btnEnrollDisable" class="input_holder1">
           <button mat-button class="submitButton" (click)="enrollNow()">Enroll</button>
         </div>
@@ -121,5 +272,7 @@
       </table>
     </mat-tab>
   </mat-tab-group>
+-->
+  
 
 </div>

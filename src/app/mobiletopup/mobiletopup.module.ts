@@ -22,7 +22,8 @@ import { BundleDialogComponent } from './dialog/bundle-dialog/bundle-dialog.comp
     MatButtonToggleModule,
     NgxSplideModule,
     RouterModule.forChild([
-      { path: '', component: MobiletopupComponent },
+     // { path: '', component: MobiletopupComponent },
+      { path: '', component: TopupNowComponent },
       { path: '/mobiletopup/:planid/:iso', component: MobiletopupComponent },
       { path: '/mobiletopup/:pin', component: MobiletopupComponent },
       { path: 'topup_now', component: TopupNowComponent },

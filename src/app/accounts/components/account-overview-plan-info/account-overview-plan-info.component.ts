@@ -31,6 +31,7 @@ export class AccountOverviewPlanInfoComponent implements OnInit {
   ngOnInit() {
     //Loading All customer plans.
     this.loadBillingInfo();
+     
   }
   
   loadBillingInfo() {
@@ -39,17 +40,7 @@ export class AccountOverviewPlanInfoComponent implements OnInit {
         this.billingInfo = res;
          
         ;
-       /* if(res.Address && res.Address.HomePhone && res.Address.HomePhone !='')
-        {}*/
-          
-        //  this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe(
-        //    (res:any)=>{
-              
-        //      this.plan = res;
-        //      //this.currentPlanName = res.CardName;
-        //     // this.currentBalance = res.Balance;
-        //    }
-        //  );
+        
  
       })
   }

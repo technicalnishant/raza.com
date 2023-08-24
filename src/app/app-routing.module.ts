@@ -95,6 +95,9 @@ const routes: Routes = [
   { path:'search', loadChildren:()=>import("./search/search.module").then(m=>(m.SearchModule))},
   // { path: 'search/:country', component: SearchComponent }, //27-12-2022
   { path: 'mobile_pay', loadChildren: () => import('./mobile-pay/mobile-pay.module').then(m => m.MobilePayModule) },
+  
+  { path: 'mobile-page', loadChildren: () => import('./mobile-page/mobile-page.module').then(m => m.MobilePageModule) },
+
   { path: 'refer', loadChildren:()=>import('./refer/refer.module').then(m=>m.ReferModule)},
   { path: 'raza-us', loadChildren: () => import('./raza-us/raza-us.module').then(m => m.RazaUsModule) },
   { path: '**', pathMatch: 'full',  component: Page404Component },

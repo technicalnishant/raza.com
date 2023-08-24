@@ -25,12 +25,12 @@
       <h5>My Account</h5>
       <ul>
         
-        <li><a routerLink="/account/overview" routerLinkActive="active-link">Recharge</a></li>
-        <li><a routerLink="/account/payment-details/{{plan?.PlanId}}" routerLinkActive="active-link">Payment Details</a>
+        <li><a routerLink="/account/overview" (click)="getMyPlan()" routerLinkActive="active-link">Recharge</a></li>
+        <li><a routerLink="/account/payment-details/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">Payment Details</a>
         </li>
-        <li *ngIf="plan"><a routerLink="/account/autorefill/{{plan?.PlanId}}" routerLinkActive="active-link">Auto -
+        <li *ngIf="plan"><a routerLink="/account/autorefill/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">Auto -
             Refill</a></li>
-        <li><a routerLink="/account/order-history" routerLinkActive="active-link">Order-History</a></li>
+        <li><a routerLink="/account/order-history" (click)="getMyPlan()" routerLinkActive="active-link">Order-History</a></li>
         <li class="noBorder" *ngIf="plan">
           <mat-accordion>
             <mat-expansion-panel>
@@ -41,31 +41,31 @@
               </mat-expansion-panel-header>
 
               <ul>
-                <li><a routerLink="/account/plandetails/{{plan?.PlanId}}" routerLinkActive="active-link">Your Raza #</a>
+                <li><a routerLink="/account/plandetails/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">Your Raza #</a>
                 </li>
-                <li><a routerLink="/account/call-details/{{plan?.PlanId}}" routerLinkActive="active-link">Call Details</a></li>
+                <li><a routerLink="/account/call-details/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">Call Details</a></li>
                 
                 <li *ngIf="plan.IsAllowPinLess">
-                  <a routerLink="/account/mynumber/{{plan?.PlanId}}" routerLinkActive="active-link">My
+                  <a routerLink="/account/mynumber/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">My
                     Numbers</a></li>
                 <li><a routerLink="/account/onetouchSetups/{{plan?.PlanId}}" routerLinkActive="active-link">One Touch
                     Dial</a></li>
                 <li *ngIf="plan.IsAllowCallForwarding">
-                  <a routerLink="/account/callForwardingSetups/{{plan?.PlanId}}" routerLinkActive="active-link">
+                  <a routerLink="/account/callForwardingSetups/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">
                     Call Forwarding</a>
                 </li>
               </ul>
             </mat-expansion-panel>
           </mat-accordion>
         </li>
-        <li><a routerLink="/account/rewards" routerLinkActive="active-link">Rewards</a></li>
-        <li><a routerLink="/account/international-topup" routerLinkActive="active-link">International Topup</a></li>
-        <li><a routerLink="/account/virtualnumber" routerLinkActive="active-link" class="d-none">Virtual Numbers</a></li>
-        <li><a routerLink="/account/my-profile" routerLinkActive="active-link">My Profile</a></li>
-        <li *ngIf="isEnableOtherPlan">
-          <a routerLink="/account/other-plans" routerLinkActive="active-link">Other Plans</a>
+        <li><a routerLink="/account/rewards" (click)="getMyPlan()" routerLinkActive="active-link">Rewards</a></li>
+        <li><a routerLink="/account/international-topup" (click)="getMyPlan()" routerLinkActive="active-link">International Topup</a></li>
+        <li><a routerLink="/account/virtualnumber" (click)="getMyPlan()" routerLinkActive="active-link" class="d-none">Virtual Numbers</a></li>
+        <li><a routerLink="/account/my-profile" (click)="getMyPlan()" routerLinkActive="active-link">My Profile</a></li>
+        <li >
+          <a routerLink="/account/other-plans" (click)="getMyPlan()" routerLinkActive="active-link">Other Plans</a>
         </li>
-        <li><a routerLink="/account/overview/notification" routerLinkActive="active-link">Notifications</a></li>
+        <li><a routerLink="/account/overview/notification" (click)="getMyPlan()" routerLinkActive="active-link">Notifications</a></li>
         <!-- <li><a routerLink="/account/rates" routerLinkActive="active-link">Search Rates</a></li> -->
       </ul>
     </div>
@@ -80,6 +80,7 @@
         <!-- <app-account-recharge *ngIf="plan" [plan]="plan" ></app-account-recharge>  
         <app-my-cards *ngIf="plan" [plan]="plan"> </app-my-cards> -->
       <router-outlet *ngIf="plan" [plan]="plan" ></router-outlet>
+
       
     </div>
   </div>
