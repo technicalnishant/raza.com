@@ -42,7 +42,7 @@
           <div class="col-md-3 col-6">
               <div class="point_box sendRef">
                   <img src="../../../assets/images/new_design_images/sendreferrallink.svg" alt="sendreferrallink" />
-                  <a href="javascript:void(0)" (click)="scrollToSection()">Send Reffral link</a>
+                  <a href="javascript:void(0)" (click)="scrollToSection()">Send Refral link</a>
               </div>
           </div>
           <div class="col-md-3 col-6">
@@ -148,7 +148,7 @@
                               <tbody>
                                 <tr *ngFor="let item of redeemedPoints; index as i">
                                   <td>{{item.RedeemDate | date :'dd-MMM-yy h:mm:ss a '}}</td>
-                                  <td>{{item.PointUsed}}</td>
+                                  <td>-{{item.PointUsed}}</td>
                                 </tr>
                               </tbody>
                             </table>
