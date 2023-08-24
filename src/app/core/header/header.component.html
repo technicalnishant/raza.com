@@ -17,7 +17,7 @@
   </button>
 </div>
 <header [ngClass]="{'headerBackground': headerValue == 2 , 'bg-darkblue': headerValue == 1}"
-  [ngClass]="status ? '' : 'header-top'" class="header_style2 active pb-0 border-0 bg-darkblue" id="hd-bg" *ngIf="showHeader">
+  [ngClass]="status ? '' : 'header-top'" class="header_style2 active pb-0 border-0 bg-darkblue aj12" id="hd-bg" *ngIf="showHeader">
 
 
   <mat-toolbar >
@@ -88,16 +88,18 @@
       </div>
 
       <div class="login">
-        <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span>
+        <!-- <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span> -->
         <div #accountDropMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu" class="login">
-           <button mat-icon-button class="p-0"
+          <button class="login_btn">Login</button>
+          <!-- <button  mat-icon-button class="p-0"
             [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}">
             <mat-icon>account_circle</mat-icon>
-          </button>
+          </button> -->
 
           <!--<div *ngIf="!isAuthenticated" class="login-text d-none d-md-block">login</div>-->
 
         </div>
+        <a routerLink="/freetrial" class="tryUsfree">Try us Free</a>
       </div>
 
 
@@ -240,7 +242,7 @@
 
  <header *ngIf="!showHeader && blueBg==1"
 [ngClass]="{'headerBackground': headerValue == 2 , '': headerValue == 1}"
-[ngClass]="status ? '' : 'header-top'" class="header_style2 active pb-0 border-0 bg-darkblue"
+[ngClass]="status ? '' : 'header-top'" class="header_style2 active pb-0 border-0 bg-darkblue ajjjj"
 >
   <mat-toolbar >
 

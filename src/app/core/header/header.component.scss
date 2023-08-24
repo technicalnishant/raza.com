@@ -103,6 +103,56 @@
 	background: url("/assets/images/new_design_images/icon_sprite.png") -40px 234px;
 }
 
+button.login_btn {
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 32px;
+    line-height: 1.2;
+	&:hover {
+		border-color: #ffa202 !important;
+	}
+}
+.tryUsfree {
+    border: 2px solid #ffd005;
+    background-color: #ffd005;
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 7px 28px 7px 14px;
+    border-radius: 32px;
+    line-height: 1.2;
+    text-transform: none;
+	margin-left: 10px;
+	background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
+	background-repeat: no-repeat;
+    background-position: right 10px center;
+	&:hover {
+		background-color: transparent !important;
+		background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
+		color: #fff;
+	}
+}
+.headerBackground {
+	button.login_btn {
+		border: 2px solid #2b437d;
+		color: #2b437d;
+	}
+	.tryUsfree {
+		border: 2px solid #2b437d;
+		background-color: #2b437d;
+		background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
+		color: #fff;
+		&:hover {
+			color: #2b437d;
+			background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
+		}
+	}
+}
+
 @media only screen and (max-width: 675px) {
   .dealbtndrop{
     margin-left: 20px;
