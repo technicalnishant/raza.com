@@ -117,7 +117,10 @@
 </button>
 
   <div class="remembermMe">
-    <input type="checkbox" id="remMe"/>
+   
+    <input *ngIf="rememberMe" id="remMe" type="checkbox" checked (click)="rememberMe=!rememberMe">
+      <input *ngIf="!rememberMe" id="remMe" type="checkbox" (click)="rememberMe=!rememberMe">
+
     <span class="remBox"></span>
     <label class="remember" for="remMe">Remember me</label>        
     <span class="floatRight resend forget">

@@ -233,13 +233,13 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   {
     if(localStorage.getItem('rememberMe') && localStorage.getItem('rememberMe') == 'rememberMe')
     {
-    //  const loginwith  = localStorage.getItem('cookieLoginWith');
-    //  const phoneEmail = localStorage.getItem('cookieLoginPhone');
-    //  const password   = localStorage.getItem('cookieLoginPass');
-     //this.loginWith   = this.loginWith?this.loginWith : loginwith;
-     //this.rememberMe = true;
-     //this.loginForm.controls['username'].setValue(phoneEmail);
-     //this.loginForm.controls['password'].setValue(password);
+     const loginwith  = localStorage.getItem('cookieLoginWith');
+     const phoneEmail = localStorage.getItem('cookieLoginPhone');
+     const password   = localStorage.getItem('cookieLoginPass');
+     this.loginWith   = this.loginWith?this.loginWith : loginwith;
+     this.rememberMe = true;
+     this.loginForm.controls['username'].setValue(phoneEmail);
+     this.loginForm.controls['password'].setValue(password);
      
 
    }
