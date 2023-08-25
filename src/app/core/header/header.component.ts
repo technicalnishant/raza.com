@@ -71,7 +71,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   stateCtrl = new FormControl();
   selectedMap: string = 'flag flag-ad';
   serchdata: any; autoControl = new FormControl();
-  showHeader:boolean=true;  
+  showHeader:boolean=true;
+  showMyaccontHeader:boolean=false;
   frameborder:boolean=false;
   selected_country:string='';
   filter_string:string=''
@@ -140,10 +141,12 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   
     localStorage.setItem('last_page', event.url);
 
+    console.log('12345 aaaaa', event.url );
 
     if(event.url == '/'  )
     {
       this.showHeader = true;
+      this.showMyaccontHeader = false;
       this.blueBg = 0;
       this.setCurrentSetting()
       if (!isNullOrUndefined(this.currentSetting)) {
@@ -155,15 +158,19 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     }
     else if(event.url == '/mobile-page'){
       this.showHeader = true;
+      this.showMyaccontHeader = false;
       this.blueBg = 0;
+    }   
+     else if(event.url.includes('/account')){
+      this.showMyaccontHeader = true;
+      this.showHeader = false;
     }
     else if(event.url == '/sitemap'){
       this.showHeader = true;
+      this.showMyaccontHeader = false;
       this.blueBg = 0;
     }
     else if(event.url == '/globalcallrates')
-
-    
     {
       if(window.screen.width > 768)
       {

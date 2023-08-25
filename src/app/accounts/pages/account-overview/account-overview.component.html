@@ -22,19 +22,18 @@
   <div class="onlyDesktopAccount" *ngIf="!isSmallScreen">
     <!-- <h2 class="welcomeText"> {{userWelcomeLabel}}</h2> -->
     <div class="leftTabArea">
-      <h5>My Account</h5>
-      <ul>
-        
-        <li><a routerLink="/account/overview" (click)="getMyPlan()" routerLinkActive="active-link">Recharge</a></li>
-        <li><a routerLink="/account/payment-details/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">Payment Details</a>
+      <!-- <h5>My Account</h5> -->
+      <ul>        
+        <li class="recharge"><a routerLink="/account/overview" (click)="getMyPlan()" routerLinkActive="active-link">Recharge</a></li>
+        <li class="payment-details"><a routerLink="/account/payment-details/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">Payment Details</a>
         </li>
-        <li *ngIf="plan"><a routerLink="/account/autorefill/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">Auto -
+        <li class="autorefill" *ngIf="plan"><a routerLink="/account/autorefill/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">Auto -
             Refill</a></li>
-        <li><a routerLink="/account/order-history" (click)="getMyPlan()" routerLinkActive="active-link">Order-History</a></li>
-        <li class="noBorder" *ngIf="plan">
+        <li class="order-history"><a routerLink="/account/order-history" (click)="getMyPlan()" routerLinkActive="active-link">Order-History</a></li>
+        <li class="noBorder plandetails" *ngIf="plan">
           <mat-accordion>
             <mat-expansion-panel>
-              <mat-expansion-panel-header>
+              <mat-expansion-panel-header class="plan_details">
                 <mat-panel-title>
                   Plan Details
                 </mat-panel-title>
@@ -58,14 +57,14 @@
             </mat-expansion-panel>
           </mat-accordion>
         </li>
-        <li><a routerLink="/account/rewards" (click)="getMyPlan()" routerLinkActive="active-link">Rewards</a></li>
-        <li><a routerLink="/account/international-topup" (click)="getMyPlan()" routerLinkActive="active-link">International Topup</a></li>
-        <li><a routerLink="/account/virtualnumber" (click)="getMyPlan()" routerLinkActive="active-link" class="d-none">Virtual Numbers</a></li>
-        <li><a routerLink="/account/my-profile" (click)="getMyPlan()" routerLinkActive="active-link">My Profile</a></li>
-        <li >
+        <li class="rewards"><a routerLink="/account/rewards" (click)="getMyPlan()" routerLinkActive="active-link">Rewards</a></li>
+        <li class="international-topup"><a routerLink="/account/international-topup" (click)="getMyPlan()" routerLinkActive="active-link">International Topup</a></li>
+        <li class="virtualnumber"><a routerLink="/account/virtualnumber" (click)="getMyPlan()" routerLinkActive="active-link" class="d-none">Virtual Numbers</a></li>
+        <li class="my-profile"><a routerLink="/account/my-profile" (click)="getMyPlan()" routerLinkActive="active-link">My Profile</a></li>
+        <li class="other-plans">
           <a routerLink="/account/other-plans" (click)="getMyPlan()" routerLinkActive="active-link">Other Plans</a>
         </li>
-        <li><a routerLink="/account/overview/notification" (click)="getMyPlan()" routerLinkActive="active-link">Notifications</a></li>
+        <li class="notifications"><a routerLink="/account/overview/notification" (click)="getMyPlan()" routerLinkActive="active-link">Notifications</a></li>
         <!-- <li><a routerLink="/account/rates" routerLinkActive="active-link">Search Rates</a></li> -->
       </ul>
     </div>

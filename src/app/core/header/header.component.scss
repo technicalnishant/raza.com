@@ -41,7 +41,27 @@
 } */
 
 
-
+.header_white {
+	border-bottom: 1px solid #d6d6d6;
+	padding: 2px 0;
+	.logo {
+		margin-left: 10px;
+		img {
+			width: 125px;
+		}
+	}
+	button.menu_btn {
+		border: none;
+		background: transparent;
+		border-left: 1px solid #dbdbdb;
+		padding: 8px 0 8px 20px;
+		margin-left: 20px;
+		line-height: 1;
+		img {
+			display: block;
+		}
+	}
+}
 .closeIconContact {
 	position: absolute;
 	top: 8px;

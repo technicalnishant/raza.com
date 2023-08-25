@@ -15,27 +15,25 @@
                     <h2 ><span class="heading_strong">Nagesh's </span> <span class="heading_light">Points</span></h2>
                     <div class="row balDetails">
                         <div class="col-md-6">
-                            <img src="../../../assets/images/new_design_images/current_bal.png" alt="icon" />
-                            <div>
-                              <p>Current Balance</p>
-                              <h3>{{rewardTotal}}</h3>
-                            </div>
+                            <img src="../../../assets/images/new_design_images/red_value.png" alt="icon" />
                         </div>
                         <div class="col-md-6">
-                          <img src="../../../assets/images/new_design_images/red_value.png" alt="icon" />
+                          <!-- <img src="../../../assets/images/new_design_images/current_bal.png" alt="icon" /> -->
                           <div>
+                              <p>Current Balance</p>
+                              <h3>{{rewardTotal}}</h3>
                             <!--<p>Redeemable value </p>
                              <h3>{{enrollAmount | bCurrency}}</h3> -->
                             <div class="buttonArea">
                                 <!-- <button mat-button *ngIf="enrollPoints > 1000" class="refButton" >Redeem now</button> -->
                                 <!-- <button mat-button *ngIf="enrollPoints > 1000" class="submitButton" >Redeem now</button> -->
 
-                                <div *ngIf="isAbleToRedeemFlag" class="input_holder1">
+                                <!-- <div *ngIf="isAbleToRedeemFlag" class="input_holder1">
                                     <button mat-button class="refButton" (click)="redeemNow()">Redeem Now</button>
                                   </div>
                                   <div *ngIf="!isAbleToRedeemFlag" class="input_holder1 virtualCommingSoon">
                                     <button mat-button class="refButton">Redeem Now</button>
-                                  </div>
+                                  </div> -->
 
                             </div>
                           </div>
