@@ -181,21 +181,25 @@ p.points {
 }
 
   
-  @media only screen and (max-width: 500px) {
-    .selectRechargeamount{ padding: 34px 0 62px 0;}
-    p.selectAmountText{font-size: 15px;}
-    .bonusArea span:first-child{ display: block; text-align: center; width: 100%;}
-    .bonusArea span:last-child{display: block;text-align: center; padding: 6px 0 0px 27%;}
-    .mobileContentSlider{ display: block;}
-    .commonpriceArea{ width: 190px; height: 182px; border:1px solid #E2E7ED; padding: 39px 0;    margin: 0 auto; text-align: center; position: relative;}
-    .commonpriceArea.active{ border:1px solid blue;}
-    .selectRechargeAmnt{ overflow: visible;}
-    .carousel-indicators {bottom: -46px !important;}
-    .i_icon{right: -22px;top: 10px;}
-    .selectRechargeamount{ width: 90%;}
-    .selectRechargeAmnt ul li{ display: table; margin: 5px; float: none;}
-    
-  }
+@media only screen and (max-width: 850px) {
+	.selectRechargeAmnt {
+		ul {
+			flex-wrap: wrap;
+			li {
+				margin-bottom: 60px;
+			}
+		}
+	}
+	.selectRechargeamountMain {
+		margin-top: 65px;
+	}	
+	.selectRechargeamount{
+		padding: 25px 20px;
+	}
+	.bonusArea span:first-child {
+		line-height: 1;
+	}
+}
   
   .mouse-pointer {
     cursor: pointer;
