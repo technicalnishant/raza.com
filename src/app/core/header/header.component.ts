@@ -83,6 +83,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     private razaLayoutService: RazaLayoutService,
     private promotionService: PromotionsService,
     public dialog: MatDialog,
+    public matDialog: MatDialog,
     private razaEnvService: RazaEnvironmentService,
     private promotionResolverService: PromotionResolverService,
     private breakpointObserver: BreakpointObserver,
@@ -105,6 +106,24 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     return this.authService.isAuthenticated();
   }
 
+  openModal() {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "350px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = {
+      name: "logout",
+      title: "Are you sure you want to logout?",
+      description: "Pretend this is a convincing argument on why you shouldn't logout :)",
+      actionButtonText: "Logout",
+    }
+    localStorage.removeItem('redirect_path');
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(LoginpopupComponent, dialogConfig);
+  }
+  
   ngOnInit() {
 
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
