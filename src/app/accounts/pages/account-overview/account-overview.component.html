@@ -21,7 +21,7 @@
 
   <div class="onlyDesktopAccount" *ngIf="!isSmallScreen">
     <!-- <h2 class="welcomeText"> {{userWelcomeLabel}}</h2> -->
-    <div class="leftTabArea">
+    <div class="leftTabArea {{sharedValue}}">
       <!-- <h5>My Account</h5> -->
       <ul>        
         <li class="recharge"><a routerLink="/account/overview" (click)="getMyPlan()" routerLinkActive="active-link">Recharge</a></li>

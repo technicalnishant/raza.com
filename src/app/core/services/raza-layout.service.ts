@@ -12,4 +12,16 @@ export class RazaLayoutService {
   setFixedHeader(fixed: boolean) {
     this.isFixHeader$.next(fixed);
   }
+
+
+  private sharedValue: any;
+
+  setSharedValue(value: any) {
+    this.sharedValue = value;
+  }
+
+  getSharedValue(): any {
+    return this.sharedValue;
+  }
+  
 }
