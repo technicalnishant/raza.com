@@ -153,15 +153,15 @@ button.login_btn {
     border-radius: 32px;
     line-height: 1.2;
     text-transform: none;
-	margin-left: 10px;
-	background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
-	background-repeat: no-repeat;
+    margin-left: 10px;
+    background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
+    background-repeat: no-repeat;
     background-position: right 10px center;
-	&:hover {
-		background-color: transparent !important;
-		background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
-		color: #fff;
-	}
+    &:hover {
+      background-color: transparent !important;
+      background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
+      color: #fff;
+    }
 }
 .headerBackground {
 	button.login_btn {
@@ -1109,6 +1109,9 @@ input#searchInput::placeholder {
     left: 0 !important;
     right: 0 !important;
     padding: 0 8px;
+ }
+ .tryUsfree {
+  display: none;
  }
  .logo-whiteimg {
     width: 65%;

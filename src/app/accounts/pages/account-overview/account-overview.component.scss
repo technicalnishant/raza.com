@@ -769,7 +769,8 @@ table {
 	    width: 275px;
 		padding-top: 70px;
 		background: #fff;
-		&.active {
+		transition: 0.5s;
+		&.hide_nav {
 			width: 80px;
 			ul {
 				padding: 0 5px;
@@ -782,6 +783,39 @@ table {
 						padding: 40px 0 0;
 						background-position: top 10px center;
 						text-align: center;
+						white-space: normal;
+					}
+					&.plandetails {
+						ul {
+							padding-left: 0;
+							a {
+								padding: 0;
+								height: 40px;
+								font-weight: 500;
+							}
+						}
+						.mat-expansion-panel-header-title {
+							font-size: 11px;
+							margin: 0;
+							text-align: center;
+							color: #71747c;
+						}
+						.plan_details {
+							height: 75px;
+							line-height: 1.1;
+							font-size: 11px;
+							color: #71747c;
+							padding: 40px 0 0 !important;
+							background-position: top 10px center !important;
+							&:hover {
+								background-position: top 10px center !important;
+							}
+						}
+						::ng-deep {
+							.mat-expansion-panel-body {
+								padding: 0 !important;
+							}
+						}
 					}
 				}
 			}
@@ -795,6 +829,7 @@ table {
 		ul {
 			list-style-type: none;
 			padding: 0 20px;
+			overflow: hidden;
 			li {
 				line-height: 55px;
 				border-bottom: 1px solid #e6e6e6;
@@ -812,6 +847,7 @@ table {
 					background-repeat: no-repeat;
 					background-position: left 0 center;
 					padding-left: 52px;
+					white-space: nowrap;
 					&:hover {
 						color: #1656ff;
 					}
@@ -870,6 +906,7 @@ table {
 						padding-left: 55px;
 						a {
 							padding-left: 0;
+							font-family: 'Montserrat', sans-serif;
 						}
 					}
 					.plan_details {
