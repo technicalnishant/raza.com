@@ -602,4 +602,12 @@ onClickClose(icon)
    
   }
   
+  clickMenu()
+  {
+    let value = (this.razaLayoutService.getSharedValue())?'':'hide_nav';
+    this.razaLayoutService.setSharedValue(value);
+    console.log(value);
+  }
+
+  
 }

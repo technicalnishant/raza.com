@@ -32,7 +32,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   newDesign:boolean=false;
   clientCardId:any;
   selectedPlanId:any='';
-
+  sharedValue:any='';
   constructor(
     private router: Router,
     private authService: AuthenticationService,
@@ -48,7 +48,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
 
   ngOnInit() 
   {
-   
+    this.sharedValue = this.razalayoutService.getSharedValue();
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     //Loading All customer plans.
