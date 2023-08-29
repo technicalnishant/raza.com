@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class RazaLayoutService {
   public isFixHeader$ = new BehaviorSubject<boolean>(false);
-
+  private sharedValueSubject = new Subject<any>();
   constructor() { }
 
   setFixedHeader(fixed: boolean) {
@@ -17,11 +17,11 @@ export class RazaLayoutService {
   private sharedValue: any;
 
   setSharedValue(value: any) {
-    this.sharedValue = value;
+    this.sharedValueSubject.next(value);
   }
 
-  getSharedValue(): any {
-    return this.sharedValue;
+  getSharedValue() {
+    return this.sharedValueSubject.asObservable();
   }
-  
+
 }

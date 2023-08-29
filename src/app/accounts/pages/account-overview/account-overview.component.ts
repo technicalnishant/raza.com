@@ -13,6 +13,7 @@ import { isNullOrUndefined } from "../../../shared/utilities";
 import { Router } from '@angular/router';
 import { ErrorDialogComponent } from 'app/shared/dialog/error-dialog/error-dialog.component';
 import { filter } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-account-overview',
   templateUrl: './account-overview.component.html',
@@ -33,6 +34,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   clientCardId:any;
   selectedPlanId:any='';
   sharedValue:any='';
+  private subscription: Subscription;
   constructor(
     private router: Router,
     private authService: AuthenticationService,
@@ -42,13 +44,16 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
     private titleService: Title) {
-      
+      this.subscription = this.razalayoutService.getSharedValue().subscribe(value => {
+        this.sharedValue = value;
+        console.log("this.sharedValue", this.sharedValue);
+      });
      
   }
-
+   
   ngOnInit() 
   {
-    this.sharedValue = this.razalayoutService.getSharedValue();
+    
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     //Loading All customer plans.
@@ -202,6 +207,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     this.newDesign = false;
+    this.subscription.unsubscribe();
   }
 	 
   get userWelcomeLabel() {
