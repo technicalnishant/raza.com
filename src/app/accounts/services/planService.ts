@@ -251,10 +251,10 @@ export class PlanService {
     replaced = replaced.replace(/;/g, '');
     replaced = replaced.replace(/[\[\]']/g,'' );
     
-    const cachedData = sessionStorage.getItem('pinless_'+replaced);
-    if (cachedData) {
-      return of(JSON.parse(cachedData));
-    }
+    // const cachedData = sessionStorage.getItem('pinless_'+replaced);
+    // if (cachedData) {
+    //   return of(JSON.parse(cachedData));
+    // }
 
     return this.httpClient.get<[]>(`${Api.plan.pinlessNumber}/${replaced}`).pipe(
       tap(data => {

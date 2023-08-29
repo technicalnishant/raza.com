@@ -98,16 +98,16 @@ export class AccountRechargeComponent implements OnInit {
     this.titleService.setTitle('Recharge');
     this.razalayoutService.setFixedHeader(true);
     this.uri = this.route.snapshot.paramMap.get('notification');//?this.route.snapshot.paramMap.get('notification'):'notification';
- 
-
-      if(this.selectedPlanId && this.selectedPlanId !='')
-      {
-        this.getSelectedPlan()
-      }
-      else
-      {
-        this.getDefaultPlan()
-      }
+    
+    if(this.selectedPlanId && this.selectedPlanId !='')
+    {
+      this.getSelectedPlan()
+    }
+    else
+    {
+      this.getDefaultPlan()
+    }
+    
  }
 
  getDefaultPlan()
@@ -123,19 +123,9 @@ export class AccountRechargeComponent implements OnInit {
         this.toCountryId    = this.plan.CountryTo;
         this.fromCountryId  = this.plan.CountryFrom;
         this.isEnableOtherPlan =false
+        this.isPremium = true;
+        this.getRates()
          
-  //     }
-       
-  //   })
-
-
-  // this.planService.getAllPlans().subscribe(
-  //   (data: Plan[]) => {
-  //     this.plan = data[0];
- 
-      
-  //     if(data.length > 0 )
-  //     {
         
       }
       else 
@@ -145,7 +135,7 @@ export class AccountRechargeComponent implements OnInit {
           this.isEnableOtherPlan =true;
         }
       }
-      this.getRechargeOption();
+      
     },
     (err: ApiErrorResponse) => console.log(err)
   );
@@ -242,8 +232,13 @@ export class AccountRechargeComponent implements OnInit {
         {
           this.denominatons = res[0];//.filter( a => {a.CountryId == this.fromCountryId})
           this.ratesLoaded = true;
-
-          this.selectedDenomination = res[0];
+          
+          let filtered = res.filter( a => { 
+            if(a == 10 )
+            return a;
+          });
+        
+          this.selectedDenomination = (filtered[0])?filtered[0]:res[0];
           const model: RechargeCheckoutModel = new RechargeCheckoutModel();
           model.purchaseAmount = res[0];
           model.couponCode = '';

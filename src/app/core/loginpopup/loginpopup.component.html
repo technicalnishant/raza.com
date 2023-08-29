@@ -63,7 +63,8 @@
             <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
           </button>
           <div class="remembermMe">
-            <input type="checkbox" id="remMe"/>
+            <input *ngIf="rememberMe" id="remMe" type="checkbox" checked (click)="setRememberme(false)">
+      <input *ngIf="!rememberMe" id="remMe" type="checkbox" (click)="setRememberme(true) ">
             <span class="remBox"></span>
             <label class="remember" for="remMe">Remember me</label>        
             <span class="floatRight resend forget">
@@ -118,8 +119,8 @@
 
   <div class="remembermMe">
    
-    <input *ngIf="rememberMe" id="remMe" type="checkbox" checked (click)="rememberMe=!rememberMe">
-      <input *ngIf="!rememberMe" id="remMe" type="checkbox" (click)="rememberMe=!rememberMe">
+    <input *ngIf="rememberMe" id="remMe" type="checkbox" checked (click)="setRememberme(false)">
+      <input *ngIf="!rememberMe" id="remMe" type="checkbox" (click)="setRememberme(true) ">
 
     <span class="remBox"></span>
     <label class="remember" for="remMe">Remember me</label>        

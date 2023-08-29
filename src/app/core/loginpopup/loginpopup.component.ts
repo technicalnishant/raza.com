@@ -231,6 +231,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
   setCookieFields()
   {
+     
     if(localStorage.getItem('rememberMe') && localStorage.getItem('rememberMe') == 'rememberMe')
     {
      const loginwith  = localStorage.getItem('cookieLoginWith');
@@ -1061,7 +1062,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
   setCookie(loginWith, phone, userPassword)
   {
-    if(this.rememberMe == true)
+    
+    if(this.rememberMe)
     {
       localStorage.setItem('cookieLoginWith', loginWith);
       localStorage.setItem('cookieLoginPhone', phone);
@@ -1069,6 +1071,10 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       localStorage.setItem('rememberMe', 'rememberMe');
     }
   }
-          
+  setRememberme(obj:boolean)
+  {
+    this.rememberMe = obj;
+ 
+  }       
           
 }
