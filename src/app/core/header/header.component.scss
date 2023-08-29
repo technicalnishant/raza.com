@@ -5,6 +5,63 @@
   left: 0;
   right: 0;
 }
+
+/* .header_style2 {
+  padding: 5px 0;
+  margin: 0;
+  width: 100%;
+  position: fixed;
+  top: unset;
+  left: 0;
+}
+.headerBackground {
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
+  -webkit-transition: opacity 0.7s;
+  transition: opacity 0.7s;
+  opacity: 1;
+  top: 0;
+}
+.moibile-strip img {
+  width: 70px;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.moibile-strip p{
+  font-size: 14px;
+  margin: 0;
+}
+.moibile-strip a {
+  padding: 0 5px;
+  font-size: 14px;
+}
+.moibile-strip .material-icons{
+  font-size: 20px;
+} */
+
+
+.header_white {
+	border-bottom: 1px solid #d6d6d6;
+	padding: 2px 0;
+	.logo {
+		margin-left: 10px;
+		img {
+			width: 125px;
+		}
+	}
+	button.menu_btn {
+		border: none;
+		background: transparent;
+		border-left: 1px solid #dbdbdb;
+		padding: 8px 0 8px 20px;
+		margin-left: 20px;
+		line-height: 1;
+		img {
+			display: block;
+		}
+	}
+}
 .closeIconContact {
   position: absolute;
   top: 8px;
@@ -29,15 +86,33 @@
   cursor: pointer;
   border: none;
 }
-.matButtonBGN1:hover .mat-icon {
-  color: #0b203e !important;
+.matButtonBGN1 {
+	&:hover {
+		.mat-icon {
+			color: #0b203e!important;
+		}
+	}
+	.mat-icon {
+		height: 40px;
+		width: 36px;
+		font-size: 36px;
+		color: #ffffff;
+		line-height: 40px;
+	}
 }
-.matButtonBGN1 .mat-icon {
-  height: 40px;
-  width: 40px;
-  font-size: 36px;
-  color: #fff;
-  line-height: 40px;
+.matButtonBGN2 {
+	&:hover {
+		.mat-icon {
+			color: #ffffff !important;
+		}
+	}
+	.mat-icon {
+		height: 40px;
+		width: 36px;
+		font-size: 36px;
+		color: #0b203e;
+		line-height: 40px;
+	}
 }
 .matButtonBGN2:hover .mat-icon {
   color: #fff !important;
@@ -54,6 +129,65 @@
   height: 18px;
   background: url("/assets/images/new_design_images/icon_sprite.png") -40px 234px;
 }
+
+button.login_btn {
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 32px;
+    line-height: 1.2;
+	&:hover {
+		border-color: #ffa202 !important;
+	}
+}
+.tryUsfree {
+    border: 2px solid #ffd005;
+    background-color: #ffd005;
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 7px 28px 7px 14px;
+    border-radius: 32px;
+    line-height: 1.2;
+    text-transform: none;
+	margin-left: 10px;
+	background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
+	background-repeat: no-repeat;
+    background-position: right 10px center;
+	&:hover {
+		background-color: transparent !important;
+		background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
+		color: #fff;
+	}
+}
+.headerBackground {
+	button.login_btn {
+		border: 2px solid #2b437d;
+		color: #2b437d;
+	}
+	.tryUsfree {
+		border: 2px solid #2b437d;
+		background-color: #2b437d;
+		background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
+		color: #fff;
+		&:hover {
+			color: #2b437d;
+			background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
+		}
+	}
+}
+
+.matButtonBGN1, .matButtonBGN2 {
+    height: 45px;
+    width: 45px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media only screen and (max-width: 675px) {
   .dealbtndrop{
     margin-left: 20px;

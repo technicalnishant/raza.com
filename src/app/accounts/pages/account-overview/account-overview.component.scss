@@ -779,17 +779,22 @@ table {
 			list-style-type: none;
 			padding: 0px;
 			li {
-				line-height: 50px;
-				border-bottom: 1px solid #D8D8D8;
+				line-height: 55px;
+				border-bottom: 1px solid #e6e6e6;
 				&.noBorder {
 					border: none;
 				}
 				a {
 					display: block;
-					color: #0B3D8D;
-					font-size: 18px;
-					font-family: 'Montserrat', sans-serif;
-					font-weight: 300;
+					color: #000;
+					font-size: 16px;
+					font-weight: 500;
+					background-repeat: no-repeat;
+					background-position: left 0 center;
+					padding-left: 52px;
+					&:hover {
+						color: #1656ff;
+					}
 				}
 				&.active {
 					color: #0B3D8D;
@@ -808,25 +813,126 @@ table {
 						}
 					}
 				}
+				&.recharge {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/recharge-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/recharge-hover.png);
+						}
+					}
+				}
+				&.payment-details {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/paymentdetails-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/paymentdetails-hover.png);
+						}
+					}
+				}
+				&.autorefill {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/autorefill-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/autorefill-hover.png);
+						}
+					}
+				}
+				&.order-history {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/orderhistory-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/orderhistory-hover.png);
+						}
+					}
+				}
+				&.plandetails {
+					ul {
+						padding-left: 55px;
+						a {
+							padding-left: 0;
+						}
+					}
+					.plan_details {
+						background-image: url(../../../../assets/images/myaccount_icons/plandetails-normal.png);
+						background-repeat: no-repeat;
+						background-position: left 0 center;
+						padding-left: 52px !important;
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/plandetails-hover.png) !important;
+							background-repeat: no-repeat !important;
+							background-position: left 0 center !important;
+							color: #1656ff;
+						}
+					}
+				}
+				&.rewards {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/rewards-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/rewards-hover.png);
+						}
+					}
+				}
+				&.international-topup {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/intertopup-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/intertopup-hover.png);
+						}
+					}
+				}
+				&.virtualnumber {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/recharge-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/recharge-hover.png);
+						}
+					}
+				}
+				&.my-profile {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/myprofile-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/myprofile-hover.png);
+						}
+					}
+				}
+				&.other-plans {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/recharge-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/recharge-hover.png);
+						}
+					}
+				}
+				&.notifications {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/notifications-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/notifications-hover.png);
+						}
+					}
+				}
 			}
 		}
 		.mat-expansion-panel {
 			background: none !important;
+			border-bottom: 1px solid #e6e6e6 !important;
+			border-radius: 0;
 			&:hover {
 				background: none !important;
 			}
 		}
 		.mat-expansion-panel-header-title {
-			color: #0B3D8D;
-			font-size: 18px;
-			font-family: 'Montserrat', sans-serif;
-			font-weight: 300;
+			color: #000;
+			font-size: 16px;
+			font-weight: 500;
 		}
 	}
 	.rightTabArea {
 		float: left;
 		width: 920px;
-    width: 80%;
+    	width: 80%;
 		margin-left: 36px;
 		background: #fff;
 		padding: 120px 30px 50px;
