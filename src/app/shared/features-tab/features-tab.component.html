@@ -8,20 +8,20 @@
       <mat-tab *ngFor="let item of data;  let i = index">
         <ng-template mat-tab-label>
           <div class="custom_label">
-            <img src="{{item.tab.img}}">
+            <img src="{{item.tab.img}}" alt="{{item.tab.title}}" width="" height="">
             <p>{{item.tab.title}}</p>
           </div>
         </ng-template>
         <div class="content-wrapper mobiletab-content">
-          <h1 [innerHTML]="item.heading"></h1> 
+          <h1 [innerHTML]="item.heading"></h1>
           <p [innerHTML]="item.subhead"></p>
-          
+
          <div class="list-wrapper">
           <mat-list role="list" class="horizontal" *ngFor="let img_l of item.img_list;" (mouseover)="(main_img = img_l.img_hover)">
             <mat-list-item role="listitem">
 				<div class="icon-wrapper" matTooltip="{{img_l.tool}}" matTooltipPosition="above">
-          <img src="{{img_l.img}}" >
-        <img src="{{img_l.img_hover}}"  >
+          <img src="{{img_l.img}}" alt="{{img_l.tool}}" width="25" height="25">
+          <img src="{{img_l.img_hover}}" alt="{{img_l.tool}}" width="25" height="25">
         </div>
 			</mat-list-item>
           </mat-list>
@@ -30,7 +30,6 @@
             <div class="example-button-row">
               <span *ngFor="let btn of item.button">
                 <button mat-raised-button color="#0071e3" class="higlighted" *ngIf="btn.primary==true" (click)="setitUp(i)" >{{btn.label}}</button>
-                 
                 <button mat-button color="primary" *ngIf="btn.label=='How it works?'" (click)="howItWorksPopup(i)">{{btn.label}}</button>
                 <button mat-button color="primary" *ngIf="btn.label=='FAQ'" (click)="faqPopup(i)">{{btn.label}}</button>
               </span>

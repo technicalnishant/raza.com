@@ -70,6 +70,7 @@ export class PaymentOptionsComponent implements OnInit {
   hostedFieldsInstance: braintree.HostedFields;
   cardholdersName: string;
   planInfo:any;
+  promoCode:any;
   constructor(
     private transactionService: TransactionService,
     private transactionProcessFacade: TransactionProcessFacadeService,
@@ -89,23 +90,33 @@ export class PaymentOptionsComponent implements OnInit {
   ngOnInit() {
     this.currentCart = this.route.parent.snapshot.data['cart'];
     
-    // if(this.currentCart.transactiontype == 1)
-    // {
-    //   let usersPlan = JSON.parse(localStorage.getItem("currentPlan"));
-    //   if( usersPlan && usersPlan.CardId)
-    //   {
-    //     this.planInfo = usersPlan
+    this.promoCode = this.currentCart.couponCode;
+    if(localStorage.getItem('promotionCode') != this.promoCode)
+    this.promoCode = '';
+
+    if(this.promoCode !='')
+    {
+      let usersPlan = JSON.parse(localStorage.getItem("currentPlan"));
+      if( usersPlan && usersPlan.CardId)
+      {
+        this.planInfo = usersPlan
         
-    //     this.setCartPlanName();
-    //     console.log("Current Cart after is as ", this.currentCart);
-    //   }
-    //   this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe((data) =>{
+        this.setCartPlanName();
+        console.log("Current Cart after is as ", this.currentCart);
+      }
+      
+    }
+    else{
+
+      this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe((data:any) =>{
+        
+        this.planInfo = data;  
+        if(data.CardId)
+        this.setCartPlanName();
+         
+       } )
        
-    //    this.planInfo = data;  
-    //    this.setCartPlanName();
-        
-    //   } )
-    // }
+    }
     
    
     //this.currentCart.transactiontype
@@ -125,16 +136,18 @@ export class PaymentOptionsComponent implements OnInit {
 
   setCartPlanName()
   {
-    let cardId = this.planInfo.CardId;
-        let cardName = this.planInfo.CardName; 
-    const cart: RechargeCheckoutModel  = this.currentCart as RechargeCheckoutModel ;
-    cart.cardId =  cardId;
-    cart.planName = cardName;
-    cart.currencyCode = this.planInfo.CurrencyCode 
-    cart.countryFrom  = this.planInfo.CountryFrom;
-    this.checkoutService.setCurrentCart(cart);
-    this.currentCart = this.route.parent.snapshot.data['cart'];
+    // let cardId = this.planInfo.CardId;
+    // let cardName = this.planInfo.CardName; 
+    // const cart: RechargeCheckoutModel  = this.currentCart as RechargeCheckoutModel ;
+    // cart.cardId =  cardId;
+    // cart.planId = this.planInfo.PlanId;
+    // cart.planName = cardName;
+    // cart.currencyCode = this.planInfo.CurrencyCode 
+    // cart.countryFrom  = this.planInfo.CountryFrom;
+    // this.checkoutService.setCurrentCart(cart);
+    // this.currentCart = this.route.parent.snapshot.data['cart'];
   }
+  
 /*
 	getBraintreeToken()
 	  {
@@ -180,7 +193,7 @@ export class PaymentOptionsComponent implements OnInit {
         planOrderInfo = new MobileTopupOrderInfo();
         trans_type = 'Topup';
       }
-		console.log(trans_type);
+		 
       if (this.currentCart.transactiontype === TransactionType.Activation) {
         const cart = this.currentCart as NewPlanCheckoutModel;
         cart.pinlessNumbers = [creditCard.PhoneNumber];

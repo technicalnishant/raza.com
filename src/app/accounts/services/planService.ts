@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { rxSubscriber } from 'rxjs/internal-compatibility';
 import { Api } from '../../core/services/api.constants';
 import { Plan } from '../models/plan';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { CustomErrorHandlerService } from '../../core/services/custom-error-handler.service';
 import { pinlessNumber } from '../models/pinlessNumber';
@@ -23,8 +23,20 @@ export class PlanService {
 
   //Get Customer plans
   public getPlan(planId: string): Observable<Plan | ApiErrorResponse> {
+
+    const cachedData = sessionStorage.getItem(planId);
+
+    if (cachedData) {
+      console.log("Plan Data is as ", cachedData);
+      return of(JSON.parse(cachedData));
+    }
+
     return this.httpClient.get<Plan>(`${Api.plan.getPlan}/${planId}`)
       .pipe(
+        tap(data => {
+          if(data.PlanId && data.PlanId != '')
+          sessionStorage.setItem(planId, JSON.stringify(data));
+        }),
         catchError(err => this.errorHandleService.handleHttpError(err))
       );
   }
@@ -53,18 +65,29 @@ export class PlanService {
 
   //Get Customer plans
   public getAllPlans(): Observable<Plan[] | ApiErrorResponse> {
+
     return this.httpClient.get<Plan[]>(`${Api.plan.getPlan}`)
       .pipe(map(res => {
         return res.map(plan => Object.assign(new Plan(), plan));
       }),
         catchError(err => this.errorHandleService.handleHttpError(err))
       );
-  }
+}
+
+
   //Get Customer plans
   public getCustomPlans(): Observable<Plan[] | ApiErrorResponse> {
+
+    let endpoint = 'plan_info_'+localStorage.getItem("login_no");
+    const cachedData = sessionStorage.getItem(endpoint);
+    if (cachedData) {
+      return of(JSON.parse(cachedData));
+    }
     return this.httpClient.get<Plan[]>(`${Api.plan.getCustomPlan}`)
       .pipe(map(res => {
-        return res.map(plan => Object.assign(new Plan(), plan));
+        let resp = res.map(plan => Object.assign(new Plan(), plan));
+        sessionStorage.setItem(endpoint, JSON.stringify(resp));
+        return resp
       }),
         catchError(err => this.errorHandleService.handleHttpError(err))
       );
@@ -227,10 +250,24 @@ export class PlanService {
     replaced = replaced.replace(/]/g, '');
     replaced = replaced.replace(/;/g, '');
     replaced = replaced.replace(/[\[\]']/g,'' );
+    
+    // const cachedData = sessionStorage.getItem('pinless_'+replaced);
+    // if (cachedData) {
+    //   return of(JSON.parse(cachedData));
+    // }
 
-let plan_info = this.httpClient.get<[]>(`${Api.plan.pinlessNumber}/${replaced}`);
-localStorage.setItem("currentPlan", JSON.stringify(plan_info));
-    return plan_info;
+    return this.httpClient.get<[]>(`${Api.plan.pinlessNumber}/${replaced}`).pipe(
+      tap(data => {
+        sessionStorage.setItem('pinless_'+replaced, JSON.stringify(data));
+      }),
+      catchError(error => {
+        console.error('Error fetching data:', error);
+        return of(null);
+      }) 
+      );
+// let plan_info = this.httpClient.get<[]>(`${Api.plan.pinlessNumber}/${replaced}`);
+// localStorage.setItem("currentPlan", JSON.stringify(plan_info));
+//     return plan_info;
 
 
     // this.currentPlan = JSON.parse(localStorage.getItem("currentPlan"))

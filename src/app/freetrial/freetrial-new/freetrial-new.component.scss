@@ -7,11 +7,8 @@ $background-color_1: #293a6a;
 	width: 70%;
 	background: #fff;
 	margin: auto;
-	-moz-border-radius: 4px 4px 0 0;
-	-webkit-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
 	box-shadow: 1px -1px 16px rgba(0,0,0,.2);
-	-moz-box-shadow: 1px -1px 16px rgba(0,0,0,.2);
-	-webkit-box-shadow: 1px -1px 16px rgba(0,0,0,.2);
 }
 .searchArea {
 	width: 70%;
@@ -41,28 +38,19 @@ ul {
 .row.countries_row {
   justify-content: center;
 }
-@media only screen and (max-width: 650px){
 
-ul.alphabet{
-    padding-left: 0;
-}
-ul.alphabet ul li{
-    border-bottom: 1px solid #fff;
-}
-.wrapper {
-    padding: 50px 10px!important;
-}
+@media only screen and (max-width: 650px) {
+  ul.alphabet {
+      padding-left: 0;
+  }
+  ul.alphabet ul li {
+      border-bottom: 1px solid #fff;
+  }
+  .wrapper {
+      padding: 50px 10px!important;
+  }
 }
 
-/* search box css */
-// .example-container {
-//     position: absolute;
-//     top: 0;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//   }
-  
 .hideinMobile {
 	display: block;
 }
@@ -241,6 +229,9 @@ ul.alphabet ul li{
 		left: 41%;
 		top: -26px;
 	}
+  @media only screen and (max-width: 650px) {
+    margin: 15px 0 0;
+  }
 }
 .line {
 	height: 1px;
@@ -426,7 +417,6 @@ a {
 	}
 }
 
-  
   @media only screen and (max-width: 650px)  {
     .hideinMobile{display: none;}
     .showInmobile { display: block;}
@@ -437,7 +427,6 @@ a {
     .commonWrapperArea p.headerText{ font-size: 14px; line-height:20px;}
     .virtualNumberList h4{font-size: 19px;}
     .forgetPass{ top:-13px;}
-  
     ul.deal1commonUl li{ width: 100%; display: block; border-right: none; border-bottom: 1px solid #E2E7ED; height:auto;}
     ul.deal1commonUl li:last-child{ border-bottom: none;}
     .deals{ padding:30px 10px !important;}
@@ -450,7 +439,6 @@ a {
     .mapAreaD h4{ font-size: 47px;}
     .mapAreaD h4 span{ font-size: 14px;}
     p.mapText{ font-size: 14px;}
-  
     .commonminArea{ margin-bottom: 25px;}
     .deal4Textare{ margin: 10px 0;}
     .deal4Textare ul{display: table;margin: 9px auto;float: none !important;}
@@ -459,11 +447,7 @@ a {
     .callRate image{ margin: 0 auto;}
   }
 
-
-
-
   /* new css changes */
-
 
   .deals {
     padding: 42px 20px!important;
@@ -638,19 +622,14 @@ a {
       font-size: 26px!important;
     }
   }
-
-              .wrapper {
-                padding: 50px 0;
-                width: 70%;
-                background: #fff;
-                margin: auto;
-                -moz-border-radius: 4px 4px 0 0;
-                -webkit-border-radius: 4px 4px 0 0;
-                box-shadow: 1px -1px 16px rgba(0, 0, 0, .2);
-                -moz-box-shadow: 1px -1px 16px rgba(0, 0, 0, .2);
-                -webkit-box-shadow: 1px -1px 16px rgba(0, 0, 0, .2);
-              }
-            
+  .wrapper {
+    padding: 50px 0;
+    width: 70%;
+    background: #fff;
+    margin: auto;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 1px -1px 16px rgba(0, 0, 0, .2);
+  }
   .wrapper {
     .mat-icon {
       display: inline-flex;
@@ -675,25 +654,19 @@ a {
       }
     }
   }
-  
-
 @media only screen and (max-width: 650px) {
-
   ul.alphabet {
     padding-left: 0;
   }
-
   ul.alphabet ul li {
     border-bottom: 1px solid #fff;
   }
-
   .wrapper {
     padding: 50px 10px !important;
   }
 }
 
 /* search box css */
-
 
 .hideinMobile {
 	display: block;
@@ -871,30 +844,23 @@ h2 {
 	cursor: pointer;
 }
 
-
 @media only screen and (max-width: 650px) {
-
-
   .commonRateArea {
     margin-bottom: 10px;
     width: 100%;
   }
-
   .hideinMobile {
     display: none;
   }
-
   .showInmobile {
     display: block;
   }
-
   .three_service {
     height: 360px;
   }
 }
 
 @media only screen and (max-width: 992px) {
-
   .callafrica_banner {
     background-position: top left !important;
     background-size: cover;
@@ -1022,6 +988,9 @@ h2 {
 	width: 70%;
 	font-family: 'Nunito', sans-serif;
 }
+
+
+
 p {
 	&.downloadText {
 		font-size: 17px !important;
@@ -1245,24 +1214,16 @@ p {
 
 /* Search area */
 
-
-
-/* Media queris for new box layout */
-
 @media only screen and (max-width: 768px) {
-
   .commonRateArea {
     height: unset;
   }
-
   .iconArea {
     display: none;
   }
-
   span.countryName {
     font-size: 26px !important;
   }
-
   span.from {
     display: none !important;
   }
@@ -1283,29 +1244,12 @@ p {
 
 }
 
-/* .mat-form-field-flex{
-      align-items: flex-end!important;
-} */
-
-
-// new search start here
-
 $common-boder-width: 3px solid #2172cb;
-
-
-
 
 .search-main {
   padding: 30px 0px;
 }
-
 .search__wrapper_new {
-  //margin-top: 100px;
-  // border: $common-boder-width;
-  // margin: 100px 50px 0!important;
-  // position: relative;
-  //  padding: 100px 0;
-
   h3.select-country {
     position: absolute;
     top: -28px;
@@ -1322,7 +1266,7 @@ $common-boder-width: 3px solid #2172cb;
     font-family: "Montserrat", sans-serif;
   }
 
- 
+
   .learn-more {
     text-align: center;
     margin: auto;
@@ -1425,17 +1369,14 @@ $common-boder-width: 3px solid #2172cb;
 
     .country-list {
       border-right: 1px solid #9ab8db;
-
       img {
         max-height: 60px;
         min-height: 60px;
         object-fit: contain;
       }
-
       &:first-child {
         border-left: 1px solid #9ab8db;
       }
-
       p {
         font-size: 24px;
         font-family: "Montserrat", sans-serif;
@@ -1448,55 +1389,47 @@ $common-boder-width: 3px solid #2172cb;
     }
   }
 
-
 }
 // top 5 country media queries
 
 
 @media only screen and (min-width: 100px) and (max-width: 579px){
-  .search__wrapper_new .country-list-wrapper .country-list img {
-    max-height: 30px;
-    min-height: 30px;
-    -o-object-fit: contain;
-    object-fit: contain;
-}
-
+    .search__wrapper_new .country-list-wrapper .country-list img {
+        max-height: 30px;
+        min-height: 30px;
+        object-fit: contain;
+    }
     .search__wrapper_new .country-list-wrapper .country-list p.country {
       font-size: 10px !important;
       margin: 10px 0 !important;
     }
-
     .search__wrapper_new .country-list-wrapper .country-list p.price b {
       font-size: 12px !important;
     }
-
     .search__wrapper_new .country-list-wrapper .country-list span {
       font-size: 10px !important;
     }
-.country-list-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr!important;
-    align-items: center;
-    text-align: center;
-    margin: 0 5px!important;
-    overflow-x:scroll;
-}
-
-}
+    .country-list-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr!important;
+        align-items: center;
+        text-align: center;
+        margin: 0 5px!important;
+        overflow-x:scroll;
+    }
+  }
 
 @media only screen and (min-width: 580px) and (max-width: 767px){
-  .search__wrapper_new .country-list-wrapper {
-    overflow: scroll;
-    margin: 0 20px;
-  }
-      .search__wrapper_new .country-list-wrapper .country-list p.country {
+    .search__wrapper_new .country-list-wrapper {
+      overflow: scroll;
+      margin: 0 20px;
+    }
+    .search__wrapper_new .country-list-wrapper .country-list p.country {
       font-size: 16px !important;
     }
-
     .search__wrapper_new .country-list-wrapper .country-list p.price b {
       font-size: 16px !important;
     }
-
     .search__wrapper_new .country-list-wrapper .country-list span {
       font-size: 14px !important;
     }
@@ -1505,132 +1438,90 @@ $common-boder-width: 3px solid #2172cb;
 @media only screen and (min-width: 768px) and (max-width: 900px){
   .search__wrapper_new .country-list-wrapper .country-list p {
     font-size: 16px;
+  }
+  .search__wrapper_new .country-list-wrapper span {
+      font-size: 14px;
+      font-family: "Montserrat", sans-serif;
+      margin: 0px auto;
+      font-weight: 600;
+      color: #000;
+  }
+  .search__wrapper_new .country-list-wrapper p.price b {
+      font-size: 18px;
+      line-height: 0px;
+  }
 }
-
-
-.search__wrapper_new .country-list-wrapper span {
-    font-size: 14px;
-    font-family: "Montserrat", sans-serif;
-    margin: 0px auto;
-    font-weight: 600;
-    color: #000;
-}
-.search__wrapper_new .country-list-wrapper p.price b {
-    font-size: 18px;
-    line-height: 0px;
-}
-
-}
-
 
 @media only screen and (min-width: 300px) and (max-width: 767px) {
-
-  .search__wrapper_new {
-    margin: 50px 5px !important;
-    padding: 20px 0;
-  }
-
   .search__wrapper_new .bg-shapes img:nth-child(1) {
     width: 10%;
     top: -13px;
     right: 5%;
   }
-
   .search__wrapper_new h3.select-country {
     font-size: 15px;
     width: 55%;
     top: -24px;
   }
-
-  .search__wrapper_new {
-    /* padding: 20px 0; */
-  }
-
   .search__wrapper_new .mat-list-base {
     flex-direction: column;
     width: 100%;
   }
-
   .search__wrapper_new .stillSearchingArea {
     height: unset;
     margin-bottom: 50px;
   }
-
   .search__wrapper_new .mat-list-item-content {
     font-size: 16px;
   }
-
   .search__wrapper_new .mat-list-item-content:before {
     font-size: 16px;
   }
-
   .search__wrapper_new a,
   .search__wrapper_new p {
     font-size: 16px;
   }
-
   .search__wrapper_new .learn-more {
     margin: 31px auto;
   }
-
-
-.search__wrapper_new .searchAreaMain {
-    border: 3px solid #000000;
-    box-shadow: 0px 0 0 1px rgba(0, 0, 0, 0.8);
-    -webkit-box-shadow: 0px 0 0 10px #2172cb;
-    -moz-box-shadow: 0px 0 0 3px rgba(0, 0, 0, 0.8);
-    border-radius: 4px;
-}
-
-.search__wrapper_new  .mat-form-field-infix {
+  .search__wrapper_new .searchAreaMain {
+      border: 3px solid #000000;
+      box-shadow: 0px 0 0 1px rgba(0, 0, 0, 0.8);
+      border-radius: 4px;
+  }
+  .search__wrapper_new  .mat-form-field-infix {
     margin-top: 17px !important;
   }
-
   .homecountry_dropdown1 .mat-form-field-flex {
     padding-left: 75px !important;
   }
-
   .search__wrapper_new p.palceholder-searchs {
     position: absolute;
     top: 35px;
     left: 60px;
     font-size: 14px;
   }
-
-
 }
-
-
-// new search end here
-
-// top 5 country media queries
-
 
 @media only screen and (min-width: 100px) and (max-width: 579px) {
   .search__wrapper_new .country-list-wrapper .country-list img {
     max-height: 30px;
     min-height: 30px;
-    -o-object-fit: contain;
     object-fit: contain;
   }
-
   .search__wrapper_new .country-list-wrapper .country-list p.country {
     font-size: 10px !important;
     margin: 10px 0 !important;
   }
-
   .search__wrapper_new .country-list-wrapper .country-list p.price b {
     font-size: 12px !important;
   }
-
   .search__wrapper_new .country-list-wrapper .country-list span {
     font-size: 10px !important;
   }
   .country-list-wrapper {
     display: none !important;
   }
-
-
 }
 
 @media only screen and (min-width: 580px) and (max-width: 767px) {
@@ -1638,19 +1529,15 @@ $common-boder-width: 3px solid #2172cb;
     overflow: scroll;
     margin: 0 20px;
   }
-
   .search__wrapper_new .country-list-wrapper .country-list p.country {
     font-size: 16px !important;
   }
-
   .search__wrapper_new .country-list-wrapper .country-list p.price b {
     font-size: 16px !important;
   }
-
   .search__wrapper_new .country-list-wrapper .country-list span {
     font-size: 14px !important;
   }
-
   .country-list-wrapper {
     display: none !important;
   }
@@ -1660,8 +1547,6 @@ $common-boder-width: 3px solid #2172cb;
   .search__wrapper_new .country-list-wrapper .country-list p {
     font-size: 16px;
   }
-
-
   .search__wrapper_new .country-list-wrapper span {
     font-size: 14px;
     font-family: "Montserrat", sans-serif;
@@ -1669,7 +1554,6 @@ $common-boder-width: 3px solid #2172cb;
     font-weight: 600;
     color: #000;
   }
-
   .search__wrapper_new .country-list-wrapper p.price b {
     font-size: 18px;
     line-height: 0px;
@@ -1677,21 +1561,7 @@ $common-boder-width: 3px solid #2172cb;
 
 }
 
-
-
-// top 5 country media quries end here
-
-
-// new search and popup media quries
-
-
 @media only screen and (min-width: 300px) and (max-width: 767px) {
-
-  .search__wrapper_new {
-    margin: 50px 5px !important;
-    padding: 20px 0;
-  }
-
   .search__wrapper_new .bg-shapes img:nth-child(1) {
     width: 10%;
     top: -13px;
@@ -1703,11 +1573,6 @@ $common-boder-width: 3px solid #2172cb;
     width: 55%;
     top: -24px;
   }
-
-  .search__wrapper_new {
-    /* padding: 20px 0; */
-  }
-
   .search__wrapper_new .mat-list-base {
     flex-direction: column;
     width: 100%;
@@ -1734,14 +1599,6 @@ $common-boder-width: 3px solid #2172cb;
   .search__wrapper_new .learn-more {
     margin: 31px auto;
   }
-
-
-  // .search__wrapper_new .searchAreaMain {
-  //   border: 2px solid #2172cb;
-  //       box-shadow: none;
-  //   border-radius: 5px;
-  // }
-
 .search__wrapper_new  .mat-form-field-infix {
     margin-top: 17px !important;
   }
@@ -1838,59 +1695,42 @@ $common-boder-width: 3px solid #2172cb;
 
 
 @media only screen and (min-width: 767px) and (max-width: 1200px) {
-
   .search__wrapper_new .mat-list-base {
     width: 100%;
   }
-
   .search__wrapper_new .mat-list-item-content {
     font-size: 16px;
   }
-
   .search__wrapper_new .bg-shapes img:nth-child(1) {
     width: 10%;
     top: -13px;
     right: 5%;
   }
-
   .search__wrapper_new h3.select-country {
     width: 50%;
     top: -24px;
     font-size: 24px;
   }
-
   .mat-list-base .mat-list-item {
     width: unset;
   }
-
   .search__wrapper_new a,
   .search__wrapper_new p {
     font-size: 16px;
   }
-
   .search__wrapper_new p.palceholder-searchs {
     position: absolute;
     top: 30px;
     left: 70px;
     font-size: 16px;
   }
-
 }
-
 
 // new search and media quiries end here
 
-
-
-// mobile top country start here
-
-.free-trail-mob{
-  
-
+.free-trail-mob {
 .mobileratestable {
   padding-bottom: 20px;
-
-
   .mobileratestable-row {
     display: flex;
     border-bottom: 1px solid #9ab8db;
@@ -1899,29 +1739,23 @@ $common-boder-width: 3px solid #2172cb;
     justify-content: unset;
     font-size: 5vw;
     height: 3.2em;
-
     span {
       z-index: 1;
     }
-
     &:last-child {
       border: 0;
     }
-
   }
-
   .mobileratestable-currencyLabel {
     width: 20%;
     font-size: 0.4em;
     text-align: center;
     padding-bottom: 5px;
   }
-
   .mobileratestable-flagNameWrap {
     display: flex;
     justify-content: start;
     width: 74%;
-
     img {
       object-fit: contain;
     }
@@ -1946,47 +1780,38 @@ $common-boder-width: 3px solid #2172cb;
         text-align: left;
       }
     }
-
-
   }
 
   span.mobileratestable-rate {
-    text-align: right;
-    width: 100%;
-    margin-right: 11px;
-    font-weight: 700;
-    position: relative;
-        color: #0c223d;
-
-    &:before {
-      content: none
-    }
-    &:after {
-      content: "mins";
-    font-size: 16px;
-    margin-left: 5px;
-  }
+      text-align: right;
+      width: 100%;
+      margin-right: 11px;
+      font-weight: 700;
+      position: relative;
+      color: #0c223d;
+      &:before {
+        content: none
+      }
+      &:after {
+        content: "mins";
+        font-size: 16px;
+        margin-left: 5px;
+      }
     }
   }
 }
 
-
-
-
 @media only screen and (min-width: 767px) {
-
   .mobileratestable {
     display: none;
   }
 }
 
-
 /********************************/
-
 .country-search{
-	.countries{
-		border-bottom: 1px solid #e7e7e7;
-	}
+    .countries{
+      border-bottom: 1px solid #e7e7e7;
+    }
     @include breakpoint(sm) {
         .container{
             width: 100%;
@@ -2000,8 +1825,6 @@ $common-boder-width: 3px solid #2172cb;
         border: 1px solid #1c294d;
         @include breakpoint(sm) {
             padding: 4px;
-            border-radius: 8px;
-            margin-top: -50px;
         }
         input {
             height: 71px;
@@ -2023,19 +1846,17 @@ $common-boder-width: 3px solid #2172cb;
             font-weight: 500;
             font-family: $font-family;
             opacity: 1;
-    
+
             @include breakpoint(sm) {
                 font-size: 16px;
             }
         }
-    
         .form-control {
             &:focus {
                 border: 0;
                 box-shadow: none;
                 outline: none;
             }
-    
             &:focus-visible {
                 border: 0;
                 box-shadow: none;
@@ -2043,7 +1864,6 @@ $common-boder-width: 3px solid #2172cb;
             }
         }
     }
-    
 }
 // Search box Css end here
 
@@ -2054,14 +1874,13 @@ $common-boder-width: 3px solid #2172cb;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-
     @include breakpoint(sm) {
         margin: 30px 0;
-		flex-direction: row;
+		    flex-direction: row;
     }
-	@include breakpoint(md) {
+	  @include breakpoint(md) {
         margin: 30px 0;
-		flex-direction: row;
+		    flex-direction: row;
     }
     li {
         font-size: 16px;
@@ -2071,21 +1890,22 @@ $common-boder-width: 3px solid #2172cb;
         cursor: pointer;
         font-family: $font-family;
         margin: 0 8px;
-		list-style: none;
+		    list-style: none;
     }
-	.active {
-		background-color: #ffc72b;
-		border-radius: 50%;
-		height: 28px;
-		width: 28px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-  .disabled{
-    color:#ccc;
-  }
+    .active {
+      background-color: #ffc72b;
+      border-radius: 50%;
+      height: 28px;
+      width: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .disabled{
+      color:#ccc;
+    }
 }
+
 .countries:last-child {
   .country-box {
     border-right: 0;
@@ -2093,68 +1913,50 @@ $common-boder-width: 3px solid #2172cb;
 }
 
 .country-box {
-  margin: 70px 0; 
+  margin: 70px 0;
   border-right: 1px solid #e7e7e7;
-  @include breakpoint(sm) {
-    text-align: center;
-    margin: 30px 0;
-    border-right:0;
-  }
   @include breakpoint(md) {
-        text-align: center;
+      text-align: center;
       margin: 30px 0;
       border-right:0;
   }
-
   .country-flag {
       display: flex;
       align-items: center;
-      @include breakpoint(sm) {
-          justify-content:center;
-      }
       img {
-          // height: 40px;
-          // width: 40px;
-         // object-fit: contain;
-
           height: 40px;
           width: 40px;
           -o-object-fit: contain;
           object-fit: contain;
       }
   }
-.flag_round{
-  height: 40px;
-          width: 40px;
-          -o-object-fit: contain;
-          object-fit: contain;
-}
+  .flag_round {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+  }
   .country-name {
       font-size: 20px;
       line-height: 28px;
       color: $primary-color2;
       font-weight: 700;
-      font-family: $font-family;
       margin-left: 16px;
-  }
-
+    }
   .country-rate {
-      font-size: 24px;
-      letter-spacing: 0px;
-      line-height: 28px;
-      color: $primary-color2;
-      font-weight: 700;
-      font-family: $font-family;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      margin-left: 21px;
-
-      span {
-          font-size: 16px;
-          text-transform: lowercase;
-      }
+    font-size: 24px;
+    letter-spacing: 0px;
+    line-height: 28px;
+    color: $primary-color2;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 21px;
+    span {
+        font-size: 16px;
+        text-transform: lowercase;
+        font-weight: 500;
+    }
   }
-
   .view-details-btn {
       border-radius: 20px;
       background-color: #ffffff;
@@ -2163,18 +1965,16 @@ $common-boder-width: 3px solid #2172cb;
       line-height: 28px;
       color: $primary-color2;
       font-weight: 700;
-      font-family: $font-family;
       padding: 4px 28px;
       transition: ease-in-out .3s;
       margin-left: 20px;
-
       &:hover {
           background: $button-background;
           transition: bakground ease-in-out .3s;
       }
   }
-
 }
+
 .call-us h3 {
   font-size: 30px;
   color: #162f75;
@@ -2185,10 +1985,62 @@ $common-boder-width: 3px solid #2172cb;
   a {
     color: #0160e0 !important;
   }
+  @include breakpoint(sm) {
+    font-size: 25px;
+  }
 }
 .plan-info.info_bok {
   padding: 20% 0;
   margin-bottom: 15px;
 }
 // mobile top country start here
-
+@include breakpoint(sm) {
+  .home_banner.deal1_banner {
+      height: 410px !important;
+      background-position: left 82% top 0;
+      border-bottom-left-radius: 100% 80px;
+      border-bottom-right-radius: 100% 80px;
+  }
+  section.country-search .container > .col-lg-8 {
+      padding: 0;
+  }
+  .alphabet_links {
+      display: none;
+  }
+  .row.countries_list .col-md-4.countries {
+      width: 50%;
+  }
+  .country-box .country-name {
+      font-size: 17px;
+      line-height: 1.3;
+      text-align: left;
+  }
+  .country-box .country-rate {
+      font-size: 17px;
+      line-height: 1.3;
+      margin-top: 12px;
+      margin-bottom: 15px;
+  }
+  .country-box .country-rate span {
+      font-size: 14px;
+      font-weight: 500;
+  }
+  .country-box .view-details-btn {
+      padding: 2px 18px;
+  }
+  .heading_style1 {
+      font-size: 30px;
+      background: rgb(0 0 0 / 35%);
+      left: 15px;
+      right: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      bottom: 70px;
+      span {
+          margin-top: 10px;
+      }
+  }
+  .plan-info.info_bok {
+    padding: 0;
+  }
+}

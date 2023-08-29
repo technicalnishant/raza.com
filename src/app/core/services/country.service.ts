@@ -30,8 +30,9 @@ export class CountriesService {
         // .pipe(
         //     catchError(err=> this.errorHandleService.handleHttpError(err))
         // ); 
+        let country_list = this.httpClient.get<[]>("./assets/country_from.json") ;
         
-        return  this.httpClient.get<[]>("./assets/country_from.json") ;
+        return  country_list;
     }
 
     public getStates(countryId: number):Observable<State[] | ApiErrorResponse>

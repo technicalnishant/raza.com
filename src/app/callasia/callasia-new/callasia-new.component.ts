@@ -46,6 +46,7 @@ export class CallasiaNewComponent implements OnInit {
   dealless: DealRate[] = [];
   dealmore: DealRate[] = [];
   allCountriesData: DealRate[] = [];
+  allCountriesDataOld:any
   mode = new FormControl('over');
   stateCtrl = new FormControl();
   // defaultFlag: string = 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg';
@@ -106,30 +107,58 @@ export class CallasiaNewComponent implements OnInit {
     this.getCountryFrom();
 
   }
+
+  isUserAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
   openLoginPopup()
   {
     this.authService.loginPopup();
   }
-  private searchRates() {
-    //this.globalRatesService.getAllCountriesRates(this.currentSetting.currentCountryId).subscribe(
-      //(data: any) => {
-       // this.allCountry = data;
-     // },
-     // (err: ApiErrorResponse) => console.log(err),  )
+  filterCountries(asiaList, allCountries)
+  {
+    const mylist:any = allCountries.filter((country) =>
+      asiaList.some((c) => c.CountryId === country.CountryId)
+      );
 
 
+      this.bindSearchRates = mylist
+      this.allCountriesDataOld = mylist;
+ 
+  }
+  getAsiaList()
+  {
     this.dealsService.getCountryCallAsia(this.currentSetting.currentCountryId).subscribe((data: any) => {
       if(data && data.length > 0)
       {
-        this.allCountriesData = data;
-        this.allCountry = data;
-        this.allCountryList = data;//.splice(0,5);
-        this.allCountryFilteredList = data;
-        this.bindSearchRates = data;
+        
+         
+        this.filterCountries(data, this.allCountry)
       }
       else{
-        this.allCountriesData = [];
-        this.allCountryFilteredList = [];
+        this.allCountriesDataOld = [];
+        this.bindSearchRates = [];
+      }
+      
+    }, (err: ApiErrorResponse) => console.log(err));
+  }
+  private searchRates() 
+  { 
+    let type = this.isUserAuthenticated() == true?'new':'old';
+     this.dealsService.getCountryCallAsia1(this.currentSetting.currentCountryId, type).subscribe((data: any) => {
+      if(data && data.length > 0)
+      {
+         this.allCountriesData = data;
+        this.allCountry = data;
+        this.allCountryList = data;//.splice(0,5);
+         
+        //this.bindSearchRates = data;
+        this. getAsiaList();
+      }
+      else{
+        //this.allCountriesData = [];
+         
         this.allCountry = [];
         this.bindSearchRates = [];
         this.allCountryList = [];
@@ -174,13 +203,14 @@ export class CallasiaNewComponent implements OnInit {
 
   
   getcountryrate(obj)
-  {
-    var price = obj;
-    if(this.currentSetting.country.CountryId == 3)
-    {
-      //price = price/2;
-    }
-    return price;
+  { 
+   if( obj.CallingRateLandline > obj.CallingRateMobile)
+    return obj.CallingRateMobile;
+   else
+    return obj.CallingRateLandline;
+  
+  
+    
   }
   private getCountryFrom() {
     this.countryService.getFromCountries().subscribe((res: Country[]) => {
@@ -206,19 +236,7 @@ export class CallasiaNewComponent implements OnInit {
   }
 
   private openPlanDialog(countryId ) {
-    // this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, countryId).subscribe(
-    //   (data: any) => {
-    //     if (this.dialog.openDialogs.length == 0) {
-    //       this.dialog.open(GlobalCallComponent, {
-    //         data: { data },
-    //         width: '83vw',
-    //         maxWidth: '1235px'
-    //       });
-    //     }
-    //   },
-    //   (err: ApiErrorResponse) => console.log(err),
-    // );
-
+    
 
     if(this.currentSetting.currentCountryId == 3)
     {
@@ -335,9 +353,9 @@ export class CallasiaNewComponent implements OnInit {
   {
    
     const filterValue = char.toLowerCase();
-    if(this.allCountry.length > 0)
+    if(this.allCountriesDataOld.length > 0)
     {
-      let filterlistdata =  this.allCountry.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
+      let filterlistdata =  this.allCountriesDataOld.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
       return filterlistdata.length>0?false:true;
     }
     
@@ -354,13 +372,13 @@ export class CallasiaNewComponent implements OnInit {
     if(this.currentClickedChar == 'All')
     {
     
-      this.bindSearchRates = this.allCountryFilteredList;
+      this.bindSearchRates = this.allCountriesDataOld;
     }
     else
     {
       
       const filterValue = character.toLowerCase();
-      this.bindSearchRates = this.allCountryFilteredList.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
+      this.bindSearchRates = this.allCountriesDataOld.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
       
     }
     

@@ -27,8 +27,6 @@ $background-color_1: #293a6a;
         border: 1px solid #1c294d;
         @include breakpoint(sm) {
             padding: 4px;
-            border-radius: 8px;
-            margin-top: -45px;
         }
         input {
             height: 71px;
@@ -50,19 +48,19 @@ $background-color_1: #293a6a;
             font-weight: 500;
             font-family: $font-family;
             opacity: 1;
-    
+
             @include breakpoint(sm) {
                 font-size: 16px;
             }
         }
-    
+
         .form-control {
             &:focus {
                 border: 0;
                 box-shadow: none;
                 outline: none;
             }
-    
+
             &:focus-visible {
                 border: 0;
                 box-shadow: none;
@@ -70,7 +68,7 @@ $background-color_1: #293a6a;
             }
         }
     }
-    
+
 }
 
 // Search box Css end here
@@ -115,7 +113,7 @@ $background-color_1: #293a6a;
 $background-color_1: #ffffff;
 
 .country-box {
-    margin: 70px 0; 
+    margin: 70px 0;
 	border-right: 1px solid #e7e7e7;
     @include breakpoint(sm) {
         text-align: center;
@@ -164,6 +162,7 @@ $background-color_1: #ffffff;
         span {
             font-size: 16px;
             text-transform: lowercase;
+            font-weight: 500;
         }
     }
 
@@ -328,4 +327,55 @@ $background-color_1: #ffffff;
 .flag_list1 ul {
     padding: 0;
     background: #fff;
+}
+@include breakpoint(sm) {
+    .home_banner.deal1_banner {
+        height: 410px !important;
+        background-position: left 82% top 0;
+        border-bottom-left-radius: 100% 80px;
+        border-bottom-right-radius: 100% 80px;
+    }
+    section.country-search .container > .col-lg-8 {
+        padding: 0;
+    }
+    .alphabet_links {
+        display: none;
+    }
+    .row.countries_list .col-md-4.countries {
+        width: 50%;
+    }
+    .country-box .country-name {
+        font-size: 17px;
+        line-height: 1.3;
+        text-align: left;
+    }
+    .country-box .country-rate {
+        font-size: 17px;
+        line-height: 1.3;
+        margin-top: 12px;
+        margin-bottom: 15px;
+    }
+    .country-box .country-rate span {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .country-box .view-details-btn {
+        padding: 2px 18px;
+    }
+    .heading_style1 {
+        font-size: 30px;
+        background: rgb(0 0 0 / 35%);
+        left: 15px;
+        right: 15px;
+        padding: 15px;
+        border-radius: 10px;
+        bottom: 70px;
+        span {
+            margin-top: 10px;
+        }
+    }
+    .container {
+        width: 100%;
+        padding: 0 20px;
+    }
 }

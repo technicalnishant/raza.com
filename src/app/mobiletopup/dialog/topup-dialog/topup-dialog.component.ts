@@ -21,7 +21,9 @@ export class TopupDialogComponent implements OnInit {
      this.countryFrom   = this.data.from_id; 
      this.countryTo     = this.data.to_id;
      this.operator      = this.data.operator;
-     this.getPopupDetail()
+     this.detailInfo    = this.data.dialogDetail;
+      
+   //  this.getPopupDetail()
   }
 
   getPopupDetail()

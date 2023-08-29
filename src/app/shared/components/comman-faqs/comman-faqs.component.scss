@@ -11,18 +11,16 @@
         margin-bottom: 50px;
         @include breakpoint(sm) {
             font-size:34px;
-            margin-bottom: 30;
+            margin-bottom: 30px;
         }
     }
     mat-icon{
         color: #152f75;
     }
-    .loadmore{
-        
-            margin: 74px auto 0 !important;
-            background: #ffffff;
-            border: 2px #ffc50b solid;
-        
+    .loadmore {        
+        margin: 74px auto 0 !important;
+        background: #ffffff;
+        border: 2px #ffc50b solid;        
         
        /* background: #f4cb26;*/
         border-radius: 24px !important;

@@ -138,8 +138,7 @@
 
   
   
-  @media only screen and (max-width: 650px)  {
-    
+  @media only screen and (max-width: 650px)  {    
     .hideinMobile{display: none;}
     .showInmobile { display: block;}
     .feedbackTextarea{ width: 100%; padding: 0 10px; margin:0 auto;}
@@ -148,4 +147,35 @@
     h2.heading_style2{margin-bottom: 10px;}
     .marginBottom,.marginB2{ margin-bottom: 25px !important;} 
     .feedbackTextarea{ padding: 20px 10px 0;}
-  }
+	.home_banner.feedback_banner {
+		height: 410px !important;
+		background-position: top;
+		border-bottom-left-radius: 100% 80px;
+		border-bottom-right-radius: 100% 80px;
+	}	
+	h1.heading_style1 {
+		font-size: 30px;
+		background: rgba(0, 0, 0, 0.35);
+		left: 15px;
+		right: 15px;
+		padding: 15px;
+		border-radius: 10px;
+		bottom: 45px;
+		span {
+			margin-top: 10px;
+			line-height: 1.4;
+		}
+	}	
+	.second_fold.feedbackTextarea {
+		margin-top: 20px;
+	}
+	.container {
+		width: 100%;
+	}	
+	h2.heading_style2 {
+		margin-bottom: 0 !important;
+	}
+	.countryNumber.border-left.border-right {
+		border: none !important;
+	}	
+}

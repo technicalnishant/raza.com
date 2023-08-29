@@ -46,13 +46,13 @@
           <!--<input  matInput formControlName="username" placeholder="Enter Mobile Number/Email"/>-->
 			
             <mat-error *ngIf="loginForm.get('username').errors?.required">
-              Phone Number is required.
+              Phone number is required.
             </mat-error>
             <mat-error *ngIf="loginForm.get('username').errors?.pattern">
               Please enter a valid phone number.
             </mat-error>
             <mat-error *ngIf="loginForm.get('username').errors?.invalid_input">
-              Invalid Phone Number.
+              Invalid Phone number.
             </mat-error>
         </mat-form-field>
         </div>
@@ -63,13 +63,10 @@
             <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
           </button>
           <div class="remembermMe">
-             
-            <!-- <label class="switch">                       
-                <input *ngIf="isAutoRefill" type="checkbox" id="checkboxbonus3" checked (click)="setPlanType()">
-                <input *ngIf="!isAutoRefill" type="checkbox" id="checkboxbonus3" (click)="setPlanType()">
-                <span class="slider round"></span>
-            </label>
-            <label class="remember" for="remember">Remember me</label> -->
+            <input *ngIf="rememberMe" id="remMe" type="checkbox" checked (click)="setRememberme(false)">
+      <input *ngIf="!rememberMe" id="remMe" type="checkbox" (click)="setRememberme(true) ">
+            <span class="remBox"></span>
+            <label class="remember" for="remMe">Remember me</label>        
             <span class="floatRight resend forget">
                 <a tabindex="3" (click)="showHideForgotForm()">Forgot code?</a>
             </span>
@@ -89,7 +86,7 @@
 			
           <!--<a href="#" class="resend">Resend Code</a> -->
         </mat-form-field>
-        <div class="submit-btn pt-5 text-center">
+        <div class="submit-btn pt-5 mt-3 text-center">
           <button mat-button>LOGIN</button>
         </div>
    </form>
@@ -110,23 +107,31 @@
           Please enter a valid email.
         </mat-error>
         <!-- <span *ngIf="invalidEmail" class="span_error">
-<<<<<<< HEAD
-          Please enter a valid email.
-=======
           
->>>>>>> 5799dd70f1b8f8a038ab7b151c837d534571d015
         </span> -->
     </mat-form-field>
     </div>
-    <mat-form-field appearance="" class="full-width" *ngIf="showPassWord">
-      <input matInput #input maxlength="30" formControlName="password" type="" placeholder="Enter your passcode" [type]="hide ? 'text' : 'password'" class="password">
+    <mat-form-field appearance="" class="full-width" >
+      <input matInput #input maxlength="30" formControlName="password" type="" placeholder="Enter your password" [type]="hide ? 'text' : 'password'" class="password">
       <button type="button" mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="eyes">
 <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
 </button>
-  <span class="floatRight resend forget">
-        <a tabindex="3" (click)="showHideForgotForm()">Forgot password?</a>
-      </span>
-  <mat-error *ngIf="loginForm.get('password').errors?.required">
+
+  <div class="remembermMe">
+   
+    <input *ngIf="rememberMe" id="remMe" type="checkbox" checked (click)="setRememberme(false)">
+      <input *ngIf="!rememberMe" id="remMe" type="checkbox" (click)="setRememberme(true) ">
+
+    <span class="remBox"></span>
+    <label class="remember" for="remMe">Remember me</label>        
+    <span class="floatRight resend forget">
+      <a tabindex="3" (click)="showHideForgotForm()">Forgot password?</a>
+    </span>
+  </div>
+  <!-- <span class="floatRight resend forget">
+    <a tabindex="3" (click)="showHideForgotForm()">Forgot password?</a>
+  </span> -->
+        <mat-error *ngIf="loginForm.get('password').errors?.required">
           Password is required. 
         </mat-error> 
         <mat-error *ngIf="loginForm.get('password').errors?.maxLength">
@@ -140,7 +145,7 @@
   
       <!--<a href="#" class="resend">Resend Code</a> -->
     </mat-form-field>
-    <div class="submit-btn pt-5 text-center">
+    <div class="submit-btn pt-5 mt-3 text-center">
       <button mat-button *ngIf="showPassWord" >LOGIN</button>
       <button type="button" (click)="validateEmail()" mat-button *ngIf="!showPassWord" >CONTINUE</button>
     </div>
@@ -151,16 +156,25 @@
   </div>
   <div class="login-options">
     <button *ngIf="loginWith != 'email'" mat-button class="login-button" (click)="setLoginWith('email')">
-      <img src="./assets/images/app-icons/email.png" alt=""> Continue with Email
+      <img src="./assets/images/app-icons/email.png" alt=""> Continue with email
     </button>     
     <button *ngIf="loginWith == 'email'" mat-button class="login-button" (click)="setLoginWith('phone')">
       <img src="./assets/images/app-icons/email.png" alt=""> Continue with phone number
-    </button>      
+    </button>   
+    
+    <!-- <label class="switch">                       
+      <input *ngIf="rememberMe" type="checkbox" checked (click)="rememberMe=!rememberMe">
+      <input *ngIf="!rememberMe" type="checkbox" (click)="rememberMe=!rememberMe">
+      <span class="slider round"></span>
+  </label>
+  <label class="remember" for="remember">Remember me</label>  -->
+
+
     <!-- <button mat-button class="login-button"><img src="./assets/images/app-icons/fb.png" alt=""> Continue with Facebook</button>
     <button mat-button class="login-button"><img src="./assets/images/app-icons/apple.png" alt=""> Continue with Apple</button>
     <button mat-button class="login-button"><img src="./assets/images/app-icons/GPay-Light-themed-buttons.svg" alt=""> Continue with Google</button> -->
   </div>
-  <p class="new-raza">New to raza? <a href="javascript:void(0)" (click)="showSignup()">Sign up now</a></p>
+  <p class="new-raza" *ngIf="navigateTo == ''">New to raza? <a href="javascript:void(0)" (click)="showSignup()">Sign up now</a></p>
   <span class="note">By signing in, you agree to our Website <a href="termsandcondition">Terms & Privacy Policy</a></span>
   <!-- <p class="new-raza" style="font-size: 16px; "><a href="javascript:void(0)" >SMS OPT-IN</a></p> -->
       <!--<button (click)="signInWithGoogle()">signInWithGoogle</button>-->
@@ -207,9 +221,9 @@
 			  </div>
 			  </div>
           <mat-form-field class="example-full-width full-width ml-4">
-            <input type="{{loginWith == 'email'?'email':'tel'}}" matInput placeholder="Enter {{loginWith == 'email'?'Email address':'mobile number'}}" (keyup)="validateFUsername()" formControlName="phoneEmailControl">
+            <input type="{{loginWith == 'email'?'email':'tel'}}" matInput placeholder="Enter {{loginWith == 'email'?'email address':'mobile number'}}" (keyup)="validateFUsername()" formControlName="phoneEmailControl">
              
-            <!-- <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required">
+             <!-- <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required">
               {{loginWith == 'email'?'Email address':'Mobile number'}} is required.
             </mat-error>
             <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.pattern">
@@ -219,7 +233,7 @@
             <mat-error *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.invalid">
               
               {{err_forgot_pass}}
-            </mat-error>  -->
+            </mat-error>    -->
 
            
 
@@ -228,12 +242,14 @@
         </div>
 
        <!-- {{forgotPasswordForm.get('phoneEmailControl').errors | json}} -->
-        <span class="error" *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required && forgotPassSubmitted">
+          
+         <span class="error" *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.required && forgotPassSubmitted">
           {{loginWith == 'email'?'Email address':'Mobile number'}} is required.
-        </span>
-        <span class="error" *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.pattern && forgotPassSubmitted">
+        </span>   
+
+          <span class="error" *ngIf="forgotPasswordForm.get('phoneEmailControl').errors?.pattern && forgotPassSubmitted">
           Please enter a valid {{loginWith == 'email'?'email address':'mobile number'}}.
-        </span>
+        </span>  
 
         <span class="error" *ngIf="err_forgot_pass !=''">
           
@@ -247,7 +263,7 @@
           <mat-form-field class="example-full-width full-width">
             <input matInput type="password" maxlength="6" placeholder="Enter 6 digit passcode" formControlName="otp">
             <span class="floatRight resend" *ngIf="isEnableResendOtp">
-            <a tabindex="0" (click)="sendOtp()">Resend Passcode</a>
+            <a tabindex="0" (click)="sendOtp()">Resend passcode</a>
           </span>
             <mat-error *ngIf="forgotPasswordForm.get('otp').errors?.invalid">
               <!-- Incorrect Mobile Number/Password. -->
@@ -278,18 +294,19 @@
         </div>
   <div *ngIf="invalidOtp!=''" class="error">{{invalidOtp}}</div>
 
-  <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions">We just texted you</h1>
-   <p class="text-center subtitle" *ngIf="!moreOptions">Please enter the verification code sent to</p>
+  <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions && loginWith == 'phone'">We just texted you</h1>
+   <p class="text-center subtitle" *ngIf="!moreOptions && loginWith == 'phone'">Please enter the verification code sent to</p>
 
-   <h1 mat-dialog-title class="text-center" *ngIf="moreOptions">Verify your phone number</h1>
-   <p class="text-center subtitle" *ngIf="moreOptions">We'll text you at</p>
-
+   <h1 mat-dialog-title class="text-center" *ngIf="moreOptions && loginWith == 'phone'">Verify your phone number</h1>
+   <p class="text-center subtitle" *ngIf="moreOptions && loginWith == 'phone'">We'll text you at</p>
+   
+   <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions && loginWith == 'email'">Please enter the verification code sent to</h1>
 
     <h2 *ngIf="loginWith == 'phone'" >(+{{currentSetting.country.CountryCode}}) {{formattedNumber(enteredPhone)}}</h2>
     <h2 *ngIf="loginWith == 'email'" >{{enteredPhone}}</h2>
       <div> 
-        <a href="javascript:void(0)" *ngIf="loginWith == 'phone'" (click)="changeNumber()" class="changeNum">Change Number</a>
-        <a href="javascript:void(0)" *ngIf="loginWith == 'email'" (click)="changeNumber()" class="changeNum">Change Email </a>
+        <a href="javascript:void(0)" *ngIf="loginWith == 'phone'" (click)="changeNumber()" class="changeNum">Change number</a>
+        <!-- <a href="javascript:void(0)" *ngIf="loginWith == 'email'" (click)="changeNumber()" class="changeNum">Change Email </a> -->
         <i class="fa fa-pencil" aria-hidden="true"></i>
       </div>
       <div class="example-container forgotPasswordForm" *ngIf="!moreOptions">
@@ -302,9 +319,13 @@
                         <input #formRow autocomplete="on" type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)" autofocus>
                       </div>
                 </div>
+                <p *ngIf="sendAgainMsg && loginWith == 'phone'" class="text_green" >A code has been sent to your mobile. Kindly check and enter it. </p>
+                <p *ngIf="sendAgainMsg && loginWith == 'email'" class="text_green" >Code has been sent. Please check your email. </p>
                 <div class="row titleTex">
-                  Didn’t get code? <a href="javascript:void(0)" (click)="processForgot()" class="sendAgain"> Send Again</a> 
+                 
+                   Didn’t get code? <a href="javascript:void(0)" (click)="processForgot1();" class="sendAgain"> Send Again</a> 
                 </div>
+                
                 <div class="row">
                   <a href="javascript:void(0)" (click)="moreOptions=!moreOptions" class="moreOpt">More Options</a>
                 </div>

@@ -505,7 +505,7 @@ a {
 .myaccountTabArea {
 	clear: both;
 	overflow: hidden;
-	padding: 136px 0;
+	padding: 0 0;
 	margin: 0;
 	width: 100%;
 	background-color: #f6f8fa;
@@ -763,11 +763,12 @@ table {
 	display: block;
 	clear: both;
 	overflow: hidden;
-	max-width: 1200px;
+	max-width: 1450px;
 	margin: 0 auto;
 	.leftTabArea {
 		float: left;
 		width: 17%;
+		padding-top: 160px;
 		h5 {
 			color: #0B203E;
 			font-size: 22px;
@@ -778,17 +779,22 @@ table {
 			list-style-type: none;
 			padding: 0px;
 			li {
-				line-height: 50px;
-				border-bottom: 1px solid #D8D8D8;
+				line-height: 55px;
+				border-bottom: 1px solid #e6e6e6;
 				&.noBorder {
 					border: none;
 				}
 				a {
 					display: block;
-					color: #0B3D8D;
-					font-size: 18px;
-					font-family: 'Montserrat', sans-serif;
-					font-weight: 300;
+					color: #000;
+					font-size: 16px;
+					font-weight: 500;
+					background-repeat: no-repeat;
+					background-position: left 0 center;
+					padding-left: 52px;
+					&:hover {
+						color: #1656ff;
+					}
 				}
 				&.active {
 					color: #0B3D8D;
@@ -807,25 +813,129 @@ table {
 						}
 					}
 				}
+				&.recharge {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/recharge-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/recharge-hover.png);
+						}
+					}
+				}
+				&.payment-details {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/paymentdetails-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/paymentdetails-hover.png);
+						}
+					}
+				}
+				&.autorefill {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/autorefill-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/autorefill-hover.png);
+						}
+					}
+				}
+				&.order-history {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/orderhistory-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/orderhistory-hover.png);
+						}
+					}
+				}
+				&.plandetails {
+					ul {
+						padding-left: 55px;
+						a {
+							padding-left: 0;
+						}
+					}
+					.plan_details {
+						background-image: url(../../../../assets/images/myaccount_icons/plandetails-normal.png);
+						background-repeat: no-repeat;
+						background-position: left 0 center;
+						padding-left: 52px !important;
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/plandetails-hover.png) !important;
+							background-repeat: no-repeat !important;
+							background-position: left 0 center !important;
+							color: #1656ff;
+						}
+					}
+				}
+				&.rewards {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/rewards-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/rewards-hover.png);
+						}
+					}
+				}
+				&.international-topup {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/intertopup-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/intertopup-hover.png);
+						}
+					}
+				}
+				&.virtualnumber {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/recharge-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/recharge-hover.png);
+						}
+					}
+				}
+				&.my-profile {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/myprofile-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/myprofile-hover.png);
+						}
+					}
+				}
+				&.other-plans {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/recharge-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/recharge-hover.png);
+						}
+					}
+				}
+				&.notifications {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/notifications-normal.png);
+						&:hover {
+							background-image: url(../../../../assets/images/myaccount_icons/notifications-hover.png);
+						}
+					}
+				}
 			}
 		}
 		.mat-expansion-panel {
 			background: none !important;
+			border-bottom: 1px solid #e6e6e6 !important;
+			border-radius: 0;
 			&:hover {
 				background: none !important;
 			}
 		}
 		.mat-expansion-panel-header-title {
-			color: #0B3D8D;
-			font-size: 18px;
-			font-family: 'Montserrat', sans-serif;
-			font-weight: 300;
+			color: #000;
+			font-size: 16px;
+			font-weight: 500;
 		}
 	}
 	.rightTabArea {
 		float: left;
 		width: 920px;
+    	width: 80%;
 		margin-left: 36px;
+		background: #fff;
+		padding: 120px 30px 50px;
 	}
 }
 .onlySmallScreenAccount {
@@ -870,19 +980,61 @@ td {
 	display: block;
 }
 
+.point_box {
+  height: 280px;
+  border-radius: 20px;
+  padding: 25px 0px 22px;
+  background: #f6f8fa;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 22px;
+  h3 {
+    color: #1c2b58;
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 0;
+  }
+  p {
+    color: #1c2b58;
+    font-weight: 600;
+  }
+  a {
+    display: block;
+    font-size: 14px;
+    color: #21242a;
+    font-weight: 500;
+    text-decoration: underline;
+    margin-top: 30px;
+  }
+  img {
+      max-height: 105px;
+      max-width: 150px;
+      width: auto;
+      height: auto;
+  }
+  &:hover {
+    background: #203676;
+    h3, p, a {
+      color: #fff;
+    }
+  }
+}
 
 @media only screen and (max-width: 868px)  {
 .myaccountTabArea {
-  padding: 0 0 0 0; 
+  padding: 0 0 0 0;
   margin-bottom: 0px;
   padding-top: 80px;
+  background: transparent;
 }
-h2.welcomeText{font-size: 30px; font-weight: 700; margin-bottom: 10px;}
+h2.welcomeText{ font-size: 30px; font-weight: 700; margin-bottom: 5px; margin-top: 15px; display: none;}
 .onlyDesktopAccount{ display: none;}
 .onlySmallScreenAccount {display: block}
 .myAccountMobileSelect{ display: block; text-align: center;}
 .mat-select{ margin-bottom: 0px !important;}
-.myAccountMobTabContArea{ background: #fff; }
+.myAccountMobTabContArea{ background: #fff; padding-bottom: 40px; }
 .myAccountMobTabContArea .rechargeLeft{width: 100%;text-align: center;padding: 15px 0;display: block;margin: 24px auto;}
 .myAccountMobTabContArea .rechargeRight{width: 50%;text-align: center;display: block; margin: 24px auto; padding-top: 40px; border-top: 1px solid #E4E4E4; border-left: none; float: none;  clear: both;}
 .planDetails{ padding: 50px 0px;}
@@ -894,7 +1046,7 @@ p.disclaimer{ display: none;}
 .razaNumberLeft table tr th,.razaNumberLeft table tr td{ width: 50%;padding: 10px 25px !important;}
 .tabContentMyaccount table tr th,.tabContentMyaccount table tr td{ /*width: 50%;*/padding: 10px 25px !important;}
 table.orderHistory tr td:first-child{font-family: 'Montserrat', sans-serif; font-weight: 500; color:#0B203E;}
-.razawebNumberRightApplinkArea{ margin: 25px 10px !important;padding: 20px 12px !important;} 
+.razawebNumberRightApplinkArea{ margin: 25px 10px !important;padding: 20px 12px !important;}
 .greyBg{background: #FAFAFA; margin: 0px;padding: 30px 0;}
 .cardDetails{ width:70%;}
 .cardDetails p{margin-bottom: 2px;}
@@ -912,13 +1064,13 @@ table.orderHistory tr td:first-child{font-family: 'Montserrat', sans-serif; font
 .autorefillTextarea p.enabledText{ color: #1A9259; font-size: 16px; font-family: 'Montserrat', sans-serif; font-weight: 500;}
 .enabledText .mat-icon{ font-size:16px;}
 .autorefillTextarea p.autoTextcommon button:focus{ background: none; outline: none;}
-.autorefillTextarea p.autoTextcommon span.iconSpan{padding-left: 15px;} 
+.autorefillTextarea p.autoTextcommon span.iconSpan{padding-left: 15px;}
 .autorefillTextarea p.autoTextcommon span .mat-icon{color: #103F8A; font-size: 30px; display: -webkit-inline-box;}
 .autorefill p.tabTitle{ color: #0B203E; font-size: 28px;font-family: 'Montserrat', sans-serif; font-weight: 400;line-height: 20px; margin-bottom: 40px;}
 .autorefill p.tabTitle span{color: #808080; font-size: 14px;}
 .myaccountTabArea .callForward table{ margin-top: 0px;}
 table.showAlltable tr td{width: 33.33% !important;}
-.rewardsOverview table tr th:last-child,.rewardsOverview table tr td:last-child{ text-align: right !important;} 
+.rewardsOverview table tr th:last-child,.rewardsOverview table tr td:last-child{ text-align: right !important;}
 
 .app_list ul{ display: table; margin: 0 auto;}
 .app_list{ clear: both; overflow: hidden;}
@@ -927,9 +1079,9 @@ table.showAlltable tr td{width: 33.33% !important;}
 }
 .tabContentMyaccount table tr th, .tabContentMyaccount table tr td{padding: 10px 17px !important;}
 
-} 
+}
 
- 
+
 
 .tabContentMyaccount1 {
 	clear: both;
@@ -974,6 +1126,7 @@ table.showAlltable tr td{width: 33.33% !important;}
 }
 .commonBg {
 	background: #f6f8fa;
+	background: transparent;
 	clear: both;
 	overflow: hidden;
 }
@@ -994,3 +1147,13 @@ table.showAlltable tr td{width: 33.33% !important;}
     margin-left: 10px;
   }
 }
+
+// @media only screen and (min-width:869px) {
+//   ::ng-deep {
+//     span.logo {
+//         position: absolute;
+//         left: 75px;
+//         max-width: 175px;
+//     }
+//   }
+// }

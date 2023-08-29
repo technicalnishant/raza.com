@@ -42,19 +42,19 @@ $background-color_1: #293a6a;
             font-weight: 500;
             font-family: $font-family;
             opacity: 1;
-    
+
             @include breakpoint(sm) {
                 font-size: 16px;
             }
         }
-    
+
         .form-control {
             &:focus {
                 border: 0;
                 box-shadow: none;
                 outline: none;
             }
-    
+
             &:focus-visible {
                 border: 0;
                 box-shadow: none;
@@ -62,7 +62,7 @@ $background-color_1: #293a6a;
             }
         }
     }
-    
+
 }
 // Search box Css end here
 
@@ -83,14 +83,10 @@ $background-color_1: #293a6a;
 		flex-direction: row;
     }
     li {
-        font-size: 16px;
-        line-height: 34px;
-        color: $primary-color2;
         font-weight: 600;
         cursor: pointer;
-        font-family: $font-family;
         margin: 0 8px;
-		list-style: none;
+		    list-style: none;
     }
 	.active {
 		background-color: #ffc72b;
@@ -106,7 +102,7 @@ $background-color_1: #293a6a;
 $background-color_1: #ffffff;
 
 .country-box {
-    margin: 70px 0; 
+    margin: 70px 0;
 	border-right: 1px solid #e7e7e7;
     @include breakpoint(sm) {
         text-align: center;
@@ -123,7 +119,7 @@ $background-color_1: #ffffff;
         display: flex;
         align-items: center;
         @include breakpoint(sm) {
-            justify-content:center;
+            // justify-content:center;
         }
         img {
             // height: 40px;
@@ -147,17 +143,14 @@ $background-color_1: #ffffff;
         line-height: 28px;
         color: $primary-color2;
         font-weight: 700;
-        font-family: $font-family;
         margin-left: 16px;
     }
 
     .country-rate {
         font-size: 24px;
-        letter-spacing: 0px;
         line-height: 28px;
         color: $primary-color2;
         font-weight: 700;
-        font-family: $font-family;
         margin-top: 20px;
         margin-bottom: 20px;
         margin-left: 21px;
@@ -165,6 +158,7 @@ $background-color_1: #ffffff;
         span {
             font-size: 16px;
             text-transform: lowercase;
+            font-weight: 500;
         }
     }
 
@@ -176,7 +170,6 @@ $background-color_1: #ffffff;
         line-height: 28px;
         color: $primary-color2;
         font-weight: 700;
-        font-family: $font-family;
         padding: 4px 18px;
         transition: ease-in-out .3s;
         margin-left: 20px;
@@ -196,7 +189,7 @@ $background-color_1: #ffffff;
       border-right: 0;
     }
 }
-  
+
 .qrimage {
 	box-shadow: 7px 10px #cc9f23;
 }
@@ -212,12 +205,7 @@ $background-color_1: #ffffff;
     }
 
     .section-title {
-        font-size: 46px;
-        color: #162f75;
-        font-weight: 800;
-        font-family: $font-family;
-        text-align: center;
-		margin-bottom: 18px;
+		  margin-bottom: 18px;
         @include breakpoint(sm) {
             font-size: 28px
         }
@@ -303,13 +291,9 @@ $background-color_1: #ffffff;
     margin: 50px 0;
 
     .section-title {
-        font-size: 46px;
-        color: #162f75;
-        font-weight: 800;
-        font-family: $font-family;
-        text-align: center;
         @include breakpoint(sm) {
-            font-size:34px
+            font-size:30px;
+            margin-bottom: 0;
         }
     }
 
@@ -354,10 +338,9 @@ $background-color_1: #ffffff;
     text-align: center;
     margin-bottom: 50px;
     @include breakpoint(sm) {
-        font-size:34px;
-        margin-bottom: 30;
+        font-size:35px;
+        margin-bottom: 30px;
     }
-   
 }
 
 .faq-section {
@@ -432,4 +415,40 @@ $background-color_1: #ffffff;
     width: 40px;
     -o-object-fit: contain;
     object-fit: contain;
+}
+@include breakpoint(sm) {
+    .country-box .country-name {
+        font-size: 17px;
+        line-height: 1.3;
+        text-align: left;
+    }
+    .country-box .country-rate {
+        font-size: 17px;
+        line-height: 1.3;
+        margin-top: 12px;
+        margin-bottom: 15px;
+    }
+
+    section.country-search .container > .col-lg-8 {
+        padding: 0;
+    }
+    .alphabet_links {
+        display: none;
+    }
+    .country-box .country-rate span {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .country-box .view-details-btn {
+      padding: 2px 18px;
+    }
+    .heading_style1 {
+        font-size: 30px;
+    }
+    .home_banner.searchrate_banner {
+        height: 410px !important;
+        background-position: top;
+        border-bottom-left-radius: 100% 80px;
+        border-bottom-right-radius: 100% 80px;
+    }
 }

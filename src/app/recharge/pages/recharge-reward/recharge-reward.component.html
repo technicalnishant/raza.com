@@ -3,15 +3,22 @@
   <div class="selectRechargeamount">
     <p class="selectAmountText">Select Redeem Amount</p>
     <div class="bonusArea">
-      <span *ngIf="enrollAmount==10">A maximum of {{ 30 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span>
-      <span *ngIf="enrollAmount!=10">A maximum of {{ 15 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span>
+      <span >A maximum of {{ 30 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span>
+   
+
+      <!-- <span *ngIf="enrollAmount==10">A maximum of {{ 30 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span>
+      <span *ngIf="enrollAmount!=10">A maximum of {{ 15 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span> -->
       <span class="relative"></span></div>
     <div class="selectRechargeAmnt">
       <ul>
         <li *ngFor="let item of rechargeOptions?.Options" (click)="onClickAmountOption(item.Points)">
-          <div matRipple class="commonpriceArea mouse-pointer">
-            <p class="newPrice"> {{item.Amount | bCurrency : plan?.CurrencyCode}}</p>
-            <p>{{item.Points}} points</p>
+          <div class="commonpriceArea mouse-pointer">
+            <p class="newPrice">
+              <span>{{ '' | bCurrency : plan?.CurrencyCode}}</span>
+               {{item.Amount}}
+              </p>
+            <p class="points">{{item.Points}} points</p>
+            <button>Redeem</button>
           </div>
         </li>
       </ul>

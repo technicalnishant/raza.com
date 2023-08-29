@@ -60,8 +60,8 @@
 	font-weight: 800;
 	text-align: center;
 	@include breakpoint(sm){
-		font-size: 34px;
-		margin-top: 20px;
+		font-size: 32px;
+		margin-top: 40px;
 	}
 }
 
@@ -175,16 +175,36 @@
     }
 }
 @media only screen and (max-width: 650px)  {	
-	.heading_style1 {
-		left: 40%;
-		margin-left: 0px;
-		color: #fff;
-		background: rgb(0 0 0 / 20%);
-		padding: 20px;
+	h1.heading_style1 {
+		font-size: 30px;
+		background: rgba(0, 0, 0, 0.35);
+		left: 15px;
+		right: 15px;
+		padding: 15px;
 		border-radius: 10px;
-		font-size: 40px;
-	}
+		bottom: 45px;
+		margin: 0;
+		color: #fff;
+		span {
+			margin-top: 10px;
+			font-size: 17px;
+			line-height: 1.4;
+		}
+	}		
 	.contact-header span {
 		color: #fff;
+	}
+	.home_banner.contactus_banner {
+		height: 410px !important;
+		background-position: center;
+		border-bottom-left-radius: 100% 80px;
+		border-bottom-right-radius: 100% 80px;
+	}
+	.container {
+		width: 100%;
+		padding: 0 20px;
+	}
+	section.contactus-section {
+		margin-top: 28px;
 	}
 }

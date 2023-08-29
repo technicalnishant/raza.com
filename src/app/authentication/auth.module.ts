@@ -11,6 +11,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AutoSigninComponent } from './pages/auto-signin/auto-signin.component';
  
 import { UpdatePassComponent } from './update-pass/update-pass.component';
+import { DeleteAccountComponent } from './pages/delete-account/delete-account.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { UpdatePassComponent } from './update-pass/update-pass.component';
     RouterModule.forChild([
       { path: 'forgot-password', component: ForgotPasswordComponent },
       { path: 'update_password/:token', component: UpdatePassComponent },
+      {path:'delete_account', component:DeleteAccountComponent}
       //{ path: 'sign-in', component: SignInComponent },
       
  
@@ -40,7 +42,7 @@ import { UpdatePassComponent } from './update-pass/update-pass.component';
     SignInComponent,
     SignUpComponent,
     AutoSigninComponent, 
-    UpdatePassComponent,
+    UpdatePassComponent, DeleteAccountComponent,
   ],
   providers: [],
 

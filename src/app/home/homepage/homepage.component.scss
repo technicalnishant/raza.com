@@ -1025,6 +1025,7 @@ a {
 
 // new slide css start here
 .home-slider {
+  margin-top: 50px;
     .bg-image {
         width: 100%;
         min-height: 700px;
@@ -1638,10 +1639,6 @@ h1.buy1get1-text:after {
         object-fit: cover;
         padding-top: 50px;
         max-height: 650px;
-        // min-height: 700px;
-        // object-fit: cover;
-        // padding-top: 80px;
-        // max-height: 700px;
     }
     .collection {
         display: none;
@@ -1765,9 +1762,6 @@ h1.buy1get1-text:after {
     }
 }
 
-
-
-
 @media only screen and (min-width: 769px) {
     .btn-slider {
         display: none;
@@ -1782,16 +1776,6 @@ h1.buy1get1-text:after {
         margin: auto;
         bottom: -10%;
     }
-    // .promotion-offer .promo-btn {
-    //     padding: 6px 31px;
-    //     font-size: 16px;
-    //     letter-spacing: 1px;
-    //     line-height: 33px;
-    //     background: #2b0d04;
-    //     font-weight: bold;
-    //     color: #fff;
-    //     border-radius: 10px;
-    // }
     .promotion-inner {
         max-width: 75%;
     margin: auto;
@@ -1809,8 +1793,6 @@ h1.buy1get1-text:after {
         max-width: 70%;
         right: 0;
         margin: auto;
-        // bottom: -10%;
-        // padding-bottom: 80px;
         bottom: 45%;
     }
     .promotion-inner {
@@ -1875,13 +1857,6 @@ h1.buy1get1-text:after {
 
 
 @media only screen and (min-width: 1800px) {
-    // .promotion-offer {
-    //     a {
-    //         position: absolute;
-    //         bottom: 0;
-    //         right: 24%;
-    //     }
-    // }
     .promotion-offer div a {
         position: absolute;
         left: 0;
@@ -1928,7 +1903,6 @@ h1.buy1get1-text:after {
 @media only screen and (min-width: 1200px) and (max-width: 1230px) {
     .promotion-offer .promo-btn {
         position: relative;
-        // top: -23px;
         left: 0px
 
     }
@@ -1936,7 +1910,6 @@ h1.buy1get1-text:after {
 @media only screen and (min-width: 1231px) and (max-width: 1397px) {
     .promotion-offer .promo-btn {
         position: relative;
-        // top: -23px;
         left: 135px
 
     }
@@ -1947,7 +1920,6 @@ h1.buy1get1-text:after {
         top: -45px;
 
     }
-
     .promotion-offer a {
         position: absolute;
          bottom: null;
@@ -1956,6 +1928,14 @@ h1.buy1get1-text:after {
 
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .promotion .promotion_img_div{
+      width: 60%;
+      margin: 0 0 0 auto;
+      right:20%
+  }
+  .promotion-offer {
+      bottom: 0%;
+      left:-15%;
 
 .promotion .promotion_img_div{
     width: 60%;
@@ -1986,7 +1966,6 @@ h1.buy1get1-text:after {
 }
 
 @media only screen and (min-width: 1228.80px) and (max-width: 1230px) {
-
     .promotion-offer {
         bottom: 0%;
         left:-33%;
@@ -1995,7 +1974,6 @@ h1.buy1get1-text:after {
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1200px) {
-
     .promotion .promotion_img_div {
         width: 60%;
         margin: 0 0 0 auto;
@@ -2057,16 +2035,14 @@ h1.buy1get1-text:after {
     }
 }
 
-@media only screen and (min-width: 2000px) {
-    .home-slider .promotion_image {
-        // min-height: 1000px!important;
-        // max-height: 1000px!important;
+@media only screen and (min-width: 1850px) and (max-width: 1920px) {
+    .promotion-offer a{
+        margin-bottom: 30px;
     }
 }
 
 @media only screen and (min-width: 280px) and (max-width: 280px) {
     .promotion-offer .promo-btn {
-        // padding: 8px 20px;
         font-size: 16px;
         line-height: 26px;
     }
@@ -2323,9 +2299,6 @@ h1.buy1get1-text:after {
     .promotion-offer .promo-btn {
         width: 132px;
     }
-    .home-slider {
-        margin-top: 50px;
-    }
     .carousel-caption.promotion {
         bottom: 18%;
         right: 50%;
@@ -2461,4 +2434,5 @@ h1.buy1get1-text:after {
     .topup-btn {
         bottom: 46%;
     }
+}
 }

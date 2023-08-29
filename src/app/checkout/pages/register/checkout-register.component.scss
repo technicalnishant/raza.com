@@ -29,7 +29,7 @@
 	background: #fff;
 }
 .recharge_block {
-	padding: 60px 0;
+	padding: 0 0 60px;
 	margin: 0;
 	width: 100%;
 	background-color: #f6f8fa;
@@ -44,6 +44,10 @@
 	}
 	.mat-form-field {
 		display: block !important;
+	}
+	@media only screen and (max-width:767px) {
+		padding: 35px 0 20px;
+		margin-top: 67px !important;
 	}
 }
 .heading_style4 {
@@ -375,8 +379,7 @@ p {
 		font-family: 'Montserrat', sans-serif;
 		font-weight: 500;
 		text-align: center;
-		padding: 35px 0;
-		margin-top: 50px;
+		padding: 0 0 35px;
 	}
 	&.step {
 		font-family: 'Montserrat', sans-serif;
@@ -453,8 +456,8 @@ p {
   .table {
     td {
       font-family: 'Montserrat', sans-serif;
-      font-weight: 400;
-      color: #808080;
+      font-weight: 500;
+      color: #666;
       font-size: 16px;
       padding-left: 0px;
       padding-right: 0px;
@@ -535,7 +538,7 @@ p {
 		text-transform: uppercase;
 		font-size: 15px;
 		font-family: "Montserrat", sans-serif;
-		font-weight: 500;
+		font-weight: 600;
 		transition: background 0.3s ease-in-out;
 		text-align: center;
 		margin: auto;
@@ -601,15 +604,32 @@ p {
   
   
   
-  @media only screen and (max-width: 768px){
-    .express_checkout {margin-bottom: 25px !important;}
+  @media only screen and (max-width: 768px) {
+    .express_checkout {margin-bottom: 25px !important; border-radius: 10px;}
     .express_checkout p.haveAccountTxt,.express_checkout p.noWorryText{ font-size: 13px;}
     .rechargeStepMain {margin-top: -105px;}
     .containerMobile{width: 100%;}
-	.img-fluid{ width: auto;
+	.img-fluid { 
+		width: auto;
 		height: 120px;
-		object-fit: cover;}
-  
+		object-fit: cover;
+	}
+	.col-xl-6.expCheck {
+		padding: 0 5px;
+	}
+	.yourOrder {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.yourOrder .col-md-12 {
+		padding: 0;
+	}
+	.express_checkout p.mobile_guest {
+		margin-bottom: 5px;
+	}
+	p.updateCard {
+		margin-bottom: 0;
+	}
   }
 
   .current-country {
@@ -624,3 +644,26 @@ p {
   .phoneExistError{
     color:#0056b3
   }
+
+  .or {
+    font-size: 16px;
+    line-height: 20px;
+    color: #99999b;
+    font-weight: 500;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+}
+  .login-button{
+    width: 100%;
+    text-align: center;
+    background-color: #f3f3f3;
+    padding: 7px 19px;
+    font-size: 16px;
+    color: #3e3e3e;
+    font-weight: 600;
+    margin-bottom: 10px;
+    border: 1px solid #d8d8d8;
+    border-radius: 30px;
+    font-family: "Montserrat", sans-serif;
+}

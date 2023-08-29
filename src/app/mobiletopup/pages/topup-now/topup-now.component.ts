@@ -38,6 +38,8 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   filteredCountry: Observable<Country[]>;
   // autoControl = new FormControl();
   mobileTopupData: mobileTopupModel;
+  topups: any;
+  topupBundles
   operatorDenominations: OperatorDenominations[];
   mobileTopupForm: FormGroup;
   amountSent: number;
@@ -58,6 +60,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   topup_ctr: any;
 
   bundleTopupPlans:any;
+  topupDialog:any=[];
   constructor(private router: Router, private titleService: Title,
     private formBuilder: FormBuilder,
     private countryService: CountriesService,
@@ -68,7 +71,8 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     private razaEnvService: RazaEnvironmentService,
 	private location:Location,
   private metaTagsService:MetaTagsService,
-  private dialog:MatDialog
+  private dialog:MatDialog,
+ 
   ) {
 
   }
@@ -100,6 +104,11 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
     });
+
+    // let country = this.countryFrom.filter(a=>a.CountryId == res.countryId);
+    // // console.log("Your filter data is ", country[0]);
+    //  this.currentSetting.country = country[0]
+
 	  
 	  this.pinnumber = (history.state.pin)?history.state.pin:'';
     this.topup_no = (history.state.pin)?history.state.pin:'';
@@ -196,8 +205,9 @@ export class TopupNowComponent implements OnInit, OnDestroy {
                   this.onClickAmountOption(data.OperatorDenominations[1]);
                   this.mobileTopupForm.patchValue({countryTo:this.allCountry[i] });
                   this.mobileTopupForm.patchValue({ phoneNumber:phone});
-                 
                   this.mobileTopupData = data;
+                 
+                  
                    
               }
           }
@@ -235,10 +245,10 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.mobileTopupForm.get('topUpAmount').updateValueAndValidity();
     this.mobileTopupForm.get('phoneNumber').enable();
 
-    this.mobileTopupForm.patchValue({
-      phoneNumber: '',
-      topUpAmount: null
-    });
+    // this.mobileTopupForm.patchValue({
+    //    phoneNumber: '',
+    //   topUpAmount: null
+    // });
 
     this.mobileTopupData = null;
    this.isTopUpEnable = false;
@@ -275,12 +285,26 @@ export class TopupNowComponent implements OnInit, OnDestroy {
         this.countryTo = data.CountryId;
         this.mobileTopupData = data;
         this.currentOperator = data.Operator;
+
+        //console.log('data.OperatorDenominations', data.OperatorDenominations)
+        this.topups = data.OperatorDenominations.filter(a=>{ 
+          //console.log(a.Operator, this.mobileTopupData.Operator) 
+           if(a.Operator == this.currentOperator)  
+           {
+             
+            return a;
+           }
+        });
+
+
+        
         this.onClickAmountOption(this.mobileTopupData.OperatorDenominations[1]) ;
         this.isTopUpEnable = true;
         this.mobileTopupForm.get('topUpAmount').updateValueAndValidity();
         this.mobileTopupForm.get('phoneNumber').disable();
 
         this.getBundlesTopUpInfo()
+        this.getTopupDetail();
       },
       (err: ApiErrorResponse) => console.log(err),
     );
@@ -345,7 +369,8 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     checkoutModel.country = this.mobileTopupForm.get('countryTo').value as Country; // this.autoControl.value.countryTo as Country;
     checkoutModel.topupOption = this.mobileTopupForm.value.topUpAmount as OperatorDenominations;
     checkoutModel.currencyCode = this.currentSetting.currency;
-    checkoutModel.phoneNumber = this.mobileTopupForm.get("countryTo").value?.CountryCode+' '+this.mobileTopupForm.get('phoneNumber').value;
+    //checkoutModel.phoneNumber = this.mobileTopupForm.get("countryTo").value?.CountryCode+' '+this.mobileTopupForm.get('phoneNumber').value;
+    checkoutModel.phoneNumber = this.mobileTopupForm.get('phoneNumber').value;
     checkoutModel.operatorCode = this.mobileTopupData.OperatorCode;
     checkoutModel.countryFrom = this.currentSetting.currentCountryId;
     checkoutModel.isHideCouponEdit = true;
@@ -421,30 +446,58 @@ export class TopupNowComponent implements OnInit, OnDestroy {
       {
         this.mobileTopupData.OperatorDenominations = data;
         this.onClickAmountOption(this.mobileTopupData.OperatorDenominations[1]) ;
+        this.getBundlesTopUpInfo()
       }
       
     })
   }
 
+  getTopupDetail()
+  {
+    this.mobileTopupService.getBundlesInfo(this.currentSetting.currentCountryId,this.countryTo ).subscribe(data =>{
+      if(data &&  data[0])
+      {
+        this.topupDialog = data[0];
+        }
+      })
+  }
   showDetailTopup()
   {
-    const dialogConfig = new MatDialogConfig();
+
+    
+        const dialogConfig = new MatDialogConfig();
 
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.panelClass = 'topup-plan-dialog'
-        dialogConfig.data={from_id:this.currentSetting.currentCountryId, to_id:this.countryTo, operator:this.currentOperator}
+        dialogConfig.minHeight = "500px";
+        dialogConfig.width = "700px";
+        dialogConfig.data = {
+          from_id:this.currentSetting.currentCountryId, 
+          to_id:this.countryTo, 
+          operator:this.currentOperator,
+          dialogDetail:this.topupDialog
+        }
       this.dialog.open(TopupDialogComponent,dialogConfig);
+  
   }
 
 /********** Bundles functionality*****************/
   getBundlesTopUpInfo(){
-    this.mobileTopupService.getBundlesTopUp(this.currentSetting.currentCountryId, this.countryTo, this.currentOperator).subscribe(data =>{
+    // this.mobileTopupService.getBundlesTopUp(this.currentSetting.currentCountryId, this.countryTo, this.currentOperator).subscribe(data =>{
+    //   if(data){
+    //     this.bundleInfo = data;
+
+    //   }
+    // })
+    this.mobileTopupService.getBundlesTopUp2(this.currentSetting.currentCountryId, this.countryTo, this.currentOperator+' Bundle').subscribe(data =>{
       if(data){
         this.bundleInfo = data;
 
       }
     })
+
+    
   }
 
   getFilterdArr(desc:String)

@@ -1,0 +1,301 @@
+.swicth_container {
+    width: 340px;
+    padding: 10px 40px;
+    margin: 35px auto 25px;
+    display: flex;
+    font-weight: 700;
+    font-size: 18px;
+}
+.switch {
+    position: relative;
+    width: 60px;
+    height: 28px;
+    margin-left: 8px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+input:checked .slider {
+    background: linear-gradient(#30b348, #129e51);
+    box-shadow: inset 0 1px 2px #222;
+}
+.slider {
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: inset 0 1px 2px #666;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+.activerow .sticky_row th .first-col,
+.full_width_scroll {
+    background: #f7f9fb;
+}
+.reg_text {
+    margin-right: 5px;
+}
+.bonusText {
+    position: relative;
+    margin-left: 5px;
+}
+.swicth_container_scroll .reg_text {
+    margin-left: 4px;
+}
+.bonus_text {
+    margin-left: 15px;
+}
+.bonus_small_text {
+    font-size: 11px;
+    font-weight: 500;
+    margin-left: 15px;
+    display: block;
+}
+.bonus_text_offer {
+    color: #22ab47;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 5px;
+}
+.bonus_text_info {
+    margin-left: 5px;
+    position: absolute;
+    top: 2px;
+    margin-top: -13px;
+    right: -9px;
+}
+.swicth_container_scroll {
+    width: auto;
+    padding: 16px 16px 16px 0 !important;
+}
+#full_width_scroll_div .first-col,
+.swicth_container_scroll .switch {
+    margin-left: 0;
+}
+.swicth_container_scroll .bonus_small_text,
+.swicth_container_scroll .bonus_text {
+    margin-left: 10px;
+}
+.info_country {
+    transition: 0.6s ease-in;
+    opacity: 1;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+}
+h3.selectRechg {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 26px;
+}
+.denomination__box_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.denomination__box {
+    width: 110px;
+    height: 100px;
+    border-radius: 10px;
+    border: 3px solid #016aea;
+    margin-right: 22px;
+    font-size: 26px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.active .denomination__box {
+    background: #016aea;
+    color: #fff;
+    .discount_applied {
+        &::before {
+            border-left: 30px solid #fff;
+            @media only screen and (max-width: 767px) {
+                border-left: 25px solid #fff;
+            }
+        }
+        &_text {
+            color: #016aea;
+        }
+    }
+}
+.denomination__box .discount_applied {
+    &::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+        border-left: 30px solid #016aea;
+        position: absolute;
+        top: -20px;
+        right: -6px;
+        transform: rotate(-45deg);
+        @media only screen and (max-width: 767px) {
+            // border-top: 28px solid transparent;
+            // border-bottom: 28px solid transparent;
+            // border-left: 28px solid #016aea;
+        }
+    }
+    &_text {
+        position: absolute;
+        right: 0px;
+        top: 5px;
+        color: #fff;
+        font-size: 12px;
+        transform: rotate(45deg);
+        @media only screen and (max-width: 767px) {
+            // top: 4px;
+            right: 0px;
+            transform: unset;
+            font-size: 11px;
+            top: 2px;
+        }
+    }
+}
+.bonus_text {
+    &_datas {
+        display: none;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.3;
+        width: 270px;
+        background: #333;
+        color: #fff;
+        padding: 13px;
+        font-size: 12px;
+        border-radius: 10px;
+        margin-left: -105px;
+        @media only screen and (max-width: 767px) {
+            margin-left: -232px;
+        }
+    }
+    &_data {
+        position: absolute;
+        top: -10px;
+        margin-left: 4px;
+        &:hover {
+            .bonus_text_datas {
+                display: block;
+            }
+        }
+    }
+    &_qst {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        line-height: 15px;
+        display: inline-block;
+        vertical-align: top;
+        border: 2px solid #000;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 600;
+    }
+}
+.rates_info {
+  display: none;
+  font-weight: 500;
+  line-height: 1.3;
+  background: #333;
+  color: #fff;
+  padding: 10px 13px;
+  font-size: 16px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  margin: 16px 0 0 -16px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    margin-left: -19px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #333;
+  }
+}
+.demBoxWrp:hover .rates_info {
+    display: block;
+}
+.slider,
+.slider:before {
+    position: absolute;
+    bottom: 0;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: inset 0 1px 2px #666;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+.slider:before {
+    content: "";
+    height: 27px;
+    width: 27px;
+    left: -2px;
+    background-image: url(../../../../assets/images/on-off.svg);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+input:checked + .slider {
+    background: linear-gradient(#30b348, #129e51);
+    box-shadow: inset 0 1px 2px #222;
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px #129e51;
+    box-shadow: inset 0 1px 2px #222;
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(34px);
+    -ms-transform: translateX(34px);
+    transform: translateX(34px);
+}
+.slider.round {
+    border-radius: 30px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 767px) {
+    .denomination__box {
+        margin: 0 5px 4px;
+        width: 63px;
+        height: 60px;
+        font-size: 17px;
+        border: 2px solid #016aea;
+        font-weight: 600;
+        padding: 11px 9px 0 0;
+    }
+    .swicth_container {
+        margin: 25px auto 25px;
+    }
+    h3.selectRechg {
+        display: none;
+    }
+    .rates_info {
+      margin-top: 0;
+      padding: 8px;
+    }
+}

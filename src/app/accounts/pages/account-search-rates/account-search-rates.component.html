@@ -1,0 +1,482 @@
+<section>
+    <div class="heading_style1 heading_style-new">
+        <div class="country-search">
+                <div>
+                    <div class="country-searchnew">
+                      <div class="search-input">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text caret bg-white border-right-0">
+                              <div (click)="openFlagDropDown()" class="select_top1">
+                                <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20" [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down ml-2" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                              </div>
+                              <div class="flag_list1" *ngIf="showDropdown">
+                                <ul>
+                                  <li *ngFor="let item of getFilterdDropDown(countryFrom)" (click)="onSelectCountrFrom(item)">
+                                    <span >
+                                      
+                                        <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+                                          [ngClass]="'flag flag-f-'+ item.CountryId">
+                                    </span>
+                                  </li>
+                                </ul>
+                              </div>
+              
+                            
+                            </span>
+                          </div>
+                          <input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto" 
+              class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder="State" (focusout)="onClickInput()" (focus)="onInputFocus()">
+                          
+                
+                          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                              <mat-option *ngFor="let option of filteredCountryList | async" [value]="option"
+                                  (onSelectionChange)="viewRates($event,option.CountryId)"> 
+                                  <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
+                                      [ngClass]="'flag flag-'+ option.CountryId" height="25">
+                                      <span class="width70">{{option.CountryName}}</span>
+                                     
+                                      <span class="width30">
+                                        <img src="./../../assets/images/phone-icon.png" alt="" loading="lazy">
+                                        <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency | async}} </span>
+                                        <!-- <span class="mobileRate">{{setPrice(option.CallingRateMobile)}} </span> -->
+                                        <img src="./../../assets/images/icon-landphone.png" alt="" loading="lazy">
+                                        <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency | async}} </span>
+                                        <!-- <span class="landlineRate">{{setPrice(option.CallingRateLandline)}} </span> -->
+                                      </span>
+                                      
+                                  </mat-option>
+                              </mat-autocomplete>
+                          <div class="input-group-append">
+                            <span class="input-group-text border-left-0 bg-white">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi bi-search"
+                                viewBox="0 0 16 16"
+                              >
+                                <path
+                                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner_sub_text">Minutes never expire. Cancel anytime.</div>
+        </div>
+        
+    
+</section>
+ 
+<section class="bg-white">
+    <!--top scroll header box-->
+    <div class="full_width_scroll {{sticky_class}}" id="full_width_scroll_div" [class.sticky]="isSticky">
+        <div class="container-fluid  container-fluid-new  pt-0   price_big_one_html">
+            <table class="sticky activerow">
+                <tr class="sticky_row ">
+                    <th>
+                        <div class="header_row_div hide_bonus" id="header_div_box_scroll">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex ">
+                                        <div class="first-col">
+                                            <div class="first-inner">
+                                                <div class="info_switch">
+                                                    <div class="switch_content">
+                                                        <div class="swicth_container_scroll">
+                                                            <div class="row p-0">
+                                                                <div class="col-md-4 p-0"><span
+                                                                        class="reg_text">Regular</span></div>
+                                                                <div class="col-md-3 p-0">
+                                                                  <label class="switch">
+                                                                         
+
+                                                                            <input *ngIf="isAutoRefill" type="checkbox" id="checkboxbonus3" checked (click)="setPlanType()">
+                                                                            <input *ngIf="!isAutoRefill" type="checkbox" id="checkboxbonus3" (click)="setPlanType()">
+
+                                                                        <span class="slider round"></span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-md-5 text-left p-0"> <span
+                                                                        class="bonus_text">Bonus</span><span
+                                                                        class="bonus_text_offer">10%</span>
+                                                                        <img
+                                                                        class="bonus_text_info"
+                                                                        src="../../assets/images/info.png"  matTooltip="1. Enroll to Auto-refill and earn 10% bonus minutes.
+                                                                        2. We will recharge your plan only when the account balance falls below $2.
+                                                                        3. Cancel online or by calling customer service anytime." />
+                                                                         
+                                                                    <span class="bonus_small_text">with auto-refill</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="d-flex flex-grow-1" *ngIf="isAutoRefill">
+                                            <div class="active col-wrapper" *ngFor="let item of AutorefillPlans; let i = index">
+                                               <div class="bgsvgimage">
+                                                    <div class="ano-col">
+                                                        <span class="bonus-bg-short" *ngIf="item.DiscountApplied > 0">
+                                                         <span class="bonus-new">{{item.DiscountApplied}}% BONUS </span>
+                                                        </span>
+                                                        <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async}} </div>
+                                                       
+                                                        <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
+			                                                  <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
+
+                                                    </div>
+                                                    <div class="button button_bg_price"><button mat-button=""
+                                                            class="mat-focus-indicator mat-button mat-button-base">
+                                                            <span class="mat-button-wrapper" (click)="onClickRateTab(item)">Buy Now</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          </div>
+
+
+                                          <div class="d-flex flex-grow-1" *ngIf="!isAutoRefill">
+                                            <div class="active col-wrapper" *ngFor="let item of WithoutAutorefillPlans; let i = index">
+                                               <div class="bgsvgimage">
+                                                    <div class="ano-col">
+                                                        <span class="bonus-bg-short" *ngIf="item.DiscountApplied > 0">
+                                                          <span class="bonus-new">{{item.DiscountApplied}}% BONUS </span>
+                                                        </span>
+                                                        <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async}} </div>
+                                                       
+                                                        <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
+			                                                  <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
+
+                                                    </div>
+                                                    <div class="button button_bg_price">
+                                                      <button mat-button="" class="mat-focus-indicator mat-button mat-button-base">
+                                                            <span class="mat-button-wrapper" (click)="onClickRateTab(item)">Buy Now</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="container-fluid  container-fluid-new  mb-3  bg-white price_big_one_html">
+        <div class="switch_content">
+            <div class="swicth_container">
+                <div class="row">
+                    <div class="col-md-4 p-0"><span class="reg_text">Regular</span></div>
+                    <div class="col-md-3 p-0"><label class="switch">
+                       
+                            <input *ngIf="isAutoRefill" type="checkbox" id="checkboxbonus3" checked (click)="setPlanType()">
+                            <input *ngIf="!isAutoRefill" type="checkbox" id="checkboxbonus3" (click)="setPlanType()">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-5 text-left p-0"> <span class="bonus_text">Bonus</span><span
+                            class="bonus_text_offer">10%</span>
+                            
+                            <img
+                                class="bonus_text_info"
+                                src="../../assets/images/info.png" 
+                                matTooltip="1. Enroll to Auto-refill and earn 10% bonus minutes.
+                                2. We will recharge your plan only when the account balance falls below $2.
+                                3. Cancel online or by calling customer service anytime."
+                                />
+
+                                 
+                        <span class="bonus_small_text">with auto-refill</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Default header box-->
+        <div class="table_content_full">
+            <div class="rate_text_desc">*Rates are calculated based on the highest denomination.</div>
+            <table class="sticky sticky_new">
+                <tr class="sticky_row">
+                    <th>
+                        <div class="header_row_div hide_bonus" id="header_div_box">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex ">
+                                        <div class="first-col">
+                                            <div class="first-inner">
+                                                <div class="info_country">
+                                                    <div class="row mt-3 p-0">
+                                                        <div class="col-md-4" style="    padding:10px;">
+                                                             
+                                                                <img *ngIf="flag_exists" src="./assets/images/flag/{{getcountryName()}}.png" alt="{{baseCountryName}}">
+                                                                <div *ngIf="!flag_exists" class="country-text">{{flag_name}}</div>
+                                                        </div>
+                                                        <div class="col-md-8" style="    padding: 5px 0;">
+                                                            <div class="country_name_text">Call<br /> {{countryName}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                       
+                                        <div class="d-flex flex-grow-1" *ngIf="isAutoRefill">
+                                            <div class="active col-wrapper" *ngFor="let item of AutorefillPlans; let i = index">
+
+                                                <div class="bgsvgimage">
+                                                    <div class="ano-col">
+                                                        <span class="bonus-bg-short" *ngIf="item.DiscountApplied > 0">
+                                                             <span class="bonus-new"   >{{item.DiscountApplied}}% BONUS
+                                                        </span>
+                                                    </span>
+                                                        <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async}}</div>
+                                                        <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
+                                                        <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
+
+                                                    </div>
+                                                    <div class="button button_bg_price"><button mat-button=""
+                                                            class="mat-focus-indicator mat-button mat-button-base">
+                                                            <span class="mat-button-wrapper" (click)="onClickRateTab(item)">Buy Now</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="dummy_border"> &nbsp;</div>
+                                            </div>
+                                        </div>
+
+ 
+                                        <div class="d-flex flex-grow-1" *ngIf="!isAutoRefill">
+                                            <div class="active col-wrapper" *ngFor="let item of WithoutAutorefillPlans; let i = index">
+
+                                                <div class="bgsvgimage">
+                                                    <div class="ano-col">
+                                                        
+                                                        <span class="bonus-bg-short" *ngIf="item.DiscountApplied > 0">
+                                                            <span class="bonus-new ">{{item.DiscountApplied}}% BONUS
+                                                            </span>
+                                                        </span>
+                                                        <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
+                                                        <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
+                                                        <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
+
+                                                    </div>
+                                                    <div class="button button_bg_price"><button mat-button=""
+                                                            class="mat-focus-indicator mat-button mat-button-base">
+                                                            <span class="mat-button-wrapper" (click)="onClickRateTab(item)">Buy Now</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="dummy_border"> &nbsp;</div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <td class="body_no_scroll">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="d-flex ">
+                                    <div class="first-col">
+                                        <div class="inner-cell-list">
+                                          
+                                            <div *ngFor="let item of FilteredSubPlans" class="country_nm"> 
+                                              <span class="{{getClassIcon(item.CountryName)}}"></span>  {{getNameOfCountry(item.CountryName)}} 
+                                            </div>
+                                             
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-grow-1 ">
+                                        <div class="active col-wrapper" *ngFor="let den of denominationList; let i = index">
+
+                                            <div class="inner-cell-list-price">
+                                                   <div class="inner-cell" *ngFor="let item of filteredItems(den)">
+                                                {{getTotalMin(item.DiscountedRate.TotalTime ,  item.DiscountedRate.PromoMinutes, den)}} min  
+                                                 
+                                                <!-- <div *ngIf="den == 50">{{item|json}}</div> -->
+                                                </div>  
+
+                                                 <!-- <div class="inner-cell" *ngFor="let item of FilteredSubPlans">
+                                                  {{getTotalMin1(item, den)}} min 
+                                                   
+                                                  </div>   -->
+                                                 
+                                            </div>
+
+
+                                        </div>
+                                         
+                                         
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                            
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+
+    <!--Mobile price box-->
+    
+<div class="d-md-none d-block">
+
+
+
+
+    <div class="container-fluid  mb-3  bg-white price_mobile_one_html hide_bonus" id="mobile_box_full">
+        <div class="top-header">
+            <div class="country">
+                <img *ngIf="flag_exists" src="./assets/images/flag/{{getcountryName()}}.png" alt="{{countryName}}">
+                         <div *ngIf="!flag_exists" class="country-text">{{flag_name}}</div>
+                <div class="country-name">
+                    <h1 class="text-center"> Call  {{countryName}} </h1>
+                </div>
+            </div>
+        </div>
+         
+
+        <div class="container-fluid px-0">
+            <div class="denomination-wrapper">
+                 
+                    <ng-container *ngFor="let item of Plans; let i = index">
+                        <ng-template carouselSlide [id]="item.id" [width]="282">
+                            <div class="denomination-box">
+                                
+                                <table class="table">
+                                    <thead>
+                                         
+
+                                        <div class="active col-wrapper ">
+                                            <div class="ano-col">
+                                                <span class="bonus-bg-short" *ngIf="item.DiscountApplied>0">  
+                                                  <span class="bonus-new ">{{item.DiscountApplied}}% BONUS
+                                                </span></span>
+                                                <div id="10_offer2"><span class="slice" *ngIf="item.Price==90">$100</span>
+                                                    {{ item.Price | bCurrency : countryCode }} </div>
+                                                <span class="inner_price">{{getRatePerMin(item)}}₵ / min</span>
+        
+                                                <div class="button"><button (click)="onClickRateTab(item)" mat-button=""
+                                                        class="mat-focus-indicator mat-button mat-button-base">
+                                                        <span class="mat-button-wrapper">Buy Now
+                                                        </span>
+                                                        <span matripple="" class="mat-ripple mat-button-ripple">
+                                                        </span>
+                                                        <span class="mat-button-focus-overlay">
+                                                        </span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of filteredItems(item.Price)" >
+                                            <td> <div class="d-flex " style="align-items: center;">
+                                                <!-- <div class="icon_div_mobile"><img class="icon_img" src="images/landline.png"></div>  -->
+                                                <div class="text_div_mobile">
+                                                  <span class="{{getClassIcon(item.CountryName)}}"></span>
+                                                  {{getNameOfCountry(item.CountryName)}} </div> 
+                                                </div>
+                                            </td>
+                                            <td class="text-right"> {{getTotalMin(item.DiscountedRate.TotalTime , item.DiscountedRate.PromoMinutes, item.Price)}} min</td>
+                                        </tr>
+       
+                                         
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                 
+    
+    
+            </div>
+
+        </div>
+
+
+        <div class="mobile_footer_design" >
+            <div class="list_price_html">
+                <ul class="price_list">
+                    <li [class.selected]="clicked === i" (click)="clicked = i"
+                    *ngFor="let item of Plans; let i = index" class="deno-box {{getSelected_box(i)}}">
+                    <a (click)="owlCar.to(item.id); buyScroll(item) " id="class_box_{{i}}"> <span *ngIf="item.Price == 90">{{ 100 | bCurrency :
+                        countryCode }}</span>
+                    {{ item.Price | bCurrency : countryCode }}</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="switch_content">
+                <div class="swicth_container_scroll d-flex justify-content-center flex-nowrap pt-0 ">
+                    <div class="row pt-0">
+                        <div class="col-xs-4 p-0"><span class="reg_text">Regular</span></div>
+                        <div class="col-xs-2 p-0">
+                          <label class="switch">
+                                <input *ngIf="isAutoRefill" type="checkbox" checked (click)="setPlanType()">
+                                <input *ngIf="!isAutoRefill" type="checkbox" (click)="setPlanType()">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="col-xs-6 text-left p-0 rel_class">
+                            <span class="bonus_text">Bonus</span><span class="bonus_text_offer">10%</span>
+                            <span matTooltip="1. Enroll to Auto-refill and earn 10% bonus minutes.
+                            2. We will recharge your plan only when the account balance falls below $2.
+                            3. Cancel online or by calling customer service anytime.">
+                               <svg class="bonus_text_info" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" width="18px" height="18px" >
+                                <path _ngcontent-rem-c244=""
+                                    d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 7 L 11 9 L 13 9 L 13 7 L 11 7 z M 11 11 L 11 17 L 13 17 L 13 11 L 11 11 z">
+                                </path>
+                            </svg> 
+                            </span> 
+ 
+ 
+                                
+                    
+                            <span class="bonus_small_text">with auto-refill</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+       
+     
+ 
+    </div>
+</div>
+     
+     
+    
+</section>
+ 
+ 

@@ -29,37 +29,34 @@
 	background: #fff;
 }
 .selectRechargeamountMain {
-	padding: 60px 0;
+	padding: 28px 0;
 	margin: 0;
 	width: 100%;
 	background-color: #f6f8fa;
+	background-color: #f5f7f9;
 	margin-top: 104px;
 	h1 {
-		color: #103F8A;
+		color: #293b7c;
 		font-size: 30px;
-		font-weight: 500px;
-		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
 		text-align: center;
 		margin-bottom: 25px;
 	}
 }
 .selectRechargeamount {
-	background: #fff;
-	width: 80%;
-	margin: 0 auto;
-	padding: 60px 0;
-	clear: both;
-	overflow: hidden;
-	max-width: 1098px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    clear: both;
+    overflow: hidden;
+    max-width: 1180px;
 }
 p {
 	&.selectAmountText {
 		text-align: center;
-		color: #0B203E;
+		color: #293b7c;
 		font-size: 24px;
-		font-family: 'Montserrat', sans-serif;
 		font-weight: 600;
-		padding: 0 0 20px 0;
+		padding: 0 0 5px;
 		margin: 0px;
 	}
 }
@@ -68,18 +65,15 @@ p {
 	display: block;
 	margin: 0 auto;
 	clear: both;
-	width: 317px;
 	span {
 		&:first-child {
-			color: #1A9259;
+			color: #3e8906;
+			font-size: 24px;
+			font-weight: 500;
 			font-family: 'Caveat', cursive;
-			font-size: 20px;
-			font-weight: 400;
-			margin-top: -9px;
 		}
 		&:last-child {
 			color: #0B203E;
-			font-family: 'Montserrat', sans-serif;
 			font-weight: 400;
 			padding: 6px 0 0 14px;
 		}
@@ -99,36 +93,36 @@ p {
 	}
 }
 .selectRechargeAmnt {
-	clear: both;
-	overflow: hidden;
+	padding-top: 58px;
+    border-top: 1px solid #c7d2db;
+    margin-top: 25px;
 	ul {
-		list-style-type: none;
-		clear: both;
-		overflow: hidden;
+		list-style: none;
 		padding-left: 0px;
-		display: table;
 		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		li {
-			float: left;
 			text-align: center;
-			margin: 20px 20px 0 0;
-			.commonpriceArea {
-				width: 190px;
-				height: 182px;
-				border: 2px solid #E2E7ED;
-				padding: 39px 0;
-				display: table-cell;
-				vertical-align: middle;
-				position: relative;
-			}
-			&:hover {
-				.commonpriceArea {
-					border: 2px solid blue;
-				}
-			}
-			&.active {
-				.commonpriceArea {
-					border: 2px solid blue;
+			margin: 20px 16px 0;
+			width: 260px;
+			height: 210px;
+			background: #fff;
+			border-radius: 15px;
+			position: relative;
+			button {
+				border: 2px solid #222;
+				color: #000;
+				font-size: 15px;
+				font-weight: 700;
+				text-transform: uppercase;
+				padding: 7px 32px;
+				background: #fff;
+				border-radius: 6px;
+				&:hover {
+					background: #edcd4d;
+					border-color: #edcd4d;
 				}
 			}
 		}
@@ -145,11 +139,33 @@ p {
 	position: absolute;
 }
 .newPrice {
-	color: #0B203E;
-	font-family: 'Montserrat', sans-serif;
-	font-size: 40px;
-	font-weight: 600;
-	padding-top: 23px;
+    color: #000;
+    font-size: 50px;
+    font-weight: 600;
+    position: absolute;
+    top: -55px;
+    background: #fff;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    left: 50%;
+    margin-left: -57px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid #f6f8fa;
+	span {
+		font-size: 30px;
+		margin-top: -6px;
+		margin-right: 4px;
+	}
+}
+p.points {
+    margin-top: 88px;
+	margin-bottom: 24px;
+	font-size: 18px;
+    color: #3b3b3b;
+    font-weight: 600;
 }
 .mobileContentSlider {
 	display: none;
@@ -165,39 +181,26 @@ p {
 }
 
   
-  @media only screen and (max-width: 500px) {
-    .selectRechargeamount{ padding: 34px 0 62px 0;}
-    p.selectAmountText{font-size: 15px;}
-    .bonusArea span:first-child{ display: block; text-align: center; width: 100%;}
-    .bonusArea span:last-child{display: block;text-align: center; padding: 6px 0 0px 27%;}
-    .mobileContentSlider{ display: block;}
-    .commonpriceArea{ width: 190px; height: 182px; border:1px solid #E2E7ED; padding: 39px 0;    margin: 0 auto; text-align: center; position: relative;}
-    .commonpriceArea.active{ border:1px solid blue;}
-    .selectRechargeAmnt{ overflow: visible;}
-    .carousel-indicators {bottom: -46px !important;}
-    .i_icon{right: -22px;top: 10px;}
-    .selectRechargeamount{ width: 90%;}
-    .selectRechargeAmnt ul li{ display: table; margin: 5px; float: none;}
-    
-  }
+@media only screen and (max-width: 850px) {
+	.selectRechargeAmnt {
+		ul {
+			flex-wrap: wrap;
+			li {
+				margin-bottom: 60px;
+			}
+		}
+	}
+	.selectRechargeamountMain {
+		margin-top: 65px;
+	}	
+	.selectRechargeamount{
+		padding: 25px 20px;
+	}
+	.bonusArea span:first-child {
+		line-height: 1;
+	}
+}
   
-  .mouse-pointer{
+  .mouse-pointer {
     cursor: pointer;
-  }
-
-  .selectRechargeAmnt{
-    ul {
-      list-style-type: none;
-      clear: both;
-      overflow: hidden;
-      padding-left: 0px;
-      display: table;
-      margin: 0 auto;
-      text-align: center;
-      display: flex;
-      flex-flow: row;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-  }
   }

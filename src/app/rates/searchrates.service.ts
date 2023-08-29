@@ -12,10 +12,14 @@ import { PopularRate } from '../shared/model/popularRate';
 import { GlobalPlansData } from '../globalrates/model/globalPlansData';
 import { GlobalSubPlans } from '../globalrates/model/globalSubPlans';
 import { ApiErrorResponse } from '../core/models/ApiErrorResponse';
+import { AuthenticationService } from 'app/core/services/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class SearchRatesService {
-        constructor(private httpClient: HttpClient, private razaEnvService: RazaEnvironmentService) { }
+        constructor(private httpClient: HttpClient, 
+                private razaEnvService: RazaEnvironmentService,
+                private authService: AuthenticationService,
+                ) { }
 
         public getAllCountries(): Observable<Country[] | ApiErrorResponse> {
                 return this.httpClient.get<Country[]>(`${Api.countries.getAllCountries}`)
@@ -66,11 +70,41 @@ export class SearchRatesService {
         }
 
         public getSearchGlobalRates(countryFromId: number, countryToId: number): Observable<GlobalPlansData[] | ApiErrorResponse> {
-                return this.httpClient.get<GlobalPlansData[]>(`${Api.rates.getSearchGlobalRates} ${countryFromId}/${countryToId}`)
+                return this.httpClient.get<GlobalPlansData[]>(`${Api.rates.getSearchGlobalRates}${countryFromId}/${countryToId}`)
                         .pipe(
                                 catchError(err => this.handleHttpError(err))
                         );
         }
+
+        isUserAuthenticated(): boolean {
+                return this.authService.isAuthenticated();
+              } 
+        public getSearchGlobalRatesV1(countryFromId: number, countryToId: number, phone:number): Observable<GlobalPlansData[] | ApiErrorResponse> {
+                if(this.isUserAuthenticated())
+                {
+                        return this.httpClient.get<GlobalPlansData[]>(`${Api.rates.getSearchGlobalRatesV1}${countryFromId}/${countryToId}/${phone}`)
+                        .pipe(
+                                catchError(err => this.handleHttpError(err))
+                        );
+                }
+                else
+                {
+                        return this.httpClient.get<GlobalPlansData[]>(`${Api.rates.getSearchGlobalRates}${countryFromId}/${countryToId}`)
+                        .pipe(
+                                catchError(err => this.handleHttpError(err))
+                        );
+                }
+                
+        }
+
+
+        public getMySearchGlobalRates(countryFromId: number, countryToId: number, phone:number): Observable<GlobalPlansData[] | ApiErrorResponse> {
+                return this.httpClient.get<GlobalPlansData[]>(`${Api.rates.getSpecificRateDetailByParentCountryId}${countryFromId}/${countryToId}/${phone}`)
+                        .pipe(
+                                catchError(err => this.handleHttpError(err))
+                        );
+        }
+
 
         public getSearchGlobalRatesSubPlans(countryFromId: number, countryId): Observable<GlobalSubPlans[] | ApiErrorResponse> {
                 return this.httpClient.get<GlobalSubPlans[]>(`${Api.rates.getSearchGlobalRatesSubPlans}` + countryFromId + '/' + countryId)
@@ -87,4 +121,13 @@ export class SearchRatesService {
 
                 return throwError(errorResposne);
         }
+
+
+        public getSpecificRateDetails(countryFromId: number, countryId, phone): Observable<GlobalSubPlans[] | ApiErrorResponse> {
+                return this.httpClient.get<GlobalSubPlans[]>(`${Api.rates.getSpecificRateDetails}` + countryFromId + '/' + countryId+ '/' +phone)
+                        .pipe(
+                                catchError(err => this.handleHttpError(err))
+                        );
+        }
+
 }

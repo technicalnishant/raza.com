@@ -39,6 +39,7 @@ export class CallafricaNewComponent implements OnInit {
   dealless: DealRate[] = [];
   dealmore: DealRate[] = [];
   allCountriesData: DealRate[] = [];
+  allCountriesDataOld:any;
   searchicon: string = '../assets/images/search8.svg';
   filteredCountry: Observable<any[]>;
   showPlaceholder: boolean = true;
@@ -92,7 +93,9 @@ export class CallafricaNewComponent implements OnInit {
       );
     this.getCountryFrom();
   }
-
+  isUserAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
 
   openLoginPopup()
   {
@@ -126,12 +129,14 @@ setcurrentCurrency()
 
 getcountryrate(obj)
 {
-  var price = obj;
-  if(this.currentSetting.country.CountryId == 3)
-  {
-    //price = price/2;
-  }
-  return price;
+  console.log(obj);
+ if( obj.CallingRateLandline > obj.CallingRateMobile)
+  return obj.CallingRateMobile;
+ else
+  return obj.CallingRateLandline;
+
+
+  
 }
 
   private getCountryFrom() {
@@ -139,33 +144,61 @@ getcountryrate(obj)
       this.countryFrom = res;
     });
   }
+  filterCountries(asiaList, allCountries)
+  {
+    const mylist:any = allCountries.filter((country) =>
+      asiaList.some((c) => c.CountryId === country.CountryId)
+      );
 
-  private getCountryRateOfAfrica() {
 
+      this.bindSearchRates = mylist
+      this.allCountriesDataOld = mylist;
+ 
+  }
+  getAsiaList()
+  {
     this.dealsService.getCountryCallAfrica(this.currentSetting.currentCountryId).subscribe((data: any) => {
       if(data && data.length > 0)
       {
+        
+         
+        this.filterCountries(data, this.allCountry)
+      }
+      else{
+        this.allCountriesDataOld = [];
+        this.bindSearchRates = [];
+      }
+      
+    }, (err: ApiErrorResponse) => console.log(err));
+  }
+  private getCountryRateOfAfrica() {
+
+    let type = this.isUserAuthenticated() == true?'new':'old';
+    
+    this.dealsService.getCountryCallAfrica1(this.currentSetting.currentCountryId, type).subscribe((data: any) => {
+      if(data && data.length > 0)
+      {
         this.allCountriesData = data;
+        this. getAsiaList();
         this.allCountry = data;
         this.allCountryList = data;//.splice(0, 5);
         this.allCountryFilteredList = this.allCountryList;
         this.allCountryFilteredList = this.allCountryList;
-        this.bindSearchRates = this.allCountryList;
+      //  this.bindSearchRates = this.allCountryList;
       }
       else
       {
         this.allCountriesData = [];
         this.allCountryFilteredList = [];
-      this.allCountry = [];
-      this.allCountryList = [];
-      this.bindSearchRates = [];
+        this.allCountry = [];
+        this.allCountryList = [];
+        this.bindSearchRates = [];
 
         this.dialog.open(NodataFoundComponent, {
           data:{
             msg:'No Data Found' },
-           
-          width: '85vw',
-          maxWidth: '1235px'
+            width: '85vw',
+            maxWidth: '1235px'
         });
 
       }
@@ -314,9 +347,9 @@ viewPopUp(countryId)
   {
    
     const filterValue = char.toLowerCase();
-    if(this.allCountry.length > 0)
+    if(this.allCountriesDataOld.length > 0)
     {
-      let filterlistdata =  this.allCountry.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
+      let filterlistdata =  this.allCountriesDataOld.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
       return filterlistdata.length>0?false:true;
     }
   
@@ -332,13 +365,13 @@ viewPopUp(countryId)
     if(this.currentClickedChar == 'All')
     {
     
-      this.bindSearchRates = this.allCountryFilteredList;
+      this.bindSearchRates = this.allCountriesDataOld;
     }
     else
     {
       
       const filterValue = character.toLowerCase();
-      this.bindSearchRates = this.allCountryFilteredList.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
+      this.bindSearchRates = this.allCountriesDataOld.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
       
     }
     

@@ -7,10 +7,11 @@ import { Observable, of, throwError } from 'rxjs';
 import { RazaEnvironmentService } from '../core/services/razaEnvironment.service';
 import { Country } from '../shared/model/country';
 import { ApiErrorResponse } from '../core/models/ApiErrorResponse';
+import { AuthenticationService } from 'app/core/services/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class GlobalRatesService {
-        constructor(private httpClient: HttpClient, private razaEnvService: RazaEnvironmentService) { }
+        constructor(private httpClient: HttpClient, private razaEnvService: RazaEnvironmentService, private authService: AuthenticationService,) { }
 
        
 
@@ -22,11 +23,17 @@ export class GlobalRatesService {
         }
 
         public getAllCountriesRates(countryFrom: number): Observable<any[] | ApiErrorResponse> {
-                // return this.httpClient.get<any[]>(`${Api.countries.getCallDetails}` + "/" + countryFrom)
-                //         .pipe(
-                //                 catchError(err => this.handleHttpError(err))
-                //         );
-
+                let api_type = 'old';
+               if(this.authService.isAuthenticated())
+                 api_type = 'new';
+                return this.httpClient.get<any[]>(`${Api.countries.getCallDetails}` + "/" + countryFrom+"/"+api_type)
+                        .pipe(
+                                catchError(err => this.handleHttpError(err))
+                        );
+                // return this.httpClient.get<any[]>(`${Api.countries.getCallDetailsOld}` + "/" + countryFrom)
+                // .pipe(
+                //         catchError(err => this.handleHttpError(err))
+                // );
 
                var file = 'countries_usa.json';
                 if(countryFrom == 2)

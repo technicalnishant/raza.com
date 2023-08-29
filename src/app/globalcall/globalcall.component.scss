@@ -41,6 +41,13 @@ $background-color_1: #293a6a;
     border-bottom: 0 solid #e5e5e5;
     padding: 16px 10px 16px 14px;
 }
+.first-col .inner-cell-list .country_nm {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    min-height: 56px;
+    line-height: 1.3;
+}
 .active {    
     margin-top: -2px;
 }

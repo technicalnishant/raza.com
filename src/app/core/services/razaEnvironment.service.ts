@@ -6,6 +6,7 @@ import { Country } from "../models/country.model";
 import { HttpClient } from "@angular/common/http";
 import { Api } from "./api.constants";
 import { isNullOrUndefined } from "../../shared/utilities";
+import { catchError, tap } from "rxjs/operators";
  
 @Injectable()
 export class RazaEnvironmentService {
@@ -126,7 +127,26 @@ export class RazaEnvironmentService {
     }
     getXChageRateInfo(countryFromId)
     {
-     return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`)
+    // return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`)
+        let endpoint = 'country_'+countryFromId;
+        const cachedData = sessionStorage.getItem(endpoint);
+
+    if (cachedData) {
+      return of(JSON.parse(cachedData));
+    }
+    
+     return this.http.get(`${Api.rates.getXChageRateInfo}${countryFromId}`).pipe(
+        tap(data => {
+          sessionStorage.setItem(endpoint, JSON.stringify(data));
+        }),
+        catchError(error => {
+          console.error('Error fetching data:', error);
+          return of(null);
+        })
+      );
+
+
+    // return null
     }
 
     setExchangeRate(countryId)
@@ -141,9 +161,20 @@ export class RazaEnvironmentService {
         })
     }
     setCurrentSetting(setting: CurrentSetting) {
-        if (!isNullOrUndefined(setting)) {
+        if (!isNullOrUndefined(setting) && !isNullOrUndefined(setting.country)) {
             RazaEnvironmentService._setting = setting;
-            this.setExchangeRate(setting.country.CountryId);
+              console.log(setting.country)
+              if(setting.country.CountryId > 0)
+                {   
+                    this.getXChageRateInfo(setting.country.CountryId).subscribe((data:any)=>{
+            
+                        localStorage.setItem('currencySymbol', data.CurrencySymbol);
+                        localStorage.setItem('subCurrencySymbol', data.SubCurrencySymbol);
+                        localStorage.setItem('rate', data.ExchangeRate);
+
+                        localStorage.setItem('exchangeRate', JSON.stringify(data));   
+                    })
+                }
             localStorage.setItem('session_key', JSON.stringify(setting));
              
         }

@@ -6,13 +6,13 @@
         <span class="login100-form-title p-b-3 m-t-20">
           Update	Password
         </span>
-        <p class="text-center m-b-25 para-style">Change Password or <a  routerLink="/account/overview">Click to Skip</a></p>
+        <!-- <p class="text-center m-b-25 para-style">Change Password or <a  routerLink="/account/overview">Click to Skip</a></p> -->
         <div class="input_style">
         <div class="wrap-input100 validate-input" data-validate="Enter password">
           <input class="input100" [type]="showPass ? 'text' : 'password'"  (keyup)="onKeypressEvent($event)" placeholder="Enter new password" matInput  formControlName="password">
           <!-- <span class="focus-input100" data-placeholder="Password"></span> -->
           <!-- <i (click)="showPassword()" class="field-icon bi bi-eye" [ngClass]="(!showPass)?' fa-eye':' fa-eye-slash'"></i> -->
-          <!-- <mat-icon matSuffix  class="field-icon" (click)="showPassword()">{{!showPass ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+          <mat-icon matSuffix  class="field-icon" (click)="showPassword()">{{!showPass ? 'visibility_off' : 'visibility'}}</mat-icon> 
         </div>
         <div class="wrap-input100 validate-input" data-validate="Enter password">
         
@@ -23,12 +23,12 @@
           <!-- <mat-icon matSuffix class="field-icon" (click)="setShowConfPass()">{{!showConfPass ? 'visibility_off' : 'visibility'}}</mat-icon> -->
         </div>
           <div>
-          <p class="tips_text">
+          <!-- <p class="tips_text">
           Your Password must include the following
 
-          </p>
+          </p> -->
           <div class="tip-list-text">	
-          <div >
+          <!-- <div >
             <img *ngIf="number_err" src="/assets/images/error.svg" class="tip-list-image-error">
             <img *ngIf="!number_err" src="/assets/images/tick.svg" class="tip-list-image-right">
             8-15 characters</div>
@@ -43,14 +43,14 @@
           <div>
             <img *ngIf="spcl_err"  src="/assets/images/error.svg" class="tip-list-image-error">
             <img *ngIf="!spcl_err"  src="/assets/images/tick.svg" class="tip-list-image-right">
-            At Least one number or special character</div>
+            At Least one number or special character</div> -->
 
             <div
               *ngIf="submitted && updatePasswordForm.get('confirmPassword').errors && updatePasswordForm.get('confirmPassword').errors.ConfirmPassword">
               <img src="/assets/images/error.svg" class="tip-list-image-error"> Password and confirm password does not matched.
             </div>
 
-
+             
           </div>
           </div>
 
@@ -63,7 +63,9 @@
             <button class="login100-form-btn" type="submit" mat-button >
               Submit
             </button>
+              
           </div>
+          <div class="skip_div"><a routerLink="/account/overview">SKIP</a></div>
         </div>
       </form>
     </div>

@@ -10,7 +10,8 @@ export class Api {
 
 	static customer = {
 		referFriend: base + 'api/customers/refer',
-		referFriendnew: base + 'api/customers/ReferToEmail'
+		referFriendnew: base + 'api/customers/ReferToEmail',
+		referFrienddetail: base + 'api/Customers/RazaPointDetail'
 	};
  
 	static auth = {
@@ -114,21 +115,24 @@ export class Api {
 		getSearchRates: base + "api/Rates/Lowests/",
 		getPopularRates: base + "api/Rates/AllCountries?countryFrom=",
 		//getSearchGlobalRates: base + "api/Rates/Plans/",
-		 //getSearchGlobalRates: base + "api/rates/Plans/LowestRate/",
-		 getSearchGlobalRates: base + "api/rates/Plans/LowestRate/v1/",
+		 getSearchGlobalRates: base + "api/rates/Plans/LowestRate/",
+		 getSearchGlobalRatesV1: base + "api/rates/Plans/LowestRate_v1/",
+		//getSearchGlobalRates: base + "api/rates/Plans/LowestRate/v1/",
 		//getSearchGlobalRatesSubPlans: base + "api/Rates/SubPlans/",
 		//getSearchGlobalRatesSubPlans: base + "api/Rates/SubPlans/v1/",
 		getSearchGlobalRatesSubPlans: base + "api/Rates/GetSubPlansWithDistinctRate/",
-
+		getSpecificRateDetails: base + "/api/rates/GetSpecificRateDetailByParentCountryId/",
 		getPopularDestinationPlans: base + "api/rates/PopularDestination/",
-		getXChageRateInfo: base + "api/Countries/XChageRateInfo/"
+		getXChageRateInfo: base + "api/Countries/XChageRateInfo/",
+
+		getSpecificRateDetailByParentCountryId : base + "api/rates/GetSpecificRateDetailByParentCountryId/"
 	};
 	 
 	static countries = {
 		//getTopThreeCountries: base + "api/Countries/From",
-		// getCallDetails: base + "api/Rates/Lowests/",
-		 //getCallDetails: base + "api/Rates/lowestrate/",
-		getCallDetails: base + "api/Rates/Lowest/v1/",
+		  getCallDetailsOld: base + "api/Rates/Lowests/",
+		 getCallDetails: base + "api/Rates/LowestRate_v1/",
+		//getCallDetails: base + "api/Rates/Lowest/v1/",
 		getAllCountries: base + "api/Countries/To/0",
 		getAllPostalCodes: base + "api/Countries",
 		base: base + "api/Countries"
@@ -147,7 +151,8 @@ export class Api {
 	static autoRefill = {
 		postAutoRefill: base + "api/AutoRefillSetups",
 		getAutoRefill: base + "api/AutoRefillSetups",
-		deleteAutoRefill: base + "api/AutoRefillSetups"
+		deleteAutoRefill: base + "api/AutoRefillSetups",
+		deleteAutoRefillV1 : base + "api/AutoRefillSetUps/Remove",
 	};
 
 	static company = {

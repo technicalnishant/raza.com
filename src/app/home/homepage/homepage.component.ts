@@ -85,7 +85,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
   isFixHeader: boolean = false;
   //promtionCode:string='RAMADAN2023';
   //promtionCode:string='EID2023';
-  promtionCode:string='MA2023';
+  promtionCode:string='DAD2023';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';
@@ -207,13 +207,14 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     if(this.currentURL.includes('/ref/')) 
     { 
  
-    if(this.route.snapshot.params['signup_code'] && this.route.snapshot.params['signup_code']!='')
-    {
-      var code = this.route.snapshot.params['signup_code'];
-      localStorage.setItem('promo_code', code);
-      
-      this.signupModal();
-    }
+      console.log("this.route.snapshot.params['signup_code']", this.route.snapshot.params['signup_code']);
+        if(this.route.snapshot.params['signup_code'] && this.route.snapshot.params['signup_code']!='')
+        {
+          var code = this.route.snapshot.params['signup_code'];
+          localStorage.setItem('promo_code', code);
+          
+          this.signupModal();
+        }
   }
     
 

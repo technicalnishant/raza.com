@@ -47,14 +47,46 @@ export class DealsService {
             .pipe(
                 catchError(err => this.handleHttpError(err))
             );
+
+           
     }
 
-    public getCountryCallAfrica(countryFrom): Observable<DealRate[] | ApiErrorResponse> {
+    public getCountryCallAfrica(countryFrom): Observable<DealRate[] | ApiErrorResponse> 
+    {
         return this.httpClient.get<DealRate[]>(`${Api.deals.getDealCallAfrica}` + '/' + countryFrom)
             .pipe(
                 catchError(err => this.handleHttpError(err))
             );
+         
+       
     }
+
+
+    public getCountryCallAsia1(countryFrom, type): Observable<DealRate[] | ApiErrorResponse> {
+        // return this.httpClient.get<DealRate[]>(`${Api.deals.getDealCallAsia}` + '/' + countryFrom)
+        //     .pipe(
+        //         catchError(err => this.handleHttpError(err))
+        //     );
+
+            return this.httpClient.get<DealRate[]>(`${Api.countries.getCallDetails}` + '/' + countryFrom+ '/'+type)
+            .pipe(
+                catchError(err => this.handleHttpError(err))
+            );
+    }
+
+    public getCountryCallAfrica1(countryFrom, type): Observable<DealRate[] | ApiErrorResponse> 
+    {
+        // return this.httpClient.get<DealRate[]>(`${Api.deals.getDealCallAfrica}` + '/' + countryFrom)
+        //     .pipe(
+        //         catchError(err => this.handleHttpError(err))
+        //     );
+         
+        return this.httpClient.get<DealRate[]>(`${Api.countries.getCallDetails}` + '/' + countryFrom+ '/'+type)
+            .pipe(
+                catchError(err => this.handleHttpError(err))
+            );
+    }
+
 
     handleHttpError(err: HttpErrorResponse): Observable<ApiErrorResponse> {
         let errorResposne = new ApiErrorResponse();

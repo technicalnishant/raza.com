@@ -1,0 +1,118 @@
+<div class="tabContentMyaccount pt-5 pb-0" id="virtualNumber">
+  <p class="tabTitle">International Topup</p>
+  <p class="desc">Worldwide top-up to over 500 networks across 140 countris</p>
+  <div class="input_holder1 myNumberButtonArea">
+    <button mat-button class="submitButton" (click)="internationalTopUp()">Topup Now</button>
+  </div>
+
+  <div class="myaccountTabArea p-0">
+    <div class="tabContentMyaccount planDetails" id="mynumber">
+      <p class="tabTitle d-none">International Topup</p>
+      <table class="table table-striped table-borderless">
+        <thead>
+          <tr>
+            <th scope="col" class="pl-0">My Plan</th>
+            <th scope="col" class="pl-0">Recharge Date</th>
+            <th scope="col" class="pl-0">Amount</th>
+            <th scope="col" class="pl-0">Add-Funds</th>
+            <th scope="col" class="pl-0">Pin/Phone No.<span
+                matTooltip="Calling from PayPhone or any Private Phone? Call us to get your Pin Number."><img loading="lazy"
+                  src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of orderHistoryList; index as i" >
+            <ng-container >
+              <td>{{item.CardName}}</td>
+              <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td> 
+              <td>{{item.Price | bCurrency : item.CurrencyCode}}</td>
+              <!--<td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td> -->
+              <td *ngIf="item.IsAllowRecharge"><a (click)="rechargeRedirect(item)">Topup Now</a></td>
+               
+              <td *ngIf="!item.IsAllowRecharge"><a>Monthly Recharge</a>&nbsp;<span
+                  matTooltip="Monthly plans will recharge every 30 days from the date of purchase. Please Call us if you like to recharge now"><img loading="lazy"
+                    src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></td>
+               
+              <td >{{item.Pin}}</td>
+          </ng-container>
+          </tr>
+    
+        </tbody>
+      </table>
+      <a class="showFullHistory" (click)="onClickShowMore()">Show More</a>
+    
+    </div>
+    </div>
+</div>
+
+
+<!-- <div class="tabContentMyaccount planDetails tableNewSpaceN" id="internationalTopup">
+  <p class="tabTitle">International Topup</p>
+  <p class="desc">Worldwide top-up to over 500 networks across 140 countries</p>
+  <div class="input_holder1">
+    <button mat-button class="submitButton">Topup Now</button>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">S.No</th>
+        <th scope="col">Date & Time</th>
+        <th scope="col">Name</th>
+        <th scope="col">Plan</th>
+        <th scope="col">Mobile No.</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Payment</th>
+        <th scope="col">Destination</th>
+        <th scope="col">Plan 2</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>5</td>
+        <td>3/25/2019<br /> 10:31 AM</td>
+        <td>Amin Hemani</td>
+        <td>Pakistan Mobilink</td>
+        <td>4167271966</td>
+        <td>$1</td>
+        <td>Cash</td>
+        <td>carchicago<br /> 50.206.133.226</td>
+        <td>Mobile TopUp</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>3/25/2019<br /> 10:31 AM</td>
+        <td>Amin Hemani</td>
+        <td>Pakistan Mobilink</td>
+        <td>4167271966</td>
+        <td>$1</td>
+        <td>Cash</td>
+        <td>carchicago<br /> 50.206.133.226</td>
+        <td>Mobile TopUp</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>3/25/2019<br /> 10:31 AM</td>
+        <td>Amin Hemani</td>
+        <td>Pakistan Mobilink</td>
+        <td>4167271966</td>
+        <td>$1</td>
+        <td>Cash</td>
+        <td>carchicago<br /> 50.206.133.226</td>
+        <td>Mobile TopUp</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>3/25/2019<br /> 10:31 AM</td>
+        <td>Amin Hemani</td>
+        <td>Pakistan Mobilink</td>
+        <td>4167271966</td>
+        <td>$1</td>
+        <td>Cash</td>
+        <td>carchicago<br /> 50.206.133.226</td>
+        <td>Mobile TopUp</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 $bg-background : url("https://d2uij5nbaiduhc.cloudfront.net/images/app-icons/bg_app.png");
 
 ._hj_feedback_container { display:none!important}
@@ -96,7 +96,6 @@ $bg-background : url("https://d2uij5nbaiduhc.cloudfront.net/images/app-icons/bg_
 .price span {
     color: #2B4964;
     font-weight: 500;
-    font-family: 'Roboto';
     font-size: 14px;
 }
 
@@ -117,14 +116,13 @@ $bg-background : url("https://d2uij5nbaiduhc.cloudfront.net/images/app-icons/bg_
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Roboto;
 }
 
 ::ng-deep {
     .mat-radio-label{
         margin-bottom: 0;
     }
-    
+
 }
 .main__wrapper {
     position: relative;
@@ -226,8 +224,8 @@ $bg-background : url("https://d2uij5nbaiduhc.cloudfront.net/images/app-icons/bg_
     {
         background-color: rgb(222 226 230);
     }
-   
-   
+
+
 }
 
 .add-card mat-label {
@@ -307,7 +305,6 @@ input{
 input{
     color: #253853;
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
 }
 
 .card-header {
@@ -322,7 +319,6 @@ input{
 .main-title{
     letter-spacing: 0.26px;
     color: #253853;
-    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 700;
 
@@ -407,7 +403,6 @@ ol.features_list li{
 }
 .card-content label{
     font-size: 10px;
-    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     color: #8D8D8D;
     margin-bottom: 7px;
@@ -418,12 +413,10 @@ ol.features_list li{
 .what-cvv{
     color: #8D8D8D;
     font-size: 8px;
-    font-family: 'Roboto', sans-serif;
     text-decoration: underline;
 }
 .save-card{
     color: #454545;
-    font-family: 'Roboto', sans-serif;
     font-size: 11px;
     font-weight: 500;
 }
@@ -442,7 +435,6 @@ ol.features_list li{
     font-size: 10px;
     color: #2B4964;
     padding: 19px 10px;
-    font-family: 'ROBOTO';
     line-height: 14px;
 }.note img{margin-right:10px;}
 .card-type {
@@ -462,7 +454,6 @@ ol.features_list li{
 .card-label {
     color: #8D8D8D;
     font-size: 10px;
-    font-family: 'Roboto';
     margin-bottom: 3px;
 }
 
@@ -470,7 +461,6 @@ ol.features_list li{
     color: #253853;
     font-size: 13px;
     font-weight: 500;
-    font-family: 'ROBOTO';
 }
 
 ::ng-depp{
@@ -523,7 +513,6 @@ img.card-img {
 .summary tr td:first-child {
     color: #8D8D8D;
     font-size: 12px;
-    font-family: 'ROBOTO';
 }
 
 .summary tr td {
@@ -534,7 +523,6 @@ img.card-img {
     color: #253853;
     font-size: 13px;
     font-weight: 500;
-    font-family: 'ROBOTO';
     text-align: right;
 }
 .summary tr:first-child td {
@@ -616,7 +604,6 @@ img.card-img {
     font-size: 16px;
     color: #253853;
     font-weight: 500;
-    font-family: "Roboto";
     mat-icon{
         color: #26c800;
         height: 16px;
@@ -633,16 +620,15 @@ img.card-img {
     // font-size: 50px;
     font-size: 28px;
     font-weight: 400;
-    font-family: 'Roboto';
     padding-right: 20px;
     position: relative;
 }
 
-.wallet__amount:before {content: "$";font-family: 'Roboto';font: normal normal bold 18px/69px Roboto;letter-spacing: 0.36px;color: #253853;position: absolute;top: 0;left: -13px;top: -20px;}
+.wallet__amount:before {content: "$";letter-spacing: 0.36px;color: #253853;position: absolute;top: 0;left: -13px;top: -20px;}
 
 .balance__amount {
     // margin-top: -34px;
-    
+
     position: absolute;
     width: 100%;
     margin-top: 10px;
@@ -666,7 +652,6 @@ img.card-img {
     font-size: 13px;
     font-weight: 500;
     color: #253853;
-    font-family: "ROBOTO";
     justify-content: center;
     text-align: center;
     padding: 5px;
@@ -685,7 +670,7 @@ img.card-img {
         margin: 0;
         margin-left: 10px;
     }
-    
+
     .denomination .mat-checkbox-inner-container {
         height: 12px!important;
         width: 12px!important;
@@ -749,7 +734,6 @@ img.card-img {
 p.deal {
     font-size: 10px;
     opacity: .4;
-    font-family: 'Roboto';
     color: #2B4964;
     margin: 0;
     line-height: 4px;
@@ -764,7 +748,6 @@ p.deal {
     align-items: center;
     font-size: 13px;
     font-weight: 500;
-    font-family: 'Roboto';
     border: 1px solid #DDDDDD;
     border-radius: 6px;
 }
@@ -807,7 +790,6 @@ p.deal {
     font-size: 7px;
     color: #8D8D8D;
     text-decoration: underline;
-    font-family: 'Roboto';
 }
 .cards {
     padding: 6px;
@@ -824,7 +806,6 @@ p.deal {
 .add_Card a{
     color: #253853;
     font-size: 13px;
-    font-family: Roboto;
     font-weight: 500;
 }
 
@@ -857,7 +838,6 @@ p.deal {
     font-size: 20px;
     font-weight: 500;
     color: #253853;
-    font-family: "ROBOTO";
     justify-content: center;
     text-align: center;
     padding: 5px;
@@ -889,7 +869,7 @@ p.deal {
         margin: 0;
         margin-left: 10px;
     }
-    
+
     .denomination .mat-checkbox-inner-container {
         height: 12px !important;
         width: 12px !important;
@@ -935,7 +915,6 @@ p.deal {
 p.deal {
     font-size: 10px;
     opacity: .4;
-    font-family: 'Roboto';
     color: #2B4964;
     margin: 0;
     // line-height: 4px;
@@ -969,7 +948,7 @@ select.form-control {
     appearance: none;
     background-size: 12px;
   }
-  
+
   select.form-control::-ms-expand {
     display: none;
   }
@@ -1011,7 +990,7 @@ select.form-control {
     .mat-error {
         font-size: 12px;
     }
-    
+
 }
 input[type="color"],
 input[type="date"],
@@ -1083,7 +1062,7 @@ textarea {
         box-shadow: none;
         border: 1px solid #0996f6;
         &:after {
-           
+
             content: "";
             position: absolute;
             width: 16px;
@@ -1110,13 +1089,13 @@ apple-pay-button {
   }
   .apple-button-container
   {
-    text-align: center; 
+    text-align: center;
     align-items: center;
     justify-content: center;
   }
 .google-button-container
 {
-    text-align: center; 
+    text-align: center;
     align-items: center;
     justify-content: center;
 }
@@ -1140,12 +1119,12 @@ apple-pay-button {
     .credit-card {
         margin: 20px;
     }
-    
+
     .mx-10{
         margin-left: 10px;
         margin-right: 10px;
     }
-    
+
 .logo {
     padding: 0;
     margin: 0 auto;

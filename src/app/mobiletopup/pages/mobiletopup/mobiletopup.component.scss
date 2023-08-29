@@ -111,23 +111,29 @@ p {
   .submit-btn{
     width: 62% !important;
   }
-  .heading_style1{
-    left: 53%;
+  .heading_style1 {
+    left: 15px;
+    right: 15px;
     margin-left: 0px;
-    font-size: 40px;
-
-
+    font-size: 0;
+    transform: none;
+    top: 230px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 12px;
+    border-radius: 10px;
+    bottom: unset;
   }
   .heading_style1 span{
-    font-size: 16px;
+    font-size: 0;
+    font-weight: 500;
+    margin: 0;
   }
-  .sendtopup{
-    font-size: 25px !important;
+  .sendtopup {
+    font-size: 28px !important;
   }
   .hideinMobile {
     display: none;
   }
-
   .showInmobile {
     display: block;
   }
@@ -348,7 +354,11 @@ $common-bg-color: #ffffff;
   }
 }
 
-
+@media only screen and (max-width: 767px) {
+  .mobile-topup-wrapper .form-wrapper span.prefix-mobiletopup {
+      // margin-top: -15px;
+  }
+}
 
 ::ng-deep {
   .denomination .mat-checkbox-inner-container {
@@ -421,18 +431,18 @@ $common-bg-color: #ffffff;
   .submit-btn{
     padding: 10px 20px !important;
   }
- 
+
   .width_image{
     width: 370px;
   }
 
   .country,.country-img,.edit-button {
-    font-size: 14px!important;
-}
+    font-size: 15px!important;
+  }
   .mobile-topup-wrapper {
     padding-top: 0px;
     padding-bottom: 50px;
-}
+  }
 
   .form-wrapper .form-desc {
     font-size: 16px;
@@ -446,6 +456,7 @@ $common-bg-color: #ffffff;
 
   .mobile-topup-wrapper .container {
     margin-top: 50px;
+    width: 100%;
   }
 
   .title-wrapper h1 {
@@ -502,6 +513,18 @@ input{
 @media only screen and (min-width:1700px){
   .mobile-topup-wrapper .top-banner {
     height: 680px;
+  }
+}
+@media only screen and (max-width: 767px){
+  .mobile-topup-wrapper .top-banner {
+    margin-bottom: -130px;
+  }
+  .denomination__box {
+    padding: 12px 16px;
+    margin-bottom: 28px;
+  }
+  .mobile-topup-wrapper .form-wrapper .denomination .country {
+    padding-top: 30px !important;
   }
 }
 

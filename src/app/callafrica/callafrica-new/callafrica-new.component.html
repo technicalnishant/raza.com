@@ -1,19 +1,15 @@
 <div class="first_fold">
-
-
-
-
     <div class="callafrica_banner">
         <!-- <img src="../assets/images/banner_image.png" alt="banner"> -->
     </div>
 </div>
 <div class="commonWrapperArea2 search-main2">
-   
+
 <div class="search__wrapper_new">
   <!-- still searching area -->
 <!-- <div class="stillSearchingArea">
     <h3 class="select-country">Select Country</h3>
-   
+
     <div class="searchAreaMain">
         <div class="select_top1" (click)="openFlagDropDown()">
             <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
@@ -30,7 +26,7 @@
             </ul>
         </div>
 
-        <div *ngIf="showPlaceholder" class="placeholder-search" 
+        <div *ngIf="showPlaceholder" class="placeholder-search"
             (click)="onClickPlaceholder()">
             <p class="palceholder-searchs" (click)="onClickPlaceholder()">Where do you wish to call?</p>
         </div>
@@ -46,13 +42,13 @@
                   <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
                     [ngClass]="'flag flag-'+ option.CountryId" height="25">
                   <span class="width70">{{option.CountryName}}</span>
-                 
+
                 </mat-option>
               </mat-autocomplete>
             </mat-form-field>
           </div>
     </div>
-    
+
 </div> -->
 <!-- still searching area -->
 
@@ -81,26 +77,29 @@
                     </li>
                   </ul>
                 </div>
-
-                <!-- <div *ngIf="showPlaceholder" class="placeholder-search" (click)="onClickPlaceholder()">
-                    <p class="palceholder-searchs" (click)="onClickPlaceholder()">Where do you wish to call?</p>
-                </div>
-                <img [src]="searchicon" alt="" class="searchic" (click)="onClickClose(searchicon)"> -->
-
-
               </span>
             </div>
-            <input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto" 
+            <input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto"
 class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder="State" (focusout)="onClickInput()" (focus)="onInputFocus()">
-            
-  
+
+
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
                 <mat-option *ngFor="let option of filteredCountry | async" [value]="option"
                     (onSelectionChange)="viewRates($event,option.CountryId)">
                     <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
-                        [ngClass]="'flag flag-'+ option.CountryId" height="25">
-                        <span class="width70">{{option.CountryName}}</span>
-                       
+                        [ngClass]="'flag flag-'+ option.CountryId" alt="icon" height="25">
+                        <span class="width60">{{option.CountryName}}</span>
+
+                        <span class="width40">
+                          <img src="./../../assets/images/phone-icon.png" alt="phone" loading="lazy">
+                          <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
+                          <!-- <span class="mobileRate">{{setPrice(option.CallingRateMobile)}} </span> -->
+                          <img src="./../../assets/images/icon-landphone.png" alt="landphone" loading="lazy">
+                          <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency}} </span>
+                          <!-- <span class="landlineRate">{{setPrice(option.CallingRateLandline)}} </span> -->
+                        </span>
+
+                        <!-- <span class="width30" >{{getcountryrate(option.CallRate) | sCurrency : currentCurrency}} / min</span> -->
                     </mat-option>
                 </mat-autocomplete>
             <div class="input-group-append">
@@ -128,9 +127,9 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
     <div class="container">
       <div class="row">
           <div class="col-md-9 mx-auto">
-            
-        <div class="alphabet_links" *ngIf="allCountry">
-                 
+
+        <div class="alphabet_links" *ngIf="allCountriesDataOld">
+
         <li class="active" [ngClass]="{'active': currentClickedChar === 'All' }" (click)="displayCountryList('All')">All</li>
         <li class="{{isDisabled('A')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'A' }" (click)="displayCountryList('A')">A</li>
         <li class="{{isDisabled('B')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'B' }" (click)="displayCountryList('B')">B</li>
@@ -170,19 +169,19 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
                   <!--<div class="div">
                     <img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ item.CountryId"
                           [alt]="item.CountryName" />
-                          
+
                   </div>-->
-  
+
                   <div class="div">
-                 
-                     
+
+
                   <img
                   src="./../../assets/images/flag/{{
                     getImageName(item.CountryName) | lowercase
                   }}.png"
                 />
                   </div>
-  
+
                   <div class="country-name">{{item.CountryName}}</div>
                 </div>
                 <div class="country-rate">
@@ -233,10 +232,10 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
   <img src="./../../assets/images/search/Image_57.png">
   <img src="./../../assets/images/search/Ellipse_1.png">
   <img src="./../../assets/images/search/Ellipse_7.png">
-  <img src="./../../assets/images/search/Polygon_4.png">  
-  <img src="./../../assets/images/search/Rectangle_5.png">  
-  <img src="./../../assets/images/search/Rectangle_48.png"> 
-  <img src="./../../assets/images/search/Polygon_4.png">  
+  <img src="./../../assets/images/search/Polygon_4.png">
+  <img src="./../../assets/images/search/Rectangle_5.png">
+  <img src="./../../assets/images/search/Rectangle_48.png">
+  <img src="./../../assets/images/search/Polygon_4.png">
 
 </div> -->
 
@@ -244,45 +243,43 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
 <div class="call-us text-center" >
     <h3><span>Have a question? <a (click)=contactUs() >Call us</a></span></h3>
   </div>
-
-
 </div>
-<div class="plan-info info_bok d-block d-xl-flex">
 
+<div class="plan-info info_bok d-block d-xl-flex">
   <div class="text-section">
     <h1 class="text-center">THIS PLAN INCLUDES</h1>
     <div class="text-part">
           <mat-list>
       <mat-list-item>
-        <img src="./../../assets/images/plan-include/global.png">
+        <img src="./../../assets/images/plan-include/global.png" alt="global">
         <p>GLOBAL CALLING <br>
           <span>Best Rates to call any Landlines and Cell phones worldwide!</span></p>
       </mat-list-item>
       <mat-list-item>
-        <img src="./../../assets/images/plan-include/quality.png">
+        <img src="./../../assets/images/plan-include/quality.png" alt="quality">
         <p>EXCEPTIONAL CALL QUALITY <br>
           <span>Our State of the Art fiber optic network keeps you in touch with high quality.</span></p>
       </mat-list-item>
       <mat-list-item>
-        <img src="./../../assets/images/plan-include/money-back.png">
+        <img src="./../../assets/images/plan-include/money-back.png" alt="money-back">
         <p>100% MONEY BACK GUARANTEE <br>
           <span>Get your unused balance refunded at any time if you are not completed satisfied.</span></p>
       </mat-list-item>
     </mat-list>
     <mat-list>
       <mat-list-item>
-        <img src="./../../assets/images/plan-include/mobile-app.png">
+        <img src="./../../assets/images/plan-include/mobile-app.png" alt="mobile-app">
         <p>MOBILE APP <br>
           <span>
             Download the app and call directly without having to dial access number.</span></p>
       </mat-list-item>
       <mat-list-item>
-        <img src="./../../assets/images/plan-include/reward.png">
+        <img src="./../../assets/images/plan-include/reward.png" alt="reward">
         <p>RAZA REWARDS <br>
           <span>Signup for Raza Rewards and earn points on every dollar spent.</span></p>
       </mat-list-item>
       <mat-list-item>
-        <img src="./../../assets/images/plan-include/account.png">
+        <img src="./../../assets/images/plan-include/account.png" alt="account">
         <p>ONLINE ACCOUNT MANAGEMENT <br>
           <span>Keep track of your calls, orders and rewards anywhere anytime..</span></p>
       </mat-list-item>
@@ -290,7 +287,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
     </div>
   </div>
   <div class="blue-section align-items-center d-flex text-right flex-column flex-xl-row-reverse">
-    <img src="./../../assets/images/bubble.png">
+    <img src="./../../assets/images/bubble.png" alt="bubble">
   </div>
 </div>
 
@@ -483,12 +480,11 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
   </mat-accordion>
 
 </div>
- 
+
 
 <div class="still-searching text-center" style="">
     <p>Still Searching?</p>
     <a href="/searchrates" title="">View All Rates</a>
-
   </div>
 
 <div class="streakBanner">
@@ -504,7 +500,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
   <!-- <p>Existing Customers? <span>Get something awesome!</span>
     <a href="/mobiledeals">View Offers</a> -->
 
-    <p>Existing Customers? <span>Check out our awesome features!</span>  
+    <p>Existing Customers? <span>Check out our awesome features!</span>
       <a href="/features">View</a>
   </p>
 </div>

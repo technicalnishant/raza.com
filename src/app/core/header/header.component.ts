@@ -71,7 +71,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   stateCtrl = new FormControl();
   selectedMap: string = 'flag flag-ad';
   serchdata: any; autoControl = new FormControl();
-  showHeader:boolean=true;  
+  showHeader:boolean=true;
+  showMyaccontHeader:boolean=false;
   frameborder:boolean=false;
   selected_country:string='';
   filter_string:string=''
@@ -83,6 +84,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     private razaLayoutService: RazaLayoutService,
     private promotionService: PromotionsService,
     public dialog: MatDialog,
+    public matDialog: MatDialog,
     private razaEnvService: RazaEnvironmentService,
     private promotionResolverService: PromotionResolverService,
     private breakpointObserver: BreakpointObserver,
@@ -105,9 +107,30 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     return this.authService.isAuthenticated();
   }
 
+  openModal() {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "350px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = {
+      name: "logout",
+      title: "Are you sure you want to logout?",
+      description: "Pretend this is a convincing argument on why you shouldn't logout :)",
+      actionButtonText: "Logout",
+    }
+    localStorage.removeItem('redirect_path');
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(LoginpopupComponent, dialogConfig);
+  }
+  
   ngOnInit() {
 
-
+    this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
+      this.currentSetting = res;
+      this.getActivePromotion(this.currentSetting.currentCountryId);
+    })
 
 
   
@@ -118,20 +141,36 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   
     localStorage.setItem('last_page', event.url);
 
+    console.log('12345 aaaaa', event.url );
 
     if(event.url == '/'  )
     {
       this.showHeader = true;
+      this.showMyaccontHeader = false;
       this.blueBg = 0;
+      this.setCurrentSetting()
+      if (!isNullOrUndefined(this.currentSetting)) {
+        this.searchRates();
+      }
 
+      //console.log("Your are on home page");
+
+    }
+    else if(event.url == '/mobile-page'){
+      this.showHeader = true;
+      this.showMyaccontHeader = false;
+      this.blueBg = 0;
+    }   
+     else if(event.url.includes('/account')){
+      this.showMyaccontHeader = true;
+      this.showHeader = false;
     }
     else if(event.url == '/sitemap'){
       this.showHeader = true;
+      this.showMyaccontHeader = false;
       this.blueBg = 0;
     }
     else if(event.url == '/globalcallrates')
-
-    
     {
       if(window.screen.width > 768)
       {
@@ -140,11 +179,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       else{
         this.blueBg = 1;
       }
-      
-      
       this.showHeader = false;
     }  
-   
     else
     {
       this.showHeader = false;
@@ -157,8 +193,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   
       if (this.authService.isAuthenticated()) {
       this.isAuthenticated = true;
-     
-    }
+      }
 
     this.razaLayoutService.isFixHeader$.subscribe(res => {
       this.isFixHeader = res;
@@ -168,11 +203,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
         this.headerValue = 1;
       }
     });
-    this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
-      this.currentSetting = res;
-      this.getActivePromotion(this.currentSetting.currentCountryId);
-    })
-
+    
+    
        this.compareToken();
 
       // this.filteredCountry = this.autoControl.valueChanges
@@ -185,13 +217,20 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     this.getCountryFrom();
 
     if (!isNullOrUndefined(this.currentSetting)) {
-      this.searchRates();
+     // this.searchRates();
     }
 
     this.setMobileHeader();
   }
   //this.renderer.setStyle(this.dealsDropMenu.nativeElement, 'display', 'none')
 
+  setCurrentSetting()
+  {
+    this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
+      this.currentSetting = res;
+      this.getActivePromotion(this.currentSetting.currentCountryId);
+    })
+  }
   filterListing(){
     this.filteredCountry = this.autoControl.valueChanges
       .pipe(

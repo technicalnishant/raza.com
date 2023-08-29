@@ -76,15 +76,35 @@
 	display: block;
 }
 
-
-
-@media only screen and (max-width: 650px)  { 
-  
-  .hideinMobile{display: none;}
-  .showInmobile { display: block;}
-  
+@media only screen and (max-width: 650px)  {   
+  .hideinMobile{ display: none; }
+  .showInmobile { display: block;}  
   .three_service{ height: 360px;}
-  .second_fold {padding: 30px 14px;}
+  .second_fold { padding: 30px 14px; }
   .deskTopOnly{ display: none;}
-  .mobileOnly{ display: block; margin:0 20px;}
+  .mobileOnly{ display: block; margin:0 25px;}
+  .mat-expansion-panel-header-title {
+	  font-weight: 600;
+  }
+   .home_banner.privacy_banner {
+		height: 430px !important;
+	}
+	h1.heading_style1 {
+		background: rgba(0,0,0,.5);
+		padding: 15px;
+		border-radius: 10px;
+		top: 250px;
+		bottom: unset;
+		left: 15px;
+		right: 15px;
+		font-size: 30px;
+		span {
+			font-size: 17px;
+			line-height: 1.3;
+			margin-top: 5px;
+		}
+	}
+	.mat-expansion-panel:last-child {
+		border-bottom: none !important;
+	}
 }
