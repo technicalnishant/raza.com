@@ -70,17 +70,17 @@
     </div>
     <div class="rightTabArea">
       <h2 class="welcomeText"> {{userWelcomeLabel}}</h2>
-      <!-- commonmyaccountareaforallpages -->
-      <app-account-overview-plan-info *ngIf="plan" [plan]="plan"></app-account-overview-plan-info>
+      <div class="rightTabAreaWrap">
+        <!-- commonmyaccountareaforallpages -->
+        <app-account-overview-plan-info *ngIf="plan" [plan]="plan"></app-account-overview-plan-info>
 
-      <app-account-buy-one-get-one *ngIf="showBuyNow" ></app-account-buy-one-get-one>
-      
-      <!-- commonmyaccountareaforallpages -->
-        <!-- <app-account-recharge *ngIf="plan" [plan]="plan" ></app-account-recharge>  
-        <app-my-cards *ngIf="plan" [plan]="plan"> </app-my-cards> -->
-      <router-outlet *ngIf="plan" [plan]="plan" ></router-outlet>
-
-      
+        <app-account-buy-one-get-one *ngIf="showBuyNow" ></app-account-buy-one-get-one>
+        
+        <!-- commonmyaccountareaforallpages -->
+          <!-- <app-account-recharge *ngIf="plan" [plan]="plan" ></app-account-recharge>  
+          <app-my-cards *ngIf="plan" [plan]="plan"> </app-my-cards> -->
+        <router-outlet *ngIf="plan" [plan]="plan" ></router-outlet>  
+      </div>
     </div>
   </div>
 </div>
