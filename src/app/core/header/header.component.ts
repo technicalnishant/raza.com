@@ -78,6 +78,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   filter_string:string=''
   ctryName:any;
   previousUrl:any ='';
+  navClick:any=''
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -602,5 +603,16 @@ onClickClose(icon)
    this.router.navigateByUrl('mobiletopup');
    
   }
+  
+  clickMenu()
+  {
+    
+    
+    this.navClick = (this.navClick == '')?'hide_nav':'';
+    
+    this.razaLayoutService.setSharedValue(this.navClick);
+   
+  }
+
   
 }
