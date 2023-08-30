@@ -142,8 +142,6 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   
     localStorage.setItem('last_page', event.url);
 
-    console.log('12345 aaaaa', event.url );
-
     if(event.url == '/'  )
     {
       this.showHeader = true;
@@ -165,6 +163,9 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
      else if(event.url.includes('/account')){
       this.showMyaccontHeader = true;
       this.showHeader = false;
+      if (!isNullOrUndefined(this.currentSetting)) {
+        this.searchRates();
+      }
     }
     else if(event.url == '/sitemap'){
       this.showHeader = true;

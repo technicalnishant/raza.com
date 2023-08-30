@@ -508,7 +508,7 @@ a {
 	padding: 0 0;
 	margin: 0;
 	width: 100%;
-	background-color: #f6f8fa;
+	background-color: #f5f7f9;
 	.submitButton {
 		width: auto !important;
 		padding: 9px 28px;
@@ -760,15 +760,66 @@ table {
 	}
 }
 .onlyDesktopAccount {
-	display: block;
+	display: flex;
 	clear: both;
 	overflow: hidden;
-	max-width: 1450px;
+	// max-width: 1450px;
 	margin: 0 auto;
 	.leftTabArea {
-		float: left;
-		width: 17%;
-		padding-top: 160px;
+	    width: 275px;
+		padding-top: 70px;
+		background: #fff;
+		transition: 0.5s;
+		&.hide_nav {
+			width: 80px;
+			ul {
+				padding: 0 5px;
+				li {				
+					a {
+						height: 75px;
+						line-height: 1.1;
+						font-size: 11px;
+						color: #71747c;
+						padding: 40px 0 0;
+						background-position: top 10px center;
+						text-align: center;
+						white-space: normal;
+					}
+					&.plandetails {
+						ul {
+							padding-left: 0;
+							a {
+								padding: 0;
+								height: 40px;
+								font-weight: 500;
+							}
+						}
+						.mat-expansion-panel-header-title {
+							font-size: 11px;
+							margin: 0;
+							text-align: center;
+							color: #71747c;
+						}
+						.plan_details {
+							height: 75px;
+							line-height: 1.1;
+							font-size: 11px;
+							color: #71747c;
+							padding: 40px 0 0 !important;
+							background-position: top 10px center !important;
+							&:hover {
+								background-position: top 10px center !important;
+							}
+						}
+						::ng-deep {
+							.mat-expansion-panel-body {
+								padding: 0 !important;
+							}
+						}
+					}
+				}
+			}
+		}
 		h5 {
 			color: #0B203E;
 			font-size: 22px;
@@ -777,10 +828,14 @@ table {
 		}
 		ul {
 			list-style-type: none;
-			padding: 0px;
+			padding: 0 20px;
+			overflow: hidden;
 			li {
 				line-height: 55px;
 				border-bottom: 1px solid #e6e6e6;
+				&:last-child {
+					border-bottom: none;
+				}
 				&.noBorder {
 					border: none;
 				}
@@ -792,6 +847,7 @@ table {
 					background-repeat: no-repeat;
 					background-position: left 0 center;
 					padding-left: 52px;
+					white-space: nowrap;
 					&:hover {
 						color: #1656ff;
 					}
@@ -850,6 +906,7 @@ table {
 						padding-left: 55px;
 						a {
 							padding-left: 0;
+							font-family: 'Montserrat', sans-serif;
 						}
 					}
 					.plan_details {
@@ -930,12 +987,17 @@ table {
 		}
 	}
 	.rightTabArea {
-		float: left;
-		width: 920px;
-    	width: 80%;
-		margin-left: 36px;
-		background: #fff;
-		padding: 120px 30px 50px;
+		flex: 1;
+		padding: 120px 25px 25px 22px;
+		&Wrap {
+			background: #fff;
+			padding: 35px 0;
+		}
+		::ng-deep {
+			.selectRechargeSec {
+				padding: 0 15px;
+			}
+		}
 	}
 }
 .onlySmallScreenAccount {
