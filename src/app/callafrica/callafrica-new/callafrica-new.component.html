@@ -185,7 +185,7 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
                   <div class="country-name">{{item.CountryName}}</div>
                 </div>
                 <div class="country-rate">
-                  <span>From</span> {{getcountryrate(item.CallRate) | sCurrency | async : currentCurrency}} <span>/ min</span>
+                  <span>From</span> {{getcountryrate(item ) | sCurrency | async : currentCurrency}} <span>/ min</span>
                 </div>
                 <button
                   class="view-details-btn"

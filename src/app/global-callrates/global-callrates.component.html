@@ -12,8 +12,8 @@
                             <h1 class="text-center123">
                               {{countryName}} 
                             </h1>
-                            <p *ngIf="!isAutoRefill">as low as {{RatePerMinWithOutPromo | sCurrency | async : countryCode}} / min</p>
-                            <p *ngIf="isAutoRefill">as low as {{RatePerMinPromo | sCurrency | async : countryCode}} / min</p>
+                            <p *ngIf="!isAutoRefill">as low as {{RatePerMinWithOutPromo | sCurrency : countryCode | async}} / min</p>
+                            <p *ngIf="isAutoRefill">as low as {{RatePerMinPromo | sCurrency : countryCode | async}} / min</p>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                         <div *ngFor="let item of AutorefillPlans; let i = index" class="col-wrapper active {{getActiveClass(item)}}"
                             (click)="setActiveClass(item); clicked = i" >
                             <div class="bonus" *ngIf="item.DiscountApplied > 0">{{item.DiscountApplied}}% BONUS</div>
-                            <div class="ano-col">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}
+                            <div class="ano-col">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async }}
                                 <small *ngIf="item.Price==90">$100</small>
                             </div>
                             <div class="inner-cell">{{item.TotalTime}}</div>
@@ -88,7 +88,7 @@
                     <div *ngIf="!isAutoRefill" class="d-flex flex-grow-1">
                         <div *ngFor="let item of WithoutAutorefillPlans; let i = index" class="col-wrapper active {{getActiveClass(item)}}" (click)="setActiveClass(item)">
                             <div class="bonus" *ngIf="item.DiscountApplied > 0">{{item.DiscountApplied}}% BONUS</div>
-                            <div class="ano-col">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}
+                            <div class="ano-col">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async }}
                                 <small *ngIf="item.Price==90">$100</small>
                             </div>
                             <div class="inner-cell">{{item.TotalTime}}</div>
@@ -132,7 +132,7 @@
                                 <mat-select class="fix_height" (selectionChange)="selectDenomination()" placeholder="Select amount"
                                     [formControl]="denominationSelectControl" >
                                     <mat-option *ngFor="let item of denominationList" [value]="item">
-                                        {{item | bCurrency}}
+                                        {{item | bCurrency  | async}}
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>
@@ -155,7 +155,7 @@
                                         <td>{{item.DiscountedRate.TotalTime}}</td>
                                         <td>{{item.DiscountedRate.PromoMinutes}}</td>
                                         <td>{{item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes}}</td>
-                                        <td>{{getSubbCallRates(item) | sCurrency | async : globalPlanData.CurrencyCode }} / min
+                                        <td>{{getSubbCallRates(item) | sCurrency : globalPlanData.CurrencyCode | async}} / min
                                         </td>
                                     </tr>
                                 </tbody>
@@ -191,7 +191,7 @@
                         <h1 class="text-center">
                             {{countryName}}
                         </h1>
-                        <p>as low as {{RatePerMin | sCurrency | async : countryCode}} / min</p>
+                        <p>as low as {{RatePerMin | sCurrency : countryCode | async}} / min</p>
                     </div>
                 </div>
                 <div class="auto-refiil">
@@ -251,7 +251,7 @@
                                     <th>Amount</th>
                                     <th class="text-right positon-relative">
                                         <span class="slice" *ngIf="item.Price==90">$100</span>
-                                        {{ item.Price | bCurrency : countryCode }}
+                                        {{ item.Price | bCurrency : countryCode | async}}
                                     </th>
                                 </thead>
                                 <tbody>

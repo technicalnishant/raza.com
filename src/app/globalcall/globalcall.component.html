@@ -48,10 +48,10 @@
                                      
                                       <span class="width30">
                                         <img src="./../../assets/images/phone-icon.png" alt="" loading="lazy">
-                                        <span class="mobileRate">{{option.CallingRateMobile| sCurrency | async:currentCurrency | async}} </span>
+                                        <span class="mobileRate">{{option.CallingRateMobile| sCurrency | currentCurrency | async}} </span>
                                         <!-- <span class="mobileRate">{{setPrice(option.CallingRateMobile)}} </span> -->
                                         <img src="./../../assets/images/icon-landphone.png" alt="" loading="lazy">
-                                        <span class="landlineRate">{{option.CallingRateLandline| sCurrency | async:currentCurrency | async}} </span>
+                                        <span class="landlineRate">{{option.CallingRateLandline| sCurrency | currentCurrency | async}} </span>
                                         <!-- <span class="landlineRate">{{setPrice(option.CallingRateLandline)}} </span> -->
                                       </span>
                                       
@@ -138,7 +138,7 @@
                                                         <span class="bonus-bg-short" *ngIf="item.DiscountApplied > 0">
                                                          <span class="bonus-new">{{item.DiscountApplied}}% BONUS </span>
                                                         </span>
-                                                        <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }} </div>
+                                                        <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async}} </div>
                                                        
                                                         <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
 			                                                  <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
@@ -161,7 +161,7 @@
                                                         <span class="bonus-bg-short" *ngIf="item.DiscountApplied > 0">
                                                           <span class="bonus-new">{{item.DiscountApplied}}% BONUS </span>
                                                         </span>
-                                                        <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }} </div>
+                                                        <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async }} </div>
                                                        
                                                         <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
 			                                                  <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
@@ -254,7 +254,7 @@
                                                              <span class="bonus-new"   >{{item.DiscountApplied}}% BONUS
                                                         </span>
                                                     </span>
-                                                        <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
+                                                        <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async}}</div>
                                                         <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
                                                         <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
 
@@ -280,7 +280,7 @@
                                                             <span class="bonus-new ">{{item.DiscountApplied}}% BONUS
                                                             </span>
                                                         </span>
-                                                        <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
+                                                        <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async }}</div>
                                                         <span class="inner_price" *ngIf="item.Price==90">{{RatePerMinPromo}}₵ / min</span>
                                                         <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
 
