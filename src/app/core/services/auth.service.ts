@@ -287,7 +287,7 @@ export class AuthenticationService {
 		localStorage.removeItem("currentCart");
 		localStorage.removeItem('promo_code');
  
-
+		this.setSharedValue(false);
 		this.EmitLoggedInEvent(false);
 		return true;
 	}
@@ -307,6 +307,9 @@ export class AuthenticationService {
 		// else
 		// {}
 			var context = this.getCurrentUserFromLocalStorage();
+			if(context != null && context.accessToken != null && context.accessToken != "")
+			this.setSharedValue(true);
+		
 			return context != null && context.accessToken != null && context.accessToken != "";
 		
 		
