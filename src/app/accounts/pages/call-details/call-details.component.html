@@ -74,7 +74,7 @@
               <td>{{item.Destination}}</td>
               <td>{{item.DestinationCity}}</td>
               <td>{{item.Duration}}</td>
-              <td>{{item.Amount | number:'1.1-2' | bCurrency : 'Pre'}}</td>
+              <td>{{item.Amount | number:'1.1-2' | bCurrency : 'Pre'|async}}</td>
             </tr>
           </tbody>
         </table>
@@ -167,7 +167,7 @@
               </tr>
               <tr>
                 <td>Amount</td>
-                <td>{{item.Amount | number:'1.1-2' | bCurrency : 'Pre'}}</td>
+                <td>{{item.Amount | number:'1.1-2' | bCurrency : 'Pre'|async}}</td>
               </tr>
             </tbody>
           </table>

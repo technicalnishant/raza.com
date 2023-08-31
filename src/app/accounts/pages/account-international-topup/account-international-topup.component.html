@@ -25,7 +25,7 @@
             <ng-container >
               <td>{{item.CardName}}</td>
               <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td>
-              <td>{{item.Price | bCurrency : item.CurrencyCode}}</td>
+              <td>{{item.Price | bCurrency : item.CurrencyCode|async}}</td>
               <!--<td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td> -->
               <td *ngIf="item.IsAllowRecharge"><a (click)="rechargeRedirect(item)">Topup Now</a></td>
 
@@ -192,7 +192,7 @@
                     <div class="topup_box denomination__box">
                           <div class="top_section">
                               <div class="promo_word" (click)="showDetailTopup()"><span>Promo</span></div>
-                              <h2>{{item.UsDenomination | bCurrency}}</h2>
+                              <h2>{{item.UsDenomination | bCurrency|async}}</h2>
                               <p>{{mobileTopupData.Operator}} {{countryName}}</p>
                               <!-- <p>200% Bonus</p> -->
                               <a *ngIf="topupDialog.length > 0" (click)="showDetailTopup()">Detail</a>
@@ -218,7 +218,7 @@
                       <div class="bundle_box denomination__box">
                           <div class="top_section">
                               <div class="promo_word" (click)="showDetailTopup()"><span>Promo</span></div>
-                              <h2>{{item.Price | bCurrency}}</h2>
+                              <h2>{{item.Price | bCurrency|async}}</h2>
                               <p>{{item.Operator}} </p>
                               <p></p>
                               <a *ngIf="topupDialog.length > 0" (click)="showDetailTopup()">Detail</a>

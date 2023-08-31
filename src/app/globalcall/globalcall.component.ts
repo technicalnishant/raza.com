@@ -169,6 +169,7 @@ export class GlobalcallComponent implements OnInit {
 
     this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
+      this.setcurrentCurrency()
       this.globalRatesService.getAllCountriesRates(this.currentSetting.currentCountryId).subscribe(
         (data: Country[]) => {
           if(data)

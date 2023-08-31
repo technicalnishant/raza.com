@@ -156,7 +156,7 @@
                       <div class="topup_item" *ngFor="let item of topups; let i = index">
                         <div class="col-md-12 topup_box denomination__box">
                             <div class="top_section">
-                                <h2>{{item.UsDenomination | bCurrency}}</h2>
+                                <h2>{{item.UsDenomination | bCurrency |async}}</h2>
                                 <p>{{this.currentOperator}} {{countryName}}</p>
                                 <!-- <p>200% Bonus</p> -->
                                 <a *ngIf="topupDialog.length > 0" (click)="showDetailTopup()">Detail</a>
@@ -183,7 +183,7 @@
                     <div  class="topup_item" *ngFor="let item of bundleInfo?.ProductDescriptions; let i = index">
                         <div class="col-md-12 bundle_box denomination__box">
                             <div class="top_section">
-                                <h2>{{item.Price | bCurrency}}</h2>
+                                <h2>{{item.Price | bCurrency | async }}</h2>
                                 <p>{{item.Operator}} </p>
                                 <p></p>
                                 <a *ngIf="topupDialog.length > 0" (click)="showDetailTopup()">Detail</a>
