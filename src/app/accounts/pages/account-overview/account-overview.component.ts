@@ -1,3 +1,4 @@
+
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PlanService } from '../../services/planService';
@@ -33,7 +34,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   newDesign:boolean=false;
   clientCardId:any;
   selectedPlanId:any='';
-  sharedValue:any='';
+  sharedValue:any='hide_nav';
   private subscription: Subscription;
   constructor(
     private router: Router,
@@ -48,44 +49,44 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
         this.sharedValue = value;
         console.log("this.sharedValue", this.sharedValue);
       });
-     
+
   }
-   
-  ngOnInit() 
+
+  ngOnInit()
   {
-    
+
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     //Loading All customer plans.
-   
+
     this.titleService.setTitle('Overview');
     this.username = this.authService.getCurrentLoginUserName();
-    if(this.router.url == '/account/overview') 
+    if(this.router.url == '/account/overview')
     {
       this.newDesign = true;
     }
-     
+
     // this.router.events
     // .pipe(filter(event => event instanceof NavigationEnd))
     // .subscribe((event: NavigationEnd) => {
     //   const planId = this.route.snapshot.paramMap.get('planId');
-    //   
-     
-    //   
+    //
+
+    //
     //   console.log('localStorage.getItem ', localStorage.getItem('orderId'));
     //   // Perform actions based on the current route and planId
 
-      
+
     // });
-   
+
     this.selectedPlanId = localStorage.getItem('orderId');
     this.getUserPlan(this.selectedPlanId);
-    
- 
+
+
     this.innerWidth = window.innerWidth;
     this.getMobileStats();
 
-     
+
   }
   getMyPlan()
   {
@@ -94,7 +95,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   getUserPlan(obj:any){
     if(obj && obj!='')
     {
-      
+
       this.getSelectedPlan()
     }
     else
@@ -115,28 +116,28 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
     (res: Plan) =>{
       this.plan = res;
        console.log('this.plan ', this.plan);
-       this.isEnableOtherPlan = true; 
+       this.isEnableOtherPlan = true;
        this.selectedPlanId = '';
        localStorage.removeItem('orderId');
     },
     err => console.log(err),
     () => {
-      
+
     }
   );
  }
 
   getDefaultPlan()
   {
-    this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe( 
-      //this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe( 
+    this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe(
+      //this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe(
       (res:any)=>{
-         
+
         this.plan = res;
-        this.isEnableOtherPlan = true; 
-  
+        this.isEnableOtherPlan = true;
+
       },
-      
+
       (err: ApiErrorResponse) => {
         if(localStorage.getItem("login_with") == 'phone')
         {
@@ -151,8 +152,8 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
         else{
           this.getAllPlans();
         }
-        
-         
+
+
         }
     )
   }
@@ -175,7 +176,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
                 }
                 else{
                   this.plan = data[0];
-                  
+
                   localStorage.setItem('currentPlan',JSON.stringify(this.plan))
                 }
                 //
@@ -189,11 +190,11 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
           }
       },
       (err: ApiErrorResponse) => {
-      
+
         this.showBuyNow = true;
-         
+
         }
-    ); 
+    );
   }
   getMobileStats = () =>{
     if(this.innerWidth <= 780)
@@ -203,13 +204,13 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
     else{
       this.showMobileStats = false;
     }
-     
+
   }
   ngOnDestroy() {
     this.newDesign = false;
     this.subscription.unsubscribe();
   }
-	 
+
   get userWelcomeLabel() {
     if (isNullOrUndefined(this.username) || (this.username as string).length === 0) {
       return 'Welcome Back,';
@@ -222,6 +223,6 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   }
 
   onPaymentInfoFormSubmit(event){
-    
+
   }
 }

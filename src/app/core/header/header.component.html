@@ -88,10 +88,10 @@
       </div>
 
       <div class="login">
-        <button *ngIf="!isAuthenticated"  class="login_btn" (click)="openModal()">Login</button>
+        <button *ngIf="!isAuthenticatedn"  class="login_btn" (click)="openModal()">Login</button>
         <!-- <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span> -->
         <div #accountDropMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu" class="login">
-          <button *ngIf="isAuthenticated"  mat-icon-button class="p-0"
+          <button *ngIf="isAuthenticatedn"  mat-icon-button class="p-0"
             [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}">
             <mat-icon>account_circle</mat-icon>
           </button>

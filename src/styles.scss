@@ -942,6 +942,7 @@ table {
 }
 .commonPopup .mat-horizontal-content-container {
     padding: 0;
+    overflow: unset;
 }
 .selectRechargeamountMain {
     position: relative;
@@ -954,6 +955,10 @@ table {
 }
 .commonPopup {
     position: relative;
+    .popUpCloseIcon {
+      right: 4px;
+      top: -10px;
+    }
     h2 {
         text-align: center;
         color: #0b203e;

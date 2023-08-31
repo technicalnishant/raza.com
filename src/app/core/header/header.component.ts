@@ -15,12 +15,12 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PromotionResolverService } from '../../deals/services/promotion-resolver.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AuthenticationService } from '../services/auth.service';
- 
+
 import { CountriesService } from '../../core/services/country.service';
 import { Country } from '../../core/models/country.model';
 
 import { LoginpopupComponent } from '../loginpopup/loginpopup.component';
-import { SearchRatesService } from '../../rates/searchrates.service'; 
+import { SearchRatesService } from '../../rates/searchrates.service';
 import { GlobalCallComponent } from '../../globalrates/global-call/global-call.component';
 import { ApiErrorResponse } from '../../core/models/ApiErrorResponse';
 import { map, startWith } from 'rxjs/operators';
@@ -31,7 +31,7 @@ import { Event, NavigationStart, NavigationError } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
 import { PreviousRouteService } from '../services/previous-route.service';
- 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -49,12 +49,13 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   currentSetting: CurrentSetting;
   currentSetting$: Subscription;
   @Input() sidenav: MatSidenav;
-  
+
   @ViewChild('accountDropMenuTrigger',{static: true}) dropMenu: MatMenuTrigger;
   @ViewChild('myDEAL',{static: true}) myDEAL: ElementRef<HTMLElement>;
   @ViewChild('dealDropdown',{static: true}) dealDropdown: ElementRef;
   @ViewChild('dropdown',{static: true}) dealsDropMenu: ElementRef;
   isAuthenticated: boolean = false;
+  isAuthenticatedn: boolean = false;
   isAccountMenuDisplay: boolean = false;
   isSmallScreen: boolean=false;
   currentCurrency:any;
@@ -78,7 +79,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   filter_string:string=''
   ctryName:any;
   previousUrl:any ='';
-  navClick:any=''
+  navClick:any='hide_nav'
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -94,15 +95,18 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     private searchRatesService: SearchRatesService,
     private globalRatesService: GlobalRatesService,
     public platform: Platform,
-     
-  ) 
-  { 
+
+  )
+  {
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     this.isAccountMenuDisplay = this.isSmallScreen && this.isUserAuthenticated();
     //console.log('sidenav',this.sidenav);
-   
+    this.authService.getSharedValue().subscribe(value => {
+      this.isAuthenticatedn = value;
+      
+    });
 
-} 
+}
 
   isUserAuthenticated(): boolean {
     return this.authService.isAuthenticated();
@@ -125,7 +129,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     // https://material.angular.io/components/dialog/overview
     const modalDialog = this.matDialog.open(LoginpopupComponent, dialogConfig);
   }
-  
+
   ngOnInit() {
 
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
@@ -134,12 +138,12 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     })
 
 
-  
+
   this.router.events.pipe(
-    filter(event => event instanceof NavigationEnd)  
+    filter(event => event instanceof NavigationEnd)
   ).subscribe((event: NavigationEnd) => {
-     
-  
+
+
     localStorage.setItem('last_page', event.url);
 
     if(event.url == '/'  )
@@ -159,7 +163,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       this.showHeader = true;
       this.showMyaccontHeader = false;
       this.blueBg = 0;
-    }   
+    }
      else if(event.url.includes('/account')){
       this.showMyaccontHeader = true;
       this.showHeader = false;
@@ -182,17 +186,17 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
         this.blueBg = 1;
       }
       this.showHeader = false;
-    }  
+    }
     else
     {
       this.showHeader = false;
       this.blueBg = 0;
     }
-    
+
 
   });
 
-  
+
       if (this.authService.isAuthenticated()) {
       this.isAuthenticated = true;
       }
@@ -205,8 +209,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
         this.headerValue = 1;
       }
     });
-    
-    
+
+
        this.compareToken();
 
       // this.filteredCountry = this.autoControl.valueChanges
@@ -244,7 +248,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
 
   private subFilter():any[]
   {
-    
+
     if( this.selected_country != '' && this.selected_country !== null && this.selected_country !== undefined)
     {
       return this._filter(this.selected_country);
@@ -253,9 +257,9 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     {
       return  this.allCountry;
     }
-    
+
   }
- 
+
 
   setSelection(obj:any)
   {
@@ -270,27 +274,27 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   onClickInput() {
    // this.filterListing();
     this.searchicon = '../assets/images/search8.svg';
-    
+
   }
 
   checkClick(e)
   {
     if(e.target.value == '')
     {
-      
+
       this.selected_country = 'A';
     }
     else
     this.selected_country = e.target.value;
-     
+
    // console.log('this.selected_country', this.selected_country);
-   
+
   }
   onInputFocus() {
     this.searchicon = '../assets/images/cross8.png';
     this.showDropdown = false;
     this.showPlaceholder = false;
-    
+
   }
 
   setMobileHeader()
@@ -302,7 +306,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   }
   getNumber()
   {
-    var number = '1877-463-4233'; 
+    var number = '1877-463-4233';
     if(this.currentSetting.currentCountryId == 1)
     {
       number = '1877-463-4233';
@@ -350,28 +354,28 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
  
   public compareToken()
   {
-    
+
     if(this.authService.isAuthenticated())
         {
           var userInfo = this.authService.getCurrentLoginUser();
-          
+
           const date2         = new Date(userInfo.expire);
           const expire_time   = date2.getTime();
-          const currentDate   = new Date(); 
-          const timestamp     = currentDate.getTime(); 
-          
+          const currentDate   = new Date();
+          const timestamp     = currentDate.getTime();
+
           //if( expire_time > timestamp)
           if( timestamp >= expire_time)
            {
               this.authService.refreshLogin();
            }
-         
+
     }
   }
   private getCountryFrom() {
     this.countryService.getFromCountries().subscribe((res: Country[]) => {
       this.countryFrom = res;
-      
+
     });
   }
 
@@ -392,7 +396,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       this.router.navigate(['/recharge/quick']);
 
       // const dialogConfig = new MatDialogConfig();
-      
+
       // dialogConfig.disableClose = true;
       // dialogConfig.id = "modal-component";
       // dialogConfig.height = "350px";
@@ -403,7 +407,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       //   description: "Pretend this is a convincing argument on why you shouldn't logout :)",
       //   actionButtonText: "Logout",
       // }
-     
+
       // const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
     }
   }
@@ -433,8 +437,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
 
   toggleSideNav() {
     this.sidenav.toggle();
-   
-    
+
+
   }
 
   triggerFalseClick() {
@@ -453,13 +457,13 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   // closeDealDialog() {
   //   this.renderer.setStyle(this.dealDropdown.nativeElement, 'display', 'none')
   // }
-   
+
   viewRates(event, countryId) {
     if (event.isUserInput) {
      // alert(countryId);
 
-     
- 
+
+
  if(this.currentSetting.currentCountryId != 3 )
 {
       localStorage.setItem('rate_country_id', countryId);
@@ -467,12 +471,12 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       this.router.navigate(['globalcallrates']);
 }
 else
- { 
+ {
    localStorage.removeItem('rate_country_id');
       this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, countryId).subscribe(
-        (data: any) => 
+        (data: any) =>
         {
-          if (this.dialog.openDialogs.length == 0) 
+          if (this.dialog.openDialogs.length == 0)
           {
             this.dialog.open(GlobalCallComponent, {
               data: { data },
@@ -482,13 +486,13 @@ else
           }
         },
         (err: ApiErrorResponse) => console.log(err),
-      ); 
-    } 
-    
+      );
+    }
+
     }
   }
 
-  displayFn(country?: any): string | undefined 
+  displayFn(country?: any): string | undefined
   {
     return country ? country.CountryName : undefined;
   }
@@ -497,7 +501,7 @@ else
     this.showDropdown = false;
   }
 
-onClickClose(icon) 
+onClickClose(icon)
 {
     if (icon == '../assets/images/cross8.png') {
       this.searchicon = '../assets/images/search8.svg';
@@ -505,9 +509,9 @@ onClickClose(icon)
     this.showDropdown = false;
 }
 
- 
 
-  openFlagDropDown() 
+
+  openFlagDropDown()
   {
 
     if (this.showDropdown) {
@@ -518,7 +522,7 @@ onClickClose(icon)
   }
 
 
-  onSelectCountrFrom(country: Country) 
+  onSelectCountrFrom(country: Country)
   {
     this.currentSetting.country = country;
     this.razaEnvService.setCurrentSetting(this.currentSetting);
@@ -549,14 +553,14 @@ onClickClose(icon)
 
 
   @HostListener('window:scroll', ['$event'])
-  checkScroll() 
+  checkScroll()
   {
     const scrollPosition = window.pageYOffset
 
     if (this.isFixHeader || scrollPosition > 5) {
       this.headerValue = 2;
-    } 
-    else 
+    }
+    else
     {
       this.headerValue = 1;
      // document.getElementById('strip').classList.remove('show');
@@ -566,9 +570,9 @@ onClickClose(icon)
   }
 
   onWindowScroll() {
-    if (document.body.scrollTop > 5 ||     
+    if (document.body.scrollTop > 5 ||
     document.documentElement.scrollTop > 5) {
-     
+
 
     }
     const scrollPosition = window.pageYOffset
@@ -584,7 +588,7 @@ onClickClose(icon)
 
   status: boolean = false;
   closeStrip(){
-      this.status = !this.status;       
+      this.status = !this.status;
   }
   opentraans(){
     this.frameborder = (this.frameborder==true)?false:true;
@@ -602,18 +606,15 @@ onClickClose(icon)
    localStorage.removeItem("topupCountryId");
    localStorage.removeItem("topupTrigger");
    this.router.navigateByUrl('mobiletopup');
-   
-  }
-  
-  clickMenu()
-  {
-    
-    
-    this.navClick = (this.navClick == '')?'hide_nav':'';
-    
-    this.razaLayoutService.setSharedValue(this.navClick);
-   
+
   }
 
-  
+  clickMenu()
+  {
+   this.navClick = (this.navClick == '')?'hide_nav':'';
+   this.razaLayoutService.setSharedValue(this.navClick);
+
+  }
+ // setSharedValue
+
 }

@@ -18,11 +18,13 @@ import { CurrentSetting } from '../models/current-setting';
 import { CountriesService } from './country.service';
 import { Country } from '../models/country.model';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+
 @Injectable()
 export class AuthenticationService {
 	static username = new BehaviorSubject<string>('');
 	static userLoggedInSuccessfully = new BehaviorSubject<boolean>(false);
-	 
+	private sharedLoginSubject = new Subject<any>(); 
 	currentSetting: CurrentSetting;
 	user_country_id:any;
 	fromCountry:any;
@@ -45,6 +47,14 @@ export class AuthenticationService {
 		let context = this.getCurrentUserFromLocalStorage();
 		return context.refreshToken;
 	}
+
+	setSharedValue(value: any) {
+		this.sharedLoginSubject.next(value);
+	  }
+	
+	  getSharedValue() {
+		return this.sharedLoginSubject.asObservable();
+	  }
 
 	private saveCurrentUsertoLocalStorage(context): void {
 		localStorage.removeItem('currentUser');
@@ -150,10 +160,12 @@ export class AuthenticationService {
 					{
 
 					}
+
 					AuthenticationService.username.next(user.userName);
 					this.saveCurrentUsertoLocalStorage(context);
 					this.setUsersCurrentCountry()
 					this.EmitLoggedInEvent(true);
+					this.setSharedValue(true)
 					return context;
 				}
 				else{
@@ -275,7 +287,7 @@ export class AuthenticationService {
 		localStorage.removeItem("currentCart");
 		localStorage.removeItem('promo_code');
  
-
+		this.setSharedValue(false);
 		this.EmitLoggedInEvent(false);
 		return true;
 	}
@@ -295,6 +307,9 @@ export class AuthenticationService {
 		// else
 		// {}
 			var context = this.getCurrentUserFromLocalStorage();
+			if(context != null && context.accessToken != null && context.accessToken != "")
+			this.setSharedValue(true);
+		
 			return context != null && context.accessToken != null && context.accessToken != "";
 		
 		

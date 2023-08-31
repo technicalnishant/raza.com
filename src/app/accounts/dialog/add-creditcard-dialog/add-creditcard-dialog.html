@@ -7,7 +7,7 @@
                 <ng-template matStepLabel>Payment Detail</ng-template>
                 <div class="row">
                     <div class="col-md-12">
-                        <span class="closeIcon top-0" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
+                        <span class="closeIcon popUpCloseIcon top-0" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
                         <h2>Add Credit Card</h2>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
             </form>
         </mat-step>
 
-        <mat-step [stepControl]="billingInfoForm"> 
+        <mat-step [stepControl]="billingInfoForm">
             <form [formGroup]="billingInfoForm">
                 <ng-template matStepLabel>Billing Address</ng-template>
                 <div class="row">
@@ -121,7 +121,7 @@
                     <!-- <div class="col-md-6">
                         <button class="submitButton w-100" matStepperPrevious type="button">Back</button>
                     </div> -->
-                    
+
 
                 </div>
             </form>
