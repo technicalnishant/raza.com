@@ -55,6 +55,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   @ViewChild('dealDropdown',{static: true}) dealDropdown: ElementRef;
   @ViewChild('dropdown',{static: true}) dealsDropMenu: ElementRef;
   isAuthenticated: boolean = false;
+  isAuthenticatedn: boolean = false;
   isAccountMenuDisplay: boolean = false;
   isSmallScreen: boolean=false;
   currentCurrency:any;
@@ -100,7 +101,10 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     this.isAccountMenuDisplay = this.isSmallScreen && this.isUserAuthenticated();
     //console.log('sidenav',this.sidenav);
-
+    this.authService.getSharedValue().subscribe(value => {
+      this.isAuthenticatedn = value;
+      
+    });
 
 }
 
@@ -606,13 +610,10 @@ onClickClose(icon)
 
   clickMenu()
   {
-
-
-    this.navClick = (this.navClick == '')?'hide_nav':'';
-
-    this.razaLayoutService.setSharedValue(this.navClick);
+   this.navClick = (this.navClick == '')?'hide_nav':'';
+   this.razaLayoutService.setSharedValue(this.navClick);
 
   }
-
+ // setSharedValue
 
 }
