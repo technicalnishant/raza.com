@@ -60,6 +60,9 @@
 		img {
 			display: block;
 		}
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
 	}
 }
 .closeIconContact {
@@ -169,10 +172,10 @@ button.login_btn {
 		color: #2b437d;
 	}
 	.tryUsfree {
-		border: 2px solid #2b437d;
-		background-color: #2b437d;
-		background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
-		color: #fff;
+		// border: 2px solid #2b437d;
+		// background-color: #2b437d;
+		// background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
+		// color: #fff;
 		&:hover {
 			color: #2b437d;
 			background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
@@ -1111,7 +1114,10 @@ input#searchInput::placeholder {
     padding: 0 8px;
  }
  .tryUsfree {
-  display: none;
+    font-size: 12px;
+    background-image: none !important;
+    padding: 6px 10px;
+    margin-left: 5px;
  }
  .logo-whiteimg {
     width: 65%;
