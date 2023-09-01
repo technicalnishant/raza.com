@@ -785,7 +785,7 @@ table {
 						height: 75px;
 						line-height: 1.1;
 						font-size: 11px;
-						color: #71747c;
+						color: #444;
 						padding: 40px 10px 0;
 						background-position: top 10px center;
 						text-align: center;
@@ -795,7 +795,7 @@ table {
 						ul {
 							padding-left: 0;
 							a {
-                padding: 10px 9px;
+                padding: 12px 9px;
                 height: auto;
                 font-weight: 500;
                 border-top: 1px solid #ddd;
@@ -805,13 +805,13 @@ table {
 							font-size: 11px;
 							margin: 0;
 							text-align: center;
-							color: #71747c;
+							color: #444;
 						}
 						.plan_details {
 							height: 75px;
 							line-height: 1.1;
 							font-size: 11px;
-							color: #71747c;
+							color: #444;
 							padding: 40px 10px 0 !important;
 							background-position: top 10px center !important;
 							&:hover {
@@ -867,7 +867,7 @@ table {
             }
           }
 				  ul {
-					padding: 0 0 0 31px;
+					  padding: 0 0 0 31px;
 					li {
 						border-bottom: none;
 						line-height: 40px;
