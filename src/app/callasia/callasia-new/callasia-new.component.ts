@@ -279,12 +279,15 @@ export class CallasiaNewComponent implements OnInit {
   }
 
   openFlagDropDown() {
-
-    if (this.showDropdown) {
-      this.showDropdown = false;
-    } else {
-      this.showDropdown = true;
+    if(!this.isUserAuthenticated())
+    {
+      if (this.showDropdown) {
+        this.showDropdown = false;
+      } else {
+        this.showDropdown = true;
+      }
     }
+     
   }
 
   onSelectCountrFrom(country: Country) {

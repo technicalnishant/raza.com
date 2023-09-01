@@ -513,12 +513,15 @@ onClickClose(icon)
 
   openFlagDropDown()
   {
-
+   if(!this.isAuthenticatedn) 
+   {
     if (this.showDropdown) {
       this.showDropdown = false;
     } else {
       this.showDropdown = true;
     }
+   }
+    
   }
 
 

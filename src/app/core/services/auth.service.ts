@@ -127,7 +127,7 @@ export class AuthenticationService {
 					*/
 					if(body.phone)
 					{
-						var phoneno 		= /^\d{10}$/;
+						var phoneno 		= /^[0-9]+$/;
 						let phoneOrEmail 	= body.phone;
 						if(phoneOrEmail.match(phoneno) )
 						{

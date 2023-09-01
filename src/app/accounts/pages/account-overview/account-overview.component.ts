@@ -66,6 +66,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
       this.newDesign = true;
     }
 
+    console.log('localStorage.getItem("login_no")', localStorage.getItem("login_no"));
     // this.router.events
     // .pipe(filter(event => event instanceof NavigationEnd))
     // .subscribe((event: NavigationEnd) => {

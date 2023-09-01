@@ -338,7 +338,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   onLoginFormSubmit(): void {
 
     //var phoneNumber = this.loginForm.value.username ;
-    var phoneno = /^\d{10}$/;
+   // var phoneno = /^\d{10}$/;
+    var phoneno = /^[0-9]+$/;
     var phoneOrEmail = this.loginForm.value.username
 
    var phone = this.loginForm.value.username;
@@ -373,7 +374,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
         username: phoneOrEmail,
         password: userPassword,
         captcha: token,
-        phone:phone,
+         phone:this.currentSetting.country.CountryCode+phone,
+        //phone:phoneOrEmail,
       };
         
       this.authService.login(body, false, "Y").subscribe((response) => {

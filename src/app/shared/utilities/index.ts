@@ -38,11 +38,25 @@ export function autoCorrectIfPhoneNumber(phoneNumber: string): string {
         return phoneNumber;
     else if (phoneNumber.startsWith('44') && length >= 8)
         return `+${phoneNumber}`;
+
+    else if (phoneNumber.startsWith('+91') && length >= 10)
+    return `${phoneNumber}`;
+    else if (phoneNumber.startsWith('91') && length >= 10)
+    return `+${phoneNumber}`;
+    else if (phoneNumber.startsWith('61') && length >= 10)
+    return `+${phoneNumber}`;
+    else if (phoneNumber.startsWith('+61') && length >= 10)
+    return `${phoneNumber}`;
+    else if (phoneNumber.startsWith('64') && length >= 10)
+    return `+${phoneNumber}`;
+    else if (phoneNumber.startsWith('+64') && length >= 10)
+    return `${phoneNumber}`;
+
+
     else if (length === 10)
         return `+1${phoneNumber}`;
     return phoneNumber;
 }
-
 
 export function isValidPhoneOrEmail(phoneOrEmail: string) {
     const isValidEmail = isValidaEmail(phoneOrEmail);
