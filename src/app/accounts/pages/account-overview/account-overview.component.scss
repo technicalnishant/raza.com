@@ -824,6 +824,11 @@ table {
 							}
 						}
 					}
+          button {
+            font-size: 11px;
+            text-align: center;
+            width: 100%;
+          }
 				}
 			}
 		}
@@ -884,6 +889,11 @@ table {
             }
 					}
 				}
+        button {
+          border: none;
+          background: transparent;
+          font-size: inherit;
+        }
 				&.recharge {
 					a {
 						background-image: url(../../../../assets/images/myaccount_icons/recharge-normal.png);

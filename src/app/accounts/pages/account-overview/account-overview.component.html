@@ -8,24 +8,24 @@
         <!-- commonmyaccountareaforallpages -->
         <!----------Show mobile stats------------>
         <div *ngIf="showMobileStats && newDesign">
-         
+
         </div>
          <!---------- EOF Show mobile stats ------------>
       </div>
         <!-- <app-account-recharge *ngIf="plan" [plan]="plan"></app-account-recharge>  -->
-     <router-outlet *ngIf="plan" [plan]="plan"></router-outlet> 
-      
+     <router-outlet *ngIf="plan" [plan]="plan"></router-outlet>
+
     </div>
   </div>
 
 
   <div class="onlyDesktopAccount" *ngIf="!isSmallScreen">
-        
+
     <div class="leftTabArea {{sharedValue}}">
       <!-- <h5>My Account</h5> -->
 
-       
-      <ul>        
+
+      <ul>
         <li class="recharge"><a routerLink="/account/overview" (click)="getMyPlan()" routerLinkActive="active-link"><span></span> Recharge</a></li>
         <li class="payment-details"><a routerLink="/account/payment-details/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link"><span></span> Payment Details</a>
         </li>
@@ -36,7 +36,7 @@
           <mat-accordion>
             <mat-expansion-panel>
               <mat-expansion-panel-header class="plan_details">
-                <span></span> 
+                <span></span>
                 <mat-panel-title>
                   Plan Details
                 </mat-panel-title>
@@ -46,7 +46,7 @@
                 <li><a routerLink="/account/plandetails/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">Your Raza #</a>
                 </li>
                 <li><a routerLink="/account/call-details/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">Call Details</a></li>
-                
+
                 <li *ngIf="plan.IsAllowPinLess">
                   <a routerLink="/account/mynumber/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">My
                     Numbers</a></li>
@@ -68,6 +68,7 @@
           <a routerLink="/account/other-plans" (click)="getMyPlan()" routerLinkActive="active-link"><span></span> Other Plans</a>
         </li>
         <li class="notifications"><a routerLink="/account/overview/notification" (click)="getMyPlan()" routerLinkActive="active-link"><span></span> Notifications</a></li>
+        <li class="logOut"><button>Log Out</button></li>
         <!-- <li><a routerLink="/account/rates" routerLinkActive="active-link">Search Rates</a></li> -->
       </ul>
     </div>
@@ -78,11 +79,11 @@
         <app-account-overview-plan-info *ngIf="plan" [plan]="plan"></app-account-overview-plan-info>
 
         <app-account-buy-one-get-one *ngIf="showBuyNow" ></app-account-buy-one-get-one>
-        
+
         <!-- commonmyaccountareaforallpages -->
-          <!-- <app-account-recharge *ngIf="plan" [plan]="plan" ></app-account-recharge>  
+          <!-- <app-account-recharge *ngIf="plan" [plan]="plan" ></app-account-recharge>
           <app-my-cards *ngIf="plan" [plan]="plan"> </app-my-cards> -->
-        <router-outlet *ngIf="plan" [plan]="plan" ></router-outlet>  
+        <router-outlet *ngIf="plan" [plan]="plan" ></router-outlet>
       </div>
     </div>
   </div>

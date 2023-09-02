@@ -50,20 +50,29 @@
 			width: 125px;
 		}
 	}
-	button.menu_btn {
-		border: none;
-		background: transparent;
-		border-left: 1px solid #dbdbdb;
-		padding: 8px 0 8px 20px;
-		margin-left: 20px;
-		line-height: 1;
-		img {
-			display: block;
-		}
-    @media only screen and (max-width: 767px) {
-      display: none;
-    }
-	}
+}
+button.menu_btn {
+  border: none;
+  background: transparent;
+  border-left: 1px solid #dbdbdb;
+  padding: 8px 0 8px 20px;
+  margin-left: 20px;
+  line-height: 1;
+  img {
+    display: block;
+  }
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
+  &.menu_btn2 {
+    display: block;
+    margin-right: auto;
+  }
+}
+.headerBackground {
+  button.menu_btn {
+    border-left: 1px solid #244481;
+  }
 }
 .closeIconContact {
   position: absolute;
@@ -156,7 +165,7 @@ button.login_btn {
     border-radius: 32px;
     line-height: 1.2;
     text-transform: none;
-    margin-left: 10px;
+    margin-right: 10px;
     background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
     background-repeat: no-repeat;
     background-position: right 10px center;
@@ -558,7 +567,7 @@ button.login_btn {
   margin: auto;
 }
 .logo-white img {
-  width: 75%;
+  width: 125px;
   object-fit: contain;
 }
 .login {
@@ -580,6 +589,7 @@ button.login_btn {
   display: flex;
   align-items: center;
   background-color: #45629b;
+  padding: 12px 0;
 }
 .deal-menu ul li a {
   font-size: 13px;
@@ -597,8 +607,8 @@ button.login_btn {
 .app-menu {
   display: flex;
   gap: 10px;
-  margin-left: auto;
-  margin-right: 24px;
+  margin-left: 12px;
+  margin-right: 0;
 }
 .app-menu img {
   height: 19px;
@@ -1372,6 +1382,7 @@ input#searchInput::placeholder {
  }
   .logo-white {
     text-align: center;
+    padding-left: 5px;
  }
   .second-menu {
     display: none;
