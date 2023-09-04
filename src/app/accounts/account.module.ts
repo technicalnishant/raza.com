@@ -67,6 +67,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
  
 import { NgxSplideModule } from 'ngx-splide';
+ 
 
 
 @NgModule({
@@ -180,7 +181,7 @@ import { NgxSplideModule } from 'ngx-splide';
  
         RechargeConfirmationComponent,
            ViewratesComponent,
-           AccountSearchRatesComponent,
+           AccountSearchRatesComponent 
  
         // MobileOrderHistoryComponent,
         // MobileRewardsComponent,

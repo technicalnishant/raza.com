@@ -15,6 +15,8 @@ import { Router } from '@angular/router';
 import { ErrorDialogComponent } from 'app/shared/dialog/error-dialog/error-dialog.component';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { ConfirmPopupDialog } from 'app/accounts/dialog/confirm-popup/confirm-popup-dialog';
+import { CustomerService } from 'app/accounts/services/customerService';
 @Component({
   selector: 'app-account-overview',
   templateUrl: './account-overview.component.html',
@@ -44,6 +46,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
     private razalayoutService: RazaLayoutService,
     private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
+    private customerService: CustomerService,
     private titleService: Title) {
       this.subscription = this.razalayoutService.getSharedValue().subscribe(value => {
         this.sharedValue = value;
@@ -225,4 +228,25 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   onPaymentInfoFormSubmit(event){
 
   }
+
+  /******** Function when user click on logout button************ */
+ 
+  log_out_click(card) {
+    const dialogRef = this.dialog.open(ConfirmPopupDialog, {
+      data: {
+        message:'Are your sure?',
+        success: 'success'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result == "success") {
+        this.authService.logout()
+              this.router.navigate(['/']);
+      }
+    });
+  }
+
+   /******** EOF Function when user click on logout button************ */
 }
