@@ -199,6 +199,11 @@ button.login_btn {
     align-items: center;
     justify-content: center;
 }
+::ng-deep {
+  .loginDropDown {
+    display: none;
+  }
+}
 
 @media only screen and (max-width: 675px) {
   .dealbtndrop{
@@ -1117,6 +1122,11 @@ input#searchInput::placeholder {
   margin-right: 24px;
 }
 @media only screen and (max-width: 767px) {
+  ::ng-deep {
+    .loginDropDown {
+      display: block;
+    }
+  }
   ::ng-deep .cdk-overlay-pane {
     width: 100% !important;
     left: 0 !important;

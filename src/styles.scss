@@ -3058,6 +3058,21 @@ h2 {
     display: -webkit-inline-box !important;
 }
 
+.commonPopup2 {
+  h2 {
+    margin-bottom: 30px;
+  }
+  .myNumberButtonArea2 {
+    display: flex;
+    justify-content: center;
+    button.submitButton {
+        width: 100px !important;
+        padding: 8px 20px !important;
+        margin: 0 10px !important;
+    }
+  }
+}
+
 // All media queries
 @include breakpoint(md) {
     #_hj-f5b2a1eb-9b07_feedback_minimized {
