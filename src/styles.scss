@@ -1198,7 +1198,7 @@ table {
 .mat-menu-panel {
     max-width: 337px !important;
     width: 353px !important;
-    padding: 30px;
+    padding: 10px;
     position: relative;
 }
 .about_banner {
@@ -2761,6 +2761,7 @@ ul {
     }
     .slidemenu.hideSome mat-nav-list .mat-expansion-panel-body {
         padding: 0px !important;
+        text-align: left;
     }
     .mat-autocomplete-panel .mat-option img.flag {
         margin-right: 7px !important;

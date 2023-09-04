@@ -1034,6 +1034,7 @@ if(item.Price == price)
 
     getFilterdDropDown(obj)
     {
-      return this.countryFrom.filter(option => option.CountryId  != 3);
+      return this.countryFrom
+      //return this.countryFrom.filter(option => option.CountryId  != 3);
     }
 }

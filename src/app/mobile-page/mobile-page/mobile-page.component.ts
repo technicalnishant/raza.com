@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Platform } from '@angular/cdk/platform';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-mobile-page',
   templateUrl: './mobile-page.component.html',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MobilePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+    public platform: Platform,
+
+  ) {
+
+  }
+
   main_bg_img = '/assets/images/features/testimonial-bg-1.jpg';
   main_bg  = 0;
   data = [
@@ -127,5 +134,18 @@ export class MobilePageComponent implements OnInit {
 
   searchRates(){
    // /searchrates
+  }
+
+
+  downloadApp() {
+	  if (this.platform.ANDROID) {
+      window.open('https://play.google.com/store/apps/details?id=com.razacomm.universe', 'blank')
+    } else if (this.platform.IOS) {
+      window.open('https://apps.apple.com/ca/app/raza-universe/id1226298666', 'blank')
+    }
+    else {
+      window.open('https://play.google.com/store/apps/details?id=com.razacomm.universe', 'blank')
+
+    }
   }
 }
