@@ -1,4 +1,5 @@
-.hideinMobile {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+  .hideinMobile {
     display: block;
   }
   .sendtopup{
@@ -8,7 +9,7 @@
   }
   .heading_style1{
     margin-left: 188px;
-    left: 19%;
+    left: 17%;
   }
   .submit-btn{
     width: 30% !important;
@@ -203,6 +204,7 @@
 
   .mobile-topup-wrapper {
     background-color: $common-bg-color;
+    // background-color: #f5f5f5;
     padding-bottom: 77px;
 
     .col-lg-8 {
@@ -248,11 +250,16 @@
     }
 
     .form-wrapper {
-      padding: 60px 100px 50px;
-      // text-align: center;
+      width: 660px;
+      max-width: 100%;
+      margin: 50px auto 0;
 
       .rounded-lg {
         border-radius: 20px !important;
+        border: 1px solid #c6c6c6;
+        &.card {
+          padding: 8px 30px 30px;
+        }
       }
       .country,
       .country-img {
@@ -300,19 +307,16 @@
       }
 
       .button-wrapper {
-        text-align: end;
-
         .submit-btn {
-          background: #f4cb26;
+          background: #f3c423;
           padding: 10px 50px;
-          border-radius: 20px;
+          border-radius: 30px;
           color: #000;
-          font-weight: 600;
+          font-weight: 700;
           border: none;
           text-decoration: none;
-          display: inline !important;
-
-
+          width: 100% !important;
+          font-size: 20px;
           &:hover {
             background-color: #f4d24c;
           }
@@ -320,7 +324,7 @@
       }
 
       mat-form-field {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         position: relative;
       }
 
@@ -430,7 +434,7 @@
     color: #0160e0;
   }
   .card {
-    border: 15px solid #283a69 !important;
+    // border: 15px solid #283a69 !important;
   }
   .top_section {
     background-color: #ebf8fe;
@@ -591,15 +595,53 @@
     }
   }
 
-  ::ng-deep{
-   .form-wrapper .mat-form-field-should-float .mat-form-field-label{
-      left:0!important;
-  }
+  ::ng-deep {
+    .form-wrapper .mat-form-field-should-float .mat-form-field-label {
+        left:0 !important;
+    }
+    .form-wrapper .mat-form-field-should-float .mat-form-field-infix {
+      position:static;
 
-  .form-wrapper .mat-form-field-should-float .mat-form-field-infix{
-    position:static;
-
-  }
+    }
+    .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+      padding-left: 55px;
+      padding-top: 10px;
+    }
+    .mobileTopup {
+      .labelText {
+        font-size: 20px;
+        color: #9a9a9a;
+        font-weight: 500;
+      }
+      .globe {
+        .globeIcon {
+          position: absolute;
+          top: 14px;
+          width: 30px;
+          height: 30px;
+          background-image: url(../../../../assets/images/globe.png);
+          background-repeat: no-repeat;
+          background-position: left;
+          ~ input[type="text"] {
+            padding-left: 45px;
+          }
+        }
+        .labelText {
+          padding-left: 45px;
+        }
+      }
+      .mat-form-field-underline {
+        bottom: 8px;
+        background-color: #e2e2e2;
+        overflow: hidden;
+      }
+    }
+    .topUpText {
+      text-align: center;
+      margin: 80px 0 40px;
+      font-size: 20px;
+      font-weight: 600;
+    }
   }
   input{
     font-size: 16px;

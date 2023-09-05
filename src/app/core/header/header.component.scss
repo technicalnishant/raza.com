@@ -1121,6 +1121,9 @@ input#searchInput::placeholder {
   margin-left: 24px;
   margin-right: 24px;
 }
+.xs_show {
+  display: none;
+}
 @media only screen and (max-width: 767px) {
   ::ng-deep {
     .loginDropDown {
@@ -1133,6 +1136,13 @@ input#searchInput::placeholder {
     right: 0 !important;
     padding: 0 8px;
  }
+ .lg_show {
+    display: none;
+ }
+ .xs_show {
+    display: block;
+    width: 105px !important;
+  }
  .tryUsfree {
     font-size: 12px;
     background-image: none !important;

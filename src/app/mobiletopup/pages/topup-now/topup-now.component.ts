@@ -24,6 +24,8 @@ import { MetaTagsService } from 'app/core/services/meta.service';
 import { TopupDialogComponent } from 'app/mobiletopup/dialog/topup-dialog/topup-dialog.component';
 import { BundleDialogComponent } from 'app/mobiletopup/dialog/bundle-dialog/bundle-dialog.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CustomerService } from 'app/accounts/services/customerService';
+import { OrderHistory } from 'app/accounts/models/orderHistory';
 
 @Component({
   selector: 'app-topup-now',
@@ -61,6 +63,9 @@ export class TopupNowComponent implements OnInit, OnDestroy {
 
   bundleTopupPlans:any;
   topupDialog:any=[];
+  orderHistoryPage: number = 1;
+  orderHistoryList: OrderHistory[] = [];
+  isLoggedIn:boolean=false;
   constructor(private router: Router, private titleService: Title,
     private formBuilder: FormBuilder,
     private countryService: CountriesService,
@@ -72,6 +77,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
 	private location:Location,
   private metaTagsService:MetaTagsService,
   private dialog:MatDialog,
+  private customerService: CustomerService,
  
   ) {
 
@@ -149,7 +155,10 @@ export class TopupNowComponent implements OnInit, OnDestroy {
      
 
     }
-
+    if (this.authService.isAuthenticated()) {
+      this.loadOrderHistory()
+      this.isLoggedIn = true;
+    }
      
   }
 
@@ -514,4 +523,26 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.buyNow(new_item[0]);
   }
   /**********************/
+  rechargeRedirect(obj)
+  {
+    var card = obj.CardName;
+    card = card.split(' ');
+    var iso = card[0];   
+     this.router.navigateByUrl('mobiletopup', { state: { pin: obj.Pin, iso:iso } });
+ 
+  }
+
+  loadOrderHistory() {
+    this.customerService.getFullOrderHistory('topup', this.orderHistoryPage).subscribe(
+      (data: OrderHistory[]) => {
+      //  console.log('data',data);
+        //this.orderHistoryList = data;
+        data.map(a => {
+          this.orderHistoryList.push(a);
+        });
+      },
+      (err: ApiErrorResponse) => console.log(err),
+    );
+  }
+
 }

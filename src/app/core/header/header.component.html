@@ -27,9 +27,14 @@
         <mat-icon>menu</mat-icon>
       </button> -->
       <div class="logo-white">
-        <a routerLink="/"><img *ngIf="headerValue == 1" loading="lazy" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" /></a>
         <a routerLink="/">
-          <img *ngIf="headerValue == 2" width="180" height="60" loading="lazy" src="../assets/images/raza_logo_black.png" alt="" /></a>
+          <img *ngIf="headerValue == 1" loading="lazy" class="lg_show" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" />
+          <img *ngIf="headerValue == 1" loading="lazy" class="xs_show" src="../assets/images/raza_logo_mb.png" alt="logo" width="126" height="31" />
+        </a>
+        <a routerLink="/">
+          <img *ngIf="headerValue == 2" width="180" height="60" class="lg_show" loading="lazy" src="../assets/images/raza_logo_black.png" alt="logo" />
+          <img *ngIf="headerValue == 2" width="126" height="31" class="xs_show" loading="lazy" src="../assets/images/raza_logo_mb2.png" alt="logo" />
+        </a>
       </div>
 
       <button class="menu_btn menu_btn2"  (click)="sidenav.toggle()" >
@@ -219,8 +224,11 @@
       <!-- <span class="example-spacer"></span> -->
       <div class="logo-white">
         <a routerLink="/">
-          <img *ngIf="headerValue == 1" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" loading="lazy" />
-          <img *ngIf="headerValue == 2" width="180" height="60" src="../assets/images/raza_logo_black.png" alt="" loading="lazy" />
+          <img *ngIf="headerValue == 1"  class="lg_show" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" loading="lazy" />
+          <img *ngIf="headerValue == 1" loading="lazy" class="xs_show" src="../assets/images/raza_logo_mb.png" alt="logo" width="126" height="31" />
+
+          <img *ngIf="headerValue == 2" width="180" height="60"  class="lg_show" src="../assets/images/raza_logo_black.png" alt="" loading="lazy" />
+          <img *ngIf="headerValue == 2" width="126" height="31" class="xs_show" loading="lazy" src="../assets/images/raza_logo_mb2.png" alt="logo" />
         </a>
       </div>
 
@@ -275,8 +283,12 @@
     <mat-toolbar-row>
       <span class="logo" >
         <a routerLink="/">
-          <img *ngIf="headerValue == 1" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" loading="lazy" />
-          <img *ngIf="headerValue == 2" width="180" height="60" src="../assets/images/raza_logo_black.png" alt="" loading="lazy" />
+          <img *ngIf="headerValue == 1" class="lg_show" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" loading="lazy" />
+          <img *ngIf="headerValue == 1" loading="lazy" class="xs_show" src="../assets/images/raza_logo_mb.png" alt="logo" width="126" height="31" />
+
+          <img *ngIf="headerValue == 2" width="180" height="60"  class="lg_show" src="../assets/images/raza_logo_black.png" alt="" loading="lazy" />
+          <img *ngIf="headerValue == 2" width="126" height="31" class="xs_show" loading="lazy" src="../assets/images/raza_logo_mb2.png" alt="logo" />
+
         </a>
       </span>
 
@@ -384,8 +396,11 @@
       <span class="example-spacer"></span>
       <span class="logo" >
         <a routerLink="/">
-          <img *ngIf="headerValue == 1" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" loading="lazy" />
-          <img *ngIf="headerValue == 2" width="180" height="60" src="../assets/images/raza_logo_black.png" alt="" loading="lazy"/>
+          <img *ngIf="headerValue == 1"  class="lg_show" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" loading="lazy" />
+          <img *ngIf="headerValue == 1" loading="lazy" class="xs_show" src="../assets/images/raza_logo_mb.png" alt="logo" width="126" height="31" />
+          <img *ngIf="headerValue == 2" width="180" height="60"  class="lg_show" src="../assets/images/raza_logo_black.png" alt="" loading="lazy"/>
+          <img *ngIf="headerValue == 2" width="126" height="31" class="xs_show" loading="lazy" src="../assets/images/raza_logo_mb2.png" alt="logo" />
+
         </a>
       </span>
 
