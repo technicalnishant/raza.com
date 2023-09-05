@@ -4,7 +4,7 @@
     <mat-horizontal-stepper [linear]="true" #stepper [selectedIndex]="selectepage" (selectionChange)="stepChange($event)">
         <mat-step [stepControl]="paymentDetailForm">
             <form [formGroup]="paymentDetailForm">
-                <ng-template matStepLabel>Payment Detail</ng-template>
+                <ng-template matStepLabel>Payment Detail </ng-template>
                 <div class="row">
                     <div class="col-md-12">
                         <span class="closeIcon popUpCloseIcon top-0" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>

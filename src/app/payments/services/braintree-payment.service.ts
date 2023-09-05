@@ -168,6 +168,18 @@ export class BraintreePaymentService {
     });
   }
 
+  getToFixedTrunc(x:any) 
+  {
+      
+      let n = 2;
+      const v = (typeof x === 'string' ? x : x.toString()).split('.');
+       
+      if (n <= 0) return v[0];
+      let f = v[1] || '';
+      if (f.length > n) return `${v[0]}.${f.substr(0,n)}`;
+      while (f.length < n) f += '0';
+      return `${v[0]}.${f}`
+  }
   createClient(model: TransactionRequest): void {
  // var cart_amount = model.checkoutOrderInfo.checkoutCart.totalAmount();
    console.log(TransactionType.MR);
@@ -194,13 +206,36 @@ export class BraintreePaymentService {
       if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'GBP' )
       country_code = 3;
 
-	 
+      if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'INR' )
+      country_code = 26;
+      if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'AUD' )
+      country_code = 8;
+      if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'NZD' )
+      country_code = 20;
+
+
+      let nonce_amount = model.checkoutOrderInfo.checkoutCart.totalAmount();
+
+
+      var sess_key        = JSON.parse(localStorage.getItem('session_key'));
+      var sCountryId      = sess_key.country.CountryId;
+     
+      var echange_rate = JSON.parse(localStorage.getItem('exchangeRate'));
+      if( sCountryId >3 )
+      {
+        nonce_amount = this.getToFixedTrunc( (nonce_amount * echange_rate.ExchangeRate))
+      }
+
+      localStorage.setItem('ActualAmountCharge', nonce_amount.toString());
+      localStorage.setItem('PaymentCurrency', model.checkoutOrderInfo.checkoutCart.currencyCode );
+
 		   var data_param = {
 				"FirstName": model.Order.Consumer.BillingAddress.FirstName,
 				"LastName": model.Order.Consumer.BillingAddress.LastName,
 				"HomePhone": '',
 				"Address1": model.Order.Consumer.BillingAddress.Address1,
-				"Amount": model.checkoutOrderInfo.checkoutCart.totalAmount(),
+			//	"Amount": model.checkoutOrderInfo.checkoutCart.totalAmount(),
+				"Amount": nonce_amount,
 				
 				"City": model.Order.Consumer.BillingAddress.City,
 				"State": model.Order.Consumer.BillingAddress.State,
@@ -226,7 +261,7 @@ export class BraintreePaymentService {
           if(data.Nonce && data.Nonce !='' && data.Nonce !=='null') 
           {
           //  this.validateNonce(model, data, token);
-            this.validateNonce3Ds(model, data, token);
+            this.validateNonce3Ds(model, data, token, nonce_amount);
           }
           else
           {
@@ -285,7 +320,7 @@ export class BraintreePaymentService {
    
     });
   }
-  validateNonce3Ds(model: TransactionRequest, data: any, token: any)
+  validateNonce3Ds(model: TransactionRequest, data: any, token: any, nonce_amount)
   {
     const loaderService = this.loaderService;
 
@@ -298,10 +333,17 @@ export class BraintreePaymentService {
       country_code = 'CA';
       if (model.checkoutOrderInfo.checkoutCart.currencyCode == 'GBP')
       country_code = 'GB';
+      if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'INR' )
+      country_code = 'IN';
+      if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'AUD' )
+      country_code = 'AU';
+      if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'NZD' )
+      country_code = 'NZ';
 
     var threeDSecureParameters = {
-
-      amount: model.checkoutOrderInfo.checkoutCart.totalAmount(),
+      
+      //amount: model.checkoutOrderInfo.checkoutCart.totalAmount(),
+      amount: nonce_amount,
         nonce: data.Nonce.Nonce,
         bin: data.Nonce.Details.Bin,
 

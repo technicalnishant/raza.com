@@ -168,6 +168,9 @@ export class TransactionProcessBraintreeService {
     let trans_type = transactionReq.TransactionType;
     const orderInfo = transactionReq.checkoutOrderInfo as RechargeOrderInfo;
     const rechargeCheckOutModel = orderInfo.checkoutCart as RechargeCheckoutModel;
+    let exp_amount = (parseFloat(localStorage.getItem('ActualAmountCharge'))>0)?parseFloat(localStorage.getItem('ActualAmountCharge')):(order.OrderDetails.Amount / 100);
+    let exp_curr = (parseFloat(localStorage.getItem('ActualAmountCharge'))>0)?parseFloat(localStorage.getItem('PaymentCurrency')):(order.OrderDetails.CurrencyCode);
+
     model.OrderId = order.OrderDetails.OrderNumber;
     //model.CustomerId: 
     model.Amount = order.OrderDetails.Amount / 100;
@@ -186,6 +189,9 @@ export class TransactionProcessBraintreeService {
     model.AutoReFillAmount = rechargeCheckOutModel.purchaseAmount;
 	  model.nonce = nonce;
     model.ProcessedBy = rechargeCheckOutModel.ProcessedBy;
+    model.ActualAmountCharge = exp_amount;
+    model.PaymentCurrency = exp_curr.toString();
+
     let transactionResponseModel: TransactionResponseModel;
     /* Process recharge. */
     const rechargeCart = orderInfo.checkoutCart as RechargeCheckoutModel
@@ -328,6 +334,9 @@ export class TransactionProcessBraintreeService {
 
   private processRechargeWithPaypal(paypalCheckoutOrderInfo: IPaypalCheckoutOrderInfo) {
     const rechargeCheckoutModel: RechargeCheckoutModel = paypalCheckoutOrderInfo.checkoutCart as RechargeCheckoutModel;
+    let exp_amount = (parseFloat(localStorage.getItem('ActualAmountCharge'))>0)?parseFloat(localStorage.getItem('ActualAmountCharge')):(rechargeCheckoutModel.purchaseAmount);
+    let exp_curr = (parseFloat(localStorage.getItem('ActualAmountCharge'))>0)?parseFloat(localStorage.getItem('PaymentCurrency')):(rechargeCheckoutModel.currencyCode);
+   
     let modelInfo: RechargeRequestModel = {
       OrderId: paypalCheckoutOrderInfo.orderId,
       Amount: rechargeCheckoutModel.purchaseAmount,
@@ -349,7 +358,9 @@ export class TransactionProcessBraintreeService {
       Cvv2Response: '',
       ZipCodeResponse: '',
       nonce :'',
-      ProcessedBy:''
+      ProcessedBy:'',
+      ActualAmountCharge: exp_amount,
+      PaymentCurrency:exp_curr.toString()
     };
     let transactionResponseModel: TransactionResponseModel;
     this.rechargeService.ProcessRecharge(rechargeCheckoutModel.planId, modelInfo).subscribe(

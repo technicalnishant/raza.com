@@ -21,4 +21,6 @@ export class RechargeRequestModel{
     AutoReFillAmount: number;
 	nonce:string;
     ProcessedBy:string='';
+    ActualAmountCharge: number;
+    PaymentCurrency :string;
 }

@@ -4,7 +4,7 @@
                    <div class="row">
                        <div class="col-md-12">
                            <span class="closeIcon top-0" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
-                           <h2>Add Credit Card</h2>
+                           <h2>Add Credit Card dfasdfa</h2>
                        </div>
                    </div>
                    <div class="row commonPopupRow">
@@ -71,8 +71,9 @@
                        <div class="col-sm-6">
                         
                            <mat-form-field>
-                               <mat-select [disabled]="search_country_id" placeholder="Country" formControlName="Country" (selectionChange)="loadStates()">
-                                   <mat-option *ngFor="let item of fromCountry" [value]="item.CountryId">
+                               <!-- <mat-select [disabled]="search_country_id" placeholder="Country" formControlName="Country" (selectionChange)="loadStates()"> -->
+                                <mat-select placeholder="Country" formControlName="Country" (selectionChange)="loadStates()">
+                                <mat-option *ngFor="let item of fromCountry" [value]="item.CountryId">
                                        {{item.CountryName}}</mat-option>
                                </mat-select>
                            </mat-form-field>

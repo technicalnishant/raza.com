@@ -165,6 +165,8 @@ export class TransactionProcessFacadeService {
     model.AutoReFillAmount = rechargeCheckOutModel.purchaseAmount;
 	model.nonce = '';
   model.ProcessedBy = '';
+  model.ActualAmountCharge  =parseFloat(localStorage.getItem('ActualAmountCharge'));
+  model.PaymentCurrency=localStorage.getItem('PaymentCurrency');
     let transactionResponseModel: TransactionResponseModel;
     /* Process recharge. */
     const rechargeCart = orderInfo.checkoutCart as RechargeCheckoutModel
@@ -302,6 +304,8 @@ export class TransactionProcessFacadeService {
       ZipCodeResponse: '',
       nonce : '',
       ProcessedBy:'',
+      ActualAmountCharge :parseFloat(localStorage.getItem('ActualAmountCharge')),
+   PaymentCurrency :localStorage.getItem('PaymentCurrency'),
     };
     let transactionResponseModel: TransactionResponseModel;
     this.rechargeService.ProcessRecharge(rechargeCheckoutModel.planId, modelInfo).subscribe(

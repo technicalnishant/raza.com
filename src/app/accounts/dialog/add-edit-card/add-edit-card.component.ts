@@ -73,7 +73,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
       private razaSharedService: RazaSharedService
     ) {
       this.razaSharedService.getTopThreeCountry().subscribe((res: any) => {
-        this.fromCountry = res.slice(0, 3);
+        this.fromCountry = res;//.slice(0, 3);
       });
   
      

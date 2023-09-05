@@ -182,6 +182,8 @@ export class RechargePaymentComponent implements OnInit {
       ZipCodeResponse: '',
 	  nonce:'',
     ProcessedBy:'',
+    ActualAmountCharge: parseFloat(localStorage.getItem('ActualAmountCharge')),
+      PaymentCurrency:localStorage.getItem('PaymentCurrency')
     };
 
     this.rechargeService.ProcessRecharge(this.plan.Pin, modelInfo).subscribe(

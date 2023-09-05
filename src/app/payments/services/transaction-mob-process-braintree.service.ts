@@ -332,7 +332,9 @@ export class TransactionMobProcessBraintreeService {
       Cvv2Response: '',
       ZipCodeResponse: '',
       nonce :'',
-      ProcessedBy : ''
+      ProcessedBy : '',
+      ActualAmountCharge: parseFloat(localStorage.getItem('ActualAmountCharge')),
+      PaymentCurrency:localStorage.getItem('PaymentCurrency')
     };
     
     let transactionResponseModel: TransactionResponseModel;

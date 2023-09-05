@@ -27,4 +27,6 @@ DeviceModel:string;
 DeviceType:string;
 AppVersion:string;
 ProcessedBy:string='';
+ActualAmountCharge: number;
+    PaymentCurrency :string;
 }

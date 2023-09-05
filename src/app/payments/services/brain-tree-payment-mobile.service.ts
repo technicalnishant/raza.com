@@ -168,139 +168,173 @@ export class BrainTreePaymentMobileService {
       data: { error }
     });
   }
-
-  createClient(model: TransactionRequest): void {
- // var cart_amount = model.checkoutOrderInfo.checkoutCart.totalAmount();
-   console.log(TransactionType.MR);
-  console.log(model);
-  var currency = model.checkoutOrderInfo.checkoutCart.currencyCode;
-   //this.httpClient.get(Api.braintree.generateToken)
-   this.httpClient.get(Api.braintree.generateToken+'/'+currency)
-        .subscribe((data:any) => {
-        var token = data.token;
-      let country_code = 1
-     /* 
-      if(  model.Order.Consumer.BillingAddress.CountryCode == 'US' )
-      country_code = 1;
-      if(  model.Order.Consumer.BillingAddress.CountryCode == 'CAD' )
-      country_code = 2;
-      if(  model.Order.Consumer.BillingAddress.CountryCode == 'UK' )
-      country_code = 3;
-*/
-
-    if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'USD' )
-      country_code = 1;
-      if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'CAD' )
-      country_code = 2;
-      if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'GBP' )
-      country_code = 3;
-
-		   var data_param = {
-				"FirstName": model.Order.Consumer.BillingAddress.FirstName,
-				"LastName": model.Order.Consumer.BillingAddress.LastName,
-				"HomePhone": '',
-				"Address1": model.Order.Consumer.BillingAddress.Address1,
-				"Amount": model.checkoutOrderInfo.checkoutCart.totalAmount(),
-				"City": model.Order.Consumer.BillingAddress.City,
-				"State": model.Order.Consumer.BillingAddress.State,
-				"ZipCode": model.Order.Consumer.BillingAddress.PostalCode,
-				"Comment1": model.Order.OrderDetails.OrderDescription,
-				"Comment2": "",
-				"Country":country_code,
-				
-				"CardNumber": model.checkoutOrderInfo.creditCard.CardNumber,
-				"CurrencyCode": model.checkoutOrderInfo.checkoutCart.currencyCode,
-				"CvvValue": model.checkoutOrderInfo.creditCard.Cvv,
-				"DoAuthorize": "true",
-				"EmailAddress":model.Order.Consumer.Email1, 
-				"ExpiryDate": model.checkoutOrderInfo.creditCard.ExpiryMonth+'/'+model.checkoutOrderInfo.creditCard.ExpiryYear,
-				
-				"IpAddress": "111.111.111.111",
-				
-				"OrderId": model.Order.OrderDetails.OrderNumber,
-			};
+  getToFixedTrunc(x:any) 
+  {
       
-			   //this.httpClient.post<any>(Api.braintree.createNonce+'/312335',data_param).subscribe(data => {
-          this.httpClient.post<any>(Api.braintree.createNonce,data_param).subscribe(data => {
-          if(data.Nonce && data.Nonce !='' && data.Nonce !=='null') 
-          {
-             this.validateNonce(model, data, token);
-          }
-          else
-          {
-            const loaderService = this.loaderService;
-            
-            let error = new ErrorDialogModel();
-            error.message = data.ResponseMessage;
-            //this.openErrorDialog(error);
-             if(data.ResponseMessage == 'Card Issuing Bank declined to accept the transaction. Please contact your credit card customer service(2000)')
-             {
-               this.razaSnackbarService.openError('Please check you card details .');
-               localStorage.setItem('errorMsg', 'Please check you card details .');
-             }
-            else if(data.ResponseMessage == 'Billing Address does not match. ')
-            {
-              this.razaSnackbarService.openError('Please check your billing information.');
-              localStorage.setItem('errorMsg', 'Please check your billing information.');
-            }
-            else
-            {
-              this.razaSnackbarService.openError(data.ResponseMessage);
-              localStorage.setItem('errorMsg', data.ResponseMessage);
-            }
-
-            //this.razaSnackbarService.openError(data.ResponseMessage);
-            //localStorage.setItem('errorMsg', data.ResponseMessage);
-            localStorage.setItem('errorCode', data.ResponseCode);
-            ///this.editCardDetails();
-            if(data.ResponseCode == 2)
-            {
-              localStorage.setItem('selectedCvv', model.checkoutOrderInfo.creditCard.Cvv);
-            }
-            else
-            {
-              //localStorage.rmoveItem('selectedCvv');
-            }
-            localStorage.setItem('errorCode', data.ResponseCode);
-            loaderService.displayPaymentHard(false);
-            
-            let element:HTMLElement = document.getElementById('error_trigger') as HTMLElement;
-            element.click();
-            return data;
-            //ResponseCode
-              /*** 
-               * ZipCode/PostalCode does not match
-               * Billing Address does not match.
-               * 
-                ResponseCode = "2" for AVS Issue 
-                ResponseCode = "3" for CVV issue
-                ResponseCode = "4" for invalid credit card(i.e. typo)
-                ResponseCode = "5" for invalid expiry date 
-                ***/
-
-          }
-            
-            
-            
-				  console.log(data);
-        } , err => {
-          const loaderService = this.loaderService;
-          
-          loaderService.displayPaymentHard(false);
-          let error = new ErrorDialogModel();
-          error.message = err.error.Message;
-          this.ngZone.run(() => {
-            this.openErrorDialog(error);
-             
-            
-          });
-
-        }); 
-   
-    });
+      let n = 2;
+      const v = (typeof x === 'string' ? x : x.toString()).split('.');
+       
+      if (n <= 0) return v[0];
+      let f = v[1] || '';
+      if (f.length > n) return `${v[0]}.${f.substr(0,n)}`;
+      while (f.length < n) f += '0';
+      return `${v[0]}.${f}`
   }
-
-  validateNonce(model: TransactionRequest, data:any, token:any)
+  createClient(model: TransactionRequest): void {
+    // var cart_amount = model.checkoutOrderInfo.checkoutCart.totalAmount();
+     //  console.log(TransactionType.MR);
+     // console.log(model);
+     var currency = model.checkoutOrderInfo.checkoutCart.currencyCode;
+      //this.httpClient.get(Api.braintree.generateToken)
+      this.httpClient.get(Api.braintree.generateToken+'/'+currency)
+           .subscribe((data:any) => {
+           var token = data.token;
+         let country_code = 1
+        /* 
+         if(  model.Order.Consumer.BillingAddress.CountryCode == 'US' )
+         country_code = 1;
+         if(  model.Order.Consumer.BillingAddress.CountryCode == 'CAD' )
+         country_code = 2;
+         if(  model.Order.Consumer.BillingAddress.CountryCode == 'UK' )
+         country_code = 3;
+   */
+   
+         if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'USD' )
+         country_code = 1;
+         if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'CAD' )
+         country_code = 2;
+         if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'GBP' )
+         country_code = 3;
+         if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'INR' )
+         country_code = 26;
+         if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'AUD' )
+         country_code = 8;
+         if(  model.checkoutOrderInfo.checkoutCart.currencyCode == 'NZD' )
+         country_code = 20;
+   
+         let nonce_amount = model.checkoutOrderInfo.checkoutCart.totalAmount();
+   
+   
+         var sess_key        = JSON.parse(localStorage.getItem('session_key'));
+         var sCountryId      = sess_key.country.CountryId;
+        
+         var echange_rate = JSON.parse(localStorage.getItem('exchangeRate'));
+         if( sCountryId >3 )
+         {
+           nonce_amount = this.getToFixedTrunc( (nonce_amount * echange_rate.ExchangeRate))
+         }
+   
+         localStorage.setItem('ActualAmountCharge',nonce_amount.toString());
+         localStorage.setItem('PaymentCurrency', model.checkoutOrderInfo.checkoutCart.currencyCode);
+         
+          var data_param = {
+           "FirstName": model.Order.Consumer.BillingAddress.FirstName,
+           "LastName": model.Order.Consumer.BillingAddress.LastName,
+           "HomePhone": '',
+           "Address1": model.Order.Consumer.BillingAddress.Address1,
+           "Amount": nonce_amount,
+           
+           "City": model.Order.Consumer.BillingAddress.City,
+           "State": model.Order.Consumer.BillingAddress.State,
+           "ZipCode": model.Order.Consumer.BillingAddress.PostalCode,
+           "Comment1": model.Order.OrderDetails.OrderDescription,
+           "Comment2": "",
+           "Country":country_code,
+           
+           "CardNumber": model.checkoutOrderInfo.creditCard.CardNumber,
+           "CurrencyCode": model.checkoutOrderInfo.checkoutCart.currencyCode,
+           "CvvValue": model.checkoutOrderInfo.creditCard.Cvv,
+           "DoAuthorize": "true",
+           "EmailAddress":model.Order.Consumer.Email1, 
+           "ExpiryDate": model.checkoutOrderInfo.creditCard.ExpiryMonth+'/'+model.checkoutOrderInfo.creditCard.ExpiryYear,
+           
+           "IpAddress": "111.111.111.111",
+           
+           "OrderId": model.Order.OrderDetails.OrderNumber,
+         };
+         
+            //this.httpClient.post<any>(Api.braintree.createNonce+'/312335',data_param).subscribe(data => {
+             this.httpClient.post<any>(Api.braintree.createNonce,data_param).subscribe(data => {
+             if(data.Nonce && data.Nonce !='' && data.Nonce !=='null') 
+             {
+                this.validateNonce(model, data, token, nonce_amount);
+             }
+             else
+             {
+               const loaderService = this.loaderService;
+               
+               let error = new ErrorDialogModel();
+               error.message = data.ResponseMessage;
+               //this.openErrorDialog(error);
+                if(data.ResponseMessage == 'Card Issuing Bank declined to accept the transaction. Please contact your credit card customer service(2000)')
+                {
+                  this.razaSnackbarService.openError('Please check you card details .');
+                  localStorage.setItem('errorMsg', 'Please check you card details .');
+                }
+               else if(data.ResponseMessage == 'Billing Address does not match. ')
+               {
+                 this.razaSnackbarService.openError('Please check your billing information.');
+                 localStorage.setItem('errorMsg', 'Please check your billing information.');
+               }
+               else
+               {
+                 this.razaSnackbarService.openError(data.ResponseMessage);
+                 localStorage.setItem('errorMsg', data.ResponseMessage);
+               }
+   
+               //this.razaSnackbarService.openError(data.ResponseMessage);
+               //localStorage.setItem('errorMsg', data.ResponseMessage);
+               localStorage.setItem('errorCode', data.ResponseCode);
+               ///this.editCardDetails();
+               if(data.ResponseCode == 2)
+               {
+                 localStorage.setItem('selectedCvv', model.checkoutOrderInfo.creditCard.Cvv);
+               }
+               else
+               {
+                 //localStorage.rmoveItem('selectedCvv');
+               }
+               localStorage.setItem('errorCode', data.ResponseCode);
+               loaderService.displayPaymentHard(false);
+               
+               let element:HTMLElement = document.getElementById('error_trigger') as HTMLElement;
+               element.click();
+               return data;
+               //ResponseCode
+                 /*** 
+                  * ZipCode/PostalCode does not match
+                  * Billing Address does not match.
+                  * 
+                   ResponseCode = "2" for AVS Issue 
+                   ResponseCode = "3" for CVV issue
+                   ResponseCode = "4" for invalid credit card(i.e. typo)
+                   ResponseCode = "5" for invalid expiry date 
+                   ***/
+   
+             }
+               
+               
+               
+             console.log(data);
+           } , err => {
+             const loaderService = this.loaderService;
+             
+             loaderService.displayPaymentHard(false);
+             let error = new ErrorDialogModel();
+             error.message = err.error.Message;
+             this.ngZone.run(() => {
+               this.openErrorDialog(error);
+                
+               
+             });
+   
+           }); 
+      
+       });
+     }
+   
+     
+  validateNonce(model: TransactionRequest, data:any, token:any, nonce_amount)
   {
     var threeDSecure;
     const loaderService = this.loaderService;
@@ -319,12 +353,13 @@ export class BrainTreePaymentMobileService {
       });
     }).then(function (threeDSecureInstance) {
       threeDSecure = threeDSecureInstance;
-      
+      console.log("nonce_amount ", nonce_amount);
       var my3DSContainer;
       threeDSecure.verifyCard({
        nonce: data.Nonce.Nonce,
-       //amount: model.Order.OrderDetails.Amount/100,
-       amount: model.checkoutOrderInfo.checkoutCart.totalAmount(),
+       //amount: model.Order.OrderDetails.Amount/100, 
+      // amount: model.checkoutOrderInfo.checkoutCart.totalAmount(),
+       amount: nonce_amount,
        addFrame: function (err, iframe) {
          // Set up your UI and add the iframe.
          //my3DSContainer = document.createElement('div');
