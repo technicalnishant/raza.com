@@ -481,26 +481,70 @@ td {
     padding: 60px 15px !important;
   }
   .intMobileTopup {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-  }
-  .intMobileTopup {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 660px;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 1px solid #c6c6c6;
+    padding: 18px 30px 30px;
     mat-form-field {
-        width: 47%;
     }
     button.submit-btn {
-        background: #f4cb26;
-        padding: 9px 40px;
-        border-radius: 20px;
+        background: #f3c423;
+        padding: 10px 50px;
+        border-radius: 30px;
         color: #000;
+        font-weight: 700;
         border: none;
-        font-weight: 500;
+        text-decoration: none;
+        width: 100% !important;
+        font-size: 20px;
+        &:hover {
+          background-color: #f4d24c;
+        }
     }
     .button-wrapper {
         width: 100%;
         text-align: right;
         margin-top: 8px;
+    }
+    .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+      padding-left: 11px;
+      padding-top: 10px;
+    }
+    .labelText {
+      font-size: 20px;
+      color: #9a9a9a;
+      font-weight: 500;
+    }
+    .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float.globe .mat-form-field-label {
+      padding-left: 25px;
+    }
+    .mat-form-field-underline {
+      bottom: 8px;
+      background-color: #e2e2e2;
+      overflow: hidden;
+    }
+    .globe {
+      .globeIcon {
+        position: absolute;
+        top: 14px;
+        width: 30px;
+        height: 30px;
+        background-image: url(../../../../assets/images/globe.png);
+        background-repeat: no-repeat;
+        background-position: left;
+        ~ input[type="text"] {
+          padding-left: 45px;
+        }
+      }
+      .labelText {
+        padding-left: 45px;
+      }
     }
   }
 .top_up_btn {
