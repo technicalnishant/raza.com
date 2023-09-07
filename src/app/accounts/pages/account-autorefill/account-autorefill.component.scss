@@ -150,7 +150,7 @@
     display: block;
     clear: both;
     overflow: hidden;
-    max-width: 1200px;
+    // max-width: 1200px;
     margin: 0 auto;
     .leftTabArea {
       float: left;
@@ -237,8 +237,8 @@
     }
   }
 
-  
-  
+
+
   @media only screen and (max-width: 868px)  {
   .myaccountTabArea{padding: 120px 0 0 0; margin-bottom: 0px;}
   h2.welcomeText{font-size: 27px; margin-bottom: 10px;}
@@ -258,7 +258,7 @@
   .razaNumberLeft table tr th,.razaNumberLeft table tr td{ width: 50%;padding: 10px 25px !important;}
   .tabContentMyaccount table tr th,.tabContentMyaccount table tr td{ /*width: 50%;*/padding: 10px 25px !important;}
   table.orderHistory tr td:first-child{font-family: $font-family; font-weight: 500; color:#0B203E;}
-  .razawebNumberRightApplinkArea{ margin: 25px 10px !important;padding: 20px 12px !important;} 
+  .razawebNumberRightApplinkArea{ margin: 25px 10px !important;padding: 20px 12px !important;}
   .greyBg{background: #FAFAFA; margin: 0px;padding: 30px 0;}
   .cardDetails{ width:70%;}
   .cardDetails p{margin-bottom: 2px;}
@@ -266,7 +266,7 @@
   .cardDetails p.cardNumber span{padding: 0px;}
   .paymentDetails{padding: 60px 25px;}
   .myaccountTabArea .submitButton{margin-top: 40px;}
-  
+
   .myNumberButtonArea{ width: 100%; text-align: center; }
   .myNumberButtonArea button:first-child{float: none; display: block; margin: 0 auto 30px; width: 240px !important;}
   .myNumberButtonArea button:last-child{float: none; display: block; margin: 0 auto 30px; width: 240px !important;}
@@ -276,14 +276,14 @@
   .autorefillTextarea p.enabledText{ color: #1A9259; font-size: 16px; font-family: $font-family; font-weight: 500;}
   .enabledText .mat-icon{ font-size:16px;}
   .autorefillTextarea p.autoTextcommon button:focus{ background: none; outline: none;}
-  .autorefillTextarea p.autoTextcommon span.iconSpan{padding-left: 15px;} 
+  .autorefillTextarea p.autoTextcommon span.iconSpan{padding-left: 15px;}
   .autorefillTextarea p.autoTextcommon span .mat-icon{color: #103F8A; font-size: 30px; display: -webkit-inline-box;}
   .autorefill p.tabTitle{ color: #0B203E; font-size: 24px;font-family: $font-family; font-weight: 600;line-height: 20px; margin-bottom: 40px;}
   .autorefill p.tabTitle span{color: #808080; font-size: 14px;}
   .myaccountTabArea .callForward table{ margin-top: 0px;}
   table.showAlltable tr td{width: 33.33% !important;}
-  .rewardsOverview table tr th:last-child,.rewardsOverview table tr td:last-child{ text-align: right !important;} 
-  
+  .rewardsOverview table tr th:last-child,.rewardsOverview table tr td:last-child{ text-align: right !important;}
+
   .app_list ul{ display: flex; margin: 0 auto;}
   .app_list{ clear: both; overflow: hidden;}
   .app_list ul li:last-of-type {
@@ -292,10 +292,9 @@
   .tabContentMyaccount{
     margin-bottom: 50px !important;
     }
-  } 
-  
-  
+  }
+
+
   .tabContentMyaccount1 .rechargeLeft .submitButton,.tabContentMyaccount1 .rechargeRight .submitButton {
     width: 255px !important;
   }
-  

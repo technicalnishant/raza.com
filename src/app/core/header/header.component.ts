@@ -103,7 +103,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     //console.log('sidenav',this.sidenav);
     this.authService.getSharedValue().subscribe(value => {
       this.isAuthenticatedn = value;
-      
+
     });
 
 }
@@ -175,6 +175,10 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       this.showHeader = true;
       this.showMyaccontHeader = false;
       this.blueBg = 0;
+    }
+    else if(event.url == '/mobiletopup'){
+      this.showMyaccontHeader = false;
+      this.showHeader = false;
     }
     else if(event.url == '/globalcallrates')
     {

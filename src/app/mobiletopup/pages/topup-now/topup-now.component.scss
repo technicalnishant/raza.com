@@ -603,11 +603,11 @@
       position:static;
 
     }
-    .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
-      padding-left: 55px;
-      padding-top: 10px;
-    }
     .mobileTopup {
+      .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+        padding-left: 25px;
+        padding-top: 10px;
+      }
       .labelText {
         font-size: 20px;
         color: #9a9a9a;

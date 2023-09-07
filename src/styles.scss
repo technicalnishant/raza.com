@@ -3059,8 +3059,9 @@ h2 {
 }
 
 .commonPopup2 {
+  padding: 8px;
   h2 {
-    margin-bottom: 30px;
+    margin-bottom: 45px;
   }
   .myNumberButtonArea2 {
     display: flex;
@@ -3951,6 +3952,9 @@ app-add-creditcard-dialog a.what-cvv {
 .mat-button-disabled,
 .submit-grey {
     background-color: #e9e9ec !important;
+}
+.mat-stepper-previous ~ .closeIcon {
+  right: 4px;
 }
 .closeIcon.top-0 {
     top: 0;
