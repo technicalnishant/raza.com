@@ -57,7 +57,8 @@ export class AccountMyNumberComponent implements OnInit {
   deletePinLess(item) {
     const dialogRef = this.dialog.open(ConfirmPopupDialog, {
       data: {
-        success: 'success'
+        success: 'success',
+        message:'Are you absolutely certain you wish to remove this number?'
       }
     });
 

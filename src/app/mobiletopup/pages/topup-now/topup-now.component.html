@@ -246,6 +246,10 @@
           <div class="mobileTopupData">
               <div class="mobileTopupDataInner" *ngFor="let item of orderHistoryList; index as i" >
                 <ng-container >
+                  <div><span class="mr-2">
+                    <img src="assets/images/blank.gif" [ngClass]="'flag flag-' +getFlagId(item)"
+                      [alt]="getFlagname(item)" />
+                  </span></div>
                   <div>{{item.CardName}}</div>
                   <div>{{item.OrderDate | date :'M/d/yy h:mm a'}}</div>
                   <div>{{item.Price | bCurrency : item.CurrencyCode}}</div>

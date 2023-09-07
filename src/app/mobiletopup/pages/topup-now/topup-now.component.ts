@@ -35,6 +35,7 @@ import { OrderHistory } from 'app/accounts/models/orderHistory';
 export class TopupNowComponent implements OnInit, OnDestroy {
 
   allCountry: Country[];
+  allCountryList: any;
   mycountryName: string;
   mycountryId: number;
   filteredCountry: Observable<Country[]>;
@@ -170,6 +171,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.countryService.getAllCountries().subscribe(
       (data: Country[]) => {
         this.allCountry = data;
+        this.allCountryList = data;
         if(this.iso !='')
         {
           for (let i = 0; i < data.length; i++) {
@@ -543,6 +545,31 @@ export class TopupNowComponent implements OnInit, OnDestroy {
       },
       (err: ApiErrorResponse) => console.log(err),
     );
+  }
+
+  getFlagname(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+
+  
+        let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+        if(ctr_info[0])
+        {
+          return ctr_info[0].CountryName;
+        }
+    }
+  }
+  getFlagId(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+      let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+      if(ctr_info[0])
+      {
+      return ctr_info[0].CountryId;
+      }
+    }
   }
 
 }
