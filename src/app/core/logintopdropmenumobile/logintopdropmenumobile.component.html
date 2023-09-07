@@ -11,7 +11,7 @@
 
   <div *ngIf="isAccountMenuDisplay" class="slidemenu hideSome" (click)="$event.stopPropagation();">
     <mat-nav-list role="list"> 
-      <app-account-top-menu [plan]="planSub$ | async"></app-account-top-menu>
+      <app-account-top-menu (childEvent)="callParentFunction()" [plan]="planSub$ | async"></app-account-top-menu>
     </mat-nav-list>
   </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Plan } from '../../../accounts/models/plan';
 import { Router, NavigationStart } from '@angular/router';
 @Component({
@@ -9,6 +9,8 @@ import { Router, NavigationStart } from '@angular/router';
 export class AccountTopMenuComponent implements OnInit {
   @Input() plan: Plan;
   @Input() myMethod: Function;
+  @Output() childEvent = new EventEmitter<void>();
+  
   constructor(private router: Router,
   ) { }
   
@@ -19,4 +21,10 @@ export class AccountTopMenuComponent implements OnInit {
        
     })
   }
+
+
+  closeParent(){
+    this.childEvent.emit();
+  }
+   
 }
