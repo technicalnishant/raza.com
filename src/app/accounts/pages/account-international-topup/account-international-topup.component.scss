@@ -398,6 +398,14 @@ td {
 	display: block;
 }
 
+::ng-deep {
+  .top-banner.accountInternational {
+      height: 550px;
+  }
+  .commonmyaccountareaforallpages {
+    margin-bottom: 0 !important;
+  }
+}
 
 @media only screen and (max-width: 868px)  {
   .myaccountTabArea{padding: 120px 0 0 0; margin-bottom: 0px;}
