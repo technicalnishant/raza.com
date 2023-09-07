@@ -489,8 +489,9 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     deleteCardDetails(card) {
       const dialogRef = this.dialog.open(ConfirmPopupDialog, {
         data: {
-          message:'Delete Credit Card ?',
-          success: 'success'
+          message:'Are you sure?',
+          success: 'success',
+          heading:'Delete card details'
         }
       });
   

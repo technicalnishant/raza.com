@@ -186,7 +186,9 @@ export class AccountPaymentDetailsComponent implements OnInit, OnDestroy {
   deleteCardDetails(card) {
     const dialogRef = this.dialog.open(ConfirmPopupDialog, {
       data: {
-        success: 'success'
+        success: 'success',
+        message:'Are you sure?',
+        heading:'Delete card details'
       }
     });
 

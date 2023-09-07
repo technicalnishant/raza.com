@@ -331,7 +331,9 @@ export class AccountAutorefillComponent implements OnInit, OnDestroy {
   deleteAutoRefill() {
     const dialogRef = this.dialog.open(ConfirmPopupDialog, {
       data: {
-        success: 'success'
+        success: 'success',
+        message:'Are you sure?',
+        heading:'Delete autorefill'
       }
     });
 

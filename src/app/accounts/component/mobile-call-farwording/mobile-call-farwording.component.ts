@@ -57,7 +57,9 @@ export class MobileCallFarwordingComponent implements OnInit {
     //  console.log('item', item);
     const dialogRef = this.dialog.open(ConfirmPopupDialog, {
       data: {
-        success: 'success'
+        success: 'success',
+        message:'Are you sure?',
+        heading:'Delete call forwarding'
       }
     });
 

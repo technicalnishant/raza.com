@@ -538,10 +538,11 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.customerService.getFullOrderHistory('topup', this.orderHistoryPage).subscribe(
       (data: OrderHistory[]) => {
       //  console.log('data',data);
-        //this.orderHistoryList = data;
-        data.map(a => {
-          this.orderHistoryList.push(a);
-        });
+         this.orderHistoryList = data.slice(0, 3);
+        // data.map(a => {
+        //   this.orderHistoryList.push(a);
+        //   this.orderHistoryList.slice(0, 3);
+        // });
       },
       (err: ApiErrorResponse) => console.log(err),
     );
