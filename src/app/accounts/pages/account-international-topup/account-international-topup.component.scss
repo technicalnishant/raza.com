@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 .table {
 	td {
 		font-family: 'Montserrat', sans-serif;
@@ -480,6 +481,10 @@ td {
   .tableNewSpaceN {
     padding: 60px 15px !important;
   }
+  ::ng-deep {
+  .form-wrapper .mat-form-field-should-float .mat-form-field-infix {
+    position:static;
+  }
   .intMobileTopup {
     display: flex;
     flex-wrap: wrap;
@@ -492,6 +497,10 @@ td {
     border: 1px solid #c6c6c6;
     padding: 18px 30px 30px;
     mat-form-field {
+      margin-bottom: 10px;
+    }
+    span.prefix-mobiletopup {
+      margin-right: 15px;
     }
     button.submit-btn {
         background: #f3c423;
@@ -514,7 +523,6 @@ td {
     }
     .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
       padding-left: 11px;
-      padding-top: 10px;
     }
     .labelText {
       font-size: 20px;
@@ -532,7 +540,7 @@ td {
     .globe {
       .globeIcon {
         position: absolute;
-        top: 14px;
+        top: 4px;
         width: 30px;
         height: 30px;
         background-image: url(../../../../assets/images/globe.png);
@@ -547,6 +555,13 @@ td {
       }
     }
   }
+  .countryPopUp {
+    border-radius: 20px;
+    border: 1px solid #c6c6c6;
+    box-shadow: none !important;
+    padding: 0 20px;
+  }
+}
 .top_up_btn {
     text-align: center;
     margin-bottom: 30px;
