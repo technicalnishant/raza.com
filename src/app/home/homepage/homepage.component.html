@@ -55,7 +55,9 @@
                               <img src="./assets/images/home_banner_new/was10now5_mb.webp" alt="img" loading="lazy" class="img-fluid showMobileOnly">
                           </div>
                           <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
-                              <img src="./assets/images/home_banner_new/was5now5_us.webp" width="416" height="333" alt="img" loading="lazy" class="img-fluid d-none d-md-block">
+                              <a routerLink="deals/buy1-get1">
+                                <img src="./assets/images/home_banner_new/was5now5_us.webp" width="416" height="333" alt="img" loading="lazy" class="img-fluid d-none d-md-block">
+                              </a>
                           </div>
                           <!-- <div class="img-1 d-none d-md-block" *ngIf="currentSetting?.country?.CountryId ==3"> -->
                               <!-- <img src="./assets/images/uk_left_new.webp" alt="" loading="lazy" class="img-fluid"> -->
@@ -110,10 +112,9 @@
                           </a>
                       </div>
                   </div>
-                  <div class="playStor_text d-block d-md-none">
-                      Download our app for the easiest
-                      way to manage your account.
-                  </div>
+                  <!-- <div class="playStor_text d-block d-md-none">
+                      Download our app for the easiest way to manage your account.
+                  </div> -->
                   <!-- <img loading="lazy" src="./assets/images/download_get_us.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId !=3"> -->
                   <!-- <div  style="width:100%; height:45px;">
                       <a href="javascript:void(0)" (click)="downloadApp()" class="btn-slider" type="button" mat-button>Download Now</a>

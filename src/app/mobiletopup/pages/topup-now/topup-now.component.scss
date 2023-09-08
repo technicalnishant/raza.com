@@ -655,6 +655,7 @@
           background: #fff;
           border-radius: 25px;
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
           padding: 16px 24px;
           // border: 1px solid #c6c6c6;
@@ -692,9 +693,48 @@
                 border-radius: 25px;
                 font-weight: 600;
                 color: #283a69 !important;
+                &:hover {
+                  background: #f3c423;
+                  border-color: #f3c423;
+                }
+            }
+          }
+          @media only screen and (max-width: 767px) {
+            padding: 12px 18px;
+            font-size: 15px;
+            position: relative;
+            .numPrice {
+                font-size: 18px;
+                width: calc(100% - 85px);
+            }
+            .country_img {
+                width: 50px;
+                height: 50px;
+                margin-right: 18px;
+            }
+            .topUpNow {
+              position: absolute;
+              right: 13px;
+              top: 18px;
+              a {
+                  padding: 5px 10px;
+                  font-size: 15px;
+              }
+            }
+            .countryDate {
+                margin-left: auto;
             }
           }
         }
+    }
+    .mbTopupTitle {
+        color: #162f75;
+        text-align: center;
+        padding: 0 20px;
+        margin: 10px 0 35px;
+        font-size: 28px;
+        font-weight: 600;
+        text-transform: capitalize;
     }
   }
   input{
