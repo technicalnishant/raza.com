@@ -1478,3 +1478,9 @@ input#searchInput::placeholder {
     margin-left: -10%;
  }
 }
+
+@media screen and (min-width: 767px) {
+  .myAct.matButtonBGN2 {
+      display: none;
+  }
+}

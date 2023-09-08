@@ -77,24 +77,14 @@
 	}
 }
 .tabContentMyaccount {
-	padding: 180px 0;
 	background: #fff;
 	clear: both;
 	overflow: hidden;
+  &.tabCont2 {
+    margin-top: -135px;
+  }
 }
 p {
-	&.tabTitle {
-		text-align: center;
-		color: #0B203E;
-		font-size: 28px;
-		font-family: 'Montserrat', sans-serif;
-		font-weight: 400;
-		line-height: 34px;
-		@media only screen and (max-width: 868px) {
-			font-weight: 600;
-		}
-
-	}
 	&.currentBalance {
 		color: #0B203E;
 		font-size: 24px;
@@ -402,6 +392,22 @@ td {
 ::ng-deep {
   .top-banner.accountInternational {
       height: 550px;
+      position: relative;
+      .intTopTitleWrap {
+        color: #fff;
+        position: absolute;
+        left: 10%;
+        top: 20%;
+        .tabTitle {
+          font-size: 52px;
+          font-weight: 700;
+          margin: 0;
+          text-transform: uppercase;
+        }
+      .desc {
+        font-size: 20px;
+      }
+    }
   }
   .commonmyaccountareaforallpages {
     margin-bottom: 0 !important;
@@ -466,25 +472,10 @@ td {
   .tabContentMyaccount1 .rechargeLeft .submitButton,.tabContentMyaccount1 .rechargeRight .submitButton {
     width: 255px !important;
   }
-  .tabContentMyaccount {
-    p {
-      &.desc {
-        text-align: center;
-        color: #0B203E;
-        font-size: 16px;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 300;
-        padding: 0 10px;
-      }
-    }
-  }
   .tableNewSpaceN {
     padding: 60px 15px !important;
   }
   ::ng-deep {
-  .form-wrapper .mat-form-field-should-float .mat-form-field-infix {
-    position:static;
-  }
   .intMobileTopup {
     display: flex;
     flex-wrap: wrap;
@@ -496,6 +487,7 @@ td {
     border-radius: 20px;
     border: 1px solid #c6c6c6;
     padding: 18px 30px 30px;
+    background: #fff;
     mat-form-field {
       margin-bottom: 10px;
     }
@@ -556,10 +548,26 @@ td {
     }
   }
   .countryPopUp {
-    border-radius: 20px;
+    border-radius: 20px !important;
     border: 1px solid #c6c6c6;
     box-shadow: none !important;
     padding: 0 20px;
+    margin-top: 30px;
+    .title {
+        font-size: 14px;
+        color: #656565;
+        font-weight: 600;
+        padding: 14px 20px;
+        margin: 0 -20px;
+        border-bottom: 1px solid #dbe3ed;
+        & + .mat-option {
+          border-top: none;
+        }
+    }
+    .mat-option {
+        border-top: 1px solid #ecf1f7;
+        font-size: 17px;
+    }
   }
 }
 .top_up_btn {

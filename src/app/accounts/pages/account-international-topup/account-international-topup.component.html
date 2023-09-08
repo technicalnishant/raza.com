@@ -1,65 +1,30 @@
-<div class="top-banner accountInternational"></div>
-<div class="tabContentMyaccount pt-5 pb-0" id="virtualNumber" *ngIf="!showTopupForm">
-  <p class="tabTitle">International Topup</p>
-  <p class="desc">Worldwide top-up to over 500 networks across 140 countris</p>
-  <div class="input_holder1 myNumberButtonArea">
-    <button mat-button class="submitButton" (click)="internationalTopUp()">Topup Now</button>
+<div class="tabContentMyaccount" id="virtualNumber" *ngIf="!showTopupForm">
+  <div class="top-banner accountInternational">
+    <div class="intTopTitleWrap">
+      <p class="tabTitle">International Topup</p>
+      <p class="desc">Worldwide top-up to over 500 networks across 140 countris</p>
+    </div>
   </div>
 
-  <div class="myaccountTabArea p-0">
-    <div class="tabContentMyaccount planDetails" id="mynumber">
-      <p class="tabTitle d-none">International Topup</p>
-      <table class="table table-striped table-borderless">
-        <thead>
-          <tr>
-            <th scope="col" class="pl-0">My Plan</th>
-            <th scope="col" class="pl-0">Recharge Date</th>
-            <th scope="col" class="pl-0">Amount</th>
-            <th scope="col" class="pl-0">Add-Funds</th>
-            <th scope="col" class="pl-0">Pin/Phone No.<span
-                matTooltip="Calling from PayPhone or any Private Phone? Call us to get your Pin Number."><img loading="lazy"
-                  src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of orderHistoryList; index as i" >
-            <ng-container >
-              <td>{{item.CardName}}</td>
-              <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td>
-              <td>{{item.Price | bCurrency : item.CurrencyCode}}</td>
-              <!--<td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td> -->
-              <td *ngIf="item.IsAllowRecharge"><a (click)="rechargeRedirect(item)">Topup Now</a></td>
+  <!-- <div class="input_holder1 myNumberButtonArea">
+    <button mat-button class="submitButton" (click)="internationalTopUp()">Topup Now</button>
+  </div> -->
 
-              <td *ngIf="!item.IsAllowRecharge"><a>Monthly Recharge</a>&nbsp;<span
-                  matTooltip="Monthly plans will recharge every 30 days from the date of purchase. Please Call us if you like to recharge now"><img loading="lazy"
-                    src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></td>
-
-              <td >{{item.Pin}}</td>
-          </ng-container>
-          </tr>
-
-        </tbody>
-      </table>
-      <a class="showFullHistory" (click)="onClickShowMore()">Show More</a>
-
-    </div>
-    </div>
 </div>
 
-<div class="tabContentMyaccount pt-5 pb-0" id="virtualNumber" *ngIf="showTopupForm">
+<div class="tabContentMyaccount tabCont2" id="virtualNumber" *ngIf="!showTopupForm">
   <!-- <p class="tabTitle">International Topup</p>
   <p class="desc">Worldwide top-up to over 500 networks across 140 countris</p> -->
-  <a href="javascript:void(0)" (click)="goBack()" class="backBtnInt">
+  <!-- <a href="javascript:void(0)" (click)="goBack()" class="backBtnInt">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.25 3.75L5.75 8l4.5 4.25"/></svg>
     Go Back
-  </a>
+  </a> -->
 
   <div class="containerInt" *ngIf="!mobileTopupData">
     <div class="form-wrapper">
       <div class="row">
-
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
-          <div class="p-3 mt-4 rounded-lg">
+          <div class="p-3 rounded-lg">
             <form class="example-form intMobileTopup" [formGroup]="mobileTopupForm" (ngSubmit)="onMobileTopupFormSubmit()" autocomplete="off">
               <mat-form-field class="example-full-width globe">
                 <span *ngIf="!(mycountryId > 0)" class="globeIcon"></span>
@@ -73,6 +38,7 @@
                 <!-- <mat-icon matSuffix>search</mat-icon> -->
 
                 <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" class="countryPopUp">
+                  <div class="title">Popular Countries</div>
                   <mat-option *ngFor="let country of filteredCountry | async" [value]="country"
                     (click)="onSelectCountrFrom(country)">
                     <span class="mr-2">
@@ -251,5 +217,42 @@
     </div>
   </div>
 
+  <div class="myaccountTabArea p-0" *ngIf="!mobileTopupData">
+    <div class="tabContentMyaccount planDetails" id="mynumber">
+      <p class="tabTitle d-none">International Topup</p>
+      <table class="table table-striped table-borderless">
+        <thead>
+          <tr>
+            <th scope="col" class="pl-0">My Plan</th>
+            <th scope="col" class="pl-0">Recharge Date</th>
+            <th scope="col" class="pl-0">Amount</th>
+            <th scope="col" class="pl-0">Add-Funds</th>
+            <th scope="col" class="pl-0">Pin/Phone No.<span
+                matTooltip="Calling from PayPhone or any Private Phone? Call us to get your Pin Number."><img loading="lazy"
+                  src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of orderHistoryList; index as i" >
+            <ng-container >
+              <td>{{item.CardName}}</td>
+              <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td>
+              <td>{{item.Price | bCurrency : item.CurrencyCode}}</td>
+              <!--<td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td> -->
+              <td *ngIf="item.IsAllowRecharge"><a (click)="rechargeRedirect(item)">Topup Now</a></td>
 
+              <td *ngIf="!item.IsAllowRecharge"><a>Monthly Recharge</a>&nbsp;<span
+                  matTooltip="Monthly plans will recharge every 30 days from the date of purchase. Please Call us if you like to recharge now"><img loading="lazy"
+                    src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></td>
+
+              <td >{{item.Pin}}</td>
+          </ng-container>
+          </tr>
+
+        </tbody>
+      </table>
+      <a class="showFullHistory" (click)="onClickShowMore()">Show More</a>
+
+    </div>
+    </div>
 </div>
