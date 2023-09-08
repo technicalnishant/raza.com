@@ -37,7 +37,9 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   clientCardId:any;
   selectedPlanId:any='';
   sharedValue:any='hide_nav';
+  showBalance :boolean=true;
   private subscription: Subscription;
+  currentURL:any
   constructor(
     private router: Router,
     private authService: AuthenticationService,
@@ -64,23 +66,42 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
 
     this.titleService.setTitle('Overview');
     this.username = this.authService.getCurrentLoginUserName();
-    if(this.router.url == '/account/overview')
+    this.currentURL = window.location.href;
+     
+    if(this.currentURL.includes('/account/overview'))
     {
       this.newDesign = true;
     }
 
-    // this.router.events
-    // .pipe(filter(event => event instanceof NavigationEnd))
-    // .subscribe((event: NavigationEnd) => {
-    //   const planId = this.route.snapshot.paramMap.get('planId');
-    //
 
-    //
-    //   console.log('localStorage.getItem ', localStorage.getItem('orderId'));
-    //   // Perform actions based on the current route and planId
+    if(this.currentURL.includes('/account/international-topup'))
+    {
+      this.hideOnerDetail()
+    }
+    else{
+      this.showOnerDetail()
+    }
+
+ 
+    this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe((event: NavigationEnd) => {
+      
+    
+      const currentUrl = this.router.url;
+      
+      // Check if the current URL contains "account/international-topup"
+      if (currentUrl.includes('account/international-topup')) {
+        // Perform your desired action here
+        console.log('Performing action for "account/international-topup" URL');
+        this.hideOnerDetail()
+      }
+      else{
+        this.showOnerDetail()
+      }
 
 
-    // });
+    });
 
     this.selectedPlanId = localStorage.getItem('orderId');
     this.getUserPlan(this.selectedPlanId);
@@ -90,6 +111,12 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
     this.getMobileStats();
 
 
+  }
+  hideOnerDetail(){
+    this.showBalance = false;
+  }
+  showOnerDetail(){
+    this.showBalance = true;
   }
   getMyPlan()
   {

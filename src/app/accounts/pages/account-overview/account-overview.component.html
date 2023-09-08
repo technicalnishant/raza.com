@@ -2,9 +2,9 @@
   <div class="onlySmallScreenAccount" *ngIf="isSmallScreen">
     <div class="myAccountMobTabContArea">
       <div class="commonBg">
-        <h2 class="welcomeText">{{userWelcomeLabel}}</h2>
+        <h2 class="welcomeText" *ngIf="showBalance">{{userWelcomeLabel}}</h2>
         <!-- commonmyaccountareaforallpages -->
-        <app-account-overview-plan-info *ngIf="plan" [plan]="plan"></app-account-overview-plan-info>
+        <app-account-overview-plan-info *ngIf="plan && showBalance" [plan]="plan"></app-account-overview-plan-info>
         <!-- commonmyaccountareaforallpages -->
         <!----------Show mobile stats------------>
         <div *ngIf="showMobileStats && newDesign">
@@ -76,7 +76,7 @@
       <h2 class="welcomeText"> {{userWelcomeLabel}}</h2>
       <div class="rightTabAreaWrap">
         <!-- commonmyaccountareaforallpages -->
-        <app-account-overview-plan-info *ngIf="plan" [plan]="plan"></app-account-overview-plan-info>
+        <app-account-overview-plan-info *ngIf="plan && showBalance" [plan]="plan"></app-account-overview-plan-info>
 
         <app-account-buy-one-get-one *ngIf="showBuyNow" ></app-account-buy-one-get-one>
 

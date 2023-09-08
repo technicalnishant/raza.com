@@ -191,32 +191,32 @@ export class TopupNowComponent implements OnInit, OnDestroy {
      
      
     let phoneNumberWithCode: number = this.pinnumber;
-    this.getBundlesTopUpInfo();
+    
     this.mobileTopupService.GetMobileTopUp(this.currentSetting.currentCountryId, phoneNumberWithCode).subscribe(
       (data: mobileTopupModel) => {
-        console.log("step 1");
-        
+        this.currentOperator = data.Operator;
+        this.getBundlesTopUpInfo();
         if(data && data.OperatorDenominations && data.OperatorDenominations[1])
         {
           this.operatorsList = data.AvaliableOperators;
-         // console.log("step 2");
+          
             for (let i = 0; i < this.allCountry.length; i++) 
             {
               if(this.allCountry[i].CountryId ==  data.CountryId)
               {
                // console.log("step 3");
-                 
+              // this.currentOperator = obj
                   this.onSelectCountrFrom(this.allCountry[i]);
                   
                   var length = this.allCountry[i].CountryCode.length;
                   var phone =   parseFloat(this.topup_no.substring(length));
-                  //console.log(this.topup_no);
-                 // console.log(phone);
+                  
                  this.isTopUpEnable = true;
                   this.onClickAmountOption(data.OperatorDenominations[1]);
                   this.mobileTopupForm.patchValue({countryTo:this.allCountry[i] });
                   this.mobileTopupForm.patchValue({ phoneNumber:phone});
                   this.mobileTopupData = data;
+                  this.topups = this.mobileTopupData.OperatorDenominations;
                  
                   
                    
@@ -528,10 +528,25 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   rechargeRedirect(obj)
   {
     var card = obj.CardName;
-    card = card.split(' ');
-    var iso = card[0];   
-     this.router.navigateByUrl('mobiletopup', { state: { pin: obj.Pin, iso:iso } });
- 
+    var iso = obj.CountryTo;
+    this.pinnumber = obj.Pin ;
+    this.topup_no = obj.Pin;
+    this.iso = obj.CountryTo
+    let getFlagdetail = this.getFlagdetail(obj);
+    this.countryTo = this.getFlagId(obj);
+   let get_countryCode = getFlagdetail.CountryCode;
+   
+    
+    if( this.pinnumber >0 )
+    {
+      this.mobileTopupForm.controls["phoneNumber"].setValue(this.pinnumber);
+     this.getInitialTopUpOperatorInfo();
+    //  this.getTopUpOperatorInfo();
+      this.isTopUpEnable = true;  
+    }
+
+   //  this.router.navigateByUrl('mobiletopup', { state: { pin: obj.Pin, iso:iso } });
+
   }
 
   loadOrderHistory() {
@@ -569,6 +584,18 @@ export class TopupNowComponent implements OnInit, OnDestroy {
       if(ctr_info[0])
       {
       return ctr_info[0].CountryId;
+      }
+    }
+  }
+
+  getFlagdetail(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+      let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+      if(ctr_info[0])
+      {
+      return ctr_info[0];
       }
     }
   }
