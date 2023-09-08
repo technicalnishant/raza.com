@@ -72,7 +72,7 @@
                   class="ml-2" />
                 <!-- <mat-icon matSuffix>search</mat-icon> -->
 
-                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" class="countryPopUp">
                   <mat-option *ngFor="let country of filteredCountry | async" [value]="country"
                     (click)="onSelectCountrFrom(country)">
                     <span class="mr-2">
