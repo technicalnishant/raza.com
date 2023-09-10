@@ -258,40 +258,11 @@
                         src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></div> -->
                  </ng-container>
               </div>
+
+              <a *ngIf="!showAllTen" href="javascript:void(0)" (click)="setShowAllTen()">Show more</a>
+
             </div>
-
-          <!-- <table class="table table-striped table-borderless">
-            <thead>
-              <tr>
-                <th scope="col" class="pl-0">My Plan</th>
-                <th scope="col" class="pl-0">Recharge Date</th>
-                <th scope="col" class="pl-0">Amount</th>
-                <th scope="col" class="pl-0">Add-Funds</th>
-                <th scope="col" class="pl-0">Pin/Phone No.<span
-                    matTooltip="Calling from PayPhone or any Private Phone? Call us to get your Pin Number."><img loading="lazy"
-                      src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of orderHistoryList; index as i" >
-                <ng-container >
-                  <td>{{item.CardName}}</td>
-                  <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td>
-                  <td>{{item.Price | bCurrency : item.CurrencyCode}}</td>
-                  <td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td>
-                  <td *ngIf="item.IsAllowRecharge"><a (click)="rechargeRedirect(item)">Topup Now</a></td>
-
-                  <td *ngIf="!item.IsAllowRecharge"><a>Monthly Recharge</a>&nbsp;<span
-                      matTooltip="Monthly plans will recharge every 30 days from the date of purchase. Please Call us if you like to recharge now"><img loading="lazy"
-                        src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></td>
-
-                  <td >{{item.Pin}}</td>
-              </ng-container>
-              </tr>
-
-            </tbody>
-          </table> -->
-
+               
 
         </div>
         </div>

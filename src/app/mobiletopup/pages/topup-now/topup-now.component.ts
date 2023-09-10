@@ -66,7 +66,9 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   topupDialog:any=[];
   orderHistoryPage: number = 1;
   orderHistoryList: OrderHistory[] = [];
+  allOrders:OrderHistory[] = [];
   isLoggedIn:boolean=false;
+  showAllTen : boolean=false;
   constructor(private router: Router, private titleService: Title,
     private formBuilder: FormBuilder,
     private countryService: CountriesService,
@@ -553,16 +555,18 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.customerService.getFullOrderHistory('topup', this.orderHistoryPage).subscribe(
       (data: OrderHistory[]) => {
       //  console.log('data',data);
+        this.allOrders = data;
          this.orderHistoryList = data.slice(0, 3);
-        // data.map(a => {
-        //   this.orderHistoryList.push(a);
-        //   this.orderHistoryList.slice(0, 3);
-        // });
+        
       },
       (err: ApiErrorResponse) => console.log(err),
     );
   }
-
+  setShowAllTen()
+  {
+    this.showAllTen = true;
+    this.orderHistoryList = this.allOrders;
+  }
   getFlagname(obj:any)
   {
     if(this.allCountryList[0])

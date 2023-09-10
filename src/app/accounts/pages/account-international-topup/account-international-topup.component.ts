@@ -55,6 +55,7 @@ export class AccountInternationalTopupComponent implements OnInit {
 
 
   allCountry: Country[];
+  allCountryList: any;
   mycountryName: string;
   mycountryId: number;
   filteredCountry: Observable<Country[]>;
@@ -183,28 +184,7 @@ this.mycountryId = 0;
    this.router.navigateByUrl("recharge/"+ instanceId);
  }
 
- rechargeRedirect(obj)
- {
-  console.log(obj);
-  //return false;
-  //this.router.navigateByUrl("mobiletopup");
-
-   var card = obj.CardName;
-   card = card.split(' ');
-   var iso = card[0];   
-    this.router.navigateByUrl('mobiletopup', { state: { pin: obj.Pin, iso:iso } });
-   //this.router.navigateByUrl("mobiletopup"); 
-
-
-  // this.pinnumber  = obj.Pin;
-  // this.topup_no   = obj.Pin;
-  // this.iso        = iso;
-  // this.getInitialTopUpOperatorInfo();
-  // this.isTopUpEnable = true; 
-  // this.showTopupForm = true;
-
-    
- }
+ 
  
   onClickShowMore() {
     this.orderHistoryPage = this.orderHistoryPage + 1;
@@ -234,6 +214,7 @@ this.mycountryId = 0;
     this.countryService.getAllCountries().subscribe(
       (data: Country[]) => {
         this.allCountry = data;
+        this.allCountryList = data;
         if(this.iso !='')
         {
           for (let i = 0; i < data.length; i++) {
@@ -257,7 +238,7 @@ this.mycountryId = 0;
     this.mobileTopupService.GetMobileTopUp(this.currentSetting.currentCountryId, phoneNumberWithCode).subscribe(
       (data: mobileTopupModel) => {
         console.log("step 1");
-        
+        this.currentOperator = data.Operator;
         if(data && data.OperatorDenominations && data.OperatorDenominations[1])
         {
           this.operatorsList = data.AvaliableOperators;
@@ -280,7 +261,7 @@ this.mycountryId = 0;
                   this.mobileTopupForm.patchValue({ phoneNumber:phone});
                  
                   this.mobileTopupData = data;
-                   
+                  this.topups = this.mobileTopupData.OperatorDenominations;
               }
           }
           
@@ -444,6 +425,8 @@ this.mycountryId = 0;
     checkoutModel.countryFrom = this.currentSetting.currentCountryId;
     checkoutModel.isHideCouponEdit = true;
     this.checkoutService.setCurrentCart(checkoutModel);
+     this.currentCart = checkoutModel;
+     console.log("current cart is ", this.currentCart);
     this.showCreditCards()
    
   }
@@ -652,5 +635,65 @@ this.mycountryId = 0;
     this.showTopupForm = !this.showTopupForm;
    }
 
+    /**********************/
+  rechargeRedirect(obj)
+  {
+    var card = obj.CardName;
+    var iso = obj.CountryTo;
+    this.pinnumber = obj.Pin ;
+    this.topup_no = obj.Pin;
+    this.iso = obj.CountryTo
+    let getFlagdetail = this.getFlagdetail(obj);
+    this.countryTo = this.getFlagId(obj);
+   let get_countryCode = getFlagdetail.CountryCode;
    
+    
+    if( this.pinnumber >0 )
+    {
+      this.mobileTopupForm.controls["phoneNumber"].setValue(this.pinnumber);
+     this.getInitialTopUpOperatorInfo();
+    //  this.getTopUpOperatorInfo();
+      this.isTopUpEnable = true;  
+    }
+ 
+ 
+  
+  }
+
+  getFlagname(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+
+  
+        let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+        if(ctr_info[0])
+        {
+          return ctr_info[0].CountryName;
+        }
+    }
+  }
+  getFlagId(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+      let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+      if(ctr_info[0])
+      {
+      return ctr_info[0].CountryId;
+      }
+    }
+  }
+
+  getFlagdetail(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+      let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+      if(ctr_info[0])
+      {
+      return ctr_info[0];
+      }
+    }
+  }
 }
