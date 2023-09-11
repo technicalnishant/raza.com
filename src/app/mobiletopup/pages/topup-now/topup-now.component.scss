@@ -117,7 +117,7 @@
       margin-left: 0px;
       font-size: 32px;
       width: 100%;
-      top: 48%;
+      top: 32%;
       padding: 0 20px;
     }
     .heading_style1 span{
@@ -698,6 +698,7 @@
                 }
             }
           }
+
           @media only screen and (max-width: 767px) {
             padding: 12px 18px;
             font-size: 15px;
@@ -723,6 +724,20 @@
             .countryDate {
                 margin-left: auto;
             }
+          }
+        }
+        .button-wrapper {
+          text-align: center;
+          margin-top: 20px;
+          .submit-btn_showAll {
+              background: #f3c423;
+              padding: 6px 25px;
+              border-radius: 30px;
+              color: #000;
+              font-weight: 600;
+              border: none;
+              text-decoration: none;
+              font-size: 17px;
           }
         }
     }
