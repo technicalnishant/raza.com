@@ -234,11 +234,12 @@ this.mycountryId = 0;
      
      
     let phoneNumberWithCode: number = this.pinnumber;
-    this.getBundlesTopUpInfo();
+    
     this.mobileTopupService.GetMobileTopUp(this.currentSetting.currentCountryId, phoneNumberWithCode).subscribe(
       (data: mobileTopupModel) => {
         console.log("step 1");
         this.currentOperator = data.Operator;
+        this.getBundlesTopUpInfo();
         if(data && data.OperatorDenominations && data.OperatorDenominations[1])
         {
           this.operatorsList = data.AvaliableOperators;
