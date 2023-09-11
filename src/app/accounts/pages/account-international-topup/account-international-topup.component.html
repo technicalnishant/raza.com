@@ -170,7 +170,7 @@
                               <p>They Get</p>
                               <div class="amount"><h3> <span>{{item.DestinationCurrency}} </span> {{item?.DestinationAmount| number:'1.2-2'}}</h3></div>
                               <p>Before GCT</p>
-                              <button class="buy_btn" (click)="buyNow(item)">Buy</button>
+                              <button class="buy_btn" (click)="buyNow(item); scrollTo();">Buy</button>
                           </div>
                       </div>
                     </div>
@@ -199,15 +199,15 @@
                                   {{desinfo}}
                                 </li>
                               </ul>
-                              <button class="buy_btn" (click)="buyBundle(item)">Buy</button>
+                              <button class="buy_btn" (click)="buyBundle(item); scrollTo();">Buy</button>
                           </div>
                       </div>
                     </div>
                 </div>
 
           </div>
-
-            <div *ngIf="showCredicard">
+            <div id="cards_info" #cardsInfo style="display:none"></div>
+            <div *ngIf="showCredicard" >
               <app-my-cards [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentButtonTrigger($event)" > </app-my-cards>
             </div>
 

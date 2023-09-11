@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RazaLayoutService } from '../../../core/services/raza-layout.service';
@@ -41,6 +41,7 @@ import { ValidateCouponCodeRequestModel, ValidateCouponCodeResponseModel } from 
 import { ErrorDialogModel } from 'app/shared/model/error-dialog.model';
 import { ErrorDialogComponent } from 'app/shared/dialog/error-dialog/error-dialog.component';
 import {  NewPlanCheckoutModel, RechargeCheckoutModel } from 'app/checkout/models/checkout-model'; 
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-account-international-topup',
@@ -48,7 +49,7 @@ import {  NewPlanCheckoutModel, RechargeCheckoutModel } from 'app/checkout/model
   styleUrls: ['./account-international-topup.component.scss']
 })
 export class AccountInternationalTopupComponent implements OnInit {
-  
+  @ViewChild('cardsInfo') cardsInfo!: ElementRef;
   orderHistoryPage: number = 1;
   orderHistoryList: OrderHistory[] = [];
   showTopupForm:boolean=false;
@@ -126,7 +127,7 @@ export class AccountInternationalTopupComponent implements OnInit {
 	private location:Location,
   private metaTagsService:MetaTagsService,
   private dialog:MatDialog,
-
+  private breakpointObserver: BreakpointObserver,
   
   private transactionService: TransactionService,
   private transactionProcessFacade: TransactionProcessFacadeService,
@@ -400,9 +401,25 @@ this.mycountryId = 0;
     
     this.mobileTopupForm.get('topUpAmount').setValue(item);
     this.isTopUpEnable = true;
+
     this. onMobileTopupFormSubmit();
   }
-
+  scrollTo()
+  {
+    const pageHeight = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight
+    );
+    
+   if(this.breakpointObserver.isMatched('(max-width: 868px)'))
+   {
+    const element = this.cardsInfo.nativeElement;
+    window.scrollTo({ top: (pageHeight-1200), behavior: 'smooth' });
+   }
+      
+     // this.cardsInfo.nativeElement.scrollIntoView({ behavior: 'smooth' });
+     
+  }
   onMobileTopupFormSubmit() {
     // stop here if form is invalid
     if (!this.isTopUpEnable) {
