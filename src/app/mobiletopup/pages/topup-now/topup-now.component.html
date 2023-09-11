@@ -258,8 +258,10 @@
                         src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></div> -->
                  </ng-container>
               </div>
-
-              <a *ngIf="!showAllTen" href="javascript:void(0)" (click)="setShowAllTen()">Show more</a>
+              <div class="button-wrapper" *ngIf="!showAllTen && orderHistoryList">
+                <button mat-button class="submit-btn btn-block mb-3 mb-md-0 w-50" (click)="setShowAllTen()">Load more</button>
+              </div>
+              
 
             </div>
                
