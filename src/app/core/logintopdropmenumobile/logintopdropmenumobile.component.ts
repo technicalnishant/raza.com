@@ -150,7 +150,7 @@ export class LogintopdropmenuMobileComponent implements OnInit, OnDestroy {
     const modalDialog = this.signupDialog.open(SignuppopupComponent, signupDialogConfig);
   }
 
-  callParentFunction() {
+  callParentFunction(msg:any) {
     console.log('Function in the parent component was called from the child component.');
     // You can put your logic here
   }

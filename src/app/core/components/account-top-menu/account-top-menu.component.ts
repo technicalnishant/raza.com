@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewChild, Renderer2 } from '@angular/core';
 import { Plan } from '../../../accounts/models/plan';
 import { Router, NavigationStart } from '@angular/router';
+import { HeaderComponent } from 'app/core/header/header.component';
 @Component({
   selector: 'app-account-top-menu',
   templateUrl: './account-top-menu.component.html',
@@ -10,11 +11,12 @@ export class AccountTopMenuComponent implements OnInit {
   @Input() plan: Plan;
   @Input() myMethod: Function;
   @Output() childEvent = new EventEmitter<void>();
-  
-  constructor(private router: Router,
+  @ViewChild(HeaderComponent) headerComponent: HeaderComponent;
+  constructor(private router: Router,private renderer: Renderer2
   ) { }
   
   ngOnInit() {
+     
     this.router.events.subscribe(event => {
       
         this.myMethod();
@@ -22,9 +24,17 @@ export class AccountTopMenuComponent implements OnInit {
     })
   }
 
+  closeParent(): void {
+    // Call the function in ParentComponent
+   // this.headerComponent.closeIconLogin();
+    // Get all elements with the class "my-button"
+  const elements = document.querySelectorAll('.closeIconContact');
 
-  closeParent(){
-    this.childEvent.emit();
+  // Trigger a click event on each element
+  elements.forEach((element) => {
+    this.renderer.selectRootElement(element).click();
+  });
   }
+   
    
 }
