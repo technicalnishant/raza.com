@@ -477,6 +477,9 @@ td {
     padding: 60px 15px !important;
   }
   ::ng-deep {
+    .mat-autocomplete-panel.mat-autocomplete-hidden {
+        display: none;
+    }
   .form-wrapper .mat-form-field-infix {
     position:static;
   }
@@ -549,9 +552,11 @@ td {
         ~ input[type="text"] {
           padding-left: 45px;
         }
-      }
-      .labelText {
-        padding-left: 45px;
+        ~ .mat-form-field-label-wrapper {
+          .labelText {
+            padding-left: 45px;
+          }
+        }
       }
     }
     .mat-form-field-prefix ~ .mat-form-field-infix .mat-form-field-label {
@@ -675,6 +680,11 @@ td {
         border: 1px solid #c6c6c6;
         padding: 18px 30px 30px;
         background: #fff;
+    }
+    .topup_section {
+        max-width: 1330px;
+        margin: 0 auto;
+        padding: 0 20px;
     }
 }
 .topup_section {

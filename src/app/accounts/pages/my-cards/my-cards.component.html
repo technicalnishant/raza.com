@@ -1,5 +1,3 @@
-<button *ngIf="havingExistingCard" mat-button (click)="onClickCreditCardPayment()" class="submitButton_confirms overviewRechg">Recharge</button>
-
 <div class="containerMyCard" *ngIf="currentCart">
   <div class="body-tab mt-5">
         <div class="row">
@@ -132,9 +130,7 @@
         </div>
       </div>
   </div>
-
-
-
+  <button *ngIf="havingExistingCard" mat-button (click)="onClickCreditCardPayment()" class="submitButton_confirms overviewRechg">Recharge</button>
   </div>
 
 
