@@ -548,12 +548,41 @@ td {
       }
     }
   }
+  .cdk-overlay-pane {
+    margin-top: 30px;
+    border-radius: 20px !important;
+    overflow: hidden;
+    border: 1px solid #c6c6c6;
+    padding-right: 1px;
+    background: #fff;
+  }
   .countryPopUp {
     border-radius: 20px !important;
-    border: 1px solid #c6c6c6;
     box-shadow: none !important;
     padding: 0 20px;
-    margin-top: 30px;
+    max-height: 375px !important;
+    /* width */
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      border: 1px solid #eee;
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #aaa;
+    }
+
     .title {
         font-size: 14px;
         color: #656565;
