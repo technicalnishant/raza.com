@@ -41,14 +41,9 @@ export class MobileCallDetailsComponent implements OnInit, OnDestroy {
  
     this.razalayoutService.setFixedHeader(true);
     this.callDetailsSelectionControl = new FormControl('7');
-
+    this.planId = this.plan.PlanId;
+    this.loadCallDetail(7);
     
-          this.planId = this.plan.PlanId;
-         this.loadCallDetail(7);
-        
-
-   
-
     this.callDetailsSelectionSub$ = this.callDetailsSelectionControl.valueChanges.subscribe(a => {
       this.loadCallDetail(a)
     });

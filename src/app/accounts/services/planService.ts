@@ -63,6 +63,14 @@ export class PlanService {
       );
   }
 
+  public getFreeTrialInfo(from, to)
+  {
+    return this.httpClient.get<any>(`${Api.plan.getFreeTrialMinutes}/${from}/${to}`)
+    .pipe(
+      catchError(err => this.errorHandleService.handleHttpError(err))
+    );
+  }
+  
   //Get Customer plans
   public getAllPlans(): Observable<Plan[] | ApiErrorResponse> {
 

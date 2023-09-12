@@ -35,6 +35,8 @@ export class FreetrialConfirmationComponent implements OnInit, OnDestroy {
   accessNo:any;
   userContext: userContext
   transResponse: TransactionResponseModel;
+  freetrialAmount:any;
+  freetrialMinutes:any;
   ngOnInit() {
     this.titleService.setTitle('Payment successful');
     this.razaLayoutService.setFixedHeader(true);
@@ -78,13 +80,12 @@ getPlanInfo()
    // this.planService.getStoredPlan(phone).subscribe( 
     (res:any)=>{
       console.log(res);
-      /*
-      this.planService.getPlan(res.PlanId).subscribe(
-        (res: Plan) => this.plan = res,
-        err => console.log(err),
-        () => ''
-      );*/
-
+     const from_country = res.countryFrom;
+     const to_country =  res.countryTo ;
+      this.planService.getFreeTrialInfo(from_country, to_country).subscribe( (data:any)=>{
+        this.freetrialAmount = data.Amount;
+        this.freetrialMinutes = data.TotalMinutes; 
+      })
       this.planService.getAllPlans().subscribe(
         (data: Plan[]) => {
           this.plan = data[0];

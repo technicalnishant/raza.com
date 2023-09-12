@@ -39,7 +39,8 @@ export class Api {
 		onetouchSetup: base + "api/OnetouchSetups",
 		QuickKeySetup: base + "api/QuickKeysSetups",
 		pinlessNumber: base + "api/Plan/PinlessNumeber",
-		pinStatus: base + "api/Plan/PinStatus"
+		pinStatus: base + "api/Plan/PinStatus",
+		getFreeTrialMinutes: base + "Api/Promotions/GetFreeTrialMinutes",
 	};
 
 
