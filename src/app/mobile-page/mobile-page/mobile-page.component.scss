@@ -8,6 +8,9 @@ $font-family:'Montserrat', sans-serif;
 
 
 ::ng-deep {
+  .mobile-page-wrapper {
+      min-height: 600px;
+  }
   .mobilePage_banner {
     background-image: url(../../../assets/images/new_design_images/mobile_page_banner.jpg);
     margin-top: 65px;

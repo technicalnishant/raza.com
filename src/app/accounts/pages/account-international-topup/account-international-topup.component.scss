@@ -524,7 +524,7 @@ td {
         margin-top: 8px;
     }
     .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
-      padding-left: 11px;
+      // padding-left: 11px;
       padding-top: 5px;
     }
     .labelText {
@@ -534,6 +534,9 @@ td {
     }
     .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float.globe .mat-form-field-label {
       padding-left: 25px;
+    }
+    .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+      transform: translateY(-1.34375em) scale(0.75);
     }
     .mat-form-field-underline {
       bottom: 8px;
@@ -552,15 +555,15 @@ td {
         ~ input[type="text"] {
           padding-left: 45px;
         }
-        ~ .mat-form-field-label-wrapper {
-          .labelText {
-            padding-left: 45px;
-          }
+      }
+      .mat-form-field-label-wrapper {
+        .labelText {
+          padding-left: 45px;
         }
       }
     }
     .mat-form-field-prefix ~ .mat-form-field-infix .mat-form-field-label {
-      padding-left: 48px;
+      padding-left: 60px;
       padding-top: 7px;
     }
     input[type="text"], input[type="tel"] {
@@ -640,8 +643,8 @@ td {
       font-family: Montserrat, sans-serif;
       padding: 0 5px;
       &.mat-button-toggle-checked {
-          background: #fff;
-          color: #283a69;
+          background: #f3c423;
+          color: #000;
           border-radius: 30px;
       }
   }
@@ -651,9 +654,10 @@ td {
   flex-wrap: wrap;
   .topup_item {
     width: 31%;
-    border-radius: 12px;
-    border: 1px solid #c8e8f6;
-    margin: 0 8px 20px;
+    border-radius: 15px;
+    border: 1px solid #ccdbe2;
+    margin: 0 1% 20px;
+    padding: 10px;
   }
 }
 .backBtnInt {
@@ -673,13 +677,33 @@ td {
 .mobileIntTopupSec {
     padding: 0 15px;
     .operator-details {
-        width: 660px;
-        max-width: 100%;
-        margin: 0 auto;
-        border-radius: 20px;
-        border: 1px solid #c6c6c6;
-        padding: 18px 30px 30px;
-        background: #fff;
+      width: 720px;
+      max-width: 100%;
+      margin: 0 auto;
+      border-radius: 20px;
+      border: 1px solid #c6c6c6;
+      padding: 20px 30px 30px;
+      background: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      &> div {
+        border-bottom: 1px solid #e2e2e2;
+        padding-bottom: 15px;
+        &:last-child {
+          border: none;
+          padding-bottom: 0;
+        }
+      }
+      .edit-button {
+        max-width: 100px;
+        a {
+            font-size: 13px;
+            color: #000;
+            display: flex;
+            align-items: center;
+        }
+      }
     }
     .topup_section {
         max-width: 1330px;
@@ -689,10 +713,10 @@ td {
 }
 .topup_section {
   .top_section {
-      background-color: #ebf8fe;
-      border-bottom: 1px solid #c8e8f6;
+      background-color: #eff7ff;
       padding: 15px;
-      border-radius: 12px 12px 0 0;
+      border-radius: 15px;
+      margin-bottom: 15px;
       h2 {
           font-size: 32px;
           font-weight: bolder;

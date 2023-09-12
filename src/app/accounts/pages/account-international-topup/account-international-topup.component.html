@@ -115,7 +115,7 @@
                   </a>
                 </div>
               </div>
-              <div class="justify-content-md-between row align-items-center py-4 row">
+              <div class="justify-content-md-between row align-items-center py-3 row">
                 <div class="country col-auto col-md-4">Number:</div>
                 <div class="country-img col-auto col-md-4">
                   <div>+{{
@@ -132,10 +132,13 @@
                       </a>
                     </div>
               </div>
-              <div class="justify-content-md-between row align-items-center" *ngIf="mobileTopupData">
+              <div class="justify-content-md-between row align-items-center pt-3" *ngIf="mobileTopupData">
                 <div class="country col-auto col-md-4">Operator:</div>
                 <div class="country-img col-auto col-md-4">
-                  <div> <img class="operator mr-2" [src]="operatorImage" alt="" /> {{mobileTopupData.Operator}}</div>
+                  <div>
+                    <img class="operator mr-2" [src]="operatorImage" alt="" />
+                    <!-- {{mobileTopupData.Operator}} -->
+                  </div>
                 </div>
                 <div class="edit-button col-12 col-md-4 text-right"><a style="display:none" href="#" type="button">Edit
                     <mat-icon>arrow_right
