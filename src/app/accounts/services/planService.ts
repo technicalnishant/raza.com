@@ -70,7 +70,7 @@ export class PlanService {
       catchError(err => this.errorHandleService.handleHttpError(err))
     );
   }
-  
+
   //Get Customer plans
   public getAllPlans(): Observable<Plan[] | ApiErrorResponse> {
 
@@ -241,8 +241,19 @@ export class PlanService {
 
 
   public getStoredPlan(phone:any):Observable<any[] | ApiErrorResponse>{
- 
-    return of(JSON.parse(localStorage.getItem("currentPlan")));
+    var replaced = phone.replace(/ /g, '');
+    replaced = replaced.replace(/[a-z]/g, "");
+    replaced = replaced.replace(/[A-Z]/g, "");
+    replaced = replaced.replace(/[&\/\\#,+()$~%.`^'":!@_*?<>{}=|]/g, '');
+    replaced = replaced.replace(/-/g, '');
+    replaced = replaced.replace(/]/g, '');
+    replaced = replaced.replace(/;/g, '');
+    replaced = replaced.replace(/[\[\]']/g,'' );
+   // return of(JSON.parse(localStorage.getItem("currentPlan")));
+     const cachedData = sessionStorage.getItem('pinless_'+replaced);
+    if (cachedData) {
+      return of(JSON.parse(cachedData));
+    }
   }
   //Get plan snapshot..
   public getPlanInfo(phone:any):Observable<any[] | ApiErrorResponse>{

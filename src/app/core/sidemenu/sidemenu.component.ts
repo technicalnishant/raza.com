@@ -25,6 +25,7 @@ export class SidemenuComponent implements OnInit {
   isDisplayAccountMenu: boolean;
   currentSetting: CurrentSetting;
   currentSetting$: Subscription;
+  isAuthenticatedn:boolean=false;
   constructor(
     private authService: AuthenticationService,
     private router: Router,
@@ -32,8 +33,25 @@ export class SidemenuComponent implements OnInit {
     private sideBarNavService: SideBarService,
 	private razaEnvService: RazaEnvironmentService,
   private planService: PlanService,
-  ) { }
+  ) { 
 
+    this.authService.getSharedValue().subscribe(value => {
+      this.isAuthenticatedn = value;
+      if(this.isAuthenticatedn)
+      {
+        
+        this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe( 
+          (res:any)=>{
+            
+            this.plan = res;
+            
+          }
+        );
+      }
+    });
+
+  }
+ 
   ngOnInit() {
     
     this.router.events.subscribe(event => {
@@ -48,7 +66,7 @@ export class SidemenuComponent implements OnInit {
     })
     
 
-    if(this.authService.isAuthenticated()){
+    if(this.isAuthenticatedn){
       this.isLoggedIn = true;
         // this.planService.getAllPlans().subscribe(
         //   (data: Plan[]) => {
@@ -58,9 +76,9 @@ export class SidemenuComponent implements OnInit {
         // ); 
 
        // this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe( 
-         this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe( 
+         this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe( 
           (res:any)=>{
-            console.log(res);
+            
             this.plan = res;
             
           }
