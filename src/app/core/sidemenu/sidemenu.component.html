@@ -1,5 +1,5 @@
 <div *ngIf="isAuthenticatedn">
-  <ul>
+  <ul class="homeSideMenus">
     <li class="recharge"><a routerLink="/account/overview" ><span></span> Recharge</a></li>
     <li class="payment-details"><a routerLink="/account/payment-details/{{plan?.PlanId}}" ><span></span> Payment Details</a>
     </li>
@@ -43,7 +43,7 @@
     </li>
     <li class="notifications"><a routerLink="/account/overview/notification" ><span></span> Notifications</a></li>
     <li class="logOut" (click)="log_out_click()"><a href="javascript:void(0);">Log Out</a></li>
- 
+
   </ul>
 </div>
 
