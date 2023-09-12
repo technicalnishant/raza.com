@@ -85,7 +85,8 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     @Output() onPaymentSubmit = new EventEmitter<CreditCard>();
     @Input() plan: Plan;
     paymentSubmitted: boolean;
-    
+    currentURL : any ;
+    isTopupPage:boolean=false;
     
     constructor(
       public zone: NgZone,
@@ -108,7 +109,12 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     }
      
     ngOnInit() {
-     
+      this.currentURL = window.location.href;
+
+      if(this.currentURL.includes('account/international-topup'))
+      {
+        this.isTopupPage = true;
+      }
       this.checkoutService.getCurrentCart().subscribe(res => {
         this.currentCart  = res;
     })

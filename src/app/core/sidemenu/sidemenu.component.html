@@ -1,3 +1,53 @@
+<div *ngIf="isLoggedIn">
+  <ul>
+    <li class="recharge"><a routerLink="/account/overview" ><span></span> Recharge</a></li>
+    <li class="payment-details"><a routerLink="/account/payment-details/{{plan?.PlanId}}" ><span></span> Payment Details</a>
+    </li>
+    <li class="autorefill" *ngIf="plan"><a routerLink="/account/autorefill/{{plan?.PlanId}}" ><span></span> Auto -
+        Refill</a></li>
+    <li class="order-history"><a routerLink="/account/order-history" ><span></span> Order-History</a></li>
+    <li class="noBorder plandetails" *ngIf="plan">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="plan_details">
+            <span></span>
+            <mat-panel-title>
+              Plan Details
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <ul>
+            <li><a routerLink="/account/plandetails/{{plan?.PlanId}}" >Your Raza #</a>
+            </li>
+            <li><a routerLink="/account/call-details/{{plan?.PlanId}}" >Call Details</a></li>
+
+            <li *ngIf="plan.IsAllowPinLess">
+              <a routerLink="/account/mynumber/{{plan?.PlanId}}" >My
+                Numbers</a></li>
+            <li><a routerLink="/account/onetouchSetups/{{plan?.PlanId}}" >One Touch
+                Dial</a></li>
+            <li *ngIf="plan.IsAllowCallForwarding">
+              <a routerLink="/account/callForwardingSetups/{{plan?.PlanId}}" >
+                Call Forwarding</a>
+            </li>
+          </ul>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </li>
+    <li class="rewards"><a routerLink="/account/rewards" ><span></span> Rewards</a></li>
+    <li class="international-topup"><a routerLink="/account/international-topup" ><span></span> International Topup</a></li>
+    <li class="virtualnumber"><a routerLink="/account/virtualnumber"  class="d-none"><span></span> Virtual Numbers</a></li>
+    <li class="my-profile"><a routerLink="/account/my-profile" ><span></span> My Profile</a></li>
+    <li class="other-plans">
+      <a routerLink="/account/other-plans" ><span></span> Other Plans</a>
+    </li>
+    <li class="notifications"><a routerLink="/account/overview/notification" ><span></span> Notifications</a></li>
+    <li class="logOut" (click)="log_out_click()"><a href="javascript:void(0);">Log Out</a></li>
+ 
+  </ul>
+</div>
+
+<div *ngIf="!isLoggedIn">
 <a mat-list-item routerLink="/">
   <span class="mainSpan">HOME
     <span class="slider"></span>
@@ -67,6 +117,6 @@
     <span class="slider"></span>
   </span>
 </a>
-
+</div>
 <!-- <div class="language d-md-none d-block pt-3 mx-3" ><img src="./assets/images/globe_footer.png" alt="" class="mr-2"> <span>Eng
   (CA)</span></div> -->

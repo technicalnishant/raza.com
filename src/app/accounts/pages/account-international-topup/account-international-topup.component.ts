@@ -112,7 +112,8 @@ export class AccountInternationalTopupComponent implements OnInit {
   currentCartObs$: Subscription;
   currentCart: ICheckoutModel;
   topupOperators:any;
-  topupDialog:any=[]
+  topupDialog:any=[];
+   
   constructor(private titleService: Title,
     private router: Router,
 	private customerService: CustomerService,
@@ -137,6 +138,7 @@ export class AccountInternationalTopupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+   
     this.titleService.setTitle('InterNational TopUp');
     this.razalayoutService.setFixedHeader(true);
 	this.loadOrderHistory();
@@ -410,11 +412,15 @@ this.mycountryId = 0;
       document.body.scrollHeight,
       document.documentElement.scrollHeight
     );
-    
+  
    if(this.breakpointObserver.isMatched('(max-width: 868px)'))
    {
     const element = this.cardsInfo.nativeElement;
     window.scrollTo({ top: (pageHeight-1200), behavior: 'smooth' });
+   }
+   else
+   {
+    window.scrollTo({ top: (pageHeight-1000), behavior: 'smooth' });
    }
       
      // this.cardsInfo.nativeElement.scrollIntoView({ behavior: 'smooth' });

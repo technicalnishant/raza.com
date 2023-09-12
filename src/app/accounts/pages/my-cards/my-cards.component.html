@@ -1,7 +1,7 @@
 <div class="containerMyCard" *ngIf="currentCart">
   <div class="body-tab mt-5">
         <div class="row">
-        <div class="col-xl-8">
+        <div class="{{isTopupPage ?'col-xl-8':'col-xl-12'}}">
           <div  class="saveCardWrap">
             <h3>Payment Details</h3>
             <mat-radio-group class="example-radio-group" name="cardNumber" [(ngModel)]="selectedCard">
@@ -59,7 +59,7 @@
           </div>
         </div>
         <!-- <div class="col-xl-1"></div> -->
-        <div class="col-xl-4">
+        <div class="col-xl-4" *ngIf="isTopupPage">
           <div class="col-md-12">
             <h2 class="heading_style4">
               <span>Your order</span>
