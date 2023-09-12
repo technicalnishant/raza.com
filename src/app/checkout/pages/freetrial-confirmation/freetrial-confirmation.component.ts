@@ -80,8 +80,8 @@ getPlanInfo()
    // this.planService.getStoredPlan(phone).subscribe( 
     (res:any)=>{
       console.log(res);
-     const from_country = res.countryFrom;
-     const to_country =  res.countryTo ;
+     const from_country = res.CountryFrom;
+     const to_country =  res.CountryTo;
       this.planService.getFreeTrialInfo(from_country, to_country).subscribe( (data:any)=>{
         this.freetrialAmount = data.Amount;
         this.freetrialMinutes = data.TotalMinutes; 

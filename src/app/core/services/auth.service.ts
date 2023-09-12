@@ -255,6 +255,7 @@ export class AuthenticationService {
 	 
 	}
 	logout() {
+		this.setSharedValue(false);
 		localStorage.removeItem('fromCountries');
 		localStorage.removeItem('currentUser');
 		localStorage.removeItem("login_no");

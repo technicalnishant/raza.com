@@ -86,6 +86,15 @@ export class SidemenuComponent implements OnInit {
       }
 
   }
+
+  get IsEnableLoggedIn(): boolean {
+		if (!this.authService.isAuthenticated()) {
+		  return false;
+		}
+    else
+    return true;
+  }
+
   log_out_click(card) {
     const dialogRef = this.dialog.open(ConfirmPopupDialog, {
       data: {

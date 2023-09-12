@@ -249,7 +249,7 @@ export class PlanService {
     replaced = replaced.replace(/]/g, '');
     replaced = replaced.replace(/;/g, '');
     replaced = replaced.replace(/[\[\]']/g,'' );
-   // return of(JSON.parse(localStorage.getItem("currentPlan")));
+   
      const cachedData = sessionStorage.getItem('pinless_'+replaced);
     if (cachedData) {
       return of(JSON.parse(cachedData));

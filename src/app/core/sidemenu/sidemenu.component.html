@@ -1,4 +1,4 @@
-<div *ngIf="isAuthenticatedn">
+<div *ngIf="IsEnableLoggedIn">
   <ul>
     <li class="recharge"><a routerLink="/account/overview" ><span></span> Recharge</a></li>
     <li class="payment-details"><a routerLink="/account/payment-details/{{plan?.PlanId}}" ><span></span> Payment Details</a>
@@ -47,7 +47,7 @@
   </ul>
 </div>
 
-<div *ngIf="!isAuthenticatedn">
+<div *ngIf="!IsEnableLoggedIn">
 <a mat-list-item routerLink="/">
   <span class="mainSpan">HOME
     <span class="slider"></span>
