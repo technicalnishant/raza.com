@@ -677,12 +677,12 @@ td {
 .mobileIntTopupSec {
     padding: 0 15px;
     .operator-details {
-      width: 720px;
+      width: 700px;
       max-width: 100%;
       margin: 0 auto;
       border-radius: 20px;
       border: 1px solid #c6c6c6;
-      padding: 20px 30px 30px;
+      padding: 24px 30px;
       background: #fff;
       font-size: 20px;
       font-weight: 600;
@@ -693,6 +693,11 @@ td {
         &:last-child {
           border: none;
           padding-bottom: 0;
+        }
+      }
+      .country-img {
+        img.flag {
+          margin-right: 6px;
         }
       }
       .edit-button {
@@ -706,7 +711,7 @@ td {
       }
     }
     .topup_section {
-        max-width: 1330px;
+        max-width: 1030px;
         margin: 0 auto;
         padding: 0 20px;
     }
@@ -756,11 +761,16 @@ td {
       font-size: 15px;
       color: #4b4b4b;
       font-weight: 500;
+      p {
+        margin-bottom: 10px;
+      }
       .amount {
-          margin-bottom: 1rem;
+          margin-bottom: 0;
           h3 {
-              font-size: 24px;
+              font-size: 28px;
               font-weight: bold;
+              margin-bottom: 3px;
+              color: #575757;
               span {
                   font-size: 16px;
               }
@@ -776,6 +786,7 @@ td {
           padding: 8px 30px;
           border-radius: 20px;
           text-transform: uppercase;
+          margin-top: 25px;
       }
   }
 }
