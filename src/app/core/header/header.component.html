@@ -296,8 +296,10 @@
         [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}" (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button> -->
-
-      <button class="menu_btn" (click)="clickMenu()">
+      <button *ngIf="otherPlans" class="menu_btn" (click)="sidenav.toggle()">
+        <img src="../../../assets/images/myaccount_icons/menu-normal.png" alt="menu" />
+      </button>
+      <button *ngIf="!otherPlans" class="menu_btn" (click)="clickMenu()">
         <img src="../../../assets/images/myaccount_icons/menu-normal.png" alt="menu" />
       </button>
 
