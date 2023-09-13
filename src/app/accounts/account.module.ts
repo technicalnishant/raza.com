@@ -67,6 +67,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
  
 import { NgxSplideModule } from 'ngx-splide';
+import { AccountOtherplansComponent } from './pages/account-otherplans/account-otherplans.component';
  
 
 
@@ -112,23 +113,30 @@ import { NgxSplideModule } from 'ngx-splide';
                     { path: 'my-profile', component: AccountMyProfileComponent },
                     { path: 'confirmation/:orderId', component: RechargeConfirmationComponent},
                     { path: 'rates', component: AccountSearchRatesComponent},
-
                     
-                ]
-            },
-            { path: 'update-password', component: UpdatePasswordComponent },
-            {
-                path: 'other-plans', component: OtherPlansContainerComponent,
-                children: [
-                    { path: '', component: OtherPlansComponent, data: { isVisibleCloseIcon: false } },
+                    { path: 'other-plans', component: AccountOtherplansComponent},
                     { path: 'my-numbers/:planId', component: AccountMyNumberComponent, data: { isVisibleCloseIcon: true } },
                     { path: 'onetouchSetups/:planId', component: AccountOneTouchComponent, data: { isVisibleCloseIcon: true } },
                     { path: 'callForwardingSetups/:planId', component: AccountCallForwardingComponent, data: { isVisibleCloseIcon: true } },
                     { path: 'autorefill/:planId', component: AccountAutorefillComponent, data: { isVisibleCloseIcon: true } },
                     { path: 'call-details/:planId', component: AccountCallDetailsComponent, data: { isVisibleCloseIcon: true } },
-                ],
-                data: { IsFixedHeader: true, isVisibleCloseIcon: false }
+                    
+                    
+                ]
             },
+            { path: 'update-password', component: UpdatePasswordComponent },
+            // {
+            //     path: 'other-plans', component: OtherPlansContainerComponent,
+            //     children: [
+            //         { path: '', component: OtherPlansComponent, data: { isVisibleCloseIcon: false } },
+            //         { path: 'my-numbers/:planId', component: AccountMyNumberComponent, data: { isVisibleCloseIcon: true } },
+            //         { path: 'onetouchSetups/:planId', component: AccountOneTouchComponent, data: { isVisibleCloseIcon: true } },
+            //         { path: 'callForwardingSetups/:planId', component: AccountCallForwardingComponent, data: { isVisibleCloseIcon: true } },
+            //         { path: 'autorefill/:planId', component: AccountAutorefillComponent, data: { isVisibleCloseIcon: true } },
+            //         { path: 'call-details/:planId', component: AccountCallDetailsComponent, data: { isVisibleCloseIcon: true } },
+            //     ],
+            //     data: { IsFixedHeader: true, isVisibleCloseIcon: false }
+            // },
         ])
     ],
     exports: [],
@@ -181,7 +189,8 @@ import { NgxSplideModule } from 'ngx-splide';
  
         RechargeConfirmationComponent,
            ViewratesComponent,
-           AccountSearchRatesComponent 
+           AccountSearchRatesComponent,
+           AccountOtherplansComponent 
  
         // MobileOrderHistoryComponent,
         // MobileRewardsComponent,
