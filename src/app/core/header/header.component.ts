@@ -79,7 +79,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   filter_string:string=''
   ctryName:any;
   previousUrl:any ='';
-  navClick:any='hide_nav'
+  navClick:any='hide_nav';
+  otherPlans:boolean=false;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -145,7 +146,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
 
 
     localStorage.setItem('last_page', event.url);
-
+    
     if(event.url == '/'  )
     {
       this.showHeader = true;
@@ -192,12 +193,20 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       }
       this.showHeader = false;
     }
+   
     else
     {
       this.showHeader = false;
       this.blueBg = 0;
     }
-
+   
+    if(event.url.includes('/account/other-plans'))
+      {
+        this.otherPlans = true;
+      }
+      else{
+        this.otherPlans = false;
+      }
 
   });
 
