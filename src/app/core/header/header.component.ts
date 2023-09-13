@@ -182,6 +182,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     }
     else if(event.url == '/globalcallrates')
     {
+      this.showMyaccontHeader = false;
       if(window.screen.width > 768)
       {
         this.blueBg = 0;
@@ -615,7 +616,7 @@ onClickClose(icon)
       localStorage.removeItem("topupTrigger");
       this.router.navigateByUrl('mobiletopup');
     }
-   
+
 
   }
 
