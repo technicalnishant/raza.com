@@ -6,6 +6,7 @@
     font-size: 30px !important;
     font-weight: 600 !important;
     width: 100% !important;
+    margin: 5px 0 10px;
   }
   .heading_style1{
     margin-left: 188px;
@@ -113,18 +114,22 @@
       width: 62% !important;
     }
     .heading_style1{
-      left: 0;
       margin-left: 0px;
       font-size: 32px;
-      width: 100%;
-      top: 32%;
-      padding: 0 20px;
+      top: unset;
+      bottom: 80px;
+      background: rgba(0, 0, 0, 0.35);
+      left: 15px;
+      right: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      width: auto;
     }
     .heading_style1 span{
       font-size: 16px;
     }
     .sendtopup{
-      font-size: 25px !important;
+      font-size: 24px !important;
     }
     .hideinMobile {
       display: none;
@@ -522,6 +527,9 @@
   // media quries for form
 
   @media only screen and (max-width: 767px) {
+    .mobile-topup-wrapper .form-wrapper {
+        margin: 90px auto 0;
+    }
     .submit-btn{
       padding: 10px 20px !important;
     }

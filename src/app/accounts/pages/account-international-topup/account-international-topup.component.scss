@@ -400,15 +400,42 @@ td {
         left: 10%;
         top: 20%;
         .tabTitle {
-          font-size: 52px;
+          font-size: 60px;
           font-weight: 700;
+          line-height: 1.2;
           margin: 0;
           text-transform: uppercase;
         }
-      .desc {
-        font-size: 20px;
+        .sendtopup {
+            font-size: 30px;
+            font-weight: 600;
+            text-transform: capitalize;
+            margin-bottom: 8px;
+        }
+        .desc {
+          font-size: 16px;
+          text-transform: capitalize;
+          font-weight: 500;
+          margin-bottom: 0;
+        }
+        @media only screen and (max-width: 767px) {
+            background: rgba(0, 0, 0, 0.35);
+            left: 15px;
+            right: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            top: unset;
+            bottom: 124px;
+            .tabTitle {
+              font-size: 32px;
+            }
+            .sendtopup {
+              font-size: 24px;
+              line-height: 1.2;
+              margin-top: 5px;
+            }
+        }
       }
-    }
   }
   .commonmyaccountareaforallpages {
     margin-bottom: 0 !important;
