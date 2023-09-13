@@ -109,6 +109,60 @@
     margin-bottom: 40px;
   }
 
+  .mobileIntTopupSec {
+      padding: 0 15px;
+      .operator-details {
+        width: 700px;
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: 20px;
+        border: 1px solid #c6c6c6;
+        padding: 24px 30px;
+        background: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 40px;
+        &> div {
+          border-bottom: 1px solid #e2e2e2;
+          padding-bottom: 15px;
+          &:last-child {
+            border: none;
+            padding-bottom: 0;
+          }
+        }
+        .country-img {
+          img.flag {
+            margin-right: 6px;
+          }
+        }
+        .edit-button {
+          max-width: 100px;
+          a {
+              font-size: 13px;
+              color: #000;
+              display: flex;
+              align-items: center;
+          }
+          @media only screen and (max-width: 767px) {
+            max-width: 70px;
+            margin-left: auto;
+          }
+        }
+      }
+      .topup_section {
+          max-width: 1070px;
+          margin: 0 auto;
+          padding: 55px 40px 20px;
+          background: #fff;
+          border: 1px solid #eaeaea;
+          border-radius: 20px;
+          margin-top: -26px;
+          @media only screen and (max-width: 767px) {
+            padding: 55px 20px 10px;
+          }
+      }
+  }
+
   @media only screen and (max-width: 650px) {
     .submit-btn{
       width: 62% !important;
@@ -255,17 +309,9 @@
     }
 
     .form-wrapper {
-      width: 660px;
       max-width: 100%;
-      margin: 50px auto 0;
+      margin: 30px auto 0;
 
-      .rounded-lg {
-        border-radius: 20px !important;
-        border: 1px solid #c6c6c6;
-        &.card {
-          padding: 8px 30px 30px;
-        }
-      }
       .country,
       .country-img {
         font-size: 18px;
@@ -329,16 +375,6 @@
         }
       }
 
-      mat-form-field {
-        margin-bottom: 15px;
-        position: relative;
-      }
-
-      .example-form {
-        min-width: 100%;
-        max-width: 100%;
-      }
-
       input.mat-input-element {
         margin-top: 8px;
         margin-bottom: 4px;
@@ -376,12 +412,12 @@
   }
 
   .denomination__box {
-    border-radius: 12px;
-    border: 1px solid #c8e8f6;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+      border-radius: 15px;
+      border: 1px solid #ccdbe2;
+      padding: 10px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
   }
   .operator-details.border-bottom {
     border-color: #b9b9b9!important;
@@ -443,10 +479,10 @@
     // border: 15px solid #283a69 !important;
   }
   .top_section {
-    background-color: #ebf8fe;
-    border-bottom: 1px solid #c8e8f6;
+    background-color: #eff7ff;
     padding: 15px;
-    border-radius: 12px 12px 0 0;
+    border-radius: 15px;
+    margin-bottom: 15px;
     h2 {
         font-size: 32px;
         font-weight: bolder;
@@ -466,7 +502,7 @@
     }
   }
   .bottom_section{
-    padding: 15px;
+    padding: 15px 15px 35px;
     font-size: 14px;
     color: #4b4b4b;
     ul {
@@ -490,7 +526,6 @@
   .top_up_btn {
     display: flex;
     justify-content: center;
-    margin-bottom: 32px;
 }
 
 .top_up_btn {
@@ -539,12 +574,12 @@
     }
 
     .country,.country-img,.edit-button {
-      font-size: 14px!important;
-  }
+      font-size: 17px !important;
+    }
     .mobile-topup-wrapper {
       padding-top: 0px;
       padding-bottom: 50px;
-  }
+    }
 
     .form-wrapper .form-desc {
       font-size: 16px;
@@ -575,10 +610,6 @@
       bottom: -20px;
       top: unset;
     }
-    .mobile-topup-wrapper .form-wrapper mat-form-field {
-      margin-bottom: 0px;
-      position: relative;
-    }
     .topup_items {
       .topup_item {
         width: 100%;
@@ -589,7 +620,7 @@
       padding: 0;
     }
     .top_up_btn{
-        margin: 0 -12px 25px;
+        margin: 0 -12px 0;
     }
   }
 
@@ -605,16 +636,55 @@
   }
 
   ::ng-deep {
-    .form-wrapper .mat-form-field-should-float .mat-form-field-label {
-        left:0 !important;
+    .mat-autocomplete-panel.mat-autocomplete-hidden {
+        display: none;
     }
-    // .form-wrapper .mat-form-field-should-float .mat-form-field-infix {
-    //   position:static;
-    // }
-    .mobileTopup {
+    .form-wrapper .mat-form-field-infix {
+      position: static;
+    }
+    .intMobileTopup {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 660px;
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: 20px;
+        border: 1px solid #c6c6c6;
+        padding: 18px 30px 30px;
+        background: #fff;
+        mat-form-field {
+          margin-bottom: 10px;
+        }
+      span.prefix-mobiletopup {
+        margin-right: 15px;
+        font-size: 20px;
+        color: #6c6c6c;
+        font-weight: 600;
+      }
+      button.submit-btn {
+          background: #f3c423;
+          padding: 10px 50px;
+          border-radius: 30px;
+          color: #000;
+          font-weight: 700;
+          border: none;
+          text-decoration: none;
+          width: 100% !important;
+          font-size: 20px;
+          &:hover {
+            background-color: #f4d24c;
+          }
+      }
+      .button-wrapper {
+          width: 100%;
+          text-align: right;
+          margin-top: 8px;
+      }
       .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
-        padding-left: 11px;
-        padding-top: 10px;
+        // padding-left: 11px;
+        padding-top: 5px;
       }
       .labelText {
         font-size: 20px;
@@ -624,10 +694,18 @@
       .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float.globe .mat-form-field-label {
         padding-left: 25px;
       }
+      .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+        transform: translateY(-1.34375em) scale(0.75);
+      }
+      .mat-form-field-underline {
+        bottom: 8px;
+        background-color: #e2e2e2;
+        overflow: hidden;
+      }
       .globe {
         .globeIcon {
           position: absolute;
-          top: 14px;
+          top: 4px;
           width: 30px;
           height: 30px;
           background-image: url(../../../../assets/images/globe.png);
@@ -637,16 +715,79 @@
             padding-left: 45px;
           }
         }
-        .labelText {
-          padding-left: 45px;
+        .mat-form-field-label-wrapper {
+          .labelText {
+            padding-left: 45px;
+          }
         }
       }
-      .mat-form-field-underline {
-        bottom: 8px;
-        background-color: #e2e2e2;
-        overflow: hidden;
+      .mat-form-field-prefix ~ .mat-form-field-infix .mat-form-field-label {
+        padding-left: 60px;
+        padding-top: 7px;
+      }
+      input[type="text"], input[type="tel"] {
+        font-size: 20px;
+        color: #000;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
       }
     }
+    .cdk-overlay-pane {
+      margin-top: 30px;
+      border-radius: 20px !important;
+      overflow: hidden;
+      padding-right: 1px;
+      background: #fff;
+    }
+    .countryPopUp {
+      border-radius: 20px !important;
+      box-shadow: none !important;
+      padding: 0 20px;
+      max-height: 375px !important;
+      border: 1px solid #c6c6c6;
+
+      /* width */
+      &::-webkit-scrollbar {
+        width: 3px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        border: 1px solid #eee;
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #aaa;
+      }
+
+      .title {
+          font-size: 14px;
+          color: #656565;
+          font-weight: 600;
+          padding: 14px 20px;
+          margin: 0 -20px;
+          border-bottom: 1px solid #dbe3ed;
+          & + .mat-option {
+            border-top: none;
+          }
+      }
+      .mat-option {
+          border-top: 1px solid #ecf1f7;
+          font-size: 17px;
+      }
+    }
+
+
+
+
     .topUpText {
       text-align: center;
       margin: 80px 0 40px;

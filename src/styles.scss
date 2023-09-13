@@ -1005,6 +1005,10 @@ table {
         font-size: 14px;
     }
 }
+.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+  transform: translateY(-1.34375em) scale(0.75);
+  font-weight: 500;
+}
 .header_style {
     .colorWhite {
         color: #0b203e;
