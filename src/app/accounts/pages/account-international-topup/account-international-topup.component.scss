@@ -503,12 +503,13 @@ td {
   .tableNewSpaceN {
     padding: 60px 15px !important;
   }
-  ::ng-deep {
-    .mat-autocomplete-panel.mat-autocomplete-hidden {
-        display: none;
-    }
+
+::ng-deep {
+  .mat-autocomplete-panel.mat-autocomplete-hidden {
+      display: none;
+  }
   .form-wrapper .mat-form-field-infix {
-    position:static;
+    position: static;
   }
   .intMobileTopup {
     display: flex;
@@ -699,7 +700,9 @@ td {
   top: -37px;
 }
 .country-img .operator.mr-2 {
-  width: 50px;
+  object-fit: contain;
+  width: 64px;
+  height: 32px;
 }
 .mobileIntTopupSec {
     padding: 0 15px;
@@ -734,6 +737,13 @@ td {
             color: #000;
             display: flex;
             align-items: center;
+        }
+      }
+      @media only screen and (max-width: 767px) {
+        font-size: 17px;
+        .edit-button {
+          max-width: 70px;
+          margin-left: auto;
         }
       }
     }

@@ -9,12 +9,12 @@
       </div>
     </div>
 
-    <div class="container" *ngIf="!mobileTopupData">
+    <div class="containerInt" *ngIf="!mobileTopupData">
       <div class="form-wrapper">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
-            <div class="card rounded-lg">
-              <form class="example-form mobileTopup" [formGroup]="mobileTopupForm" (ngSubmit)="onMobileTopupFormSubmit()" autocomplete="off">
+            <div class="rounded-lg">
+              <form class="example-form intMobileTopup" [formGroup]="mobileTopupForm" (ngSubmit)="onMobileTopupFormSubmit()" autocomplete="off">
                 <mat-form-field class="example-full-width globe">
                   <span *ngIf="!(mycountryId > 0)" class="globeIcon"></span>
                   <mat-label class="labelText">Choose Country</mat-label>
@@ -25,7 +25,8 @@
                   <input matInput type="text" [matAutocomplete]="auto" formControlName="countryTo" (keyup)="unsetFlag()" class="ml-2" />
                   <!-- <mat-icon matSuffix>search</mat-icon> -->
 
-                  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" class="countryPopUp">
+                    <div class="title">Popular Countries</div>
                     <mat-option *ngFor="let country of filteredCountry | async" [value]="country"
                       (click)="onSelectCountrFrom(country)">
                       <span class="mr-2">
@@ -36,6 +37,7 @@
                     </mat-option>
                   </mat-autocomplete>
                 </mat-form-field>
+
                 <mat-form-field class="example-full-width input-number">
                   <mat-label class="labelText">Enter Mobile Number</mat-label>
                   <span matPrefix class="prefix-mobiletopup"
@@ -67,7 +69,7 @@
 
     <!-- country section section end here -->
 
-    <div class="container" *ngIf="mobileTopupData">
+    <div class="containerIntTop" *ngIf="mobileTopupData">
       <div class="form-wrapper">
         <div class="row">
           <!-- <div class="col-12 mobiletopup_mobile">
@@ -76,9 +78,9 @@
             </p>
           </div> -->
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
-            <div class="card p-3 p-md-5 shadow mt-4 rounded-lg">
+            <div class="mobileIntTopupSec">
               <div class="operator-details pb-4">
-                <div class="justify-content-md-between row align-items-center">
+                <div class="justify-content-md-between row align-items-center pb-4">
                   <div class="country col-auto col-md-4">Country:</div>
                   <div class="country-img col-auto col-md-4">
                     <div>
@@ -114,10 +116,12 @@
                         </a>
                       </div>
                 </div>
-                <div class="justify-content-md-between row align-items-center" *ngIf="mobileTopupData">
+                <div class="justify-content-md-between row align-items-center pt-4" *ngIf="mobileTopupData">
                   <div class="country col-auto col-md-4">Operator:</div>
                   <div class="country-img col-auto col-md-4">
-                    <div> <img class="operator mr-2" [src]="operatorImage" alt="" /> {{mobileTopupData.Operator}}</div>
+                    <div> <img class="operator mr-2" [src]="operatorImage" alt="" />
+                      <!-- {{mobileTopupData.Operator}} -->
+                    </div>
                   </div>
                   <div class="edit-button col-12 col-md-4 text-right"><a style="display:none" href="#" type="button">Edit
                       <mat-icon>arrow_right
