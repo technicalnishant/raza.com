@@ -493,7 +493,7 @@ p {
 	overflow: hidden;
 	background: #fff;
 	padding: 33px 0 21px 0;
-	position: fixed;
+	// position: fixed;
 	width: 100%;
 	z-index: 9;
 }
@@ -518,16 +518,16 @@ p {
 .i_icon {
 	padding-left: 5px;
 }
-  
+
   .form_holder5Row{ padding: 15px 33px;}
-  @media only screen and (max-width: 1000px) { 
+  @media only screen and (max-width: 1000px) {
     .recharge_block{ margin-top: 104px }
   }
-  @media only screen and (max-width: 675px) { 
-    .containerMobile{width: 100%;} 
+  @media only screen and (max-width: 675px) {
+    .containerMobile{width: 100%;}
      .recharge_block{ margin-top: 0px !important; padding: 0 0 !important;}
   }
-  
+
   .mt-40{
     margin-top: 40px;
   }
@@ -561,7 +561,7 @@ p {
 	text-align: right;
 	border-top: 2px solid #b9b9b9a6;
 	border-bottom: 2px solid #b9b9b9a6;
-	
+
 	small{
 		color: #969DA5;
 	}
@@ -644,7 +644,7 @@ p {
 		text-align: center;
 		font-size: 14px;
 		color: #9c9c9c;
-		
+
 	}
 	.f-description span{
 		color: #103f8a;

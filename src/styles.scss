@@ -863,8 +863,9 @@ p {
     width: 100% !important;
 }
 .rechargeStepMain {
-    margin-top: -97px;
-    border-bottom: 1px solid #ccc;
+  margin-top: -42px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 .onlyDesktopAccount {
     .leftTabArea {
@@ -1006,7 +1007,7 @@ table {
     }
 }
 .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
-  transform: translateY(-1.34375em) scale(0.75);
+  transform: translateY(-1.34375em) scale(0.85);
   font-weight: 500;
 }
 .header_style {
@@ -2663,6 +2664,9 @@ ul {
 }
 
 @media only screen and (max-width: 600px) {
+    .rechargeStepMain {
+      margin-top: 65px;
+    }
     .showMobileOnly {
         display: block;
     }
