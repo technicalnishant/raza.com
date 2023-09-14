@@ -83,7 +83,9 @@ export class FooterComponent implements OnInit {
 
   redirectreffer()
   {
-      if (this.authService.isAuthenticated()) 
+    this.authService.getSharedValue().subscribe(value => {
+      
+      if (value) 
       {
           this.router.navigate(['account/rewards'])
       }
@@ -92,6 +94,9 @@ export class FooterComponent implements OnInit {
         this.router.navigate(['refer/reffer_a_friend']);
       
       }
+
+    });
+      
   }
 
 
