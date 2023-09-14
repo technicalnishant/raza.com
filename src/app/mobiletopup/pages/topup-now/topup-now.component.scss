@@ -657,6 +657,9 @@
         mat-form-field {
           margin-bottom: 10px;
         }
+        @media only screen and (max-width: 767px) {
+          padding: 18px 18px 8px;
+        }
       span.prefix-mobiletopup {
         margin-right: 15px;
         font-size: 20px;
@@ -916,6 +919,11 @@
     }
   }
 
+  @media only screen and (max-width: 767px) {
+    .containerInt {
+        padding: 0 16px;
+    }
+  }
   /*@media only screen and (max-width: 480px)
   {
   .heading_style1{

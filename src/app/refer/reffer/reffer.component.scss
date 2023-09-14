@@ -599,8 +599,8 @@ h1.heading_style1 {
     background-size: cover;
     height: 410px !important;
     background-position: center;
-    border-bottom-left-radius: 100% 170px;
-    border-bottom-right-radius: 100% 170px;
+    border-bottom-left-radius: 100% 80px;
+    border-bottom-right-radius: 100% 80px;
   }
   .loginBoxSec {
     display: block;
@@ -630,10 +630,10 @@ h1.heading_style1 {
     }
   }
   .balDetails .col-md-6 {
-    padding: 20px 30px 0;
-    &:first-child {
-      padding-bottom: 10px;
-      border-right: none;
+    padding: 15px 25px 0;
+    width: 50%;
+    &:last-child {
+      padding-right: 0;
     }
   }
   .yourReffralCode h3 {

@@ -146,7 +146,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
 
 
     localStorage.setItem('last_page', event.url);
-    
+
     if(event.url == '/'  )
     {
       this.showHeader = true;
@@ -181,33 +181,29 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       this.showMyaccontHeader = false;
       this.showHeader = false;
     }
-    else if(event.url == '/globalcallrates')
-    {
+    else if(event.url == '/globalcallrates'){
       this.showMyaccontHeader = false;
-      if(window.screen.width > 768)
-      {
-        this.blueBg = 0;
-      }
-      else{
-        this.blueBg = 1;
-      }
+      // if(window.screen.width > 768)
+      // {
+      //   this.blueBg = 0;
+      // }
+      // else{
+      //   this.blueBg = 1;
+      // }
       this.showHeader = false;
     }
-   
-    else
-    {
+
+    else {
       this.showHeader = false;
       this.blueBg = 0;
     }
-   
-    if(event.url.includes('/account/other-plans'))
-      {
+
+    if(event.url.includes('/account/other-plans')){
         this.otherPlans = true;
       }
       else{
         this.otherPlans = false;
       }
-
   });
 
 
