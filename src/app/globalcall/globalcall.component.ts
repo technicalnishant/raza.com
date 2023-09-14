@@ -244,7 +244,7 @@ export class GlobalcallComponent implements OnInit {
       this.router.navigate(['/']);
     }
 
-    document.getElementById('hd-bg').classList.remove('header-top');
+    //document.getElementById('hd-bg').classList.remove('header-top');
     
      if(window.screen.width > 768)
      {

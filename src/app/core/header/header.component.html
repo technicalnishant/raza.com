@@ -354,11 +354,16 @@
 
       <span class="example-spacer"></span>
       <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span>
-       <button mat-icon-button class="p-0 myAct matButtonBGN2"
+       <!-- <button mat-icon-button class="p-0 myAct matButtonBGN2"
         #accountDropMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+      </button> -->
+
+      <button mat-icon-button class="p-0 myAct matButtonBGN2" (click)="sidenav.toggle()">
         <mat-icon>account_circle</mat-icon>
       </button>
 
+      
       <!-- <button mat-icon-button class="p-0"
       [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}"
       #accountDropMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu">

@@ -81,6 +81,20 @@ export class FooterComponent implements OnInit {
   }
 
 
+  redirectreffer()
+  {
+      if (this.authService.isAuthenticated()) 
+      {
+          this.router.navigate(['account/rewards'])
+      }
+      else
+      {
+        this.router.navigate(['refer/reffer_a_friend']);
+      
+      }
+  }
+
+
   openDialog()
   {
     this.razaSnackBarService.openSnackDialog('This is a test error');

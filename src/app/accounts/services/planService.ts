@@ -278,6 +278,7 @@ export class PlanService {
     return this.httpClient.get<[]>(`${Api.plan.pinlessNumber}/${replaced}`).pipe(
       tap(data => {
         sessionStorage.setItem('pinless_'+replaced, JSON.stringify(data));
+        console.log(sessionStorage.getItem('pinless_'+replaced));
       }),
       catchError(error => {
         console.error('Error fetching data:', error);

@@ -17,11 +17,7 @@ export class AccountTopMenuComponent implements OnInit {
   
   ngOnInit() {
      
-    this.router.events.subscribe(event => {
-      
-        this.myMethod();
-       
-    })
+    
   }
 
   closeParent(): void {

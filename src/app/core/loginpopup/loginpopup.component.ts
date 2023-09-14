@@ -435,14 +435,18 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
           
           if(this.navigateTo !='' && this.navigateTo == 'cartpage')
           {
-            this.router.navigate(['checkout/payment-info']); 
+            this.redirect('checkout/payment-info');
+           // this.router.navigate(['checkout/payment-info']); 
           }
           else
           {
             if(this.rewardsRoute !='')
-            this.router.navigateByUrl(this.rewardsRoute);
+            this.redirect(this.rewardsRoute);
+            
             else
-            this.router.navigateByUrl(path);
+            this.redirect(path);
+            
+          
           }
             
             this.closeModal();
@@ -462,7 +466,11 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   }
 
  
-
+  redirect(path)
+  {
+    this.router.navigateByUrl(path);
+  }
+  
   showHideForgotForm() {
     
     if (this.showForgotPass) {
