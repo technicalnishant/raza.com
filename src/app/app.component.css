@@ -1,3 +1,6 @@
 .free-trial{
     visibility: initial !important;
 }
+.mainWrapper {
+  min-height: 500px;
+}
