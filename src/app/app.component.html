@@ -28,7 +28,7 @@
   <mat-sidenav-content>
     <div class="wraper">
       <app-header *ngIf="!currentURL.includes('moto')  && !currentURL.includes('web_pay') && !currentURL.includes('mobile_pay') && !currentURL.includes('raza-us')" [sidenav]='sidenav'></app-header>
-     <div>
+     <div  class="mainWrapper">
       <router-outlet></router-outlet>
      </div>
     </div>
@@ -39,7 +39,7 @@
     <!--Footer-->
 
   </mat-sidenav-content>
-  
+
 </mat-sidenav-container>
 
 
