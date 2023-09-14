@@ -61,7 +61,12 @@ export class FooterComponent implements OnInit {
   scrollToMobileApp() {
     window.scrollTo(1650, 1650);
   }
-  
+  get IsEnableloggedIn(): boolean {
+		if (!this.authService.isAuthenticated()) {
+		  return false;
+		}
+    return true;
+  }
   redirectClick(obj)
   {
     if (this.authService.isAuthenticated()) {
@@ -83,9 +88,9 @@ export class FooterComponent implements OnInit {
 
   redirectreffer()
   {
-    this.authService.getSharedValue().subscribe(value => {
-      
-      if (value) 
+    // this.authService.getSharedValue().subscribe(value => {
+    //   this.isAuthenticatedn = value;  });
+      if (this.authService.isAuthenticated()) 
       {
           this.router.navigate(['account/rewards'])
       }
@@ -95,7 +100,7 @@ export class FooterComponent implements OnInit {
       
       }
 
-    });
+  
       
   }
 
