@@ -104,7 +104,8 @@
 
                   <div class="desk_app_us_img_wrap">
                       <a routerLink="/mobile-page" >
-                        <img loading="lazy" src="./assets/images/home_banner_new/desk_app_us_ypncgi.webp" width="721" height="540" alt="img" class="img-fluid d-none d-md-block m-auto">
+                        <img loading="lazy" src="./assets/images/home_banner_new/desk_app_us_ypncgi_new.webp" width="721" height="540" alt="img" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
+                        <img loading="lazy" src="./assets/images/home_banner_new/desk_app_us_ypncgi_new_uk.webp" width="721" height="540" alt="img" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId == 3">
                       </a>
                       <div class="desk_app_us_text">
                           <a href="/mobile-page">
