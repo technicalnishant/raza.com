@@ -376,7 +376,7 @@
       }
 
       input.mat-input-element {
-        margin-top: 8px;
+        // margin-top: 8px;
         margin-bottom: 4px;
         font-size: 18px;
       }
@@ -741,6 +741,9 @@
       overflow: hidden;
       padding-right: 1px;
       background: #fff;
+      @media only screen and (max-width: 767px) {
+        margin-top: 5px;
+      }
     }
     .countryPopUp {
       border-radius: 20px !important;

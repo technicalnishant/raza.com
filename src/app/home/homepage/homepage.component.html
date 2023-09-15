@@ -97,8 +97,9 @@
                   <!-- <img loading="lazy" src="./assets/images/mobile_app_v2.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId ==3"> -->
                   <!-- <img loading="lazy" src="./assets/images/download_get_img.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId ==3"> -->
                   <!-- <img loading="lazy" src="./assets/images/mobile_app_us_ypncgi.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId !=3"> -->
-                  <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi.webp" alt="img" class="img-fluid d-block d-md-none m-auto">
-                  <a routerLink="/mobile-page"  type="button" mat-button>
+                  <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new.webp" alt="img" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
+                  <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new_uk.webp" alt="img" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 3">
+                  <a href="javascript:void(0)" (click)="downloadApp()" mat-button>
                       <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi2.webp" alt="img" class="img-fluid d-block d-md-none m-auto playStor2">
                   </a>
 
