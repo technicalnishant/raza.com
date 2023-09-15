@@ -610,7 +610,7 @@ onClickClose(icon)
 
   goTomobileTopup()
   {
-    if(this.isAuthenticatedn)
+    if(this.authService.isAuthenticated())
     {
       this.router.navigate(['/account/international-topup']);
     }
@@ -621,8 +621,7 @@ onClickClose(icon)
       localStorage.removeItem("topupTrigger");
       this.router.navigateByUrl('mobiletopup');
     }
-
-
+ 
   }
 
   clickMenu()
