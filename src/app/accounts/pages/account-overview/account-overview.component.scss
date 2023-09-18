@@ -825,11 +825,6 @@ table {
 							}
 						}
 					}
-          button {
-            font-size: 11px;
-            text-align: center;
-            width: 100%;
-          }
 				}
 			}
 		}
@@ -890,11 +885,6 @@ table {
             }
 					}
 				}
-        button {
-          border: none;
-          background: transparent;
-          font-size: inherit;
-        }
 				&.recharge {
 					a {
 						background-image: url(../../../../assets/images/myaccount_icons/recharge-normal.png);
@@ -987,9 +977,9 @@ table {
 				}
 				&.other-plans {
 					a {
-						background-image: url(../../../../assets/images/myaccount_icons/recharge-normal.png);
+						background-image: url(../../../../assets/images/myaccount_icons/otherplans-normal.png);
 						&:hover, &.active-link  {
-							background-image: url(../../../../assets/images/myaccount_icons/recharge-hover.png);
+							background-image: url(../../../../assets/images/myaccount_icons/otherplans-hover.png);
 						}
 					}
 				}
@@ -998,6 +988,14 @@ table {
 						background-image: url(../../../../assets/images/myaccount_icons/notifications-normal.png);
 						&:hover, &.active-link  {
 							background-image: url(../../../../assets/images/myaccount_icons/notifications-hover.png);
+						}
+					}
+				}
+        &.logOut {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/logout-normal.png);
+						&:hover, &.active-link  {
+							background-image: url(../../../../assets/images/myaccount_icons/logout-hover.png);
 						}
 					}
 				}
@@ -1023,6 +1021,7 @@ table {
 		&Wrap {
 			background: #fff;
 			padding: 35px 0;
+      position: relative;
 		}
 		::ng-deep {
 			.selectRechargeSec {

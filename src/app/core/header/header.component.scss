@@ -1,3 +1,148 @@
+::ng-deep {
+  .slidemenu.hideSome {
+    .plandetails {
+      .mat-expansion-panel {
+        border: none !important;
+      }
+    }
+    mat-nav-list .plandetails .mat-accordion {
+      margin: 0;
+    }
+    .homeSideMenus li {
+      a {
+        display: block;
+        color: #000;
+        font-size: 16px;
+        font-weight: 500;
+        background-repeat: no-repeat;
+        background-position: left 0 center;
+        padding-left: 52px;
+        white-space: nowrap;
+        &:hover, &.active-link  {
+          color: #1656ff;
+        }
+      }
+      &.virtualnumber {
+        display: none;
+      }
+      &.recharge {
+        a {
+          background-image: url(../../../assets/images/myaccount_icons/recharge-normal.png);
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/recharge-hover.png);
+          }
+        }
+      }
+      &.payment-details {
+        a {
+          background-image: url(../../../assets/images/myaccount_icons/paymentdetails-normal.png);
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/paymentdetails-hover.png);
+          }
+        }
+      }
+      &.autorefill {
+        a {
+          background-image: url(../../../assets/images/myaccount_icons/autorefill-normal.png);
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/autorefill-hover.png);
+          }
+        }
+      }
+      &.order-history {
+        a {
+          background-image: url(../../../assets/images/myaccount_icons/orderhistory-normal.png);
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/orderhistory-hover.png);
+          }
+        }
+      }
+      &.plandetails {
+        padding: 0;
+        ul {
+          padding-left: 55px;
+          a {
+            padding-left: 0;
+            font-family: 'Montserrat', sans-serif;
+          }
+        }
+        .plan_details {
+          background-image: url(../../../assets/images/myaccount_icons/plandetails-normal.png);
+          background-repeat: no-repeat;
+          background-position: left 0 center;
+          padding-left: 52px !important;
+          height: 55px;
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/plandetails-hover.png) !important;
+            background-repeat: no-repeat !important;
+            background-position: left 0 center !important;
+            color: #1656ff;
+            .mat-expansion-panel-header-title {
+              color: #1656ff;
+            }
+          }
+        }
+      }
+      &.rewards {
+        a {
+          background-image: url(../../../assets/images/myaccount_icons/rewards-normal.png);
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/rewards-hover.png);
+          }
+        }
+      }
+      &.international-topup {
+        a {
+          background-image: url(../../../assets/images/myaccount_icons/intertopup-normal.png);
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/intertopup-hover.png);
+          }
+        }
+      }
+      &.virtualnumber {
+        a {
+          background-image: url(../../../assets/images/myaccount_icons/recharge-normal.png);
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/recharge-hover.png);
+          }
+        }
+      }
+      &.my-profile {
+        a {
+          background-image: url(../../../assets/images/myaccount_icons/myprofile-normal.png);
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/myprofile-hover.png);
+          }
+        }
+      }
+      &.other-plans {
+        a {
+          background-image: url(../../../assets/images/myaccount_icons/otherplans-normal.png);
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/otherplans-hover.png);
+          }
+        }
+      }
+      &.notifications {
+        a {
+          background-image: url(../../../assets/images/myaccount_icons/notifications-normal.png);
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/notifications-hover.png);
+          }
+        }
+      }
+      &.logOut {
+        a {
+          background-image: url(../../../assets/images/myaccount_icons/logout-normal.png);
+          &:hover, &.active-link  {
+            background-image: url(../../../assets/images/myaccount_icons/logout-hover.png);
+          }
+        }
+      }
+    }
+  }
+}
+
 .example-container {
   position: absolute;
   top: 0;
@@ -5,42 +150,6 @@
   left: 0;
   right: 0;
 }
-
-/* .header_style2 {
-  padding: 5px 0;
-  margin: 0;
-  width: 100%;
-  position: fixed;
-  top: unset;
-  left: 0;
-}
-.headerBackground {
-  background: #fff;
-  border-bottom: 1px solid #eaeaea;
-  -webkit-transition: opacity 0.7s;
-  transition: opacity 0.7s;
-  opacity: 1;
-  top: 0;
-}
-.moibile-strip img {
-  width: 70px;
-  border-radius: 4px;
-  padding: 5px;
-}
-
-.moibile-strip p{
-  font-size: 14px;
-  margin: 0;
-}
-.moibile-strip a {
-  padding: 0 5px;
-  font-size: 14px;
-}
-.moibile-strip .material-icons{
-  font-size: 20px;
-} */
-
-
 .header_white {
 	border-bottom: 1px solid #d6d6d6;
 	padding: 2px 0;
@@ -63,10 +172,12 @@ button.menu_btn {
   }
   @media only screen and (max-width: 767px) {
     display: none;
+    &.menu_btn2 {
+      margin-right: auto;
+    }
   }
   &.menu_btn2 {
     display: block;
-    margin-right: auto;
   }
 }
 .headerBackground {
@@ -131,7 +242,7 @@ button.menu_btn {
 }
 .matButtonBGN2 .mat-icon {
   height: 40px;
-  width: 40px;
+  // width: 40px;
   font-size: 36px;
   color: #0b203e;
   line-height: 40px;
@@ -198,6 +309,11 @@ button.login_btn {
 	display: flex;
     align-items: center;
     justify-content: center;
+}
+::ng-deep {
+  .loginDropDown {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 675px) {
@@ -1145,13 +1261,28 @@ input#searchInput::placeholder {
   margin-left: 24px;
   margin-right: 24px;
 }
+.xs_show {
+  display: none;
+}
 @media only screen and (max-width: 767px) {
+  ::ng-deep {
+    .loginDropDown {
+      display: block;
+    }
+  }
   ::ng-deep .cdk-overlay-pane {
     width: 100% !important;
     left: 0 !important;
     right: 0 !important;
     padding: 0 8px;
  }
+ .lg_show {
+    display: none;
+ }
+ .xs_show {
+    display: block;
+    width: 105px !important;
+  }
  .tryUsfree {
     font-size: 12px;
     background-image: none !important;
@@ -1486,4 +1617,10 @@ input#searchInput::placeholder {
   .dealimgcard {
     margin-left: -10%;
  }
+}
+
+@media screen and (min-width: 767px) {
+  .myAct.matButtonBGN2 {
+      display: none;
+  }
 }

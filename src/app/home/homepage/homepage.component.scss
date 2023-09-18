@@ -395,6 +395,7 @@ a {
         text-decoration: underline;
     }
 }
+
 @include breakpoint(md-lg) {
     .mobileImageSlider {
         right: -21px;
@@ -948,7 +949,7 @@ a {
     }
 }
 .carousel-caption.download {
-    top: 15%;
+    top: 12%;
 }
 .topup-btn {
     color: #000;
@@ -1334,13 +1335,20 @@ h1.buy1get1-text:after {
     position: relative;
 }
 .desk_app_us_text {
-    position: absolute;
-    bottom: 18px;
-    left: 435px;
-    font-size: 19px;
+  font-size: 19px;
+  font-weight: 700;
+  display: inline-block;
+  margin: 15px 0 0 -123px;
     a {
-        color: #ffd005;
-        text-decoration: underline;
+      color: #000;
+      text-transform: uppercase;
+      background: #fff;
+      padding: 8px 22px;
+      display: inline-block;
+      border-radius: 25px;
+      &:hover {
+        background-color: #ffcf05;
+      }
     }
 }
 
@@ -2275,12 +2283,6 @@ h1.buy1get1-text:after {
     .hpSlider_01 > .img-1 {
         width: 285px;
     }
-    .desk_app_us_text {
-        position: static;
-        margin-top: -33px;
-        margin-left: 200px;
-        font-size: 17px;
-    }
     .desk_app_us_img_wrap {
         max-width: 560px;
     }
@@ -2348,7 +2350,7 @@ h1.buy1get1-text:after {
     .carousel-caption.download {
         left: 10px;
         right: 10px;
-        top: 6%;
+        top: 10%;
         img {
             max-width: 330px;;
         }
@@ -2372,9 +2374,7 @@ h1.buy1get1-text:after {
         margin-top: 30px !important;
     }
     .desk_app_us_text {
-        position: static;
-        font-size: 17px;
-        margin: 5px 0 18px;
+        margin: 15px 0 0;
     }
     .playStor_text {
         font-size: 16px;

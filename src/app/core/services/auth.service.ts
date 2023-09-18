@@ -118,13 +118,7 @@ export class AuthenticationService {
 				// login successful if there's a jwt token in the response
 				if (user && user.access_token) {
 					// store user details and jwt token in local storage to keep user logged in between page refreshes
-					/*
-					 	user.access_token = "NDqt5xEg2pLU1E0dz37v_YaYnwAVyO1S4NGCD69VaQ7dCxeZvg_ELxZN5DfbEbr79JlPwcjB6LXh3yKXuUq2zW2UxUuo9w32Kw0ZJGVNpAdA3mk76wIGA2CHrbWr6Ei9HF4b6YX4EdZQHVz7It0WwPc3MD4_-tdCCdbwbKh3s8u-2T0N8IJcmymognPCtBdhWE5FMb5QO-GzYpkwLqdt6jfKH3ncE0xIXUurS7SIga8JMEqWO9B--UUvCORaMV0wUEVkx7DfU-uwTf6zD11fRfk2zMDVliXEA5nykUn8SQ0XVTNbYixQXYYF84dTk7Z33lG3MrOmER2PV3ohdeZmvBlyfbh8SZud3J43osA4P5MMwvRSzq37dqEuOSN9C-c7feL_2LTo78gquK4pM-CQGXigqeGHqcwh75UOkBcJbDU";
-					user.refresh_token = '9a57ac2404cb4f6fa1cfb918a2e8b447';
-					user.expires_in ='172799';
-					user['.expires'] = 'Thu, 18 Mar 2021 17:35:56 GMT';
-					user['.issued'] = 'Tue, 16 Mar 2021 17:35:56 GMT';  
-					*/
+					 
 					if(body.phone)
 					{
 						var phoneno 		= /^[0-9]+$/;
@@ -163,7 +157,7 @@ export class AuthenticationService {
 
 					AuthenticationService.username.next(user.userName);
 					this.saveCurrentUsertoLocalStorage(context);
-					this.setUsersCurrentCountry()
+					this.setUsersCurrentCountry();
 					this.EmitLoggedInEvent(true);
 					this.setSharedValue(true)
 					return context;
@@ -194,7 +188,7 @@ export class AuthenticationService {
 
 		return this.httpClient.post<any>(Api.auth.token, authCredentials)
 			.pipe(map(user => {
-				 console.log(user );
+				 
 				// login successful if there's a jwt token in the response
 				if (user && user.access_token) {
 					// store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -255,6 +249,7 @@ export class AuthenticationService {
 	 
 	}
 	logout() {
+		this.setSharedValue(false);
 		localStorage.removeItem('fromCountries');
 		localStorage.removeItem('currentUser');
 		localStorage.removeItem("login_no");

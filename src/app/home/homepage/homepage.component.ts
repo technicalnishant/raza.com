@@ -593,13 +593,19 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
  
  goTomobileTopup()
  {
-  localStorage.removeItem("topupCountry");
-  localStorage.removeItem("topupPhone");
-  localStorage.removeItem("topupCountryId");
-  localStorage.removeItem("topupTrigger");
-  this.router.navigateByUrl('mobiletopup');
-  
- }
+   
+    if(this.authService.isAuthenticated())
+      {
+        this.router.navigate(['/account/international-topup']);
+      }
+      else{
+        localStorage.removeItem("topupCountry");
+        localStorage.removeItem("topupPhone");
+        localStorage.removeItem("topupCountryId");
+        localStorage.removeItem("topupTrigger");
+        this.router.navigateByUrl('mobiletopup');
+      }
+  }
   
   
 

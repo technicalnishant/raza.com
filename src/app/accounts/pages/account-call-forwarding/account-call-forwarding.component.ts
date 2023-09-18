@@ -50,7 +50,8 @@ export class AccountCallForwardingComponent implements OnInit {
     //  console.log('item', item);
     const dialogRef = this.dialog.open(ConfirmPopupDialog, {
       data: {
-        success: 'success'
+        success: 'success',
+        message:'Are you absolutely certain you wish to remove this number?'
       }
     });
 

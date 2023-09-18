@@ -68,7 +68,7 @@
                     <div class="footer_menu">
                         <ul>
                             <li><a routerLink="/searchrates">International calling</a></li>
-                            <li><a routerLink="/mobiletopup" >Mobile Top-up</a></li>
+                            <li><a (click)="goTomobileTopup()" >Mobile Top-up</a></li>
                             <li><a routerLink="/mobileapp">Raza Mobile App</a></li>
                         </ul>
                     </div>
@@ -79,8 +79,10 @@
                         <ul>
                             <li><a routerLink="/features">Features</a></li>
                             <li><a routerLink="/searchrates">Search Rates</a></li>
-                            <li><a routerLink="/faq">FAQs</a></li>
-                            <li><a routerLink="/refer-a-friend">Refer a friend</a></li>
+                            <li><a routerLink="/faq">FAQs</a></li> 
+                          
+                            <li><a *ngIf="IsEnableloggedIn" routerLink="/account/rewards">Refer a friend</a></li>
+                            <li><a *ngIf="!IsEnableloggedIn" routerLink="/refer/reffer_a_friend">Refer a friend</a></li>
                             <li><a routerLink="/feedback">Give us your feedback</a></li>
                         </ul>
                     </div>

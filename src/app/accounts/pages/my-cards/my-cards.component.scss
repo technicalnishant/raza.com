@@ -532,6 +532,9 @@ p {
 .form_holder5Row {
 	padding: 15px 33px;
 }
+.containerMyCard {
+  padding: 0 35px;
+}
 
   @media only screen and (max-width: 1000px) {
     .recharge_block{ margin-top: 104px !important;}
@@ -595,7 +598,9 @@ p {
 	p.haveAccountAlready {
 	  text-align: left !important;
 	}
-
+  .containerMyCard {
+      padding: 0 20px;
+  }
 }
 
 .form__wrapper {
@@ -668,7 +673,6 @@ p {
 
 @media only screen and (max-width:768px) {
 	.saveCardWrap {
-		width: 93%;
 		margin: 15px auto 20px;
 	}
 	.savedCard {

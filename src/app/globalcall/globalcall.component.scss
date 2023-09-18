@@ -48,7 +48,7 @@ $background-color_1: #293a6a;
     min-height: 56px;
     line-height: 1.3;
 }
-.active {    
+.active {
     margin-top: -2px;
 }
 .first-col {
@@ -118,7 +118,7 @@ $background-color_1: #293a6a;
     border-right: 2px solid #ececec;
     border-left: 2px solid #ececec;
     border-radius:0 0 12px 12px;
-    
+
 }
 .dummy_border{
     padding: 17px;
@@ -158,7 +158,7 @@ $background-color_1: #293a6a;
     padding: 20px 20px 0px;
     border-radius: 16px;
     margin-top: 30px;
-    
+
     background-color: #fff;
     border-bottom: 1px solid #ddd;
     position: relative;
@@ -408,7 +408,7 @@ span.input-group-text.caret.bg-white.border-right-0 {
 .bgsvgimage {
     background-position: top;
     background-repeat: no-repeat;
-}   
+}
 .ano-col .bottom_bg {
     position: absolute;
     left: 0;
@@ -434,7 +434,7 @@ span.input-group-text.caret.bg-white.border-right-0 {
     background: #fff0ba;
     transition: 0.2s ease-in;
     border: 1px solid #fff0ba;
- 
+
 }
 .inner-cell-list {
     margin-top: -16px;
@@ -490,8 +490,8 @@ span.input-group-text.caret.bg-white.border-right-0 {
     height: 126px;
     width: 132px;
   }
- 
- 
+
+
 
 .hide_bonus .bonus-new,.hide_bonus .bonus-bg,.hide_bonus .bonus-bg-short{
 //opacity: 0;
@@ -543,6 +543,22 @@ td .col-wrapper.selected_active {
 .sticky_row .ano-col {
     font-size: 40px;
     font-weight: 700;
+    .slice {
+      font-size: 20px;
+      text-decoration: line-through;
+      margin-top: -25px;
+      margin-bottom: 2px;
+      display: block;
+    }
+}
+.full_width_scroll {
+  .sticky_row .ano-col {
+    .slice {
+        font-size: 18px;
+        margin-top: -12px;
+        margin-left: -20px;
+    }
+  }
 }
 td.body_no_scroll .ano-col {
     display: none;
@@ -872,7 +888,7 @@ input:checked + .slider:before {
 button.back_btn {
     display: none;
 }
-  
+
 section.faq-section {
     margin-bottom: 40px;
     .section-title {
@@ -891,7 +907,7 @@ section.faq-section {
     }
     .mat-expansion-panel-body {
         color: #333;
-    }    
+    }
     .mat-expansion-panel-header mat-icon {
         position: relative;
         top: 15px;
@@ -938,19 +954,19 @@ section.plan-section {
         font-weight: 600;
         margin-bottom: 15px;
         margin-top: 15px;
-    }    
+    }
     .section-title {
         color: #132f79;
         text-align: center;
         font-size: 46px;
         font-weight: 700;
         margin: 30px 0 61px;
-    }    
+    }
     .box {
         text-align: center;
         padding: 20px 30px;
         margin-bottom: 10px;
-    }    
+    }
     .box-description {
         font-weight: 500;
     }
@@ -1038,7 +1054,7 @@ section.plan-section {
         background-image: url(../../assets/images/bgshortmenu.png);
         background-position: right;
         background-size: 100% 100%;
-    }   
+    }
     .denomination-box table thead{
         border-left: 1px solid #3b489f;
         border-right: 1px solid #3b489f;
@@ -1224,6 +1240,10 @@ section.plan-section {
     }
 }
 @media only screen and (max-width: 768px) {
+  .ano-col .slice {
+      font-size: 20px;
+      text-decoration: line-through;
+  }
     .country-searchnew #searchInput {
         font-size: 16px;
         padding: 0 4px;
@@ -1295,7 +1315,7 @@ section.plan-section {
     section.faq-section .section-title {
         font-size: 32px;
         margin: 10px 0 30px;
-    }    
+    }
     section.search-strip .title {
         font-size: 30px;
     }
@@ -1319,7 +1339,7 @@ section.plan-section {
         height: 35px;
         border-radius: 50%;
         padding: 0;
-        background-color: transparent;        
+        background-color: transparent;
         &:hover {
             opacity: .8;
         }
@@ -1335,7 +1355,7 @@ section.plan-section {
     }
     .home_banner.searchrate_banner {
         display: none;
-    }    
+    }
     section.bg-white {
         margin-top: 68px;
     }
@@ -1385,7 +1405,7 @@ section.plan-section {
 
 
 //////////////////////////////////
-  
+
 
 
 .country-search {
@@ -1411,6 +1431,7 @@ section.plan-section {
         //   margin-top: -50px;
           padding: 0;
           border-radius: 8px;
+          background: #ffff;
         //   background-color: $background-color_1;
         //   border: 1px solid #1c294d;
           @include breakpoint(sm) {
@@ -1438,19 +1459,19 @@ section.plan-section {
               font-weight: 500;
               font-family: $font-family;
               opacity: 1;
-      
+
               @include breakpoint(sm) {
                   font-size: 16px;
               }
           }
-      
+
           .form-control {
               &:focus {
                   border: 0;
                   box-shadow: none;
                   outline: none;
               }
-      
+
               &:focus-visible {
                   border: 0;
                   box-shadow: none;
@@ -1458,7 +1479,7 @@ section.plan-section {
               }
           }
       }
-      
+
   }
 
   .flag_list1 {

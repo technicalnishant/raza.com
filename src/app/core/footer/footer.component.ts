@@ -61,7 +61,12 @@ export class FooterComponent implements OnInit {
   scrollToMobileApp() {
     window.scrollTo(1650, 1650);
   }
-  
+  get IsEnableloggedIn(): boolean {
+		if (!this.authService.isAuthenticated()) {
+		  return false;
+		}
+    return true;
+  }
   redirectClick(obj)
   {
     if (this.authService.isAuthenticated()) {
@@ -81,6 +86,25 @@ export class FooterComponent implements OnInit {
   }
 
 
+  redirectreffer()
+  {
+    // this.authService.getSharedValue().subscribe(value => {
+    //   this.isAuthenticatedn = value;  });
+      if (this.authService.isAuthenticated()) 
+      {
+          this.router.navigate(['account/rewards'])
+      }
+      else
+      {
+        this.router.navigate(['refer/reffer_a_friend']);
+      
+      }
+
+  
+      
+  }
+
+
   openDialog()
   {
     this.razaSnackBarService.openSnackDialog('This is a test error');
@@ -95,13 +119,22 @@ export class FooterComponent implements OnInit {
       
      
   }
-  goTomobileTopup()
-  {
-   localStorage.removeItem("topupCountry");
-   localStorage.removeItem("topupPhone");
-   localStorage.removeItem("topupCountryId");
-   localStorage.removeItem("topupTrigger");
-   this.router.navigateByUrl('mobiletopup');
+ 
+
    
+ goTomobileTopup()
+ {
+   
+    if(this.authService.isAuthenticated())
+      {
+        this.router.navigate(['/account/international-topup']);
+      }
+      else{
+        localStorage.removeItem("topupCountry");
+        localStorage.removeItem("topupPhone");
+        localStorage.removeItem("topupCountryId");
+        localStorage.removeItem("topupTrigger");
+        this.router.navigateByUrl('mobiletopup');
+      }
   }
 }

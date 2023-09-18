@@ -2,9 +2,9 @@
   <div class="onlySmallScreenAccount" *ngIf="isSmallScreen">
     <div class="myAccountMobTabContArea">
       <div class="commonBg">
-        <h2 class="welcomeText">{{userWelcomeLabel}}</h2>
+        <h2 class="welcomeText" *ngIf="showBalance">{{userWelcomeLabel}}</h2>
         <!-- commonmyaccountareaforallpages -->
-        <app-account-overview-plan-info *ngIf="plan" [plan]="plan"></app-account-overview-plan-info>
+        <app-account-overview-plan-info *ngIf="plan && showBalance" [plan]="plan"></app-account-overview-plan-info>
         <!-- commonmyaccountareaforallpages -->
         <!----------Show mobile stats------------>
         <div *ngIf="showMobileStats && newDesign">
@@ -68,7 +68,7 @@
           <a routerLink="/account/other-plans" (click)="getMyPlan()" routerLinkActive="active-link"><span></span> Other Plans</a>
         </li>
         <li class="notifications"><a routerLink="/account/overview/notification" (click)="getMyPlan()" routerLinkActive="active-link"><span></span> Notifications</a></li>
-        <li class="logOut" (click)="log_out_click()"><button>Log Out</button></li>
+        <li class="logOut" (click)="log_out_click()"><a href="javascript:void(0);">Log Out</a></li>
         <!-- <li><a routerLink="/account/rates" routerLinkActive="active-link">Search Rates</a></li> -->
       </ul>
     </div>
@@ -76,7 +76,7 @@
       <h2 class="welcomeText"> {{userWelcomeLabel}}</h2>
       <div class="rightTabAreaWrap">
         <!-- commonmyaccountareaforallpages -->
-        <app-account-overview-plan-info *ngIf="plan" [plan]="plan"></app-account-overview-plan-info>
+        <app-account-overview-plan-info *ngIf="plan && showBalance" [plan]="plan"></app-account-overview-plan-info>
 
         <app-account-buy-one-get-one *ngIf="showBuyNow" ></app-account-buy-one-get-one>
 

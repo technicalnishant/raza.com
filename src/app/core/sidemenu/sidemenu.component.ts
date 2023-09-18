@@ -11,19 +11,21 @@ import {  Observable, Subscription } from 'rxjs';
 import { PlanService } from 'app/accounts/services/planService';
 import { ApiErrorResponse } from '../models/ApiErrorResponse';
 import { ErrorDialogComponent } from 'app/shared/dialog/error-dialog/error-dialog.component';
+import { ConfirmPopupDialog } from 'app/accounts/dialog/confirm-popup/confirm-popup-dialog';
 @Component({
   selector: 'app-sidemenu',
   templateUrl: './sidemenu.component.html',
   styleUrls: ['./sidemenu.component.scss']
 })
 export class SidemenuComponent implements OnInit {
-  isLoggedIn: boolean;
+  isLoggedIn: boolean=false;
   isSmallScreen: boolean;
  // plan: Plan;
  plan:any
   isDisplayAccountMenu: boolean;
   currentSetting: CurrentSetting;
   currentSetting$: Subscription;
+  isAuthenticatedn:boolean=false;
   constructor(
     private authService: AuthenticationService,
     private router: Router,
@@ -31,8 +33,19 @@ export class SidemenuComponent implements OnInit {
     private sideBarNavService: SideBarService,
 	private razaEnvService: RazaEnvironmentService,
   private planService: PlanService,
-  ) { }
+  ) { 
 
+    this.authService.getSharedValue().subscribe(value => {
+      this.isAuthenticatedn = value;
+      if(this.isAuthenticatedn)
+      {
+        
+        
+      }
+    });
+
+  }
+ 
   ngOnInit() {
     
     this.router.events.subscribe(event => {
@@ -47,7 +60,8 @@ export class SidemenuComponent implements OnInit {
     })
     
 
-    if(this.authService.isAuthenticated()){
+    if(this.isAuthenticatedn){
+      this.isLoggedIn = true;
         // this.planService.getAllPlans().subscribe(
         //   (data: Plan[]) => {
         //     this.plan = data[0];
@@ -56,18 +70,51 @@ export class SidemenuComponent implements OnInit {
         // ); 
 
        // this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe( 
-         this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe( 
+         this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe( 
           (res:any)=>{
-            console.log(res);
+            
             this.plan = res;
-            //this.currentPlanName = res.CardName;
-           // this.currentBalance = res.Balance;
+            
           }
         );
       }
 
   }
 
+  get IsEnableLoggedIn(): boolean {
+		if (!this.authService.isAuthenticated()) {
+		  return false;
+		}
+    else
+    {
+      this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe( 
+        (res:any)=>{
+          
+          this.plan = res;
+          
+        }
+      );
+      return true;
+    }
+    
+  }
+
+  log_out_click(card) {
+    const dialogRef = this.dialog.open(ConfirmPopupDialog, {
+      data: {
+        message:'Are your sure?',
+        success: 'success'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result == "success") {
+        this.authService.logout()
+              this.router.navigate(['/']);
+      }
+    });
+  }
   redirectQuickClick = () =>{
     if(this.authService.isAuthenticated())
     {

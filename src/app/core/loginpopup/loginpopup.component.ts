@@ -234,13 +234,18 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      
     if(localStorage.getItem('rememberMe') && localStorage.getItem('rememberMe') == 'rememberMe')
     {
+      
      const loginwith  = localStorage.getItem('cookieLoginWith');
      const phoneEmail = localStorage.getItem('cookieLoginPhone');
      const password   = localStorage.getItem('cookieLoginPass');
      this.loginWith   = this.loginWith?this.loginWith : loginwith;
      this.rememberMe = true;
-     this.loginForm.controls['username'].setValue(phoneEmail);
-     this.loginForm.controls['password'].setValue(password);
+     if(this.loginWith == 'phone')
+     {
+      this.loginForm.controls['username'].setValue(phoneEmail);
+      this.loginForm.controls['password'].setValue(password);
+     }
+     
      
 
    }
@@ -432,14 +437,18 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
           
           if(this.navigateTo !='' && this.navigateTo == 'cartpage')
           {
-            this.router.navigate(['checkout/payment-info']); 
+            this.redirect('checkout/payment-info');
+           // this.router.navigate(['checkout/payment-info']); 
           }
           else
           {
             if(this.rewardsRoute !='')
-            this.router.navigateByUrl(this.rewardsRoute);
+            this.redirect(this.rewardsRoute);
+            
             else
-            this.router.navigateByUrl(path);
+            this.redirect(path);
+            
+          
           }
             
             this.closeModal();
@@ -459,7 +468,11 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   }
 
  
-
+  redirect(path)
+  {
+    this.router.navigateByUrl(path);
+  }
+  
   showHideForgotForm() {
     
     if (this.showForgotPass) {
@@ -848,7 +861,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     this.enteredEmail = this.loginForm.value.username;
     this.loginForm.controls['username'].setValue(this.enteredPhone);
    }
-   
+   this.loginForm.controls['username'].setValue('');
    //email phone
    //enteredPhone:number;
   //enteredEmail:string;

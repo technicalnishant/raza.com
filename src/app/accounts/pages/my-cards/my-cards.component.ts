@@ -39,6 +39,7 @@ import { WhatIsCvvComponent } from 'app/accounts/dialog/what-is-cvv/what-is-cvv.
 import { AddEditCardComponent } from 'app/accounts/dialog/add-edit-card/add-edit-card.component';
 import { ConfirmPopupDialog } from 'app/accounts/dialog/confirm-popup/confirm-popup-dialog';
 import { Plan } from 'app/accounts/models/plan';
+import { CheckoutService } from 'app/checkout/services/checkout.service';
 @Component({
   selector: 'app-my-cards',
   templateUrl: './my-cards.component.html',
@@ -52,7 +53,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
   
   autocompleteInput: string;
   queryWait: boolean;
-  
+  currentCart: ICheckoutModel;
   address: Object;
   establishmentAddress: Object;
   formattedAddress: string;
@@ -84,7 +85,8 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     @Output() onPaymentSubmit = new EventEmitter<CreditCard>();
     @Input() plan: Plan;
     paymentSubmitted: boolean;
-  
+    currentURL : any ;
+    isTopupPage:boolean=false;
     
     constructor(
       public zone: NgZone,
@@ -94,6 +96,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
       private countryService: CountriesService,
       private razaEnvService: RazaEnvironmentService,
       private customerService: CustomerService,
+      private checkoutService: CheckoutService,
       private dialog: MatDialog,
       private razaSnackbarService: RazaSnackBarService,
       private authService: AuthenticationService,
@@ -106,7 +109,17 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     }
      
     ngOnInit() {
-  
+      this.currentURL = window.location.href;
+
+      if(this.currentURL.includes('account/international-topup'))
+      {
+        this.isTopupPage = true;
+      }
+      this.checkoutService.getCurrentCart().subscribe(res => {
+        this.currentCart  = res;
+    })
+       
+
       this.paymentInfoForm = this.formBuilder.group({
         cardNumber: ['', [Validators.required, CreditCardValidators.validateCCNumber]],
         validFrom: ['', [Validators.required]],
@@ -137,7 +150,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
   
       }
   
-   
+     
   
   
       this.getCountryFrom();
@@ -489,8 +502,9 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     deleteCardDetails(card) {
       const dialogRef = this.dialog.open(ConfirmPopupDialog, {
         data: {
-          message:'Delete Credit Card ?',
-          success: 'success'
+          message:'Are you sure?',
+          success: 'success',
+          heading:'Delete card details'
         }
       });
   

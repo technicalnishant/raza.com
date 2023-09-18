@@ -4,33 +4,29 @@
       <div class="">
         <h1 class="heading_style1">Mobile Top-up
            <br><span class="sendtopup">send top-up to over 300 operators</span>
-           
-        <span>we deliver most recharge in seconds!</span>
+            <span>we deliver most recharge in seconds!</span>
         </h1>
       </div>
-      </div>
-    
-  
-  
-  
-    <div class="container" *ngIf="!mobileTopupData">
+    </div>
+
+    <div class="containerInt" *ngIf="!mobileTopupData">
       <div class="form-wrapper">
         <div class="row">
-        
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
-            <div class="card p-3 p-md-5 shadow mt-4 rounded-lg">
-              <form class="example-form mobileTopup" [formGroup]="mobileTopupForm" (ngSubmit)="onMobileTopupFormSubmit()" autocomplete="off">
-                <mat-form-field class="example-full-width">
-                  <mat-label class="font-weight-bold text-dark">Choose Country</mat-label>
-  
+            <div class="rounded-lg">
+              <form class="example-form intMobileTopup" [formGroup]="mobileTopupForm" (ngSubmit)="onMobileTopupFormSubmit()" autocomplete="off">
+                <mat-form-field class="example-full-width globe">
+                  <span *ngIf="!(mycountryId > 0)" class="globeIcon"></span>
+                  <mat-label class="labelText">Choose Country</mat-label>
+
                    <span *ngIf="mycountryId > 0" matPrefix class="prefix-mobiletopup">
                     <img src="assets/images/blank.gif" [ngClass]="'flag flag-' + mycountryId" />
                   </span>
-                  <input matInput type="text" [matAutocomplete]="auto" formControlName="countryTo" (keyup)="unsetFlag()"
-                    class="ml-2" />
-                  <mat-icon matSuffix>search</mat-icon>
-  
-                  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                  <input matInput type="text" [matAutocomplete]="auto" formControlName="countryTo" (keyup)="unsetFlag()" class="ml-2" />
+                  <!-- <mat-icon matSuffix>search</mat-icon> -->
+
+                  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" class="countryPopUp">
+                    <div class="title">Popular Countries</div>
                     <mat-option *ngFor="let country of filteredCountry | async" [value]="country"
                       (click)="onSelectCountrFrom(country)">
                       <span class="mr-2">
@@ -41,15 +37,14 @@
                     </mat-option>
                   </mat-autocomplete>
                 </mat-form-field>
-  
-  
+
                 <mat-form-field class="example-full-width input-number">
-                  <mat-label class="font-weight-bold text-dark">Enter Mobile Number</mat-label>
+                  <mat-label class="labelText">Enter Mobile Number</mat-label>
                   <span matPrefix class="prefix-mobiletopup"
                     *ngIf="this.mobileTopupForm.get('countryTo').value?.CountryCode">+{{
                     this.mobileTopupForm.get("countryTo").value?.CountryCode }}
                   </span>
-  
+
                   <input type="tel" matInput formControlName="phoneNumber" class="ml-2"  (keyup)="storePhoneNumber()" />
                   <span class="floatRight forgetPass" *ngIf="isTopUpEnable">
                     <a tabindex="3" (click)="changeNumber()">Change Number?</a></span>
@@ -60,29 +55,21 @@
                 ">
                   Top-up to this number is not available at this time.
                 </mat-error>
-  
-  
+
                 <!--<a mat-button href="#" class="submit-btn">SUBMIT</a>-->
-  
                 <div class="button-wrapper">
                   <button mat-button class="submit-btn btn-block mb-3 mb-md-0 w-50">{{ buttonText }}</button>
                 </div>
               </form>
             </div>
           </div>
-          
-        
-  
         </div>
       </div>
     </div>
-    
-  
-  
+
     <!-- country section section end here -->
-  
-  
-    <div class="container" *ngIf="mobileTopupData">
+
+    <div class="containerIntTop" *ngIf="mobileTopupData">
       <div class="form-wrapper">
         <div class="row">
           <!-- <div class="col-12 mobiletopup_mobile">
@@ -91,9 +78,9 @@
             </p>
           </div> -->
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3 mt-lg-0 mt-md-0 mx-auto">
-            <div class="card p-3 p-md-5 shadow mt-4 rounded-lg">
+            <div class="mobileIntTopupSec">
               <div class="operator-details pb-4">
-                <div class="justify-content-md-between row align-items-center">
+                <div class="justify-content-md-between row align-items-center pb-4">
                   <div class="country col-auto col-md-4">Country:</div>
                   <div class="country-img col-auto col-md-4">
                     <div>
@@ -129,17 +116,19 @@
                         </a>
                       </div>
                 </div>
-                <div class="justify-content-md-between row align-items-center" *ngIf="mobileTopupData">
+                <div class="justify-content-md-between row align-items-center pt-4" *ngIf="mobileTopupData">
                   <div class="country col-auto col-md-4">Operator:</div>
                   <div class="country-img col-auto col-md-4">
-                    <div> <img class="operator mr-2" [src]="operatorImage" alt="" /> {{mobileTopupData.Operator}}</div>
+                    <div> <img class="operator mr-2" [src]="operatorImage" alt="" />
+                      <!-- {{mobileTopupData.Operator}} -->
+                    </div>
                   </div>
                   <div class="edit-button col-12 col-md-4 text-right"><a style="display:none" href="#" type="button">Edit
                       <mat-icon>arrow_right
                       </mat-icon></a></div>
                 </div>
               </div>
-  
+
 
               <div class="top_up_btn">
                 <mat-button-toggle-group  #topupType="matButtonToggleGroup" value="{{selectionType}}">
@@ -147,9 +136,9 @@
                     <mat-button-toggle value="plans">Plans (Bundles)</mat-button-toggle>
                 </mat-button-toggle-group>
               </div>
-            
+
              <!------ Topup section --------->
-             <div class="topup_section" *ngIf="topupType.value=='topup'"> 
+             <div class="topup_section" *ngIf="topupType.value=='topup'">
                 <!-- <h2>Topup section {{topupType.value}}</h2> -->
                 <div class="topup_items">
                     <!-- <div class="topup_item" *ngFor="let item of mobileTopupData?.OperatorDenominations; let i = index"> -->
@@ -168,15 +157,15 @@
                                 <p>Before GCT</p>
                             </div>
                             <button class="buy_btn" (click)="buyNow(item)">Buy</button>
-                           
+
                         </div>
                       </div>
                   </div>
             </div>
             <!------EOF Topup section --------->
             <!------ Plans (Bundels) section --------->
-            <div class="topup_section" *ngIf="topupType.value=='plans'" > 
-              
+            <div class="topup_section" *ngIf="topupType.value=='plans'" >
+
                 <!-- <h2>Plans(Bundels) section {{topupType.value}}</h2> -->
                 <div *ngIf="bundleInfo?.ProductDescriptions && bundleInfo?.ProductDescriptions.length > 0">
                 <div class="topup_items">
@@ -196,25 +185,25 @@
                                     {{desinfo}}
                                   </li>
                                 </ul>
-                                 
+
                             </div>
                             <button class="buy_btn" (click)="buyBundle(item)">Buy</button>
-                           
+
                         </div>
                       </div>
                   </div>
               </div>
             </div>
 
-            
+
             <!------ EOF Plans (Bundels) section --------->
 
-          
+
             <!--/*for mobile and small  devices */-->
-             
+
              <!--------------->
               <!-- oprator details section end here -->
-  
+
               <!-- <div class="denomination row" *ngIf="mobileTopupData">
                 <div class="col-12">
                   <div class="pt-5 pb-3 country">Choose Amount:</div>
@@ -232,24 +221,61 @@
                     </mat-checkbox>
                   </div>
                 </div>
-   
-                
+
+
               </div>
               <div class="button-wrapper mt-3" >
                 <button mat-button class="submit-btn btn-block mb-3 mb-md-0" (click)="onMobileTopupFormSubmit()">{{
                   buttonText }}</button>
               </div> -->
-  
-  
             </div>
           </div>
         </div>
       </div>
     </div>
-  
+
+    <div class="tabContentMyaccount pt-5 pb-0" id="virtualNumber" *ngIf="isLoggedIn">
+      <div class="myaccountTabArea p-0">
+        <div class="tabContentMyaccount planDetails" id="mynumber">
+          <p class="tabTitle d-none">International Topup</p>
+          <h2 class="mbTopupTitle">Recent top-up's</h2>
+          <div class="mobileTopupData">
+              <div class="mobileTopupDataInner" *ngFor="let item of orderHistoryList; index as i " >
+                <ng-container >
+                  <div class="country_img">
+                    <img src="assets/images/blank.gif" [ngClass]="'flag flag-' +getFlagId(item)" [alt]="getFlagname(item)" />
+                  </div>
+                  <div class="numPrice">
+                    <div class="number">{{item.Pin}}</div>
+                    <div class="price">{{item.Price | bCurrency : item.CurrencyCode}}</div>
+                  </div>
+                  <!-- <div>{{item.CardName}}</div> -->
+                  <div class="countryDate">{{item.OrderDate | date :'M/d/yy h:mm a'}}</div>
+
+                  <!--<td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td> -->
+
+
+                  <div class="topUpNow" *ngIf="item.IsAllowRecharge"><a (click)="rechargeRedirect(item)">Topup Now</a></div>
+
+                  <!-- <div *ngIf="!item.IsAllowRecharge"><a>Monthly Recharge</a>&nbsp;<span
+                      matTooltip="Monthly plans will recharge every 30 days from the date of purchase. Please Call us if you like to recharge now"><img loading="lazy"
+                        src="https://d2uij5nbaiduhc.cloudfront.net/images/info_icon.svg" alt="" /></span></div> -->
+                 </ng-container>
+              </div>
+              <div class="button-wrapper" *ngIf="!showAllTen && orderHistoryList">
+                <button mat-button class="submit-btn_showAll" (click)="setShowAllTen()">Load more</button>
+              </div>
+
+
+            </div>
+
+
+        </div>
+        </div>
+    </div>
     <div class="col-12 text-center marginBottomimg">
-     
+
       <img src="assets/images/new_design_images/partnerlogo.png" alt="icon" class="img-fluid">
     </div>
-    
+
   </div>

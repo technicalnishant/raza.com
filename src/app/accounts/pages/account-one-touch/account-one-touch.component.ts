@@ -61,7 +61,9 @@ export class AccountOneTouchComponent implements OnInit {
   deleteOneTouch(item: OneTouchNumber) {
     const dialogRef = this.dialog.open(ConfirmPopupDialog, {
       data: {
-        success: "success"
+        success: "success",
+        message:'Are you sure?',
+        heading:'Delete one touch dial'
       }
     });
 

@@ -20,7 +20,8 @@
   <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index" class="{{getActiveClass(item, '')}}" class="demBoxWrp">
     <div class="denomination__box" (click)="onClickAmountOption(item)">
      <div class="d-flex justify-content-between">
-          <div class="amount">{{item.Price | bCurrency | async}}</div>
+           
+          <div class="amount">{{item.Price | bCurrency : plan?.CurrencyCode | async}}</div>
           <div class="discount_applied" *ngIf="item.DiscountApplied > 0">
             <div class="discount_applied_text" *ngIf="showRechargePct()">
               {{item.DiscountApplied}} %
@@ -29,7 +30,8 @@
       </div>
     </div>
     <div class="rates_info"  *ngIf="showRechargePct()">
-      Total Min  {{item.TotalTime+item.PromoMinutes}} <br /> Rate : {{item.DiscountedCallingRate| sCurrency | async}} / min
+     
+      Total Min  {{item.TotalTime+item.PromoMinutes}} <br /> Rate : {{item.DiscountedCallingRate| sCurrency: plan?.CurrencyCode | async}} / min
     </div>
   </div>
 </div>
@@ -50,7 +52,8 @@
     </div>
 
     <div class="rates_info">
-      Total Min  {{getAutoRefillMin(item)}} <br /> Rate : {{ getAutoRefillRatePerMin(item)| sCurrency | async }}  / min
+ 
+      Total Min  {{getAutoRefillMin(item)}} <br /> Rate : {{ getAutoRefillRatePerMin(item)| sCurrency: plan?.CurrencyCode | async }}  / min
     </div>
   </div>
 </div>

@@ -24,6 +24,8 @@ import { MetaTagsService } from 'app/core/services/meta.service';
 import { TopupDialogComponent } from 'app/mobiletopup/dialog/topup-dialog/topup-dialog.component';
 import { BundleDialogComponent } from 'app/mobiletopup/dialog/bundle-dialog/bundle-dialog.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CustomerService } from 'app/accounts/services/customerService';
+import { OrderHistory } from 'app/accounts/models/orderHistory';
 
 @Component({
   selector: 'app-topup-now',
@@ -33,6 +35,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 export class TopupNowComponent implements OnInit, OnDestroy {
 
   allCountry: Country[];
+  allCountryList: any;
   mycountryName: string;
   mycountryId: number;
   filteredCountry: Observable<Country[]>;
@@ -54,13 +57,18 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   showOperators:boolean=false;
   operatorsList:any=[];
   countryTo:number=0;
-  selectionType:any; 
+  selectionType:any;
   currentOperator:string='';
   bundleInfo:any;
   topup_ctr: any;
 
   bundleTopupPlans:any;
   topupDialog:any=[];
+  orderHistoryPage: number = 1;
+  orderHistoryList: OrderHistory[] = [];
+  allOrders:OrderHistory[] = [];
+  isLoggedIn:boolean=false;
+  showAllTen : boolean=false;
   constructor(private router: Router, private titleService: Title,
     private formBuilder: FormBuilder,
     private countryService: CountriesService,
@@ -72,7 +80,8 @@ export class TopupNowComponent implements OnInit, OnDestroy {
 	private location:Location,
   private metaTagsService:MetaTagsService,
   private dialog:MatDialog,
- 
+  private customerService: CustomerService,
+
   ) {
 
   }
@@ -109,7 +118,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     // // console.log("Your filter data is ", country[0]);
     //  this.currentSetting.country = country[0]
 
-	  
+
 	  this.pinnumber = (history.state.pin)?history.state.pin:'';
     this.topup_no = (history.state.pin)?history.state.pin:'';
     this.iso = (history.state.iso)?history.state.iso:'';
@@ -117,40 +126,43 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     {
       this.mobileTopupForm.controls["phoneNumber"].setValue(this.pinnumber);
       this.getInitialTopUpOperatorInfo();
-      this.isTopUpEnable = true;  
+      this.isTopUpEnable = true;
     }
 
 
     /**************/
     if(parseFloat(localStorage.getItem("topupCountryId")) > 0)
     {
- 
+
       let json_str            = JSON.parse(localStorage.getItem("topupCountry"));
-      this.mycountryId        = json_str.CountryId; 
-      
+      this.mycountryId        = json_str.CountryId;
+
       if(this.mycountryId > 0)
       {
 
         this.mobileTopupForm.controls["countryTo"].setValue(json_str);
         this.countryName        = json_str.CountryName;
         this.topup_ctr          = parseFloat(localStorage.getItem("topupCountryId"));
-        
-  
-        
-        
+
+
+
+
         this.mobileTopupForm.controls["phoneNumber"].setValue(parseFloat(localStorage.getItem("topupPhone")))
-  
+
        if(localStorage.getItem("topupTrigger") == 'clicked')
        {
         this.getTopUpOperatorInfo();
        }
-        
+
       }
-     
+
 
     }
+    if (this.authService.isAuthenticated()) {
+      this.loadOrderHistory()
+      this.isLoggedIn = true;
+    }
 
-     
   }
 
   ngOnDestroy(): void {
@@ -161,6 +173,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     this.countryService.getAllCountries().subscribe(
       (data: Country[]) => {
         this.allCountry = data;
+        this.allCountryList = data;
         if(this.iso !='')
         {
           for (let i = 0; i < data.length; i++) {
@@ -177,52 +190,52 @@ export class TopupNowComponent implements OnInit, OnDestroy {
 
 
   getInitialTopUpOperatorInfo() {
-     
-     
+
+
     let phoneNumberWithCode: number = this.pinnumber;
-    this.getBundlesTopUpInfo();
+
     this.mobileTopupService.GetMobileTopUp(this.currentSetting.currentCountryId, phoneNumberWithCode).subscribe(
       (data: mobileTopupModel) => {
-        console.log("step 1");
-        
+        this.currentOperator = data.Operator;
+        this.getBundlesTopUpInfo();
         if(data && data.OperatorDenominations && data.OperatorDenominations[1])
         {
           this.operatorsList = data.AvaliableOperators;
-         // console.log("step 2");
-            for (let i = 0; i < this.allCountry.length; i++) 
+
+            for (let i = 0; i < this.allCountry.length; i++)
             {
               if(this.allCountry[i].CountryId ==  data.CountryId)
               {
                // console.log("step 3");
-                 
+              // this.currentOperator = obj
                   this.onSelectCountrFrom(this.allCountry[i]);
-                  
+
                   var length = this.allCountry[i].CountryCode.length;
                   var phone =   parseFloat(this.topup_no.substring(length));
-                  //console.log(this.topup_no);
-                 // console.log(phone);
+
                  this.isTopUpEnable = true;
                   this.onClickAmountOption(data.OperatorDenominations[1]);
                   this.mobileTopupForm.patchValue({countryTo:this.allCountry[i] });
                   this.mobileTopupForm.patchValue({ phoneNumber:phone});
                   this.mobileTopupData = data;
-                 
-                  
-                   
+                  this.topups = this.mobileTopupData.OperatorDenominations;
+
+
+
               }
           }
-          
-           
+
+
         }
         else
-        { 
-          this.isTopUpEnable = true;  
+        {
+          this.isTopUpEnable = true;
         }
       },
       (err: ApiErrorResponse) => {
         console.log(err)
-        
-      
+
+
       },
     );
   }
@@ -259,7 +272,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
 
     this.mobileTopupForm.patchValue({
       phoneNumber: '',
-      countryTo:'',
+      // countryTo:'',
       topUpAmount: null
     });
 
@@ -287,17 +300,17 @@ export class TopupNowComponent implements OnInit, OnDestroy {
         this.currentOperator = data.Operator;
 
         //console.log('data.OperatorDenominations', data.OperatorDenominations)
-        this.topups = data.OperatorDenominations.filter(a=>{ 
-          //console.log(a.Operator, this.mobileTopupData.Operator) 
-           if(a.Operator == this.currentOperator)  
+        this.topups = data.OperatorDenominations.filter(a=>{
+          //console.log(a.Operator, this.mobileTopupData.Operator)
+           if(a.Operator == this.currentOperator)
            {
-             
+
             return a;
            }
         });
 
 
-        
+
         this.onClickAmountOption(this.mobileTopupData.OperatorDenominations[1]) ;
         this.isTopUpEnable = true;
         this.mobileTopupForm.get('topUpAmount').updateValueAndValidity();
@@ -310,7 +323,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     );
   }
 
-  
+
   get operatorImage() {
     return `assets/images/operators/${this.mobileTopupData.Operator.toLowerCase()}.png`;
   }
@@ -338,10 +351,10 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     return false;
   }
   onClickAmountOption(item: any) {
-    
+
     this.mobileTopupForm.get('topUpAmount').setValue(item);
     this.isTopUpEnable = true;
-     
+
   }
   buyNow(item: any)
   {
@@ -362,7 +375,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     if (!this.mobileTopupForm.valid) {
       return;
     }
-    
+
     const checkoutModel: MobileTopupCheckoutModel = new MobileTopupCheckoutModel();
 
     checkoutModel.transactiontype = TransactionType.Topup;
@@ -397,30 +410,30 @@ export class TopupNowComponent implements OnInit, OnDestroy {
 
     return true;
   }
-  
+
   onSelectCountrFrom(country: Country) {
-    
+
   this.countryName = country.CountryName;
 
-	this.mycountryId= country.CountryId; 
+	this.mycountryId= country.CountryId;
 
   localStorage.setItem("topupCountryId", country.CountryId.toString());
   localStorage.setItem("topupCountry", JSON.stringify(country));
 
-  } 
-  
+  }
+
   storePhoneNumber = () =>{
     let phone = this.mobileTopupForm.get('phoneNumber').value;
     localStorage.setItem("topupPhone", phone);
-   
+
   }
 
   unsetFlag() {
-    
-    
-	this.mycountryId= -1; 
+
+
+	this.mycountryId= -1;
   }
-  
+
   setOperator(obj)
   {
     this.mobileTopupData.Operator = obj;
@@ -448,7 +461,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
         this.onClickAmountOption(this.mobileTopupData.OperatorDenominations[1]) ;
         this.getBundlesTopUpInfo()
       }
-      
+
     })
   }
 
@@ -464,7 +477,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
   showDetailTopup()
   {
 
-    
+
         const dialogConfig = new MatDialogConfig();
 
         dialogConfig.disableClose = true;
@@ -473,13 +486,13 @@ export class TopupNowComponent implements OnInit, OnDestroy {
         dialogConfig.minHeight = "500px";
         dialogConfig.width = "700px";
         dialogConfig.data = {
-          from_id:this.currentSetting.currentCountryId, 
-          to_id:this.countryTo, 
+          from_id:this.currentSetting.currentCountryId,
+          to_id:this.countryTo,
           operator:this.currentOperator,
           dialogDetail:this.topupDialog
         }
       this.dialog.open(TopupDialogComponent,dialogConfig);
-  
+
   }
 
 /********** Bundles functionality*****************/
@@ -497,7 +510,7 @@ export class TopupNowComponent implements OnInit, OnDestroy {
       }
     })
 
-    
+
   }
 
   getFilterdArr(desc:String)
@@ -509,9 +522,86 @@ export class TopupNowComponent implements OnInit, OnDestroy {
     let productId = item.ProductId;
 
    let new_item = this.bundleInfo.topupOperators.filter(a=> a.ProductId == productId)
-   
-    
+
+
     this.buyNow(new_item[0]);
   }
   /**********************/
+  rechargeRedirect(obj)
+  {
+    var card = obj.CardName;
+    var iso = obj.CountryTo;
+    this.pinnumber = obj.Pin ;
+    this.topup_no = obj.Pin;
+    this.iso = obj.CountryTo
+    let getFlagdetail = this.getFlagdetail(obj);
+    this.countryTo = this.getFlagId(obj);
+   let get_countryCode = getFlagdetail.CountryCode;
+
+
+    if( this.pinnumber >0 )
+    {
+      this.mobileTopupForm.controls["phoneNumber"].setValue(this.pinnumber);
+     this.getInitialTopUpOperatorInfo();
+    //  this.getTopUpOperatorInfo();
+      this.isTopUpEnable = true;
+    }
+
+   //  this.router.navigateByUrl('mobiletopup', { state: { pin: obj.Pin, iso:iso } });
+
+  }
+
+  loadOrderHistory() {
+    this.customerService.getFullOrderHistory('topup', this.orderHistoryPage).subscribe(
+      (data: OrderHistory[]) => {
+      //  console.log('data',data);
+        this.allOrders = data;
+         this.orderHistoryList = data.slice(0, 3);
+
+      },
+      (err: ApiErrorResponse) => console.log(err),
+    );
+  }
+  setShowAllTen()
+  {
+    this.showAllTen = true;
+    this.orderHistoryList = this.allOrders;
+  }
+  getFlagname(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+
+
+        let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+        if(ctr_info[0])
+        {
+          return ctr_info[0].CountryName;
+        }
+    }
+  }
+  getFlagId(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+      let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+      if(ctr_info[0])
+      {
+      return ctr_info[0].CountryId;
+      }
+    }
+  }
+
+  getFlagdetail(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+      let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+      if(ctr_info[0])
+      {
+      return ctr_info[0];
+      }
+    }
+  }
+
 }

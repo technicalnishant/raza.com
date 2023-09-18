@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RazaLayoutService } from '../../../core/services/raza-layout.service';
 import { ApiErrorResponse } from '../../../core/models/ApiErrorResponse';
 import { CustomerService } from '../../services/customerService';
 import { OrderHistory } from '../../models/orderHistory';
- 
+
 import { Observable, Subscription } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { Country } from '../../../shared/model/country';
@@ -13,7 +13,7 @@ import { mobileTopupModel } from '../../../mobiletopup/model/mobileTopupModel';
 import { OperatorDenominations } from '../../../mobiletopup/model/operatorDenominations';
 import { CountriesService } from '../../../core/services/country.service';
 import { MobiletopupService } from '../../../mobiletopup/mobiletopup.service';
- 
+
 import { SideBarService } from '../../../core/sidemenu/sidemenu.service';
 import { TransactionType } from '../../../payments/models/transaction-request.model';
 import { CheckoutService } from '../../../checkout/services/checkout.service';
@@ -40,7 +40,8 @@ import { BraintreeService } from 'app/payments/services/braintree.service';
 import { ValidateCouponCodeRequestModel, ValidateCouponCodeResponseModel } from 'app/payments/models/validate-couponcode-request.model';
 import { ErrorDialogModel } from 'app/shared/model/error-dialog.model';
 import { ErrorDialogComponent } from 'app/shared/dialog/error-dialog/error-dialog.component';
-import {  NewPlanCheckoutModel, RechargeCheckoutModel } from 'app/checkout/models/checkout-model'; 
+import {  NewPlanCheckoutModel, RechargeCheckoutModel } from 'app/checkout/models/checkout-model';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-account-international-topup',
@@ -48,13 +49,14 @@ import {  NewPlanCheckoutModel, RechargeCheckoutModel } from 'app/checkout/model
   styleUrls: ['./account-international-topup.component.scss']
 })
 export class AccountInternationalTopupComponent implements OnInit {
-  
+  @ViewChild('cardsInfo') cardsInfo!: ElementRef;
   orderHistoryPage: number = 1;
   orderHistoryList: OrderHistory[] = [];
   showTopupForm:boolean=false;
 
 
   allCountry: Country[];
+  allCountryList: any;
   mycountryName: string;
   mycountryId: number;
   filteredCountry: Observable<Country[]>;
@@ -74,7 +76,7 @@ export class AccountInternationalTopupComponent implements OnInit {
   showOperators:boolean=false;
   operatorsList:any=[];
   countryTo:number=0;
-  selectionType:any; 
+  selectionType:any;
   currentOperator:string='';
   bundleInfo:any;
   topup_ctr: any;
@@ -82,7 +84,7 @@ export class AccountInternationalTopupComponent implements OnInit {
   bundleTopupPlans:any;
   showCredicard : boolean=false;
   topups:any;
- 
+
   phoneNumber:any;
   toCountryId:number;
   fromCountryId:number;
@@ -91,8 +93,8 @@ export class AccountInternationalTopupComponent implements OnInit {
 
 
   username: string;
- 
-	 
+
+
 	isEnableOtherPlan: boolean = false;
   is_notification: boolean=false;
   sendPushNotification: boolean=false;
@@ -105,12 +107,13 @@ export class AccountInternationalTopupComponent implements OnInit {
   isAutoRefillEnable: boolean;
   ratesLoaded:boolean=false;
   //currentCart: ICheckoutModel;
-   
+
   paymentProcessor:any;
   currentCartObs$: Subscription;
   currentCart: ICheckoutModel;
   topupOperators:any;
-  topupDialog:any=[]
+  topupDialog:any=[];
+
   constructor(private titleService: Title,
     private router: Router,
 	private customerService: CustomerService,
@@ -125,8 +128,8 @@ export class AccountInternationalTopupComponent implements OnInit {
 	private location:Location,
   private metaTagsService:MetaTagsService,
   private dialog:MatDialog,
+  private breakpointObserver: BreakpointObserver,
 
-  
   private transactionService: TransactionService,
   private transactionProcessFacade: TransactionProcessFacadeService,
   private transactionProcessBraintree: TransactionProcessBraintreeService,
@@ -135,6 +138,7 @@ export class AccountInternationalTopupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.titleService.setTitle('InterNational TopUp');
     this.razalayoutService.setFixedHeader(true);
 	this.loadOrderHistory();
@@ -177,35 +181,14 @@ this.mycountryId = 0;
    //this.router.navigate(['mobiletopup']);
    this.showTopupForm = true;
   }
-  
+
   recharge(instanceId) {
-    //console.log('aa', instanceId); 
+    //console.log('aa', instanceId);
    this.router.navigateByUrl("recharge/"+ instanceId);
  }
 
- rechargeRedirect(obj)
- {
-  console.log(obj);
-  //return false;
-  //this.router.navigateByUrl("mobiletopup");
-
-   var card = obj.CardName;
-   card = card.split(' ');
-   var iso = card[0];   
-    this.router.navigateByUrl('mobiletopup', { state: { pin: obj.Pin, iso:iso } });
-   //this.router.navigateByUrl("mobiletopup"); 
 
 
-  // this.pinnumber  = obj.Pin;
-  // this.topup_no   = obj.Pin;
-  // this.iso        = iso;
-  // this.getInitialTopUpOperatorInfo();
-  // this.isTopUpEnable = true; 
-  // this.showTopupForm = true;
-
-    
- }
- 
   onClickShowMore() {
     this.orderHistoryPage = this.orderHistoryPage + 1;
     this.loadOrderHistory();
@@ -223,7 +206,7 @@ this.mycountryId = 0;
       (err: ApiErrorResponse) => console.log(err),
     );
   }
-  
+
 
   /************************/
   ngOnDestroy(): void {
@@ -234,6 +217,7 @@ this.mycountryId = 0;
     this.countryService.getAllCountries().subscribe(
       (data: Country[]) => {
         this.allCountry = data;
+        this.allCountryList = data;
         if(this.iso !='')
         {
           for (let i = 0; i < data.length; i++) {
@@ -250,26 +234,27 @@ this.mycountryId = 0;
 
 
   getInitialTopUpOperatorInfo() {
-     
-     
+
+
     let phoneNumberWithCode: number = this.pinnumber;
-    this.getBundlesTopUpInfo();
+
     this.mobileTopupService.GetMobileTopUp(this.currentSetting.currentCountryId, phoneNumberWithCode).subscribe(
       (data: mobileTopupModel) => {
         console.log("step 1");
-        
+        this.currentOperator = data.Operator;
+        this.getBundlesTopUpInfo();
         if(data && data.OperatorDenominations && data.OperatorDenominations[1])
         {
           this.operatorsList = data.AvaliableOperators;
          // console.log("step 2");
-            for (let i = 0; i < this.allCountry.length; i++) 
+            for (let i = 0; i < this.allCountry.length; i++)
             {
               if(this.allCountry[i].CountryId ==  data.CountryId)
               {
                // console.log("step 3");
-                 
+
                   this.onSelectCountrFrom(this.allCountry[i]);
-                  
+
                   var length = this.allCountry[i].CountryCode.length;
                   var phone =   parseFloat(this.topup_no.substring(length));
                   //console.log(this.topup_no);
@@ -278,23 +263,23 @@ this.mycountryId = 0;
                   this.onClickAmountOption(data.OperatorDenominations[1]);
                   this.mobileTopupForm.patchValue({countryTo:this.allCountry[i] });
                   this.mobileTopupForm.patchValue({ phoneNumber:phone});
-                 
+
                   this.mobileTopupData = data;
-                   
+                  this.topups = this.mobileTopupData.OperatorDenominations;
               }
           }
-          
-           
+
+
         }
         else
-        { 
-          this.isTopUpEnable = true;  
+        {
+          this.isTopUpEnable = true;
         }
       },
       (err: ApiErrorResponse) => {
         console.log(err)
-        
-      
+
+
       },
     );
   }
@@ -331,7 +316,7 @@ this.mycountryId = 0;
 
     this.mobileTopupForm.patchValue({
       phoneNumber: '',
-      countryTo:'',
+      // countryTo:'',
       topUpAmount: null
     });
 
@@ -363,11 +348,11 @@ this.mycountryId = 0;
         this.mobileTopupForm.get('topUpAmount').updateValueAndValidity();
         this.mobileTopupForm.get('phoneNumber').disable();
 
-        this.topups = data.OperatorDenominations.filter(a=>{ 
-          //console.log(a.Operator, this.mobileTopupData.Operator) 
-           if(a.Operator == this.currentOperator)  
+        this.topups = data.OperatorDenominations.filter(a=>{
+          //console.log(a.Operator, this.mobileTopupData.Operator)
+           if(a.Operator == this.currentOperator)
            {
-             
+
             return a;
            }
         });
@@ -379,7 +364,7 @@ this.mycountryId = 0;
     );
   }
 
-  
+
   get operatorImage() {
     return `assets/images/operators/${this.mobileTopupData.Operator.toLowerCase()}.png`;
   }
@@ -407,20 +392,40 @@ this.mycountryId = 0;
     return false;
   }
   onClickAmountOption(item: any) {
-    
+
     this.mobileTopupForm.get('topUpAmount').setValue(item);
     this.isTopUpEnable = true;
-     
+
   }
   buyNow(item: any)
   {
 
-    
+
     this.mobileTopupForm.get('topUpAmount').setValue(item);
     this.isTopUpEnable = true;
+
     this. onMobileTopupFormSubmit();
   }
+  scrollTo()
+  {
+    const pageHeight = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight
+    );
 
+   if(this.breakpointObserver.isMatched('(max-width: 868px)'))
+   {
+    const element = this.cardsInfo.nativeElement;
+    window.scrollTo({ top: (pageHeight-1200), behavior: 'smooth' });
+   }
+   else
+   {
+    window.scrollTo({ top: (pageHeight-1000), behavior: 'smooth' });
+   }
+
+     // this.cardsInfo.nativeElement.scrollIntoView({ behavior: 'smooth' });
+
+  }
   onMobileTopupFormSubmit() {
     // stop here if form is invalid
     if (!this.isTopUpEnable) {
@@ -431,7 +436,7 @@ this.mycountryId = 0;
     if (!this.mobileTopupForm.valid) {
       return;
     }
-    
+
     const checkoutModel: MobileTopupCheckoutModel = new MobileTopupCheckoutModel();
 
     checkoutModel.transactiontype = TransactionType.Topup;
@@ -444,8 +449,10 @@ this.mycountryId = 0;
     checkoutModel.countryFrom = this.currentSetting.currentCountryId;
     checkoutModel.isHideCouponEdit = true;
     this.checkoutService.setCurrentCart(checkoutModel);
+     this.currentCart = checkoutModel;
+     console.log("current cart is ", this.currentCart);
     this.showCreditCards()
-   
+
   }
 
   validateAmountSelection() {
@@ -460,28 +467,28 @@ this.mycountryId = 0;
 
     return true;
   }
-  
+
   onSelectCountrFrom(country: Country) {
-    
+
   this.countryName = country.CountryName;
 
-	this.mycountryId= country.CountryId; 
+	this.mycountryId= country.CountryId;
 
 
-  } 
-  
+  }
+
   storePhoneNumber = () =>{
     let phone = this.mobileTopupForm.get('phoneNumber').value;
-    
-   
+
+
   }
 
   unsetFlag() {
-    
-    
-	this.mycountryId= -1; 
+
+
+	this.mycountryId= -1;
   }
-  
+
   setOperator(obj)
   {
     this.mobileTopupData.Operator = obj;
@@ -509,7 +516,7 @@ this.mycountryId = 0;
         this.topupOperators = data.AvaliableOperators;
         this.onClickAmountOption(this.mobileTopupData.OperatorDenominations[1]) ;
       }
-      
+
     })
   }
   getTopupDetail()
@@ -531,8 +538,8 @@ this.mycountryId = 0;
         dialogConfig.minHeight = "500px";
         dialogConfig.width = "700px";
         dialogConfig.data={
-          from_id:this.currentSetting.currentCountryId, 
-          to_id:this.countryTo, 
+          from_id:this.currentSetting.currentCountryId,
+          to_id:this.countryTo,
           operator:this.currentOperator,
           dialogDetail:this.topupDialog
         }
@@ -558,25 +565,25 @@ this.mycountryId = 0;
     let productId = item.ProductId;
 
    let new_item = this.bundleInfo.topupOperators.filter(a=> a.ProductId == productId)
-   
+
     //console.log('new_item[0]', new_item[0]);
     this.buyNow(new_item[0]);
   }
   /**********************/
-  
+
   showCreditCards()
   {
     this.showCredicard = !this.showCredicard;
   }
 
 
-  
+
   onPaymentInfoFormSubmit(creditCard: CreditCard) {
-   
+
     // this.getCurrentCarts(creditCard);
-     
+
    }
- 
+
    onPaymentButtonTrigger(creditCard: CreditCard) {
      this.currentCartObs$ = this.checkoutService.getCurrentCart().subscribe((model: ICheckoutModel) => {
        if (model === null ) {
@@ -589,15 +596,15 @@ this.mycountryId = 0;
           // console.log('Your model is as ', model);
            this.onCreditCardPayment(creditCard);
        }
-       
-        
-       
+
+
+
      }, err => {
      }, () => {
        this.checkoutService.deleteCart();
      })
    }
- 
+
    /**
     * On credit card payment Option.
     */
@@ -608,22 +615,22 @@ this.mycountryId = 0;
      {
        localStorage.setItem('selectedCard',  creditCard.CardId.toString());
        let planOrderInfo: ICheckoutOrderInfo;
- 
+
        planOrderInfo = new MobileTopupOrderInfo();
        trans_type = 'Topup';
-  
-   
- 
+
+
+
        planOrderInfo.creditCard = creditCard;
        planOrderInfo.checkoutCart = this.currentCart;
-  
- 
-       
+
+
+
          var first_fivenum = creditCard.CardNumber.substring(0, 5);
-         this.braintreeService.testProcess(first_fivenum, trans_type).subscribe( (data: ApiProcessResponse)=>{ 
-         this.paymentProcessor = data.ThreeDSecureGateway; 
- 
-         
+         this.braintreeService.testProcess(first_fivenum, trans_type).subscribe( (data: ApiProcessResponse)=>{
+         this.paymentProcessor = data.ThreeDSecureGateway;
+
+
            if(data.Use3DSecure)
              {
               if(this.paymentProcessor== 'BrainTree')
@@ -634,7 +641,7 @@ this.mycountryId = 0;
                    {
                      this.transactionService.processPaymentToCentinel(planOrderInfo);
                    }
-                
+
            }
            else
            {
@@ -643,14 +650,74 @@ this.mycountryId = 0;
              let checkoutInfo = this.transactionService.processPaymentNormal(planOrderInfo);
             }
          });
-       
+
     }
    }
- 
+
    goBack()
    {
     this.showTopupForm = !this.showTopupForm;
    }
 
-   
+    /**********************/
+  rechargeRedirect(obj)
+  {
+    var card = obj.CardName;
+    var iso = obj.CountryTo;
+    this.pinnumber = obj.Pin ;
+    this.topup_no = obj.Pin;
+    this.iso = obj.CountryTo
+    let getFlagdetail = this.getFlagdetail(obj);
+    this.countryTo = this.getFlagId(obj);
+   let get_countryCode = getFlagdetail.CountryCode;
+
+
+    if( this.pinnumber >0 )
+    {
+      this.mobileTopupForm.controls["phoneNumber"].setValue(this.pinnumber);
+     this.getInitialTopUpOperatorInfo();
+    //  this.getTopUpOperatorInfo();
+      this.isTopUpEnable = true;
+    }
+
+
+
+  }
+
+  getFlagname(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+
+
+        let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+        if(ctr_info[0])
+        {
+          return ctr_info[0].CountryName;
+        }
+    }
+  }
+  getFlagId(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+      let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+      if(ctr_info[0])
+      {
+      return ctr_info[0].CountryId;
+      }
+    }
+  }
+
+  getFlagdetail(obj:any)
+  {
+    if(this.allCountryList[0])
+    {
+      let ctr_info =  this.allCountryList.filter(option => option.ISOCode.toLowerCase().indexOf(obj.CountryTo.toLowerCase()) === 0);
+      if(ctr_info[0])
+      {
+      return ctr_info[0];
+      }
+    }
+  }
 }

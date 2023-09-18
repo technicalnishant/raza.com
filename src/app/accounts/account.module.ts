@@ -67,6 +67,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
  
 import { NgxSplideModule } from 'ngx-splide';
+import { AccountOtherplansComponent } from './pages/account-otherplans/account-otherplans.component';
  
 
 
@@ -92,9 +93,9 @@ import { NgxSplideModule } from 'ngx-splide';
                     // { path: 'overview/:notification', component: AccountOptionsComponent },
 
                     { path: 'overview', component: AccountRechargeComponent },
-                    { path: 'overview/:notification', component: AccountRechargeComponent },
+                    { path: 'overview/:notification', component: AccountOptionsComponent },
                     { path: 'recharge/:planId', component: AccountRechargeComponent },
-                    
+                    { path: 'overview/notification', component: AccountOptionsComponent },
                     
                     { path: 'payment-details/:planId', component: AccountPaymentDetailsComponent },
                     { path: 'payment-details', component: AccountPaymentDetailsComponent },
@@ -113,6 +114,13 @@ import { NgxSplideModule } from 'ngx-splide';
                     { path: 'confirmation/:orderId', component: RechargeConfirmationComponent},
                     { path: 'rates', component: AccountSearchRatesComponent},
 
+                    // { path: 'other-plans', component: AccountOtherplansComponent},
+                    // { path: 'my-numbers/:planId', component: AccountMyNumberComponent, data: { isVisibleCloseIcon: true } },
+                    // { path: 'onetouchSetups/:planId', component: AccountOneTouchComponent, data: { isVisibleCloseIcon: true } },
+                    // { path: 'callForwardingSetups/:planId', component: AccountCallForwardingComponent, data: { isVisibleCloseIcon: true } },
+                    // { path: 'autorefill/:planId', component: AccountAutorefillComponent, data: { isVisibleCloseIcon: true } },
+                    // { path: 'call-details/:planId', component: AccountCallDetailsComponent, data: { isVisibleCloseIcon: true } },
+                    
                     
                 ]
             },
@@ -181,7 +189,8 @@ import { NgxSplideModule } from 'ngx-splide';
  
         RechargeConfirmationComponent,
            ViewratesComponent,
-           AccountSearchRatesComponent 
+           AccountSearchRatesComponent,
+           AccountOtherplansComponent 
  
         // MobileOrderHistoryComponent,
         // MobileRewardsComponent,

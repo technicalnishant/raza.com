@@ -8,6 +8,9 @@ $font-family:'Montserrat', sans-serif;
 
 
 ::ng-deep {
+  .mobile-page-wrapper {
+      min-height: 600px;
+  }
   .mobilePage_banner {
     background-image: url(../../../assets/images/new_design_images/mobile_page_banner.jpg);
     margin-top: 65px;
@@ -48,7 +51,7 @@ $font-family:'Montserrat', sans-serif;
     margin-bottom: 60px;
     text-align: center;
     h2 {
-      font-size: 80px;
+      font-size: 76px;
       line-height: 1.1;
       font-weight: 700;
       letter-spacing: -3px;
@@ -68,6 +71,9 @@ $font-family:'Montserrat', sans-serif;
   .callSupportTab {
     position: relative;
     height: 870px;
+    .mat-tab-header-pagination {
+        box-shadow: none;
+    }
     .hide_desktop {
       display: none;
     }
@@ -158,10 +164,10 @@ $font-family:'Montserrat', sans-serif;
       align-items: center;
       margin-bottom: 32px;
       h2 {
-          font-size: 80px;
+          font-size: 76px;
           line-height: 1.1;
           font-weight: 700;
-          max-width: 649px;
+          // max-width: 649px;
           letter-spacing: -3px;
       }
       .desText {
@@ -238,6 +244,10 @@ $font-family:'Montserrat', sans-serif;
   @media only screen and (max-width: 991px) {
     .callSupportTab {
       height: 500px;
+      .mat-tab-label-container {
+        border-radius: 30px;
+        margin: 0 -5px;
+      }
       .mat-tab-label {
           font-size: 15px;
           height: 55px;
@@ -333,7 +343,7 @@ $font-family:'Montserrat', sans-serif;
       .main_bg {
         height: 280px;
         top: 80px;
-        background-size: auto 267px;
+        // background-size: auto 267px;
         background-position: center;
       }
       .mobiletab-content {

@@ -79,7 +79,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   filter_string:string=''
   ctryName:any;
   previousUrl:any ='';
-  navClick:any='hide_nav'
+  navClick:any='hide_nav';
+  otherPlans:boolean=false;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -103,7 +104,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     //console.log('sidenav',this.sidenav);
     this.authService.getSharedValue().subscribe(value => {
       this.isAuthenticatedn = value;
-      
+
     });
 
 }
@@ -176,24 +177,33 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       this.showMyaccontHeader = false;
       this.blueBg = 0;
     }
-    else if(event.url == '/globalcallrates')
-    {
-      if(window.screen.width > 768)
-      {
-        this.blueBg = 0;
-      }
-      else{
-        this.blueBg = 1;
-      }
+    else if(event.url == '/mobiletopup'){
+      this.showMyaccontHeader = false;
       this.showHeader = false;
     }
-    else
-    {
+    else if(event.url == '/globalcallrates'){
+      this.showMyaccontHeader = false;
+      // if(window.screen.width > 768)
+      // {
+      //   this.blueBg = 0;
+      // }
+      // else{
+      //   this.blueBg = 1;
+      // }
+      this.showHeader = false;
+    }
+
+    else {
       this.showHeader = false;
       this.blueBg = 0;
     }
 
-
+    if(event.url.includes('/account/other-plans')){
+        this.otherPlans = true;
+      }
+      else{
+        this.otherPlans = false;
+      }
   });
 
 
@@ -604,12 +614,18 @@ onClickClose(icon)
 
   goTomobileTopup()
   {
-   localStorage.removeItem("topupCountry");
-   localStorage.removeItem("topupPhone");
-   localStorage.removeItem("topupCountryId");
-   localStorage.removeItem("topupTrigger");
-   this.router.navigateByUrl('mobiletopup');
-
+    if(this.authService.isAuthenticated())
+    {
+      this.router.navigate(['/account/international-topup']);
+    }
+    else{
+      localStorage.removeItem("topupCountry");
+      localStorage.removeItem("topupPhone");
+      localStorage.removeItem("topupCountryId");
+      localStorage.removeItem("topupTrigger");
+      this.router.navigateByUrl('mobiletopup');
+    }
+ 
   }
 
   clickMenu()
@@ -619,5 +635,10 @@ onClickClose(icon)
 
   }
  // setSharedValue
-
+ get IsEnableloggedIn(): boolean {
+  if (!this.authService.isAuthenticated()) {
+    return false;
+  }
+  return true;
+}
 }

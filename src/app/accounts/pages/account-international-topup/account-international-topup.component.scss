@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 .table {
 	td {
 		font-family: 'Montserrat', sans-serif;
@@ -76,24 +77,15 @@
 	}
 }
 .tabContentMyaccount {
-	padding: 180px 0;
 	background: #fff;
 	clear: both;
 	overflow: hidden;
+  margin-top: -35px;
+  &.tabCont2 {
+    margin-top: -135px;
+  }
 }
 p {
-	&.tabTitle {
-		text-align: center;
-		color: #0B203E;
-		font-size: 28px;
-		font-family: 'Montserrat', sans-serif;
-		font-weight: 400;
-		line-height: 34px;
-		@media only screen and (max-width: 868px) {
-			font-weight: 600;
-		}
-
-	}
 	&.currentBalance {
 		color: #0B203E;
 		font-size: 24px;
@@ -398,6 +390,57 @@ td {
 	display: block;
 }
 
+::ng-deep {
+  .top-banner.accountInternational {
+      height: 550px;
+      position: relative;
+      .intTopTitleWrap {
+        color: #fff;
+        position: absolute;
+        left: 10%;
+        top: 20%;
+        .tabTitle {
+          font-size: 60px;
+          font-weight: 700;
+          line-height: 1.2;
+          margin: 0;
+          text-transform: uppercase;
+        }
+        .sendtopup {
+            font-size: 30px;
+            font-weight: 600;
+            text-transform: capitalize;
+            margin-bottom: 8px;
+        }
+        .desc {
+          font-size: 16px;
+          text-transform: capitalize;
+          font-weight: 500;
+          margin-bottom: 0;
+        }
+        @media only screen and (max-width: 767px) {
+            background: rgba(0, 0, 0, 0.35);
+            left: 15px;
+            right: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            top: unset;
+            bottom: 124px;
+            .tabTitle {
+              font-size: 32px;
+            }
+            .sendtopup {
+              font-size: 24px;
+              line-height: 1.2;
+              margin-top: 5px;
+            }
+        }
+      }
+  }
+  .commonmyaccountareaforallpages {
+    margin-bottom: 0 !important;
+  }
+}
 
 @media only screen and (max-width: 868px)  {
   .myaccountTabArea{padding: 120px 0 0 0; margin-bottom: 0px;}
@@ -457,44 +500,160 @@ td {
   .tabContentMyaccount1 .rechargeLeft .submitButton,.tabContentMyaccount1 .rechargeRight .submitButton {
     width: 255px !important;
   }
-  .tabContentMyaccount {
-    p {
-      &.desc {
-        text-align: center;
-        color: #0B203E;
-        font-size: 16px;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 300;
-        padding: 0 10px;
-      }
-    }
-  }
   .tableNewSpaceN {
     padding: 60px 15px !important;
   }
-  .intMobileTopup {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+
+::ng-deep {
+  .mat-autocomplete-panel.mat-autocomplete-hidden {
+      display: none;
+  }
+  .form-wrapper .mat-form-field-infix {
+    position: static;
   }
   .intMobileTopup {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 660px;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 1px solid #c6c6c6;
+    padding: 18px 30px 30px;
+    background: #fff;
     mat-form-field {
-        width: 47%;
+      margin-bottom: 10px;
+    }
+    span.prefix-mobiletopup {
+      margin-right: 15px;
+      font-size: 20px;
+      color: #6c6c6c;
+      font-weight: 600;
     }
     button.submit-btn {
-        background: #f4cb26;
-        padding: 9px 40px;
-        border-radius: 20px;
+        background: #f3c423;
+        padding: 10px 50px;
+        border-radius: 30px;
         color: #000;
+        font-weight: 700;
         border: none;
-        font-weight: 500;
+        text-decoration: none;
+        width: 100% !important;
+        font-size: 20px;
+        &:hover {
+          background-color: #f4d24c;
+        }
     }
     .button-wrapper {
         width: 100%;
         text-align: right;
         margin-top: 8px;
     }
+    .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+      // padding-left: 11px;
+      padding-top: 5px;
+    }
+    .labelText {
+      font-size: 20px;
+      color: #9a9a9a;
+      font-weight: 500;
+    }
+    .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float.globe .mat-form-field-label {
+      padding-left: 25px;
+    }
+    .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+      transform: translateY(-1.34375em) scale(0.75);
+    }
+    .mat-form-field-underline {
+      bottom: 8px;
+      background-color: #e2e2e2;
+      overflow: hidden;
+    }
+    .globe {
+      .globeIcon {
+        position: absolute;
+        top: 4px;
+        width: 30px;
+        height: 30px;
+        background-image: url(../../../../assets/images/globe.png);
+        background-repeat: no-repeat;
+        background-position: left;
+        ~ input[type="text"] {
+          padding-left: 45px;
+        }
+      }
+      .mat-form-field-label-wrapper {
+        .labelText {
+          padding-left: 45px;
+        }
+      }
+    }
+    .mat-form-field-prefix ~ .mat-form-field-infix .mat-form-field-label {
+      padding-left: 60px;
+      padding-top: 7px;
+    }
+    input[type="text"], input[type="tel"] {
+      font-size: 20px;
+      color: #000;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+    }
   }
+  .cdk-overlay-pane {
+    // margin-top: 30px;
+    // border-radius: 20px !important;
+    // overflow: hidden;
+    // padding-right: 1px;
+    // background: #fff;
+  }
+  .countryPopUp {
+    border-radius: 20px !important;
+    box-shadow: none !important;
+    padding: 0 20px;
+    max-height: 375px !important;
+    border: 1px solid #c6c6c6;
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      border: 1px solid #eee;
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #aaa;
+    }
+
+    .title {
+        font-size: 14px;
+        color: #656565;
+        font-weight: 600;
+        padding: 14px 20px;
+        margin: 0 -20px;
+        border-bottom: 1px solid #dbe3ed;
+        & + .mat-option {
+          border-top: none;
+        }
+    }
+    .mat-option {
+        border-top: 1px solid #ecf1f7;
+        font-size: 17px;
+    }
+  }
+}
 .top_up_btn {
     text-align: center;
     margin-bottom: 30px;
@@ -512,8 +671,8 @@ td {
       font-family: Montserrat, sans-serif;
       padding: 0 5px;
       &.mat-button-toggle-checked {
-          background: #fff;
-          color: #283a69;
+          background: #f3c423;
+          color: #000;
           border-radius: 30px;
       }
   }
@@ -523,9 +682,10 @@ td {
   flex-wrap: wrap;
   .topup_item {
     width: 31%;
-    border-radius: 12px;
-    border: 1px solid #c8e8f6;
-    margin: 0 8px 20px;
+    border-radius: 15px;
+    border: 1px solid #ccdbe2;
+    margin: 0 1% 20px;
+    padding: 10px;
   }
 }
 .backBtnInt {
@@ -540,17 +700,65 @@ td {
   top: -37px;
 }
 .country-img .operator.mr-2 {
-  width: 50px;
+  object-fit: contain;
+  width: 64px;
+  height: 32px;
 }
 .mobileIntTopupSec {
     padding: 0 15px;
+    .operator-details {
+      width: 700px;
+      max-width: 100%;
+      margin: 0 auto;
+      border-radius: 20px;
+      border: 1px solid #c6c6c6;
+      padding: 24px 30px;
+      background: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      &> div {
+        border-bottom: 1px solid #e2e2e2;
+        padding-bottom: 15px;
+        &:last-child {
+          border: none;
+          padding-bottom: 0;
+        }
+      }
+      .country-img {
+        img.flag {
+          margin-right: 6px;
+        }
+      }
+      .edit-button {
+        max-width: 100px;
+        a {
+            font-size: 13px;
+            color: #000;
+            display: flex;
+            align-items: center;
+        }
+      }
+      @media only screen and (max-width: 767px) {
+        font-size: 17px;
+        .edit-button {
+          max-width: 70px;
+          margin-left: auto;
+        }
+      }
+    }
+    .topup_section {
+        max-width: 1030px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
 }
 .topup_section {
   .top_section {
-      background-color: #ebf8fe;
-      border-bottom: 1px solid #c8e8f6;
+      background-color: #eff7ff;
       padding: 15px;
-      border-radius: 12px 12px 0 0;
+      border-radius: 15px;
+      margin-bottom: 15px;
       h2 {
           font-size: 32px;
           font-weight: bolder;
@@ -590,11 +798,16 @@ td {
       font-size: 15px;
       color: #4b4b4b;
       font-weight: 500;
+      p {
+        margin-bottom: 10px;
+      }
       .amount {
-          margin-bottom: 1rem;
+          margin-bottom: 0;
           h3 {
-              font-size: 24px;
+              font-size: 28px;
               font-weight: bold;
+              margin-bottom: 3px;
+              color: #575757;
               span {
                   font-size: 16px;
               }
@@ -610,6 +823,7 @@ td {
           padding: 8px 30px;
           border-radius: 20px;
           text-transform: uppercase;
+          margin-top: 25px;
       }
   }
 }
@@ -622,9 +836,13 @@ td {
   }
   .intMobileTopup {
       display: block;
+      padding: 18px 18px 20px;
       mat-form-field {
           width: 100%;
       }
+  }
+  .tabContentMyaccount.pt-5 {
+      padding-top: 20px !important;
   }
   .topup_items .topup_item {
       width: 100%;

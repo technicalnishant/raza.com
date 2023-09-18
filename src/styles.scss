@@ -863,8 +863,9 @@ p {
     width: 100% !important;
 }
 .rechargeStepMain {
-    margin-top: -97px;
-    border-bottom: 1px solid #ccc;
+  margin-top: -42px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 .onlyDesktopAccount {
     .leftTabArea {
@@ -959,6 +960,13 @@ table {
       right: 4px;
       top: -10px;
     }
+    h1 {
+        font-size: 22px;
+        margin-top: -5px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
     h2 {
         text-align: center;
         color: #0b203e;
@@ -997,6 +1005,10 @@ table {
         color: #808080;
         font-size: 14px;
     }
+}
+.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+  transform: translateY(-1.34375em) scale(0.85);
+  font-weight: 500;
 }
 .header_style {
     .colorWhite {
@@ -1279,7 +1291,7 @@ table {
    background-size: cover;
 }
 .top-banner{
-    background: url("/assets/images/new_design_images/mobiletopup_banner.jpg") no-repeat center 100%;
+    background: url("/assets/images/new_design_images/mobiletopup_banner.webp") no-repeat center 100%;
    background-size: cover;
 
 }
@@ -2652,6 +2664,9 @@ ul {
 }
 
 @media only screen and (max-width: 600px) {
+    .rechargeStepMain {
+      margin-top: 65px;
+    }
     .showMobileOnly {
         display: block;
     }
@@ -3056,6 +3071,22 @@ h2 {
 // css for ios
 .mat-icon {
     display: -webkit-inline-box !important;
+}
+
+.commonPopup2 {
+  padding: 8px;
+  h2 {
+    margin-bottom: 45px;
+  }
+  .myNumberButtonArea2 {
+    display: flex;
+    justify-content: center;
+    button.submitButton {
+        width: 100px !important;
+        padding: 8px 20px !important;
+        margin: 0 10px !important;
+    }
+  }
 }
 
 // All media queries
@@ -3494,7 +3525,7 @@ h2 {
     }
     .mat-autocomplete-panel {
         &.mat-autocomplete-visible {
-            max-height: 151px !important;
+            max-height: 270px !important;
         }
     }
     .floatRight {
@@ -3936,6 +3967,9 @@ app-add-creditcard-dialog a.what-cvv {
 .mat-button-disabled,
 .submit-grey {
     background-color: #e9e9ec !important;
+}
+.mat-stepper-previous ~ .closeIcon {
+  right: 4px;
 }
 .closeIcon.top-0 {
     top: 0;
