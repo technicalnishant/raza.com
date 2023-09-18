@@ -40,13 +40,7 @@ export class SidemenuComponent implements OnInit {
       if(this.isAuthenticatedn)
       {
         
-        this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe( 
-          (res:any)=>{
-            
-            this.plan = res;
-            
-          }
-        );
+        
       }
     });
 
@@ -92,7 +86,17 @@ export class SidemenuComponent implements OnInit {
 		  return false;
 		}
     else
-    return true;
+    {
+      this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe( 
+        (res:any)=>{
+          
+          this.plan = res;
+          
+        }
+      );
+      return true;
+    }
+    
   }
 
   log_out_click(card) {
