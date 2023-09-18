@@ -631,5 +631,10 @@ onClickClose(icon)
 
   }
  // setSharedValue
-
+ get IsEnableloggedIn(): boolean {
+  if (!this.authService.isAuthenticated()) {
+    return false;
+  }
+  return true;
+}
 }

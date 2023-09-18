@@ -97,11 +97,11 @@
       </div>
 
       <div class="login">
-        <a *ngIf="!isAuthenticatedn" routerLink="/freetrial" class="tryUsfree">Try us Free</a>
-        <button *ngIf="!isAuthenticatedn"  class="login_btn" (click)="openModal()">Login</button>
+        <a *ngIf="!IsEnableloggedIn" routerLink="/freetrial" class="tryUsfree">Try us Free</a>
+        <button *ngIf="!IsEnableloggedIn"  class="login_btn" (click)="openModal()">Login</button>
         <!-- <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span> -->
         <div [matMenuTriggerFor]="menu" class="login">
-          <button *ngIf="isAuthenticatedn"  mat-icon-button class="p-0" routerLink="/account" [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}">
+          <button *ngIf="IsEnableloggedIn"  mat-icon-button class="p-0" routerLink="/account" [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}">
             <mat-icon>account_circle</mat-icon>
           </button>
           <!--<div *ngIf="!isAuthenticated" class="login-text d-none d-md-block">login</div>-->
@@ -251,10 +251,10 @@
 
       <div class="login">
         <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span>
-        <a *ngIf="!isAuthenticatedn" routerLink="/freetrial" class="tryUsfree">Try us Free</a>
-        <button *ngIf="!isAuthenticatedn"  class="login_btn" (click)="openModal()">Login</button>
+        <a *ngIf="!IsEnableloggedIn" routerLink="/freetrial" class="tryUsfree">Try us Free</a>
+        <button *ngIf="!IsEnableloggedIn"  class="login_btn" (click)="openModal()">Login</button>
         <div class="login">
-          <button *ngIf="isAuthenticatedn"  mat-icon-button class="p-0" routerLink="/account"
+          <button *ngIf="IsEnableloggedIn"  mat-icon-button class="p-0" routerLink="/account"
             [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}">
             <mat-icon>account_circle</mat-icon>
           </button>
