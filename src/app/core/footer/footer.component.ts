@@ -119,13 +119,22 @@ export class FooterComponent implements OnInit {
       
      
   }
-  goTomobileTopup()
-  {
-   localStorage.removeItem("topupCountry");
-   localStorage.removeItem("topupPhone");
-   localStorage.removeItem("topupCountryId");
-   localStorage.removeItem("topupTrigger");
-   this.router.navigateByUrl('mobiletopup');
+ 
+
    
+ goTomobileTopup()
+ {
+   
+    if(this.authService.isAuthenticated())
+      {
+        this.router.navigate(['/account/international-topup']);
+      }
+      else{
+        localStorage.removeItem("topupCountry");
+        localStorage.removeItem("topupPhone");
+        localStorage.removeItem("topupCountryId");
+        localStorage.removeItem("topupTrigger");
+        this.router.navigateByUrl('mobiletopup');
+      }
   }
 }

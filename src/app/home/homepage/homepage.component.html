@@ -139,7 +139,7 @@
                     <img loading="lazy" src="./assets/images/home_banner_new/it-topup-inner_g7bpbe.webp" width="1509" height="528" alt="banner" class="img-fluid d-md-block d-none m-auto">
 
                     <div>
-                        <a href="" [routerLink]="[ '/mobiletopup' ]" class="topup-btn" type="button" mat-button>TOP-UP</a>
+                        <a href="javascript:void(0)"  (click)="goTomobileTopup()" class="topup-btn" type="button" mat-button>TOP-UP</a>
                     </div>
                 </div>
             </ng-template>
@@ -288,7 +288,7 @@
     <div class="containerNew">
         <div class="blue">
             <div class="col-md-4 homeBluecommon">
-                <a routerLink="/mobiletopup">
+                <a  (click)="goTomobileTopup()">
                     <div class="icon_holder1">
                         <img loading="lazy" src="./assets/images/mobile_topup_white.svg" alt="icon">
                     </div>

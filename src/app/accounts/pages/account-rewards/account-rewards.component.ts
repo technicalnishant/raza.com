@@ -15,6 +15,7 @@ import { isNullOrUndefined } from "../../../shared/utilities";
 import { BillingInfo } from '../../models/billingInfo';
 import { CustomerService } from '../../services/customerService';
 import { CallUsComponent } from 'app/shared/dialog/call-us/call-us.component';
+import { AuthenticationService } from 'app/core/services/auth.service';
 
 @Component({
   selector: 'app-account-rewards',
@@ -55,19 +56,21 @@ export class AccountRewardsComponent implements OnInit {
   currentPage = 1; // Current page
   showLoadMore:boolean = false;
   allItems:any;
-
+  username: string;
   constructor(private planService: PlanService,
     private razalayoutService: RazaLayoutService,
     private router: Router,
     public dialog: MatDialog,
     private rechargeRewardService: RechargeRewardService,
     private titleService: Title,
-	private customerService: CustomerService
+	private customerService: CustomerService,
+  private authService: AuthenticationService,
 	) {
     this.getRewardTotal();   //screen 1 -Reward
   }
 
   ngOnInit() {
+    this.username = this.authService.getCurrentLoginUserName();
     this.titleService.setTitle('Rewards');
     this.razalayoutService.setFixedHeader(true);
     this.getReferedFriends(); //screen 2 -Refer
@@ -246,8 +249,10 @@ export class AccountRewardsComponent implements OnInit {
   }
   loadItems() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    this.showLoadMore = true;
+   
     this.allRewardPoints = this.allItems.slice(startIndex, startIndex + this.itemsPerPage);
+    if(this.allRewardPoints && this.allRewardPoints.length >9)
+    this.showLoadMore = true;
   }
 
   loadMore() {
@@ -257,5 +262,12 @@ export class AccountRewardsComponent implements OnInit {
 
   openContactUsDialog() {
     const dialogRef1 = this.dialog.open(CallUsComponent);
+  }
+
+  get userWelcomeLabel() {
+    if (isNullOrUndefined(this.username) || (this.username as string).length === 0) {
+      return 'Welcome Back,';
+    }
+    return  this.username
   }
 }

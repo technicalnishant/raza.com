@@ -75,37 +75,37 @@
 	&.globalCall_li_list {
 		ul {
 			li {
-				&:nth-child(2):after {
-					content: "$100";
-					position: absolute;
-					color: #0b203e;
-					bottom: 0px;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					width: 100%;
-					height: 29%;
-					font-size: 20px;
-					font-weight: 600;
-					left: 0;
-				}
-				&:nth-child(2) {
-					position: relative;
-					:before {
-						content: "|";
-						position: absolute;
-						color: red;
-						bottom: 0;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						width: 100%;
-    					height: 29%;
-    					font-size: 28px;
-    					transform: rotate(45deg);
-    					left: 5px;
-					}
-				}
+				// &:nth-child(2):after {
+				// 	content: "$100";
+				// 	position: absolute;
+				// 	color: #0b203e;
+				// 	bottom: 0px;
+				// 	display: flex;
+				// 	align-items: center;
+				// 	justify-content: center;
+				// 	width: 100%;
+				// 	height: 29%;
+				// 	font-size: 20px;
+				// 	font-weight: 600;
+				// 	left: 0;
+				// }
+				// &:nth-child(2) {
+				// 	position: relative;
+				// 	:before {
+				// 		content: "|";
+				// 		position: absolute;
+				// 		color: red;
+				// 		bottom: 0;
+				// 		display: flex;
+				// 		align-items: center;
+				// 		justify-content: center;
+				// 		width: 100%;
+    			// 		height: 29%;
+    			// 		font-size: 28px;
+    			// 		transform: rotate(45deg);
+    			// 		left: 5px;
+				// 	}
+				// }
 			}
 		}
 	}
