@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, AfterViewChecked} from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, AfterViewChecked, NgModule} from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
@@ -39,6 +39,8 @@ import { ModalVideoComponent } from '../modal-video/modal-video.component';
 
 import { MetaTagsService } from '../../core/services/meta.service';
 import { PreviousRouteService } from '../../core/services/previous-route.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+export class SomeModule { }
 // import{GoogleAnalyticsService} from '../../services/google-analytics.service';
 // declare var videojs: any;
 @Component({
@@ -47,7 +49,18 @@ import { PreviousRouteService } from '../../core/services/previous-route.service
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
-
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    nav: false,
+    items: 1,
+    lazyLoad: true,
+  }
 
 
   headerValue: number = 1;
@@ -133,38 +146,38 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
 
     let previous = this.previousRouteService.getPreviousUrl();
     let currnet = this.previousRouteService.getCurrentUrl();
-    
+
     console.log("currnet page path is ", currnet);
     console.log("previous page path is ", previous);
 
     if(previous == '/globalcallrates' && currnet == '/')
     {
       localStorage.removeItem('history_search_country_id');
-       
+
     }
     else if(previous != '/globalcallrates' && previous != '/')
     {
       localStorage.removeItem('history_search_country_id')
-     
+
     }
-   else if( localStorage.getItem('history_search_country_id') && parseFloat(localStorage.getItem('history_search_country_id'))> 0) 
+   else if( localStorage.getItem('history_search_country_id') && parseFloat(localStorage.getItem('history_search_country_id'))> 0)
     {
-     
+
      localStorage.setItem('rate_country_id', localStorage.getItem('history_search_country_id'));
      //localStorage.removeItem('history_search_country_id')
-     this.router.navigate(['globalcallrates']); 
+     this.router.navigate(['globalcallrates']);
     }
-    
 
-    
-    
+
+
+
     if(previous == '/mobiletopup' && currnet == '/')
     {
       localStorage.removeItem("topupCountry");
       localStorage.removeItem("topupPhone");
       localStorage.removeItem("topupCountryId");
       localStorage.removeItem("topupTrigger");
-       
+
     }
     else if(previous != '/mobiletopup' && previous != '/')
     {
@@ -172,13 +185,13 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
       localStorage.removeItem("topupPhone");
       localStorage.removeItem("topupCountryId");
       localStorage.removeItem("topupTrigger");
-     
+
     }
-   else if( localStorage.getItem('topupCountryId') && parseFloat(localStorage.getItem('topupCountryId'))> 0) 
+   else if( localStorage.getItem('topupCountryId') && parseFloat(localStorage.getItem('topupCountryId'))> 0)
     {
-     
-      
-     this.router.navigate(['mobiletopup']); 
+
+
+     this.router.navigate(['mobiletopup']);
     }
 
 
@@ -186,10 +199,10 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
 
 
 
-    window.scroll({ 
-      top: 10, 
-      left: 0, 
-      behavior: 'smooth' 
+    window.scroll({
+      top: 10,
+      left: 0,
+      behavior: 'smooth'
   });
    // this.googleAnalyticsService.eventEmitter("home_page", "Home page", "Home page", "page load", 1);
 
@@ -201,27 +214,27 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     this.image_5        = 'https://d2uij5nbaiduhc.cloudfront.net/images/uk_left.webp';
     this.image_6        = 'https://d2uij5nbaiduhc.cloudfront.net/images/mobile-uk.webp';
 
-  
+
     this.currentURL = window.location.href;
-    if(this.currentURL.includes('/ref/')) 
-    { 
- 
+    if(this.currentURL.includes('/ref/'))
+    {
+
       console.log("this.route.snapshot.params['signup_code']", this.route.snapshot.params['signup_code']);
         if(this.route.snapshot.params['signup_code'] && this.route.snapshot.params['signup_code']!='')
         {
           var code = this.route.snapshot.params['signup_code'];
           localStorage.setItem('promo_code', code);
-          
+
           this.signupModal();
         }
   }
-    
+
 
   if (this.authService.isAuthenticated()) {
       this.isAuthenticated = true;
-     
+
     }
-	
+
     this.titleService.setTitle('Free International calls with Raza calling app');
     const isNeedToScrollMobileApp = this.route.snapshot.data['scrollToMobileApp'];
 
@@ -277,14 +290,14 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     {
       this.promtionCode = this.route.snapshot.queryParamMap.get('promo');
       this.onopenPromotion();
-     
+
     }
 
     localStorage.removeItem('IsMoto');
     localStorage.removeItem('moto_orderid')
   }
 
-   
+
 
   openDialog() {
     this.dialog.open(ModalVideoComponent,{
@@ -303,11 +316,11 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     // };
 
     // const typed = new Typed('.typed-element', options);
-    
+
   }
-  
+
   ngAfterViewChecked(){
-    
+
   }
   ngOnDestroy(): void {
     this.currentSetting$.unsubscribe();
@@ -317,7 +330,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     window.scrollTo(1650, 1650);
   }
 
-  cliclDownloadAppFree(el: HTMLElement) 
+  cliclDownloadAppFree(el: HTMLElement)
   {
     if (this.platform.ANDROID) {
       window.open('https://cutt.ly/7eFSBtF', 'blank')
@@ -326,7 +339,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     }
     else {
       el.scrollIntoView();
-      
+
     }
   }
 
@@ -375,7 +388,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     return country ? country.CountryName : undefined;
   }
 
-  
+
   onopenPromotion() {
     const pr: Promotion = {
       PromotionCode: this.promtionCode,
@@ -494,11 +507,11 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
 		else
 		{
 				this.dialog.open(SignuppopupComponent, {
-			 
+
 			  data: {  }
 			});
 		}
- 	 
+
   }
 
   buy1get1() {
@@ -515,11 +528,11 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
       {
 
           localStorage.setItem('redirect_path', 'account/rewards');
-          this.dialog.open(LoginpopupComponent, {         
+          this.dialog.open(LoginpopupComponent, {
           data: {  }
         });
       }
-      
+
     }
 
     rewardLearnMore(obj:number) {
@@ -540,13 +553,13 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
 	}
 
 	howItWorksPopup(obj) {
-	 
+
     this.dialog.open(HowWorksComponent, {
-     
+
       data: { slideIndex: obj }
     });
   }
- 
+
   faqPopup(obj) {
     this.dialog.open(FaqPageComponent, {
       data: { slideIndex: obj }
@@ -557,7 +570,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     /*var platform = ["Win32", "Android", "iOS"];
     var user_platform = '';
     for (var i = 0; i < platform.length; i++) {
- 
+
         if (navigator.platform.indexOf(platform[i]) >- 1) {
 
           user_platform = platform[i];
@@ -571,8 +584,8 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     else{
       window.location.href = 'https://play.google.com/store/apps/details?id=com.razacomm.universe';
     }*/
-	
-	
+
+
 	if (this.platform.ANDROID) {
       window.open('https://play.google.com/store/apps/details?id=com.razacomm.universe', 'blank')
     } else if (this.platform.IOS) {
@@ -580,19 +593,19 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     }
     else {
       window.open('https://play.google.com/store/apps/details?id=com.razacomm.universe', 'blank')
-      
+
     }
-   
-	
+
+
 
  }
 
 
 
- 
+
  goTomobileTopup()
  {
-   
+
     if(this.authService.isAuthenticated())
       {
         this.router.navigate(['/account/international-topup']);
@@ -605,7 +618,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
         this.router.navigateByUrl('mobiletopup');
       }
   }
-  
-  
+
+
 
 }
