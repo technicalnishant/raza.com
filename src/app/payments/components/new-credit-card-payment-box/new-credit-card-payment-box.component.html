@@ -25,7 +25,7 @@
             </mat-form-field>
           </div>
         </div>
-  
+
         <div class="col-sm-4">
           <div>
             <mat-form-field>
@@ -66,7 +66,7 @@
             <input matInput placeholder="Email" formControlName="email">
           </mat-form-field>
         </div>
-  
+
       </div> -->
       <div class="row form_holder5Row">
         <div class="col-sm-6">
@@ -74,7 +74,7 @@
             <input matInput placeholder="First Name" formControlName="firstName" required>
           </mat-form-field>
         </div>
-  
+
         <div class="col-sm-6">
           <mat-form-field class="example-full-width ">
             <input matInput placeholder="Last Name" formControlName="lastName" required>
@@ -95,8 +95,8 @@
             <input matInput placeholder="Email (Payment confirmation will be sent to)" formControlName="email" >
           </mat-form-field>
         </div>
-        
-        <div class="col-sm-12"> 
+
+        <div class="col-sm-12">
           <mat-form-field class="example-full-width ">
            <!--<input matInput placeholder="Address" formControlName="address">-->
             <input matInput placeholder="Address" required class="input search_google" (keypress)="getPlaceAutocomplete()" #addresstext formControlName="address"  >
@@ -104,10 +104,10 @@
         </div>
         <div class="col-sm-6">
           <mat-form-field>
-            <input matInput placeholder="City" formControlName="city" required> 
+            <input matInput placeholder="City" formControlName="city" required>
           </mat-form-field>
         </div>
- 
+
         <div class="col-sm-6" *ngIf="search_country_id != 3">
           <mat-form-field *ngIf="!isFreeStateText">
             <mat-select placeholder="State" formControlName="state" required>
@@ -124,7 +124,7 @@
             <input matInput placeholder="Zip/Postal code" formControlName="zipcode" required>
           </mat-form-field>
         </div>
-              
+
         <div class="col-sm-6" >
           <mat-form-field>
             <mat-select placeholder="Country" formControlName="country" (selectionChange)="onCountryChange($event.value)" required>
@@ -135,7 +135,7 @@
         </div>
 
       </div>
-  
+
       <div class="row form_holder5Row" *ngIf="isEnableAutoRefillOption">
         <div class="col-sm-12">
           <p *ngIf="checkOutModel.isMandatoryAutorefill" class="labelText">Auto Refill</p>
@@ -165,7 +165,7 @@
         <div class="cardImg">
           <img [src]="getCardIcon(item)" alt="" />
         </div>
-        
+
         <div class="cardDetails">
           <p class="cardNumber">Card Ending in … {{ item.CardNumber | creditCard }}</p>
           <p class="cardExpires">Expires {{item.ExpiryMonth}}/{{item.ExpiryYear}}
@@ -175,7 +175,7 @@
           </p>
         </div>
       </mat-radio-button>
-      <div class="cvvCard" *ngIf="item.CardId === selectedCard?.CardId">
+      <div class="cvvCardNew" *ngIf="item.CardId === selectedCard?.CardId">
         <div class="col-sm-6">
           <mat-form-field class="example-full-width">
             <input matInput type="password" maxlength="4" placeholder="Security code" name="{{item.CardId}}"
@@ -192,10 +192,10 @@
   </mat-radio-group>
   <div class="form_row1">
 
-    <div class="input_holder1"> 
+    <div class="input_holder1">
 
       <!--<button mat-button class="submitButton" (click)="onClickCreditCardPayment()">Confirm</button>-->
-       
+
       <section class="submit-wrapper">
           <div class="d-block d-lg-flex px-4 justify-content-between align-items-center">
             <div class="order-2 mr-0">
@@ -208,7 +208,7 @@
           </div>
       </section>
 
-      
+
     </div>
   </div>
 </div>
