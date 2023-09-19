@@ -125,7 +125,9 @@ export class AuthenticationService {
 						let phoneOrEmail 	= body.phone;
 						if(phoneOrEmail.match(phoneno) )
 						{
-							localStorage.setItem("login_no", phoneOrEmail);
+							let phoneNumber = body.username;
+							let cleanedPhoneNumber = phoneNumber.replace(/\+/g, '');
+							localStorage.setItem("login_no", cleanedPhoneNumber);
 							localStorage.setItem("login_with", 'phone');
 						}
 						else
