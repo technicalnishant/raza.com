@@ -27,4 +27,6 @@ export class newPinRequestModel {
     creditCard: CreditCard;
 	nonce:string;
     ProcessedBy:string='';
+    ActualAmountCharge: number;
+    PaymentCurrency :string;
 }

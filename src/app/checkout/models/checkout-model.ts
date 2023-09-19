@@ -43,7 +43,8 @@ export class NewPlanCheckoutModel implements ICheckoutModel {
     pinlessNumbers: string[];
     offerPercentage:any;
     ProcessedBy:string='';
-
+    ActualAmountCharge: number;
+    PaymentCurrency :string;
     calculateServiceFee?(): number {
         if (this.isCalculatedServiceFee === true) {
             return this.details.ServiceCharge;

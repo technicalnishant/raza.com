@@ -105,7 +105,9 @@ export class TransactionMobProcessBraintreeService {
       pinlessNumbers: activationCart.pinlessNumbers,
       creditCard: orderInfo.creditCard,
 	    nonce : nonce,
-      ProcessedBy : ''
+      ProcessedBy : '',
+      ActualAmountCharge: parseFloat(localStorage.getItem('ActualAmountCharge')),
+      PaymentCurrency:localStorage.getItem('PaymentCurrency')
     };
     
 
@@ -368,7 +370,8 @@ export class TransactionMobProcessBraintreeService {
 
   private processNewActivationWithPaypal(paypalCheckoutOrderInfo: IPaypalCheckoutOrderInfo) {
     //console.log('processNewActivationWithPaypal');
-
+    let exp_amount = parseFloat(localStorage.getItem('ActualAmountCharge') );
+    let exp_curr = localStorage.getItem('PaymentCurrency') ;
     const checkoutModel: NewPlanCheckoutModel = paypalCheckoutOrderInfo.checkoutCart as NewPlanCheckoutModel;
     const model: newPinRequestModel = {
       orderId: paypalCheckoutOrderInfo.orderId,
@@ -396,7 +399,9 @@ export class TransactionMobProcessBraintreeService {
       pinlessNumbers: ['0002520101'],
       creditCard: null,
       nonce:'',
-      ProcessedBy : ''
+      ProcessedBy : '',
+      ActualAmountCharge:exp_amount,
+    PaymentCurrency :exp_curr
     };
 
     let transactionResponseModel: TransactionResponseModel;

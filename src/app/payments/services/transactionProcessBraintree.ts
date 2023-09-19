@@ -86,6 +86,9 @@ export class TransactionProcessBraintreeService {
     payment_method = PaymentMethod.CreditCard;
   }
 	
+  let exp_amount = (parseFloat(localStorage.getItem('ActualAmountCharge'))>0)?parseFloat(localStorage.getItem('ActualAmountCharge')):(order.OrderDetails.Amount / 100);
+    let exp_curr = (parseFloat(localStorage.getItem('ActualAmountCharge'))>0)?parseFloat(localStorage.getItem('PaymentCurrency')):(order.OrderDetails.CurrencyCode);
+
     const model: newPinRequestModel = {
       orderId: order.OrderDetails.OrderNumber,
       amount: order.OrderDetails.Amount / 100,
@@ -112,7 +115,9 @@ export class TransactionProcessBraintreeService {
       pinlessNumbers: activationCart.pinlessNumbers,
       creditCard: orderInfo.creditCard,
 	    nonce : nonce,
-      ProcessedBy : activationCart.ProcessedBy
+      ProcessedBy : activationCart.ProcessedBy,
+      ActualAmountCharge :exp_amount,
+      PaymentCurrency : exp_curr.toString()
     };
     
 
@@ -168,9 +173,8 @@ export class TransactionProcessBraintreeService {
     let trans_type = transactionReq.TransactionType;
     const orderInfo = transactionReq.checkoutOrderInfo as RechargeOrderInfo;
     const rechargeCheckOutModel = orderInfo.checkoutCart as RechargeCheckoutModel;
-    let exp_amount = (parseFloat(localStorage.getItem('ActualAmountCharge'))>0)?parseFloat(localStorage.getItem('ActualAmountCharge')):(order.OrderDetails.Amount / 100);
-    let exp_curr = (parseFloat(localStorage.getItem('ActualAmountCharge'))>0)?parseFloat(localStorage.getItem('PaymentCurrency')):(order.OrderDetails.CurrencyCode);
-
+    let exp_amount = parseFloat(localStorage.getItem('ActualAmountCharge') );
+    let exp_curr = localStorage.getItem('PaymentCurrency') ;
     model.OrderId = order.OrderDetails.OrderNumber;
     //model.CustomerId: 
     model.Amount = order.OrderDetails.Amount / 100;
@@ -393,8 +397,13 @@ export class TransactionProcessBraintreeService {
 
   private processNewActivationWithPaypal(paypalCheckoutOrderInfo: IPaypalCheckoutOrderInfo) {
     //console.log('processNewActivationWithPaypal');
-
+  
     const checkoutModel: NewPlanCheckoutModel = paypalCheckoutOrderInfo.checkoutCart as NewPlanCheckoutModel;
+
+    let exp_amount = parseFloat(localStorage.getItem('ActualAmountCharge') );
+    let exp_curr = localStorage.getItem('PaymentCurrency') ;
+   
+
     const model: newPinRequestModel = {
       orderId: paypalCheckoutOrderInfo.orderId,
       amount: checkoutModel.details.Price,
@@ -421,7 +430,9 @@ export class TransactionProcessBraintreeService {
       pinlessNumbers: ['0002520101'],
       creditCard: null,
       nonce:'',
-      ProcessedBy : ''
+      ProcessedBy : '',
+      ActualAmountCharge :exp_amount,
+      PaymentCurrency : exp_curr.toString(),
     };
 
     let transactionResponseModel: TransactionResponseModel;
