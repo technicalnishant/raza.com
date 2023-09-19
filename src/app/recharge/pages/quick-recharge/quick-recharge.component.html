@@ -120,19 +120,19 @@
                                       <div class="button-wrapper" (click)="setrechargeAmount(5)">
                                           <button type="button" class="submitButtonSmall {{getActiveClass(5)}}" >
                                       <!-- <div class="bonus">5% <br/> BONUS</div> -->
-                                          {{ 5 | bCurrency : countryCode }}
+                                          {{ 5 | bCurrency : countryCode | async}}
                                           </button>
                                       </div>
                                       <div class="button-wrapper" (click)="setrechargeAmount(10)">
                                           <button type="button" class="submitButtonSmall {{getActiveClass(10)}}">
                                               <div class="bonus">5% <br/> BONUS</div>
-                                          {{ 10 | bCurrency : countryCode }}
+                                          {{ 10 | bCurrency : countryCode | async}}
                                           </button>
                                       </div>
                                     <div class="button-wrapper" (click)="setrechargeAmount(20)">
                                       <button type="button" class="submitButtonSmall {{getActiveClass(20)}}">
                                           <div class="bonus">7% <br/> BONUS</div>
-                                          {{20 | bCurrency : countryCode }}
+                                          {{20 | bCurrency : countryCode | async}}
                                       </button>
                                     </div>
                                 </div>
@@ -140,15 +140,15 @@
                                   <div class="button-wrapper" (click)="setrechargeAmount(50)"  >
                                       <button type="button" class="submitButtonSmall {{getActiveClass(50)}}">
                                       <div class="bonus">10% <br/> BONUS</div>
-                                      {{ 50 | bCurrency : countryCode }}
+                                      {{ 50 | bCurrency : countryCode| async }}
                                   </button>
                                   </div>
                                 <div class="button-wrapper wrapper2" (click)="setrechargeAmount(90)" *ngIf="currentSetting?.country.CountryId !=3">
                                     <button type="button" class="submitButtonSmall2 {{getActiveClass(90)}} positon-relative" >
                                     <div class="bonus w-100">15% <br/> BONUS</div>
-                                    <span class="slice striketext">{{ 100 | bCurrency : countryCode }}</span><br>
+                                    <span class="slice striketext">{{ 100 | bCurrency : countryCode | async}}</span><br>
 
-                                    {{ 90 | bCurrency : countryCode }}
+                                    {{ 90 | bCurrency : countryCode | async}}
                                     </button></div>
                                     </div>
                                 </div>

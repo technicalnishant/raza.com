@@ -102,9 +102,9 @@ export class TransactionProcessFacadeService {
       countryTo: activationCart.countryTo,
       pinlessNumbers: activationCart.pinlessNumbers,
       creditCard: orderInfo.creditCard,
-	  nonce : '',
-    ProcessedBy : '',
-    ActualAmountCharge: parseFloat(localStorage.getItem('ActualAmountCharge')),
+	    nonce : '',
+      ProcessedBy : '',
+      ActualAmountCharge: parseFloat(localStorage.getItem('ActualAmountCharge')),
       PaymentCurrency:localStorage.getItem('PaymentCurrency')
     };
 
