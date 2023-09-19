@@ -103,7 +103,9 @@ export class TransactionProcessFacadeService {
       pinlessNumbers: activationCart.pinlessNumbers,
       creditCard: orderInfo.creditCard,
 	  nonce : '',
-    ProcessedBy : ''
+    ProcessedBy : '',
+    ActualAmountCharge: parseFloat(localStorage.getItem('ActualAmountCharge')),
+      PaymentCurrency:localStorage.getItem('PaymentCurrency')
     };
 
     let transactionResponseModel: TransactionResponseModel;
@@ -366,7 +368,9 @@ export class TransactionProcessFacadeService {
       pinlessNumbers: ['0002520101'],
       creditCard: null,
       nonce :'',
-      ProcessedBy : ''
+      ProcessedBy : '',
+      ActualAmountCharge: parseFloat(localStorage.getItem('ActualAmountCharge')),
+      PaymentCurrency:localStorage.getItem('PaymentCurrency')
     };
 
     let transactionResponseModel: TransactionResponseModel;
