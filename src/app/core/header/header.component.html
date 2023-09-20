@@ -38,8 +38,8 @@
       </div>
 
       <button class="menu_btn menu_btn2"  (click)="sidenav.toggle()" >
-        <img *ngIf="headerValue == 1" src="../../../assets/images/myaccount_icons/menu.png" alt="menu" />
-        <img *ngIf="headerValue == 2" src="../../../assets/images/myaccount_icons/menu-normal.png" alt="menu" />
+        <img *ngIf="headerValue == 1" src="../../../assets/images/myaccount_icons/menu.png" loading="lazy" width="22" height="16" alt="menu" />
+        <img *ngIf="headerValue == 2" src="../../../assets/images/myaccount_icons/menu-normal.png" loading="lazy" width="22" height="16" alt="menu" />
       </button>
 
       <div class="search-box d-none d-md-block">
@@ -233,8 +233,8 @@
       </div>
 
       <button class="menu_btn menu_btn2"  (click)="sidenav.toggle()" >
-        <img *ngIf="headerValue == 1" src="../../../assets/images/myaccount_icons/menu.png" alt="menu" />
-        <img *ngIf="headerValue == 2" src="../../../assets/images/myaccount_icons/menu-normal.png" alt="menu" />
+        <img *ngIf="headerValue == 1" src="../../../assets/images/myaccount_icons/menu.png" loading="lazy" width="22" height="16" alt="menu" />
+        <img *ngIf="headerValue == 2" src="../../../assets/images/myaccount_icons/menu-normal.png" loading="lazy" width="22" height="16" alt="menu" />
       </button>
       <!--<span class="logo" *ngIf="blueBg==1">
           <a routerLink="/"><img  src="../assets/images/raza_logo.png" alt="" /></a>
@@ -363,7 +363,7 @@
         <mat-icon>account_circle</mat-icon>
       </button>
 
-      
+
       <!-- <button mat-icon-button class="p-0"
       [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}"
       #accountDropMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu">
