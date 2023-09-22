@@ -6,92 +6,79 @@
     display: inline-block;
     width: 32px;
     height: 32px;
-    background: url('assets/images/flags.png') no-repeat; 
+    background: url('assets/images/flags_new.png') no-repeat;
 }
-
 
 .flag.flag-ws {
-    background-position: -320px -448px;
+    background-position: -375px -35px;
 }
 .flag.flag-324 {
-    background-position: -320px -448px;
+    background-position: -375px -35px;
 }
-
 .flag.flag-kr {
-    background-position: -128px -224px;
+    background-position: -35px -103px;
 }
 .flag.flag-277 {
-    background-position: -128px -224px;
+    background-position: -35px -103px;
 }
-
 .flag.flag-tv {
-    background-position: -320px -416px;
+    background-position: -103px -137px;
 }
 .flag.flag-308 {
-    background-position: -320px -416px;
+    background-position: -103px -137px;
 }
 
 .flag.flag-pe {
-    background-position: -256px -320px;
+    background-position: -511px -375px;
 }
 .flag.flag-246 {
-    background-position: -256px -320px;
+    background-position: -511px -375px;
 }
 
-.flag.flag-kp {
-    background-position: -96px -224px;
-}
+.flag.flag-kp,
 .flag.flag-428 {
-    background-position: -96px -224px;
+  background: url('assets/images/flags/north-korea.png') no-repeat;
 }
 
 .flag.flag-bj {
-    background-position: -256px -32px;
+    background-position: -511px -69px;
 }
 .flag.flag-37 {
-    background-position: -256px -32px;
+    background-position: -511px -69px;
 }
 
 .flag.flag-mc {
-    background-position: -128px -256px;
+    background-position: -341px -443px;
 }
 .flag.flag-216 {
-    background-position: -128px -256px;
+    background-position: -341px -443px;
 }
-
-.flag.flag-cd {
-    background-position: -128px -64px;
-}
-.flag.flag-84 {
-    background-position: -128px -64px;
-}
-
 .flag.flag-jm {
-    background-position: -320px -192px;
+    background-position: -137px -477px;
 }
 .flag.flag-176 {
-    background-position: -320px -192px;
+    background-position: -137px -477px;
 }
 
 .flag.flag-rw {
-    background-position: -288px -352px;
+    background-position: -137px -341px;
 }
 .flag.flag-260 {
-    background-position: -288px -352px;
+    background-position: -137px -341px;
 }
 
 .flag.flag-tg {
-    background-position: 0 -416px;
+    background-position: -307px -341px;
 }
 .flag.flag-301 {
-    background-position: 0 -416px;
+    background-position: -307px -341px;
 }
 
 .flag.flag-mz {
-    background-position: -288px -288px;
+    background-position: -239px -239px;
 }
 .flag.flag-220 {
-    background-position: -288px -288px;
+    background-position: -239px -239px;
 }
 
 .flag.flag-ic {
@@ -99,115 +86,111 @@
 }
 
 .flag.flag-sn {
-    background-position: -160px -384px;
+    background-position: -341px -409px;
 }
 .flag.flag-266 {
-    background-position: -160px -384px;
+    background-position: -341px -409px;
 }
 
 .flag.flag-an {
-    background-position: -224px 0;
+    background-position: -1px -545px;
 }
 .flag.flag-226 {
-    background-position: -224px 0;
+    background-position: -1px -545px;
 }
 
-.flag.flag-sh {
-    background-position: 0 -384px;
-}
+.flag.flag-sh,
 .flag.flag-284 {
-    background-position: 0 -384px;
+  background: url('assets/images/flags/saint-helena.png') no-repeat;
 }
-
 .flag.flag-sg {
-    background-position: -480px -352px;
+    background-position: -171px -239px;
 }
 .flag.flag-270 {
-    background-position: -480px -352px;
+    background-position: -171px -239px;
 }
 
 .flag.flag-to {
-    background-position: -224px -416px;
+    background-position: -239px -409px;
 }
 .flag.flag-302 {
-    background-position: -224px -416px;
+    background-position: -239px -409px;
 }
-
 .flag.flag-fr {
-    background-position: -224px -128px;
+    background-position: -511px -273px;
 }
 .flag.flag-96 {
-    background-position: -224px -128px;
+    background-position: -511px -273px;
 }
 
 .flag.flag-tz {
-    background-position: -384px -416px;
+    background-position: -409px -409px;
 }
 .flag.flag-679 {
-    background-position: -384px -416px;
+    background-position: -409px -409px;
 }
 
 .flag.flag-nr {
-    background-position: -96px -320px;
+    background-position: -443px -69px;
 }
 .flag.flag-223 {
-    background-position: -96px -320px;
+    background-position: -443px -69px;
 }
 
 .flag.flag-nz {
-    background-position: -160px -320px;
+    background-position: -307px -35px;
 }
 .flag.flag-229 {
-    background-position: -160px -320px;
+    background-position: -307px -35px;
 }
 
 .flag.flag-cg {
-    background-position: -192px -64px;
+    background-position: -477px -69px;
 }
 .flag.flag-70 {
-    background-position: -192px -64px;
+    background-position: -477px -69px;
 }
 
 .flag.flag-st {
-    background-position: -288px -384px;
+    background-position: -375px -1px;
 }
 .flag.flag-627 {
-    background-position: -288px -384px;
+    background-position: -375px -1px;
 }
 
 .flag.flag-ai {
-    background-position: -128px 0;
+    background-position: -35px -239px;
 }
 .flag.flag-7 {
-    background-position: -128px 0;
+    background-position: -35px -239px;
 }
 
 .flag.flag-iq {
-    background-position: -160px -192px;
+    background-position:  -273px -239px;
 }
 .flag.flag-169 {
-    background-position: -160px -192px;
+    background-position:  -273px -239px;
 }
 
 .flag.flag-tj {
-    background-position: -64px -416px;
+    background-position: -205px -375px;
 }
 .flag.flag-297 {
-    background-position: -64px -416px;
+    background-position: -205px -375px;
 }
 
 .flag.flag-ru {
-    background-position: -256px -352px;
+    background-position: -69px -477px;
 }
 .flag.flag-258 {
-    background-position: -256px -352px;
+    background-position: -69px -477px;
 }
 
 .flag.flag-md {
-    background-position: -160px -256px;
+    background-position: -69px -443px;
 }
 .flag.flag-215 {
-    background-position: -160px -256px;
+    background-position: -69px -443px;
 }
 
 .flag.flag-cw {
@@ -215,17 +198,17 @@
 }
 
 .flag.flag-gt {
-    background-position: -192px -160px;
+    background-position: -375px -205px;
 }
 .flag.flag-120 {
-    background-position: -192px -160px;
+    background-position: -375px -205px;
 }
 
 .flag.flag-cm {
-    background-position: -352px -64px;
+    background-position: -307px -409px;
 }
 .flag.flag-56 {
-    background-position: -352px -64px;
+    background-position: -307px -409px;
 }
 
 .flag.flag-pn {
@@ -237,24 +220,24 @@
 }
 
 .flag.flag-ir {
-    background-position: -192px -192px;
+    background-position: -35px -69px;
 }
 .flag.flag-167 {
-    background-position: -192px -192px;
+    background-position: -35px -69px;
 }
 
 .flag.flag-se {
-    background-position: -448px -352px;
+    background-position: -307px -477px;
 }
 .flag.flag-292 {
-    background-position: -448px -352px;
+    background-position: -307px -477px;
 }
 
 .flag.flag-lt {
-    background-position: -480px -224px;
+    background-position: -35px -511px;
 }
 .flag.flag-194 {
-    background-position: -480px -224px;
+    background-position: -35px -511px;
 }
 
 .flag.flag-gw {
@@ -262,208 +245,208 @@
 }
 
 .flag.flag-dm {
-    background-position: -224px -96px;
+    background-position: -69px -171px;
 }
 .flag.flag-83 {
-    background-position: -224px -96px;
+    background-position: -69px -171px;
 }
 
 .flag.flag-bd {
-    background-position: -64px -32px;
+    background-position: -477px -1px;
 }
 .flag.flag-27 {
-    background-position: -64px -32px;
+    background-position: -477px -1px;
 }
 
 .flag.flag-ae {
-    background-position: -32px 0;
+    background-position: -205px -443px;
 }
 .flag.flag-309 {
-    background-position: -32px 0;
+    background-position: -205px -443px;
 }
 
 .flag.flag-zm {
-    background-position: -448px -448px;
+    background-position: -443px -35px;
 }
 .flag.flag-328 {
-    background-position: -448px -448px;
+    background-position: -443px -35px;
 }
 
 .flag.flag-bn {
-    background-position: -352px -32px;
+    background-position: -69px -1px;
 }
 .flag.flag-48 {
-    background-position: -352px -32px;
+    background-position: -69px -1px;
 }
 
 .flag.flag-lb {
-    background-position: -288px -224px;
+    background-position: -443px -375px;
 }
 .flag.flag-189 {
-    background-position: -288px -224px;
+    background-position: -443px -375px;
 }
 
 .flag.flag-zw {
-    background-position: -480px -448px;
+    background-position: -341px -273px;
 }
 .flag.flag-448 {
-    background-position: -480px -448px;
+    background-position: -341px -273px;
 }
 
 .flag.flag-lu {
-    background-position: 0 -256px;
+    background-position: -35px -477px;
 }
 .flag.flag-195 {
-    background-position: 0 -256px;
+    background-position: -35px -477px;
 }
 
 .flag.flag-ee {
-    background-position: -352px -96px;
+    background-position: -307px -511px;
 }
 .flag.flag-90 {
-    background-position: -352px -96px;
+    background-position: -307px -511px;
 }
 
 .flag.flag-ad {
-    background-position: 0 0;
+    background-position: -409px -239px;
 }
 .flag.flag-5 {
-    background-position: 0 0;
+    background-position: -409px -239px;
 }
 
 .flag.flag-eg {
-    background-position: -384px -96px;
+    background-position: -205px -409px;
 }
 .flag.flag-87 {
-    background-position: -384px -96px;
+    background-position: -205px -409px;
 }
 
 .flag.flag-ly {
-    background-position: -64px -256px;
+    background-position: -137px -409px;
 }
 .flag.flag-192 {
-    background-position: -64px -256px;
+    background-position: -137px -409px;
 }
 
 .flag.flag-ug {
-    background-position: -448px -416px;
+    background-position: -341px -171px;
 }
 .flag.flag-315 {
-    background-position: -448px -416px;
+    background-position: -341px -171px;
 }
 
 .flag.flag-cf {
-    background-position: -160px -64px;
+    background-position: -273px -307px;
 }
 .flag.flag-60 {
-    background-position: -160px -64px;
+    background-position: -273px -307px;
 }
 
 .flag.flag-ag {
-    background-position: -96px 0;
+    background-position: -103px -239px;
 }
 
 .flag.flag-9 {
-    background-position: -96px 0;
+    background-position: -103px -239px
 }
 
 .flag.flag-nl {
-    background-position: 0 -320px;
+    background-position: -1px -477px;
 }
 .flag.flag-227 {
-    background-position: 0 -320px;
+    background-position: -1px -477px;
 }
 
 .flag.flag-gq {
-    background-position: -96px -160px;
+    background-position: -341px -137px;
 }
 .flag.flag-552 {
-    background-position: -96px -160px;
+    background-position: -341px -137px;
 }
 
 .flag.flag-sk {
-    background-position: -64px -384px;
+    background-position: -137px -171px;
 }
 .flag.flag-271 {
-    background-position: -64px -384px;
+    background-position: -137px -171px;
 }
 
 .flag.flag-fo {
-    background-position: -192px -128px;
+    background-position: -103px -477px;
 }
 .flag.flag-92 {
-    background-position: -192px -128px;
+    background-position: -103px -477px;
 }
 
 .flag.flag-ar {
-    background-position: -288px 0;
+    background-position: -239px -477px;
 }
 .flag.flag-10 {
-    background-position: -288px 0;
+    background-position: -239px -477px;
 }
 
 .flag.flag-vc {
-    background-position: -96px -448px;
+    background-position: -409px -205px;
 }
 .flag.flag-379 {
-    background-position: -96px -448px;
+    background-position: -409px -205px;
 }
 
 .flag.flag-ne {
-    background-position: -384px -288px;
+    background-position: -137px -443px;
 }
 .flag.flag-231 {
-    background-position: -384px -288px;
+    background-position: -137px -443px;
 }
 
 .flag.flag-pa {
-    background-position: -224px -320px;
+    background-position: -205px -171px;
 }
 .flag.flag-243 {
-    background-position: -224px -320px;
+    background-position: -205px -171px;
 }
 
 .flag.flag-ca {
-    background-position: -96px -64px;
+    background-position: -341px -375px;
 }
 
 .flag.flag-57 {
-    background-position: -96px -64px;
+    background-position: -341px -375px;
 }
 
 .flag.flag-dk {
-    background-position: -192px -96px;
+    background-position: -1px -511px;
 }
 .flag.flag-80 {
-    background-position: -192px -96px;
+    background-position: -1px -511px;
 }
 
 .flag.flag-co {
-    background-position: -416px -64px;
+    background-position: -511px -443px;
 }
 .flag.flag-67 {
-    background-position: -416px -64px;
+    background-position: -511px -443px;
 }
 
 .flag.flag-gb {
-    background-position: -288px -128px;
+    background-position: -307px -1px;
 }
 .flag.flag-312 {
-    background-position: -288px -128px;
+    background-position: -307px -1px;
 }
 
 .flag.flag-af{
-    background-position: -64px 0;
+    background-position: -443px -341px;
 }
 .flag.flag-1{
-    background-position: -64px 0;
+    background-position: -443px -341px;
 }
 
 .flag.flag-ni {
-    background-position: -480px -288px;
+    background-position: -443px -103px;
 }
 .flag.flag-230 {
-    background-position: -480px -288px;
+    background-position: -443px -103px;
 }
 
 .flag.flag-bl {
@@ -471,73 +454,73 @@
 }
 
 .flag.flag-za {
-    background-position: -416px -448px;
+    background-position: -171px -409px;
 }
 .flag.flag-275 {
-    background-position: -416px -448px;
+    background-position: -171px -409px;
 }
 
 .flag.flag-jp {
-    background-position: -384px -192px;
+    background-position: -171px -477px;
 }
 .flag.flag-177 {
-    background-position: -384px -192px;
+    background-position: -171px -477px;
 }
 
 .flag.flag-mv {
-    background-position: -160px -288px;
+    background-position: -443px -443px;
 }
 .flag.flag-203 {
-    background-position: -160px -288px;
+    background-position: -443px -443px;
 }
 
 .flag.flag-gd {
-    background-position: -320px -128px;
+    background-position: -1px -103px;
 }
 .flag.flag-116 {
-    background-position: -320px -128px;
+    background-position: -1px -103px;
 }
 
 .flag.flag-bt {
-    background-position: -480px -32px;
+    background-position: -205px -35px
 }
 .flag.flag-39 {
-    background-position: -480px -32px;
+    background-position: -205px -35px;
 }
 
 .flag.flag-de {
-    background-position: -128px -96px;
+    background-position: -443px -511px;
 }
 .flag.flag-105 {
-    background-position: -128px -96px;
+    background-position: -443px -511px;
 }
 
 .flag.flag-kh {
-    background-position: -480px -192px;
+    background-position: -375px -443px;
 }
 .flag.flag-55 {
-    background-position: -480px -192px;
+    background-position: -375px -443px;
 }
 
 .flag.flag-gh {
-    background-position: -416px -128px;
+    background-position: -35px -375px;
 }
 .flag.flag-110 {
-    background-position: -416px -128px;
+    background-position: -35px -375px;
 }
 
 .flag.flag-lv {
-    background-position: -32px -256px;
+    background-position: -341px -511px;
 }
 .flag.flag-188 {
-    background-position: -32px -256px;
+    background-position: -341px -511px;
 }
 
 .flag.flag-qa {
-    background-position: -128px -352px;
+    background-position: -375px -137px;
 }
 .flag.flag-253 {
-    background-position: -128px -352px;
+    background-position: -375px -137px;
 }
 
 .flag.flag-mp {
@@ -549,59 +532,57 @@
 }
 
 .flag.flag-ga {
-    background-position: -256px -128px;
+    background-position: -511px -171px;
 }
 .flag.flag-102 {
-    background-position: -256px -128px;
+    background-position: -511px -171px;
 }
 
 .flag.flag-er {
-    background-position: -448px -96px;
+    background-position: -69px -103px;
 }
 .flag.flag-89 {
-    background-position: -448px -96px;
+    background-position: -69px -103px;
 }
 
 .flag.flag-mo {
-    background-position: -448px -256px;
+    background-position: -205px -1px;
 }
 .flag.flag-196 {
-    background-position: -448px -256px;
+    background-position: -205px -1px;
 }
 
 .flag.flag-ve {
-    background-position: -128px -448px;
+    background-position: -205px -341px;
 }
 .flag.flag-321 {
-    background-position: -128px -448px;
+    background-position: -205px -341px;
 }
 
 .flag.flag-ua {
-    background-position: -416px -416px;
+    background-position: -477px -35px;
 }
 .flag.flag-316 {
-    background-position: -416px -416px;
+    background-position: -477px -35px;
 }
 
 .flag.flag-ls {
-    background-position: -448px -224px;
+    background-position: -35px -443px;
 }
 .flag.flag-190 {
-    background-position: -448px -224px;
+    background-position: -35px -443px;
 }
 
 .flag.flag-pg {
-    background-position: -320px -320px;
+    background-position: -171px -103px;
 }
 .flag.flag-244 {
-    background-position: -320px -320px;
+    background-position: -171px -103px;
 }
 
-.flag.flag-re {
-    background-position: -160px -352px;
-}
+.flag.flag-re,
 .flag.flag-255 {
-    background-position: -160px -352px;
+  background: url('assets/images/flags/Reunion.png') no-repeat;
 }
 
 .flag.flag-gu {
@@ -613,98 +594,89 @@
 }
 
 .flag.flag-ma {
-    background-position: -96px -256px;
+    background-position: -273px -69px;
 }
 .flag.flag-219 {
-    background-position: -96px -256px;
+    background-position: -273px -69px;
 }
 
 .flag.flag-bs {
-    background-position: -448px -32px;
+    background-position: -477px -273px;
 }
 .flag.flag-25 {
-    background-position: -448px -32px;
+    background-position: -477px -273px;
 }
 
 .flag.flag-es {
-    background-position: -480px -96px;
+    background-position: -511px -511px;
 }
 .flag.flag-278 {
-    background-position: -480px -96px;
+    background-position: -511px -511px;
 }
 
 .flag.flag-pw {
-    background-position: -64px -352px;
+    background-position: -273px -443px;
 }
 .flag.flag-242 {
-    background-position: -64px -352px;
+    background-position: -273px -443px;
 }
 
 .flag.flag-bw {
-    background-position: 0 -64px;
+    background-position: -375px -511px;
 }
 .flag.flag-42 {
-    background-position: 0 -64px;
+    background-position: -375px -511px;
 }
-
-.flag.flag-wf {
-    background-position: -288px -448px;
-}
+.flag.flag-wf,
 .flag.flag-663 {
-    background-position: -288px -448px;
+  background: url('assets/images/flags/wallis-and-futuna.png') no-repeat;
 }
-
 .flag.flag-li {
-    background-position: -352px -224px;
+    background-position: -443px -307px;
 }
 .flag.flag-193 {
-    background-position: -352px -224px;
+    background-position: -443px -307px;
 }
 
 .flag.flag-mm {
-    background-position: -384px -256px;
+    background-position: -239px -171px;
 }
 .flag.flag-221 {
-    background-position: -384px -256px;
+    background-position: -239px -171px;
 }
 
 .flag.flag-ke {
-    background-position: -416px -192px;
+    background-position: -69px -239px;
 }
 .flag.flag-180 {
-    background-position: -416px -192px;
+    background-position: -69px -239px;
 }
 
 .flag.flag-sa {
-    background-position: -320px -352px;
+    background-position: -1px -239px;
 }
 .flag.flag-265 {
-    background-position: -320px -352px;
+    background-position: -1px -239px;
 }
-
-.flag.flag-265 {
-    background-position: -320px -352px;
-}
-
 .flag.flag-fk {
-    background-position: -128px -128px;
+    background-position: -103px -171px;
 }
 .flag.flag-93 {
-    background-position: -128px -128px;
+    background-position: -103px -171px;
 }
 
 .flag.flag-bb {
-    background-position: -32px -32px;
+    background-position: -375px -239px
 }
 .flag.flag-33 {
-    background-position: -32px -32px;
+    background-position: -375px -239px;
 }
 
 .flag.flag-sl {
-    background-position: -96px -384px;
+    background-position: -409px -477px;
 }
 .flag.flag-269 {
-    background-position: -96px -384px;
+    background-position: -409px -477px;
 }
 
 .flag.flag-mf {
@@ -712,102 +684,98 @@
 }
 
 .flag.flag-ki {
-    background-position: 0 -224px;
+    background-position: -1px -35px;
 }
 .flag.flag-414 {
-    background-position: 0 -224px;
+    background-position: -1px -35px;
 }
 
 .flag.flag-ht {
-    background-position: -416px -160px;
+    background-position: -409px -69px;
 }
 .flag.flag-124 {
-    background-position: -416px -160px;
+    background-position: -409px -69px;
 }
 
 .flag.flag-cn {
-    background-position: -384px -64px;
+    background-position: -273px -273px;
 }
 .flag.flag-64 {
-    background-position: -384px -64px;
+    background-position: -273px -273px;
 }
-
-.flag.flag-uz {
-    background-position: -32px -448px;
-}
+.flag.flag-uz,
 .flag.flag-318 {
-    background-position: -32px -448px;
+  background: url('assets/images/flags/uzbekistan.png') no-repeat;
 }
-
 .flag.flag-me {
-    background-position: -192px -256px;
+    background-position: -307px -69px;
 }
 .flag.flag-667 {
-    background-position: -192px -256px;
+    background-position: -307px -69px;
 }
 
 .flag.flag-lk {
-    background-position: -384px -224px;
+    background-position: -69px -307px;
 }
 
 .flag.flag-281 {
-    background-position: -384px -224px;
+    background-position: -69px -307px;
 }
 
 .flag.flag-lc {
-    background-position: -320px -224px;
+    background-position: -307px -375px;
 }
 .flag.flag-286 {
-    background-position: -320px -224px;
+    background-position: -307px -375px;
 }
 
 .flag.flag-gy {
-    background-position: -288px -160px;
+    background-position: -341px -35px;
 }
 .flag.flag-123 {
-    background-position: -288px -160px;
+    background-position: -341px -35px;
 }
 
 .flag.flag-lr {
-    background-position: -416px -224px;
+    background-position: -205px -307px;
 }
 .flag.flag-191 {
-    background-position: -416px -224px;
+    background-position: -205px -307px;
 }
 
 .flag.flag-fj {
-    background-position: -96px -128px;
+    background-position: -273px -137px;
 }
 .flag.flag-382 {
-    background-position: -96px -128px;
+    background-position: -273px -137px;
 }
 
 .flag.flag-sb {
-    background-position: -352px -352px;
+    background-position: -239px -307px;
 }
 .flag.flag-273 {
-    background-position: -352px -352px;
+    background-position: -239px -307px;
 }
 
 .flag.flag-id {
-    background-position: 0 -192px;
+    background-position: -409px -443px;
 }
 .flag.flag-166 {
-    background-position: 0 -192px;
+    background-position: -409px -443px;
 }
 
 .flag.flag-yt {
-    background-position: -384px -448px;
+    background-position: -545px -477px;
 }
 .flag.flag-597 {
-    background-position: -384px -448px;
+    background-position: -545px -477px;
 }
 
 .flag.flag-tr {
-    background-position: -256px -416px;
+    background-position: -171px -443px;
 }
 .flag.flag-305 {
-    background-position: -256px -416px;
+    background-position: -171px -443px;
 }
 
 .flag.flag-vg {
@@ -815,74 +783,74 @@
 }
 
 .flag.flag-au {
-    background-position: -384px 0;
+    background-position: -137px -137px;
 }
 
 .flag.flag-19 {
-    background-position: -384px 0;
+    background-position: -137px -137px;
 }
 
 .flag.flag-pr {
-    background-position: -480px -320px;
+    background-position: -1px -375px;
 }
 .flag.flag-252 {
-    background-position: -480px -320px;
+    background-position: -1px -375px;
 }
 
 .flag.flag-py {
-    background-position: -96px -352px;
+    background-position: -69px -273px;
 }
 .flag.flag-245 {
-    background-position: -96px -352px;
+    background-position: -69px -273px;
 }
 
 .flag.flag-gl {
-    background-position: -480px -128px;
+    background-position: -307px -307px;
 }
 .flag.flag-115 {
-    background-position: -480px -128px;
+    background-position: -307px -307px;
 }
 
 .flag.flag-tm {
-    background-position: -160px -416px;
+    background-position: -69px -69px;
 }
 .flag.flag-307 {
-    background-position: -160px -416px;
+    background-position: -69px -69px;
 }
 
 .flag.flag-sv {
-    background-position: -320px -384px;
+    background-position: -239px -341px;
 }
 .flag.flag-88 {
-    background-position: -320px -384px;
+    background-position: -239px -341px;
 }
 
 .flag.flag-et {
-    background-position: 0 -128px;
+    background-position: -171px -1px;
 }
 .flag.flag-91 {
-    background-position: 0 -128px;
+    background-position: -171px -1px;
 }
 
 .flag.flag-mw {
-    background-position: -192px -288px;
+    background-position: -205px -477px;
 }
 .flag.flag-199 {
-    background-position: -192px -288px;
+    background-position: -205px -477px;
 }
 
 .flag.flag-ie {
-    background-position: -32px -192px;
+    background-position: -239px -511px;
 }
 .flag.flag-170 {
-    background-position: -32px -192px;
+    background-position: -239px -511px;
 }
 
 .flag.flag-do {
-    background-position: -256px -96px;
+    background-position: -273px -1px;
 }
 .flag.flag-84 {
-    background-position: -256px -96px;
+    background-position: -273px -1px;
 }
 
 .flag.flag-mq {
@@ -890,140 +858,135 @@
 }
 
 .flag.flag-as {
-    background-position: -320px 0;
+    background-position: -239px -69px;
 }
 .flag.flag-4 {
-    background-position: -320px 0;
+    background-position: -239px -69px;
 }
 
 .flag.flag-ck {
-    background-position: -288px -64px;
+    background-position: -273px -205px;
 }
 .flag.flag-71 {
-    background-position: -288px -64px;
+    background-position: -273px -205px;
 }
 
 .flag.flag-gn {
-    background-position: -32px -160px;
+    background-position: -545px -103px;
 }
 .flag.flag-122 {
-    background-position: -32px -160px;
+    background-position: -545px -103px;
 }
 
 .flag.flag-ng {
-    background-position: -448px -288px;
+    background-position: -511px -409px;
 }
 .flag.flag-232 {
-    background-position: -448px -288px;
+    background-position: -511px -409px;
 }
 
 .flag.flag-ge {
-    background-position: -352px -128px;
+    background-position: -69px -409px;
 }
 .flag.flag-104 {
-    background-position: -352px -128px;
+    background-position: -69px -409px;
 }
-
 .flag.flag-vu {
-    background-position: -256px -448px;
+    background-position: -35px -341px;
 }
 .flag.flag-319 {
-    background-position: -256px -448px;
+    background-position: -35px -341px;
 }
-
 .flag.flag-kn {
-    background-position: -64px -224px;
+    background-position: -1px -307px;
 }
 .flag.flag-285 {
-    background-position: -64px -224px;
+    background-position: -1px -307px;
 }
 
 .flag.flag-ps {
-    background-position: 0 -352px;
+    background-position: -1px -443px;
 }
 .flag.flag-385 {
-    background-position: 0 -352px;
+    background-position: -1px -443px;
 }
 
 .flag.flag-fi {
-    background-position: -64px -128px;
+    background-position: -273px -511px;
 }
 .flag.flag-95 {
-    background-position: -64px -128px;
+    background-position: -273px -511px;
 }
 
 .flag.flag-ro {
-    background-position: -192px -352px;
+    background-position: -545px -1px;
 }
 .flag.flag-256 {
-    background-position: -192px -352px;
+    background-position: -545px -1px;
 }
 
 .flag.flag-mx {
-    background-position: -224px -288px;
+    background-position: -545px -511px;
 }
 .flag.flag-209 {
-    background-position: -224px -288px;
+    background-position: -545px -511px;
 }
 
 .flag.flag-sz {
-    background-position: -384px -384px;
+    background-position: -375px -375px;
 }
 .flag.flag-291 {
-    background-position: -384px -384px;
+    background-position: -375px -375px;
 }
 
 .flag.flag-ky {
-    background-position: -192px -224px;
+    background-position: -137px -103px;
 }
 .flag.flag-59 {
-    background-position: -192px -224px;
+    background-position: -137px -103px;
 }
 
 .flag.flag-bg {
-    background-position: -160px -32px;
+    background-position: -375px -477px;
 }
 .flag.flag-49 {
-    background-position: -160px -32px;
+    background-position: -375px -477px;
 }
 
 .flag.flag-nf {
-    background-position: -416px -288px;
+    background-position: -1px -409px;
 }
 .flag.flag-427 {
-    background-position: -416px -288px;
+    background-position: -1px -409px;
 }
-
 .flag.flag-vn {
-    background-position: -224px -448px;
+    background-position: -409px -307px;
 }
 .flag.flag-323 {
-    background-position: -224px -448px;
+    background-position: -409px -307px;
 }
-
 .flag.flag-th {
-    background-position: -32px -416px;
+    background-position: -205px -511px;
 }
 .flag.flag-299 {
-    background-position: -32px -416px;
+    background-position: -205px -511px;
 }
-
 .flag.flag-tf {
     background-position: -480px -384px;
 }
 
 .flag.flag-il {
-    background-position: -64px -192px;
+    background-position: -443px -137px;
 }
 .flag.flag-171 {
-    background-position: -64px -192px;
+    background-position: -443px -137px;
 }
 
 .flag.flag-br {
-    background-position: -416px -32px;
+    background-position: -171px -273px;
 }
 .flag.flag-43 {
-    background-position: -416px -32px;
+    background-position: -171px -273px
 }
 
 .flag.flag-tk {
@@ -1035,78 +998,77 @@
 }
 
 .flag.flag-at {
-    background-position: -352px 0;
+    background-position: -477px -511px;
 }
 
 .flag.flag-22 {
-    background-position: -352px 0;
+    background-position: -477px -511px;
 }
 
 .flag.flag-uy {
-    background-position: 0 -448px;
+    background-position: -375px -171px;
 }
 .flag.flag-317 {
-    background-position: 0 -448px;
+    background-position: -375px -171px;
 }
-
 .flag.flag-is {
     background-position: -224px -192px;
 }
 
 .flag.flag-cl {
-    background-position: -320px -64px;
+    background-position: -171px -307px;
 }
 .flag.flag-63 {
-    background-position: -320px -64px;
+    background-position: -171px -307px;
 }
 
 .flag.flag-gp {
-    background-position: -64px -160px;
+    background-position: -545px -409px;
 }
 .flag.flag-117 {
-    background-position: -64px -160px;
+    background-position: -545px -409px;
 }
 
 .flag.flag-ao {
-    background-position: -256px 0;
+    background-position: -103px -205px;
 }
 .flag.flag-6 {
-    background-position: -256px 0;
+    background-position: -103px -205px;
 }
 
 .flag.flag-nu {
-    background-position: -128px -320px;
+    background-position: -1px -341px;
 }
 .flag.flag-235 {
-    background-position: -128px -320px;
+    background-position: -1px -341px;
 }
 
 .flag.flag-so {
-    background-position: -192px -384px;
+    background-position: -35px -409px;
 }
 .flag.flag-274 {
-    background-position: -192px -384px;
+    background-position: -35px -409px;
 }
 
 .flag.flag-nc {
-    background-position: -352px -288px;
+    background: url(assets/images/flags/new_caledonia.png) no-repeat;
 }
 .flag.flag-228 {
-    background-position: -352px -288px;
+    background: url(assets/images/flags/new_caledonia.png) no-repeat;
 }
 
 .flag.flag-pk {
-    background-position: -384px -320px;
+    background-position: -341px -69px;
 }
 .flag.flag-238 {
-    background-position: -384px -320px;
+    background-position: -341px -69px;
 }
 
 .flag.flag-it {
-    background-position: -256px -192px;
+    background-position: -103px -511px;
 }
 .flag.flag-172 {
-    background-position: -256px -192px;
+    background-position: -103px -511px;
 }
 
 .flag.flag-la {
@@ -1114,120 +1076,118 @@
 }
 
 .flag.flag-aw {
-    background-position: -416px 0;
+    background-position: -409px -35px;
 }
 
 .flag.flag-18 {
-    background-position: -416px 0;
+    background-position: -409px -35px;
 }
 
 .flag.flag-am {
-    background-position: -192px 0;
+    background-position: -511px -477px;
 }
 .flag.flag-17 {
-    background-position: -192px 0;
+    background-position: -511px -477px;
 }
 
 .flag.flag-bo {
-    background-position: -384px -32px;
+    background-position: -511px -307px;
 }
 .flag.flag-40 {
-    background-position: -384px -32px;
+    background-position: -511px -307px
 }
 
 .flag.flag-bi {
-    background-position: -224px -32px;
+    background-position: -35px -273px;
 }
 .flag.flag-54 {
-    background-position: -224px -32px;
+    background-position: -35px -273px;
 }
 
 .flag.flag-eh {
     background-position: -416px -96px;
 }
-
 .flag.flag-ye {
-    background-position: -352px -448px;
+    background-position: -273px -477px;
 }
 .flag.flag-325 {
-    background-position: -352px -448px;
+    background-position: -273px -477px;
 }
-
 .flag.flag-kw {
-    background-position: -160px -224px;
+    background-position: -477px -239px;
 }
 .flag.flag-185 {
-    background-position: -160px -224px;
+    background-position: -477px -239px;
 }
 
 .flag.flag-by {
-    background-position: -32px -64px;
+    background-position: -205px -103px
 }
 .flag.flag-34 {
-    background-position: -32px -64px;
+    background-position: -205px -103px;
 }
 
 .flag.flag-va {
-    background-position: -64px -448px;
+    background-position: -375px -307px;
 }
 .flag.flag-320 {
-    background-position: -64px -448px;
+    background-position: -375px -307px;
 }
 
 .flag.flag-cy {
-    background-position: -64px -96px;
+    background-position: -545px -341px;
 }
 .flag.flag-75 {
-    background-position: -64px -96px;
+    background-position: -545px -341px;
 }
 
 .flag.flag-my {
-    background-position: -256px -288px;
+    background-position: -171px -171px;
 }
 .flag.flag-200 {
-    background-position: -256px -288px;
+    background-position: -171px -171px;
 }
 
 .flag.flag-jo {
-    background-position: -352px -192px;
+    background-position: -103px -341px;
 }
 .flag.flag-178 {
-    background-position: -352px -192px;
+    background-position: -103px -341px;
 }
 
 .flag.flag-hk {
-    background-position: -320px -160px;
+    background-position: -273px -35px;
 }
 .flag.flag-126 {
-    background-position: -320px -160px;
+    background-position: -273px -35px;
 }
 
 .flag.flag-ba {
-    background-position: 0 -32px;
+    background-position: -35px -171px;
 }
 .flag.flag-41 {
-    background-position: 0 -32px;
+    background-position: -35px -171px;
 }
 
 .flag.flag-be {
-    background-position: -96px -32px;
+    background-position: -545px -171px;
 }
 .flag.flag-35 {
-    background-position: -96px -32px;
+    background-position: -545px -171px;
 }
 
 .flag.flag-hn {
-    background-position: -352px -160px;
+    background-position: -69px -375px;
 }
 .flag.flag-125 {
-    background-position: -352px -160px;
+    background-position: -69px -375px;
 }
 
 .flag.flag-mn {
-    background-position: -416px -256px;
+    background-position: -443px -409px;
 }
 .flag.flag-217 {
-    background-position: -416px -256px;
+    background-position: -443px -409px;
 }
 
 .flag.flag-gg {
@@ -1235,59 +1195,59 @@
 }
 
 .flag.flag-td {
-    background-position: -448px -384px;
+    background-position: -545px -137px;
 }
 .flag.flag-62 {
-    background-position: -448px -384px;
+    background-position: -545px -137px;
 }
 
 .flag.flag-dz {
-    background-position: -288px -96px;
+    background-position: -443px -1px;
 }
 .flag.flag-3 {
-    background-position: -288px -96px;
+    background-position: -443px -1px;
 }
 
 .flag.flag-bm {
-    background-position: -320px -32px;
+    background-position: -239px -273px;
 }
 .flag.flag-38 {
-    background-position: -320px -32px;
+    background-position: -239px -273px;
 }
 
 .flag.flag-hu {
-    background-position: -448px -160px;
+    background-position: -511px -137px;
 }
 .flag.flag-128 {
-    background-position: -448px -160px;
+    background-position: -511px -137px;
 }
 
 .flag.flag-fm {
-    background-position: -160px -128px;
+    background-position: -477px -137px;
 }
 .flag.flag-214 {
-    background-position: -160px -128px;
+    background-position: -477px -137px;
 }
 
 .flag.flag-pt {
-    background-position: -32px -352px;
+    background-position: -409px -375px;
 }
 .flag.flag-251 {
-    background-position: -32px -352px;
+    background-position: -409px -375px;
 }
 
 .flag.flag-hr {
-    background-position: -384px -160px;
+    background-position:  -239px -1px;
 }
 .flag.flag-73 {
-    background-position: -384px -160px;
+    background-position:  -239px -1px;
 }
 
 .flag.flag-ch {
-    background-position: -224px -64px;
+    background-position: -69px -511px;
 }
 .flag.flag-294 {
-    background-position: -224px -64px;
+    background-position: -69px -511px;
 }
 
 .flag.flag-ci {
@@ -1295,38 +1255,38 @@
 }
 
 .flag.flag-kz {
-    background-position: -224px -224px;
+    background-position: -545px -443px;
 }
 .flag.flag-179 {
-    background-position: -224px -224px;
+    background-position: -545px -443px;
 }
 
 .flag.flag-az {
-    background-position: -480px 0;
+    background-position: -103px -375px;
 }
 .flag.flag-24 {
-    background-position: -480px 0;
+    background-position: -103px -375px;
 }
 
 .flag.flag-kg {
-    background-position: -448px -192px;
+    background-position: -409px -137px;
 }
 .flag.flag-186 {
-    background-position: -448px -192px;
+    background-position: -409px -137px;
 }
 
 .flag.flag-ml {
-    background-position: -352px -256px;
+    background-position: -409px -511px;
 }
 .flag.flag-204 {
-    background-position: -352px -256px;
+    background-position: -409px -511px;
 }
 
 .flag.flag-bz {
-    background-position: -64px -64px;
+    background-position: -307px -103px;
 }
 .flag.flag-36 {
-    background-position: -64px -64px;
+    background-position: -307px -103px
 }
 
 .flag.flag-im {
@@ -1334,52 +1294,52 @@
 }
 
 .flag.flag-ph {
-    background-position: -352px -320px;
+    background-position: -69px -341px;
 }
 .flag.flag-248 {
-    background-position: -352px -320px;
+    background-position: -69px -341px;
 }
 
 .flag.flag-gi {
-    background-position: -448px -128px;
+    background-position: -171px -205px;
 }
 .flag.flag-111 {
-    background-position: -448px -128px;
+    background-position: -171px -205px;
 }
 
 .flag.flag-mr {
-    background-position: -32px -288px;
+    background-position: -375px -409px;
 }
 .flag.flag-207 {
-    background-position: -32px -288px;
+    background-position: -375px -409px;
 }
 
 .flag.flag-rs {
-    background-position: -224px -352px;
+    background-position: -69px -137px;
 }
 .flag.flag-267 {
-    background-position: -224px -352px;
+    background-position: -69px -137px;
 }
 
 .flag.flag-in {
-    background-position: -128px -192px;
+    background-position: -545px -273px;
 }
 .flag.flag-130 {
-    background-position: -128px -192px;
+    background-position: -545px -273px;
 }
 
 .flag.flag-sd {
-    background-position: -416px -352px;
+    background-position: -477px -409px;
 }
 .flag.flag-289 {
-    background-position: -416px -352px;
+    background-position: -477px -409px;
 }
 
 .flag.flag-cu {
-    background-position: -480px -64px;
+    background-position: -137px -375px;
 }
 .flag.flag-74 {
-    background-position: -480px -64px;
+    background-position: -137px -375px;
 }
 
 .flag.flag-ax {
@@ -1387,38 +1347,38 @@
 }
 
 .flag.flag-tt {
-    background-position: -288px -416px;
+    background-position: -307px -443px;
 }
 .flag.flag-303 {
-    background-position: -288px -416px;
+    background-position: -307px -443px;
 }
 
 .flag.flag-mh {
-    background-position: -288px -256px;
+    background-position: -137px -1px;
 }
 .flag.flag-206 {
-    background-position: -288px -256px;
+    background-position: -137px -1px;
 }
 
 .flag.flag-gm {
-    background-position: 0 -160px;
+    background-position: -477px -103px;
 }
 .flag.flag-103 {
-    background-position: 0 -160px;
+    background-position: -477px -103px;
 }
 
 .flag.flag-ms {
-    background-position: -64px -288px;
+    background-position: -137px -273px;
 }
 .flag.flag-218 {
-    background-position: -64px -288px;
+    background-position: -137px -273px;
 }
 
 .flag.flag-mu {
-    background-position: -128px -288px;
+    background-position: -511px -35px;
 }
 .flag.flag-378 {
-    background-position: -128px -288px;
+    background-position: -511px -35px;
 }
 
 .flag.flag-tl {
@@ -1426,80 +1386,80 @@
 }
 
 .flag.flag-sy {
-    background-position: -352px -384px;
+    background-position: -137px -307px;
 }
 .flag.flag-295 {
-    background-position: -352px -384px;
+    background-position: -137px -307px;
 }
 
 .flag.flag-na {
-    background-position: -320px -288px;
+    background-position: -239px -103px;
 }
 .flag.flag-222 {
-    background-position: -320px -288px;
+    background-position: -239px -103px;
 }
 
 .flag.flag-km {
-    background-position: -32px -224px;
+    background-position: -137px -239px;
 }
 .flag.flag-68 {
-    background-position: -32px -224px;
+    background-position: -137px -239px;
 }
 
 .flag.flag-mt {
-    background-position: -96px -288px;
+    background-position: -477px -205px;
 }
 .flag.flag-205 {
-    background-position: -96px -288px;
+    background-position: -477px -205px;
 }
 
 .flag.flag-cv {
-    background-position: 0 -96px;
+    background-position: -307px -137px;
 }
 .flag.flag-58 {
-    background-position: 0 -96px;
+    background-position: -307px -137px;
 }
 
 .flag.flag-sm {
-    background-position: -128px -384px;
+    background-position: -103px -35px;
 }
 .flag.flag-261 {
-    background-position: -128px -384px;
+    background-position: -103px -35px;
 }
 
 .flag.flag-om {
-    background-position: -192px -320px;
+    background-position: -409px -103px;
 }
 .flag.flag-237 {
-    background-position: -192px -320px;
+    background-position: -409px -103px;
 }
 
 .flag.flag-pf {
-    background-position: -288px -320px;
+    background-position: -341px -239px;
 }
 .flag.flag-101 {
-    background-position: -288px -320px;
+    background-position: -341px -239px;
 }
 
 .flag.flag-tn {
-    background-position: -192px -416px;
+    background-position: -171px -341px;
 }
 .flag.flag-304 {
-    background-position: -192px -416px;
+    background-position: -171px -341px;
 }
 
 .flag.flag-mk {
-    background-position: -320px -256px;
+    background-position: -35px -137px;
 }
 .flag.flag-197 {
-    background-position: -320px -256px;
+    background-position: -35px -137px;
 }
 
 .flag.flag-pl {
-    background-position: -416px -320px;
+    background-position: -477px -171px;
 }
 .flag.flag-249 {
-    background-position: -416px -320px;
+    background-position: -477px -171px;
 }
 
 .flag.flag-bf {
@@ -1507,46 +1467,44 @@
 }
 
 .flag.flag-al {
-    background-position: -160px 0;
+    background-position: -239px -375px;
 }
 .flag.flag-2 {
-    background-position: -160px 0;
+    background-position: -239px -375px;
 }
 
 .flag.flag-cz {
-    background-position: -96px -96px;
+    background-position: -239px -443px;
 }
 .flag.flag-381 {
-    background-position: -96px -96px;
+    background-position: -239px -443px;
 }
 
 .flag.flag-np {
-    background-position: -64px -320px;
+    background-position: -103px -103px;
 }
 .flag.flag-224 {
-    background-position: -64px -320px;
+    background-position: -103px -103px;
 }
-
-
 .flag.flag-cr {
-    background-position: -448px -64px;
+    background-position: -171px -511px;
 }
 .flag.flag-72 {
-    background-position: -448px -64px;
+    background-position: -171px -511px;
 }
 
 .flag.flag-si {
-    background-position: -32px -384px;
+    background-position: -375px -273px;
 }
 .flag.flag-272 {
-    background-position: -32px -384px;
+    background-position: -375px -273px;
 }
 
 .flag.flag-no {
-    background-position: -32px -320px;
+    background-position: -477px -341px;
 }
 .flag.flag-236 {
-    background-position: -32px -320px;
+    background-position: -477px -341px;
 }
 
 .flag.flag-je {
@@ -1554,10 +1512,10 @@
 }
 
 .flag.flag-mg {
-    background-position: -256px -256px;
+    background-position: -477px -375px;
 }
 .flag.flag-198 {
-    background-position: -256px -256px;
+    background-position: -477px -375px;
 }
 
 .flag.flag-us {
@@ -1565,24 +1523,24 @@
 }
 
 .flag.flag-tw {
-    background-position: -352px -416px;
+    background-position: -341px -341px;
 }
 .flag.flag-296 {
-    background-position: -352px -416px;
+    background-position: -341px -341px;
 }
 
 .flag.flag-ec {
-    background-position: -320px -96px;
+    background-position: -103px -273px;
 }
 .flag.flag-85 {
-    background-position: -320px -96px;
+    background-position: -103px -273px;
 }
 
 .flag.flag-dj {
-    background-position: -160px -96px;
+    background-position: -409px -171px;
 }
 .flag.flag-82 {
-    background-position: -160px -96px;
+    background-position: -409px -171px;
 }
 
 .flag.flag-tc {
@@ -1590,36 +1548,36 @@
 }
 
 .flag.flag-sr {
-    background-position: -224px -384px;
+    background-position: -171px -375px;
 }
 .flag.flag-290 {
-    background-position: -224px -384px;
+    background-position: -171px -375px;
 }
 
 .flag.flag-gr {
-    background-position: -128px -160px;
+    background-position: -443px -273px;
 }
 .flag.flag-113 {
-    background-position: -128px -160px;
+    background-position: -443px -273px;
 }
 
 .flag.flag-sc {
-    background-position: -384px -352px;
+    background-position: -103px -69px;
 }
 .flag.flag-268 {
-    background-position: -384px -352px;
+    background-position: -103px -69px;
 }
 
 .flag.flag-bh {
-    background-position: -192px -32px;
+    background-position: -443px -205px;
 }
 .flag.flag-26 {
-    background-position: -192px -32px;
+    background-position: -443px -205px;
 }
 
 
 .flag.flag-f-3 {
-    background-position: -288px -128px;
+    background-position: -307px -1px;
 }
 
 .flag.flag-f-8 {
@@ -1702,65 +1660,86 @@
     background-position: -224px -64px;
 }
 .flag.flag-f-1 {
-    background-position: -480px -416px;
+    background-position: -171px -137px;
 }
 .flag.flag-f-2{
-    background-position: -96px -64px;
+    background-position: -341px -375px;
 }
 
 .flag.flag-8{
-    background-position: 0px -481px;
+    background-position: -545px -239px;
 }
 
 .flag.flag-498{
-    background-position: -288px -257px;
+    background-position: -545px -307px
 }
 .flag.flag-345{
-    background-position: -96px -481px;;
+    background-position: -273px -171px;
 }
 .flag.flag-404{
-    background-position: -128px -481px;
+    background-position: -171px -35px;
 }
 
 .flag.flag-81{
-    background-position: -160px -481px;
+    background-position: -1px -1px;
 }
 
 .flag.flag-100{
-    background-position: -191px -481px;
+    background-position: -545px -375px;
 }
 
 .flag.flag-175{
-    background-position: -224px -481px;
+    background-position: -545px -69px;
 }
 
 .flag.flag-670{
-    background-position: -256px -481px;
+    background-position: -307px -273px;
 }
 .flag.flag-187{
-    background-position: -288px -481px;
+    background-position: -511px -103px;
 }
 .flag.flag-288{
-    background-position: -320px -481px;
+  background: url('assets/images/flags/st_pierre.png') no-repeat;
 }
 .flag.flag-118{
-    background-position: -224px -160px;
+    background-position: -1px -205px;
 }
 .flag.flag-119{
-    background-position: -480px -64px;
+    background-position: -137px -375px;
 }
-
 .flag.flag-314{
-    background-position: -479px -417px;
+    background-position: -171px -137px;
 }
-
 .flag.flag-313{
-    background-position: -192px -446px;
+    background-position: -205px -205px;
 }
 .flag.flag-129{
-    background-position: -224px -192px;
+    background-position: -477px -307px;
 }
 .flag.flag-327{
-    background-position: -127px -68px;
+    background-position: -341px -205px;
 }
-
+.flag.flag-387 {
+  background-position: -409px -239px;
+}
+.flag.flag-47 {
+  background-position: -239px -35px;
+}
+.flag.flag-1151 {
+  background-position: -375px -69px;
+}
+.flag.flag-99 {
+  background-position: -341px -239px;
+}
+.flag.flag-411 {
+  background-position: -375px -103px;
+}
+.flag.flag-250 {
+  background-position: -103px -1px;
+}
+.flag.flag-326 {
+  background: url('assets/images/flags/yugoslavia.png') no-repeat;
+}
+.flag.flag-287 {
+  background: url('assets/images/flags/Saint-Martin.png') no-repeat;
+}
