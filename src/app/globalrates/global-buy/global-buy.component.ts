@@ -247,9 +247,25 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
     this.checkoutService.setCurrentCart(model);
     this.router.navigate(['/checkout/payment-info']);
   }
-  getConvertedPrice(obj)
+
+  getConvertedPrice(price)
   {
-    return obj;
+        
+        var sess_key        = JSON.parse(localStorage.getItem('session_key'));
+                var sCountryId      = sess_key.country.CountryId;
+               
+                var echange_rate = JSON.parse(localStorage.getItem('exchangeRate'));
+               if( sCountryId >3 )
+                {
+                     
+                    return this.razaEnvService.getToFixedTrunc( (price * echange_rate.ExchangeRate))
+                     
+                }
+                else
+                {
+                    return price;
+                }
+      
   }
 
   buyNow(obj:any, obj2:any) {
