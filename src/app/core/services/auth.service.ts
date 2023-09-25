@@ -125,7 +125,9 @@ export class AuthenticationService {
 						let phoneOrEmail 	= body.phone;
 						if(phoneOrEmail.match(phoneno) )
 						{
-							localStorage.setItem("login_no", phoneOrEmail);
+							let phoneNumber = body.username;
+							let cleanedPhoneNumber = phoneNumber.replace(/\+/g, '');
+							localStorage.setItem("login_no", cleanedPhoneNumber);
 							localStorage.setItem("login_with", 'phone');
 						}
 						else
@@ -276,7 +278,7 @@ export class AuthenticationService {
 		localStorage.removeItem("update_pass");
 		localStorage.removeItem("subCurrencySymbol");
 		localStorage.removeItem("rate");
-		localStorage.removeItem("exchangeRate");
+		//localStorage.removeItem("exchangeRate");
 		 
 		localStorage.removeItem("signup_no");
 		localStorage.removeItem("currentCart");

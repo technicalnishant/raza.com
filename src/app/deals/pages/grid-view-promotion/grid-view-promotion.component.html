@@ -158,11 +158,8 @@
             <div class="country-name">{{ option.CountryToName }}</div>
           </div>
           <div class="country-rate">
-<<<<<<< HEAD
-            <span>From</span> {{ option.RatePerMin | sCurrency | async : option.CurrencyCode}}
-=======
-            <span>From</span> {{ option.RatePerMin | sCurrency : option.CurrencyCode}} <span>/ min</span>
->>>>>>> 08d2a7d367a28c9c4c0870caf26b6a068b446d1b
+             
+            <span>From</span> {{ option.RatePerMin | sCurrency : option.CurrencyCode | async}} <span>/ min</span>
           </div>
           <button
             class="view-details-btn"

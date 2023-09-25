@@ -9,7 +9,7 @@ import { TestimonialsComponent } from '../shared/testimonials/testimonials.compo
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 //import { CustomHomeComponent } from './custom-home/custom-home.component';
 // import { ModalVideoComponent } from './modal-video/modal-video.component';
 
@@ -34,6 +34,7 @@ import { MatIconModule } from '@angular/material/icon';
         CommonModule,
         MatButtonModule,
         MatIconModule,
+        CarouselModule,
         MatCarouselModule.forRoot(),
        // LazyLoadImageModule,
         RouterModule.forChild([

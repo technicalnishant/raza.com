@@ -87,7 +87,7 @@ export class TransactionProcessBraintreeService {
   }
 	
   let exp_amount = (parseFloat(localStorage.getItem('ActualAmountCharge'))>0)?parseFloat(localStorage.getItem('ActualAmountCharge')):(order.OrderDetails.Amount / 100);
-    let exp_curr = (parseFloat(localStorage.getItem('ActualAmountCharge'))>0)?parseFloat(localStorage.getItem('PaymentCurrency')):(order.OrderDetails.CurrencyCode);
+    let exp_curr = localStorage.getItem('PaymentCurrency') ;
 
     const model: newPinRequestModel = {
       orderId: order.OrderDetails.OrderNumber,
@@ -117,7 +117,7 @@ export class TransactionProcessBraintreeService {
 	    nonce : nonce,
       ProcessedBy : activationCart.ProcessedBy,
       ActualAmountCharge :exp_amount,
-      PaymentCurrency : exp_curr.toString()
+      PaymentCurrency : exp_curr
     };
     
 
@@ -194,7 +194,7 @@ export class TransactionProcessBraintreeService {
 	  model.nonce = nonce;
     model.ProcessedBy = rechargeCheckOutModel.ProcessedBy;
     model.ActualAmountCharge = exp_amount;
-    model.PaymentCurrency = exp_curr.toString();
+    model.PaymentCurrency = exp_curr;
 
     let transactionResponseModel: TransactionResponseModel;
     /* Process recharge. */

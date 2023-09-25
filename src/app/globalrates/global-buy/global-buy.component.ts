@@ -99,7 +99,7 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
     this.globalPlanData = inputData.data;
     this.customdata = inputData.custom;
 
-    
+    console.log('this.globalPlanData', this.globalPlanData);
     this.customCountry = inputData.custom.CountryToName;
     this.customCountryId = inputData.custom.CountryToId;
     this.customCountryPrice = inputData.custom.customCountryPrice;
@@ -231,7 +231,6 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
   }
   onClickAmountOption1(item: any) {
     const model: RechargeCheckoutModel = new RechargeCheckoutModel();
-
     model.purchaseAmount = item;
     model.couponCode = 'Buy1Get1';
     model.currencyCode = this.plan.CurrencyCode;
@@ -248,7 +247,10 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
     this.checkoutService.setCurrentCart(model);
     this.router.navigate(['/checkout/payment-info']);
   }
-
+  getConvertedPrice(obj)
+  {
+    return obj;
+  }
 
   buyNow(obj:any, obj2:any) {
     if(this.plan && this.plan.CardId)
@@ -265,10 +267,28 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
           subcardid = '161-'+obj2;
           service_fee = 0;
           }
-          if(this.currentSetting.currentCountryId== 2)
+          else if(this.currentSetting.currentCountryId== 2)
           {
           subcardid = '162-'+obj2;
           service_fee = 10;
+          }
+          else
+          {
+            service_fee = 0;
+            // $0 => 20-5
+            // $2 => 20-7
+            // $3 => 20-8
+            // $5 => 20-6
+
+              if(obj == 2)
+                subcardid = '20-7';
+
+                if(obj == 3)
+                subcardid = '20-8';
+
+                if(obj == 5)
+                subcardid = '20-6';
+            
           }
             const model: NewPlanCheckoutModel = new NewPlanCheckoutModel();
 
@@ -357,12 +377,13 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
 
   currSymbol = ()=>
   {
-    if(this.currentSetting.country.CountryId == 1 || this.currentSetting.country.CountryId == 2)
+    if(this.currentSetting.country.CountryId ==3 )
     {
-      return "$"; 
+      return  "£"
     }
     else{
-      return  "£"
+      
+      return "$";
     }
     
 

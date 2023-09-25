@@ -1,85 +1,31 @@
 <div class="first_fold">
     <div class="home-slider">
+      <img src="./assets/images/home_banner_new/slider-bg.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" width="1550" height="704" *ngIf="currentSetting?.country?.CountryId != 3"  >
+      <img src="./assets/images/home_banner_new/slider-bg-mb.webp" loading="lazy" alt="Random first slide" width="768" height="1146" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3"  >
+      <img src="./assets/images/home_banner_new/slider-bg-uk.webp" loading="lazy" width="1905" height="700" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 3">
+      <img src="./assets/images/home_banner_new/slider-bg-mb-uk.webp" loading="lazy" width="768" height="1150" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 3">
        <ngb-carousel [showNavigationArrows]="true"
        [showNavigationIndicators]="true">
-           <!-- <ng-template ngbSlide class="promotions" >
-                <div class="picsum-img-wrapper" *ngIf="currentSetting?.country?.CountryId !=3">
-                    <img loading="lazy" src="../../../assets/images/promotion/tg22bg.jpg" alt="Random first slide" class="bg-image promotion_image d-none d-md-block" >
-
-                    <img loading="lazy" src="../../../assets/images/promotion/tg22-mobile-us.jpg" alt="Random first slide" class="bg-image d-block d-md-none" >
-
-                </div>
-
-                <div class="picsum-img-wrapper" *ngIf="currentSetting?.country?.CountryId ==3">
-                    <img loading="lazy" src="../../../assets/images/promotion/tg22bg-uk.jpg" alt="Random first slide" class="bg-image promotion_image d-none d-md-block" >
-
-                    <img loading="lazy" src="../../../assets/images/promotion/tg22-mobile-uk.jpg" alt="Random first slide" class="bg-image d-block d-md-none" >
-
-                </div>
-                <div class="carousel-caption promotion">
-                      <div class="promotion_img_div">
-
-                    </div>
-                    <div class="clear"></div>
-                    <div class="promotion-offer" >
-                        <a type="button" (click)="onopenchristmas(typedEl)" class="promo-btn d-flex"><img src="../../../assets/images/promotion/buynow.png" class="promo-btnimg">{{name__p}}</a>
-                         <div style="display:none;"><a *ngIf="currentSetting?.country?.CountryId !=3" routerLink="/mobiledeals" type="button" class="view-more">View Other Offers</a></div>
-                    </div>
-                </div>
-                  <p class="promotion-note" >*Promotion minutes vary from country to country.</p>
-            </ng-template>   -->
-            <ng-template ngbSlide>
-                <div class="picsum-img-wrapper" id={{currentSetting?.country?.CountryId}}>
-                    <!-- <img src="./assets/images/home_banner_new/slider-bg.webp" loading="lazy" alt="Random first slide" width="1905" height="700" class="bg-image"> -->
-                    <img src="./assets/images/home_banner_new/slider-bg.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" width="1550" height="704" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
-
-                    <img src="./assets/images/home_banner_new/slider-bg-uk.webp" loading="lazy" width="1905" height="700" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 3">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb-uk.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 3">
-
-                    <img src="./assets/images/home_banner_new/slider-bg-au.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 8">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb-au.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 8">
-
-                    <img src="./assets/images/home_banner_new/slider-bg-nz.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 20">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb-nz.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 20">
-                    <!-- <img src="./assets/images/home_banner_new/slider-bg-us.webp" loading="lazy" alt="Random first slide" class="bg-image"> -->
-                    <!-- <img src="./assets/images/home_banner_new/slider-bg-uk.webp" loading="lazy" alt="Random first slide" class="bg-image"> -->
-                </div>
+             <ng-template ngbSlide>
                 <div class="carousel-caption tpSlider_1">
-                    <div class="d-flex justify-content-center align-items-center flex-column">
+                    <div class="d-flex justify-content-center align-items-center flex-column buyGetSlider">
                         <div class="d-md-flex align-items-center justify-content-center mt-5 mt-md-0">
                           <div class="img-1 mt-5 newSpelWrap">
-                            <span class="new_cust_spl showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">New Customer Special</span>
-                              <!-- <img  src="./assets/images/buy1get1.webp" loading="lazy" alt="" class="img-fluid"> -->
+                              <span class="new_cust_spl showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3 ">New Customer Special</span>
                               <img  src="./assets/images/home_banner_new/buy1get1.webp" width="300" height="303" loading="lazy" alt="img" class="img-fluid d-none d-md-block">
-                              <!-- <img  src="./assets/images/home_banner_new/new_cust_spl.webp" loading="lazy" alt="" class="img-fluid showMobileOnly new_cust_spl"  *ngIf="currentSetting?.country?.CountryId == 1"> -->
                               <img  src="./assets/images/home_banner_new/hm_banner_mb-us.webp" width="416" height="333" loading="lazy" alt="img" class="img-fluid showMobileOnly"  *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
                           </div>
-                          <!-- <div class="py-3 d-block d-md-none w-75 m-auto" *ngIf="currentSetting?.country?.CountryId ==3">
-                              <img src="./assets/images/buy1get1.webp" alt="" loading="lazy" class="img-fluid">
-                          </div> -->
                           <div class="divider d-none d-md-block"></div>
                           <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 3">
-                              <!-- <img src="./assets/images/was10now5.webp" alt="" loading="lazy" class="img-fluid"> -->
                               <img src="./assets/images/home_banner_new/was10now5.webp" width="363" height="324" alt="img" loading="lazy" class="img-fluid d-none d-md-block">
-                              <img src="./assets/images/home_banner_new/was10now5_mb.webp" alt="img" loading="lazy" class="img-fluid showMobileOnly">
+                              <img src="./assets/images/home_banner_new/was10now5_mb.webp" width="619" height="533" alt="img" loading="lazy" class="img-fluid showMobileOnly">
                           </div>
-                          <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
+                          <div class="img-1 " *ngIf="currentSetting?.country?.CountryId != 3">
                               <a routerLink="deals/buy1-get1">
                                 <img src="./assets/images/home_banner_new/was5now5_us.webp" width="416" height="333" alt="img" loading="lazy" class="img-fluid d-none d-md-block">
                               </a>
                           </div>
-                          <!-- <div class="img-1 d-none d-md-block" *ngIf="currentSetting?.country?.CountryId ==3"> -->
-                              <!-- <img src="./assets/images/uk_left_new.webp" alt="" loading="lazy" class="img-fluid"> -->
-                              <!-- <img src="./assets/images/home_banner_new/was10now5.webp" alt="" loading="lazy" class="img-fluid"> -->
-                          <!-- </div> -->
-                          <!-- <div class="py-3 d-block d-md-none uk_mobile" *ngIf="currentSetting?.country?.CountryId ==3">
-                              <img src="./assets/images/uk_left_new.webp" alt="" loading="lazy" class="img-fluid">
-                          </div> -->
                         </div>
-                        <div class="hp_text2" *ngIf="currentSetting?.country?.CountryId == 1">
-                            Call over 200 countries <span>as low as 1$</span>
-                        </div>  
                         <div class="hp_text2">
                             Call over 200 countries
                             <a routerLink="/searchrates">
@@ -94,32 +40,15 @@
             </ng-template>
 
              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                    <!-- <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" width="1905" height="700" class="bg-image"> -->
-                    <img src="./assets/images/home_banner_new/slider-bg.webp" loading="lazy" width="1550" height="704" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
-
-                    <img src="./assets/images/home_banner_new/slider-bg-uk.webp" loading="lazy" width="1905" height="700" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 3">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb-uk.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 3">
-
-                    <img src="./assets/images/home_banner_new/slider-bg-au.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 8">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb-au.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 8">
-
-                    <img src="./assets/images/home_banner_new/slider-bg-nz.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 20">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb-nz.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 20">
-                </div>
                 <div class="carousel-caption download">
-                  <!-- <img loading="lazy" src="./assets/images/mobile_app_v2.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId ==3"> -->
-                  <!-- <img loading="lazy" src="./assets/images/download_get_img.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId ==3"> -->
-                  <!-- <img loading="lazy" src="./assets/images/mobile_app_us_ypncgi.webp" alt="" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId !=3"> -->
-                  <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi.webp" alt="img" class="img-fluid d-block d-md-none m-auto">
-                  <a routerLink="/mobile-page"  type="button" mat-button>
-                      <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi2.webp" alt="img" class="img-fluid d-block d-md-none m-auto playStor2">
+                  <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new.webp" alt="img" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId !=3">
+                  <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new_uk.webp" alt="img" width="636" height="689" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 3">
+                  <a href="javascript:void(0)" (click)="downloadApp()" mat-button>
+                      <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi2.webp" alt="img" width="522" height="102" class="img-fluid d-block d-md-none m-auto playStor2">
                   </a>
-
                   <div class="desk_app_us_img_wrap">
                       <a routerLink="/mobile-page" >
-                        <img loading="lazy" src="./assets/images/home_banner_new/desk_app_us_ypncgi_new.webp" width="721" height="540" alt="img" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
+                        <img loading="lazy" src="./assets/images/home_banner_new/desk_app_us_ypncgi_new.webp" width="721" height="540" alt="img" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId !=3">
                         <img loading="lazy" src="./assets/images/home_banner_new/desk_app_us_ypncgi_new_uk.webp" width="721" height="540" alt="img" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId == 3">
                       </a>
                       <div class="desk_app_us_text">
@@ -128,30 +57,13 @@
                           </a>
                       </div>
                   </div>
-                  <!-- <div class="playStor_text d-block d-md-none">
-                      Download our app for the easiest way to manage your account.
-                  </div> -->
-                  <!-- <img loading="lazy" src="./assets/images/download_get_us.webp" alt="" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId !=3"> -->
-                  <!-- <div  style="width:100%; height:45px;">
-                      <a href="javascript:void(0)" (click)="downloadApp()" class="btn-slider" type="button" mat-button>Download Now</a>
-                  </div> -->
               </div>
             </ng-template>
 
-            <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img src="./assets/images/home_banner_new/slider-bg.webp" loading="lazy" width="1550" height="704" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
-                  <img src="./assets/images/home_banner_new/slider-bg-mb.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
-
-                  <img src="./assets/images/home_banner_new/slider-bg-uk.webp" loading="lazy" width="1905" height="700" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 3">
-                  <img src="./assets/images/home_banner_new/slider-bg-mb-uk.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 3">
-                </div>
+            <ng-template ngbSlide *ngIf="currentSetting?.country?.CountryId !=3">
                 <div class="carousel-caption refer it-topup">
-                    <img loading="lazy" src="./assets/images/home_banner_new/int-top-img.webp" alt="" class="img-fluid d-md-none d-block m-auto topup-img">
-                    <!-- <img loading="lazy" src="./assets/images/int-top-bottom.webp" alt="" class="img-fluid d-md-none d-block m-auto int-bottom"> -->
-                    <!-- <img loading="lazy" src="./assets/images/it-topup-inner_g7bpbe.webp" alt="" class="img-fluid d-md-block d-none m-auto"> -->
+                    <img loading="lazy" src="./assets/images/home_banner_new/int-top-img.webp" alt="img" width="768" height="121" class="img-fluid d-md-none d-block m-auto topup-img">
                     <img loading="lazy" src="./assets/images/home_banner_new/it-topup-inner_g7bpbe.webp" width="1509" height="528" alt="banner" class="img-fluid d-md-block d-none m-auto">
-
                     <div>
                         <a href="javascript:void(0)"  (click)="goTomobileTopup()" class="topup-btn" type="button" mat-button>TOP-UP</a>
                     </div>
@@ -159,57 +71,30 @@
             </ng-template>
 
             <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                    <!-- <img loading="lazy" src="./assets/images/slider-bg.webp" alt="Random first slide" width="1905" height="700" class="bg-image"> -->
-                    <img src="./assets/images/home_banner_new/slider-bg.webp" loading="lazy" width="1550" height="704" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
-
-                    <img src="./assets/images/home_banner_new/slider-bg-uk.webp" loading="lazy" width="1905" height="700" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 3">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb-uk.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 3">
-
-                    <img src="./assets/images/home_banner_new/slider-bg-au.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 8">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb-au.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 8">
-
-                    <img src="./assets/images/home_banner_new/slider-bg-nz.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 20">
-                    <img src="./assets/images/home_banner_new/slider-bg-mb-nz.webp" loading="lazy" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 20">
-                </div>
                 <div class="carousel-caption reward">
                   <div class="container d-none d-md-block">
-                      <div class="row align-items-center">
+                      <div class="row align-items-center rewardWrap">
                           <div class="col-md-8">
-                              <!-- <img loading="lazy" src="./assets/images/star_iiewat.webp" alt="" class="img-fluid"> -->
                               <img loading="lazy" src="./assets/images/home_banner_new/star_iiewat.webp" width="532" height="490" alt="star" class="img-fluid">
                           </div>
                           <div class="col-md-4">
                               <div class="reward-content">
-                                  <!-- <img loading="lazy" src="./assets/images/free_10.webp" alt="" class="img-fluid" *ngIf="currentSetting?.country?.CountryId !=3"> -->
-                                  <!-- <img loading="lazy" src="./assets/images/free-uk.webp" alt="" class="img-fluid" *ngIf="currentSetting?.country?.CountryId ==3"> -->
-
                                   <div class="bonus-ms">
                                       ENROLL <br> EARN <br> Redeem
                                   </div>
-                                  <!-- <div class="border"></div> -->
-                                  <!-- <small *ngIf="currentSetting?.country?.CountryId !=3">Collect 1000 points and get $10 FREE.</small> <br *ngIf="currentSetting?.country?.CountryId !=3">
-                                  <small *ngIf="currentSetting?.country?.CountryId ==3">Collect 1000 points and get € 5 FREE.</small> <br *ngIf="currentSetting?.country?.CountryId ==3"> -->
                                   <div class="enroll-wrappers">
                                       <a href="javascript:void(0)" (click)="enrollNow()" class="btn btn-warning" mat-button>Enroll Now</a>
-                                      <!-- <a href="javascript:void(0)" (click)="howItWorksPopup(6)">How it works</a>
-                                      <a href="javascript:void(0)" (click)="faqPopup(6)">FAQs</a> -->
                                   </div>
                                   <div class="bonus-sm-text">
                                       No Purchase Necessary.
                                       Get 200 points instantly.
                                   </div>
-                                  <!-- <p>No Purchase Necessary. Get 200 points instantly.</p> -->
-                              </div>
+                                </div>
                           </div>
                       </div>
                   </div>
                   <div class="d-block d-md-none">
-                      <!-- <img loading="lazy" src="./assets/images/reward-mobile.webp" alt="" class="img-fluid d-block d-md-none reward-mob" *ngIf="currentSetting?.country?.CountryId !=3"> -->
                       <img loading="lazy" src="./assets/images/home_banner_new/star_iiewat.webp"  width="532" height="490" alt="img" class="img-fluid d-block d-md-none reward-mob">
-                      <!-- <img loading="lazy" src="./assets/images/reward-mobile-uk.webp" alt="" *ngIf="currentSetting?.country?.CountryId ==3" class="img-fluid d-block d-md-none reward-mob"> -->
-                      <!-- <div class="collection">Collect 1000 points and get $10 FREE. </div> -->
                       <div class="bonus-ms">
                           ENROLL <br> EARN <br> Redeem
                       </div>
@@ -218,88 +103,57 @@
                           No Purchase Necessary.
                           Get 200 points instantly.
                       </div>
-                      <!-- <div class="enroll-wrappers">
-                          <a href="javascript:void(0)" (click)="howItWorksPopup(6)">How it works</a>
-                          <a href="javascript:void(0)" (click)="faqPopup(6)">FAQs</a>
-                      </div> -->
-                      <!-- <div class="collection_note">
-                          No Purchase Necessary. Get 200 points instantly.
-                      </div> -->
                   </div>
               </div>
             </ng-template>
-
-
-
         </ngb-carousel>
     </div>
 </div>
 <!-- home banne section end here -->
-
 
 <div class="homepage_bluearea hideinMobile">
     <div class="container">
         <div class="row">
             <div class="col-md-4 homeBluecommon">
                 <a routerLink="/freetrial" *ngIf="currentSetting?.country?.CountryId ==3">
-                    <div class="icon_holder1">
-                        <img loading="lazy" src="./assets/images/mobile_topup_white.svg" alt="icon" width="48" height="78">
-                        <img loading="lazy" src="./assets/images/mobile_topup_blue.svg" alt="icon" width="48" height="78">
+                    <div class="icon_holder1 mbTopUp">
                     </div>
                     <h3>Try us Free</h3>
                     <p>Get upto 100 free mins to call anywhere in <br /> the world</p>
                     <div class="arrow">
-                        <img loading="lazy" src="./assets/images/home_arrow_white.png" alt="icon">
-                        <img loading="lazy" src="./assets/images/home_arrow_blue.png" alt="icon">
                     </div>
                 </a>
 
                 <a (click)="goTomobileTopup()" *ngIf="currentSetting?.country?.CountryId !=3">
-                    <div class="icon_holder1">
-                        <img loading="lazy" src="./assets/images/mobile_topup_white.svg" alt="icon" width="48" height="78">
-                        <img loading="lazy" src="./assets/images/mobile_topup_blue.svg" alt="icon" width="48" height="78">
+                    <div class="icon_holder1 mbTopUp">
                     </div>
                     <h3>Send Mobile Topup</h3>
                     <p>Send minutes to over 300 carriers in 120<br /> countries</p>
                     <div class="arrow">
-                        <img loading="lazy" src="./assets/images/home_arrow_white.png" alt="icon">
-                        <img loading="lazy" src="./assets/images/home_arrow_blue.png" alt="icon">
                     </div>
                 </a>
-
-
-
             </div>
             <div class="col-md-4 homeBluecommon white_color">
                 <a routerLink="/callafrica">
-                    <div class="icon_holder1">
-                        <img loading="lazy" src="./assets/images/callafrica_white.svg" class="whiteimg" alt="icon" width="75" height="75">
-                        <img loading="lazy" src="./assets/images/callafrica_blue.png" class="blueimg" alt="icon" width="75" height="75">
+                    <div class="icon_holder1 callAfrica">
                     </div>
                     <h3 class="bluecolor">Call Africa</h3>
                     <p class="bluecolor">Start making high quality calls to Africa<br /> for as low as 4c/min</p>
                     <div class="arrow">
-                        <img loading="lazy" src="./assets/images/home_arrow_white.png" class="whiteimg" alt="icon">
-                        <img loading="lazy" src="./assets/images/home_arrow_blue.png" class="blueimg" alt="icon" >
                     </div>
                 </a>
             </div>
             <div class="col-md-4 homeBluecommon">
                 <a routerLink="/callasia">
-                    <div class="icon_holder1">
-                        <img loading="lazy" src="./assets/images/callasia_white.svg" alt="icon" width="75" height="75">
-                        <img loading="lazy" src="./assets/images/callasia_blue.svg" alt="icon" width="75" height="75">
+                    <div class="icon_holder1 callAsia">
                     </div>
                     <h3>Call Asia</h3>
                     <p>Start making high quality calls to Asia for<br /> as low as 1c/min</p>
                     <div class="arrow">
-                        <img loading="lazy" src="./assets/images/home_arrow_white.png" alt="icon">
-                        <img loading="lazy" src="./assets/images/home_arrow_blue.png" alt="icon">
                     </div>
                 </a>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -308,13 +162,11 @@
         <div class="blue">
             <div class="col-md-4 homeBluecommon">
                 <a  (click)="goTomobileTopup()">
-                    <div class="icon_holder1">
-                        <img loading="lazy" src="./assets/images/mobile_topup_white.svg" alt="icon">
+                    <div class="icon_holder1 mbTopUpMb">
                     </div>
                     <h3>Mobile Topup</h3>
                     <p>Send minutes to over 300 carriers in 120 countries</p>
                     <div class="arrow">
-                        <img loading="lazy" src="./assets/images/home_arrow_white.png" alt="icon">
                     </div>
                 </a>
             </div>
@@ -322,13 +174,11 @@
         <div class="white">
             <div class="col-md-4 homeBluecommon">
                 <a routerLink="/callafrica">
-                    <div class="icon_holder1">
-                        <img loading="lazy" src="./assets/images/callafrica_blue.png" alt="icon">
+                    <div class="icon_holder1 callAfricaMb">
                     </div>
                     <h3>Call Africa</h3>
                     <p>Start making high quality calls to Africa for as low as 4c/min</p>
                     <div class="arrow">
-                        <img loading="lazy" src="./assets/images/home_arrow_blue.png" alt="icon">
                     </div>
                 </a>
             </div>
@@ -336,11 +186,11 @@
         <div class="blue">
             <div class="col-md-4 homeBluecommon">
                 <a routerLink="/callasia">
-                    <div class="icon_holder1"><img loading="lazy" src="./assets/images/call_asia_icon.svg" alt="icon"></div>
+                    <div class="icon_holder1 callAsiaMb">
+                    </div>
                     <h3>Call Asia</h3>
                     <p>Start making high quality calls to Asia for as low as 1c/min</p>
                     <div class="arrow">
-                        <img loading="lazy" src="./assets/images/home_arrow_white.png" alt="icon">
                     </div>
                 </a>
             </div>
@@ -354,24 +204,10 @@
             <p class="howitText">How it works</p>
             <h2 class="heading_style2">It’s super easy!</h2>
             <div class="col-md-4">
-                <!-- <a href="/searchrates" title="" *ngIf="currentSetting?.country?.CountryId ==3">
-                    <div class="home_howitworksSection shadow1">
-                        <div class="icon_holder1"><img loading="lazy" src="./assets/images/pick_your_plan.svg" alt="icon"></div>
-                        <h3 class="picktext">Pick your plan</h3>
-                        <p>Search Rates to call anywhere in the world and select Purchase amount.</p>
-                    </div>
-                </a>
-                <a href="../mobiledeals/" title="" *ngIf="currentSetting?.country?.CountryId !=3">
-                    <div class="home_howitworksSection shadow1">
-                        <div class="icon_holder1"><img loading="lazy" src="./assets/images/pick_your_plan.svg" alt="icon"></div>
-                        <h3 class="picktext">Pick your plan</h3>
-                        <p>Search Rates to call anywhere in the world and select Purchase amount.</p>
-                    </div>
-                </a> -->
-
                 <a href="/searchrates" title="" >
                     <div class="home_howitworksSection shadow1">
-                        <div class="icon_holder1"><img loading="lazy" src="./assets/images/pick_your_plan.svg" alt="icon" width="60" height="60"></div>
+                        <div class="icon_holder1 pickPlane">
+                        </div>
                         <h3 class="picktext">Pick your plan</h3>
                         <p>Search Rates to call anywhere in the world and select Purchase amount.</p>
                     </div>
@@ -380,12 +216,11 @@
 
             </div>
             <div class="col-md-4">
-                <!--<a href="/auth/sign-up">-->
                 <a href="javascript:void(0)" (click)="signupModal()">
                     <div class="home_howitworksSection shadow2">
-                        <div class="icon_holder1"><img loading="lazy" src="./assets/images/create_account_icon.svg" alt="icon" width="60" height="60"></div>
+                        <div class="icon_holder1 goMyAcc">
+                        </div>
                         <h3 class="createText">{{getText()}} </h3>
-
                         <p>Signup using your Mobile number or Check Out as Guest if you like to try us.</p>
                     </div>
                 </a>
@@ -393,7 +228,8 @@
             <div class="col-md-4">
                 <a href="../searchrates">
                     <div class="home_howitworksSection shadow3">
-                        <div class="icon_holder1"><img loading="lazy" src="./assets/images/start_calling_icon.svg" alt="icon" width="60" height="60"></div>
+                        <div class="icon_holder1 startCall">
+                        </div>
                         <h3 class="startTxt">Start calling!</h3>
                         <p>Dial your Raza access number and Start Making Calls. That’s it… Keep Talking!</p>
                     </div>
@@ -411,8 +247,6 @@
                 <h3>Mobile App.</h3>
                 <div class="mobileAppcommon_area first">
                     <h4>Crystal clear quality</h4>
-                    <!-- <h4>$2 FREE - Download Now!</h4> -->
-                    <!-- <p>Get $2 absolutely free when you download our new and improved mobile app for the first time. No purchase is necessary.</p> -->
                     <p>Raza mobile app provides crystal clear call quality backed by unbeatable prices. Make sure you never miss a moment with friends and family!</p>
                 </div>
                 <div class="mobileAppcommon_area second">
@@ -424,41 +258,12 @@
                     <h4>International  Mobile Top-up</h4>
                     <p>Send top-ups to over 300 Operators through the app instantly. We deliver most recharges in Seconds!</p>
                 </div>
-
-
-
             </div>
             <div class="col-md-5 new_style_mobile_divall">
-
                 <div class="new_style_mobile">
                     <div class="mobileImageSliderMain"></div>
                     <div class="mobileImageSlider">
-                       <!-- <video width="380" height="800" autoplay="autoplay" loop="loop"  muted="muted" controls="true"  class="gif-app">
-                            <source src="../../../assets/images/mobile-video.mp4" type="video/mp4">
-
-
-                          </video> -->
-                         <!-- <video
-                          src="./assets/images/mobile-video.mp4"
-                          autoPlay = true
-                          controls = false
-                          loop = true
-                          muted = true
-
-                          id="raza_videoPlayer" width="380" height="800"
-                          playsinline class="gif-app"
-                       ></video>-->
-
-
-
-              <!-- <video id="raza_videoPlayer" width="380" height="800" autoplay="autoplay" loop="loop"  muted="muted" controls="true"  class="gif-app">
-
-                    <source src="./assets/images/mobile-video.mp4" type='video/mp4' />
-
-                </video> -->
-
-                        <img loading="lazy" src="./assets/images/download2dollor.jpg" class="gif-app" alt="icon" />
-
+                        <img loading="lazy" src="./assets/images/download2dollor.jpg" class="gif-app" alt="icon" width="376" height="815" />
                         <div class="home_mobile_div" >
                             <a routerLink="/mobile-page">
                                 <img loading="lazy" src="../../../assets/images/new_design_images/play_store.png"  width="137" height="46" alt="play" class="mb-lg-0">
@@ -466,23 +271,16 @@
                             <a routerLink="/mobile-page" >
                                 <img loading="lazy" src="../../../assets/images/new_design_images/app_store.png" width="137" height="46" class="ml-0 ml-lg-3" alt="app">
                             </a>
-                          </div>
-
+                        </div>
                     </div>
-                    <!-- <button (click)="openDialog()" class="bg-primary" mat-fab color="primary" aria-label="Example icon button with a delete icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-              <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-            </svg>
-          </button> -->
                 </div>
-
             </div>
         </div>
     </div>
 </div>
 
 <div class="home_pageGreyarea">
-    <div class="mobileAppcommon_area showMobileOnly">
+    <!-- <div class="mobileAppcommon_area showMobileOnly">
         <div class="app_list new">
             <ul>
                 <li>
@@ -498,7 +296,7 @@
 
             </ul>
         </div>
-    </div>
+    </div> -->
     <div class="leftareaNew">
         <div class="leftcontent">
             <div class="textareaNew">
@@ -521,7 +319,7 @@
               src="./assets/images/arrow_right.png" alt="icon" /></span></p>
             </div>
             <div class="imageareaNew">
-                <img loading="lazy" src="./assets/images/gift_box.webp" width="96" height="103" alt="icon" />
+                <img loading="lazy" src="./assets/images/gift_box.png" width="96" height="103" alt="icon" />
             </div>
         </div>
     </div>
@@ -534,11 +332,9 @@
             <h3>Testimonials</h3>
             <p>Our customers have something to say about us</p>
         </div>
-
         <div class="testiSliderContent">
             <app-testimonials></app-testimonials>
         </div>
-
     </div>
 </div>
 
@@ -552,10 +348,7 @@
     </div>
 </div>
 <div class="streakBannerBottom">
-    <!-- <p>Existing Customers? <span>Get something awesome!</span>
-         <a href="/mobiledeals">View Offers</a>  -->
          <p>Existing Customers? <span>Check out our awesome features!</span>
         <a href="/features">View</a>
-
     </p>
 </div>

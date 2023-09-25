@@ -302,7 +302,7 @@ button {
     label {
         display: block;
         color: #103f8a;
-        font-size: 14px !important;
+        font-size: 15px !important;
     }
     &.recharge2 {
         label {
@@ -1687,7 +1687,7 @@ ul {
         background: url("/assets/images/new_design_images/lowrateapp.png") no-repeat left top;
     }
     &.third {
-        background: url("/assets/images/group_voice_icon-d.svg") no-repeat left top;
+        background: url("/assets/images/new_design_images/group_voice_icon-d.png") no-repeat left top;
     }
 }
 .mobileImageSlider {
@@ -4043,6 +4043,9 @@ section.faq-section .mat-expansion-panel-body p {
 }
 .form-wrapper .intMobileTopup .mat-form-field-appearance-legacy .mat-form-field-label {
   top: 20px !important;
+}
+app-mobile-page ~ .loadWrapoer {
+  display: none;
 }
 
 @media only screen and (max-width: 767px) {

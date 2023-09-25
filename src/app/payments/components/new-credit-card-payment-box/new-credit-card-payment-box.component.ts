@@ -457,7 +457,8 @@ search_country:any='US';
   /* get countries from. */
   getCountryFrom(): void {
     this.countryService.getFromCountries().subscribe((res: Country[]) => {
-      this.countries = res.splice(0, 3);
+     // this.countries = res.splice(0, 3);
+      this.countries = res
     })
   }
 
@@ -495,9 +496,36 @@ search_country:any='US';
       })
   }
 
+  processPhoneNumber(phoneNumber: string, countryId: number): string {
+    let dialCode = '';
+  
+    if (countryId > 3) {
+      if (countryId === 8) {
+        dialCode = '61';
+      } else if (countryId === 20) {
+        dialCode = '64';
+      } else if (countryId === 26) {
+        dialCode = '91';
+      }
+    }
+  
+    // Check if the phone number already contains the dial code
+    if (!phoneNumber.startsWith(dialCode)) {
+      phoneNumber = dialCode + phoneNumber;
+    }
+  
+    return phoneNumber;
+  }
+ 
+  
+  
+  
+
+
   private updateBillingInfo(): Observable<boolean | ApiErrorResponse> {
     const formValues = this.paymentInfoForm.value;
-
+    let country_id = this.billingInfo.Address.Country.CountryId ;
+    formValues.phoneNumber = this.processPhoneNumber(formValues.phoneNumber, country_id);
     const billingInfo = {
       FirstName: formValues.firstName,
       LastName: formValues.lastName,

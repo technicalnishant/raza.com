@@ -354,9 +354,10 @@ h2 {
 
 .cardRow {
     padding: 0 15px;
-    display: block;
+    display: inline-block;
+    width: 100%;
     clear: both;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 .radio_checkbox_wraper1 {
@@ -637,7 +638,7 @@ font-family: "Montserrat";
 
 .submitButtonSmall.active:after, .submitButtonSmall2.active:after{
     content: '';
-    background-image: url('../../../../assets/images/new_design_images/check.png'); 
+    background-image: url('../../../../assets/images/new_design_images/check.png');
     border: 0;
 }
 
@@ -790,7 +791,7 @@ font-family: "Montserrat";
     position: absolute;
     font-size: 9px;
 }
- 
+
 @media only screen and (max-width: 675px) {
     .exc_center {
         text-align: center;
@@ -912,7 +913,7 @@ font-family: "Montserrat";
         padding-right: 0;
         padding-left: 6px;
         margin-left: 15px;
-    }    
+    }
     .col-sm-9.phoneNo {
         flex: 0 0 75%;
         max-width: 75%;
@@ -920,7 +921,7 @@ font-family: "Montserrat";
     .select_top1:after {
         right: 5px;
     }
-    
+
 }
 
 @media only screen and (min-width: 568px) {
@@ -931,7 +932,7 @@ font-family: "Montserrat";
         padding: 0px 10px;
         border-radius: 20px;
     }
-    
+
     .top-flag img.flag.flag-f-1 {
         padding: 0;
         margin: 0;
@@ -941,7 +942,7 @@ font-family: "Montserrat";
         top: 21px;
         margin-left: 10px;
     }
-    
+
     .top-flag .flag_list1 {
         padding: 0;
         margin: 0;
@@ -951,7 +952,7 @@ font-family: "Montserrat";
         z-index: 3;
         top: 21px;
     }
-    
+
     .top-flag ul {
         padding: 0;
         margin: 10px 0 0;
@@ -962,7 +963,7 @@ font-family: "Montserrat";
         background-color: #0000;
         box-shadow: none;
     }
-    
+
     .search-box {
         width: 50%;
         margin: auto;

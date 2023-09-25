@@ -4,7 +4,7 @@
             <div class="callRate">
                 <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
                     [alt]="countryId" /></span>
-            <span>{{RatePerMin| number:'1.0-0' | sCurrency | async : globalPlanData.CurrencyCode  }}/min</span>
+            <span>{{RatePerMin| number:'1.0-0' | sCurrency  : globalPlanData.CurrencyCode |async }}/min</span>
                 <p class="country-name">{{customCountry}}</p>
             </div>
         </div>
@@ -17,7 +17,7 @@
                 <p class="country-name">{{customCountry}}</p>
                 <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+customCountryId"
                         [alt]="countryId" /></span>
-                <span>{{RatePerMin| number:'1.0-0' | sCurrency | async : globalPlanData.CurrencyCode  }}/min</span>
+                <span>{{RatePerMin| number:'1.0-0' | sCurrency  : globalPlanData.CurrencyCode | async }}/min</span>
             </div>
         </div>
         <mat-dialog-content #matContent>
@@ -54,7 +54,7 @@
                                 <div class="commonminArea">
                                    
                                     <!--<div class="smallLine"></div>-->
-                                    <p class="mins price"><span>{{currSymbol()}}</span>2</p>
+                                    <p class="mins price"><span>{{currSymbol()}}</span>{{getConvertedPrice(2)}}</p>
                                     <p class="charge bcharge">Was {{currSymbol()}}4</p>
                                      <p class="free-mins">{{oneFreemin*4 | number:'1.0-0'}}<span>mins</span></p>
                                      <br>
@@ -68,7 +68,7 @@
                                 <div class="commonminArea">
                                    
                                     <!--<div class="smallLine"></div>-->
-                                    <p class="mins price"><span>{{currSymbol()}}</span>3</p>
+                                    <p class="mins price"><span>{{currSymbol()}}</span>{{getConvertedPrice(3)}}</p>
                                     <p class="charge bcharge" >Was {{currSymbol()}}6</p>
                                      <p class="free-mins">{{oneFreemin*6 | number:'1.0-0'}}<span>mins</span></p>
                                      <br>
@@ -82,7 +82,7 @@
                                 <div class="commonminArea">
                                    
                                     <!--<div class="smallLine"></div>-->
-                                    <p class="mins price"><span>{{currSymbol()}}</span>5</p>
+                                    <p class="mins price"><span>{{currSymbol()}}</span>{{getConvertedPrice(5)}}</p>
                                     <p class="charge bcharge">Was {{currSymbol()}}10</p>
                                      <p class="free-mins">{{oneFreemin*10 | number:'1.0-0'}}<span>mins</span></p>
                                      <br>

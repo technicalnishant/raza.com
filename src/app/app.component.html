@@ -30,6 +30,7 @@
       <app-header *ngIf="!currentURL.includes('moto')  && !currentURL.includes('web_pay') && !currentURL.includes('mobile_pay') && !currentURL.includes('raza-us')" [sidenav]='sidenav'></app-header>
      <div  class="mainWrapper">
       <router-outlet></router-outlet>
+      <div class="loadWrapoer"></div>
      </div>
     </div>
     <raza-spinner-taghelper></raza-spinner-taghelper>

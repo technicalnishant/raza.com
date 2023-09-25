@@ -251,8 +251,12 @@ export class PlanService {
     replaced = replaced.replace(/[\[\]']/g,'' );
    
      const cachedData = sessionStorage.getItem('pinless_'+replaced);
+     
     if (cachedData) {
       return of(JSON.parse(cachedData));
+    }
+    else{
+      return null;
     }
   }
   //Get plan snapshot..

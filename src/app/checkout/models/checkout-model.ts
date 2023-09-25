@@ -44,7 +44,7 @@ export class NewPlanCheckoutModel implements ICheckoutModel {
     offerPercentage:any;
     ProcessedBy:string='';
     ActualAmountCharge: number;
-    PaymentCurrency :string;
+    PaymentCurrency :string='';
     calculateServiceFee?(): number {
         if (this.isCalculatedServiceFee === true) {
             return this.details.ServiceCharge;

@@ -73,17 +73,17 @@
             </tr>
             <tr>
               <td>Purchase Amount</td>
-              <td>{{ checkoutModel?.getPurchaseAmount() | bCurrency : checkoutModel?.currencyCode }} </td>
+              <td>{{ checkoutModel?.getPurchaseAmount() | bCurrency : checkoutModel?.currencyCode | async}} </td>
             </tr>
             <tr>
               <td>Service Fee</td>
-              <td>{{ checkoutModel?.calculateServiceFee() | bCurrency : checkoutModel?.currencyCode }}</td>
+              <td>{{ checkoutModel?.calculateServiceFee() | bCurrency : checkoutModel?.currencyCode | async}}</td>
             </tr>
              
 
             <tr class="total">
               <td>Total ({{checkoutModel?.currencyCode}})</td>
-              <td>{{checkoutModel?.totalAmount() | bCurrency : checkoutModel?.currencyCode}}</td>
+              <td>{{checkoutModel?.totalAmount() | bCurrency : checkoutModel?.currencyCode | async}}</td>
             </tr>
             <tr class="total" *ngIf="checkoutModel?.couponCode">
               <td>Promo Code </td>

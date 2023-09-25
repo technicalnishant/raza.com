@@ -523,7 +523,8 @@ onClickClose(icon)
 
   openFlagDropDown()
   {
-   if(!this.isAuthenticatedn) 
+    
+   if(!this.IsEnableloggedIn) 
    {
     if (this.showDropdown) {
       this.showDropdown = false;
