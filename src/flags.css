@@ -7,6 +7,7 @@
     width: 32px;
     height: 32px;
     background: url('assets/images/flags_new.png') no-repeat;
+    background-position: -1px -578px;
 }
 
 .flag.flag-ws {
@@ -1705,7 +1706,7 @@
     background-position: -1px -205px;
 }
 .flag.flag-119{
-    background-position: -137px -375px;
+  background: url('assets/images/flags/guantanamobay.png') no-repeat;
 }
 .flag.flag-314{
     background-position: -171px -137px;
