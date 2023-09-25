@@ -10,6 +10,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgxSplideModule } from 'ngx-splide';
 //import { CustomHomeComponent } from './custom-home/custom-home.component';
 // import { ModalVideoComponent } from './modal-video/modal-video.component';
 
@@ -35,6 +36,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
         MatButtonModule,
         MatIconModule,
         CarouselModule,
+        NgxSplideModule,
         MatCarouselModule.forRoot(),
        // LazyLoadImageModule,
         RouterModule.forChild([
