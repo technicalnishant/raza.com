@@ -1,8 +1,12 @@
 <div class="first_fold">
-    <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
-           <splide [options]="{ type: 'loop', autoplay: 'true', lazyLoad: 'true' }">
-             <splide-slide>
-                <div class="sliderImg"></div>
+    <div class="home-slider">
+      <img src="./assets/images/home_banner_new/slider-bg.webp" loading="lazy" alt="Random first slide" class="bg-image d-none d-md-block" width="1550" height="704" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
+      <img src="./assets/images/home_banner_new/slider-bg-mb.webp" loading="lazy" alt="Random first slide" width="768" height="1146" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3 && currentSetting?.country?.CountryId != 8 && currentSetting?.country?.CountryId != 20">
+      <img src="./assets/images/home_banner_new/slider-bg-uk.webp" loading="lazy" width="1905" height="700" alt="Random first slide" class="bg-image d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 3">
+      <img src="./assets/images/home_banner_new/slider-bg-mb-uk.webp" loading="lazy" width="768" height="1150" alt="Random first slide" class="bg-image showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 3">
+       <ngb-carousel [showNavigationArrows]="true"
+       [showNavigationIndicators]="true">
+             <ng-template ngbSlide>
                 <div class="carousel-caption tpSlider_1">
                     <div class="d-flex justify-content-center align-items-center flex-column buyGetSlider">
                         <div class="d-md-flex align-items-center justify-content-center mt-5 mt-md-0">
@@ -33,9 +37,9 @@
                         </div>
                     </div>
                 </div>
-              </splide-slide>
+            </ng-template>
 
-             <splide-slide>
+             <ng-template ngbSlide>
                 <div class="carousel-caption download">
                   <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new.webp" alt="img" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
                   <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new_uk.webp" alt="img" width="636" height="689" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 3">
@@ -54,9 +58,9 @@
                       </div>
                   </div>
               </div>
-            </splide-slide>
+            </ng-template>
 
-            <splide-slide ngbSlide *ngIf="currentSetting?.country?.CountryId !=3">
+            <ng-template ngbSlide *ngIf="currentSetting?.country?.CountryId !=3">
                 <div class="carousel-caption refer it-topup">
                     <img loading="lazy" src="./assets/images/home_banner_new/int-top-img.webp" alt="img" width="768" height="121" class="img-fluid d-md-none d-block m-auto topup-img">
                     <img loading="lazy" src="./assets/images/home_banner_new/it-topup-inner_g7bpbe.webp" width="1509" height="528" alt="banner" class="img-fluid d-md-block d-none m-auto">
@@ -64,9 +68,9 @@
                         <a href="javascript:void(0)"  (click)="goTomobileTopup()" class="topup-btn" type="button" mat-button>TOP-UP</a>
                     </div>
                 </div>
-            </splide-slide>
+            </ng-template>
 
-            <splide-slide>
+            <ng-template ngbSlide>
                 <div class="carousel-caption reward">
                   <div class="container d-none d-md-block">
                       <div class="row align-items-center rewardWrap">
@@ -101,8 +105,8 @@
                       </div>
                   </div>
               </div>
-            </splide-slide>
-        </splide>
+            </ng-template>
+        </ngb-carousel>
     </div>
 </div>
 <!-- home banne section end here -->
