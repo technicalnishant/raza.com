@@ -18,7 +18,7 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  currentURL:any; 
+  currentURL:any;
   showDelayedSubcomponent:boolean = false;
   constructor(private router: Router,
     private authService: AuthenticationService,
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
   mode = new FormControl('over');
 
   ngOnInit() {
-    
+
     this.currentURL = window.location.href;
     if (environment.production) {
       if (location.protocol === 'http:') {
@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
 
     let lat: number;
     let long: number;
-  if(!this.currentURL.includes('raza-us'))  
+  if(!this.currentURL.includes('raza-us'))
 	this.getCurrentLocation(lat, long);
 	/*
     const geo = navigator.geolocation.getCurrentPosition(a => {
@@ -77,7 +77,7 @@ export class AppComponent implements OnInit {
     this.sideBarService.sidenav = this.sidenav;
    // console.log("Router URl is");
     //console.log(this.currentURL);
- 
+
 
     if(this.currentURL.includes('recharge?promotion='))
     {
@@ -92,13 +92,13 @@ export class AppComponent implements OnInit {
        localStorage.setItem("promotionCode",url_arr[1] );
        this.router.navigateByUrl("/?promo="+url_arr[1]);
       }
-      
+
     }
 
     // Set the delay in milliseconds (e.g., 3000ms = 3 seconds)
     setTimeout(() => {
       this.showDelayedSubcomponent = true;
-    }, 1000); 
+    }, 1500);
   }
 
   get IsEnableFreeTrial(): boolean {
@@ -149,4 +149,4 @@ export class AppComponent implements OnInit {
       });
   }
 
-}  
+}
