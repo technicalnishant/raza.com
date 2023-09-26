@@ -1,5 +1,5 @@
 <div *ngIf="IsEnableLoggedIn">
-  
+
   <ul class="homeSideMenus">
     <li class="recharge"><a routerLink="/account/overview" ><span></span> Recharge</a></li>
     <li class="payment-details"><a routerLink="/account/payment-details/{{plan?.PlanId}}" ><span></span> Payment Details</a>
@@ -47,7 +47,7 @@
 
   </ul>
 </div>
- 
+
 <div *ngIf="!IsEnableLoggedIn">
 <a mat-list-item routerLink="/">
   <span class="mainSpan">HOME
@@ -85,7 +85,7 @@
   <span class="mainSpan">SIGNUP / LOGIN
     <span class="slider"></span>
   </span>
-  <span class="subMenu"><img src="assets/images/sub_menu_icon.svg" alt="arrow down" /></span>
+  <span class="subMenu"><img src="assets/images/sub_menu_icon.svg" alt="arrow down" width="10" height="14" /></span>
 </a>
 <!-- <a mat-list-item routerLink=".">
   <span class="mainSpan">LIVE CHAT
