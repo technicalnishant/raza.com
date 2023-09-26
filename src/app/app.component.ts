@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent implements OnInit {
   currentURL:any; 
+  showDelayedSubcomponent:boolean = false;
   constructor(private router: Router,
     private authService: AuthenticationService,
     private razaSplashScreen: RazaSplashScreenService,
@@ -93,6 +94,11 @@ export class AppComponent implements OnInit {
       }
       
     }
+
+    // Set the delay in milliseconds (e.g., 3000ms = 3 seconds)
+    setTimeout(() => {
+      this.showDelayedSubcomponent = true;
+    }, 1000); 
   }
 
   get IsEnableFreeTrial(): boolean {

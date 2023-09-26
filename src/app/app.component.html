@@ -33,7 +33,7 @@
     <raza-spinner-taghelper></raza-spinner-taghelper>
     <!--Footer-->
 
-    <app-footer *ngIf="!currentURL.includes('sitemap') && !currentURL.includes('moto')  && !currentURL.includes('web_pay') && !currentURL.includes('mobile_pay')" ></app-footer>
+    <app-footer *ngIf="showDelayedSubcomponent && !currentURL.includes('sitemap') && !currentURL.includes('moto')  && !currentURL.includes('web_pay') && !currentURL.includes('mobile_pay')" ></app-footer>
     <!--Footer-->
 
   </mat-sidenav-content>
