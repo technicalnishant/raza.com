@@ -698,6 +698,7 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
+    overflow: hidden;
     &.slider-bg-3 {
         background-image: url(../../../assets/images/home_banner_new/slider-bg-uk.webp);
     }
