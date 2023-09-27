@@ -171,9 +171,7 @@ export class PaymentOptionsComponent implements OnInit {
 
   get enablePaypalOption() {
     return this.currentCart.transactiontype != TransactionType.Topup;
-	
-	
-  }
+	 }
 
   /**
    * On credit card payment Option.

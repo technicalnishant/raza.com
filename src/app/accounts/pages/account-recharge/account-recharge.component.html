@@ -87,11 +87,25 @@
               Cancel online or by calling customer service anytime."
               />                    -->
         <span class="bonus_small_text">with auto-refill</span>
+
+        
       </div>
 </div>
 
 </div>
 <app-my-cards *ngIf="plan" [plan]="plan" [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentButtonTrigger($event)" > </app-my-cards>
+  
+  <ng-container *ngIf="enablePaypalOption && showPaypal">
+  <div class="form_row1 paypal-box" >
+    <div class="input_holder1">
+      <div id="paypal-button-container" class="paypal-button-container">
+        <raza-paypal [config]="payPalConfig"></raza-paypal>
+      </div>
+    </div>
+  </div>
+</ng-container> 
+
+
 </div>
  
   <div *ngIf="!showRechargeList()" style="text-align: center;">

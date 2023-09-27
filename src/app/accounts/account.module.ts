@@ -68,7 +68,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
  
 import { NgxSplideModule } from 'ngx-splide';
 import { AccountOtherplansComponent } from './pages/account-otherplans/account-otherplans.component';
- 
+import { RazaPaypalModule } from 'app/payments/paypal/raza-paypal.module';
 
 
 @NgModule({
@@ -85,6 +85,7 @@ import { AccountOtherplansComponent } from './pages/account-otherplans/account-o
         MatAutocompleteModule,
         MatIconModule,
         MatButtonToggleModule,
+        RazaPaypalModule,
         RouterModule.forChild([
             {
                 path: '', component: AccountOverviewComponent, data: { isFixedHeader: true }, children: [
