@@ -278,6 +278,14 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+::ng-deep {
+  .form_row1.paypal-box {
+      padding: 0 35px;
+      margin-top: 20px;
+      max-width: 300px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
     .denomination__box {
         margin: 0 5px 4px;
