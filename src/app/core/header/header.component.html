@@ -47,15 +47,13 @@
           <div class="input-group-prepend">
             <span class="input-group-text caret">
               <div (click)="openFlagDropDown()" class="select_top1">
-                <img src="./../../assets/images/blank.gif" loading="lazy" alt="flag" width="30" height="20"
-                  [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId">
+                <img src="./../../assets/images/blank.gif" loading="lazy" alt="flag" width="30" height="30" [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId">
               </div>
               <div class="flag_list1" *ngIf="showDropdown">
                 <ul>
                   <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)">
                     <span>
-                      <img src="./../../assets/images/blank.gif" loading="lazy" alt="flag" width="30" height="20"
-                        [ngClass]="'flag flag-f-'+ item.CountryId">{{item.CountryName}}
+                      <img src="./../../assets/images/blank.gif" loading="lazy" alt="flag" width="30" height="30" [ngClass]="'flag flag-f-'+ item.CountryId">{{item.CountryName}}
                     </span>
                   </li>
                 </ul>
@@ -73,14 +71,14 @@
             <mat-option *ngFor="let option of filteredCountry | async" [value]="option"
               (onSelectionChange)="viewRates($event,option.CountryId); setSelection(option.CountryName)">
               <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
-                [ngClass]="'flag flag-'+ option.CountryId" height="25" loading="lazy">
+                [ngClass]="'flag flag-'+ option.CountryId" width="30" height="30" loading="lazy" alt="icon">
               <span class="width70">{{option.CountryName}}&nbsp;(+{{option.CountryCode}})</span>
 
               <span class="width30">
-                <img src="./../../assets/images/phone-icon.png" alt="" loading="lazy">
+                <img src="./../../assets/images/phone-icon.png" alt="icon" loading="lazy">
                 <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
                 <!-- <span class="mobileRate">{{setPrice(option.CallingRateMobile)}} </span> -->
-                <img src="./../../assets/images/icon-landphone.png" alt="" loading="lazy">
+                <img src="./../../assets/images/icon-landphone.png" alt="icon" loading="lazy">
                 <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency}} </span>
                 <!-- <span class="landlineRate">{{setPrice(option.CallingRateLandline)}} </span> -->
               </span>
@@ -88,8 +86,8 @@
             </mat-option>
           </mat-autocomplete>
           <div class="input-group-append">
-            <span class="input-group-text" style="background: #e9ecef;"><img [src]="searchicon" alt=""
-                style="width: 30px;" (click)="onClickClose(searchicon)"></span>
+            <span class="input-group-text" style="background: #e9ecef;">
+              <img [src]="searchicon" alt="search" width="30" height="30" style="width: 30px;" (click)="onClickClose(searchicon)"></span>
           </div>
         </div>
 
@@ -124,14 +122,14 @@
       <div class="input-group-prepend">
         <span class="input-group-text caret">
           <div (click)="openFlagDropDown()" class="select_top1">
-            <img src="./../../assets/images/blank.gif" loading="lazy" alt="flag" width="30" height="20"
+            <img src="./../../assets/images/blank.gif" loading="lazy" alt="flag" width="30" height="30"
               [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId">
           </div>
           <div class="flag_list1" *ngIf="showDropdown">
             <ul>
               <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)">
                 <span>
-                  <img src="./../../assets/images/blank.gif" loading="lazy" alt="flag" width="30" height="20"
+                  <img src="./../../assets/images/blank.gif" loading="lazy" alt="flag" width="30" height="30"
                     [ngClass]="'flag flag-f-'+ item.CountryId">{{item.CountryName}}
                 </span>
               </li>
