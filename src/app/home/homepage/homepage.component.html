@@ -1,6 +1,24 @@
+<!-- <a (click)="setAutoplay();" style="z-index:999999; border: 1px solid #ff0000; height: 35px; width: 112px; right: 10px; position: fixed; top: 123px;">Pause Play {{sliderAutoplay}}</a>
+   
+    
+<div id="your-slider-id" class="splide">
+  <div class="splide__track">
+    <ul class="splide__list">
+      
+      <li class="splide__slide">Slide 1</li>
+      <li class="splide__slide">Slide 2</li>
+      <li class="splide__slide">Slide 3</li>
+      
+    </ul>
+  </div>
+</div> -->
+
 <div class="first_fold">
+   
+
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
-           <splide [options]="{ type: 'loop', autoplay: 'true', lazyLoad: 'true' }">
+         
+            <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true', interval:1000 }"> 
              <splide-slide>
                 <div class="sliderImg"></div>
                 <div class="carousel-caption tpSlider_1">

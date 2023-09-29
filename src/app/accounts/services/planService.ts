@@ -250,10 +250,14 @@ export class PlanService {
     replaced = replaced.replace(/;/g, '');
     replaced = replaced.replace(/[\[\]']/g,'' );
    
+    let response:any = [];
      const cachedData = sessionStorage.getItem('pinless_'+replaced);
     if (cachedData) {
       return of(JSON.parse(cachedData));
+    }else{
+      return response;
     }
+     
   }
   //Get plan snapshot..
   public getPlanInfo(phone:any):Observable<any[] | ApiErrorResponse>{
@@ -277,35 +281,17 @@ export class PlanService {
 
     return this.httpClient.get<[]>(`${Api.plan.pinlessNumber}/${replaced}`).pipe(
       tap(data => {
-        sessionStorage.setItem('pinless_'+replaced, JSON.stringify(data));
-        console.log(sessionStorage.getItem('pinless_'+replaced));
+         
+          sessionStorage.setItem('pinless_'+replaced, JSON.stringify(data));
+         
       }),
       catchError(error => {
-        console.error('Error fetching data:', error);
+        console.error('Error pinless_ fetching data:', error);
+        sessionStorage.setItem('pinless_'+replaced, JSON.stringify([]));
         return of(null);
       }) 
       );
-// let plan_info = this.httpClient.get<[]>(`${Api.plan.pinlessNumber}/${replaced}`);
-// localStorage.setItem("currentPlan", JSON.stringify(plan_info));
-//     return plan_info;
-
-
-    // this.currentPlan = JSON.parse(localStorage.getItem("currentPlan"))
-    //   if(this.currentPlan && this.currentPlan.PlanId)
-    //   {
-        
-    //     return of(this.currentPlan);
-    //   }
-    //   else{
-         
-    //     this.currentPlan =  this.httpClient.get<[]>(`${Api.plan.pinlessNumber}/${replaced}`);
-       
-    //     localStorage.setItem('currentPlan',JSON.stringify(this.currentPlan))
-    //     return of(this.currentPlan);
-    //   }
-    
-     
-       
+ 
   }
 
 

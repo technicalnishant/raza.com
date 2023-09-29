@@ -211,7 +211,7 @@ onPaypalPaymentApprove(data: IOnApproveCallbackData): Promise<any> {
 
   this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe( 
     (res:any)=>{
-      if(res.CardId)
+      if(res !== null && res.CardId )
       {
         this.clientCardId = res.CardId;
         this.isAutoRefillEnable = res.ArStatus
@@ -284,7 +284,7 @@ onPaypalPaymentApprove(data: IOnApproveCallbackData): Promise<any> {
     return false;
   }
   else
-  return true;
+  return false;
   
  }
 

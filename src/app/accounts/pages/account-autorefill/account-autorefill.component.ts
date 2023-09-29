@@ -79,12 +79,14 @@ export class AccountAutorefillComponent implements OnInit, OnDestroy {
     this.planService.getPlanByPinlessNumber(phone).subscribe(
      // this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe(
       (data: Plan) => {
-        this.plan = data;
-        this.planId = this.plan.PlanId
-        this.isEnableOtherPlan = true;
-        
-        this.getAutoEnroll();
-        this.creditCardsData();
+        if(data && data.PlanId)
+        {
+          this.plan = data;
+          this.planId = this.plan.PlanId
+          this.isEnableOtherPlan = true;
+          this.getAutoEnroll();
+          this.creditCardsData();
+        }
        },
       (err: ApiErrorResponse) => {
         

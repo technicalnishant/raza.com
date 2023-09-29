@@ -87,13 +87,13 @@ export class SidemenuComponent implements OnInit {
 		}
     else
     {
-      this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe( 
-        (res:any)=>{
+      // this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe( 
+      //   (res:any)=>{
           
-          this.plan = res;
+      //     this.plan = res;
           
-        }
-      );
+      //   }
+      // );
       return true;
     }
     
