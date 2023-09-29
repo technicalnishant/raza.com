@@ -78,7 +78,7 @@
         <!-- commonmyaccountareaforallpages -->
         <app-account-overview-plan-info *ngIf="plan && showBalance" [plan]="plan"></app-account-overview-plan-info>
 
-        <app-account-buy-one-get-one *ngIf="!plan" ></app-account-buy-one-get-one>
+        <app-account-buy-one-get-one *ngIf="!plan && showBalance" ></app-account-buy-one-get-one>
 
         <!-- commonmyaccountareaforallpages -->
           <!-- <app-account-recharge *ngIf="plan" [plan]="plan" ></app-account-recharge>
