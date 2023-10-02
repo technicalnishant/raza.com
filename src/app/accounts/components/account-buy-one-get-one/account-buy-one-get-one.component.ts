@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { NavigationEnd, Router } from '@angular/router';
 @Component({
   selector: 'app-account-buy-one-get-one',
   templateUrl: './account-buy-one-get-one.component.html',
@@ -9,9 +10,27 @@ export class AccountBuyOneGetOneComponent implements OnInit {
 
   constructor(private router: Router,) { }
   isLoading:boolean = false;
-  ngOnInit(): void {
+  isOverview:boolean = true;
+  ngOnInit() {
+
+    //Loading All customer plans.
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+
+    if(event.url == '/account/overview') {
+      this.isOverview = true;
+    }
+    else if(event.url == '/account/my-profile' || event.url == '/account/rewards') {
+      this.isOverview = false;
+    }
+    else {
+      this.isOverview = false;
+    }
+
+    });
   }
-   
+
   onClickRechargeButton()
   {
     this.isLoading = true;
