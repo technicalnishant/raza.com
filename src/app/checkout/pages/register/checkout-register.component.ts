@@ -49,6 +49,14 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
   isPromotion:boolean = false;
   promoCode:string=''; 
   hidePrefix:boolean=true;
+  passwordForm: FormGroup;
+  otpConfirmForm: FormGroup;
+  wrongOtp:boolean=false;
+
+  showLoginForm:boolean=true;
+  showOtpForm:boolean=false;
+  showForgotPass:boolean=false;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -66,6 +74,15 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
   }
 
   ngOnInit() {
+
+    this.passwordForm = this.formBuilder.group({
+      password: ['', [Validators.required]],
+    });
+
+    this.otpConfirmForm = this.formBuilder.group({
+      otp: ['', [Validators.required]],
+    });
+
     this.titleService.setTitle('Register your account');
     this.razaLayoutService.setFixedHeader(true);
 
@@ -168,7 +185,12 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
         this.sendOtp();
         localStorage.setItem("login_no", this.purchaseInfoForm.value.phoneNumber);
       }).catch((err: ApiErrorResponse) => {
-        this.openPasswordLoginDialog(this.purchaseInfoForm.value.phoneNumber)
+        //this.openPasswordLoginDialog(this.purchaseInfoForm.value.phoneNumber);
+
+        this.showLoginForm = false;
+        this.showOtpForm = false;
+        this.showForgotPass = true;
+
       });
   }
 
@@ -208,10 +230,19 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
     this.executeCaptcha('login').toPromise().then(token => 
       {
        this.authService.sendOtpForRegister(phoneWithCountryCode, token).toPromise()
-      .then(res => {
-        this.openOtpConfirmDialog(this.purchaseInfoForm.value.phoneNumber);
+      .then(res => { 
+        this.showLoginForm = false;
+        this.showOtpForm = true;
+        this.showForgotPass = false;
+
       })
     })
+  }
+
+  goBack(){
+    this.showLoginForm = true;
+        this.showOtpForm = false;
+        this.showForgotPass = false;
   }
 
   private isEmailOrPhoneExist(countryCode: string, emailOrPhone: string): Observable<boolean | ApiErrorResponse> {
@@ -244,6 +275,58 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
     },
       err => { },
     )
+  }
+
+
+  
+  onPasswordFormSubmit() {
+    if (!this.passwordForm.valid) {
+      return;
+    }
+
+    const body = {
+      username: this.purchaseInfoForm.value.phoneNumber,
+      password: this.passwordForm.value.password
+    }
+
+    this.authService.login(body).toPromise()
+      .then((res:any) => {
+        if (res) {
+          
+
+          if (res.countryId ) {
+            let country = this.countryFrom.filter(a=>a.CountryId == res.countryId);
+            
+                this.currentSetting.country = country[0]
+                this.setcurrentCurrency(this.currentSetting.country.CountryId);
+             
+          }
+
+        }
+      }).catch(err => {
+        this.passwordForm.controls['password'].setErrors({ 'invalid': true });
+      });
+
+  }
+
+  onOtpConfirmFormSubmit() {
+    this.wrongOtp   = false;
+    if (!this.otpConfirmForm.valid) {
+      return;
+    }
+     this.executeCaptcha('login').toPromise().then(token => {
+    this.authService.verifyOtp(this.purchaseInfoForm.value.phoneNumber, this.otpConfirmForm.value.otp, token).toPromise()
+      .then((res: boolean) => {
+       console.log("api resp is ", res);
+        if (res) {
+         
+         this.registerAndLoginUser(this.purchaseInfoForm.value.phoneNumber, this.otpConfirmForm.value.otp);
+        } else {
+          this.wrongOtp = true;
+         
+        }
+      });
+    });
   }
 
   private registerAndLoginUser(phoneNumber: string, otp: string) {
