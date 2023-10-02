@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, Injector } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, OnDestroy, Injector, ViewChildren } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 //import { isNullOrUndefined } from 'util';
@@ -56,7 +56,12 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
   showLoginForm:boolean=true;
   showOtpForm:boolean=false;
   showForgotPass:boolean=false;
-
+  form: FormGroup;
+  moreOptions:boolean=false;
+  formInput = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6'];
+  invalidOtp:String='';
+  phone_number:any='';
+  @ViewChildren('formRow') rows: any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -70,18 +75,20 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
     private razaSnackBarService: RazaSnackBarService,
     _injector: Injector
   ) {
-    super(_injector)
+   
+    super(_injector);
+    this.otpConfirmForm           = this.toFormGroup(this.formInput);
   }
-
+ 
   ngOnInit() {
 
     this.passwordForm = this.formBuilder.group({
       password: ['', [Validators.required]],
     });
 
-    this.otpConfirmForm = this.formBuilder.group({
-      otp: ['', [Validators.required]],
-    });
+    // this.otpConfirmForm = this.formBuilder.group({
+    //   otp: ['', [Validators.required]],
+    // });
 
     this.titleService.setTitle('Register your account');
     this.razaLayoutService.setFixedHeader(true);
@@ -186,7 +193,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
         localStorage.setItem("login_no", this.purchaseInfoForm.value.phoneNumber);
       }).catch((err: ApiErrorResponse) => {
         //this.openPasswordLoginDialog(this.purchaseInfoForm.value.phoneNumber);
-
+        this.phone_number = this.purchaseInfoForm.value.phoneNumber;
         this.showLoginForm = false;
         this.showOtpForm = false;
         this.showForgotPass = true;
@@ -234,7 +241,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
         this.showLoginForm = false;
         this.showOtpForm = true;
         this.showForgotPass = false;
-
+        this.phone_number = this.purchaseInfoForm.value.phoneNumber;
       })
     })
   }
@@ -283,7 +290,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
     if (!this.passwordForm.valid) {
       return;
     }
-
+   
     const body = {
       username: this.purchaseInfoForm.value.phoneNumber,
       password: this.passwordForm.value.password
@@ -467,6 +474,67 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
      
       const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
      
+  }
+
+
+
+  
+  toFormGroup(elements) {
+    const group: any = {};
+
+    elements.forEach(key => {
+      group[key] = new FormControl('', Validators.required);
+    });
+    group['otp'] = new FormControl('', Validators.required);
+    
+
+    return new FormGroup(group);
+  }
+
+  keyUpEvent(event, index) {
+    this.invalidOtp = '';
+    let pos = index;
+   
+    if ((event.keyCode === 8 && event.which === 8) || (event.keyCode === 37 && event.which === 37)) {
+      pos = index - 1 ;
+    } else {
+      pos = index + 1 ;
+    }
+    
+    if (pos > -1 && pos < this.formInput.length ) {
+      this.rows._results[pos].nativeElement.focus();
+      
+    }
+    if((event.target as HTMLInputElement).value == '')
+    {
+      return false
+    }
+    if(pos == this.formInput.length)
+    {
+      let otp = this.otpConfirmForm.value.input1+this.otpConfirmForm.value.input2+this.otpConfirmForm.value.input3+this.otpConfirmForm.value.input4+this.otpConfirmForm.value.input5+this.otpConfirmForm.value.input6;
+
+      this.onOtpConfirmFormSubmit()
+    }
+      
+
+  }
+
+
+  keyPressEvent(event, index) {
+    
+
+  }
+
+  resendCode()
+  {
+    this.invalidOtp = '';
+    this.form.reset();
+    // this.form.value.input1= '';
+    // this.form.value.input2= '';
+    // this.form.value.input3= '';
+    // this.form.value.input4= '';
+    // this.form.value.input5= '';
+    // this.form.value.input6= '';
   }
 
 }

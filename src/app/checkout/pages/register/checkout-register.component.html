@@ -98,6 +98,13 @@
           novalidate *ngIf="showForgotPass" >
           <div class="row commonPopupRow">
             <div class="col-sm-12">
+
+              <div>
+                <label>Phone Number: </label><span  >+ {{currentCountry.CountryCode}} &nbsp;{{phone_number}}</span> 
+                
+              </div>
+
+
               <!--<span class="floatRight forgetPass">
                  <a tabindex="-1" (click)="navigateToForgotPassword()">Forgot password?</a></span> -->
               <mat-form-field class="example-full-width">
@@ -128,25 +135,60 @@
 
         <form *ngIf="showOtpForm" class="example-form" name="otpConfirmForm" [formGroup]="otpConfirmForm" (ngSubmit)='onOtpConfirmFormSubmit()'
         novalidate>
-        <div class="row commonPopupRow">
+        <div class="row commonPopupRow" *ngIf="!moreOptions">
           <div class="col-sm-12">
-            <mat-form-field class="example-full-width">
+            <!-- <mat-form-field class="example-full-width">
               <input matInput placeholder="Enter 6 digit Code" formControlName="otp">
               <mat-error *ngIf="otpConfirmForm.get('otp').errors?.required">
                 Enter Verification Code
               </mat-error>
               
   
-            </mat-form-field>
+            </mat-form-field> -->
+
+            <div class="row">
+              <div class="form-group col-sm-2 col" *ngFor="let input of formInput;  index as i">
+                  <input #formRow autocomplete="on" type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)" autofocus>
+                </div>
+            </div>
+            <p *ngIf="sendAgainMsg && loginWith == 'phone'" class="text_green" >A code has been sent to your mobile. Kindly check and enter it. </p>
+            <p *ngIf="sendAgainMsg && loginWith == 'email'" class="text_green" >Code has been sent. Please check your email. </p>
+            <div class="row titleTex">
+            
+              Didn’t get code? <a href="javascript:void(0)" (click)="sendOtp();" class="sendAgain"> Send Again</a> 
+            </div>
+            
+            <div class="row">
+              <a href="javascript:void(0)" (click)="moreOptions=!moreOptions" class="moreOpt">More Options</a>
+            </div>
+
             <div *ngIf="wrongOtp" style="color:#ff0000">
               Please enter the verification code which was send to your mobile.
             </div>
           </div>
         </div>
+
+
+        <div class="example-container" *ngIf="moreOptions">
+
+          <!-- <h3 class="options" (click)="chatWithUs()">Chat with us</h3>   -->
+          <h3 class="options" (click)="sendOtp();moreOptions=!moreOptions" >Resend code</h3>  
+         
+          
+          <div class="contact_div_wrap">
+             <div class="contact_div">
+               <span class="phone_text"><a href="tel:+18774634233">1877-463-4233</a></span> 24/7
+             </div>
+ 
+              <!-- <p>Or</p>
+               <h3 class="options" *ngIf="loginWith == 'phone'" (click)="processWith('email')">Login with Email</h3>  
+               <h3 class="options" *ngIf="loginWith == 'email'" (click)="processWith('phone')">Login with Phone</h3>  -->
+           </div>
+       </div>
+
+
         <div class="form_row1">
-          <div class="input_holder1 text-center">
-            <button mat-button class="submitButton_confirms">Confirm</button>
-          </div>
+        
 
           <div class="input_holder1 text-center">
             <button type="button" (click)="goBack()" mat-button class="submitButton_confirms">Go Back</button>
