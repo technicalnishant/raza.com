@@ -5,6 +5,9 @@
         <h2 class="welcomeText" *ngIf="showBalance">{{userWelcomeLabel}}</h2>
         <!-- commonmyaccountareaforallpages -->
         <app-account-overview-plan-info *ngIf="plan && showBalance" [plan]="plan"></app-account-overview-plan-info>
+
+        <app-account-buy-one-get-one *ngIf="!plan && showBalance" ></app-account-buy-one-get-one>
+        
         <!-- commonmyaccountareaforallpages -->
         <!----------Show mobile stats------------>
         <div *ngIf="showMobileStats && newDesign">
