@@ -1,17 +1,14 @@
-<div class="commonmyaccountareaforallpages d-block align-items-center d-md-flex">
+<div *ngIf="isOverview" class="border-0"></div>
+<div class="commonmyaccountareaforallpages d-block align-items-center d-md-flex freeTarils">
     <div class="leftArea">
       <div class="global_planArea">
         <!-- <img loading="lazy" class="globalIcon" src="https://d2uij5nbaiduhc.cloudfront.net/images/global_img_icon.png" alt="" /> -->
         <p class="currentPlanText">OFFER</p>
         <p class="globalCallText">BUY 1 GET 1 FREE</p>
-         
       </div>
-  
     </div>
     <div class="rightArea">
       <div class="planBalanceRecharge">
-        
-        
         <div class="input_holder1">
           <button *ngIf="!isLoading"  (click)="onClickRechargeButton()" mat-button
             class="submitButton">Buy Now</button>
@@ -19,7 +16,6 @@
               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
               Loading...
             </button>
-         
         </div>
       </div>
     </div>
