@@ -147,7 +147,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
 
     localStorage.setItem('last_page', event.url);
 
-    if(event.url == '/'  )
+    if(event.url == '/' || event.url == '/mobileapp')
     {
       this.showHeader = true;
       this.showMyaccontHeader = false;
@@ -621,7 +621,7 @@ onClickClose(icon)
       localStorage.removeItem("topupTrigger");
       this.router.navigateByUrl('mobiletopup');
     }
- 
+
   }
 
   clickMenu()
