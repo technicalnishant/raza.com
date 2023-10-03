@@ -20,12 +20,18 @@
       .planBalanceRecharge {
         text-align: left;
         padding-left: 50px;
+        @media only screen and (max-width: 700px)  {
+            padding-left: 0;
+        }
       }
       .global_planArea {
           margin-left: auto;
           margin-right: 40px;
           width: 230px;
           display: block;
+          @media only screen and (max-width: 700px)  {
+              margin: 20px auto 0;
+          }
       }
     }
   }
@@ -132,9 +138,8 @@ p {
     .otherPlans{opacity:1;}
     .commonmyaccountareaforallpages{padding: 0px;}
     .commonmyaccountareaforallpages .leftArea{
-        width: 100%;
+        width: 100% !important;
         border-right: none;
-        padding-bottom: 20px;
     }
     .global_planArea{
         display: table;
@@ -147,7 +152,7 @@ p {
         margin: 0 auto;
     }
     .commonmyaccountareaforallpages .rightArea{
-        width: 100%;
+        width: 100% !important;
         text-align: center;
         float: right;
         border-bottom: 1px solid #C7C7C7;
