@@ -202,6 +202,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      
       this.processOtp = true;
      }
+
+     
     if(this.data.loginWith  && this.data.loginWith == 'email')
     {
         this.loginWith        = 'email';
@@ -231,21 +233,19 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
   setCookieFields()
   {
-     
+    
     if(localStorage.getItem('rememberMe') && localStorage.getItem('rememberMe') == 'rememberMe')
     {
       
      const loginwith  = localStorage.getItem('cookieLoginWith');
      const phoneEmail = localStorage.getItem('cookieLoginPhone');
      const password   = localStorage.getItem('cookieLoginPass');
-     this.loginWith   = this.loginWith?this.loginWith : loginwith;
+     this.loginWith   = loginwith? loginwith:this.loginWith;
      this.rememberMe = true;
      if(this.loginWith == 'phone')
-     {
+     {}
       this.loginForm.controls['username'].setValue(phoneEmail);
       this.loginForm.controls['password'].setValue(password);
-     }
-     
      
 
    }
