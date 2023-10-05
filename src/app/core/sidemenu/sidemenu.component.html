@@ -7,7 +7,7 @@
     <li class="autorefill" *ngIf="plan"><a routerLink="/account/autorefill/{{plan?.PlanId}}" ><span></span> Auto -
         Refill</a></li>
     <li class="order-history"><a routerLink="/account/order-history" ><span></span> Order-History</a></li>
-    <li class="noBorder plandetails" *ngIf="plan">
+    <li class="noBorder plandetails" *ngIf="plan && plan?.PlanId !=''">
       <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header class="plan_details">
