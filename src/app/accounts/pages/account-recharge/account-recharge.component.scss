@@ -181,6 +181,7 @@ h3.selectRechg {
         position: absolute;
         top: -10px;
         margin-left: 4px;
+        z-index: 2;
         &:hover {
             .bonus_text_datas {
                 display: block;

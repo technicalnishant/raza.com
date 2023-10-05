@@ -712,6 +712,15 @@ a {
         object-fit: cover;
     }
     ::ng-deep {
+        .carousel-caption.tpSlider_0 {
+          left: 0;
+          right: 0;
+        }
+        .thanksGivingDay img {
+          height: 700px;
+          object-fit: cover;
+          width: 100%;
+        }
         .carousel-indicators {
             position: absolute;
             z-index: 15;
@@ -1245,7 +1254,7 @@ h1.buy1get1-text:after {
       display: none;
   }
   .img-1 img {
-      width: 70%;
+      // width: 70%;
       margin: auto;
       display: block;
   }

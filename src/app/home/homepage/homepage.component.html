@@ -1,24 +1,6 @@
-<!-- <a (click)="setAutoplay();" style="z-index:999999; border: 1px solid #ff0000; height: 35px; width: 112px; right: 10px; position: fixed; top: 123px;">Pause Play {{sliderAutoplay}}</a>
-   
-    
-<div id="your-slider-id" class="splide">
-  <div class="splide__track">
-    <ul class="splide__list">
-      
-      <li class="splide__slide">Slide 1</li>
-      <li class="splide__slide">Slide 2</li>
-      <li class="splide__slide">Slide 3</li>
-      
-    </ul>
-  </div>
-</div> -->
-
 <div class="first_fold">
-   
-
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
-         
-            <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }"> 
+            <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
              <splide-slide>
                 <div class="sliderImg"></div>
                 <div class="carousel-caption tpSlider_1">
@@ -26,13 +8,17 @@
                         <div class="d-md-flex align-items-center justify-content-center mt-5 mt-md-0">
                           <div class="img-1 mt-5 newSpelWrap">
                               <span class="new_cust_spl showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">New Customer Special</span>
-                              <img  src="./assets/images/home_banner_new/buy1get1.webp" width="300" height="303" loading="lazy" alt="img" class="img-fluid d-none d-md-block">
-                              <img  src="./assets/images/home_banner_new/hm_banner_mb-us.webp" width="416" height="333" loading="lazy" alt="img" class="img-fluid showMobileOnly"  *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
+                                <img  src="./assets/images/home_banner_new/buy1get1.webp" width="300" height="303" loading="lazy" alt="img" class="img-fluid d-none d-md-block">
+                                <a routerLink="deals/buy1-get1">
+                                  <img  src="./assets/images/home_banner_new/hm_banner_mb-us.webp" width="416" height="333" loading="lazy" alt="img" class="img-fluid showMobileOnly"  *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
+                                </a>
                           </div>
                           <div class="divider d-none d-md-block"></div>
                           <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 3">
+                            <a routerLink="deals/buy1-get1">
                               <img src="./assets/images/home_banner_new/was10now5.webp" width="363" height="324" alt="img" loading="lazy" class="img-fluid d-none d-md-block">
                               <img src="./assets/images/home_banner_new/was10now5_mb.webp" width="619" height="533" alt="img" loading="lazy" class="img-fluid showMobileOnly">
+                            </a>
                           </div>
                           <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
                               <a routerLink="deals/buy1-get1">
