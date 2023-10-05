@@ -4,7 +4,7 @@
               <splide-slide *ngIf="currentSetting?.country?.CountryId == 2" >
                 <div class="sliderImg"></div>
                 <div class="carousel-caption tpSlider_0">
-                    <div class="thanksGivingDay">
+                    <div class="thanksGivingDay" (click)="onopenchristmas(typedEl)">
                         <img src="./assets/images/home_banner_new/thanks_giving_day.png" alt="" width="" height="" class="thxGivDay d-none d-md-block">
                         <img src="./assets/images/home_banner_new/thanks_giving_day_mb.png" alt="" width="" height="" class="thxGivDay showMobileOnly">
                     </div>
