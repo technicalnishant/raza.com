@@ -41,8 +41,10 @@
 
              <splide-slide>
                 <div class="carousel-caption download">
-                  <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new.webp" alt="img" width="636" height="689" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
-                  <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new_uk.webp" alt="img" width="636" height="689" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 3">
+                  <a routerLink="/mobile-page" >
+                      <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new.webp" alt="img" width="636" height="689" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
+                      <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new_uk.webp" alt="img" width="636" height="689" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 3">
+                    </a>
                   <a href="javascript:void(0)" (click)="downloadApp()" mat-button>
                       <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi2.webp" alt="img" width="522" height="102" class="img-fluid d-block d-md-none m-auto playStor2">
                   </a>
