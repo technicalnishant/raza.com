@@ -1,6 +1,15 @@
 <div class="first_fold">
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
             <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
+              <splide-slide *ngIf="currentSetting?.country?.CountryId == 2" >
+                <div class="sliderImg"></div>
+                <div class="carousel-caption tpSlider_0">
+                    <div class="thanksGivingDay">
+                        <img src="./assets/images/home_banner_new/thanks_giving_day.png" alt="" width="" height="" class="thxGivDay d-none d-md-block">
+                        <img src="./assets/images/home_banner_new/thanks_giving_day_mb.png" alt="" width="" height="" class="thxGivDay showMobileOnly">
+                    </div>
+                </div>
+              </splide-slide>
              <splide-slide>
                 <div class="sliderImg"></div>
                 <div class="carousel-caption tpSlider_1">
