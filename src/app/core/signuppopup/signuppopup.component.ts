@@ -92,7 +92,8 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
     this.getCountryFrom();
 
     
-    if( localStorage.getItem('redirect_path') && localStorage.getItem('redirect_path') == 'account/rewards' )
+   // if( localStorage.getItem('redirect_path') && localStorage.getItem('redirect_path') == 'account/rewards' )
+    if( localStorage.getItem('redirect_path') && ( localStorage.getItem('redirect_path') == 'account/rewards' || localStorage.getItem('redirect_path') == 'checkout/payment-info') )
     {
       this.reward_content = true;
       this.is_redirect = localStorage.getItem('redirect_path');
@@ -279,7 +280,7 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
       localStorage.setItem("auto_action", "SubmitReward");
     }
     this.closeModal();
-    //this.router.navigate(['searchrates']); 
+    localStorage.removeItem('redirect_path');
     this.router.navigate([this.is_redirect]);
     
   }

@@ -175,7 +175,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
     this.runCaptcha();
      
-  if( localStorage.getItem('redirect_path') && localStorage.getItem('redirect_path') == 'account/rewards' )
+  if( localStorage.getItem('redirect_path') && ( localStorage.getItem('redirect_path') == 'account/rewards' || localStorage.getItem('redirect_path') == 'checkout/payment-info') )
       {
         this.reward_content   = true;
         this.is_redirect      = localStorage.getItem('redirect_path');
@@ -242,12 +242,14 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      const password   = localStorage.getItem('cookieLoginPass');
      this.loginWith   = loginwith? loginwith:this.loginWith;
      this.rememberMe = true;
-     if(this.loginWith == 'phone')
-     {}
+     if(this.loginWith == 'email')
+     {
+      this.showPassWord = true;
+     }
+
       this.loginForm.controls['username'].setValue(phoneEmail);
       this.loginForm.controls['password'].setValue(password);
-     
-
+ 
    }
   }
  /*
@@ -271,7 +273,8 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   displayFn(country?: any): string | undefined {
     return country ? country.CountryName : undefined;
   }
-  actionFunction() {
+  actionFunction() 
+  {
 
     this.closeModal();
   }
@@ -468,6 +471,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
  
   redirect(path)
   {
+    localStorage.removeItem('redirect_path');
     this.router.navigateByUrl(path);
   }
   
