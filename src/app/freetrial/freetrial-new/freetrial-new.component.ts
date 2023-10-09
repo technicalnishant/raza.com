@@ -3,7 +3,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormControl } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
   
 // import { Observable } from 'rxjs/internal/Observable';
 import { from, Observable } from 'rxjs';
@@ -38,7 +38,7 @@ import { SearchRate } from '../../rates/model/searchRates';
 import { PopularRate } from '../../shared/model/popularRate';
 import { NodataFoundComponent } from '../../core/nodata-found/nodata-found.component'; 
 import { MetaTagsService } from 'app/core/services/meta.service';
-
+import { LoginpopupComponent } from '../../core/loginpopup/loginpopup.component';
 export interface State {
   flag: string;
   name: string;
@@ -88,7 +88,7 @@ export class FreetrialNewComponent implements OnInit, OnDestroy {
     private authService: AuthenticationService,
     private razaEnvService: RazaEnvironmentService,
     private checkoutService: CheckoutService,
-	
+    
 	 private dealsService: DealsService,
     private searchRatesService: SearchRatesService,
     private globalRatesService: GlobalRatesService,
@@ -280,10 +280,32 @@ export class FreetrialNewComponent implements OnInit, OnDestroy {
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/checkout/payment-info']);
     } else {
-      this.router.navigate(['/checkout']);
+      // this.router.navigate(['/checkout']);
+      this.openModal();
     }
   }
  
+
+
+  openModal() {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "350px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = {
+      name: "logout",
+      title: "Are you sure you want to logout?",
+      description: "Pretend this is a convincing argument on why you shouldn't logout :)",
+      actionButtonText: "Logout",
+      redirect: "free-trial",
+    }
+    localStorage.setItem('redirect_path', 'checkout/payment-info');
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
+  }
+
 
   displayFn(country?: any): string | undefined {
     return country ? country.CountryName : undefined;

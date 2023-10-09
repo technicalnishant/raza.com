@@ -1,5 +1,5 @@
 <div *ngIf="IsEnableLoggedIn">
-  
+
   <ul class="homeSideMenus">
     <li class="recharge"><a routerLink="/account/overview" ><span></span> Recharge</a></li>
     <li class="payment-details"><a routerLink="/account/payment-details/{{plan?.PlanId}}" ><span></span> Payment Details</a>
@@ -7,7 +7,7 @@
     <li class="autorefill" *ngIf="plan"><a routerLink="/account/autorefill/{{plan?.PlanId}}" ><span></span> Auto -
         Refill</a></li>
     <li class="order-history"><a routerLink="/account/order-history" ><span></span> Order-History</a></li>
-    <li class="noBorder plandetails" *ngIf="plan">
+    <li class="noBorder plandetails" *ngIf="plan && plan?.PlanId !=''">
       <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header class="plan_details">
@@ -47,7 +47,7 @@
 
   </ul>
 </div>
- 
+
 <div *ngIf="!IsEnableLoggedIn">
 <a mat-list-item routerLink="/">
   <span class="mainSpan">HOME
@@ -85,7 +85,7 @@
   <span class="mainSpan">SIGNUP / LOGIN
     <span class="slider"></span>
   </span>
-  <span class="subMenu"><img src="assets/images/sub_menu_icon.svg" alt="arrow down" /></span>
+  <span class="subMenu"><img src="assets/images/sub_menu_icon.svg" alt="arrow down" width="10" height="14" /></span>
 </a>
 <!-- <a mat-list-item routerLink=".">
   <span class="mainSpan">LIVE CHAT

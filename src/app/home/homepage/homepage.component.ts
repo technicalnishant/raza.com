@@ -40,6 +40,7 @@ import { ModalVideoComponent } from '../modal-video/modal-video.component';
 import { MetaTagsService } from '../../core/services/meta.service';
 import { PreviousRouteService } from '../../core/services/previous-route.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+// import Splide from '@splidejs/splide';
 export class SomeModule { }
 // import{GoogleAnalyticsService} from '../../services/google-analytics.service';
 // declare var videojs: any;
@@ -62,7 +63,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     lazyLoad: true,
   }
 
-
+sliderAutoplay: boolean = true;
   headerValue: number = 1;
   // slideConfig = { "slidesToShow": 3, "slidesToScroll": 2 };
   slideConfig = {
@@ -98,7 +99,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
   isFixHeader: boolean = false;
   //promtionCode:string='RAMADAN2023';
   //promtionCode:string='EID2023';
-  promtionCode:string='DAD2023';
+  promtionCode:string='THANKS2023';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';
@@ -141,6 +142,43 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     });
   }
 
+  
+
+  // splideInstance: Splide | null = null;
+
+  // setAutoplay() {
+  //   this.sliderAutoplay = !this.sliderAutoplay;
+
+  //   if (this.splideInstance) {
+  //     // Destroy the Splide instance and reinitialize without autoplay
+  //     this.splideInstance.destroy();
+  //     this.initSplide();
+  //   }
+  // }
+
+ 
+
+  // private initSplide() {
+  //   this.splideInstance = new Splide('#your-slider-id', {
+  //     type: 'loop',
+  //     autoplay: this.sliderAutoplay ? true : false,
+  //     //lazyLoad: true
+  //   }).mount();
+  // }
+  ngAfterViewInit(): void {
+    // const options = {
+    //   strings: ['Stay Safe & Keep Talking', 'Get up to 20% bonus'],
+    //   typeSpeed: 130,
+    //   backSpeed: 130,
+    //   showCursor: true,
+    //   smartBackspace: true,
+    //   cursorChar: '|',
+    //   loop: true
+    // };
+
+    // const typed = new Typed('.typed-element', options);
+    //this.initSplide();
+  }
 
   ngOnInit() {
   /******************* Remember & redirect rate page search functioanlity ********************/
@@ -305,20 +343,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
       panelClass: 'mobile-video-dialog', //======> pass your class name
   });
   }
-  ngAfterViewInit(): void {
-    // const options = {
-    //   strings: ['Stay Safe & Keep Talking', 'Get up to 20% bonus'],
-    //   typeSpeed: 130,
-    //   backSpeed: 130,
-    //   showCursor: true,
-    //   smartBackspace: true,
-    //   cursorChar: '|',
-    //   loop: true
-    // };
-
-    // const typed = new Typed('.typed-element', options);
-
-  }
+  
 
   ngAfterViewChecked(){
 

@@ -3,7 +3,7 @@
   <mat-sidenav class="slidemenu hideSome" fixedInViewport="true" #sidenav [mode]="mode.value">
     <div class="closs_area">
       <span class="cross-icon" (click)="toggleSideNav()">
-        <img src="assets/images/cross_icon_sidemenu.jpg" alt="" />
+        <img src="assets/images/cross_icon_sidemenu.jpg" alt="cross icon"  width="86" height="77"/>
       </span>
       <span>
         <mat-form-field>
@@ -28,15 +28,12 @@
   <mat-sidenav-content>
     <div class="wraper">
       <app-header *ngIf="!currentURL.includes('moto')  && !currentURL.includes('web_pay') && !currentURL.includes('mobile_pay') && !currentURL.includes('raza-us')" [sidenav]='sidenav'></app-header>
-     <div  class="mainWrapper">
       <router-outlet></router-outlet>
-      <div class="loadWrapoer"></div>
-     </div>
     </div>
     <raza-spinner-taghelper></raza-spinner-taghelper>
     <!--Footer-->
 
-    <app-footer *ngIf="!currentURL.includes('sitemap') && !currentURL.includes('moto')  && !currentURL.includes('web_pay') && !currentURL.includes('mobile_pay')" ></app-footer>
+    <app-footer *ngIf="showDelayedSubcomponent && !currentURL.includes('sitemap') && !currentURL.includes('moto')  && !currentURL.includes('web_pay') && !currentURL.includes('mobile_pay')" ></app-footer>
     <!--Footer-->
 
   </mat-sidenav-content>

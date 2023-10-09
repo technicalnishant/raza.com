@@ -1,4 +1,4 @@
-<div class="commonmyaccountareaforallpages">
+<div class="commonmyaccountareaforallpages" *ngIf="plan?.Balance">
     <div class="leftArea">
         <!-- <div class="global_planArea"> -->
             <!-- <img loading="lazy" class="globalIcon" src="https://d2uij5nbaiduhc.cloudfront.net/images/global_img_icon.png" alt="" /> -->
@@ -8,17 +8,39 @@
       <p *ngIf="currentPlanName !=''" class="globalCallText">{{ currentPlanName }}</p>-->
         <!-- </div> -->
     </div>
-    <div class="rightArea">
+    <div class="rightArea"  >
         <div class="planBalanceRecharge">
             <p class="currentPlanText">Your Balance</p>
             <p class="currentPlanTextRate">{{plan?.Balance | bCurrency : plan?.CurrencyCode | async}}</p>
              <div class="input_holder1">
+<<<<<<< HEAD
                 <button *ngIf="plan.IsAllowRecharge && !isLoading" (click)="onClickRechargeButton()" mat-button class="submitButton">Recharge</button>
                 <button *ngIf="!plan.IsAllowRecharge && !isLoading" (click)="onClickRechargeButton()" mat-button class="submitButton submit-grey">Recharge</button>
                  <!-- <button *ngIf="isLoading" class="submitButton submit-grey" type="button" disabled>
+=======
+                <button *ngIf="plan?.IsAllowRecharge && !isLoading" (click)="onClickRechargeButton()" mat-button class="submitButton">Recharge</button>
+                <button *ngIf="!plan?.IsAllowRecharge && !isLoading" (click)="onClickRechargeButton()" mat-button class="submitButton submit-grey">Recharge</button>
+                <!-- <button *ngIf="isLoading" class="submitButton submit-grey" type="button" disabled>
+>>>>>>> bc8a277846015d772253dcb9ae803475a79d3ee2
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Loading...
                 </button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="commonmyaccountareaforallpages" *ngIf="!plan?.Balance">
+    <div class="leftArea">
+        
+    </div>
+    <div class="rightArea"  >
+        <div class="planBalanceRecharge">
+            <p class="currentPlanText">Your Balance</p>
+            <p class="currentPlanTextRate">{{plan?.Balance | bCurrency : plan?.CurrencyCode}}</p>
+             <div class="input_holder1">
+                
             </div>
         </div>
     </div>

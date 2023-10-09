@@ -17,7 +17,7 @@
               <div class="back1" style="background-color: {{item.bg_color}}E6;">
                 <p class="item_title">{{item.content}}</p>
                 <div mat-card-avatar class="avatar-wrapper">
-                  <img src="{{item.avatar}}" class="example-header-image">
+                  <img src="{{item.avatar}}" class="example-header-image" width="60" height="60" alt="icon">
                 </div>
                 <div class="front-back">
                   <p class="name__user">{{item.name}} <br>
@@ -39,15 +39,15 @@
         <div class="slider-content-wrapper" style="background-color: {{items.bg_color}};">
           <div class="slider-content">
             <div class="images-part">
-              <img src="{{items.avatar}}">
+              <img src="{{items.avatar}}" width="60" height="60" alt="icon">
             </div>
             <div class="content-part">
               <p>{{items.content}}</p>
-              <span>{{items.name}} {{items.date}}</span> 
+              <span>{{items.name}} {{items.date}}</span>
             </div>
           </div>
         </div>
       </div>
-    </mat-carousel-slide>   
+    </mat-carousel-slide>
   </mat-carousel>
 </div>

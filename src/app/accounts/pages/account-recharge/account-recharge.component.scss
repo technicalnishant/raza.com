@@ -181,6 +181,7 @@ h3.selectRechg {
         position: absolute;
         top: -10px;
         margin-left: 4px;
+        z-index: 2;
         &:hover {
             .bonus_text_datas {
                 display: block;
@@ -278,6 +279,14 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+::ng-deep {
+  .form_row1.paypal-box {
+      padding: 0 35px;
+      margin-top: 20px;
+      max-width: 300px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
     .denomination__box {
         margin: 0 5px 4px;
@@ -297,5 +306,8 @@ input:checked + .slider:before {
     .rates_info {
       margin-top: 0;
       padding: 8px;
+    }
+    .form_row1.paypal-box {
+      margin: 0 auto;
     }
 }

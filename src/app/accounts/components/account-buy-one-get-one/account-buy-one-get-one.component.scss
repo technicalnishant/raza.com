@@ -11,6 +11,37 @@
 		float: left;
 		width: 40%;
 	}
+  &.freeTarils {
+      padding: 20px 20px 35px;
+      height: auto;
+      border-bottom: 1px solid #ddd;
+      .leftArea, .rightArea {
+        width: 50%;
+      .planBalanceRecharge {
+        text-align: left;
+        padding-left: 50px;
+        @media only screen and (max-width: 700px)  {
+            padding-left: 0;
+        }
+      }
+      .global_planArea {
+          margin-left: auto;
+          margin-right: 40px;
+          width: 230px;
+          display: block;
+          @media only screen and (max-width: 700px)  {
+              margin: 20px auto 0;
+          }
+      }
+    }
+  }
+}
+
+.border-0 {
+  ~ .commonmyaccountareaforallpages.freeTarils {
+      border: none;
+      margin: 0;
+  }
 }
 .global_planArea {
 	margin: 20px 98px 0 54px;
@@ -95,21 +126,20 @@ p {
 }
 
 @media only screen and (max-width: 700px)  {
-    
+
 .global_planArea{
     text-align: center;
   }
    .globalIcon{
     display: none;
   }
-  
+
     .otherPlans p.otherPlansText{ color: #000;}
     .otherPlans{opacity:1;}
     .commonmyaccountareaforallpages{padding: 0px;}
-    .commonmyaccountareaforallpages .leftArea{ 
-        width: 100%;
+    .commonmyaccountareaforallpages .leftArea{
+        width: 100% !important;
         border-right: none;
-        padding-bottom: 20px;
     }
     .global_planArea{
         display: table;
@@ -122,7 +152,7 @@ p {
         margin: 0 auto;
     }
     .commonmyaccountareaforallpages .rightArea{
-        width: 100%;
+        width: 100% !important;
         text-align: center;
         float: right;
         border-bottom: 1px solid #C7C7C7;
@@ -137,11 +167,11 @@ p {
     .planBalanceRecharge{float: none;
         display: table;
         margin: 0 auto;}
-    
+
 .commonmyaccountareaforallpages {
     background: none !important;
 }
-    
+
 }
 
 .commonmyaccountareaforallpages {
@@ -151,4 +181,4 @@ p {
 .submit-grey, .submit-grey:hover{
     background: #E8E8E8;
 }
-/* commonmyaccountareaforallpages */ 
+/* commonmyaccountareaforallpages */

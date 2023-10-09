@@ -1,35 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1295px" height="258px" viewBox="0 0 1295 258" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 35</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="website-detached" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="home-copy" transform="translate(-68.000000, -3257.000000)" stroke-width="3">
-            <g id="Group-35" transform="translate(68.000000, 3252.000000)">
-                <g id="Group-33">
-                    <rect id="Rectangle-22" stroke="#06C8B7" transform="translate(136.494074, 32.494074) rotate(-34.000000) translate(-136.494074, -32.494074) " x="128.994074" y="24.9940743" width="15" height="15"></rect>
-                    <rect id="Rectangle-22" stroke="#06C8B7" fill="#06C8B7" x="958.5" y="209.5" width="17" height="17" rx="8.5"></rect>
-                    <path d="M652.751162,247.634497 L671.45259,247.634497 L662.101876,232.049973 L652.751162,247.634497 Z" id="Path-3" stroke="#06C8B7" transform="translate(662.101876, 239.134497) rotate(-25.000000) translate(-662.101876, -239.134497) "></path>
-                    <path d="M886.751162,22.634497 L905.45259,22.634497 L896.101876,7.04997296 L886.751162,22.634497 Z" id="Path-3" stroke="#06C8B7" fill="#06C8B7" transform="translate(896.101876, 14.134497) rotate(-25.000000) translate(-896.101876, -14.134497) "></path>
-                    <rect id="Rectangle-22" stroke="#FBC02E" fill="#FBC02E" transform="translate(472.034487, 190.034487) rotate(26.000000) translate(-472.034487, -190.034487) " x="464.534487" y="182.534487" width="15" height="15"></rect>
-                    <rect id="Rectangle-22" stroke="#FBC02E" fill="#FBC02E" x="1276.5" y="116.5" width="17" height="17" rx="8.5"></rect>
-                    <rect id="Rectangle-22" stroke="#F54F58" x="1133.5" y="26.5" width="17" height="17" rx="8.5"></rect>
-                    <rect id="Rectangle-22" stroke="#FBC02E" x="1.5" y="173.5" width="17" height="17" rx="8.5"></rect>
-                    <path d="M529.269695,80.8738957 L547.971124,80.8738957 L538.620409,65.2893717 L529.269695,80.8738957 Z" id="Path-3" stroke="#FBC02E" transform="translate(538.620409, 72.373896) rotate(-40.000000) translate(-538.620409, -72.373896) "></path>
-                    <rect id="Rectangle-22" stroke="#F64C55" fill="#F54F58" transform="translate(1050.449786, 87.449786) rotate(33.000000) translate(-1050.449786, -87.449786) " x="1042.94979" y="79.9497864" width="15" height="15"></rect>
-                    <rect id="Rectangle-22" stroke="#F64C55" x="668.5" y="46.5" width="17" height="17" rx="8.5"></rect>
-                    <path d="M1162.08567,214.364761 L1180.7871,214.364761 L1171.43639,198.780237 L1162.08567,214.364761 Z" id="Path-3" stroke="#FBC02E" transform="translate(1171.436388, 205.864761) rotate(31.000000) translate(-1171.436388, -205.864761) "></path>
-                    <path d="M85.2056348,245.056349 L103.907064,245.056349 L94.5563492,229.471825 L85.2056348,245.056349 Z" id="Path-3" stroke="#F64C55" fill="#F54F58" transform="translate(94.556349, 236.556349) rotate(-45.000000) translate(-94.556349, -236.556349) "></path>
-                    <path d="M63,51 L78.7431547,59.7265732" id="Path-4" stroke="#F54F58" stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M190,244 L195.860227,261.019334" id="Path-4" stroke="#06C8B7" stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M377.184194,9 L363,20.0819066" id="Path-4" stroke="#06C8B7" stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M701.37325,182.831021 L686.810944,172.250886" id="Path-4" stroke="#FBC02E" stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M932.244295,35.4096287 L943.076965,21.0341895" id="Path-4" stroke="#FBC02E" stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M1234,253.268994 L1250.91447,247.112631" id="Path-4" stroke="#06C8B7" stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M859.525745,239.391831 L854.263055,222.178346" id="Path-4" stroke="#F54F58" stroke-linecap="round" stroke-linejoin="round"></path>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1295 258" width="1295" height="258">
+	<title>pre-footer-shapes-svg</title>
+	<style>
+		.s0 { fill: none;stroke: #06c8b7;stroke-width: 3 } 
+		.s1 { fill: #06c8b7;stroke: #06c8b7;stroke-width: 3 } 
+		.s2 { fill: #fbc02e;stroke: #fbc02e;stroke-width: 3 } 
+		.s3 { fill: none;stroke: #f54f58;stroke-width: 3 } 
+		.s4 { fill: none;stroke: #fbc02e;stroke-width: 3 } 
+		.s5 { fill: #f54f58;stroke: #f64c55;stroke-width: 3 } 
+		.s6 { fill: none;stroke: #f64c55;stroke-width: 3 } 
+		.s7 { fill: none;stroke: #f54f58;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3 } 
+		.s8 { fill: none;stroke: #06c8b7;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3 } 
+		.s9 { fill: none;stroke: #fbc02e;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3 } 
+	</style>
+	<g id="website-detached">
+		<g id="home-copy">
+			<g id="Group-35">
+				<g id="Group-33">
+					<path id="Rectangle-22" class="s0" d="m126.1 25.5l12.4-8.4 8.4 12.4-12.4 8.4z"/>
+					<path id="Rectangle-22" class="s1" d="m958.5 213c0-4.7 3.8-8.5 8.5-8.5 4.7 0 8.5 3.8 8.5 8.5 0 4.7-3.8 8.5-8.5 8.5-4.7 0-8.5-3.8-8.5-8.5z"/>
+					<path id="Path-3" fill-rule="evenodd" class="s0" d="m657.2 245.8l17-7.9-15.1-10.2z"/>
+					<path id="Path-3" fill-rule="evenodd" class="s1" d="m891.2 20.8l17-7.9-15.1-10.2z"/>
+					<path id="Rectangle-22" class="s2" d="m468.6 175l13.5 6.6-6.6 13.5-13.5-6.6z"/>
+					<path id="Rectangle-22" class="s2" d="m1276.5 120c0-4.7 3.8-8.5 8.5-8.5 4.7 0 8.5 3.8 8.5 8.5 0 4.7-3.8 8.5-8.5 8.5-4.7 0-8.5-3.8-8.5-8.5z"/>
+					<path id="Rectangle-22" class="s3" d="m1133.5 30c0-4.7 3.8-8.5 8.5-8.5 4.7 0 8.5 3.8 8.5 8.5 0 4.7-3.8 8.5-8.5 8.5-4.7 0-8.5-3.8-8.5-8.5z"/>
+					<path id="Rectangle-22" class="s4" d="m1.5 177c0-4.7 3.8-8.5 8.5-8.5 4.7 0 8.5 3.8 8.5 8.5 0 4.7-3.8 8.5-8.5 8.5-4.7 0-8.5-3.8-8.5-8.5z"/>
+					<path id="Path-3" fill-rule="evenodd" class="s4" d="m536.9 79.9l14.3-12-17.1-6z"/>
+					<path id="Rectangle-22" class="s5" d="m1048.2 72.1l12.6 8.1-8.1 12.6-12.6-8.1z"/>
+					<path id="Rectangle-22" class="s6" d="m668.5 50c0-4.7 3.8-8.5 8.5-8.5 4.7 0 8.5 3.8 8.5 8.5 0 4.7-3.8 8.5-8.5 8.5-4.7 0-8.5-3.8-8.5-8.5z"/>
+					<path id="Path-3" fill-rule="evenodd" class="s4" d="m1159 203.3l16.1 9.7v-18.2z"/>
+					<path id="Path-3" fill-rule="evenodd" class="s5" d="m94 244.2l13.2-13.2-17.7-4.5z"/>
+					<path id="Path-4" fill-rule="evenodd" class="s7" d="m63 46l15.7 8.7"/>
+					<path id="Path-4" fill-rule="evenodd" class="s8" d="m190 239l5.9 17"/>
+					<path id="Path-4" fill-rule="evenodd" class="s8" d="m377.2 4l-14.2 11.1"/>
+					<path id="Path-4" fill-rule="evenodd" class="s9" d="m701.4 177.8l-14.6-10.5"/>
+					<path id="Path-4" fill-rule="evenodd" class="s9" d="m932.2 30.4l10.9-14.4"/>
+					<path id="Path-4" fill-rule="evenodd" class="s8" d="m1234 248.3l16.9-6.2"/>
+					<path id="Path-4" fill-rule="evenodd" class="s7" d="m859.5 234.4l-5.2-17.2"/>
+				</g>
+			</g>
+		</g>
+	</g>
 </svg>

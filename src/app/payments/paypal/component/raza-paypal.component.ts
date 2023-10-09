@@ -95,7 +95,14 @@ export class RazaPaypalComponent implements OnChanges, OnDestroy, AfterViewInit 
         this.doPayPalCheck();
     }
 
+    ngInit(): void {
+        console.log("Step 1");
+        this.doPayPalCheck();
+    }
+
     private doPayPalCheck(): void {
+
+       
         if (this.initializePayPal && this.config && this.payPal && this.payPalButtonContainerElem) {
             // make sure that id is also set
             if (this.payPalButtonContainerElem.nativeElement.id) {

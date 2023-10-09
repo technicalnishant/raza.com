@@ -26,9 +26,11 @@ import { ErrorDialogComponent } from 'app/shared/dialog/error-dialog/error-dialo
 import { MatDialog } from '@angular/material/dialog';
 import { MAT_SELECT_SCROLL_STRATEGY } from '@angular/material/select';
 import { isNullOrUndefined } from "../../../shared/utilities";
-import { Subscription } from 'rxjs';
+import { Subscription, of } from 'rxjs';
 import { ViewratesComponent } from 'app/accounts/dialog/viewrates/viewrates.component';
 import { RechargeService } from 'app/recharge/services/recharge.Service';
+import { IOnApproveCallbackData, IPayPalConfig } from 'app/payments/paypal/model/paypal.model';
+import { environment } from 'environments/environment';
 @Component({
   selector: 'app-account-recharge',
   templateUrl: './account-recharge.component.html',
@@ -67,6 +69,8 @@ export class AccountRechargeComponent implements OnInit {
   callingFrom: number;
   callingTo: number;
   isPremium:boolean=false;
+  showPaypal:boolean=false;
+  public payPalConfig?: IPayPalConfig;
   constructor(
 
     private searchRatesService: SearchRatesService,
@@ -109,13 +113,105 @@ export class AccountRechargeComponent implements OnInit {
     }
     
  }
+// Intitiate paypal config
+private initPaypalConfig(): void {
+ 
+  if (isNullOrUndefined(this.currentCart)) {
+     
+    return;
+  }
 
+   
+  this.payPalConfig = {
+    currency: this.currentCart.currencyCode.toString(),
+    clientId: environment.paypalClientId,
+    createOrderOnServer: () => {
+      return this.validateAndGeneratePaypalOrder();
+    },
+    advanced: {
+      updateOrderDetails: {
+        commit: true
+      },
+      extraQueryParams: [
+        { name: 'intent', value: 'authorize' },
+        { name: 'disable-funding', value: 'credit,card' }
+      ]
+    },
+    onApprove: (data, actions) => {
+      // console.log('onApprove - transaction was approved, but not authorized', data, actions);
+      actions.order.get().then(details => {
+        //  console.log('onApprove - you can get full order details inside onApprove: ', details);
+      });
+    },
+    authorizeOnServer: (data, actions) => {
+      console.log('authorizeOnServer - you should probably inform your server to autorize and capture transaction at this point', data);
+      return this.onPaypalPaymentApprove(data);
+    },
+    // onClientAuthorization: (data) => {
+    //     console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+    // },
+    onCancel: (data, actions) => {
+      // console.log('OnCancel', data, actions);
+
+    },
+    onError: err => {
+      // console.log('OnError', err);
+    },
+    onClick: () => {
+      // console.log('onClick');
+    },
+  };
+
+   this.showPaypal = true;
+}
+get enablePaypalOption() {
+  if(this.currentCart)
+  {
+    return this.currentCart.transactiontype != TransactionType.Topup;
+  }
+  
+ }
+validateAndGeneratePaypalOrder(): Promise<string> {
+  if (!isNullOrUndefined(this.currentCart.couponCode) && this.currentCart.couponCode.length > 0) {
+    return this.validateCoupon(this.currentCart.getValidateCouponCodeReqModel(this.currentCart.couponCode)).then((res: ValidateCouponCodeResponseModel) => {
+      if (res.Status) {
+        return this.transactionService.generatePaypalOrder(this.currentCart.getTransactionReqModel()).toPromise();
+      }
+      else {
+        this.handleInvalidCouponCodeError();
+         new Error("Invalid coupon code");
+      }
+    })
+  }
+  else {
+    return this.transactionService.generatePaypalOrder(this.currentCart.getTransactionReqModel()).toPromise();
+  }
+
+}
+
+/* On paypal payment approve. */
+onPaypalPaymentApprove(data: IOnApproveCallbackData): Promise<any> {
+
+  const checkOutOrderInfo: IPaypalCheckoutOrderInfo = {
+    checkoutCart: this.currentCart,
+    orderId: data.orderID,
+    paypalPayerId: data.payerID,
+    paymentTransactionId: data.orderID
+  };
+
+  console.log('paypal checkout order info', checkOutOrderInfo);
+
+
+  this.transactionProcessFacade.processPaypalTransaction(this.currentCart.transactiontype, checkOutOrderInfo);
+  return of(true).toPromise();
+}
+ 
  getDefaultPlan()
  {
 
   this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe( 
     (res:any)=>{
-      if(res.CardId)
+      if(res !== null && res.CardId )
       {
         this.clientCardId = res.CardId;
         this.isAutoRefillEnable = res.ArStatus
@@ -188,7 +284,7 @@ export class AccountRechargeComponent implements OnInit {
     return false;
   }
   else
-  return true;
+  return false;
   
  }
 
@@ -297,7 +393,7 @@ export class AccountRechargeComponent implements OnInit {
     })
    }
 
-   onClickAmountOption(item: any)
+   async onClickAmountOption(item: any)
    {
     this.selectedDenomination=item.Price;
     const model: RechargeCheckoutModel = new RechargeCheckoutModel();
@@ -315,8 +411,9 @@ export class AccountRechargeComponent implements OnInit {
     model.isAutoRefill = this.isAutorefill;
     model.offerPercentage = '';
     this.currentCart = model;
-    this.checkoutService.setCurrentCart(model);
-    console.log(item, model);
+    await this.checkoutService.setCurrentCart(model);
+    //this.currentCart = await this.checkoutService.getCurrentCart()
+    this.initPaypalConfig1()
     
   }
 
@@ -342,10 +439,18 @@ export class AccountRechargeComponent implements OnInit {
    this.currentCart = model;
    this.checkoutService.setCurrentCart(model);
    
-   
+   this.initPaypalConfig1()
  }
-
-
+ initPaypalConfig1()
+ {
+  
+      setTimeout(() => {
+      this.initPaypalConfig();
+    }, 1000);
+  
+  
+ }
+ 
   onPaymentInfoFormSubmit(creditCard: CreditCard) {
    
    // this.getCurrentCarts(creditCard);

@@ -28,7 +28,7 @@ ul {
 			float: left;
 			color: #0b203e;
 			font-size: 20px;
-			font-family: Montserrat,sans-serif;
+      font-family: Montserrat, sans-serif;
 			font-weight: 400;
 			margin-right: 9px;
 			cursor: pointer;
@@ -982,11 +982,13 @@ h2 {
 .width30 {
 	width: 30%;
 	float: right;
-	font-family: 'Nunito', sans-serif;
+	font-family: Montserrat, sans-serif;
+  font-weight: 500;
 }
 .width70 {
 	width: 70%;
-	font-family: 'Nunito', sans-serif;
+	font-family: Montserrat, sans-serif;
+  font-weight: 500;
 }
 
 

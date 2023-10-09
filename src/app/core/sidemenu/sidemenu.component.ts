@@ -87,13 +87,29 @@ export class SidemenuComponent implements OnInit {
 		}
     else
     {
-      this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe( 
-        (res:any)=>{
+      //  this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe(
+      //   (res:any)=>{
           
-          this.plan = res;
+      //     this.plan = res;
           
-        }
-      );
+      //   }
+      // );
+      
+
+      const planObservable =this.planService.getStoredPlan(localStorage.getItem("login_no"));
+      if (planObservable) {
+        planObservable.subscribe(
+          (data) => {
+            this.plan = data;
+          },
+          (error) => {
+            console.error('Error:', error);
+          }
+        );
+      } else {
+        console.error('The plan observable is null.');
+        // Handle the case where the observable is null
+      }
       return true;
     }
     

@@ -90,14 +90,28 @@
               Cancel online or by calling customer service anytime."
               />                    -->
         <span class="bonus_small_text">with auto-refill</span>
+
+        
       </div>
 </div>
 
 </div>
 <app-my-cards *ngIf="plan" [plan]="plan" [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentButtonTrigger($event)" > </app-my-cards>
+  
+  <ng-container *ngIf="enablePaypalOption && showPaypal">
+  <div class="form_row1 paypal-box" >
+    <div class="input_holder1">
+      <div id="paypal-button-container" class="paypal-button-container">
+        <raza-paypal [config]="payPalConfig"></raza-paypal>
+      </div>
+    </div>
+  </div>
+</ng-container> 
+
+
 </div>
  
-  <div *ngIf="!showRechargeList()" style="text-align: center;">
+  <div *ngIf="!showRechargeList() && clientCardId > 0" style="text-align: center;">
     <p style="font-size: 15px; ">This discounted plan is already enrolled to auto refill,<br/> we will recharge automatically on your billing cycle or when your balance falls bellow $2</p>
   </div>
  

@@ -1,35 +1,18 @@
 <div class="recharge_block recharge2">
-  <!--rechargeStep -->
-  <!-- <div class="rechargeStepMain">
-    <div class="rechargeStep">
-      <div class="step1 active">
-        <p class="step">Step 1</p>
-        <p class="stepName">Login</p>
-      </div>
-      <div class="step2">
-        <p class="step">Step 2</p>
-        <p class="stepName">Payment</p>
-      </div>
-      <div class="step3">
-        <p class="step">Step 3</p>
-        <p class="stepName">Confirmation</p>
-      </div>
-    </div>
-  </div> -->
-  <!-- rechargeStep -->
+  
      
-  <p class="updateCard" *ngIf="!isPromotion" >Almost there...</p>
+  <!-- <p class="updateCard" *ngIf="!isPromotion" >Almost there...</p> -->
    <div class="row">
-      <!--<div class="col-md-12 mb-5" *ngIf="promoCode =='DAD2023'">
-      <img src="./assets/images/promotion/{{promoCode}}.jpg" class="img-fluid" alt=" Diwali Banner" />
-    </div>  -->
+       <div class="col-md-12 mb-5" *ngIf="promoCode =='THANKS2023'">
+      <img src="./assets/images/promotion/{{promoCode}}.jpg" class="img-fluid" alt=" Thanks Giving Banner" />
+    </div>  
   </div>  
   <div class="container containerMobile">
     <div class="row">
       <div class="col-xl-6 expCheck">
         <div class="col-md-12">
           <h2 class="heading_style4">
-            <span>Express checkout</span>
+            <span>Almost there</span>
           </h2>
         </div>
         <div class="col-md-12" *ngIf="currentCart && currentCountry">
@@ -84,17 +67,7 @@
                 </svg>
                   You are in {{currentSetting.country?.CountryName}}
               </div>
-              <!-- <div class="flag_list1" *ngIf="showDropdown">
-                <ul>
-                  <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)" >
-                    <span *ngIf="item.CountryId !=3">
-                      
-                      <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
-                        [ngClass]="'flag flag-f-'+ item.CountryId">
-                    </span>
-                  </li>
-                </ul>
-              </div> -->
+              
             </div>
 
               <div class="col-sm-12 formRowM15">

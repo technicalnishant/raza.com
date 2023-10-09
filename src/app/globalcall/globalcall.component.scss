@@ -1240,10 +1240,26 @@ section.plan-section {
     }
 }
 @media only screen and (max-width: 768px) {
-  .ano-col .slice {
-      font-size: 20px;
-      text-decoration: line-through;
-  }
+    .tooltip_wrap {
+        position: absolute;
+        background: #555;
+        color: #fff;
+        min-width: 330px;
+        right: -43px;
+        padding: 12px 15px;
+        font-size: 13px;
+        line-height: 1.5;
+        border-radius: 10px;
+        bottom: 50px;
+        display: none;
+    }
+    svg.bonus_text_info:hover ~ .tooltip_wrap {
+        display: block;
+    }
+    .ano-col .slice {
+        font-size: 20px;
+        text-decoration: line-through;
+    }
     .country-searchnew #searchInput {
         font-size: 16px;
         padding: 0 4px;
@@ -1282,7 +1298,7 @@ section.plan-section {
         padding: 7px 0 12px 10px;
     }
     .top-header .country img {
-        width: 60px;
+        width: 50px;
     }
     .country-name h1 {
         font-size: 24px;

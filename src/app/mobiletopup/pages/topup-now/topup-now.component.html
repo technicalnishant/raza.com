@@ -247,7 +247,7 @@
                   </div>
                   <div class="numPrice">
                     <div class="number">{{item.Pin}}</div>
-                    <div class="price">{{item.Price | bCurrency : item.CurrencyCode}}</div>
+                    <div class="price">{{item.Price | bCurrency : item.CurrencyCode | async}}</div>
                   </div>
                   <!-- <div>{{item.CardName}}</div> -->
                   <div class="countryDate">{{item.OrderDate | date :'M/d/yy h:mm a'}}</div>

@@ -5,6 +5,9 @@
         <h2 class="welcomeText" *ngIf="showBalance">{{userWelcomeLabel}}</h2>
         <!-- commonmyaccountareaforallpages -->
         <app-account-overview-plan-info *ngIf="plan && showBalance" [plan]="plan"></app-account-overview-plan-info>
+
+        <app-account-buy-one-get-one *ngIf="!plan && showBalance" ></app-account-buy-one-get-one>
+        
         <!-- commonmyaccountareaforallpages -->
         <!----------Show mobile stats------------>
         <div *ngIf="showMobileStats && newDesign">
@@ -13,7 +16,7 @@
          <!---------- EOF Show mobile stats ------------>
       </div>
         <!-- <app-account-recharge *ngIf="plan" [plan]="plan"></app-account-recharge>  -->
-     <router-outlet *ngIf="plan" [plan]="plan"></router-outlet>
+     <router-outlet [plan]="plan"></router-outlet>
 
     </div>
   </div>
@@ -78,12 +81,12 @@
         <!-- commonmyaccountareaforallpages -->
         <app-account-overview-plan-info *ngIf="plan && showBalance" [plan]="plan"></app-account-overview-plan-info>
 
-        <app-account-buy-one-get-one *ngIf="showBuyNow" ></app-account-buy-one-get-one>
+        <app-account-buy-one-get-one *ngIf="!plan && showBalance" ></app-account-buy-one-get-one>
 
         <!-- commonmyaccountareaforallpages -->
           <!-- <app-account-recharge *ngIf="plan" [plan]="plan" ></app-account-recharge>
           <app-my-cards *ngIf="plan" [plan]="plan"> </app-my-cards> -->
-        <router-outlet *ngIf="plan" [plan]="plan" ></router-outlet>
+        <router-outlet  [plan]="plan" ></router-outlet>
       </div>
     </div>
   </div>

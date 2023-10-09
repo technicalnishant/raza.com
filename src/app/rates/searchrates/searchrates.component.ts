@@ -45,7 +45,7 @@ export class SearchratesComponent implements OnInit, OnDestroy {
   currentSetting: CurrentSetting;
   showMore = false;
   showButton = true;
-
+   
   showDropdown:boolean =false;
    currentCurrency:any;
   constructor(private router: Router,
@@ -79,12 +79,15 @@ export class SearchratesComponent implements OnInit, OnDestroy {
       res => {
         this.currentSetting = res;
         this.initAllRates();
+        this.setcurrentCurrency();
+         
+        
       }, () => {
       });
 
       this.getCountryFrom();
   }
-
+ 
   private getCountryFrom() {
     this.countryService.getFromCountries().subscribe((res: Country[]) => {
       this.countryFrom = res;
@@ -179,7 +182,7 @@ export class SearchratesComponent implements OnInit, OnDestroy {
     this.razaEnvService.setCurrentSetting(this.currentSetting);
      
     this.closeFlagDropDown();
-    this.setcurrentCurrency();
+    
   }
   setcurrentCurrency()
   {

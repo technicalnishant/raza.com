@@ -37,6 +37,7 @@
 }
 .carousel-caption.tpSlider_1 {
   margin-top: 110px !important;
+  top: 0;
   .divider {
     margin-left: 45px;
     margin-right: 45px;
@@ -693,6 +694,17 @@ a {
     z-index: 9;
 }
 .home-slider {
+    background-image: url(../../../assets/images/home_banner_new/slider-bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    overflow: hidden;
+    &.slider-bg-3 {
+        background-image: url(../../../assets/images/home_banner_new/slider-bg-uk.webp);
+    }
+    .sliderImg {
+        height: 700px;
+    }
     .bg-image {
         width: 100%;
         min-height: 700px;
@@ -700,6 +712,33 @@ a {
         object-fit: cover;
     }
     ::ng-deep {
+        .carousel-caption.tpSlider_0 {
+          left: 0;
+          right: 0;
+          background-image: url(../../../assets/images/home_banner_new/thanks_giving_day_bg.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @media only screen  and (max-width: 767px) {
+            background-image: url(../../../assets/images/home_banner_new/thanks_giving_day_bg_mb.jpg);
+            background-position: center;
+          }
+        }
+        .thanksGivingDay {
+          margin-left: 200px;
+          img {
+            height: 550px;
+          }
+          @media only screen  and (max-width: 767px) {
+            margin-left: 0;
+            img {
+              height: auto;
+            }
+          }
+        }
         .carousel-indicators {
             position: absolute;
             z-index: 15;
@@ -732,17 +771,41 @@ a {
 }
 
 ::ng-deep {
+      ul.splide__pagination {
+        right: 3%;
+        margin-right: 86px;
+        left: unset;
+        width: auto;
+        top: 0;
+        transform: rotate(90deg);
+    }
     .carousel-control-prev-icon,
-    .carousel-control-next-icon {
+    .carousel-control-next-icon,
+    .splide__arrow  {
         height: 50px;
         width: 50px;
         border-radius: 50%;
         background-size: 29px;
         background-repeat: no-repeat;
-        border: 1px solid #fff;
+        border: 1px solid #fff !important;
         opacity: 1;
     }
-    .carousel-control-prev-icon {
+    .splide__arrows {
+        position: absolute;
+        right: 2%;
+        top: 43%;
+        width: 100px;
+        z-index: 9;
+        .splide__arrow {
+            position: static;
+            margin: 10px 0;
+        }
+    }
+    .splide__arrow svg {
+      display: none;
+    }
+    .carousel-control-prev-icon,
+    .splide__arrow--prev {
        height:50px;
        width:50px;
         background: url("/assets/images/new_design_images/icon_sprite.png") 0px 294px;
@@ -759,7 +822,8 @@ a {
         margin-top: 91px;
         opacity: 1;
     }
-    .carousel-control-next-icon {
+    .carousel-control-next-icon,
+    .splide__arrow--next {
         height:50px;
         width:50px;
         background: url("/assets/images/new_design_images/icon_sprite.png") -50px 294px;
@@ -771,11 +835,11 @@ a {
         bottom: unset;
         z-index: 99;
     }
-    .carousel-control-next:hover .carousel-control-next-icon {
+    .carousel-control-next:hover .carousel-control-next-icon, .splide__arrow--next:hover {
         background: url("/assets/images/new_design_images/icon_sprite.png") 50px 294px;
         background-color: #fff;
     }
-    .carousel-control-prev:hover .carousel-control-prev-icon {
+    .carousel-control-prev:hover .carousel-control-prev-icon, .splide__arrow--prev:hover {
         background: url("/assets/images/new_design_images/icon_sprite.png") 100px 294px;
         background-color: #fff;
     }
@@ -850,7 +914,7 @@ a {
   right: 0;
   margin: auto;
   width: 200px;
-  bottom: 27%;
+  bottom: 31%;
   font-weight: 600;
   background: #000;
   border-radius: 30px;
@@ -900,6 +964,18 @@ h1.buy1get1-text:after {
 }
 .home-slider {
     margin-top: 50px;
+    .carousel-caption {
+      top: 0;
+      &.download {
+        margin-top: 55px;
+      }
+      &.refer.it-topup {
+        top: unset;
+      }
+      &.reward {
+          margin-top: 90px;
+      }
+    }
     .carousel.slide {
       position: absolute;
       left: 0;
@@ -951,6 +1027,21 @@ h1.buy1get1-text:after {
 }
 
 @media only screen  and (max-width: 767px) {
+    .home-slider {
+        background-image: url(../../../assets/images/home_banner_new/slider-bg-mb.webp);
+        overflow: hidden;
+        &.slider-bg-3 {
+            background-image: url(../../../assets/images/home_banner_new/slider-bg-mb-uk.webp);
+        }
+        .sliderImg {
+          height: 620px;
+        }
+    }
+    .carousel-caption {
+      top: 0;
+      left: 0;
+      right: 0;
+    }
     .home-slider .carousel.slide .carousel-caption {
         padding-left: 0;
         padding-right: 0;
@@ -974,6 +1065,13 @@ h1.buy1get1-text:after {
         display: none;
     }
     ::ng-deep {
+        .splide__arrows {
+          display: none;
+        }
+        ul.splide__pagination {
+            right: -10px;
+            margin-right: 0;
+        }
         .carousel-control-next,
         .carousel-control-prev {
             display: none !important;
@@ -1014,7 +1112,8 @@ h1.buy1get1-text:after {
         max-width: 409px;
         margin: 0 auto;
         width: 100%;
-        position: relative !important;
+        top: 0 !important;
+        // position: relative !important;
     }
     .int-bottom {
         position: absolute;
@@ -1030,8 +1129,14 @@ h1.buy1get1-text:after {
         top: 0;
         bottom: 0;
     }
-    .carousel-caption.download {
-        padding: 20px;
+    .carousel-caption {
+      &.download {
+          padding: 20px;
+          margin-top: 55px;
+      }
+      &.reward {
+        margin-top: 45px !important;
+      }
     }
     .btn-slider {
         background: #000;
@@ -1167,7 +1272,7 @@ h1.buy1get1-text:after {
       display: none;
   }
   .img-1 img {
-      width: 70%;
+      // width: 70%;
       margin: auto;
       display: block;
   }

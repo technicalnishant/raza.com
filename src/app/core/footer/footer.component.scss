@@ -90,10 +90,8 @@ $font-family:'Montserrat',sans-serif;
   }
 }
 .ph_no {
-  padding: 0;
-  margin: 0;
   color: #ffffff;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
   span {
       padding: 0;
@@ -186,10 +184,8 @@ $font-family:'Montserrat',sans-serif;
   max-width: 219px;
   height: auto;
   img {
-      padding: 0;
-      margin: 0;
-      height: 34px;
-
+      height: 40px;
+      width: auto;
   }
 }
 .app_list {
