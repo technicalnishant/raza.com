@@ -121,7 +121,7 @@
                 <div class="country-name">{{item.CountryName}}</div>
               </div>
               <div class="country-rate">
-                <span>From</span> {{item.CallingRateMobile | sCurrency}} <span>/ min</span>
+                <span>From</span> {{item.CallingRateMobile | sCurrency:currentCurrency}} <span>/ min</span>
               </div>
               <button
                 class="view-details-btn"
@@ -159,7 +159,7 @@
 
           <div class="box-title">{{item.CountryName}}</div>
           <div class="box-description">
-            as low as {{ item.CallRate | sCurrency }}
+            as low as {{ item.CallRate | sCurrency:currentCurrency }}
           </div>
         </div>
       </div>
