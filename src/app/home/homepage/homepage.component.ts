@@ -98,7 +98,7 @@ sliderAutoplay: boolean = true;
   isFixHeader: boolean = false;
   //promtionCode:string='RAMADAN2023';
   //promtionCode:string='EID2023';
-  promtionCode:string='DAD2023';
+  promtionCode:string='THANKS2023';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';

@@ -6,14 +6,21 @@
       novalidate>
       <div class="row commonPopupRow">
         <div class="col-sm-12">
-          <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width">
             <input matInput placeholder="Enter 6 digit Code" formControlName="otp">
             <mat-error *ngIf="otpConfirmForm.get('otp').errors?.required">
               Enter Verification Code
             </mat-error>
             
 
-          </mat-form-field>
+          </mat-form-field> 
+
+          <!-- <div class="row">
+            <div class="form-group col-sm-2 col" *ngFor="let input of formInput;  index as i">
+                <input #formRow autocomplete="on" type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)" autofocus>
+              </div>
+        </div> -->
+
           <div *ngIf="wrongOtp" style="color:#ff0000">
             Please enter the verification code which was send to your mobile.
           </div>

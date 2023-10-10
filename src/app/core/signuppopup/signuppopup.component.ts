@@ -95,7 +95,8 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
    // if( localStorage.getItem('redirect_path') && localStorage.getItem('redirect_path') == 'account/rewards' )
     if( localStorage.getItem('redirect_path') && ( localStorage.getItem('redirect_path') == 'account/rewards' || localStorage.getItem('redirect_path') == 'checkout/payment-info') )
     {
-      this.reward_content = true;
+     // this.reward_content = true;
+      this.reward_content   = localStorage.getItem('redirect_path') == 'account/rewards'?true:false;
       this.is_redirect = localStorage.getItem('redirect_path');
     }
 
