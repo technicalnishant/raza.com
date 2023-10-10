@@ -39,6 +39,7 @@ import { PopularRate } from '../../shared/model/popularRate';
 import { NodataFoundComponent } from '../../core/nodata-found/nodata-found.component'; 
 import { MetaTagsService } from 'app/core/services/meta.service';
 import { LoginpopupComponent } from '../../core/loginpopup/loginpopup.component';
+import { SignuppopupComponent } from 'app/core/signuppopup/signuppopup.component';
 export interface State {
   flag: string;
   name: string;
@@ -303,7 +304,7 @@ export class FreetrialNewComponent implements OnInit, OnDestroy {
     }
     localStorage.setItem('redirect_path', 'checkout/payment-info');
     // https://material.angular.io/components/dialog/overview
-    const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
+    const modalDialog = this.dialog.open(SignuppopupComponent, dialogConfig);
   }
 
 
