@@ -19,6 +19,7 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
   forgotPassSubmitted:boolean=false;
   formInput = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6'];
   @ViewChildren('formRow') rows: any;
+  
   constructor(
     public dialogRef: MatDialogRef<OtpConfirmationComponent>,
     public dialog: MatDialog,
@@ -28,15 +29,15 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
     _injector: Injector
   ) {
     super(_injector);
-    //this.otpConfirmForm            = this.toFormGroup(this.formInput);
+    this.otpConfirmForm            = this.toFormGroup(this.formInput);
   }
 
   ngOnInit() {
     this.phoneNumber = this.data.phoneNumber
    
-    this.otpConfirmForm = this.formBuilder.group({
-      otp: ['', [Validators.required]],
-     });
+    // this.otpConfirmForm = this.formBuilder.group({
+    //   otp: ['', [Validators.required]],
+    //  });
   }
 
   toFormGroup(elements) {

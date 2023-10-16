@@ -95,7 +95,7 @@
       </div>
 
       <div class="login">
-        <a *ngIf="!IsEnableloggedIn" routerLink="/freetrial" class="tryUsfree">Try us Free</a>
+        <a *ngIf="!IsEnableloggedIn && currentSetting.currentCountryId <= 3" routerLink="/freetrial" class="tryUsfree">Try us Free</a>
         <button *ngIf="!IsEnableloggedIn"  class="login_btn" (click)="openModal()">Login</button>
         <!-- <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span> -->
         <div [matMenuTriggerFor]="menu" class="login">
@@ -246,10 +246,10 @@
         #accountDropMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu">
         <mat-icon>account_circle</mat-icon>
       </button> -->
-
+       
       <div class="login">
         <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span>
-        <a *ngIf="!IsEnableloggedIn" routerLink="/freetrial" class="tryUsfree">Try us Free</a>
+        <a *ngIf="!IsEnableloggedIn && currentSetting.currentCountryId <= 3" routerLink="/freetrial" class="tryUsfree">Try us Free</a>
         <button *ngIf="!IsEnableloggedIn"  class="login_btn" (click)="openModal()">Login</button>
         <div class="login">
           <button *ngIf="IsEnableloggedIn"  mat-icon-button class="p-0" routerLink="/account"
