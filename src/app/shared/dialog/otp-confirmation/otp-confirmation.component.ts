@@ -19,7 +19,7 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
   forgotPassSubmitted:boolean=false;
   formInput = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6'];
   @ViewChildren('formRow') rows: any;
-  
+
   constructor(
     public dialogRef: MatDialogRef<OtpConfirmationComponent>,
     public dialog: MatDialog,
@@ -34,7 +34,7 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
 
   ngOnInit() {
     this.phoneNumber = this.data.phoneNumber
-   
+
     // this.otpConfirmForm = this.formBuilder.group({
     //   otp: ['', [Validators.required]],
     //  });
@@ -47,7 +47,7 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
       group[key] = new FormControl('', Validators.required);
     });
     group['otp'] = new FormControl('', Validators.required);
-   
+
     return new FormGroup(group);
   }
   closeIcon(): void {
@@ -67,7 +67,7 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
           this.dialogRef.close(this.otpConfirmForm.value.otp);
         } else {
           this.wrongOtp = true;
-         
+
         }
       });
     });
@@ -76,16 +76,16 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
   keyUpEvent(event, index) {
     this.invalidOtp = '';
     let pos = index;
-   
+
     if ((event.keyCode === 8 && event.which === 8) || (event.keyCode === 37 && event.which === 37)) {
       pos = index - 1 ;
     } else {
       pos = index + 1 ;
     }
-    
+
     if (pos > -1 && pos < this.formInput.length ) {
       this.rows._results[pos].nativeElement.focus();
-      
+
     }
     if((event.target as HTMLInputElement).value == '')
     {
@@ -96,13 +96,13 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
 
   }
   onSubmit(): void {
-    
+
     let otp = this.otpConfirmForm.value.input1+this.otpConfirmForm.value.input2+this.otpConfirmForm.value.input3+this.otpConfirmForm.value.input4+this.otpConfirmForm.value.input5+this.otpConfirmForm.value.input6;
     var reciever = this.otpConfirmForm.value.otp;
   }
 
   keyPressEvent(event, index) {
-    
+
 
   }
 
