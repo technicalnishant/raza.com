@@ -95,7 +95,8 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
    // if( localStorage.getItem('redirect_path') && localStorage.getItem('redirect_path') == 'account/rewards' )
     if( localStorage.getItem('redirect_path') && ( localStorage.getItem('redirect_path') == 'account/rewards' || localStorage.getItem('redirect_path') == 'checkout/payment-info') )
     {
-      this.reward_content = true;
+     // this.reward_content = true;
+      this.reward_content   = localStorage.getItem('redirect_path') == 'account/rewards'?true:false;
       this.is_redirect = localStorage.getItem('redirect_path');
     }
 
@@ -257,13 +258,20 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
       isQuickSignUp: true,
       PromoCode:(typeof promo_code !== 'undefined')?promo_code:''
     }
-
+    
     this.authService.register(registerModel).toPromise().then(
       (res: boolean) => {
         if (res) {
+          var phoneno 		= /^\d{10}$/;
+          let phoneOrEmail 	= tempEmail;
+						if(phoneOrEmail.match(phoneno) )
+              {
+                phoneOrEmail = this.currentSetting.country.CountryCode+tempEmail
+              }
           const loginBody = {
-            username: tempEmail,
-            password: otp
+            username: phoneOrEmail,
+            password: otp,
+            phone:tempEmail
           };
           this.authService.login(loginBody).toPromise().then(user => {
             this.redirectToRatePage();
