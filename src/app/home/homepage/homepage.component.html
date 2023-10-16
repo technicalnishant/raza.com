@@ -51,7 +51,7 @@
              <splide-slide>
                 <div class="carousel-caption download">
                   <a routerLink="/mobile-page" >
-                      <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new.webp" alt="img" width="636" height="689" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
+                      <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new.webp" alt="img" width="636" height="689" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId != 3">
                       <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new_uk.webp" alt="img" width="636" height="689" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 3">
                     </a>
                   <a href="javascript:void(0)" (click)="downloadApp()" mat-button>
@@ -59,7 +59,7 @@
                   </a>
                   <div class="desk_app_us_img_wrap">
                       <a routerLink="/mobile-page" >
-                        <img loading="lazy" src="./assets/images/home_banner_new/desk_app_us_ypncgi_new.webp" width="836" height="469" alt="img" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
+                        <img loading="lazy" src="./assets/images/home_banner_new/desk_app_us_ypncgi_new.webp" width="836" height="469" alt="img" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId != 3">
                         <img loading="lazy" src="./assets/images/home_banner_new/desk_app_us_ypncgi_new_uk.webp" width="836" height="469" alt="img" class="img-fluid d-none d-md-block m-auto" *ngIf="currentSetting?.country?.CountryId == 3">
                       </a>
                       <div class="desk_app_us_text">
