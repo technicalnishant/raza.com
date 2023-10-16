@@ -258,13 +258,20 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
       isQuickSignUp: true,
       PromoCode:(typeof promo_code !== 'undefined')?promo_code:''
     }
-
+    
     this.authService.register(registerModel).toPromise().then(
       (res: boolean) => {
         if (res) {
+          var phoneno 		= /^\d{10}$/;
+          let phoneOrEmail 	= tempEmail;
+						if(phoneOrEmail.match(phoneno) )
+              {
+                phoneOrEmail = this.currentSetting.country.CountryCode+tempEmail
+              }
           const loginBody = {
-            username: tempEmail,
-            password: otp
+            username: phoneOrEmail,
+            password: otp,
+            phone:tempEmail
           };
           this.authService.login(loginBody).toPromise().then(user => {
             this.redirectToRatePage();

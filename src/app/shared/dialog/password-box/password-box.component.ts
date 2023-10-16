@@ -57,28 +57,28 @@ export class PasswordBoxComponent implements OnInit {
 
   navigateToForgotPassword() {
     this.dialogRef.close(null);
-    this.router.navigateByUrl('/auth/forgot-password');
-    // const phoneNumber = this.data.phoneNumber;  // Example phone number
-    // const phoneNumberAsString = phoneNumber.toString();  // Convert to string
-    // const newPhoneNumberAsString = phoneNumberAsString.slice(1);  // Remove first character
+    //this.router.navigateByUrl('/auth/forgot-password');
+    const phoneNumber = this.data.phoneNumber;  // Example phone number
+    const phoneNumberAsString = phoneNumber.toString();  // Convert to string
+    const newPhoneNumberAsString = phoneNumberAsString.slice(1);  // Remove first character
    
-    // const dialogConfig = new MatDialogConfig();
+    const dialogConfig = new MatDialogConfig();
    
-    // dialogConfig.disableClose = true;
-    // dialogConfig.id = "modal-component";
-    // dialogConfig.height = "350px";
-    // dialogConfig.width = "600px";
-    // dialogConfig.data = 
-    // {
-    //   name: "logout",
-    //   title: "Are you sure you want to logout?",
-    //   description: "Pretend this is a convincing argument on why you shouldn't logout :)",
-    //   redirect_path:'checkout/payment-info',
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "350px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = 
+    {
+      name: "logout",
+      title: "Are you sure you want to logout?",
+      description: "Pretend this is a convincing argument on why you shouldn't logout :)",
+      redirect_path:'checkout/payment-info',
        
-    //   number:newPhoneNumberAsString,
-    //   actionButtonText: "Logout",
-    // }
+      number:newPhoneNumberAsString,
+      actionButtonText: "Logout",
+    }
      
-    // const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
+    const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
   }
 }

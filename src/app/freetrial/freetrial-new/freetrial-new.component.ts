@@ -281,8 +281,8 @@ export class FreetrialNewComponent implements OnInit, OnDestroy {
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/checkout/payment-info']);
     } else {
-      // this.router.navigate(['/checkout']);
-      this.openModal();
+       this.router.navigate(['/checkout']);
+     // this.openModal();
     }
   }
  
