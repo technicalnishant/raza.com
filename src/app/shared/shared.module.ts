@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { currencySmallSymbolPipe, currencyMainSymbolPipe } from './pipes/currencySymbol.pipe';
+import { currencySmallSymbolPipe, currencyMainSymbolPipe, dateFormatPipe } from './pipes/currencySymbol.pipe';
 import { creditCardsPipe, creditCardStrPipe, creditCardMaskPipe } from './pipes/creditCards.pipe';
 import { PaymentFailedDialogComponent } from '../payments/dialogs/payment-failed-dialog/payment-failed-dialog.component';
 import { MaterialModule } from '../core/material.module';
@@ -44,6 +44,7 @@ import { MatButtonModule } from '@angular/material/button';
     creditCardMaskPipe,
     currencySmallSymbolPipe,
     currencyMainSymbolPipe,
+    dateFormatPipe,
     creditCardStrPipe,
     PaymentFailedDialogComponent,
     EditBillingInfoDialog,
@@ -73,6 +74,7 @@ import { MatButtonModule } from '@angular/material/button';
     creditCardMaskPipe,
     currencySmallSymbolPipe,
     currencyMainSymbolPipe,
+    dateFormatPipe,
     creditCardStrPipe,
     PaymentFailedDialogComponent,
     CardTypeIconComponent,

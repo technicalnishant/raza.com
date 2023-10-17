@@ -250,8 +250,9 @@
                     <div class="price">{{item.Price | bCurrency : item.CurrencyCode | async}}</div>
                   </div>
                   <!-- <div>{{item.CardName}}</div> -->
-                  <div class="countryDate">{{item.OrderDate | date :'M/d/yy h:mm a'}}</div>
-
+                  <!-- <div class="countryDate">{{item.OrderDate | date :'M/d/yy h:mm a'}}</div> -->
+                  <div class="countryDate">{{item.OrderDate | datePipe : item.CurrencyCode}}</div>
+                  
                   <!--<td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td> -->
 
 

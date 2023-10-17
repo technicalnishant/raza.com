@@ -14,8 +14,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of plan; index as i">
-          <td>{{item?.CardName}}<br />{{item?.LastRechargeDate  | date :'dd-MMM-yy h:mm:ss a '}}</td>
+        <tr *ngFor="let item of plan; index as i"> 
+          <!-- <td>{{item?.CardName}}<br />{{item?.LastRechargeDate  | date :'dd-MMM-yy h:mm:ss a '}}</td> -->
+          <td>{{item?.CardName}}<br />{{item?.LastRechargeDate  | datePipe : item.CurrencyCode}}</td>
           <td>{{item?.Price | bCurrency : item?.CurrencyCode|async}}</td>
           <td>{{item?.Balance | bCurrency : item?.CurrencyCode |async}}</td>
           <td>

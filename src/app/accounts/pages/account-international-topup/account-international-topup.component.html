@@ -240,7 +240,10 @@
           <tr *ngFor="let item of orderHistoryList; index as i" >
             <ng-container >
               <td>{{item.CardName}}</td>
-              <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td>
+              <td>{{item.OrderDate | datePipe : item.CurrencyCode}}</td> 
+
+              <!-- <td>{{item.OrderDate | date :'M/d/yy h:mm a'}}</td> -->
+
               <td>{{item.Price | bCurrency : item.CurrencyCode | async}}</td>
               <!--<td *ngIf="item.IsAllowRecharge"><a (click)="recharge(item.PlanId)">Recharge</a></td> -->
               <td *ngIf="item.IsAllowRecharge"><a (click)="rechargeRedirect(item)">Topup Now</a></td>

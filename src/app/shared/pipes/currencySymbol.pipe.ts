@@ -2,6 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { RazaEnvironmentService } from '../../core/services/razaEnvironment.service';
 import { CurrencyCode } from '../../core/interfaces/CurrencyCode';
 import { Observable, of } from "rxjs";
+
+import { DatePipe } from '@angular/common';
+
 /*
  * Raise the value exponentially
  * Takes an exponent argument that defaults to 1.
@@ -143,5 +146,41 @@ export class currencySymbolPipe implements PipeTransform {
   //  return this.razaEnvService.getCurrencySymbol()+ "" +this.razaEnvService.getFormatedPrice(value);
      //return localStorage.getItem('currencySymbol')+ "" + value;
 
+  }
+}
+
+
+
+@Pipe({ name: 'datePipe' })
+export class dateFormatPipe implements PipeTransform {
+  result: string = '';
+  constructor(private razaEnvService: RazaEnvironmentService, private datePipe: DatePipe) { }
+  currencySymbol: string;
+
+  transform(value: number, currency: CurrencyCode) {
+   
+    if (currency == CurrencyCode.GBP) 
+    {
+      
+      return this.datePipe.transform(value, 'MM/dd/yyyy');
+     
+    }
+    else if (currency == CurrencyCode.INR) 
+    {
+      return this.datePipe.transform(value, 'dd/MM/yyyy');
+    }
+    else if (currency == CurrencyCode.AUD) 
+    {
+      return this.datePipe.transform(value, 'dd/MM/yyyy');
+    }
+    else if (currency == CurrencyCode.NZD) 
+    {
+      return this.datePipe.transform(value, 'dd/MM/yyyy');
+    }
+    else 
+    {
+      return this.datePipe.transform(value, 'MM/dd/yyyy');
+    }
+      
   }
 }
