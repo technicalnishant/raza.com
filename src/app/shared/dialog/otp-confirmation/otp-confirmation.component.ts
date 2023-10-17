@@ -18,6 +18,11 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
   invalidOtp:String='';
   forgotPassSubmitted:boolean=false;
   formInput = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6'];
+
+  moreOptions:boolean=false;
+  sendAgainMsg:boolean=false;
+ countryCode:any=''
+ enteredPhone:number;
   @ViewChildren('formRow') rows: any;
 
   constructor(
@@ -35,6 +40,8 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
   ngOnInit() {
     this.phoneNumber = this.data.phoneNumber
 
+    this.countryCode = this.data.countryCode;
+    this.enteredPhone = this.data.phone;
     // this.otpConfirmForm = this.formBuilder.group({
     //   otp: ['', [Validators.required]],
     //  });
@@ -98,7 +105,11 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
   onSubmit(): void {
 
     let otp = this.otpConfirmForm.value.input1+this.otpConfirmForm.value.input2+this.otpConfirmForm.value.input3+this.otpConfirmForm.value.input4+this.otpConfirmForm.value.input5+this.otpConfirmForm.value.input6;
-    var reciever = this.otpConfirmForm.value.otp;
+    //this.otpConfirmForm.value.otp = otp;
+
+    this.otpConfirmForm.get('otp').setValue(otp)
+
+    this.onOtpConfirmFormSubmit();
   }
 
   keyPressEvent(event, index) {
@@ -106,5 +117,24 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
 
   }
 
+  formattedNumber(obj)
+  {
+    const phoneNumber = obj;
+    const formattedNumber = phoneNumber.toString().replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
+    return formattedNumber; // Output: 312 975 8545
+ 
+  }
+  processForgot1()
+  {
+    const phoneWithCountryCode = `${this.countryCode}${this.enteredPhone}`
+    this.executeCaptcha('login').toPromise().then(token => 
+      {
+       this.authService.sendOtpForRegister(phoneWithCountryCode, token).toPromise()
+      .then(res => {
+        this.sendAgainMsg = true;
+        this.moreOptions = false;
+      })
+    })
+  }
 
 }

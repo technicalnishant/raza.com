@@ -234,6 +234,8 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
       {
         data: {
           phoneNumber: `${this.currentCountry.CountryCode}${phoneNumber}`,
+          countryCode:this.currentCountry.CountryCode,
+          phone:phoneNumber
         }
       });
 
