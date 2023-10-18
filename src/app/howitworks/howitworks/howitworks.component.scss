@@ -55,10 +55,10 @@
 	/*padding: 116px 10px;*/
 	max-width: 1200px;
 }
-.gradientArea {	
+.gradientArea {
 	background:#e5efff;
-	padding: 33px 230px;
-	/*width: 100%;*/
+  padding: 33px 180px;
+  width: 100%;
 	p {
 		color: #162f75;
 		font-size: 20px;
@@ -94,12 +94,12 @@
 		font-weight: 600;
 		display: block;
 	}
-}    
+}
 @media only screen and (max-width: 650px) {
     .arrows_display {
 		display: none;
 	}
-    .gradientArea { 
+    .gradientArea {
 		padding: 20px 15px;
 		border-radius: 10px;
 	}
@@ -120,7 +120,7 @@
 		}
 	}
     .three_service { height: 360px;}
-    .second_fold { 
+    .second_fold {
 		padding: 30px 25px;
 		margin-top: 15px;
 	}
@@ -133,10 +133,10 @@
 		}
 	}
 	.howitworksSection {
-		text-align: center; 
+		text-align: center;
 		padding: 35px 0 25px 0;
 		h3 {
-			&.heading_style2 { 
+			&.heading_style2 {
 				text-align: center;
 			}
 		}
@@ -146,19 +146,18 @@
 		background-position: left 0 top -45px;
 		border-bottom-left-radius: 100% 80px;
 		border-bottom-right-radius: 100% 80px;
-	}		
+	}
 	.second_fold {
 		margin-top: 0;
 		padding-top: 0;
 	}
 	.howitworksSection {
 		padding: 20px 0 10px 0;
-	}	
+	}
 	.howitworksSection h3.heading_style2 {
 		margin-bottom: 12px;
-	}	
+	}
 	.gradientArea p {
 		font-size: 18px;
 	}
 }
- 
