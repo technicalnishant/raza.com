@@ -119,6 +119,8 @@ export class AppComponent implements OnInit {
   initCurrentSetting(country: Country) {
     const setting = new CurrentSetting();
     setting.country = country;
+    this.country = country;
+ 
     this.razaEnvSerivce.setCurrentSetting(setting)
   }
 
