@@ -53,7 +53,7 @@
                 <li *ngIf="plan.IsAllowPinLess">
                   <a routerLink="/account/mynumber/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">My
                     Numbers</a></li>
-                <li><a routerLink="/account/onetouchSetups/{{plan?.PlanId}}" routerLinkActive="active-link">One Touch
+                <li *ngIf="currentSetting.currentCountryId <=3" ><a routerLink="/account/onetouchSetups/{{plan?.PlanId}}" routerLinkActive="active-link">One Touch
                     Dial</a></li>
                 <li *ngIf="plan.IsAllowCallForwarding">
                   <a routerLink="/account/callForwardingSetups/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">
