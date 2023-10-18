@@ -26,16 +26,90 @@
   text-align: center;
 }
 .otp-confirmation {
+  text-align: center;
   .row.commonPopupRow {
     width: 545px;
+    justify-content: center;
   }
   .input_holder1.text-center {
       display: flex;
       justify-content: center;
   }
   h2 {
-      margin-bottom: 25px;
+      margin-bottom: 12px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+  }
+  p.subtitle {
+      font-size: 15px;
+      color: #717171;
+      font-weight: 500;
+  }
+  h3 {
+      font-size: 24px;
       font-weight: 600;
+      color: #000;
+  }
+  p.subtitle {
+      font-size: 15px;
+      color: #717171;
+      font-weight: 500;
+  }
+  h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #000;
+      &.options {
+          font-size: 15px;
+          line-height: 20px;
+          cursor: pointer;
+          color: #007bff;
+          margin: 10px 0 18px;
+      }
+  }
+  .row.titleTex {
+      font-weight: 500;
+      font-size: 15px;
+      color: #222;
+      margin-top: 20px;
+      margin-bottom: 10px;
+  }
+  .row.titleTex .sendAgain {
+      margin-left: 5px;
+  }
+  a.moreOpt {
+      font-size: 15px;
+      color: #007bff;
+      font-weight: 500;
+  }
+  h1 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      letter-spacing: 0px;
+      color: #000;
+      font-weight: bold;
+      font-family: "Montserrat",sans-serif;
+  }
+  a.changeNum {
+      font-size: 15px;
+      color: #007bff;
+      font-weight: 500;
+      display: inline-block;
+      text-align: center;
+      margin-bottom: 10px;
+      text-decoration: underline;
+      position: relative;
+      &::before {
+        content: "";
+        background-image: url(../../../../assets/images/edit.png);
+        background-repeat: no-repeat;
+        position: absolute;
+        right: -22px;
+        bottom: 5px;
+        width: 15px;
+        height: 15px;
+      }
   }
 }
 

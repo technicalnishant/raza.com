@@ -95,7 +95,7 @@
     font-family: "Montserrat";
     margin-bottom: 0;
     padding: 36px 0;
-    
+
     }
   }
 
@@ -331,7 +331,7 @@
     display: block !important;
     max-width: 50%;
   }
-  
+
 
   .buy1get1popup .selectRechargeAmnt ul li {
     display: block;
@@ -341,7 +341,7 @@
     margin: 20px auto;
   }
 
-  
+
 }
 
 @media only screen and (min-width:769px) and (max-width:1024px) {
@@ -364,6 +364,11 @@
 }
 
 @media only screen and (max-width:675px){
+  ::ng-deep {
+    .cdk-overlay-pane {
+        padding-top: 85px;
+    }
+  }
   .blue_margin{
        margin: 20px 5px !important;
   }
@@ -380,21 +385,28 @@
     border: 10px solid #000000;
     padding: 10px 20px;
     margin-top: -37px;
+    max-width: 100%;
   }
   .mat-dialog-content{
     overflow: scroll !important;
+    max-height: 55vh;
   }
   .cdk-overlay-pane{
     padding: 0 35px !important;
   }
   .popupGlobalCall .callRate span{
-    font-size: 25px !important;
+    font-size: 21px !important;
   }
   .country-name{
     font-size: 15px !important;
   }
   .getuptopopup .selectRechargeamountMain h1{
     display: block !important;
-    font-size: 25px !important;
+    font-size: 21px !important;
+    padding: 22px 0;
+  }
+  p.mins.price {
+      font-size: 38px !important;
+      padding-top: 0 !important;
   }
 }

@@ -1,6 +1,6 @@
 <div class="form_holder commonPopup addNumber otp-confirmation">
   <span class="closeIcon" (click)="closeIcon()" mat-dialog-close><i class="material-icons">close</i></span>
-  
+
 
   <h2 mat-dialog-title class="text-center" *ngIf="!moreOptions" >We just texted you</h2>
   <p class="text-center subtitle" *ngIf="!moreOptions">Please enter the verification code sent to</p>
@@ -11,8 +11,12 @@
 
   <h3 >(+{{countryCode}}) {{formattedNumber(enteredPhone)}}</h3>
 
+  <div>
+    <a href="javascript:void(0)" (click)="closeIcon()" class="changeNum">Change number</a>
+  </div>
+
   <mat-dialog-content >
-    <div *ngIf="!moreOptions"> 
+    <div *ngIf="!moreOptions">
     <form class="example-form" name="otpConfirmForm" [formGroup]="otpConfirmForm" (ngSubmit)='onOtpConfirmFormSubmit()'
       novalidate>
       <div class="row commonPopupRow">
@@ -36,10 +40,10 @@
         </div>
 
         <p *ngIf="sendAgainMsg" class="text_green" >A code has been sent to your mobile. Kindly check and enter it. </p>
-                 
+
         <div class="row titleTex">
-          
-            Didn’t get code? <a href="javascript:void(0)" (click)="processForgot1();" class="sendAgain"> Send Again</a> 
+
+            Didn’t get code? <a href="javascript:void(0)" (click)="processForgot1();" class="sendAgain"> Send Again</a>
         </div>
         <div class="clear"></div>
         <div class="row">
@@ -49,15 +53,15 @@
 
       </div>
 
-     
- 
+
+
     </form>
   </div>
     <div class="example-container text_align_center" *ngIf="moreOptions">
 
-         
-      <h3 class="options" (click)="processForgot1(); moreOptions=!moreOptions" >Resend code</h3>  
-     
+
+      <h3 class="options" (click)="processForgot1(); moreOptions=!moreOptions" >Resend code</h3>
+
       <div class="contact_div_wrap">
          <div class="contact_div">
            <span class="phone_text"><a href="tel:+18774634233">1877-463-4233</a></span> 24/7
@@ -69,6 +73,6 @@
   </mat-dialog-content>
 
 
-  
+
 
 </div>
