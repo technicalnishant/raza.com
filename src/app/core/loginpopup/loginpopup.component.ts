@@ -97,7 +97,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
  sendAgainMsg:boolean=false;
  rewardsRoute:any='';
  rememberMe:boolean=false;
-
+ customerCare:any = '';
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -163,6 +163,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
+      this.setcurrentCurrency();
     });
     this.getCountryFrom();
 
@@ -302,6 +303,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     this.razaEnvService.setCurrentSetting(this.currentSetting);
     //this.searchRates();
     this.closeFlagDropDown();
+    this.setcurrentCurrency();
   }
 
   onInputFocus() {
@@ -1094,6 +1096,48 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   {
     this.rememberMe = obj;
  
-  }       
+  }   
+  
+  
+  
+  setcurrentCurrency()
+  {
+    if(this.currentSetting.country.CountryId == 1)
+    {
+  
+      this.customerCare = '1-877.463.4233';
+    }
+      
+      if(this.currentSetting.country.CountryId == 2)
+      {
+       
+        this.customerCare='1-800.550.3501';
+      }
+      
+      if(this.currentSetting.country.CountryId == 3)
+      {
+        
+        this.customerCare='44 800-041-8192';
+
+      }
+     
+      if(this.currentSetting.country.CountryId == 8)
+      {
+         
+        this.customerCare='61283173403';
+      }
+    
+      if(this.currentSetting.country.CountryId == 20)
+      {
+        
+        this.customerCare='6498844133';
+      }
+    
+      if(this.currentSetting.country.CountryId == 26)
+      {
+        
+        this.customerCare='1-877.463.4233';
+      } 
+  }
           
 }

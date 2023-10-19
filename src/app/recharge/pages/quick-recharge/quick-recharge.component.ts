@@ -335,26 +335,52 @@ onClickClose(icon) {
   onSelectCountrFrom(country: Country) {
     this.currentSetting.country = country;
     this.razaEnvService.setCurrentSetting(this.currentSetting);
-    this.countryCode = (country.CountryId == 3)?'GBP':'USD';
-    this.closeFlagDropDown();
     this.setcurrentCurrency();
+   // this.countryCode = (country.CountryId == 3)?'GBP':'USD';
+    this.closeFlagDropDown();
+    
   
   }
  
   setcurrentCurrency()
   {
     if(this.currentSetting.country.CountryId == 1)
+    {
       this.currentCurrency='USD';
+      this.countryCode = 'USD';
+    }
+      
       if(this.currentSetting.country.CountryId == 2)
-      this.currentCurrency='CAD';
+      {
+        this.currentCurrency='CAD';
+        this.countryCode='CAD';
+      }
+      
       if(this.currentSetting.country.CountryId == 3)
-      this.currentCurrency='GBP';
+      {
+        this.currentCurrency='GBP';
+        this.countryCode='GBP';
+
+      }
+     
       if(this.currentSetting.country.CountryId == 8)
-      this.currentCurrency='AUD';
+      {
+        this.currentCurrency='AUD';
+        this.countryCode='AUD';
+      }
+    
       if(this.currentSetting.country.CountryId == 20)
-      this.currentCurrency='NZD';
+      {
+        this.currentCurrency='NZD';
+        this.countryCode='NZD';
+      }
+    
       if(this.currentSetting.country.CountryId == 26)
-      this.currentCurrency='INR';
+      {
+        this.currentCurrency='INR';
+        this.countryCode='INR';
+      }
+    
 
       //this.router.navigate(['./searchrates']);
   }

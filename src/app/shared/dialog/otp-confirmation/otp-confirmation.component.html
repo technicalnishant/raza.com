@@ -9,7 +9,8 @@
    <p class="text-center subtitle" *ngIf="moreOptions">We'll text you at</p>
 
 
-  <h3 >(+{{countryCode}}) {{formattedNumber(enteredPhone)}}</h3>
+  <h3 *ngIf="isPhone">(+{{countryCode}}) {{formattedNumber(enteredPhone)}}</h3>
+  <h3 *ngIf="!isPhone">{{formattedNumber(enteredPhone)}}</h3>
 
   <div>
     <a href="javascript:void(0)" (click)="closeIcon()" class="changeNum">Change number</a>
@@ -64,7 +65,7 @@
 
       <div class="contact_div_wrap">
          <div class="contact_div">
-           <span class="phone_text"><a href="tel:+18774634233">1877-463-4233</a></span> 24/7
+           <span class="phone_text"><a href="tel:+{{customerCare}}">{{customerCare}}</a></span> 24/7
          </div>
 
        </div>

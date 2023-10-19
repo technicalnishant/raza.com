@@ -17,6 +17,8 @@ import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { ConfirmPopupDialog } from 'app/accounts/dialog/confirm-popup/confirm-popup-dialog';
 import { CustomerService } from 'app/accounts/services/customerService';
+import { CurrentSetting } from 'app/core/models/current-setting';
+import { RazaEnvironmentService } from 'app/core/services/razaEnvironment.service';
 @Component({
   selector: 'app-account-overview',
   templateUrl: './account-overview.component.html',
@@ -40,6 +42,8 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   showBalance :boolean=true;
   private subscription: Subscription;
   currentURL:any
+  currentSetting: CurrentSetting;
+  currentSetting$: Subscription;
   constructor(
     private router: Router,
     private authService: AuthenticationService,
@@ -49,6 +53,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
     private customerService: CustomerService,
+    private razaEnvService: RazaEnvironmentService,
     private titleService: Title) {
       this.subscription = this.razalayoutService.getSharedValue().subscribe(value => {
         this.sharedValue = value;
@@ -59,7 +64,11 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
 
   ngOnInit()
   {
-
+    this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
+      this.currentSetting = res;
+    
+      
+    })
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     //Loading All customer plans.

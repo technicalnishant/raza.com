@@ -3,6 +3,9 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthenticationService } from '../../../core/services/auth.service';
 import { AppBaseComponent } from '../../components/app-base-component';
+import { RazaEnvironmentService } from 'app/core/services/razaEnvironment.service';
+import { Subscription } from 'rxjs';
+import { CurrentSetting } from 'app/core/models/current-setting';
 @Component({
   selector: 'app-otp-confirmation',
   templateUrl: './otp-confirmation.component.html',
@@ -22,7 +25,11 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
   moreOptions:boolean=false;
   sendAgainMsg:boolean=false;
  countryCode:any=''
- enteredPhone:number;
+ enteredPhone:any;
+ currentSetting$: Subscription;
+  currentSetting: CurrentSetting;
+customerCare:any = '1-877.463.4233';
+isPhone = false;
   @ViewChildren('formRow') rows: any;
 
   constructor(
@@ -31,6 +38,7 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private authService: AuthenticationService,
+    private razaEnvService: RazaEnvironmentService,
     _injector: Injector
   ) {
     super(_injector);
@@ -38,6 +46,10 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
   }
 
   ngOnInit() {
+    this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
+      this.currentSetting = res;
+      this.setcurrentCurrency();
+    });
     this.phoneNumber = this.data.phoneNumber
 
     this.countryCode = this.data.countryCode;
@@ -45,6 +57,12 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
     // this.otpConfirmForm = this.formBuilder.group({
     //   otp: ['', [Validators.required]],
     //  });
+
+    var phoneno = /^[0-9]+$/;
+    if( this.enteredPhone.match(phoneno) )
+      {
+        this.isPhone = true;
+      }
   }
 
   toFormGroup(elements) {
@@ -135,6 +153,47 @@ export class OtpConfirmationComponent extends AppBaseComponent implements OnInit
         this.moreOptions = false;
       })
     })
+  }
+
+  
+  setcurrentCurrency()
+  {
+    if(this.currentSetting.country.CountryId == 1)
+    {
+  
+      this.customerCare = '1-877.463.4233';
+    }
+      
+      if(this.currentSetting.country.CountryId == 2)
+      {
+       
+        this.customerCare='1-800.550.3501';
+      }
+      
+      if(this.currentSetting.country.CountryId == 3)
+      {
+        
+        this.customerCare='44 800-041-8192';
+
+      }
+     
+      if(this.currentSetting.country.CountryId == 8)
+      {
+         
+        this.customerCare='61283173403';
+      }
+    
+      if(this.currentSetting.country.CountryId == 20)
+      {
+        
+        this.customerCare='6498844133';
+      }
+    
+      if(this.currentSetting.country.CountryId == 26)
+      {
+        
+        this.customerCare='1-877.463.4233';
+      } 
   }
 
 }
