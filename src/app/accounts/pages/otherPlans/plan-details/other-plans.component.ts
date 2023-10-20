@@ -9,6 +9,9 @@ import { Plan } from '../../../models/plan';
 import { AllAccessNumbersDialog } from '../../../dialog/all-access-numbers/all-access-numbers.dialog';
 import { RazaLayoutService } from '../../../../core/services/raza-layout.service';
 import { RazaSnackBarService } from '../../../../shared/razaSnackbar.service';
+import { RazaEnvironmentService } from 'app/core/services/razaEnvironment.service';
+import { CurrentSetting } from 'app/core/models/current-setting';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-other-plans',
@@ -18,17 +21,25 @@ import { RazaSnackBarService } from '../../../../shared/razaSnackbar.service';
 export class OtherPlansComponent implements OnInit {
   @Input() plan: Plan;
   username: string;
+  currentSetting: CurrentSetting;
+  currentSetting$: Subscription;
   constructor(public dialog: MatDialog,
     private planService: PlanService,
     private titleService: Title,
     private countriesService: CountriesService,
     private razaLayoutService: RazaLayoutService,
     private razaSnackBarService: RazaSnackBarService,
+    private razaEnvService: RazaEnvironmentService,
     private router: Router) { }
 
   ngOnInit() {
     this.titleService.setTitle('Other Plans');
     this.razaLayoutService.setFixedHeader(true);
+
+    this.razaEnvService.getCurrentSetting().subscribe(res => {
+      this.currentSetting = res;
+    })
+
     this.getAllPlan();
   }
 

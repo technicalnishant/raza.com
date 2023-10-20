@@ -32,7 +32,7 @@
     <div class="rightArea"  >
         <div class="planBalanceRecharge">
             <p class="currentPlanText">Your Balance</p>
-            <p class="currentPlanTextRate">{{plan?.Balance | bCurrency : plan?.CurrencyCode}}</p>
+            <p class="currentPlanTextRate">{{plan?.Balance | bCurrency : plan?.CurrencyCode|async}}</p>
              <div class="input_holder1">
                 
             </div>

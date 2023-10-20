@@ -1,5 +1,5 @@
 <div *ngIf="showRechargeList()" class="selectRechargeSec">
-<h3 class="selectRechg">Select a recharge amount</h3>
+<h3 class="selectRechg" *ngIf="denominatons">Select a recharge amount</h3>
 <div *ngIf="!isPremium">
 
   <div class="denomination__box_wrap">

@@ -23,8 +23,7 @@
             
             <a *ngIf="item.IsAllowRecharge" (click)="recharge(item.PlanId)">Recharge</a>
             <a *ngIf="!item.IsAllowRecharge" (click)="rechargeMsg()">Recharge</a>
-             
-
+ 
           </td>
           <td>
             {{item?.FirstAccessNumbers}}<br />
@@ -39,7 +38,7 @@
               <mat-menu #editDeleteMenu2="matMenu" class="editDeleteAreaMain menu2">
                 <ul>
                   <li *ngIf="item.IsAllowPinLess"><a (click)="pinlessSetup(item?.PlanId)">Pinless Setup</a></li>
-                  <li><a (click)="oneTouchDial(item?.PlanId)">One Touch Dial</a></li>
+                  <li *ngIf="currentSetting.currentCountryId <=3" ><a (click)="oneTouchDial(item?.PlanId)">One Touch Dial</a></li>
                   <li *ngIf="item.IsAllowCdr"><a (click)="callDetails(item?.PlanId)">Call Details</a></li>
                   <li *ngIf="item.IsAllowCallForwarding"><a (click)="callForwarding(item?.PlanId)">Call Forwarding</a>
                   </li>
