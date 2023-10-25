@@ -482,21 +482,38 @@ export class GlobalcallComponent implements OnInit {
 
   getRatePerMin(item)
   {
+
+    if(this.isAutoRefill)
+    {
+     
+      return this.toFixed1((item.Price/(item.TotalTime+item.PromoMinutes))*100)
+    }
+    else{
+    // return item.DiscountedRate.TotalTime + (item.DiscountedRate.TotalTime*10/100)
+    let discuont = item.DiscountedRate.TotalTime + (item.DiscountedRate.TotalTime*10/100)
+     return this.toFixed1((item.Price/discuont)*100)
+
+    }
+
+
    //console.log (item.Price, item.TotalTime, item.PromoMinutes)
-    return this.toFixed1((item.Price/(item.TotalTime+item.PromoMinutes))*100)
+   
    // return (item.Price/(item.TotalTime+item.PromoMinutes))*100
   }
 //.DiscountedRate.TotalTime ,  item.DiscountedRate.PromoMinutes
 
 getTotalMin1(item, price)
 {
-
-
- // var item:any = item.filter(a => a.Price == price);
-if(item.Price == price)
-{
-  return item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes;
-}
+ if(this.isAutoRefill)
+ {
+   
+    return item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes;
+  
+ }
+ else{
+  return item.DiscountedRate.TotalTime + (item.DiscountedRate.TotalTime*10/100)
+ }
+    
  // console.log(price+ ' price den', items);
 
    
