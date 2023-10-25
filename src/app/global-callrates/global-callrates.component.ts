@@ -398,8 +398,17 @@ export class GlobalCallratesComponent implements OnInit {
 
   getRatePerMin(item)
   {
+
+    if(this.isAutoRefill)
+    {
+      return this.toFixed1((item.Price/(item.TotalTime+(item.TotalTime*10/100)))*100)
+    }
+    else
+    {
+      return this.toFixed1((item.Price/(item.TotalTime+item.PromoMinutes))*100)
+    }
    //console.log (item.Price, item.TotalTime, item.PromoMinutes)
-    return this.toFixed1((item.Price/(item.TotalTime+item.PromoMinutes))*100)
+    
   }
 
  getFlagName()
@@ -595,12 +604,39 @@ export class GlobalCallratesComponent implements OnInit {
     var call_rate = item.CallRate;
     if(item.DiscountedRate)
     {
-      call_rate = this.toFixed((item.DiscountedRate.Price/ (item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes)*100));
+      if(this.isAutoRefill)
+      {
+        call_rate = this.toFixed((item.DiscountedRate.Price/ (item.DiscountedRate.TotalTime +  (item.DiscountedRate.TotalTime*10/100))*100));
+      }
+      else{
+        call_rate = this.toFixed((item.DiscountedRate.Price/ (item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes)*100));
+      }
+      
     }
 
     return call_rate;
 
   }
+
+  getSubRateMin(item)
+  {
+    var call_rate = 0;
+    if(item.DiscountedRate)
+    {
+      if(this.isAutoRefill)
+      {
+        call_rate = item.DiscountedRate.TotalTime +  (item.DiscountedRate.TotalTime*10/100) ;
+      }
+      else{
+        call_rate = item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes ;
+      }
+      
+    }
+
+    return call_rate;
+
+  }
+
   onClickRateTab(item: Ratedenominations) {
     const model: NewPlanCheckoutModel = new NewPlanCheckoutModel();
     localStorage.setItem('promo', 'Free '+item.DiscountApplied.toString()+'%');

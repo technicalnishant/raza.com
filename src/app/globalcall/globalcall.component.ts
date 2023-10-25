@@ -490,7 +490,7 @@ export class GlobalcallComponent implements OnInit {
     }
     else{
     // return item.DiscountedRate.TotalTime + (item.DiscountedRate.TotalTime*10/100)
-    let discuont = item.DiscountedRate.TotalTime + (item.DiscountedRate.TotalTime*10/100)
+    let discuont = item.TotalTime + (item.TotalTime*10/100)
      return this.toFixed1((item.Price/discuont)*100)
 
     }
@@ -525,16 +525,15 @@ getTotalMin1(item, price)
   {
     if(!this.isAutoRefill)
     {
-      //var item:any = this.WithoutAutorefillPlans.filter(a => a.Price == price);
+       
     
       return Math.floor(min+ promomin);
-     // return Math.floor(min+ (min* item[0].DiscountApplied)/100);
+      
     }
     else
     {
-     // var item:any = this.AutorefillPlans.filter(a => a.Price == price);
-      // return Math.floor(min+ (min* item[0].DiscountApplied)/100);
-       return Math.floor(min+ promomin);
+      return min+(min*10/100);
+      // return Math.floor(min+ promomin);
        
     }
   }
