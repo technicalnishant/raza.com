@@ -701,6 +701,20 @@ a {
     overflow: hidden;
     &.slider-bg-3 {
         background-image: url(../../../assets/images/home_banner_new/slider-bg-uk.webp);
+        .carousel-caption.tpSlider_0 {
+          align-items: center;
+          @media only screen  and (max-width: 767px) {
+            background-image: url(../../../assets/images/home_banner_new/promo/hw-uk-mobile.webp);
+            background-position: center;
+          }
+        }
+        .thanksGivingDay {
+          margin-bottom: 99px;
+          margin-left: -225px;
+          @media only screen  and (max-width: 767px) {
+            margin: -120px 0 0;
+          }
+        }
     }
     .sliderImg {
         height: 700px;
@@ -715,25 +729,26 @@ a {
         .carousel-caption.tpSlider_0 {
           left: 0;
           right: 0;
-          background-image: url(../../../assets/images/home_banner_new/thanks_giving_day_bg.jpg);
+          background-image: url(../../../assets/images/home_banner_new/promo/hw.webp);
           background-repeat: no-repeat;
           background-size: cover;
+          background-position: center;
           bottom: 0;
           display: flex;
-          align-items: center;
+          align-items: flex-end;
           justify-content: center;
+          padding-bottom: 0;
           @media only screen  and (max-width: 767px) {
-            background-image: url(../../../assets/images/home_banner_new/thanks_giving_day_bg_mb.jpg);
+            background-image: url(../../../assets/images/home_banner_new/promo/hw-mobile.webp);
             background-position: center;
           }
         }
         .thanksGivingDay {
-          margin-left: 200px;
           img {
             height: 550px;
           }
           @media only screen  and (max-width: 767px) {
-            margin-left: 0;
+            margin-left: -65px;
             img {
               height: auto;
             }
