@@ -8,10 +8,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class HowWorksComponent {
   isShow:any;
+  country_id:any 
   constructor(
     public dialogRef: MatDialogRef<HowWorksComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
       this.isShow=data.slideIndex;
+      this.country_id = data.country_id;
      }
 
   closeIcon(): void {

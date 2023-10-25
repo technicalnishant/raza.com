@@ -42,9 +42,9 @@
         <img *ngIf="headerValue == 2" src="../../../assets/images/myaccount_icons/menu-normal.png" loading="lazy" width="22" height="16" alt="menu" />
       </button>
 
-      <div class="search-box d-none d-md-block">
+      <div class="search-box d-none d-md-block" >
         <div class="input-group">
-          <div class="input-group-prepend">
+          <div class="input-group-prepend" >
             <span class="input-group-text caret">
               <div (click)="openFlagDropDown()" class="select_top1">
                 <img src="./../../assets/images/blank.gif" loading="lazy" alt="flag" width="30" height="30" [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId">

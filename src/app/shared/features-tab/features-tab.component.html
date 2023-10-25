@@ -29,9 +29,9 @@
           <div class="button-tab">
             <div class="example-button-row">
               <span *ngFor="let btn of item.button">
-                <button mat-raised-button color="#0071e3" class="higlighted" *ngIf="btn.primary==true" (click)="setitUp(i)" >{{btn.label}}</button>
+                <button mat-raised-button color="#0071e3" class="higlighted" *ngIf="btn.primary==true" (click)="setitUp(item.slide)" >{{btn.label}}</button>
                 <button mat-button color="primary" *ngIf="btn.label=='How it works?'" (click)="howItWorksPopup(item.slide)">{{btn.label}}</button>
-                <button mat-button color="primary" *ngIf="btn.label=='FAQ'" (click)="faqPopup(i)">{{btn.label}}</button>
+                <button mat-button color="primary" *ngIf="btn.label=='FAQ'" (click)="faqPopup(item.slide)">{{btn.label}}</button>
               </span>
             </div>
           </div>
