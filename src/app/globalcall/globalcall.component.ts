@@ -511,7 +511,7 @@ getTotalMin1(item, price)
   
  }
  else{
-  return item.DiscountedRate.TotalTime + (item.DiscountedRate.TotalTime*10/100)
+  return Math.round(item.DiscountedRate.TotalTime + (item.DiscountedRate.TotalTime*10/100))
  }
     
  // console.log(price+ ' price den', items);
@@ -532,7 +532,7 @@ getTotalMin1(item, price)
     }
     else
     {
-      return min+(min*10/100);
+      return Math.round(min+(min*10/100));
       // return Math.floor(min+ promomin);
        
     }

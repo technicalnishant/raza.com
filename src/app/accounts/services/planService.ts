@@ -251,7 +251,7 @@ export class PlanService {
     replaced = replaced.replace(/[\[\]']/g,'' );
    
     let response:any;
-     const cachedData = sessionStorage.getItem('pinless_'+replaced);
+     const cachedData = localStorage.getItem('pinless_'+replaced);
     if (cachedData) {
       return of(JSON.parse(cachedData));
     }else{
@@ -309,12 +309,12 @@ export class PlanService {
     return this.httpClient.get<[]>(`${Api.plan.pinlessNumber}/${replaced}`).pipe(
       tap(data => {
          
-          sessionStorage.setItem('pinless_'+replaced, JSON.stringify(data));
+         localStorage.setItem('pinless_'+replaced, JSON.stringify(data));
          
       }),
       catchError(error => {
         console.error('Error pinless_ fetching data:', error);
-        sessionStorage.setItem('pinless_'+replaced, JSON.stringify([]));
+        localStorage.setItem('pinless_'+replaced, JSON.stringify([]));
         return of(null);
       }) 
       );

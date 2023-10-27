@@ -5,12 +5,18 @@
               <splide-slide>
                   <div class="sliderImg"></div>
                   <div class="carousel-caption tpSlider_0">
-                      <div class="thanksGivingDay" (click)="onopenchristmas(typedEl)">
+                      <div class="thanksGivingDay" (click)="onopenchristmas(typedEl)" *ngIf="currentSetting?.country?.CountryId < 3">
                           <img src="./assets/images/home_banner_new/promo/hw.png" alt="img" width="743" height="550" class="thxGivDay d-none d-md-block" *ngIf="currentSetting?.country?.CountryId != 3">
-                          <img src="./assets/images/home_banner_new/promo/hw-uk.png" alt="img" width="749" height="550" class="thxGivDay d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 3">
+                         
                           <img src="./assets/images/home_banner_new/promo/hw-mobile.png" alt="img" width="296" height="489" class="thxGivDay showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3">
-                          <img src="./assets/images/home_banner_new/promo/hw-uk-mobile.png" alt="img" width="218" height="117" class="thxGivDay showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 3">
+                           
                       </div>
+
+                      <div class="thanksGivingDay"  *ngIf="currentSetting?.country?.CountryId == 3">
+                         <img src="./assets/images/home_banner_new/promo/hw-uk.png" alt="img" width="749" height="550" class="thxGivDay d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 3">
+                        <img src="./assets/images/home_banner_new/promo/hw-uk-mobile.png" alt="img" width="218" height="117" class="thxGivDay showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 3">
+                    </div>
+
                   </div>
               </splide-slide>
              <splide-slide>

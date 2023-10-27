@@ -25,6 +25,8 @@ import { RazaEnvironmentService } from '../../../core/services/razaEnvironment.s
 import { RazaSnackBarService } from 'app/shared/razaSnackbar.service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
 import { LoginpopupComponent } from '../../../core/loginpopup/loginpopup.component';
+import { PlanService } from 'app/accounts/services/planService';
+import { Plan } from 'app/accounts/models/plan';
 @Component({
   selector: 'app-register',
   templateUrl: './checkout-register.component.html',
@@ -49,6 +51,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
   isPromotion:boolean = false;
   promoCode:string=''; 
   hidePrefix:boolean=true;
+  plan: Plan;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -60,6 +63,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
     private razaLayoutService: RazaLayoutService,
     private razaEnvService: RazaEnvironmentService,
     private razaSnackBarService: RazaSnackBarService,
+    private planService: PlanService,
     _injector: Injector
   ) {
     super(_injector)
@@ -284,7 +288,8 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
           this.authService.login(loginBody).toPromise().then(user => {
             //console.log("user info after login ", user);
             // this.redirectToPaymentInfo();
-             this.router.navigate(['/checkout/payment-info']);
+            this.setcurrentCurrency(this.currentSetting.country.CountryId);
+             //this.router.navigate(['/checkout/payment-info']);
           })
         }
       }
@@ -367,8 +372,8 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
 
       
       this.checkoutService.setCurrentCart(cart);
-     
-      this.router.navigate(['/checkout/payment-info']);
+      this.getDefaultPlan()
+      
        
   }
 
@@ -384,6 +389,24 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
      
       const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
      
+  }
+
+
+  
+  getDefaultPlan()
+  {
+    this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe(
+      //this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe(
+      (res:any)=>{
+
+        this.plan = res;
+        this.router.navigate(['/checkout/payment-info']);
+      },
+
+      (err: ApiErrorResponse) => {
+         
+        }
+    )
   }
 
 }
