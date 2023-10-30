@@ -65,21 +65,21 @@
     .icon_holder1 {
         text-align: center;
         height: 90px;
-        background-image: url(../../../assets/images/mobile_topup_white.png);
+        // background-image: url(../../../assets/images/mobile_topup_white.png);
         background-repeat: no-repeat;
         background-position: top 0 center;
         &.callAfrica, &.callAsia, &.callAsiaMb {
-          background-image: url(../../../assets/images/callafrica_white.png);
+          // background-image: url(../../../assets/images/callafrica_white.png);
         }
         &.callAfricaMb {
-          background-image: url(../../../assets/images/callafrica_blue.png);
+          // background-image: url(../../../assets/images/callafrica_blue.png);
         }
     }
     .homeBluecommon:hover {
       .icon_holder1 {
-          background-image: url(../../../assets/images/mobile_topup_blue.png);
+          // background-image: url(../../../assets/images/mobile_topup_blue.png);
           &.callAfrica, &.callAsia {
-            background-image: url(../../../assets/images/callafrica_blue.png);
+            // background-image: url(../../../assets/images/callafrica_blue.png);
           }
       }
     }
@@ -87,12 +87,12 @@
       margin: 0 auto;
       width: 22px;
       height: 20px;
-      background-image: url(../../../assets/images/home_arrow_white.png);
+      // background-image: url(../../../assets/images/home_arrow_white.png);
       background-repeat: no-repeat;
     }
     .white {
       .arrow {
-        background-image: url(../../../assets/images/home_arrow_blue.png);
+        // background-image: url(../../../assets/images/home_arrow_blue.png);
       }
     }
 }
@@ -125,13 +125,13 @@
     background: #fff;
     .icon_holder1 {
         height: 62px;
-        background-image: url(../../../assets/images/pick_your_plan.png);
+        // background-image: url(../../../assets/images/pick_your_plan.png);
         background-repeat: no-repeat;
         &.goMyAcc {
-          background-image: url(../../../assets/images/create_account_icon.png);
+          // background-image: url(../../../assets/images/create_account_icon.png);
         }
         &.startCall {
-          background-image: url(../../../assets/images/start_calling_icon.png);
+          // background-image: url(../../../assets/images/start_calling_icon.png);
         }
     }
     h3 {
@@ -563,7 +563,7 @@ a {
             cursor: pointer;
             .arrow {
                 width: 50px;
-                background-image: url(../../../assets/images/home_arrow_blue.png);
+                // background-image: url(../../../assets/images/home_arrow_blue.png);
             }
         }
         .arrow {
@@ -571,7 +571,7 @@ a {
             width: 22px;
             height: 20px;
             transition: width 0.5s ease;
-            background-image: url(../../../assets/images/home_arrow_white.png);
+            // background-image: url(../../../assets/images/home_arrow_white.png);
             background-position: right;
             background-repeat: no-repeat;
             img {
@@ -694,17 +694,19 @@ a {
     z-index: 9;
 }
 .home-slider {
-    background-image: url(../../../assets/images/home_banner_new/slider-bg.webp);
+    // background-image: url(../../../assets/images/home_banner_new/slider-bg.webp);
+    background-color: #1642A5;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
     overflow: hidden;
+    min-height: 650px;
     &.slider-bg-3 {
-        background-image: url(../../../assets/images/home_banner_new/slider-bg-uk.webp);
+        // background-image: url(../../../assets/images/home_banner_new/slider-bg-uk.webp);
         .carousel-caption.tpSlider_0 {
           align-items: center;
           @media only screen  and (max-width: 767px) {
-            background-image: url(../../../assets/images/home_banner_new/promo/hw-uk-mobile.webp);
+            // background-image: url(../../../assets/images/home_banner_new/promo/hw-uk-mobile.webp);
             background-position: center;
           }
         }
@@ -729,7 +731,7 @@ a {
         .carousel-caption.tpSlider_0 {
           left: 0;
           right: 0;
-          background-image: url(../../../assets/images/home_banner_new/promo/hw.webp);
+          // background-image: url(../../../assets/images/home_banner_new/promo/hw.webp);
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center;
@@ -739,7 +741,7 @@ a {
           justify-content: center;
           padding-bottom: 0;
           @media only screen  and (max-width: 767px) {
-            background-image: url(../../../assets/images/home_banner_new/promo/hw-mobile.webp);
+            // background-image: url(../../../assets/images/home_banner_new/promo/hw-mobile.webp);
             background-position: center;
           }
         }
@@ -824,7 +826,7 @@ a {
     .splide__arrow--prev {
        height:50px;
        width:50px;
-        background: url("/assets/images/new_design_images/icon_sprite.png") 0px 294px;
+        // background: url("/assets/images/new_design_images/icon_sprite.png") 0px 294px;
     }
     .carousel-control-prev {
         left: unset;
@@ -842,7 +844,7 @@ a {
     .splide__arrow--next {
         height:50px;
         width:50px;
-        background: url("/assets/images/new_design_images/icon_sprite.png") -50px 294px;
+        // background: url("/assets/images/new_design_images/icon_sprite.png") -50px 294px;
     }
     .carousel-control-next,
     .carousel-control-prev {
@@ -852,11 +854,11 @@ a {
         z-index: 99;
     }
     .carousel-control-next:hover .carousel-control-next-icon, .splide__arrow--next:hover {
-        background: url("/assets/images/new_design_images/icon_sprite.png") 50px 294px;
+        // background: url("/assets/images/new_design_images/icon_sprite.png") 50px 294px;
         background-color: #fff;
     }
     .carousel-control-prev:hover .carousel-control-prev-icon, .splide__arrow--prev:hover {
-        background: url("/assets/images/new_design_images/icon_sprite.png") 100px 294px;
+        // background: url("/assets/images/new_design_images/icon_sprite.png") 100px 294px;
         background-color: #fff;
     }
     .carousel-control-next:focus,
@@ -969,7 +971,7 @@ h1.buy1get1-text {
 }
 h1.buy1get1-text:after {
     content: "";
-    background-image: url("/assets/images/canada_tag.png");
+    // background-image: url("/assets/images/canada_tag.png");
     position: absolute;
     background-size: contain;
     height: 55px;
@@ -1044,10 +1046,10 @@ h1.buy1get1-text:after {
 
 @media only screen  and (max-width: 767px) {
     .home-slider {
-        background-image: url(../../../assets/images/home_banner_new/slider-bg-mb.webp);
+        // background-image: url(../../../assets/images/home_banner_new/slider-bg-mb.webp);
         overflow: hidden;
         &.slider-bg-3 {
-            background-image: url(../../../assets/images/home_banner_new/slider-bg-mb-uk.webp);
+            // background-image: url(../../../assets/images/home_banner_new/slider-bg-mb-uk.webp);
         }
         .sliderImg {
           height: 620px;
@@ -1096,19 +1098,19 @@ h1.buy1get1-text:after {
         .carousel-control-prev-icon {
             height: 32px;
             width: 32px;
-            background: url(/assets/images/new_design_images/icon_sprite.png) -30px 244px;
+            // background: url(/assets/images/new_design_images/icon_sprite.png) -30px 244px;
         }
         .carousel-control-next-icon {
             height: 32px;
             width: 32px;
-            background: url(/assets/images/new_design_images/icon_sprite.png) 0px 244px;
+            // background: url(/assets/images/new_design_images/icon_sprite.png) 0px 244px;
         }
         .carousel-control-next:hover .carousel-control-next-icon {
-            background: url(/assets/images/new_design_images/icon_sprite.png) -62px 244px;
+            // background: url(/assets/images/new_design_images/icon_sprite.png) -62px 244px;
             background-color: #fff;
         }
         .carousel-control-prev:hover .carousel-control-prev-icon {
-            background: url(/assets/images/new_design_images/icon_sprite.png) -92px 244px;
+            // background: url(/assets/images/new_design_images/icon_sprite.png) -92px 244px;
             background-color: #fff;
         }
         .carousel-control-prev {
@@ -1224,18 +1226,18 @@ h1.buy1get1-text:after {
 }
 @media only screen  and (max-width: 767px) {
   .icon_holder1 {
-      &.callAfrica {
-        background-image: url(../../../assets/images/callafrica_blue.png) !important;
-      }
-      &.mbTopUpMb {
-        background-image: url(../../../assets/images/mobile_topup_white.png) !important;
-      }
-      &.callAfricaMb {
-        background-image: url(../../../assets/images/callafrica_blue.png) !important;
-      }
-      &.callAsiaMb {
-        background-image: url(../../../assets/images/callafrica_white.png) !important;
-      }
+      // &.callAfrica {
+      //   background-image: url(../../../assets/images/callafrica_blue.png) !important;
+      // }
+      // &.mbTopUpMb {
+      //   background-image: url(../../../assets/images/mobile_topup_white.png) !important;
+      // }
+      // &.callAfricaMb {
+      //   background-image: url(../../../assets/images/callafrica_blue.png) !important;
+      // }
+      // &.callAsiaMb {
+      //   background-image: url(../../../assets/images/callafrica_white.png) !important;
+      // }
       // &.callAfricaMb {
       //   background-image: url(../../../assets/images/callafrica_blue.png);
       // }
