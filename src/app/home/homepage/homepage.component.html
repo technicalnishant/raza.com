@@ -1,5 +1,8 @@
 <div class="first_fold">
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
+      <div class="thanksGivingDay" (click)="onopenchristmas(typedEl)" *ngIf="currentSetting?.country?.CountryId < 3">
+          <img src="./assets/images/home_banner_new/promo/hw.png" alt="img" width="743" height="550" class="thxGivDay d-none d-md-block" *ngIf="currentSetting?.country?.CountryId != 3">
+      </div>
             <!-- <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }"> -->
                 <!-- <splide-slide *ngIf="currentSetting?.country?.CountryId < 3" > -->
               <!-- <splide-slide>
@@ -285,13 +288,13 @@
                 <div class="new_style_mobile">
                     <div class="mobileImageSliderMain"></div>
                     <div class="mobileImageSlider">
-                        <!-- <img loading="lazy" src="./assets/images/download2dollor.jpg" class="gif-app" alt="icon" width="376" height="815" /> -->
+                        <img loading="lazy" src="./assets/images/download2dollor.jpg" class="gif-app" alt="icon" width="376" height="815" />
                         <div class="home_mobile_div" >
                             <a routerLink="/mobile-page">
-                                <!-- <img loading="lazy" src="../../../assets/images/new_design_images/play_store.png"  width="137" height="46" alt="play" class="mb-lg-0"> -->
+                                <img loading="lazy" src="../../../assets/images/new_design_images/play_store.png"  width="137" height="46" alt="play" class="mb-lg-0">
                             </a>
                             <a routerLink="/mobile-page" >
-                                <!-- <img loading="lazy" src="../../../assets/images/new_design_images/app_store.png" width="137" height="46" class="ml-0 ml-lg-3" alt="app"> -->
+                                <img loading="lazy" src="../../../assets/images/new_design_images/app_store.png" width="137" height="46" class="ml-0 ml-lg-3" alt="app">
                             </a>
                         </div>
                     </div>
