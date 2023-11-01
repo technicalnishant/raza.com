@@ -103,7 +103,16 @@ export class SidemenuComponent implements OnInit {
             this.plan = data;
           },
           (error) => {
-            console.error('Error:', error);
+           // console.error('Error:', error);
+
+            this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe( 
+              (res:any)=>{
+                
+                this.plan = res;
+                
+              }
+            );
+
           }
         );
       } else {

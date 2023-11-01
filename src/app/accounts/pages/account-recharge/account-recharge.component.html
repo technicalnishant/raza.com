@@ -42,8 +42,11 @@
      <div class="d-flex justify-content-between">
           <div class="amount">{{item.Price | bCurrency | async}}</div>
           <div class="discount_applied">
-            <div class="discount_applied_text">
+            <div class="discount_applied_text" *ngIf="item.Price != 90">
               10 %
+            </div>
+            <div class="discount_applied_text" *ngIf="item.Price == 90">
+              20 %
             </div>
           </div>
        </div>

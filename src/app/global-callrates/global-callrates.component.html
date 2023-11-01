@@ -154,8 +154,8 @@
                                         <td>{{getNameOfCountry(item.CountryName)}} </td> 
                                         <td>{{item.DiscountedRate.TotalTime}}</td>
                                         <td>{{item.DiscountedRate.PromoMinutes}}</td>
-                                        <td>{{item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes}}</td>
-                                        <td>{{getSubbCallRates(item) | sCurrency : globalPlanData.CurrencyCode | async}} / min
+                                        <td>{{getSubRateMin(item) }}</td>
+                                        <td>{{getSubbCallRates(item) | sCurrency : globalPlanData.CurrencyCode }} / min
                                         </td>
                                     </tr>
                                 </tbody>

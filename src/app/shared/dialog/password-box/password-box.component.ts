@@ -55,6 +55,8 @@ export class PasswordBoxComponent implements OnInit {
 
   }
 
+
+  
   navigateToForgotPassword() {
     this.dialogRef.close(null);
     //this.router.navigateByUrl('/auth/forgot-password');

@@ -45,16 +45,16 @@
 .payment-spinner{
   position: fixed;
   z-index: 1000;
-  left: 0;
-  top: 0;
-  right: 0;
-  margin: auto;
+  left: 249px;
+  top: 18px;
+  /* right: 0; */
+  /* margin: auto; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #ffffff87;
-  min-height: 100vh;
+  /* background: #ffffff87; */
+  // min-height: 100vh;
 }
 .payment-spinner1 {
   position: fixed;
@@ -82,12 +82,12 @@
 
 ::ng-deep{
   mat-spinner.mat-spinner.mat-progress-spinner.mat-primary.mat-progress-spinner-indeterminate-animation {
-    width: 60px!important;
-    height: 60px!important;
+    width: 32px!important;
+    height: 32px!important;
 }
 .mat-progress-spinner svg {
-  width: 60px!important;
-  height: 60px!important;
+  width: 32px!important;
+  height: 32px!important;
 }
 }
 

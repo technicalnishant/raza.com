@@ -483,21 +483,43 @@ export class GlobalcallComponent implements OnInit {
 
   getRatePerMin(item)
   {
+
+    if(!this.isAutoRefill)
+    {
+      console.log("item.Price/(item.TotalTime+item.PromoMinutes", item.Price, item.TotalTime, item.PromoMinutes);
+      return this.toFixed1((item.Price/(item.TotalTime+item.PromoMinutes))*100)
+
+      
+    }
+    else{
+    
+    let discuont = item.TotalTime + (item.TotalTime*10/100)
+
+    console.log("item.Price/(item.TotalTime+item.PromoMinutes", item.Price, item.TotalTime, item.PromoMinutes);
+
+     return this.toFixed1((item.Price/discuont)*100)
+
+    }
+
+
    //console.log (item.Price, item.TotalTime, item.PromoMinutes)
-    return this.toFixed1((item.Price/(item.TotalTime+item.PromoMinutes))*100)
+   
    // return (item.Price/(item.TotalTime+item.PromoMinutes))*100
   }
 //.DiscountedRate.TotalTime ,  item.DiscountedRate.PromoMinutes
 
 getTotalMin1(item, price)
 {
-
-
- // var item:any = item.filter(a => a.Price == price);
-if(item.Price == price)
-{
-  return item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes;
-}
+ if(this.isAutoRefill)
+ {
+   
+    return item.DiscountedRate.TotalTime + item.DiscountedRate.PromoMinutes;
+  
+ }
+ else{
+  return Math.round(item.DiscountedRate.TotalTime + (item.DiscountedRate.TotalTime*10/100))
+ }
+    
  // console.log(price+ ' price den', items);
 
    
@@ -509,16 +531,15 @@ if(item.Price == price)
   {
     if(!this.isAutoRefill)
     {
-      //var item:any = this.WithoutAutorefillPlans.filter(a => a.Price == price);
+       
     
       return Math.floor(min+ promomin);
-     // return Math.floor(min+ (min* item[0].DiscountApplied)/100);
+      
     }
     else
     {
-     // var item:any = this.AutorefillPlans.filter(a => a.Price == price);
-      // return Math.floor(min+ (min* item[0].DiscountApplied)/100);
-       return Math.floor(min+ promomin);
+      return Math.round(min+(min*10/100));
+      // return Math.floor(min+ promomin);
        
     }
   }
@@ -675,9 +696,11 @@ if(item.Price == price)
 
  
 
-        this.RatePerMinPromo = data. DiscountedPlansWithAutoRefill.RatePerMin;
-        this.RatePerMin = this.RatePerMinPromo;
-        this.RatePerMinWithOutPromo = data.DiscountedPlans.RatePerMin;
+        
+        
+         this.RatePerMinPromo = data.DiscountedPlans.RatePerMin;
+         this.RatePerMinWithOutPromo = data. DiscountedPlansWithAutoRefill.RatePerMin;
+         this.RatePerMin = this.RatePerMinPromo;
         //this.WithoutAutorefillPlans = data.DiscountedPlans.Denominations;
         this.globalPlanData = data;
   

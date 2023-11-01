@@ -220,6 +220,7 @@ onPaypalPaymentApprove(data: IOnApproveCallbackData): Promise<any> {
         this.fromCountryId  = this.plan.CountryFrom;
         this.isEnableOtherPlan =false
         this.isPremium = true;
+         
         this.getRates()
          
         
@@ -274,6 +275,7 @@ onPaypalPaymentApprove(data: IOnApproveCallbackData): Promise<any> {
  {
  // let cards = [88,89,90,91,120,121,125,126,129,130,145,146,163,175,176,177,178,179,180];
   let cards = [163,175,176,177,178,179,180];
+   
   if(this.clientCardId > 0)
   {
     if(!cards.includes(this.clientCardId))
