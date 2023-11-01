@@ -251,7 +251,7 @@ export class PlanService {
     replaced = replaced.replace(/[\[\]']/g,'' );
    
     let response:any;
-     const cachedData = sessionStorage.getItem('pinless_'+replaced);
+     const cachedData = localStorage.getItem('pinless_'+replaced);
      
     if (cachedData) {
       return of(JSON.parse(cachedData));
