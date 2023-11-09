@@ -43,6 +43,10 @@
     margin-right: 45px;
   }
 }
+.icon_holder1,.callAfrica, .callAsia, .callAsiaMb, .callAfricaMb,
+.homepage_bluearea .arrow, .homepage_bluearea .white .arrow  {
+  background-image: url(../../../assets/images/new_design_images/hp_sprites.png);
+}
 .homepage_bluearea {
     background: #0160e0;
     text-align: center;
@@ -64,22 +68,30 @@
     }
     .icon_holder1 {
         text-align: center;
-        height: 90px;
-        background-image: url(../../../assets/images/mobile_topup_white.png);
-        background-repeat: no-repeat;
-        background-position: top 0 center;
+        height: 78px;
+        width: 48px;
+        margin-left: auto;
+        margin-right: auto;
+        // background-image: url(../../../assets/images/mobile_topup_white.png);
+        background-position: -200px -67px;
         &.callAfrica, &.callAsia, &.callAsiaMb {
-          background-image: url(../../../assets/images/callafrica_white.png);
+          // background-image: url(../../../assets/images/callafrica_white.png);
+          width: 75px;
+          height: 75px;
+          background-position: -123px -1px;
         }
         &.callAfricaMb {
-          background-image: url(../../../assets/images/callafrica_blue.png);
+          // background-image: url(../../../assets/images/callafrica_blue.png);
+          background-position: -1px -123px;
         }
     }
     .homeBluecommon:hover {
       .icon_holder1 {
-          background-image: url(../../../assets/images/mobile_topup_blue.png);
+          // background-image: url(../../../assets/images/mobile_topup_blue.png);
+          background-position: -266px -1px;
           &.callAfrica, &.callAsia {
-            background-image: url(../../../assets/images/callafrica_blue.png);
+            // background-image: url(../../../assets/images/callafrica_blue.png);
+            background-position:  -1px -123px;
           }
       }
     }
@@ -87,12 +99,13 @@
       margin: 0 auto;
       width: 22px;
       height: 20px;
-      background-image: url(../../../assets/images/home_arrow_white.png);
-      background-repeat: no-repeat;
+      // background-image: url(../../../assets/images/home_arrow_white.png);
+      background-position: -266px -81px;
     }
     .white {
       .arrow {
-        background-image: url(../../../assets/images/home_arrow_blue.png);
+        // background-image: url(../../../assets/images/home_arrow_blue.png);
+        background-position: -290px -81px;
       }
     }
 }
@@ -564,6 +577,8 @@ a {
             .arrow {
                 width: 50px;
                 background-image: url(../../../assets/images/home_arrow_blue.png);
+                background-position: right 0;
+                background-repeat: no-repeat;
             }
         }
         .arrow {
@@ -571,9 +586,8 @@ a {
             width: 22px;
             height: 20px;
             transition: width 0.5s ease;
-            background-image: url(../../../assets/images/home_arrow_white.png);
-            background-position: right;
-            background-repeat: no-repeat;
+            // background-image: url(../../../assets/images/home_arrow_white.png);
+            background-position: -266px -81px;
             img {
                 position: relative;
                 transition: left 0.5s;
