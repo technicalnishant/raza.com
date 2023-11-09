@@ -704,7 +704,7 @@ a {
         .carousel-caption.tpSlider_0 {
           align-items: center;
           @media only screen  and (max-width: 767px) {
-            background-image: url(../../../assets/images/home_banner_new/promo/hw-uk-mobile.webp);
+            // background-image: url(../../../assets/images/home_banner_new/promo/hw-uk-mobile.webp);
             background-position: center;
           }
         }
@@ -721,15 +721,15 @@ a {
     }
     .bg-image {
         width: 100%;
-        min-height: 700px;
-        max-height: 700px;
+        min-height: 600px;
+        max-height: 600px;
         object-fit: cover;
     }
     ::ng-deep {
         .carousel-caption.tpSlider_0 {
           left: 0;
           right: 0;
-          background-image: url(../../../assets/images/home_banner_new/promo/hw.webp);
+          // background-image: url(../../../assets/images/home_banner_new/promo/hw.webp);
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center;
@@ -739,7 +739,7 @@ a {
           justify-content: center;
           padding-bottom: 0;
           @media only screen  and (max-width: 767px) {
-            background-image: url(../../../assets/images/home_banner_new/promo/hw-mobile.webp);
+            // background-image: url(../../../assets/images/home_banner_new/promo/hw-mobile.webp);
             background-position: center;
           }
         }
@@ -787,7 +787,82 @@ a {
 }
 
 ::ng-deep {
-      ul.splide__pagination {
+
+// Diwali promo css
+.diwali_strip {
+  margin-top: 10px;
+  background-image: url(../../../assets/images/home_banner_new/promo/diwali_banner.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 165px;
+  @media only screen  and (max-width: 600px) {
+    height: 180px;
+    background-size: cover;
+  }
+}
+.viyaFireworWrap {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 155px;
+  left: 0;
+  right: 0;
+  @media only screen  and (max-width: 600px) {
+      height: 170px;
+  }
+    .diwaliPromoText {
+          color: #fff;
+          p {
+            margin: 0 0 4px;
+            font-weight: 500;
+          }
+          h3 {
+            font-weight: 600;
+            font-size: 25px;
+            @media only screen  and (max-width: 600px) {
+              font-size: 18px;
+            }
+          }
+          .dPromoBtn {
+            background: #fdd103;
+            padding: 3px 15px;
+            font-size: 15px;
+            color: #000;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-top: 5px;
+            display: inline-block;
+            &:hover{
+              opacity: .8;
+            }
+        }
+      }
+      .viyaWrap {
+          margin-right: 30px;
+      }
+      .fireworksWrap {
+          margin-left: 20px;
+      }
+      @media only screen  and (max-width: 600px) {
+        .viyaWrap {
+            margin-right: 10px;
+            video {
+              width: 80px;
+            }
+        }
+        .fireworksWrap {
+            margin-left: 10px;
+            video {
+              width: 110px;
+            }
+        }
+      }
+    }
+
+
+    ul.splide__pagination {
         right: 3%;
         margin-right: 86px;
         left: unset;

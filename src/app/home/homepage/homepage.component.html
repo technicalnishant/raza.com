@@ -1,15 +1,36 @@
 <div class="first_fold">
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
+            <div class="diwali_strip">
+              <div class="viyaFireworWrap">
+                <div class="viyaWrap">
+                  <video autoplay loop width="100">
+                    <source src="../../../assets/images/home_banner_new/promo/diya.webm" type="video/webm" />
+                  </video>
+                </div>
+                <div class="diwaliPromoText">
+                  <div>
+                    <p>Happy Diwali</p>
+                    <h3>Get upto 20% bonus mins to call</h3>
+                  </div>
+                  <a routerLink="" class="dPromoBtn">Buy now</a>
+                </div>
+                <div class="fireworksWrap">
+                  <video autoplay loop width="130">
+                    <source src="../../../assets/images/home_banner_new/promo/fireworks.webm" type="video/webm" />
+                  </video>
+                </div>
+              </div>
+            </div>
             <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
                 <!-- <splide-slide *ngIf="currentSetting?.country?.CountryId < 3" > -->
-               <splide-slide>
+               <!-- <splide-slide>
                   <div class="sliderImg"></div>
                   <div class="carousel-caption tpSlider_0">
                       <div class="thanksGivingDay" (click)="onopenchristmas(typedEl)" *ngIf="currentSetting?.country?.CountryId < 3">
                           <img src="./assets/images/home_banner_new/promo/hw.png" alt="img" width="743" height="550" class="thxGivDay d-none d-md-block" *ngIf="currentSetting?.country?.CountryId != 3">
-                         
+
                           <img src="./assets/images/home_banner_new/promo/hw-mobile.png" alt="img" width="296" height="489" class="thxGivDay showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3">
-                           
+
                       </div>
 
                       <div class="thanksGivingDay"  *ngIf="currentSetting?.country?.CountryId == 3">
@@ -18,7 +39,7 @@
                     </div>
 
                   </div>
-              </splide-slide>  
+              </splide-slide>   -->
              <splide-slide>
                 <div class="sliderImg"></div>
                 <div class="carousel-caption tpSlider_1">
