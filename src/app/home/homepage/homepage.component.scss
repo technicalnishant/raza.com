@@ -44,7 +44,7 @@
   }
 }
 .icon_holder1,.callAfrica, .callAsia, .callAsiaMb, .callAfricaMb,
-.homepage_bluearea .arrow, .homepage_bluearea .white .arrow  {
+.homepage_bluearea .arrow, .homepage_bluearea .white .arrow, .mobileAppcommon_area::after  {
   background-image: url(../../../assets/images/new_design_images/hp_sprites.png);
 }
 .homepage_bluearea {
@@ -137,14 +137,18 @@
     box-shadow: 25px 25px 65px 0px rgba(215, 228, 240, 1);
     background: #fff;
     .icon_holder1 {
-        height: 62px;
-        background-image: url(../../../assets/images/pick_your_plan.png);
-        background-repeat: no-repeat;
+        height: 60px;
+        width: 60px;
+        // background-image: url(../../../assets/images/pick_your_plan.png);
+        // background-repeat: no-repeat;
+        background-position: -187px -200px;
         &.goMyAcc {
-          background-image: url(../../../assets/images/create_account_icon.png);
+          // background-image: url(../../../assets/images/create_account_icon.png);
+          background-position: -125px -200px;
         }
         &.startCall {
-          background-image: url(../../../assets/images/start_calling_icon.png);
+          // background-image: url(../../../assets/images/start_calling_icon.png);
+          background-position: -249px -200px;
         }
     }
     h3 {
@@ -185,6 +189,7 @@
     padding-left: 100px;
     margin-bottom: 50px;
     padding-right: 57px;
+    position: relative;
     h4 {
         color: #0a1f3f;
         font-size: 17px;
@@ -196,6 +201,30 @@
         font-size: 16px;
         font-weight: 400;
         line-height: 28px;
+    }
+    &::after {
+      height: 64px;
+      width: 64px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &.first::after {
+        content: "";
+        background-position: -200px -1px;
+        // background: url("/assets/images/new_design_images/download2dollor.png") no-repeat left top;
+    }
+    &.second::after {
+        // background: url("/assets/images/new_design_images/lowrateapp.png") no-repeat left top;
+        content: "";
+        background-position: -78px -123px;
+    }
+    &.third::after {
+        // background: url("/assets/images/new_design_images/group_voice_icon-d.png") no-repeat left top;
+        content: "";
+        width: 60px;
+        height: 51px;
+        background-position: -200px -147px;
     }
 }
 .home_pageGreyarea {
@@ -1239,16 +1268,22 @@ h1.buy1get1-text:after {
 @media only screen  and (max-width: 767px) {
   .icon_holder1 {
       &.callAfrica {
-        background-image: url(../../../assets/images/callafrica_blue.png) !important;
+        // background-image: url(../../../assets/images/callafrica_blue.png) !important;
+        background-position: -1px -123px !important;
       }
       &.mbTopUpMb {
-        background-image: url(../../../assets/images/mobile_topup_white.png) !important;
+        // background-image: url(../../../assets/images/mobile_topup_white.png) !important;
+        background-position: -200px -67px !important;
       }
       &.callAfricaMb {
-        background-image: url(../../../assets/images/callafrica_blue.png) !important;
+        // background-image: url(../../../assets/images/callafrica_blue.png) !important;
+        background-position: -1px -123px !important;
+        width: 75px !important;
+        height: 75px !important;
       }
       &.callAsiaMb {
-        background-image: url(../../../assets/images/callafrica_white.png) !important;
+        // background-image: url(../../../assets/images/callafrica_white.png) !important;
+        background-position: -123px -1px !important;
       }
       // &.callAfricaMb {
       //   background-image: url(../../../assets/images/callafrica_blue.png);
