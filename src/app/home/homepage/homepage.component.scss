@@ -841,20 +841,27 @@ a {
       }
       .viyaWrap {
           margin-right: 30px;
+          img {
+            width: 120px;
+          }
       }
       .fireworksWrap {
           margin-left: 20px;
+          img {
+            width: 140px;
+            margin-top: 10px;
+          }
       }
       @media only screen  and (max-width: 600px) {
         .viyaWrap {
             margin-right: 10px;
-            video {
+            img {
               width: 80px;
             }
         }
         .fireworksWrap {
             margin-left: 10px;
-            video {
+            img {
               width: 110px;
             }
         }
