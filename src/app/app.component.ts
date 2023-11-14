@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Router, NavigationEnd, NavigationStart, NavigationCancel } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { AuthenticationService } from './core/services/auth.service';
-import { RazaSplashScreenService } from './core/services/razaSplashScreen.Service';
+//import { RazaSplashScreenService } from './core/services/razaSplashScreen.Service';
 import { SideBarService } from './core/sidemenu/sidemenu.service';
 import { RazaEnvironmentService } from './core/services/razaEnvironment.service';
 import { LoaderService } from './core/spinner/services';
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   showDelayedSubcomponent:boolean = false;
   constructor(private router: Router,
     private authService: AuthenticationService,
-    private razaSplashScreen: RazaSplashScreenService,
+    //private razaSplashScreen: RazaSplashScreenService,
     private sideBarService: SideBarService,
     private loaderService: LoaderService,
     private razaLayoutService: RazaLayoutService,

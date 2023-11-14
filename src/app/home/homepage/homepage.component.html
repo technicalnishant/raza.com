@@ -1,15 +1,41 @@
 <div class="first_fold">
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
-            <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
+
+      <!-- <div class="thanksGivingDay" (click)="onopenchristmas(typedEl)" *ngIf="currentSetting?.country?.CountryId < 3">
+          <img src="./assets/images/home_banner_new/promo/hw.png" alt="img" width="743" height="550" class="thxGivDay d-none d-md-block" *ngIf="currentSetting?.country?.CountryId != 3">
+      </div> -->
+            <!-- <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }"> -->
                 <!-- <splide-slide *ngIf="currentSetting?.country?.CountryId < 3" > -->
               <!-- <splide-slide>
+
+            <!-- <div class="diwali_strip">
+              <div class="viyaFireworWrap">
+                <div class="viyaWrap">
+                  <img src="../../../assets/images/home_banner_new/promo/diya.gif" />
+                </div>
+                <div class="diwaliPromoText">
+                  <div>
+                    <p>Happy Diwali</p>
+                    <h3>Get upto 15% bonus mins</h3>
+                  </div>
+                  <a (click)="onopenchristmas(typedEl)" class="dPromoBtn">Buy now</a>
+                </div>
+                <div class="fireworksWrap">
+                  <img src="../../../assets/images/home_banner_new/promo/fireworks.gif" />
+                </div>
+              </div>
+            </div> -->
+            <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
+                <!-- <splide-slide *ngIf="currentSetting?.country?.CountryId < 3" > -->
+               <!-- <splide-slide>
+
                   <div class="sliderImg"></div>
                   <div class="carousel-caption tpSlider_0">
                       <div class="thanksGivingDay" (click)="onopenchristmas(typedEl)" *ngIf="currentSetting?.country?.CountryId < 3">
                           <img src="./assets/images/home_banner_new/promo/hw.png" alt="img" width="743" height="550" class="thxGivDay d-none d-md-block" *ngIf="currentSetting?.country?.CountryId != 3">
-                         
+
                           <img src="./assets/images/home_banner_new/promo/hw-mobile.png" alt="img" width="296" height="489" class="thxGivDay showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3">
-                           
+
                       </div>
 
                       <div class="thanksGivingDay"  *ngIf="currentSetting?.country?.CountryId == 3">
@@ -18,8 +44,12 @@
                     </div>
 
                   </div>
+
               </splide-slide> -->
+             <!-- <splide-slide>
+              </splide-slide>   -->
              <splide-slide>
+
                 <div class="sliderImg"></div>
                 <div class="carousel-caption tpSlider_1">
                     <div class="d-flex justify-content-center align-items-center flex-column buyGetSlider">
@@ -30,6 +60,7 @@
                                 <a routerLink="deals/buy1-get1">
                                   <img  src="./assets/images/home_banner_new/hm_banner_mb-us.webp" width="416" height="333" loading="lazy" alt="img" class="img-fluid showMobileOnly"  *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
                                 </a>
+                                <h2>Call worldwide</h2>
                           </div>
                           <div class="divider d-none d-md-block"></div>
                           <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 3">
@@ -42,6 +73,7 @@
                               <a routerLink="deals/buy1-get1">
                                 <img src="./assets/images/home_banner_new/was5now5_us.webp" width="416" height="333" alt="img" loading="lazy" class="img-fluid d-none d-md-block">
                               </a>
+                              <h2>Buy5 and Get5</h2>
                           </div>
                         </div>
                         <div class="hp_text2">
@@ -55,9 +87,9 @@
                         </div>
                     </div>
                 </div>
-              </splide-slide>
+              </splide-slide> -->
 
-             <splide-slide>
+             <!-- <splide-slide>
                 <div class="carousel-caption download">
                   <a routerLink="/mobile-page" >
                       <img loading="lazy" src="./assets/images/home_banner_new/mobile_app_us_ypncgi_new.webp" alt="img" width="636" height="689" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
@@ -78,9 +110,9 @@
                       </div>
                   </div>
               </div>
-            </splide-slide>
+            </splide-slide> -->
 
-            <splide-slide ngbSlide *ngIf="currentSetting?.country?.CountryId !=3">
+            <!-- <splide-slide ngbSlide *ngIf="currentSetting?.country?.CountryId !=3">
                 <div class="carousel-caption refer it-topup">
                     <img loading="lazy" src="./assets/images/home_banner_new/int-top-img.webp" alt="img" width="768" height="121" class="img-fluid d-md-none d-block m-auto topup-img">
                     <img loading="lazy" src="./assets/images/home_banner_new/it-topup-inner_g7bpbe.webp" width="1509" height="528" alt="banner" class="img-fluid d-md-block d-none m-auto">
@@ -88,9 +120,9 @@
                         <a href="javascript:void(0)"  (click)="goTomobileTopup()" class="topup-btn" type="button" mat-button>TOP-UP</a>
                     </div>
                 </div>
-            </splide-slide>
+            </splide-slide> -->
 
-            <splide-slide>
+            <!-- <splide-slide>
                 <div class="carousel-caption reward">
                   <div class="container d-none d-md-block">
                       <div class="row align-items-center rewardWrap">
@@ -125,8 +157,8 @@
                       </div>
                   </div>
               </div>
-            </splide-slide>
-        </splide>
+            </splide-slide> -->
+        <!-- </splide> -->
     </div>
 </div>
 <!-- home banne section end here -->
@@ -326,7 +358,7 @@
               src="./assets/images/arrow_first.png" width="18" height="7" lo alt="icon"/></span></p>
             </div>
             <div class="imageareaNew">
-                <img loading="lazy" src="./assets/images/partnerwithus.png" width="96" height="75" alt="icon" />
+                <!-- <img loading="lazy" src="./assets/images/partnerwithus.png" width="96" height="75" alt="icon" /> -->
             </div>
         </div>
     </div>
@@ -339,7 +371,7 @@
               src="./assets/images/arrow_right.png" alt="icon"  width="18" height="7" /></span></p>
             </div>
             <div class="imageareaNew">
-                <img loading="lazy" src="./assets/images/gift_box.png" width="96" height="103" alt="icon" />
+                <!-- <img loading="lazy" src="./assets/images/gift_box.png" width="96" height="103" alt="icon" /> -->
             </div>
         </div>
     </div>
@@ -353,7 +385,7 @@
             <p>Our customers have something to say about us</p>
         </div>
         <div class="testiSliderContent">
-            <app-testimonials></app-testimonials>
+            <!-- <app-testimonials></app-testimonials> -->
         </div>
     </div>
 </div>
