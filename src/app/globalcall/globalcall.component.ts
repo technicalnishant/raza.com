@@ -483,14 +483,19 @@ export class GlobalcallComponent implements OnInit {
   getRatePerMin(item)
   {
 
-    if(this.isAutoRefill)
+    if(!this.isAutoRefill)
     {
-     
+      console.log("item.Price/(item.TotalTime+item.PromoMinutes", item.Price, item.TotalTime, item.PromoMinutes);
       return this.toFixed1((item.Price/(item.TotalTime+item.PromoMinutes))*100)
+
+      
     }
     else{
-    // return item.DiscountedRate.TotalTime + (item.DiscountedRate.TotalTime*10/100)
+    
     let discuont = item.TotalTime + (item.TotalTime*10/100)
+
+    console.log("item.Price/(item.TotalTime+item.PromoMinutes", item.Price, item.TotalTime, item.PromoMinutes);
+
      return this.toFixed1((item.Price/discuont)*100)
 
     }
@@ -690,9 +695,11 @@ getTotalMin1(item, price)
 
  
 
-        this.RatePerMinPromo = data. DiscountedPlansWithAutoRefill.RatePerMin;
-        this.RatePerMin = this.RatePerMinPromo;
-        this.RatePerMinWithOutPromo = data.DiscountedPlans.RatePerMin;
+        
+        
+         this.RatePerMinPromo = data.DiscountedPlans.RatePerMin;
+         this.RatePerMinWithOutPromo = data. DiscountedPlansWithAutoRefill.RatePerMin;
+         this.RatePerMin = this.RatePerMinPromo;
         //this.WithoutAutorefillPlans = data.DiscountedPlans.Denominations;
         this.globalPlanData = data;
   

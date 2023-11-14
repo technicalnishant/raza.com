@@ -92,16 +92,19 @@
 }
 
 @media screen and (max-width:768px){
-   ::ng-deep{
-		  mat-spinner.mat-spinner.mat-progress-spinner.mat-primary.mat-progress-spinner-indeterminate-animation {
-			width: 70px!important;
-			height: 70px!important;
-			}
-		.mat-progress-spinner svg {
-		  width: 70px!important;
-		  height: 70px!important;
-		}
-	}
+  .payment-spinner {
+    left: 185px;
+  }
+  //  ::ng-deep{
+	// 	  mat-spinner.mat-spinner.mat-progress-spinner.mat-primary.mat-progress-spinner-indeterminate-animation {
+	// 		width: 70px!important;
+	// 		height: 70px!important;
+	// 		}
+	// 	.mat-progress-spinner svg {
+	// 	  width: 70px!important;
+	// 	  height: 70px!important;
+	// 	}
+	// }
 }
 
 

@@ -368,6 +368,8 @@ export class TransactionMobProcessBraintreeService {
     //console.log('processNewActivationWithPaypal');
 
     const checkoutModel: NewPlanCheckoutModel = paypalCheckoutOrderInfo.checkoutCart as NewPlanCheckoutModel;
+
+    console.log('checkoutModel', checkoutModel);
     const model: newPinRequestModel = {
       orderId: paypalCheckoutOrderInfo.orderId,
       amount: checkoutModel.details.Price,
@@ -391,12 +393,17 @@ export class TransactionMobProcessBraintreeService {
       subCardId: checkoutModel.details.SubCardId,
       countryFrom: checkoutModel.countryFrom,
       countryTo: checkoutModel.countryTo,
-      pinlessNumbers: ['0002520101'],
+     // pinlessNumbers: ['0002520101'],
+     pinlessNumbers: [localStorage.getItem("login_no")],
+    // pinlessNumbers: checkoutModel.pinlessNumbers,
       creditCard: null,
       nonce:'',
       ProcessedBy : ''
     };
 
+ 
+
+   // pinlessNumbers: activationCart.pinlessNumbers,
     let transactionResponseModel: TransactionResponseModel;
     return this.purchaseService.issueNewPin(model).subscribe((res: TransactionResponseModel) => {
       // console.log("purchase new pin successfull", res);

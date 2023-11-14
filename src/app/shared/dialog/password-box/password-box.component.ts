@@ -47,6 +47,7 @@ export class PasswordBoxComponent implements OnInit {
     this.authService.login(body).toPromise()
       .then((res) => {
         if (res) {
+          console.log("this is the response afer login", res);
           this.dialogRef.close(res );
         }
       }).catch(err => {

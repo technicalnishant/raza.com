@@ -142,7 +142,7 @@
                                                         <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }} </div>
 
                                                         <span class="inner_price" *ngIf="item.Price==90">
-                                                          {{RatePerMinPromo}}₵ / min</span>
+                                                          {{RatePerMinWithOutPromo}}₵ / min</span>
 			                                                  <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
 
                                                     </div>
@@ -261,7 +261,7 @@
                                                         <span class="slice" *ngIf="item.Price==90">$100</span>
                                                         <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
                                                         <span class="inner_price" *ngIf="item.Price==90">
-                                                          {{RatePerMinPromo}}₵ / min</span>
+                                                          {{RatePerMinWithOutPromo}}₵ / min</span>
                                                         <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
 
                                                     </div>
