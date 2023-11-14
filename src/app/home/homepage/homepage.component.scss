@@ -735,18 +735,13 @@ a {
     z-index: 9;
 }
 .home-slider {
-    background-image: url(../../../assets/images/home_banner_new/promo/hw22.jpg);
-    background-color: #1642A5;
+    background-image: url(../../../assets/images/home_banner_new/slider-bg.webp);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     overflow: hidden;
-    min-height: 700px;
-    display: flex;
-    align-items: end;
-    justify-content: center;
     &.slider-bg-3 {
-        // background-image: url(../../../assets/images/home_banner_new/slider-bg-uk.webp);
+        background-image: url(../../../assets/images/home_banner_new/slider-bg-uk.webp);
         .carousel-caption.tpSlider_0 {
           align-items: center;
           @media only screen  and (max-width: 767px) {
@@ -952,7 +947,7 @@ a {
     .splide__arrow--prev {
        height:50px;
        width:50px;
-        // background: url("/assets/images/new_design_images/icon_sprite.png") 0px 294px;
+        background: url("/assets/images/new_design_images/icon_sprite.png") 0px 294px;
     }
     .carousel-control-prev {
         left: unset;
@@ -970,7 +965,7 @@ a {
     .splide__arrow--next {
         height:50px;
         width:50px;
-        // background: url("/assets/images/new_design_images/icon_sprite.png") -50px 294px;
+        background: url("/assets/images/new_design_images/icon_sprite.png") -50px 294px;
     }
     .carousel-control-next,
     .carousel-control-prev {
@@ -980,11 +975,11 @@ a {
         z-index: 99;
     }
     .carousel-control-next:hover .carousel-control-next-icon, .splide__arrow--next:hover {
-        // background: url("/assets/images/new_design_images/icon_sprite.png") 50px 294px;
+        background: url("/assets/images/new_design_images/icon_sprite.png") 50px 294px;
         background-color: #fff;
     }
     .carousel-control-prev:hover .carousel-control-prev-icon, .splide__arrow--prev:hover {
-        // background: url("/assets/images/new_design_images/icon_sprite.png") 100px 294px;
+        background: url("/assets/images/new_design_images/icon_sprite.png") 100px 294px;
         background-color: #fff;
     }
     .carousel-control-next:focus,
@@ -1097,7 +1092,7 @@ h1.buy1get1-text {
 }
 h1.buy1get1-text:after {
     content: "";
-    // background-image: url("/assets/images/canada_tag.png");
+    background-image: url("/assets/images/canada_tag.png");
     position: absolute;
     background-size: contain;
     height: 55px;
@@ -1172,10 +1167,10 @@ h1.buy1get1-text:after {
 
 @media only screen  and (max-width: 767px) {
     .home-slider {
-        // background-image: url(../../../assets/images/home_banner_new/slider-bg-mb.webp);
+        background-image: url(../../../assets/images/home_banner_new/slider-bg-mb.webp);
         overflow: hidden;
         &.slider-bg-3 {
-            // background-image: url(../../../assets/images/home_banner_new/slider-bg-mb-uk.webp);
+            background-image: url(../../../assets/images/home_banner_new/slider-bg-mb-uk.webp);
         }
         .sliderImg {
           height: 620px;
@@ -1224,19 +1219,19 @@ h1.buy1get1-text:after {
         .carousel-control-prev-icon {
             height: 32px;
             width: 32px;
-            // background: url(/assets/images/new_design_images/icon_sprite.png) -30px 244px;
+            background: url(/assets/images/new_design_images/icon_sprite.png) -30px 244px;
         }
         .carousel-control-next-icon {
             height: 32px;
             width: 32px;
-            // background: url(/assets/images/new_design_images/icon_sprite.png) 0px 244px;
+            background: url(/assets/images/new_design_images/icon_sprite.png) 0px 244px;
         }
         .carousel-control-next:hover .carousel-control-next-icon {
-            // background: url(/assets/images/new_design_images/icon_sprite.png) -62px 244px;
+            background: url(/assets/images/new_design_images/icon_sprite.png) -62px 244px;
             background-color: #fff;
         }
         .carousel-control-prev:hover .carousel-control-prev-icon {
-            // background: url(/assets/images/new_design_images/icon_sprite.png) -92px 244px;
+            background: url(/assets/images/new_design_images/icon_sprite.png) -92px 244px;
             background-color: #fff;
         }
         .carousel-control-prev {
