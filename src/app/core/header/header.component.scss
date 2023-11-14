@@ -312,6 +312,9 @@ button.login_btn {
       height: 12px;
       right: 10px;
       top: 10px;
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
     }
     &:hover {
       background-color: transparent !important;
