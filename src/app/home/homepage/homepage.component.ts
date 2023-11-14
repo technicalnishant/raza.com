@@ -136,7 +136,7 @@ sliderAutoplay: boolean = true;
     router.events
     .pipe(filter(event => event instanceof NavigationEnd))
     .subscribe((event: NavigationEnd) => {
-     // console.log('prev:', event.url);
+      console.log('prev:', event.url);
       this.previousUrl = event.url;
     });
   }
@@ -185,8 +185,8 @@ sliderAutoplay: boolean = true;
     let previous = this.previousRouteService.getPreviousUrl();
     let currnet = this.previousRouteService.getCurrentUrl();
 
-    //console.log("currnet page path is ", currnet);
-    //console.log("previous page path is ", previous);
+    console.log("currnet page path is ", currnet);
+    console.log("previous page path is ", previous);
 
     if(previous == '/globalcallrates' && currnet == '/')
     {
@@ -235,6 +235,8 @@ sliderAutoplay: boolean = true;
 
 /******************* EOF Remember & redirect  rate page search functioanlity ********************/
 
+
+
     window.scroll({
       top: 10,
       left: 0,
@@ -254,7 +256,8 @@ sliderAutoplay: boolean = true;
     this.currentURL = window.location.href;
     if(this.currentURL.includes('/ref/'))
     {
- 
+
+      console.log("this.route.snapshot.params['signup_code']", this.route.snapshot.params['signup_code']);
         if(this.route.snapshot.params['signup_code'] && this.route.snapshot.params['signup_code']!='')
         {
           var code = this.route.snapshot.params['signup_code'];
@@ -491,16 +494,13 @@ sliderAutoplay: boolean = true;
       if(this.currentSetting.country.CountryId == 26)
       this.currentCurrency='INR';
   }
-
-  onInputFocus() 
-  {
+  onInputFocus() {
     this.searchicon = 'https://d2uij5nbaiduhc.cloudfront.net/images/cross8.png';
     this.showDropdown = false;
     this.showPlaceholder = false;
   }
 
-  onClickClose(icon) 
-  {
+  onClickClose(icon) {
     if (icon == 'https://d2uij5nbaiduhc.cloudfront.net/images/cross8.png') {
       this.searchicon = 'https://d2uij5nbaiduhc.cloudfront.net/images/search8.svg';
     }

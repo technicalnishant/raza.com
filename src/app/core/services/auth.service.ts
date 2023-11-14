@@ -153,10 +153,10 @@ export class AuthenticationService {
 	
 			AuthenticationService.username.next(user.userName);
 			this.saveCurrentUsertoLocalStorage(context);
-	
+			
 			return this.planService.getPlanInfo(localStorage.getItem("login_no")).pipe(
 			  switchMap((res: any) => {
-				console.log("context is here", context);
+				
 				this.setUsersCurrentCountry();
 				this.EmitLoggedInEvent(true);
 				this.setSharedValue(true);
@@ -360,7 +360,7 @@ export class AuthenticationService {
 		localStorage.removeItem("signup_no");
 		localStorage.removeItem("currentCart");
 		localStorage.removeItem('promo_code');
- 
+		localStorage.removeItem('pinless_'+localStorage.getItem("login_no"));
 		this.setSharedValue(false);
 		this.EmitLoggedInEvent(false);
 		return true;
