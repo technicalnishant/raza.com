@@ -248,6 +248,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     })
   }
   filterListing(){
+   
     this.filteredCountry = this.autoControl.valueChanges
       .pipe(
         startWith<string | any>(''),
@@ -297,7 +298,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     else
     this.selected_country = e.target.value;
 
-   // console.log('this.selected_country', this.selected_country);
+   console.log('this.selected_country', this.selected_country);
 
   }
   onInputFocus() {
