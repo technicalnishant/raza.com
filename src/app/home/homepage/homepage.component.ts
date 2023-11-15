@@ -102,6 +102,7 @@ sliderAutoplay: boolean = true;
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';
+  loadTestimonials:boolean=false;
   image_1 = 'https://d2uij5nbaiduhc.cloudfront.net/images/slider-bg.webp';
   image_2 = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
   image_3 = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
@@ -181,6 +182,11 @@ sliderAutoplay: boolean = true;
 
   ngOnInit() {
   /******************* Remember & redirect rate page search functioanlity ********************/
+
+  // Simulate a delay of 2 seconds before loading the child component
+  setTimeout(() => {
+    this.loadTestimonials = true;
+  }, 5000);
 
     let previous = this.previousRouteService.getPreviousUrl();
     let currnet = this.previousRouteService.getCurrentUrl();
