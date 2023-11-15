@@ -72,25 +72,20 @@
         width: 48px;
         margin-left: auto;
         margin-right: auto;
-        // background-image: url(../../../assets/images/mobile_topup_white.png);
         background-position: -200px -67px;
         &.callAfrica, &.callAsia, &.callAsiaMb {
-          // background-image: url(../../../assets/images/callafrica_white.png);
           width: 75px;
           height: 75px;
           background-position: -123px -1px;
         }
         &.callAfricaMb {
-          // background-image: url(../../../assets/images/callafrica_blue.png);
           background-position: -1px -123px;
         }
     }
     .homeBluecommon:hover {
       .icon_holder1 {
-          // background-image: url(../../../assets/images/mobile_topup_blue.png);
           background-position: -266px -1px;
           &.callAfrica, &.callAsia {
-            // background-image: url(../../../assets/images/callafrica_blue.png);
             background-position:  -1px -123px;
           }
       }
@@ -99,20 +94,14 @@
       margin: 0 auto;
       width: 22px;
       height: 20px;
-      // background-image: url(../../../assets/images/home_arrow_white.png);
       background-position: -266px -81px;
     }
     .white {
       .arrow {
-        // background-image: url(../../../assets/images/home_arrow_blue.png);
         background-position: -290px -81px;
       }
     }
 }
-// .imageareaNew {
-//   background-image: url(../../../assets/images/partnerwithus.png);
-//   background-repeat: no-repeat;
-// }
 .homeBluecommon {
     padding: 50px 30px;
 }
@@ -139,15 +128,11 @@
     .icon_holder1 {
         height: 60px;
         width: 60px;
-        // background-image: url(../../../assets/images/pick_your_plan.png);
-        // background-repeat: no-repeat;
         background-position: -187px -200px;
         &.goMyAcc {
-          // background-image: url(../../../assets/images/create_account_icon.png);
           background-position: -125px -200px;
         }
         &.startCall {
-          // background-image: url(../../../assets/images/start_calling_icon.png);
           background-position: -249px -200px;
         }
     }
@@ -212,15 +197,12 @@
     &.first::after {
         content: "";
         background-position: -200px -1px;
-        // background: url("/assets/images/new_design_images/download2dollor.png") no-repeat left top;
     }
     &.second::after {
-        // background: url("/assets/images/new_design_images/lowrateapp.png") no-repeat left top;
         content: "";
         background-position: -78px -123px;
     }
     &.third::after {
-        // background: url("/assets/images/new_design_images/group_voice_icon-d.png") no-repeat left top;
         content: "";
         width: 60px;
         height: 51px;
@@ -605,7 +587,6 @@ a {
             cursor: pointer;
             .arrow {
                 width: 50px;
-                // background-image: url(../../../assets/images/home_arrow_blue.png);
             }
         }
         .arrow {
@@ -613,7 +594,6 @@ a {
             width: 22px;
             height: 20px;
             transition: width 0.5s ease;
-            // background-image: url(../../../assets/images/home_arrow_white.png);
             background-position: -266px -81px;
             img {
                 position: relative;
@@ -745,7 +725,6 @@ a {
         .carousel-caption.tpSlider_0 {
           align-items: center;
           @media only screen  and (max-width: 767px) {
-            // background-image: url(../../../assets/images/home_banner_new/promo/hw-uk-mobile.webp);
             background-position: center;
           }
         }
@@ -770,7 +749,6 @@ a {
         .carousel-caption.tpSlider_0 {
           left: 0;
           right: 0;
-          // background-image: url(../../../assets/images/home_banner_new/promo/hw.webp);
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center;
@@ -780,7 +758,6 @@ a {
           justify-content: center;
           padding-bottom: 0;
           @media only screen  and (max-width: 767px) {
-            // background-image: url(../../../assets/images/home_banner_new/promo/hw-mobile.webp);
             background-position: center;
           }
         }
@@ -1348,21 +1325,17 @@ h1.buy1get1-text:after {
 @media only screen  and (max-width: 767px) {
   .icon_holder1 {
       &.callAfrica {
-        // background-image: url(../../../assets/images/callafrica_blue.png) !important;
         background-position: -1px -123px !important;
       }
       &.mbTopUpMb {
-        // background-image: url(../../../assets/images/mobile_topup_white.png) !important;
         background-position: -200px -67px !important;
       }
       &.callAfricaMb {
-        // background-image: url(../../../assets/images/callafrica_blue.png) !important;
         background-position: -1px -123px !important;
         width: 75px !important;
         height: 75px !important;
       }
       &.callAsiaMb {
-        // background-image: url(../../../assets/images/callafrica_white.png) !important;
         background-position: -123px -1px !important;
       }
   }
