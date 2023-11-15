@@ -301,9 +301,6 @@ button.login_btn {
     text-transform: none;
     margin-right: 10px;
     position: relative;
-    // background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
-    // background-repeat: no-repeat;
-    // background-position: right 10px center;
     &::after {
       content: "";
       background-position: -280px -119px;
@@ -318,7 +315,6 @@ button.login_btn {
     }
     &:hover {
       background-color: transparent !important;
-      // background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
       color: #fff;
       &::after {
         background-position: -266px -119px;
@@ -331,13 +327,8 @@ button.login_btn {
 		color: #2b437d;
 	}
 	.tryUsfree {
-		// border: 2px solid #2b437d;
-		// background-color: #2b437d;
-		// background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
-		// color: #fff;
 		&:hover {
 			color: #2b437d;
-			// background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
       &::after {
         background-position: -280px -119px;
       }

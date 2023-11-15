@@ -1,41 +1,6 @@
 <div class="first_fold">
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
-            <!-- <div class="diwali_strip">
-              <div class="viyaFireworWrap">
-                <div class="viyaWrap">
-                  <img src="../../../assets/images/home_banner_new/promo/diya.gif" />
-                </div>
-                <div class="diwaliPromoText">
-                  <div>
-                    <p>Happy Diwali</p>
-                    <h3>Get upto 15% bonus mins</h3>
-                  </div>
-                  <a (click)="onopenchristmas(typedEl)" class="dPromoBtn">Buy now</a>
-                </div>
-                <div class="fireworksWrap">
-                  <img src="../../../assets/images/home_banner_new/promo/fireworks.gif" />
-                </div>
-              </div>
-            </div> -->
             <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
-                <!-- <splide-slide *ngIf="currentSetting?.country?.CountryId < 3" > -->
-               <!-- <splide-slide>
-                  <div class="sliderImg"></div>
-                  <div class="carousel-caption tpSlider_0">
-                      <div class="thanksGivingDay" (click)="onopenchristmas(typedEl)" *ngIf="currentSetting?.country?.CountryId < 3">
-                          <img src="./assets/images/home_banner_new/promo/hw.png" alt="img" width="743" height="550" class="thxGivDay d-none d-md-block" *ngIf="currentSetting?.country?.CountryId != 3">
-
-                          <img src="./assets/images/home_banner_new/promo/hw-mobile.png" alt="img" width="296" height="489" class="thxGivDay showMobileOnly" *ngIf="currentSetting?.country?.CountryId != 3">
-
-                      </div>
-
-                      <div class="thanksGivingDay"  *ngIf="currentSetting?.country?.CountryId == 3">
-                         <img src="./assets/images/home_banner_new/promo/hw-uk.png" alt="img" width="749" height="550" class="thxGivDay d-none d-md-block" *ngIf="currentSetting?.country?.CountryId == 3">
-                        <img src="./assets/images/home_banner_new/promo/hw-uk-mobile.png" alt="img" width="218" height="117" class="thxGivDay showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 3">
-                    </div>
-
-                  </div>
-              </splide-slide>   -->
              <splide-slide>
                 <div class="sliderImg"></div>
                 <div class="carousel-caption tpSlider_1">
@@ -317,23 +282,6 @@
 </div>
 
 <div class="home_pageGreyarea">
-    <!-- <div class="mobileAppcommon_area showMobileOnly">
-        <div class="app_list new">
-            <ul>
-                <li>
-                    <a href="#">
-                        <img loading="lazy" src="./assets/images/icon_appstore.svg" alt="app">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img loading="lazy" src="./assets/images/icon_googleplaystore.svg" alt="app">
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-    </div> -->
     <div class="leftareaNew">
         <div class="leftcontent">
             <div class="textareaNew">
@@ -370,7 +318,7 @@
             <p>Our customers have something to say about us</p>
         </div>
         <div class="testiSliderContent">
-            <app-testimonials></app-testimonials>
+            <!-- <app-testimonials></app-testimonials> -->
         </div>
     </div>
 </div>
