@@ -1312,6 +1312,126 @@ h1.buy1get1-text:after {
         bottom: 30%;
     }
 }
+.testiBlocksWrap {
+  background: url(/assets/images/testimonial-bg-5_d2eb09.webp) 0% 0% / cover;
+  height: 540px;
+  width: 1100px;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  position: relative;
+  &:hover {
+    background: url(/assets/images/testimonial-bg-4_uqze4v.webp) 0% 0% / cover;
+  }
+  .testiBlocksWrap1 {
+    width: 75%;
+    flex: 0 0 75%;
+    display: flex;
+    flex-wrap: wrap;
+    border-right: 1px solid #fff;
+    .testiBlockSec {
+        &:nth-child(1) {
+          width: 100%;
+          border-bottom: 1px solid #fff;
+        }
+        &:nth-child(2) {
+          width: 34%;
+          border-right: 1px solid #fff;
+        }
+        &:nth-child(3) {
+          width: 66%;
+        }
+    }
+  }
+  .testiBlocksWrap2 {
+    width: 25%;
+    flex: 0 0 25%;
+    .testiBlockSec {
+      height: 540px;
+      &:nth-child(1):hover {
+        background-color: rgba(73, 55, 71, 0.9);
+      }
+    }
+  }
+  .testiBlockSec {
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      height: 270px;
+      transition: all .24s linear 0s;
+      cursor: pointer;
+      .testiBtm {
+          margin-top: auto;
+          margin-left: auto;
+      }
+      p {
+        font-size: 16px;
+        text-align: left;
+        display: none;
+        transition: all .24s linear 0s;
+      }
+      &:hover {
+        background-color: rgba(77, 101, 111, 0.9);
+        p {
+          display: block;
+        }
+      }
+      &:nth-child(2):hover {
+        background-color: rgba(39, 49, 55, 0.9);
+      }
+      &:nth-child(3):hover {
+        background-color: rgba(225, 189, 93, 0.9);
+      }
+  }
+  @media only screen  and (max-width: 767px) {
+    display: block;
+    height: auto;
+    background-image: none;
+    .testiBlocksWrap1, .testiBlocksWrap2 {
+      width: 100%;
+      display: block;
+      .testiBlockSec {
+        height: auto;
+        width: 100% !important;
+        border-bottom: 1px solid #fff;
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+        p, .testiBtm  {
+          display: block;
+          font-size: 14px;
+          br {
+            display: none;
+          }
+        }
+        &:nth-child(1) {
+          background-image: url(/assets/images/testimonial-bg-5_d2eb09.webp);
+        }
+        &:nth-child(2) {
+          background-image: url(/assets/images/testimonial-bg-4_uqze4v.webp);
+        }
+        &:nth-child(3) {
+          background-image: url(/assets/images/testimonial-bg-3a_noysfw.webp);
+        }
+      }
+      .testiBlockInner {
+        background-color: rgba(77, 101, 111, 0.7);
+        padding: 10px;
+        margin-top: 120px;
+      }
+    }
+    .testiBlocksWrap2 {
+      .testiBlockSec {
+        &:nth-child(1) {
+          background-image: url(/assets/images/testimonial-bg-6_objrev.webp);
+        }
+      }
+    }
+  }
+}
+
 @media only screen  and (max-width: 1100px) {
     .home-slider .bg-image {
         min-height: 650px;
