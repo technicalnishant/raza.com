@@ -184,6 +184,8 @@ sliderAutoplay: boolean = true;
   /******************* Remember & redirect rate page search functioanlity ********************/
 
   // Simulate a delay of 2 seconds before loading the child component
+
+ 
   setTimeout(() => {
     this.loadTestimonials = true;
   }, 5000);
