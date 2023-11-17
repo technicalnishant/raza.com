@@ -4,39 +4,34 @@ import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { filter, map, startWith } from 'rxjs/operators';
-//import { NgxCarousel, NgxCarouselStore } from 'ngx-carousel';
 import { SideBarService } from '../../core/sidemenu/sidemenu.service';
 import { GlobalRatesService } from '../globalrates.service';
 import { ApiErrorResponse } from '../../core/models/ApiErrorResponse';
 import { SearchRatesService } from '../../rates/searchrates.service';
 import { GlobalCallComponent } from '../../globalrates/global-call/global-call.component';
-
 import { MatDialog } from '@angular/material/dialog';
 import { CountriesService } from '../../core/services/country.service';
 import { Country } from '../../core/models/country.model';
 import { RazaEnvironmentService } from '../../core/services/razaEnvironment.service';
 import { CurrentSetting } from '../../core/models/current-setting';
-//import { isNullOrUndefined } from 'util';
 import { SupportService } from '../service/support.service';
 import { RazaSnackBarService } from '../../shared/razaSnackbar.service';
 import { Promotion } from '../../deals/model/Promotion';
 import { PromotionResolverService } from '../../deals/services/promotion-resolver.service';
 import { Platform } from '@angular/cdk/platform';
 import { isNullOrUndefined } from "../../shared/utilities";
-import { TestimonialsComponent } from '../../shared/testimonials/testimonials.component';
+//import { TestimonialsComponent } from '../../shared/testimonials/testimonials.component';
 
 import { AuthenticationService } from '../../core/services/auth.service';
 import { SignuppopupComponent } from '../../core/signuppopup/signuppopup.component';
-import { MatButtonModule } from '@angular/material/button';
+//import { MatButtonModule } from '@angular/material/button';
 import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
-import { HostListener } from '@angular/core';
-
+//import { HostListener } from '@angular/core';
 import { HowWorksComponent } from '../../shared/dialog/how-works/how-works.component';
 import { FaqPageComponent } from '../../shared/dialog/faq-page/faq-page.component';
 import { LoginpopupComponent } from '../../core/loginpopup/loginpopup.component';
 import { ModalVideoComponent } from '../modal-video/modal-video.component';
-
 import { MetaTagsService } from '../../core/services/meta.service';
 import { PreviousRouteService } from '../../core/services/previous-route.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -44,11 +39,13 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class SomeModule { }
 // import{GoogleAnalyticsService} from '../../services/google-analytics.service';
 // declare var videojs: any;
+
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss'],
 })
+
 export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
   customOptions: OwlOptions = {
     loop: true,
@@ -96,9 +93,7 @@ sliderAutoplay: boolean = true;
   currentCurrency:any;
   contentLoaded: boolean = false;
   isFixHeader: boolean = false;
-  //promtionCode:string='RAMADAN2023';
-  //promtionCode:string='EID2023';
-  promtionCode:string='DIWALI2023';
+  promtionCode:string='THANKS2023';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';
@@ -143,46 +138,16 @@ sliderAutoplay: boolean = true;
   }
 
   
-
-  // splideInstance: Splide | null = null;
-
-  // setAutoplay() {
-  //   this.sliderAutoplay = !this.sliderAutoplay;
-
-  //   if (this.splideInstance) {
-  //     // Destroy the Splide instance and reinitialize without autoplay
-  //     this.splideInstance.destroy();
-  //     this.initSplide();
-  //   }
-  // }
-
  
 
-  // private initSplide() {
-  //   this.splideInstance = new Splide('#your-slider-id', {
-  //     type: 'loop',
-  //     autoplay: this.sliderAutoplay ? true : false,
-  //     //lazyLoad: true
-  //   }).mount();
-  // }
+  
   ngAfterViewInit(): void {
-    // const options = {
-    //   strings: ['Stay Safe & Keep Talking', 'Get up to 20% bonus'],
-    //   typeSpeed: 130,
-    //   backSpeed: 130,
-    //   showCursor: true,
-    //   smartBackspace: true,
-    //   cursorChar: '|',
-    //   loop: true
-    // };
-
-    // const typed = new Typed('.typed-element', options);
-    //this.initSplide();
+  
+    
   }
 
   ngOnInit() {
   /******************* Remember & redirect rate page search functioanlity ********************/
-
   // Simulate a delay of 2 seconds before loading the child component
 
  
@@ -192,9 +157,7 @@ sliderAutoplay: boolean = true;
 
     let previous = this.previousRouteService.getPreviousUrl();
     let currnet = this.previousRouteService.getCurrentUrl();
-
-    console.log("currnet page path is ", currnet);
-    console.log("previous page path is ", previous);
+    
 
     if(previous == '/globalcallrates' && currnet == '/')
     {
@@ -210,13 +173,9 @@ sliderAutoplay: boolean = true;
     {
 
      localStorage.setItem('rate_country_id', localStorage.getItem('history_search_country_id'));
-     //localStorage.removeItem('history_search_country_id')
-     this.router.navigate(['globalcallrates']);
+       this.router.navigate(['globalcallrates']);
     }
-
-
-
-
+   
     if(previous == '/mobiletopup' && currnet == '/')
     {
       localStorage.removeItem("topupCountry");
@@ -243,13 +202,12 @@ sliderAutoplay: boolean = true;
 
 /******************* EOF Remember & redirect  rate page search functioanlity ********************/
 
-
-
-    window.scroll({
+window.scroll({
       top: 10,
       left: 0,
       behavior: 'smooth'
   });
+  
    // this.googleAnalyticsService.eventEmitter("home_page", "Home page", "Home page", "page load", 1);
 
     this.defaultImage   = 'https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif';
@@ -306,10 +264,8 @@ sliderAutoplay: boolean = true;
         map(CountryName => CountryName ? this._filter(CountryName) : this.allCountry)
       );
 
-    //this.getCountryFrom(); //04-01-23
-
     if (!isNullOrUndefined(this.currentSetting)) {
-     // this.searchRates(); //04-01-23
+   
     }
 
 
@@ -322,12 +278,6 @@ sliderAutoplay: boolean = true;
       videoHeight: 815
     };
 
-    // var player = videojs('my-player', videoOptions, function onPlayerReady() {
-    //   videojs.log('Your player is ready!');
-
-    //   // In this context, `this` is the player that was created by Video.js.
-    //   this.play();
-    // });
 	setTimeout(() => {
       this.contentLoaded = true;
     }, 4000);
@@ -421,7 +371,6 @@ sliderAutoplay: boolean = true;
     return country ? country.CountryName : undefined;
   }
 
-
   onopenPromotion() {
     const pr: Promotion = {
       PromotionCode: this.promtionCode,
@@ -487,6 +436,7 @@ sliderAutoplay: boolean = true;
     this.setcurrentCurrency();
     window.location.reload();
   }
+
   setcurrentCurrency()
   {
     if(this.currentSetting.country.CountryId == 1)
@@ -533,7 +483,9 @@ sliderAutoplay: boolean = true;
     })
 
   }
-  signupModal() {
+
+  signupModal() 
+  {
   if (this.authService.isAuthenticated()) {
 		 this.router.navigate(['account/overview'])
 		}
@@ -568,11 +520,10 @@ sliderAutoplay: boolean = true;
 
     }
 
-    rewardLearnMore(obj:number) {
-        // localStorage.setItem('redirect_path', 'account/rewards');
-        // this.router.navigate(['/features'])//, { state: { pin: obj.Pin, iso:iso } }
-         this.router.navigateByUrl('features', { state: { slid: obj} });
-        }
+    rewardLearnMore(obj:number) 
+    {
+      this.router.navigateByUrl('features', { state: { slid: obj} });
+    }
 
 
 	getText()
@@ -599,38 +550,19 @@ sliderAutoplay: boolean = true;
     });
   }
 
-  downloadApp() {
-    /*var platform = ["Win32", "Android", "iOS"];
-    var user_platform = '';
-    for (var i = 0; i < platform.length; i++) {
-
-        if (navigator.platform.indexOf(platform[i]) >- 1) {
-
-          user_platform = platform[i];
-        }
-    }
-
-    if(user_platform == "iOS")
-    {
-      window.location.href = 'https://apps.apple.com/ca/app/raza-universe/id1226298666';
-    }
-    else{
-      window.location.href = 'https://play.google.com/store/apps/details?id=com.razacomm.universe';
-    }*/
-
-
-	if (this.platform.ANDROID) {
+  downloadApp() 
+  {
+    if (this.platform.ANDROID) {
       window.open('https://play.google.com/store/apps/details?id=com.razacomm.universe', 'blank')
-    } else if (this.platform.IOS) {
+    } 
+    else if (this.platform.IOS) 
+    {
       window.open('https://apps.apple.com/ca/app/raza-universe/id1226298666', 'blank')
     }
-    else {
+    else
+     {
       window.open('https://play.google.com/store/apps/details?id=com.razacomm.universe', 'blank')
-
     }
-
-
-
  }
 
 
@@ -638,12 +570,12 @@ sliderAutoplay: boolean = true;
 
  goTomobileTopup()
  {
-
-    if(this.authService.isAuthenticated())
+  if(this.authService.isAuthenticated())
       {
         this.router.navigate(['/account/international-topup']);
       }
-      else{
+      else
+      {
         localStorage.removeItem("topupCountry");
         localStorage.removeItem("topupPhone");
         localStorage.removeItem("topupCountryId");
@@ -651,7 +583,5 @@ sliderAutoplay: boolean = true;
         this.router.navigateByUrl('mobiletopup');
       }
   }
-
-
 
 }
