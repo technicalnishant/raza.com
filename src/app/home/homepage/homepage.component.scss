@@ -1321,37 +1321,34 @@ h1.buy1get1-text:after {
   flex-wrap: wrap;
   margin: 0 auto;
   position: relative;
-  &:hover {
-    background: url(/assets/images/testimonial-bg-4_uqze4v.webp) 0% 0% / cover;
+  // &:hover {
+  //   background: url(/assets/images/testimonial-bg-4_uqze4v.webp) 0% 0% / cover;
+  // }
+  .testHoverBlk {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
   }
-  .testiBlocksWrap1 {
-    width: 75%;
-    flex: 0 0 75%;
-    display: flex;
-    flex-wrap: wrap;
-    border-right: 1px solid #fff;
-    .testiBlockSec {
-        &:nth-child(1) {
-          width: 100%;
-          border-bottom: 1px solid #fff;
-        }
-        &:nth-child(2) {
-          width: 34%;
-          border-right: 1px solid #fff;
-        }
-        &:nth-child(3) {
-          width: 66%;
-        }
-    }
+  .testiBlockInner {
+      height: 229px;
+      display: flex;
+      flex-direction: column;
   }
-  .testiBlocksWrap2 {
-    width: 25%;
-    flex: 0 0 25%;
-    .testiBlockSec {
-      height: 540px;
-      &:nth-child(1):hover {
-        background-color: rgba(73, 55, 71, 0.9);
-      }
+  .testiBtmWrap {
+      margin-top: auto;
+      display: flex;
+      overflow: hidden;
+  }
+  .authorIcon {
+    padding: 8px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: none;
+      img {
+        border-radius: 50%;
     }
   }
   .testiBlockSec {
@@ -1362,9 +1359,14 @@ h1.buy1get1-text:after {
       height: 270px;
       transition: all .24s linear 0s;
       cursor: pointer;
+      position: relative;
+      z-index: 1;
       .testiBtm {
           margin-top: auto;
           margin-left: auto;
+          position: relative;
+          transition: all .24s linear 0s;
+          bottom: -22px;
       }
       p {
         font-size: 16px;
@@ -1374,59 +1376,118 @@ h1.buy1get1-text:after {
       }
       &:hover {
         background-color: rgba(77, 101, 111, 0.9);
-        p {
+        p, .authorIcon {
           display: block;
         }
+        .testiBtm {
+            bottom: 0;
+        }
       }
-      &:nth-child(2):hover {
-        background-color: rgba(39, 49, 55, 0.9);
+      &:nth-child(1) {
+        width: 75%;
+        flex: 0 0 75%;
+        border-bottom: 1px solid #fff;
+        &:hover {
+          ~ .testiBlkHover1 {
+              display: block;
+              background: url(/assets/images/testimonial-bg-4_uqze4v.webp) 0% 0% / cover;
+          }
+        }
       }
-      &:nth-child(3):hover {
-        background-color: rgba(225, 189, 93, 0.9);
+      &:nth-child(2) {
+        width: 28%;
+        border-right: 1px solid #fff;
+        &:hover {
+          background-color: rgba(39, 49, 55, 0.9);
+          ~ .testiBlkHover2 {
+              display: block;
+              background: url(/assets/images/testimonial-bg-3a_noysfw.webp) 0% 0% / cover;;
+          }
+        }
+      }
+      &:nth-child(3) {
+        width: 47%;
+        &:hover {
+          background-color: rgba(225, 189, 93, 0.9);
+          ~ .testiBlkHover3 {
+              display: block;
+              background: url(/assets/images/testimonial-bg-6_objrev.webp) 0% 0% / cover;;
+          }
+        }
+      }
+      &:nth-child(4) {
+        width: 25%;
+        height: 540px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-left: 1px solid #fff;
+        &:hover {
+          background-color: rgba(105, 73, 87, 0.9);
+          ~ .testiBlkHover4 {
+              display: block;
+              background: url(/assets/images/testimonial-bg-1_o2x9d9_q58aaf.webp) 0% 0% / cover;
+          }
+        }
+        .testiBlockInner {
+          height: 500px;
+        }
       }
   }
   @media only screen  and (max-width: 767px) {
     display: block;
     height: auto;
     background-image: none;
-    .testiBlocksWrap1, .testiBlocksWrap2 {
-      width: 100%;
-      display: block;
-      .testiBlockSec {
-        height: auto;
-        width: 100% !important;
-        border-bottom: 1px solid #fff;
-        background-size: cover;
-        background-position: center;
-        padding: 0;
-        p, .testiBtm  {
-          display: block;
-          font-size: 14px;
-          br {
-            display: none;
-          }
-        }
-        &:nth-child(1) {
-          background-image: url(/assets/images/testimonial-bg-5_d2eb09.webp);
-        }
-        &:nth-child(2) {
-          background-image: url(/assets/images/testimonial-bg-4_uqze4v.webp);
-        }
-        &:nth-child(3) {
-          background-image: url(/assets/images/testimonial-bg-3a_noysfw.webp);
+    .testiBlockSec {
+      height: auto;
+      width: 100% !important;
+      border-bottom: 1px solid #fff;
+      background-size: cover;
+      background-position: center;
+      padding: 0;
+      p, .testiBtm  {
+        display: block;
+        font-size: 14px;
+        br {
+          display: none;
         }
       }
-      .testiBlockInner {
-        background-color: rgba(77, 101, 111, 0.7);
-        padding: 10px;
-        margin-top: 120px;
+      &:nth-child(1) {
+        background-image: url(/assets/images/testimonial-bg-5_d2eb09.webp);
+      }
+      &:nth-child(2) {
+        background-image: url(/assets/images/testimonial-bg-4_uqze4v.webp);
+      }
+      &:nth-child(3) {
+        background-image: url(/assets/images/testimonial-bg-3a_noysfw.webp);
+      }
+      &:nth-child(4) {
+        background-image: url(/assets/images/testimonial-bg-6_objrev.webp);
+        height: auto;
+        position: static;
       }
     }
-    .testiBlocksWrap2 {
-      .testiBlockSec {
-        &:nth-child(1) {
-          background-image: url(/assets/images/testimonial-bg-6_objrev.webp);
+    .testHoverBlk {
+      display: none !important;
+    }
+    .testiBlockInner {
+      background-color: rgba(77, 101, 111, 0.7);
+      padding: 10px;
+      margin-top: 120px;
+      height: auto !important;
+    }
+    .testiBtmWrap {
+      overflow: unset;
+      .authorIcon {
+        display: block;
+        padding: 4px;
+        img.example-header-image {
+          width: 42px;
+          height: 42px;
         }
+      }
+      .testiBtm {
+        position: static;
       }
     }
   }
