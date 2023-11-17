@@ -809,7 +809,7 @@ a {
 // Diwali promo css
 .diwali_strip {
   margin-top: 10px;
-  background-image: url(../../../assets/images/home_banner_new/promo/diwali_banner.jpg);
+  background-image: url(../../../assets/images/home_banner_new/promo/banner.jpg);
   background-repeat: no-repeat;
   background-position: center;
   height: 165px;
@@ -827,11 +827,12 @@ a {
   height: 155px;
   left: 0;
   right: 0;
-  @media only screen  and (max-width: 600px) {
-      height: 170px;
-  }
+    @media only screen  and (max-width: 600px) {
+        height: 170px;
+    }
     .diwaliPromoText {
-          color: #fff;
+          color: #000;
+          text-align: center;
           p {
             margin: 0 0 4px;
             font-weight: 500;
@@ -844,10 +845,10 @@ a {
             }
           }
           .dPromoBtn {
-            background: #fdd103;
+            background: #8d3f29;
             padding: 3px 15px;
             font-size: 15px;
-            color: #000;
+            color: #fff;
             font-weight: 500;
             border-radius: 6px;
             margin-top: 5px;
@@ -864,7 +865,7 @@ a {
           }
       }
       .fireworksWrap {
-          margin-left: 20px;
+          margin-left: -45px;
           img {
             width: 140px;
             margin-top: 10px;
@@ -1339,7 +1340,9 @@ h1.buy1get1-text:after {
   }
   .testiBtmWrap {
       margin-top: auto;
+      margin-left: auto;
       display: flex;
+      align-items: center;
       overflow: hidden;
   }
   .authorIcon {
@@ -1362,8 +1365,7 @@ h1.buy1get1-text:after {
       position: relative;
       z-index: 1;
       .testiBtm {
-          margin-top: auto;
-          margin-left: auto;
+          margin-left: 15px;
           position: relative;
           transition: all .24s linear 0s;
           bottom: -22px;
@@ -1371,6 +1373,7 @@ h1.buy1get1-text:after {
       p {
         font-size: 16px;
         text-align: left;
+        margin-bottom: 0;
         display: none;
         transition: all .24s linear 0s;
       }
