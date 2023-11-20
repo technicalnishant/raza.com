@@ -1,0 +1,156 @@
+<a href="javascript:void(0)" (click)="closeIcon()">X</a>
+<h2>Try us free!</h2>
+
+<section class="country-search">
+    <div class="container">
+      <div class="col-lg-8 col-md-12 mx-auto">
+      <div class="search-input">
+        <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text caret bg-white border-right-0">
+            <div (click)="openFlagDropDown()" class="select_top1">
+              <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20" [ngClass]="'flag flag-f-'+ currentSetting?.country?.CountryId">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down ml-2" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+              </svg>
+            </div>
+            <div class="flag_list1" *ngIf="showDropdown">
+              <ul>
+              <li *ngFor="let item of countryFrom" (click)="onSelectCountrFrom(item)">
+                <span>
+                <img src="./../../assets/images/blank.gif" alt="flag" width="30" height="20"
+                  [ngClass]="'flag flag-f-'+ item.CountryId">
+                </span>
+              </li>
+              </ul>
+            </div>
+          </span>
+        </div>
+        <input placeholder="Where do you wish to call?" type="text" [formControl]="autoControl" [matAutocomplete]="auto" class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder="State" (focusout)="onClickInput()" (focus)="onInputFocus()">
+        <!-- <input matInput aria-label="State" id="searchInput" [matAutocomplete]="auto" [formControl]="autoControl"
+                  ng-placeholder="State" (focusout)="onClickInput()" (focus)="onInputFocus()"> -->
+
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredCountry | async" [value]="option"
+            (onSelectionChange)="viewRates(option)">
+            <img class="example-option-img" src="./../../assets/images/blank.gif" aria-hidden
+              [ngClass]="'flag flag-'+ option.CountryTo" height="25">
+              <span class="width70">{{option.CountryName}}</span>
+              <span class="width30">{{option.FreeMinutes}} Free Mins.</span>
+              <!--<span class="width30"><img src="./../../assets/images/phone-icon.png" alt=""><span class="mobileRate">{{option.CallingRateMobile | sCurrency}} </span><img src="./../../assets/images/icon-landphone.png" alt=""><span class="landlineRate">{{option.CallingRateLandline | sCurrency}} </span></span>-->
+            </mat-option>
+          </mat-autocomplete>
+        <div class="input-group-append">
+          <span class="input-group-text border-left-0 bg-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+          </span>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="country-search">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 mx-auto">
+          <div class="alphabet_links" *ngIf="allCountry">
+              <li class="active" [ngClass]="{'active': currentClickedChar === 'All' }" (click)="displayCountryList('All')">All</li>
+              <li class="{{isDisabled('A')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'A' }" (click)="displayCountryList('A')">A</li>
+              <li class="{{isDisabled('B')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'B' }" (click)="displayCountryList('B')">B</li>
+              <li class="{{isDisabled('C')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'C' }" (click)="displayCountryList('C')">C</li>
+              <li class="{{isDisabled('D')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'D' }" (click)="displayCountryList('D')">D</li>
+              <li class="{{isDisabled('E')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'E' }" (click)="displayCountryList('E')">E</li>
+              <li class="{{isDisabled('F')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'F' }" (click)="displayCountryList('F')">F</li>
+              <li class="{{isDisabled('G')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'G' }" (click)="displayCountryList('G')">G</li>
+              <li class="{{isDisabled('H')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'H' }" (click)="displayCountryList('H')">H</li>
+              <li class="{{isDisabled('I')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'I' }" (click)="displayCountryList('I')">I</li>
+              <li class="{{isDisabled('J')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'J' }" (click)="displayCountryList('J')">J</li>
+              <li class="{{isDisabled('K')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'K' }" (click)="displayCountryList('K')">K</li>
+              <li class="{{isDisabled('L')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'L' }" (click)="displayCountryList('L')">L</li>
+              <li class="{{isDisabled('M')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'M' }" (click)="displayCountryList('M')">M</li>
+              <li class="{{isDisabled('N')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'N' }" (click)="displayCountryList('N')">N</li>
+              <li class="{{isDisabled('O')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'O' }" (click)="displayCountryList('O')">O</li>
+              <li class="{{isDisabled('P')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'P' }" (click)="displayCountryList('P')">P</li>
+              <li class="{{isDisabled('Q')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Q' }" (click)="displayCountryList('Q')">Q</li>
+              <li class="{{isDisabled('R')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'R' }" (click)="displayCountryList('R')">R</li>
+              <li class="{{isDisabled('S')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'S' }" (click)="displayCountryList('S')">S</li>
+              <li class="{{isDisabled('T')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'T' }" (click)="displayCountryList('T')">T</li>
+              <li class="{{isDisabled('U')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'U' }" (click)="displayCountryList('U')">U</li>
+              <li class="{{isDisabled('V')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'V' }" (click)="displayCountryList('V')">V</li>
+              <li class="{{isDisabled('W')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'W' }" (click)="displayCountryList('W')">W</li>
+              <li class="{{isDisabled('X')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'X' }" (click)="displayCountryList('X')">X</li>
+              <li class="{{isDisabled('Y')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Y' }" (click)="displayCountryList('Y')">Y</li>
+              <li class="{{isDisabled('Z')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Z' }" (click)="displayCountryList('Z')">Z</li>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+      <div class="col-md-12">
+        <div class="row countries_row">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Country</td>
+                        <td>Upto</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of bindSearchRates; let i = index">
+                        <td>{{item.CountryName}}</td>
+                        <td>{{item.FreeMinutes}} <span>mins</span></td>
+                        <td><button
+                            class="view-details-btn"
+                            (click)="viewRates(item)"
+                          >
+                            Free Trial
+                          </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        <!-- <div class="col-6 col-md-4 col-xl-3 col-lg-4 countries" *ngFor="let item of bindSearchRates; let i = index">
+          <div class="country-box" >
+          <div class="country-flag">
+              <div class="div">
+                <img
+                src="./../../assets/images/flag/{{
+                  getImageName(item.CountryName) | lowercase
+                }}.png"
+                alt="country flag"
+                width="40"
+                height="40"
+                />
+              </div>
+            <div class="country-name">{{item.CountryName}}</div>
+          </div>
+          <div class="country-rate">
+            <span>Upto</span> {{item.FreeMinutes}} <span>mins</span>
+          </div>
+          <button
+            class="view-details-btn"
+            (click)="viewRates(item)"
+          >
+            Free Trial
+          </button>
+          </div>
+        </div> -->
+        </div>
+      </div>
+      </div>
+      <!-- Alpahbet search end here-->
+    </div>
+    </section>

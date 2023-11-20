@@ -31,6 +31,7 @@ import { Event, NavigationStart, NavigationError } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
 import { PreviousRouteService } from '../services/previous-route.service';
+import { TryUsFreeComponent } from '../dialog/try-us-free/try-us-free.component';
 
 @Component({
   selector: 'app-header',
@@ -130,7 +131,22 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     // https://material.angular.io/components/dialog/overview
     const modalDialog = this.matDialog.open(LoginpopupComponent, dialogConfig);
   }
-
+  try_us_free()
+  {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "350px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = {
+      name: "logout",
+      title: "Are you sure you want to logout?",
+      description: "Pretend this is a convincing argument on why you shouldn't logout :)",
+      actionButtonText: "Logout",
+    }
+    const modalDialog = this.matDialog.open(TryUsFreeComponent, dialogConfig);
+  }
   ngOnInit() {
 
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
