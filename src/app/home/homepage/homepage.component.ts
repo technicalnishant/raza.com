@@ -150,7 +150,7 @@ sliderAutoplay: boolean = true;
   /******************* Remember & redirect rate page search functioanlity ********************/
   // Simulate a delay of 2 seconds before loading the child component
 
- 
+  
   setTimeout(() => {
     this.loadTestimonials = true;
   }, 5000);
@@ -207,7 +207,7 @@ window.scroll({
       left: 0,
       behavior: 'smooth'
   });
-  
+
    // this.googleAnalyticsService.eventEmitter("home_page", "Home page", "Home page", "page load", 1);
 
     this.defaultImage   = 'https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif';
@@ -289,6 +289,14 @@ window.scroll({
 
     }
 
+    if(this.route.snapshot.params['promo'] && this.route.snapshot.params['promo'] !='')
+    {
+      this.promtionCode = this.route.snapshot.params['promo'];
+      this.onopenPromotion();
+
+    }
+
+    
     localStorage.removeItem('IsMoto');
     localStorage.removeItem('moto_orderid')
   }
