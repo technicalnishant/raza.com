@@ -87,8 +87,9 @@ export class TryUsFreeComponent implements OnInit {
   alphabets:any=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   disabledList:any =[];
  searchicon: string = '../assets/images/search8.svg';
-  
-
+ recordsPerPage: number = 10;
+ currentPage: number = 1;
+ 
   constructor(private router: Router,
     private titleService: Title,
     private freeTrialService: FreeTrialService,
@@ -398,10 +399,15 @@ export class TryUsFreeComponent implements OnInit {
       const filterValue = character.toLowerCase();
       // this.bindSearchRates = this.searchRates.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
       if(character == 'All')
-      this.bindSearchRates = this.allCountryList;
+      {
+        this.bindSearchRates = this.allCountryList;
+         
+      }
+      
       else
       {
         this.bindSearchRates = this.allCountry.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
+       
       }
        
      
@@ -440,5 +446,22 @@ export class TryUsFreeComponent implements OnInit {
   closeIcon(): void {
     this.dialogRef.close();
   }
- 
+
+
+  get displayedRecords(): any[] {
+    if(this.bindSearchRates[0])
+    {
+       const startIndex = (this.currentPage - 1) * this.recordsPerPage;
+      const endIndex = startIndex + this.recordsPerPage;
+      return this.bindSearchRates.slice(startIndex, endIndex);
+   }
+   
+  }
+ // Function to handle page change
+ onPageChange(pageNumber: number) {
+  this.currentPage = pageNumber;
+}
+get totalPages(): number[] {
+  return Array(Math.ceil(this.bindSearchRates.length / this.recordsPerPage)).fill(0).map((x, i) => i + 1);
+}
 }
