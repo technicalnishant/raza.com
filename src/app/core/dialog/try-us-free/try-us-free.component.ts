@@ -391,7 +391,7 @@ export class TryUsFreeComponent implements OnInit {
 
   }
     displayCountryList(character) {
-     
+     this.currentPage =1;
      if(this.isDisabled(character) && character != 'All') 
      return false;
 
@@ -449,7 +449,7 @@ export class TryUsFreeComponent implements OnInit {
 
 
   get displayedRecords(): any[] {
-    if(this.bindSearchRates[0])
+    if(this.bindSearchRates && this.bindSearchRates[0])
     {
        const startIndex = (this.currentPage - 1) * this.recordsPerPage;
       const endIndex = startIndex + this.recordsPerPage;
@@ -461,7 +461,32 @@ export class TryUsFreeComponent implements OnInit {
  onPageChange(pageNumber: number) {
   this.currentPage = pageNumber;
 }
-get totalPages(): number[] {
-  return Array(Math.ceil(this.bindSearchRates.length / this.recordsPerPage)).fill(0).map((x, i) => i + 1);
+get totalPages2(): number[] {
+  if(this.bindSearchRates && this.bindSearchRates[0])
+    {
+       return Array(Math.ceil(this.bindSearchRates.length / this.recordsPerPage)).fill(0).map((x, i) => i + 1);
+    }
 }
+
+
+get totalPages(): number[] {
+  if(this.bindSearchRates && this.bindSearchRates[0])
+  {
+  const delta = 4; // Number of pages to display before and after the selected page
+  const left = Math.max(1, this.currentPage - delta);
+  const right = Math.min(this.bindSearchRates.length, this.currentPage + delta);
+
+  const range = [];
+  for (let i = left; i <= right; i++) {
+    if(this.bindSearchRates.length >= i*8  )
+    range.push(i);
+  }
+
+ 
+
+  return range;
+}
+}
+
+
 }
