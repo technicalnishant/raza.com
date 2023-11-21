@@ -1,7 +1,7 @@
 <div class="alert alert-dismissible mb-0 border-0" id="strip" role="alert" [ngClass]="status ? 'd-none' : 'show'" *ngIf="showHeader">
   <div class="d-flex strip pl-2">
     <div>
-      
+
         <a href="tel:{{getNumber()}}">{{getNumber()}}</a>
     </div>
     <div class="divider-top"></div>
@@ -21,7 +21,7 @@
 
   <mat-toolbar >
     <mat-toolbar-row>
-       
+
       <div class="logo-white">
         <a routerLink="/">
           <img *ngIf="headerValue == 1" loading="lazy" class="lg_show" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" />
@@ -77,10 +77,10 @@
               <span class="width30">
                 <img src="./../../assets/images/phone-icon.png" alt="icon" loading="lazy">
                 <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
-              
+
                 <img src="./../../assets/images/icon-landphone.png" alt="icon" loading="lazy">
                 <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency}} </span>
-                 
+
               </span>
 
             </mat-option>
@@ -97,12 +97,12 @@
       <div class="login">
         <a *ngIf="!IsEnableloggedIn" routerLink="/freetrial" class="tryUsfree">Try us Free</a>
         <button *ngIf="!IsEnableloggedIn"  class="login_btn" (click)="openModal()">Login</button>
-        
+
         <div [matMenuTriggerFor]="menu" class="login">
           <button *ngIf="IsEnableloggedIn"  mat-icon-button class="p-0" routerLink="/account" [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}">
             <mat-icon>account_circle</mat-icon>
           </button>
-           
+
         </div>
       </div>
 
@@ -169,18 +169,16 @@
 
   </div>
   <div class="second-menu" *ngIf="showHeader" >
-     
+
     <div class="app-menu">
       <div class="mr-2">Download Raza App</div>
       <div>
-        <a routerLink="/mobile-page" target="_blank">
-           
+        <a href="https://play.google.com/store/apps/details?id=com.razacomm.universe" target="_blank">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="M5.4 21c-.17.003-.34-.026-.5-.086l8.054-8.057l2.666 2.669l-9.255 5.2A1.998 1.998 0 0 1 5.4 21Zm-1.164-.665a1.9 1.9 0 0 1-.236-.97V4.66a2.13 2.13 0 0 1 .1-.658l8.233 8.235l-8.1 8.1l.003-.002Zm12.179-5.258l-2.841-2.839l3.133-3.132l2.783 1.563c.534.24.892.755.928 1.339a1.574 1.574 0 0 1-.929 1.34l-3.074 1.729Zm-3.461-3.463l-8.34-8.339c.229-.17.506-.26.791-.261c.336.012.664.107.955.277l9.551 5.368l-2.956 2.955h-.001Z"/></svg>
         </a>
       </div>
       <div>
-        <a routerLink="/mobile-page" target="_blank">
-         
+        <a href="https://apps.apple.com/ca/app/raza-universe/id1226298666" target="_blank">
           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24"><path fill="#fff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47c-1.34.03-1.77-.79-3.29-.79c-1.53 0-2 .77-3.27.82c-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51c1.28-.02 2.5.87 3.29.87c.78 0 2.26-1.07 3.81-.91c.65.03 2.47.26 3.64 1.98c-.09.06-2.17 1.28-2.15 3.81c.03 3.02 2.65 4.03 2.68 4.04c-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5c.13 1.17-.34 2.35-1.04 3.19c-.69.85-1.83 1.51-2.95 1.42c-.15-1.15.41-2.35 1.05-3.11Z"/></svg>
         </a>
       </div>
@@ -188,9 +186,9 @@
     <div class="deal-menu">
       <ul class="d-none d-lg-flex pl-0">
 
-         
+
         <li *ngIf="currentSetting.currentCountryId ==3" ><a routerLink="/deals/get-upto-1500">Deals</a></li>
-         
+
         <li *ngIf="currentSetting.country.CountryId !=3">
           <a (click)="goTomobileTopup()">Mobile Topup</a>
         </li>
@@ -205,7 +203,7 @@
   <mat-toolbar >
 
     <mat-toolbar-row>
-       
+
       <div class="logo-white">
         <a routerLink="/">
           <img *ngIf="headerValue == 1"  class="lg_show" src="../assets/images/raza_logo.png" alt="logo" width="147" height="51" loading="lazy" />
@@ -222,10 +220,10 @@
         <div *ngIf="headerValue == 1" class="mg_menu"> </div>
         <div *ngIf="headerValue == 2" class="mg_menu menu2"> </div>
       </button>
-       
+
 
       <span class="example-spacer"></span>
-       
+
 
       <div class="login">
         <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span>
@@ -237,7 +235,7 @@
             <mat-icon>account_circle</mat-icon>
           </button>
         </div>
-        
+
       </div>
 
       <mat-menu #menu="matMenu" class="loginDropDown">
@@ -260,7 +258,7 @@
           <img width="126" height="31" class="xs_show" loading="lazy" src="../assets/images/raza_logo_mb2.png" alt="logo" />
         </a>
       </span>
- 
+
       <button *ngIf="otherPlans" class="menu_btn" (click)="sidenav.toggle()">
         <!-- <img src="../../../assets/images/myaccount_icons/menu-normal.png" width="22" height="16" alt="menu"/> -->
         <div *ngIf="headerValue == 2" class="mg_menu menu2"> </div>
@@ -269,22 +267,22 @@
         <!-- <img src="../../../assets/images/myaccount_icons/menu-normal.png" width="22" height="16" alt="menu" /> -->
         <div *ngIf="headerValue == 2" class="mg_menu menu2"> </div>
       </button>
- 
+
       <span class="example-spacer"></span>
 
       <span class="example-spacer"></span>
-      
+
 
       <button mat-icon-button class="p-0 myAct matButtonBGN2" (click)="sidenav.toggle()">
         <mat-icon>account_circle</mat-icon>
       </button>
- 
+
 
       <mat-menu #menu="matMenu" class="loginDropDown">
         <span class="closeIconContact" (click)="closeIconLogin()"><i mat-dialog-close style="cursor: pointer!important;"
             class="material-icons">close</i></span>
         <logintopdropmenu *ngIf="isAccountMenuDisplay"></logintopdropmenu>
-        
+
       </mat-menu>
 
     </mat-toolbar-row>
@@ -301,7 +299,7 @@
       <button mat-icon-button class="matButtonBGN1 p-0"
         [ngClass]="{'matButtonBGN1': headerValue == 1, 'matButtonBGN2': headerValue == 2}" (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
-      </button> 
+      </button>
 
       <span class="example-spacer"></span>
       <span class="logo" >
@@ -335,4 +333,3 @@
   </mat-toolbar>
 </header>
 
- 
