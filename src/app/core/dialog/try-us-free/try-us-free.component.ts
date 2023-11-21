@@ -451,10 +451,10 @@ export class TryUsFreeComponent implements OnInit {
   get displayedRecords(): any[] {
     if(this.bindSearchRates && this.bindSearchRates[0])
     {
-       const startIndex = (this.currentPage - 1) * this.recordsPerPage;
+      const startIndex = (this.currentPage - 1) * this.recordsPerPage;
       const endIndex = startIndex + this.recordsPerPage;
       return this.bindSearchRates.slice(startIndex, endIndex);
-   }
+    }
    
   }
  // Function to handle page change
