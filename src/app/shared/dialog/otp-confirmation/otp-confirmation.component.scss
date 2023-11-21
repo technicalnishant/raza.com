@@ -1,23 +1,145 @@
 .submitButton_confirms {
-    background: #f4cb26;
-    border-radius: 24px !important;
-    -moz-border-radius: 24px !important;
-    -webkit-border-radius: 24px !important;
-    border: none;
-    padding: 3px 20px !important;
-    width: 150px;
-    display: block !important;
-    color: #0b203e;
-    text-transform: uppercase;
+  background: #f4cb26;
+  border-radius: 24px !important;
+  -moz-border-radius: 24px !important;
+  -webkit-border-radius: 24px !important;
+  border: none;
+  padding: 3px 20px !important;
+  width: 150px;
+  display: block !important;
+  color: #0b203e;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  transition: background 0.3s ease-in-out;
+}
+.otp-conf-box input.form-control {
+height: 60px;
+background: #FFFFFF;
+border: 1px solid #aaa;
+border-radius: 8px;
+box-shadow: none!important;
+font-size: 30px;
+color: #222;
+font-weight: 600;
+text-align: center;
+}
+.otp-confirmation {
+text-align: center;
+.row.commonPopupRow {
+  width: 545px;
+  justify-content: center;
+}
+.input_holder1.text-center {
+    display: flex;
+    justify-content: center;
+}
+h2 {
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+p.subtitle {
     font-size: 15px;
-    font-family: "Montserrat", sans-serif;
+    color: #717171;
     font-weight: 500;
-    transition: background 0.3s ease-in-out;
-  }
+}
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+}
+p.subtitle {
+    font-size: 15px;
+    color: #717171;
+    font-weight: 500;
+}
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    &.options {
+        font-size: 15px;
+        line-height: 20px;
+        cursor: pointer;
+        color: #007bff;
+        margin: 10px 0 18px;
+    }
+}
+.row.titleTex {
+    font-weight: 500;
+    font-size: 15px;
+    color: #222;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.row.titleTex .sendAgain {
+    margin-left: 5px;
+}
+a.moreOpt {
+    font-size: 15px;
+    color: #007bff;
+    font-weight: 500;
+}
+h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    letter-spacing: 0px;
+    color: #000;
+    font-weight: bold;
+    font-family: "Montserrat",sans-serif;
+}
+p.text_green {
+  color: #3bab59!important;
+  margin-bottom: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+a.changeNum {
+    font-size: 15px;
+    color: #007bff;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    position: relative;
+    &::before {
+      content: "";
+      background-image: url(../../../../assets/images/edit.png);
+      background-repeat: no-repeat;
+      position: absolute;
+      right: -22px;
+      bottom: 5px;
+      width: 15px;
+      height: 15px;
+    }
+}
+}
+
+.clear{clear:both; width:100%}
+.text_align_center{text-align:center;}
 @media only screen and (max-width:768px){
 .submitButton_confirms {
   margin: 0px auto 0 !important;
   width: 50%;
   max-width: 280px;
+}
+::ng-deep {
+  .cdk-overlay-pane {
+      max-width: 96% !important;
+  }
+}
+.otp-confirmation {
+  margin-bottom: 0;
+  .row.commonPopupRow {
+    max-width: 100%;
+    .form-group.col-sm-2 {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+  }
 }
 }
