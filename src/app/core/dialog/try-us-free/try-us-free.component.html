@@ -1,6 +1,37 @@
-<a href="javascript:void(0)" (click)="closeIcon()">X</a>
+<div class="tryUsfreeSearchWrap">
+<a class="close" href="javascript:void(0)" (click)="closeIcon()">X</a>
 <h2>Try us free!</h2>
-
+<div class="country_alphabet_wrap">
+    <div class="alphabet_links" *ngIf="allCountry">
+        <li class="active" [ngClass]="{'active': currentClickedChar === 'All' }" (click)="displayCountryList('All')">All</li>
+        <li class="{{isDisabled('A')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'A' }" (click)="displayCountryList('A')">A</li>
+        <li class="{{isDisabled('B')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'B' }" (click)="displayCountryList('B')">B</li>
+        <li class="{{isDisabled('C')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'C' }" (click)="displayCountryList('C')">C</li>
+        <li class="{{isDisabled('D')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'D' }" (click)="displayCountryList('D')">D</li>
+        <li class="{{isDisabled('E')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'E' }" (click)="displayCountryList('E')">E</li>
+        <li class="{{isDisabled('F')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'F' }" (click)="displayCountryList('F')">F</li>
+        <li class="{{isDisabled('G')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'G' }" (click)="displayCountryList('G')">G</li>
+        <li class="{{isDisabled('H')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'H' }" (click)="displayCountryList('H')">H</li>
+        <li class="{{isDisabled('I')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'I' }" (click)="displayCountryList('I')">I</li>
+        <li class="{{isDisabled('J')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'J' }" (click)="displayCountryList('J')">J</li>
+        <li class="{{isDisabled('K')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'K' }" (click)="displayCountryList('K')">K</li>
+        <li class="{{isDisabled('L')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'L' }" (click)="displayCountryList('L')">L</li>
+        <li class="{{isDisabled('M')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'M' }" (click)="displayCountryList('M')">M</li>
+        <li class="{{isDisabled('N')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'N' }" (click)="displayCountryList('N')">N</li>
+        <li class="{{isDisabled('O')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'O' }" (click)="displayCountryList('O')">O</li>
+        <li class="{{isDisabled('P')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'P' }" (click)="displayCountryList('P')">P</li>
+        <li class="{{isDisabled('Q')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Q' }" (click)="displayCountryList('Q')">Q</li>
+        <li class="{{isDisabled('R')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'R' }" (click)="displayCountryList('R')">R</li>
+        <li class="{{isDisabled('S')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'S' }" (click)="displayCountryList('S')">S</li>
+        <li class="{{isDisabled('T')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'T' }" (click)="displayCountryList('T')">T</li>
+        <li class="{{isDisabled('U')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'U' }" (click)="displayCountryList('U')">U</li>
+        <li class="{{isDisabled('V')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'V' }" (click)="displayCountryList('V')">V</li>
+        <li class="{{isDisabled('W')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'W' }" (click)="displayCountryList('W')">W</li>
+        <li class="{{isDisabled('X')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'X' }" (click)="displayCountryList('X')">X</li>
+        <li class="{{isDisabled('Y')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Y' }" (click)="displayCountryList('Y')">Y</li>
+        <li class="{{isDisabled('Z')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Z' }" (click)="displayCountryList('Z')">Z</li>
+    </div>
+</div>
 <section class="country-search">
     <div class="container">
       <div class="col-lg-8 col-md-12 mx-auto">
@@ -64,43 +95,7 @@
 
   <section class="country-search">
     <div class="container">
-      <div class="row">
-        <div class="col-md-9 mx-auto">
-          <div class="alphabet_links" *ngIf="allCountry">
-              <li class="active" [ngClass]="{'active': currentClickedChar === 'All' }" (click)="displayCountryList('All')">All</li>
-              <li class="{{isDisabled('A')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'A' }" (click)="displayCountryList('A')">A</li>
-              <li class="{{isDisabled('B')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'B' }" (click)="displayCountryList('B')">B</li>
-              <li class="{{isDisabled('C')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'C' }" (click)="displayCountryList('C')">C</li>
-              <li class="{{isDisabled('D')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'D' }" (click)="displayCountryList('D')">D</li>
-              <li class="{{isDisabled('E')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'E' }" (click)="displayCountryList('E')">E</li>
-              <li class="{{isDisabled('F')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'F' }" (click)="displayCountryList('F')">F</li>
-              <li class="{{isDisabled('G')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'G' }" (click)="displayCountryList('G')">G</li>
-              <li class="{{isDisabled('H')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'H' }" (click)="displayCountryList('H')">H</li>
-              <li class="{{isDisabled('I')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'I' }" (click)="displayCountryList('I')">I</li>
-              <li class="{{isDisabled('J')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'J' }" (click)="displayCountryList('J')">J</li>
-              <li class="{{isDisabled('K')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'K' }" (click)="displayCountryList('K')">K</li>
-              <li class="{{isDisabled('L')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'L' }" (click)="displayCountryList('L')">L</li>
-              <li class="{{isDisabled('M')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'M' }" (click)="displayCountryList('M')">M</li>
-              <li class="{{isDisabled('N')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'N' }" (click)="displayCountryList('N')">N</li>
-              <li class="{{isDisabled('O')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'O' }" (click)="displayCountryList('O')">O</li>
-              <li class="{{isDisabled('P')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'P' }" (click)="displayCountryList('P')">P</li>
-              <li class="{{isDisabled('Q')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Q' }" (click)="displayCountryList('Q')">Q</li>
-              <li class="{{isDisabled('R')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'R' }" (click)="displayCountryList('R')">R</li>
-              <li class="{{isDisabled('S')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'S' }" (click)="displayCountryList('S')">S</li>
-              <li class="{{isDisabled('T')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'T' }" (click)="displayCountryList('T')">T</li>
-              <li class="{{isDisabled('U')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'U' }" (click)="displayCountryList('U')">U</li>
-              <li class="{{isDisabled('V')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'V' }" (click)="displayCountryList('V')">V</li>
-              <li class="{{isDisabled('W')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'W' }" (click)="displayCountryList('W')">W</li>
-              <li class="{{isDisabled('X')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'X' }" (click)="displayCountryList('X')">X</li>
-              <li class="{{isDisabled('Y')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Y' }" (click)="displayCountryList('Y')">Y</li>
-              <li class="{{isDisabled('Z')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'Z' }" (click)="displayCountryList('Z')">Z</li>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-      <div class="col-md-12">
-        <div class="row countries_row">
+        <div class="countries_row">
             <table>
                 <thead>
                     <tr>
@@ -154,8 +149,7 @@
           </div>
         </div> -->
         </div>
-      </div>
-      </div>
       <!-- Alpahbet search end here-->
     </div>
     </section>
+  </div>

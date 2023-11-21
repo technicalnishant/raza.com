@@ -1,0 +1,57 @@
+.tryUsfreeSearchWrap {
+  h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 34px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  .alphabet_links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    li {
+      list-style: none;
+      margin: 0px 8px;
+      cursor: pointer;
+    }
+  }
+  .flag_list1 {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    top: 37px;
+    right: 0;
+    width: 62px;
+  }
+  .flag_list1 ul {
+    padding: 0;
+    margin: 10px 0 0 0;
+    list-style-type: none;
+    display: block;
+    max-height: 216px;
+    overflow: auto;
+    background-color: #fff;
+  }
+  .flag_list1 ul li {
+    cursor: pointer;
+    position: relative;
+    height: 50px;
+    border-bottom: 1px solid #999;
+    display: flex;
+    justify-content: start;
+    padding-left: 12px;
+    align-items: center;
+  }
+  .flag_list1 ul li:last-of-type {
+    margin: 0;
+  }
+  .countries_row {
+      margin-top: 30px;
+      table {
+        width: 100%;
+    }
+  }
+}

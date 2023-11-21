@@ -137,8 +137,9 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     // The user can't close the dialog by clicking outside its body
     dialogConfig.disableClose = true;
     dialogConfig.id = "modal-component";
-    dialogConfig.height = "350px";
-    dialogConfig.width = "600px";
+    dialogConfig.panelClass = "tryUsFree";
+    dialogConfig.width = "100%";
+    dialogConfig.height = "90%";
     dialogConfig.data = {
       name: "logout",
       title: "Are you sure you want to logout?",
@@ -264,7 +265,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     })
   }
   filterListing(){
-   
+
     this.filteredCountry = this.autoControl.valueChanges
       .pipe(
         startWith<string | any>(''),
