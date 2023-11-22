@@ -306,14 +306,16 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
               this.router.navigate(['/checkout']);
             }
           
-          this.dialogRef.close();
+          
+        }
+
+        this.dialogRef.close();
           
           window.scroll({ 
             top: 0, 
             left: 0, 
             behavior: 'smooth' 
           });
-        }
   }
 
 
