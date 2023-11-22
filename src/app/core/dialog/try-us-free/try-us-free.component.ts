@@ -87,7 +87,7 @@ export class TryUsFreeComponent implements OnInit {
   alphabets:any=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   disabledList:any =[];
  searchicon: string = '../assets/images/search8.svg';
- recordsPerPage: number = 10;
+ recordsPerPage: number = 7;
  currentPage: number = 1;
  
   constructor(private router: Router,
@@ -478,7 +478,7 @@ get totalPages(): number[] {
 
   const range = [];
   for (let i = left; i <= right; i++) {
-    if(this.bindSearchRates.length >= i*8  )
+    if(this.bindSearchRates.length >= i*7  )
     range.push(i);
   }
 

@@ -27,19 +27,22 @@
                           <div class="img-1 mt-5 newSpelWrap">
                               <span class="new_cust_spl showMobileOnly" *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">New Customer Special</span>
                                 <img  src="https://raza.com/assets/images/home_banner_new/buy1get1.webp" width="300" height="303" loading="lazy" alt="img" class="img-fluid d-none d-md-block">
-                                <a routerLink="deals/buy1-get1">
+                                <!-- <a routerLink="deals/buy1-get1"> -->
+                                  <a (click)="buyOnegetOne()">
                                   <img  src="https://raza.com/assets/images/home_banner_new/hm_banner_mb-us.webp" width="416" height="333" loading="lazy" alt="img" class="img-fluid showMobileOnly"  *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
                                 </a>
                           </div>
                           <div class="divider d-none d-md-block"></div>
                           <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 3">
-                            <a routerLink="deals/buy1-get1">
+                            <!-- <a routerLink="deals/buy1-get1" > -->
+                              <a (click)="buyOnegetOne()">
                               <img src="https://raza.com/assets/images/home_banner_new/was10now5.webp" width="363" height="324" alt="img" loading="lazy" class="img-fluid d-none d-md-block">
                               <img src="https://raza.com/assets/images/home_banner_new/was10now5_mb.webp" width="619" height="533" alt="img" loading="lazy" class="img-fluid showMobileOnly">
                             </a>
                           </div>
                           <div class="img-1 " *ngIf="currentSetting?.country?.CountryId == 1 || currentSetting?.country?.CountryId == 2">
-                              <a routerLink="deals/buy1-get1">
+                              <a  (click)="buyOnegetOne()">
+                                <!-- <a routerLink="deals/buy1-get1" > -->
                                 <img src="https://raza.com/assets/images/home_banner_new/was5now5_us.webp" width="416" height="333" alt="img" loading="lazy" class="img-fluid d-none d-md-block">
                               </a>
                           </div>
@@ -51,7 +54,8 @@
                             </a>
                         </div>
                         <div class="button-wrapper text-center" style="width:100%;">
-                            <a mat-raised-button routerLink="deals/buy1-get1" type="button" class="rounded-pill btn-lg px-5 py-1 py-md-2 mb-3 buy-btn shadow">Buy Now</a>
+                          <!-- <a mat-raised-button routerLink="deals/buy1-get1" type="button" class="rounded-pill btn-lg px-5 py-1 py-md-2 mb-3 buy-btn shadow">Buy Now</a> -->
+                          <a mat-raised-button  (click)="buyOnegetOne()" type="button" class="rounded-pill btn-lg px-5 py-1 py-md-2 mb-3 buy-btn shadow">Buy Now</a>
                         </div>
                     </div>
                 </div>

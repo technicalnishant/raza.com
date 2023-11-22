@@ -9,7 +9,7 @@ import { GlobalRatesService } from '../globalrates.service';
 import { ApiErrorResponse } from '../../core/models/ApiErrorResponse';
 import { SearchRatesService } from '../../rates/searchrates.service';
 import { GlobalCallComponent } from '../../globalrates/global-call/global-call.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CountriesService } from '../../core/services/country.service';
 import { Country } from '../../core/models/country.model';
 import { RazaEnvironmentService } from '../../core/services/razaEnvironment.service';
@@ -35,6 +35,7 @@ import { ModalVideoComponent } from '../modal-video/modal-video.component';
 import { MetaTagsService } from '../../core/services/meta.service';
 import { PreviousRouteService } from '../../core/services/previous-route.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Buy1get1Component } from 'app/core/dialog/buy1get1/buy1get1.component';
 // import Splide from '@splidejs/splide';
 export class SomeModule { }
 // import{GoogleAnalyticsService} from '../../services/google-analytics.service';
@@ -590,6 +591,25 @@ window.scroll({
         localStorage.removeItem("topupTrigger");
         this.router.navigateByUrl('mobiletopup');
       }
+  }
+
+
+  buyOnegetOne()
+  {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.panelClass = "tryUsFree";
+    dialogConfig.width = "100%";
+    dialogConfig.height = "90%";
+    dialogConfig.data = {
+      name: "logout",
+      title: "Are you sure you want to logout?",
+      description: "Pretend this is a convincing argument on why you shouldn't logout :)",
+      actionButtonText: "Logout",
+    }
+    const modalDialog = this.dialog.open(Buy1get1Component, dialogConfig);
   }
 
 }
