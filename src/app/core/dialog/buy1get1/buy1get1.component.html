@@ -132,7 +132,29 @@
       <!-- Alpahbet search end here-->
   
       <div class="row countries_list">
-        <div
+        <table>
+            <thead>
+                <tr>
+                    <td>Country</td>
+                    <td>{{currSymbol()}}2 Was <span>{{currSymbol()}} 4</span></td>
+                    <td>{{currSymbol()}} 3 Was <span>{{currSymbol()}} 6</span></td>
+                    <td>{{currSymbol()}} 5 Was <span>{{currSymbol()}} 10</span></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of displayedRecords; let i = index">
+                    <td>{{item.CountryToName}}
+                    <br />
+                    <span>From</span> {{ item.RatePerMin | sCurrency : item.CurrencyCode}} <span>/ min</span>
+                    </td>  
+                    <td><p class="free-mins">{{item.FreeMin*4 | number:'1.0-0'}}<span>mins</span></p></td>
+                    <td><p class="free-mins">{{item.FreeMin*6 | number:'1.0-0'}}<span>mins</span></p></td>
+                    <td><p class="free-mins">{{item.FreeMin*10 | number:'1.0-0'}}<span>mins</span></p></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- <div
           class="col-xl-3 col-md-4 countries"
           *ngFor="let option of displayedRecords; let i = index"
         >
@@ -159,7 +181,7 @@
               VIEW Details
             </button>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="col-6 col-md-4 col-xl-3 col-lg-4">

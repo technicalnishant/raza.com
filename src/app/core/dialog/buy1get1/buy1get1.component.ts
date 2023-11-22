@@ -478,5 +478,104 @@ getSelected(page)
 {
   return (this.currentPage == page)?'selected':'';
 }
+
+
+// onClickAmountOption1(item: any) {
+//   const model: RechargeCheckoutModel = new RechargeCheckoutModel();
+
+//   model.purchaseAmount = item;
+//   model.couponCode = 'Buy1Get1';
+//   model.currencyCode = this.plan.CurrencyCode;
+//   model.cvv = '';
+//   model.planId = this.plan.PlanId
+//   model.transactiontype = TransactionType.Recharge;
+//   model.serviceChargePercentage = this.plan.ServiceChargePercent;
+//   model.planName = this.plan.CardName;
+//   model.countryFrom = this.plan.CountryFrom;
+//   model.countryTo = this.plan.CountryTo;
+//   model.cardId = this.plan.CardId;
+//   model.isAutoRefill = false;
+//   model.offerPercentage = '';
+//   this.checkoutService.setCurrentCart(model);
+//   this.router.navigate(['/checkout/payment-info']);
+// }
+
+
+// buyNow(obj:any, obj2:any, item) {
+//   if(this.plan && this.plan.CardId)
+//   {
+//     this.onClickAmountOption1(obj);
+//   }
+//   else
+//   {
+//         var subcardid = '';
+//         var cuponcode = 'BUY1GET1';
+//         var service_fee = 0;
+//         if(this.currentSetting.currentCountryId == 1)
+//         {
+//         subcardid = '161-'+obj2;
+//         service_fee = 0;
+//         }
+//         if(this.currentSetting.currentCountryId== 2)
+//         {
+//         subcardid = '162-'+obj2;
+//         service_fee = 10;
+//         }
+//           const model: NewPlanCheckoutModel = new NewPlanCheckoutModel();
+ 
+//           model.CardId = item.CardId;
+//           model.CardName = item.CardName;
+//           model.CurrencyCode = item.CurrencyCode;
+
+//           model.details = {
+//             Price: obj,
+//             ServiceCharge: service_fee,
+//           SubCardId:subcardid
+//           }
+//           model.country = null;
+//           model.phoneNumber = null;
+//           model.countryFrom = this.currentSetting.currentCountryId;
+//           model.countryTo = this.countryId;
+          
+//           model.currencyCode = this.currentSetting.currency;
+//           model.transactiontype = TransactionType.Activation;
+//           model.isAutoRefill = false;
+//           model.couponCode = cuponcode;
+//           model.currencyCode = item.CurrencyCode;
+//           model.isHideCouponEdit = true;
+        
+//         console.log(model);
+        
+//           this.checkoutService.setCurrentCart(model);
+
+//           if (this.authService.isAuthenticated()) {
+//             this.router.navigate(['/checkout/payment-info']);
+//           } else {
+//             this.router.navigate(['/checkout']);
+//           }
+        
+//         this.dialogRef.close();
+        
+//         window.scroll({ 
+//           top: 0, 
+//           left: 0, 
+//           behavior: 'smooth' 
+//         });
+//       }
+// }
+
+currSymbol = ()=>
+{
+  if(this.currentSetting.country.CountryId == 1 || this.currentSetting.country.CountryId == 2)
+  {
+    return "$"; 
+  }
+  else{
+    return  "£"
+  }
+  
+
+}
+
   }
   
