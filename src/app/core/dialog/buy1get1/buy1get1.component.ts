@@ -472,5 +472,11 @@ get totalPages(): number[] {
   return range;
 }
 }
+
+
+getSelected(page)
+{
+  return (this.currentPage == page)?'selected':'';
+}
   }
   

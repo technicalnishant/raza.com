@@ -163,7 +163,7 @@
       </div>
 
       <div class="col-6 col-md-4 col-xl-3 col-lg-4">
-        <button *ngFor="let page of totalPages" (click)="onPageChange(page)">
+        <button *ngFor="let page of totalPages" (click)="onPageChange(page)" class="{{getSelected(page)}}">
           {{ page }}
         </button>
       </div>
