@@ -488,5 +488,8 @@ get totalPages(): number[] {
 }
 }
 
-
+getSelected(page)
+{
+  return (this.currentPage == page)?'selected':'';
+}
 }
