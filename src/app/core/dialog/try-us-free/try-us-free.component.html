@@ -109,7 +109,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of displayedRecords; let i = index">
+                    <tr *ngFor="let item of bindSearchRates; let i = index">
                         <td>{{item.CountryName}}</td>
                         <td>{{item.FreeMinutes}} <span>mins</span></td>
                         <td><button
@@ -152,9 +152,9 @@
     </div>
     </section>
   </div>
-  <div class="paginationWrap">
+  <!-- <div class="paginationWrap">
     <button *ngFor="let page of totalPages" (click)="onPageChange(page)" class="{{getSelected(page)}}">
       {{ page }}
     </button>
-  </div>
+  </div> -->
   </div>
