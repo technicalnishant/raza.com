@@ -5,7 +5,9 @@
 <h2>Try us free!</h2>
 <div class="country_alphabet_wrap">
     <div class="alphabet_links" *ngIf="allCountry">
-        <li class="active" [ngClass]="{'active': currentClickedChar === 'All' }" (click)="displayCountryList('All')">All</li>
+        <li class="active" [ngClass]="{'active': currentClickedChar === 'All' }" (click)="displayCountryList('All')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08l4.15-2.5z"/></svg>
+        </li>
         <li class="{{isDisabled('A')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'A' }" (click)="displayCountryList('A')">A</li>
         <li class="{{isDisabled('B')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'B' }" (click)="displayCountryList('B')">B</li>
         <li class="{{isDisabled('C')?'disabled':''}}" [ngClass]="{'active': currentClickedChar === 'C' }" (click)="displayCountryList('C')">C</li>
@@ -105,8 +107,13 @@
                     <tr>
                         <td>Country</td>
                         <td>Upto</td>
-                        <td></td>
+                        <td>Offer</td>
                     </tr>
+                    <tr>
+                      <td>Country</td>
+                      <td>Upto</td>
+                      <td>Offer</td>
+                  </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of bindSearchRates; let i = index">
@@ -117,7 +124,8 @@
                             (click)="viewRates(item)"
                           >
                             Free Trial
-                          </button></td>
+                          </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
