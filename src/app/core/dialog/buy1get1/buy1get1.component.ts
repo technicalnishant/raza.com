@@ -45,6 +45,8 @@ import { TransactionService } from '../../../payments/services/transaction.servi
 import { ErrorDialogComponent } from '../../../shared/dialog/error-dialog/error-dialog.component';
 import { ErrorDialogModel } from '../../../shared/model/error-dialog.model';
 import { MetaTagsService } from 'app/core/services/meta.service';
+import { Denominations } from 'app/globalrates/model/denominations';
+import { Plan } from 'app/accounts/models/plan';
 @Component({
   selector: 'app-buy1get1',
   templateUrl: './buy1get1.component.html',
@@ -58,6 +60,10 @@ export class Buy1get1Component implements OnInit {
 
   showmore: any;
   plan: PromotionPlan;
+  planinfo: Plan;
+  Plans: Denominations[];
+  AutorefillPlans: Denominations[];
+  WithoutAutorefillPlans: Denominations[];
   promotionCode:string = 'buy1-get1';
   showDropdown: boolean = false;
   showPlaceholder: boolean = true;
@@ -80,6 +86,12 @@ export class Buy1get1Component implements OnInit {
   contentLoaded: boolean;
   recordsPerPage: number = 7;
  currentPage: number = 1;
+  countryCode: any;
+  countryId: any;
+  countryName: any;
+  RatePerMinPromo: any;
+  RatePerMin: any;
+  RatePerMinWithOutPromo: any;
   constructor(
     private authService: AuthenticationService,
     private checkoutService: CheckoutService,
@@ -127,10 +139,15 @@ export class Buy1get1Component implements OnInit {
           this.contentLoaded = true;
         }, 2000);
   
+
+        if (this.authService.isAuthenticated()) {
+          this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe(  (res:any)=>{ this.plan = res; } );
+         }
+
     }
   
   
-  
+   
     openErrorDialog(error: ErrorDialogModel): void {
       this.dialog.open(ErrorDialogComponent, {
         data: { error }
@@ -379,28 +396,31 @@ export class Buy1get1Component implements OnInit {
   
     showPopup(countryId, obj:any[])
     {
-      this.OpenPlanDialog(countryId, obj);
+     // this.OpenPlanDialog(countryId, obj);
     }
-    OpenPlanDialog(countryId, obj:any[]) {
-      this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, countryId).subscribe(
-        (data: any) => {
-          if (this.dialog.openDialogs.length == 0) {
-            console.log(data);
-            this.dialog.open(GlobalBuyComponent, {
-              data: { data , custom:obj } ,
-              width: '83vw',
-              maxWidth: '1235px',
-              panelClass: 'buy1get1popup-dialog'
-            });
-          }
-        },
-        (err: ApiErrorResponse) => console.log(err),
-      );
-    }
+    // OpenPlanDialog(countryId, obj:any[]) {
+    //   this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, countryId).subscribe(
+    //     (data: any) => {
+    //       if (this.dialog.openDialogs.length == 0) {
+    //         console.log(data);
+    //         this.dialog.open(GlobalBuyComponent, {
+    //           data: { data , custom:obj } ,
+    //           width: '83vw',
+    //           maxWidth: '1235px',
+    //           panelClass: 'buy1get1popup-dialog'
+    //         });
+    //       }
+    //     },
+    //     (err: ApiErrorResponse) => console.log(err),
+    //   );
+    // }
   
-    viewRates(event, countryId, obj:any[]  ) {
+    viewRates(event, countryId, obj:any   ) {
       if (event.isUserInput) {
-        this.OpenPlanDialog(countryId, obj);
+        //this.OpenPlanDialog(countryId, obj);
+
+        this.defaultChar = obj.CountryToName;
+        this.setDenominations();
       }
     }
   
@@ -480,89 +500,111 @@ getSelected(page)
 }
 
 
-// onClickAmountOption1(item: any) {
-//   const model: RechargeCheckoutModel = new RechargeCheckoutModel();
+onClickAmountOption1(item: any) {
+  const model: RechargeCheckoutModel = new RechargeCheckoutModel();
 
-//   model.purchaseAmount = item;
-//   model.couponCode = 'Buy1Get1';
-//   model.currencyCode = this.plan.CurrencyCode;
-//   model.cvv = '';
-//   model.planId = this.plan.PlanId
-//   model.transactiontype = TransactionType.Recharge;
-//   model.serviceChargePercentage = this.plan.ServiceChargePercent;
-//   model.planName = this.plan.CardName;
-//   model.countryFrom = this.plan.CountryFrom;
-//   model.countryTo = this.plan.CountryTo;
-//   model.cardId = this.plan.CardId;
-//   model.isAutoRefill = false;
-//   model.offerPercentage = '';
-//   this.checkoutService.setCurrentCart(model);
-//   this.router.navigate(['/checkout/payment-info']);
-// }
+  model.purchaseAmount = item;
+  model.couponCode = 'Buy1Get1';
+  model.currencyCode = this.planinfo.CurrencyCode;
+  model.cvv = '';
+  model.planId = this.planinfo.PlanId
+  model.transactiontype = TransactionType.Recharge;
+  model.serviceChargePercentage = this.planinfo.ServiceChargePercent;
+  model.planName = this.plan.CardName;
+  model.countryFrom = this.planinfo.CountryFrom;
+  model.countryTo = this.planinfo.CountryTo;
+  model.cardId = this.plan.CardId;
+  model.isAutoRefill = false;
+  model.offerPercentage = '';
+  this.checkoutService.setCurrentCart(model);
+  this.router.navigate(['/checkout/payment-info']);
+}
+getPlanDetail(countryId){
+this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, countryId).subscribe(
+  (data: any) => {
+    this.Plans = data.AutorefillPlans;
 
 
-// buyNow(obj:any, obj2:any, item) {
-//   if(this.plan && this.plan.CardId)
-//   {
-//     this.onClickAmountOption1(obj);
-//   }
-//   else
-//   {
-//         var subcardid = '';
-//         var cuponcode = 'BUY1GET1';
-//         var service_fee = 0;
-//         if(this.currentSetting.currentCountryId == 1)
-//         {
-//         subcardid = '161-'+obj2;
-//         service_fee = 0;
-//         }
-//         if(this.currentSetting.currentCountryId== 2)
-//         {
-//         subcardid = '162-'+obj2;
-//         service_fee = 10;
-//         }
-//           const model: NewPlanCheckoutModel = new NewPlanCheckoutModel();
+    this.countryCode = data.CountryCode;
+    this.countryId = data.CountryId;
+    this.countryName = data.CountryName;
+    this.Plans = data.AutorefillPlans.Denominations;
+    this.AutorefillPlans = data.AutorefillPlans.Denominations;
+    this.RatePerMinPromo = data.AutorefillPlans.RatePerMin;
+    this.RatePerMin = this.RatePerMinPromo;
+    this.RatePerMinWithOutPromo = data.WithoutAutorefillPlans.RatePerMin;
+    this.WithoutAutorefillPlans = data.WithoutAutorefillPlans.Denominations;
+
+    
+  },
+  (err: ApiErrorResponse) => console.log(err),
+);
+}
+async buyNow(obj:any, obj2:any, item) {
  
-//           model.CardId = item.CardId;
-//           model.CardName = item.CardName;
-//           model.CurrencyCode = item.CurrencyCode;
+  await this.getPlanDetail(item.CountryToId);
+ 
+  if(this.plan && this.plan.CardId)
+  {
+     this.onClickAmountOption1(obj);
+  }
+  else
+  {
+        var subcardid = '';
+        var cuponcode = 'BUY1GET1';
+        var service_fee = 0;
+        if(this.currentSetting.currentCountryId == 1)
+        {
+        subcardid = '161-'+obj2;
+        service_fee = 0;
+        }
+        if(this.currentSetting.currentCountryId== 2)
+        {
+        subcardid = '162-'+obj2;
+        service_fee = 10;
+        }
+          const model: NewPlanCheckoutModel = new NewPlanCheckoutModel();
+ 
+          model.CardId = item.CardId;
+          model.CardName = item.CardName;
+          model.CurrencyCode = item.CurrencyCode;
 
-//           model.details = {
-//             Price: obj,
-//             ServiceCharge: service_fee,
-//           SubCardId:subcardid
-//           }
-//           model.country = null;
-//           model.phoneNumber = null;
-//           model.countryFrom = this.currentSetting.currentCountryId;
-//           model.countryTo = this.countryId;
+          model.details = {
+            Price: obj,
+            ServiceCharge: service_fee,
+          SubCardId:subcardid
+          }
+          model.country = null;
+          model.phoneNumber = null;
+          model.countryFrom = this.currentSetting.currentCountryId;
+          model.countryTo = item.CountryToId;
           
-//           model.currencyCode = this.currentSetting.currency;
-//           model.transactiontype = TransactionType.Activation;
-//           model.isAutoRefill = false;
-//           model.couponCode = cuponcode;
-//           model.currencyCode = item.CurrencyCode;
-//           model.isHideCouponEdit = true;
-        
-//         console.log(model);
-        
-//           this.checkoutService.setCurrentCart(model);
+          model.currencyCode = this.currentSetting.currency;
+          model.transactiontype = TransactionType.Activation;
+          model.isAutoRefill = false;
+          model.couponCode = cuponcode;
+          model.currencyCode = item.CurrencyCode;
+          model.isHideCouponEdit = true;
+         
+          this.checkoutService.setCurrentCart(model);
 
-//           if (this.authService.isAuthenticated()) {
-//             this.router.navigate(['/checkout/payment-info']);
-//           } else {
-//             this.router.navigate(['/checkout']);
-//           }
+          if (this.authService.isAuthenticated()) {
+            this.router.navigate(['/checkout/payment-info']);
+          } else {
+            this.router.navigate(['/checkout']);
+          }
         
-//         this.dialogRef.close();
         
-//         window.scroll({ 
-//           top: 0, 
-//           left: 0, 
-//           behavior: 'smooth' 
-//         });
-//       }
-// }
+      }
+
+      this.dialogRef.close();
+        
+        window.scroll({ 
+          top: 0, 
+          left: 0, 
+          behavior: 'smooth' 
+        });
+}
 
 currSymbol = ()=>
 {

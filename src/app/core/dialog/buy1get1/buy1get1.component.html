@@ -142,14 +142,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of displayedRecords; let i = index">
+                <tr *ngFor="let item of limitDenomination; let i = index">
                     <td>{{item.CountryToName}}
                     <br />
                     <span>From</span> {{ item.RatePerMin | sCurrency : item.CurrencyCode}} <span>/ min</span>
                     </td>  
-                    <td><p class="free-mins">{{item.FreeMin*4 | number:'1.0-0'}}<span>mins</span></p></td>
-                    <td><p class="free-mins">{{item.FreeMin*6 | number:'1.0-0'}}<span>mins</span></p></td>
-                    <td><p class="free-mins">{{item.FreeMin*10 | number:'1.0-0'}}<span>mins</span></p></td>
+                    <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{item.FreeMin*4 | number:'1.0-0'}}<span>mins</span></p></td>
+                    <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{item.FreeMin*6 | number:'1.0-0'}}<span>mins</span></p></td>
+                    <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{item.FreeMin*10 | number:'1.0-0'}}<span>mins</span></p></td>
                 </tr>
             </tbody>
         </table>
@@ -184,10 +184,10 @@
         </div> -->
       </div>
 
-      <div class="col-6 col-md-4 col-xl-3 col-lg-4">
+      <!-- <div class="col-6 col-md-4 col-xl-3 col-lg-4">
         <button *ngFor="let page of totalPages" (click)="onPageChange(page)" class="{{getSelected(page)}}">
           {{ page }}
         </button>
-      </div>
+      </div> -->
     </div>
   </section>
