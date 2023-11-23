@@ -1,5 +1,43 @@
-<a href="" (click)="closeIcon()">X</a>
-<section class="country-search">
+<div class="tryUsfreeSearchWrap">
+<a class="close" href="javascript:void(0)" (click)="closeIcon()">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 4.75l-6.5 6.5m0-6.5l6.5 6.5"/></svg>
+</a>
+<h2>Buy 1 Get 1 Free - Call worlwide</h2>
+
+<div class="country_alphabet_wrap">
+  <div class="alphabet_links">
+    <li class="active" [ngClass]="{'active': defaultChar === 'A' }" (click)="setChar('A')">A</li>
+    <li [ngClass]="{'active': defaultChar === 'B' }" (click)="setChar('B')" >B</li>
+    <li [ngClass]="{'active': defaultChar === 'C' }" (click)="setChar('C')">C</li>
+    <li [ngClass]="{'active': defaultChar === 'D' }" (click)="setChar('D')" >D</li>
+    <li [ngClass]="{'active': defaultChar === 'E' }" (click)="setChar('E')" >E</li>
+    <li [ngClass]="{'active': defaultChar === 'F' }" (click)="setChar('F')" >F</li>
+    <li [ngClass]="{'active': defaultChar === 'G' }" (click)="setChar('G')" >G</li>
+    <li [ngClass]="{'active': defaultChar === 'H' }" (click)="setChar('H')" >H</li>
+    <li [ngClass]="{'active': defaultChar === 'I' }" (click)="setChar('I')" >I</li>
+    <li [ngClass]="{'active': defaultChar === 'J' }" (click)="setChar('J')">J</li>
+    <li [ngClass]="{'active': defaultChar === 'K' }" (click)="setChar('K')">K</li>
+    <li [ngClass]="{'active': defaultChar === 'L' }" (click)="setChar('L')">L</li>
+    <li [ngClass]="{'active': defaultChar === 'M' }" (click)="setChar('M')">M</li>
+    <li [ngClass]="{'active': defaultChar === 'N' }" (click)="setChar('N')">N</li>
+    <li [ngClass]="{'active': defaultChar === 'O' }" (click)="setChar('O')">O</li>
+    <li [ngClass]="{'active': defaultChar === 'P' }" (click)="setChar('P')" >P</li>
+    <li [ngClass]="{'active': defaultChar === 'Q' }" (click)="setChar('Q')">Q</li>
+    <li [ngClass]="{'active': defaultChar === 'R' }" (click)="setChar('R')">R</li>
+    <li [ngClass]="{'active': defaultChar === 'S' }" (click)="setChar('S')">S</li>
+    <li [ngClass]="{'active': defaultChar === 'T' }" (click)="setChar('T')">T</li>
+    <li [ngClass]="{'active': defaultChar === 'U' }" (click)="setChar('U')" >U</li>
+    <li [ngClass]="{'active': defaultChar === 'V' }" (click)="setChar('V')">V</li>
+    <li [ngClass]="{'active': defaultChar === 'W' }" (click)="setChar('W')">W</li>
+    <li [ngClass]="{'active': defaultChar === 'X' }" (click)="setChar('X')">X</li>
+    <li [ngClass]="{'active': defaultChar === 'Y' }" (click)="setChar('Y')" >Y</li>
+    <li [ngClass]="{'active': defaultChar === 'Z' }" (click)="setChar('Z')">Z</li>
+    <!--<div>Show All</div>-->
+  </div>
+</div>
+
+<div class="country-search-wrap">
+  <section class="country-search">
     <div class="container">
       <div class="col-lg-8 col-md-12 mx-auto">
         <div class="search-input">
@@ -91,54 +129,25 @@
       </div>
     </div>
   </section>
-  
+
   <!-- country search section end here -->
-  
+
   <section class="country-search">
     <div class="container">
-      <div class="row">
-        <div class="col-md-9 mx-auto">
-          <div class="alphabet_links">
-            <li class="active" [ngClass]="{'active': defaultChar === 'A' }" (click)="setChar('A')">A</li>
-            <li [ngClass]="{'active': defaultChar === 'B' }" (click)="setChar('B')" >B</li>
-            <li [ngClass]="{'active': defaultChar === 'C' }" (click)="setChar('C')">C</li>
-            <li [ngClass]="{'active': defaultChar === 'D' }" (click)="setChar('D')" >D</li>
-            <li [ngClass]="{'active': defaultChar === 'E' }" (click)="setChar('E')" >E</li>
-            <li [ngClass]="{'active': defaultChar === 'F' }" (click)="setChar('F')" >F</li>
-            <li [ngClass]="{'active': defaultChar === 'G' }" (click)="setChar('G')" >G</li>
-            <li [ngClass]="{'active': defaultChar === 'H' }" (click)="setChar('H')" >H</li>
-            <li [ngClass]="{'active': defaultChar === 'I' }" (click)="setChar('I')" >I</li>
-            <li [ngClass]="{'active': defaultChar === 'J' }" (click)="setChar('J')">J</li>
-            <li [ngClass]="{'active': defaultChar === 'K' }" (click)="setChar('K')">K</li>
-            <li [ngClass]="{'active': defaultChar === 'L' }" (click)="setChar('L')">L</li>
-            <li [ngClass]="{'active': defaultChar === 'M' }" (click)="setChar('M')">M</li>
-            <li [ngClass]="{'active': defaultChar === 'N' }" (click)="setChar('N')">N</li>
-            <li [ngClass]="{'active': defaultChar === 'O' }" (click)="setChar('O')">O</li>
-            <li [ngClass]="{'active': defaultChar === 'P' }" (click)="setChar('P')" >P</li>
-            <li [ngClass]="{'active': defaultChar === 'Q' }" (click)="setChar('Q')">Q</li>
-            <li [ngClass]="{'active': defaultChar === 'R' }" (click)="setChar('R')">R</li>
-            <li [ngClass]="{'active': defaultChar === 'S' }" (click)="setChar('S')">S</li>
-            <li [ngClass]="{'active': defaultChar === 'T' }" (click)="setChar('T')">T</li>
-            <li [ngClass]="{'active': defaultChar === 'U' }" (click)="setChar('U')" >U</li>
-            <li [ngClass]="{'active': defaultChar === 'V' }" (click)="setChar('V')">V</li>
-            <li [ngClass]="{'active': defaultChar === 'W' }" (click)="setChar('W')">W</li>
-            <li [ngClass]="{'active': defaultChar === 'X' }" (click)="setChar('X')">X</li>
-            <li [ngClass]="{'active': defaultChar === 'Y' }" (click)="setChar('Y')" >Y</li>
-            <li [ngClass]="{'active': defaultChar === 'Z' }" (click)="setChar('Z')">Z</li>
-            <!--<div>Show All</div>-->
-          </div>
-        </div>
-      </div>
-      <!-- Alpahbet search end here-->
-  
-      <div class="row countries_list">
+      <div class="countries_row">
         <table>
             <thead>
                 <tr>
                     <td>Country</td>
-                    <td>{{currSymbol()}}2 Was <span>{{currSymbol()}} 4</span></td>
-                    <td>{{currSymbol()}} 3 Was <span>{{currSymbol()}} 6</span></td>
-                    <td>{{currSymbol()}} 5 Was <span>{{currSymbol()}} 10</span></td>
+                    <td>{{currSymbol()}}<span class="lg">2</span> <span>Was {{currSymbol()}}4</span></td>
+                    <td>{{currSymbol()}}<span class="lg">3</span> <span>Was {{currSymbol()}}6</span></td>
+                    <td>{{currSymbol()}}<span class="lg">5</span> <span>Was {{currSymbol()}}10</span></td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td>{{currSymbol()}}<span class="lg">2</span> <span>Was {{currSymbol()}}4</span></td>
+                    <td>{{currSymbol()}}<span class="lg">3</span> <span>Was {{currSymbol()}}6</span></td>
+                    <td>{{currSymbol()}}<span class="lg">5</span> <span>Was {{currSymbol()}}10</span></td>
                 </tr>
             </thead>
             <tbody>
@@ -146,7 +155,7 @@
                     <td>{{item.CountryToName}}
                     <br />
                     <span>From</span> {{ item.RatePerMin | sCurrency : item.CurrencyCode}} <span>/ min</span>
-                    </td>  
+                    </td>
                     <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{item.FreeMin*4 | number:'1.0-0'}}<span>mins</span></p></td>
                     <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{item.FreeMin*6 | number:'1.0-0'}}<span>mins</span></p></td>
                     <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{item.FreeMin*10 | number:'1.0-0'}}<span>mins</span></p></td>
@@ -162,7 +171,7 @@
           <div class="country-box" >
             <div class="country-flag">
               <div class="div">
-  
+
                 <img
                 src="./../../assets/images/flag/{{
                   getImageName(option.CountryToName) | lowercase
@@ -189,5 +198,7 @@
           {{ page }}
         </button>
       </div> -->
-    </div>
+      </div>
   </section>
+</div>
+</div>
