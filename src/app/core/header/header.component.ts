@@ -164,7 +164,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
 
     localStorage.setItem('last_page', event.url);
 
-    if(event.url == '/' || event.url == '/mobileapp')
+    if(event.url == '/' || event.url == '/mobileapp' || event.url == '/p')
     {
       this.showHeader = true;
       this.showMyaccontHeader = false;
@@ -209,6 +209,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       // }
       this.showHeader = false;
     }
+
+     
 
     else {
       this.showHeader = false;
