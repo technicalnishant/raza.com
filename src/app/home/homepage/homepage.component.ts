@@ -93,7 +93,8 @@ sliderAutoplay: boolean = true;
   currentCurrency:any;
   contentLoaded: boolean = false;
   isFixHeader: boolean = false;
-  promtionCode:string='THANKS2023';
+  promtionCode:string='';
+ // promtionCode:string='THANKS2023';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';
@@ -132,7 +133,7 @@ sliderAutoplay: boolean = true;
     router.events
     .pipe(filter(event => event instanceof NavigationEnd))
     .subscribe((event: NavigationEnd) => {
-      console.log('prev:', event.url);
+     
       this.previousUrl = event.url;
     });
   }

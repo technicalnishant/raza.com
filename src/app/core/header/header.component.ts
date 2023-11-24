@@ -147,7 +147,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
 
     localStorage.setItem('last_page', event.url);
 
-    if(event.url == '/' || event.url == '/mobileapp')
+    if(event.url == '/' || event.url == '/mobileapp' || event.url.includes('/p/'))
     {
       this.showHeader = true;
       this.showMyaccontHeader = false;
@@ -276,6 +276,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   {
     this.selected_country = obj
   }
+
   private _filter(value: any): any[] {
     this.filter_string = value;
     const filterValue = value.toLowerCase();
@@ -298,9 +299,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     else
     this.selected_country = e.target.value;
 
-   console.log('this.selected_country', this.selected_country);
-
   }
+
   onInputFocus() {
     this.searchicon = '../assets/images/cross8.png';
     this.showDropdown = false;
