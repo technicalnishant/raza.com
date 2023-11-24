@@ -1,6 +1,6 @@
 <div class="first_fold">
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
-          <div class="diwali_strip" *ngIf="currentSetting?.country?.CountryId == 1">
+          <!-- <div class="diwali_strip" *ngIf="currentSetting?.country?.CountryId == 1">
               <div class="viyaFireworWrap">
                 <div class="viyaWrap">
                   <img src="../../../assets/images/home_banner_new/promo/left.gif" />
@@ -16,7 +16,7 @@
                   <img src="../../../assets/images/home_banner_new/promo/right.gif" />
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
              <splide-slide>
@@ -49,9 +49,8 @@
                         </div>
                         <div class="hp_text2">
                             Call over 200 countries
-                            <a routerLink="/searchrates">
-                                <span>as low as 1¢</span>
-                            </a>
+                            <!-- <a routerLink="/searchrates"> <span>as low as 1¢</span> </a> -->
+                            <a (click)="showLowestRates()"> <span>as low as 1¢</span> </a>
                         </div>
                         <div class="button-wrapper text-center" style="width:100%;">
                            <!-- <a mat-raised-button routerLink="deals/buy1-get1" type="button" class="rounded-pill btn-lg px-5 py-1 py-md-2 mb-3 buy-btn shadow">Buy Now</a>  --> 

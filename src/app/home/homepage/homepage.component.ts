@@ -36,6 +36,7 @@ import { MetaTagsService } from '../../core/services/meta.service';
 import { PreviousRouteService } from '../../core/services/previous-route.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Buy1get1Component } from 'app/core/dialog/buy1get1/buy1get1.component';
+import { LowestRateComponent } from 'app/core/dialog/lowest-rate/lowest-rate.component';
 // import Splide from '@splidejs/splide';
 export class SomeModule { }
 // import{GoogleAnalyticsService} from '../../services/google-analytics.service';
@@ -604,12 +605,26 @@ window.scroll({
     dialogConfig.width = "100%";
     dialogConfig.height = "90%";
     dialogConfig.data = {
-      name: "logout",
-      title: "Are you sure you want to logout?",
-      description: "Pretend this is a convincing argument on why you shouldn't logout :)",
-      actionButtonText: "Logout",
+      name: "buy1get1",
+      title: "Buy1 Get1", 
     }
     const modalDialog = this.dialog.open(Buy1get1Component, dialogConfig);
   }
 
+  showLowestRates()
+  {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.panelClass = "tryUsFree";
+    dialogConfig.width = "100%";
+    dialogConfig.height = "90%";
+    dialogConfig.data = {
+      name: "Lowest rates",
+      title: "Lowest rates",
+       
+    }
+    const modalDialog = this.dialog.open(LowestRateComponent, dialogConfig);
+  }
 }
