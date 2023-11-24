@@ -83,6 +83,10 @@
               font-size: 20px;
               padding: 14px;
               font-weight: 700;
+              @media only screen and (max-width: 767px) {
+                padding: 8px 6px;
+                font-size: 18px;
+              }
             }
             &:nth-child(2) {
               border-left: 1px solid #000;
@@ -94,13 +98,27 @@
           overflow-y: auto;
           tr {
             td {
-              padding: 12px;
+              padding: 12px 16px;
             }
             &:nth-child(4n-1) {
-              background-color: #f5f5f5;
+              @media only screen and (min-width: 768px) {
+                background-color: #f5f5f5;
+              }
             }
             &:nth-child(4n) {
-              background-color: #f5f5f5;
+              @media only screen and (min-width: 768px) {
+                background-color: #f5f5f5;
+              }
+            }
+            &:nth-child(even) {
+              @media only screen and (max-width: 767px) {
+                background-color: #f5f5f5;
+              }
+              td {
+                @media only screen and (min-width: 768px) {
+                  padding: 12px 18px;
+                }
+              }
             }
           }
             /* width */
@@ -133,12 +151,24 @@
             tr {
               width: 50%;
               display: flex;
+              @media only screen and (max-width: 767px) {
+                width: 100%;
+              }
               td {
                   width: 33%;
+                  &:first-child {
+                    @media only screen and (min-width: 768px) {
+                      width: 54%;
+                    }
+                  }
               }
               &:nth-child(even) {
-                td:first-child {
-                    padding-left: 35px;
+                td {
+                  &:first-child {
+                      @media only screen and (min-width: 768px) {
+                        padding-left: 35px;
+                      }
+                  }
                 }
               }
             }
@@ -159,6 +189,9 @@
         thead {
           td {
             padding: 8px;
+          }
+          tr:nth-child(2) {
+            display: none;
           }
         }
         tbody {
@@ -200,7 +233,9 @@
   padding: 0 20px 20px;
   .country-search:first-child {
     .container {
-      width: 90%;
+      @media only screen and (min-width: 768px) {
+        width: 90%;
+      }
     }
     .search-input {
       position: relative;
@@ -216,6 +251,10 @@
         padding: 0 8px;
         font-size: 16px;
         font-weight: 500;
+        @media only screen and (max-width: 767px) {
+          padding: 0;
+          font-size: 14px;
+        }
       }
       .input-group-text {
           border: none;
@@ -228,6 +267,19 @@
         .input-group-text {
           border-radius: 0 50px 50px 0;
           padding-right: 23px;
+        }
+      }
+      @media only screen and (max-width: 767px) {
+        padding: 9px;
+        .input-group-text {
+          padding-left: 12px;
+          padding-right: 6px;
+        }
+        .input-group-append {
+          .input-group-text {
+            padding-right: 12px;
+            padding-left: 5px;
+          }
         }
       }
     }
@@ -251,6 +303,9 @@
         width: 100%;
         @media only screen and (max-width: 767px) {
           padding: 0;
+          .col-lg-8.col-md-12 {
+              padding: 0;
+          }
         }
     }
   }
