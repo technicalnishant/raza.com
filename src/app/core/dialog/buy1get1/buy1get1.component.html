@@ -2,6 +2,9 @@
 <a class="close" href="javascript:void(0)" (click)="closeIcon()">
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 4.75l-6.5 6.5m0-6.5l6.5 6.5"/></svg>
 </a>
+<div class="buyGetLeftStrip">
+  New Customer <br> Special
+</div>
 <h2>Buy 1 Get 1 Free - Call worlwide</h2>
 
 <div class="country_alphabet_wrap">
@@ -139,26 +142,26 @@
             <thead>
                 <tr>
                     <td>Country</td>
-                    <td>{{currSymbol()}}<span class="lg">2</span> <span>Was {{currSymbol()}}4</span></td>
-                    <td>{{currSymbol()}}<span class="lg">3</span> <span>Was {{currSymbol()}}6</span></td>
-                    <td>{{currSymbol()}}<span class="lg">5</span> <span>Was {{currSymbol()}}10</span></td>
+                    <td>{{currSymbol()}}<span class="lg">2</span> <span>Was <span class="csm">{{currSymbol()}}4</span></span></td>
+                    <td>{{currSymbol()}}<span class="lg">3</span> <span>Was <span class="csm">{{currSymbol()}}6</span></span></td>
+                    <td>{{currSymbol()}}<span class="lg">5</span> <span>Was <span class="csm">{{currSymbol()}}10</span></span></td>
                 </tr>
                 <tr>
-                    <td>Country</td>
-                    <td>{{currSymbol()}}<span class="lg">2</span> <span>Was {{currSymbol()}}4</span></td>
-                    <td>{{currSymbol()}}<span class="lg">3</span> <span>Was {{currSymbol()}}6</span></td>
-                    <td>{{currSymbol()}}<span class="lg">5</span> <span>Was {{currSymbol()}}10</span></td>
+                  <td>Country</td>
+                  <td>{{currSymbol()}}<span class="lg">2</span> <span>Was <span class="csm">{{currSymbol()}}4</span></span></td>
+                  <td>{{currSymbol()}}<span class="lg">3</span> <span>Was <span class="csm">{{currSymbol()}}6</span></span></td>
+                  <td>{{currSymbol()}}<span class="lg">5</span> <span>Was <span class="csm">{{currSymbol()}}10</span></span></td>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of limitDenomination; let i = index">
                     <td>{{item.CountryToName}}
                     <br />
-                    <span>From</span> {{ item.RatePerMin | sCurrency : item.CurrencyCode}} <span>/ min</span>
+                    <span class="sm">From {{ item.RatePerMin | sCurrency : item.CurrencyCode}} / min</span>
                     </td>
-                    <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{item.FreeMin*4 | number:'1.0-0'}}<span>mins</span></p></td>
-                    <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{item.FreeMin*6 | number:'1.0-0'}}<span>mins</span></p></td>
-                    <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{item.FreeMin*10 | number:'1.0-0'}}<span>mins</span></p></td>
+                    <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{item.FreeMin*4 | number:'1.0-0'}} mins</p></td>
+                    <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{item.FreeMin*6 | number:'1.0-0'}} mins</p></td>
+                    <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{item.FreeMin*10 | number:'1.0-0'}} mins</p></td>
                 </tr>
             </tbody>
         </table>

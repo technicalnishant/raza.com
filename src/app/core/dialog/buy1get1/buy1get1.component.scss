@@ -8,10 +8,14 @@
     text-transform: capitalize;
     @media only screen and (max-width: 767px) {
       font-size: 26px;
+      padding-top: 55px;
     }
   }
   .country_alphabet_wrap {
     min-height: 24px;
+    @media only screen and (max-width: 767px) {
+      min-height: 0;
+    }
   }
   .alphabet_links {
     display: flex;
@@ -32,6 +36,18 @@
       }
       &.active {
         color: #f3c423;
+      }
+    }
+    @media only screen and (max-width: 767px) {
+      display: block;
+      position: absolute;
+      right: 1px;
+      top: 160px;
+      font-size: 15px;
+      text-align: center;
+      margin: 0;
+      li {
+        margin: 0;
       }
     }
   }
@@ -91,23 +107,62 @@
                 font-size: 14px;
                 font-weight: 500;
                 &.lg {
-                  font-size: 28px;
+                  font-size: 32px;
                   font-weight: 600;
                   padding-right: 6px;
+                  line-height: 1;
+                  @media only screen and (max-width: 767px) {
+                    font-size: 22px;
+                    & + span {
+                      display: block;
+                    }
+                  }
+                }
+                &.csm {
+                    position: relative;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: -2px;
+                        right: 6px;
+                        border: 1px solid red;
+                        height: 20px;
+                        transform: rotate(47deg);
+                    }
                 }
               }
             }
             &:nth-child(2) {
               border-left: 1px solid #000;
+              margin-left: -2px;
             }
           }
         }
         tbody {
           max-height: 454px;
           overflow-y: auto;
+          @media only screen and (max-width: 767px) {
+            // max-height: 368px;
+          }
           tr {
             td {
               padding: 12px 16px;
+              line-height: 1;
+              span {
+                &.sm {
+                  font-size: 14px;
+                  font-weight: 400;
+                }
+              }
+              p.free-mins {
+                  font-size: 16px;
+                  margin: 0;
+                  cursor: pointer;
+                  &:hover {
+                    color: #1c63f8;
+                    text-decoration: underline;
+                  }
+              }
             }
             &:nth-child(4n-1) {
               @media only screen and (min-width: 768px) {
@@ -122,6 +177,9 @@
             &:nth-child(even) {
               @media only screen and (max-width: 767px) {
                 background-color: #f5f5f5;
+              }
+              @media only screen and (min-width: 768px) {
+                border-left: 1px solid #ddd;
               }
               td {
                 @media only screen and (min-width: 768px) {
@@ -160,6 +218,8 @@
             tr {
               width: 50%;
               display: flex;
+              align-items: center;
+              font-size: 18px;
               @media only screen and (max-width: 767px) {
                 width: 100%;
               }
@@ -176,6 +236,7 @@
                   &:first-child {
                       @media only screen and (min-width: 768px) {
                         padding-left: 35px;
+                        padding-right: 5px;
                       }
                   }
                 }
@@ -239,7 +300,7 @@
 .country-search-wrap {
   background: #fff;
   border-radius: 20px;
-  padding: 0 20px 20px;
+  padding: 0 12px 20px;
   .country-search:first-child {
     .container {
       @media only screen and (min-width: 768px) {
@@ -260,6 +321,10 @@
         padding: 0 8px;
         font-size: 16px;
         font-weight: 500;
+        @media only screen and (max-width: 767px) {
+          padding: 0;
+          font-size: 14px;
+        }
       }
       .input-group-text {
           border: none;
@@ -274,6 +339,19 @@
           padding-right: 23px;
         }
       }
+      @media only screen and (max-width: 767px) {
+        padding: 9px;
+        .input-group-text {
+          padding-left: 12px;
+          padding-right: 6px;
+        }
+        .input-group-append {
+          .input-group-text {
+            padding-right: 12px;
+            padding-left: 5px;
+          }
+        }
+      }
     }
   }
   @media only screen and (max-width: 767px) {
@@ -283,18 +361,47 @@
 
 ::ng-deep {
   .tryUsFree {
-    width: 1230px !important;
+    width: 1330px !important;
     max-width: 95% !important;
     .mat-dialog-container {
       background-color: #f5f5f5;
+      position: relative;
       @media only screen and (max-width: 767px) {
         padding: 15px;
+      }
+      .buyGetLeftStrip {
+          color: #fff;
+          background: #da2120;
+          transform: rotate(-39deg);
+          position: absolute;
+          left: -65px;
+          width: 330px;
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: 700;
+          font-size: 19px;
+          font-family: sans-serif;
+          padding: 9px 0;
+          line-height: 1.2;
+          padding-right: 50px;
+          box-shadow: 5px 5px 5px #bbb;
+          @media only screen and (max-width: 767px) {
+            font-size: 12px;
+            padding: 4px 0;
+            padding-right: 24px;
+            left: -56px;
+            width: 226px;
+          }
       }
     }
     section.country-search .container {
         width: 100%;
+        max-width: 100%;
         @media only screen and (max-width: 767px) {
           padding: 0;
+          .col-lg-8.col-md-12 {
+              padding: 0;
+          }
         }
     }
   }
