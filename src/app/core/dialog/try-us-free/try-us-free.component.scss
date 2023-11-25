@@ -8,6 +8,7 @@
     text-transform: capitalize;
     @media only screen and (max-width: 767px) {
       font-size: 26px;
+      margin-bottom: 35px;
     }
   }
   .country_alphabet_wrap {
@@ -32,6 +33,18 @@
       }
       &.active {
         color: #f3c423;
+      }
+    }
+    @media only screen and (max-width: 767px) {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 160px;
+      font-size: 14px;
+      text-align: center;
+      margin: 0;
+      li {
+        margin: 0;
       }
     }
   }
@@ -90,6 +103,7 @@
             }
             &:nth-child(2) {
               border-left: 1px solid #000;
+              margin-left: -3px;
             }
           }
         }
@@ -120,6 +134,11 @@
                 }
               }
             }
+            &:nth-child(odd) {
+              @media only screen and (min-width: 768px) {
+                border-right: 1px solid #ddd;
+              }
+            }
           }
             /* width */
           &::-webkit-scrollbar {
@@ -142,6 +161,9 @@
           /* Handle on hover */
           &::-webkit-scrollbar-thumb:hover {
             background: #aaa;
+          }
+          @media only screen and (max-width: 767px) {
+            max-height: 545px;
           }
         }
         thead, tbody {
@@ -291,16 +313,18 @@
 
 ::ng-deep {
   .tryUsFree {
-    width: 1230px !important;
+    width: 1270px !important;
     max-width: 95% !important;
     .mat-dialog-container {
       background-color: #f5f5f5;
+      position: relative;
       @media only screen and (max-width: 767px) {
         padding: 15px;
       }
     }
     section.country-search .container {
         width: 100%;
+        max-width: 100%;
         @media only screen and (max-width: 767px) {
           padding: 0;
           .col-lg-8.col-md-12 {
