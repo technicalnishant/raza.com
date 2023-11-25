@@ -157,7 +157,7 @@
                 <tr *ngFor="let item of limitDenomination; let i = index">
                     <td>{{item.CountryToName}}
                     <br />
-                    <span class="sm">From {{ item.RatePerMin | sCurrency : item.CurrencyCode}} / min</span>
+                    <span class="sm">From<br> {{ item.RatePerMin | sCurrency : item.CurrencyCode}} / min</span>
                     </td>
                     <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{item.FreeMin*4 | number:'1.0-0'}} mins</p></td>
                     <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{item.FreeMin*6 | number:'1.0-0'}} mins</p></td>

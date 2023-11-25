@@ -9,13 +9,11 @@
     @media only screen and (max-width: 767px) {
       font-size: 26px;
       padding-top: 55px;
+      margin-bottom: 32px;
     }
   }
   .country_alphabet_wrap {
     min-height: 24px;
-    @media only screen and (max-width: 767px) {
-      min-height: 0;
-    }
   }
   .alphabet_links {
     display: flex;
@@ -100,7 +98,7 @@
               padding: 14px;
               font-weight: 700;
               @media only screen and (max-width: 767px) {
-                padding: 8px 6px;
+                padding: 8px 4px;
                 font-size: 18px;
               }
               span {
@@ -141,9 +139,6 @@
         tbody {
           max-height: 454px;
           overflow-y: auto;
-          @media only screen and (max-width: 767px) {
-            // max-height: 368px;
-          }
           tr {
             td {
               padding: 12px 16px;
@@ -152,6 +147,17 @@
                 &.sm {
                   font-size: 14px;
                   font-weight: 400;
+                  @media only screen and (min-width: 768px) {
+                    br {
+                      display: none;
+                    }
+                  }
+                  @media only screen and (max-width: 767px) {
+                    font-size: 13px;
+                    line-height: 1.1;
+                    display: block;
+                    margin-top: 3px;
+                  }
                 }
               }
               p.free-mins {
@@ -161,6 +167,9 @@
                   &:hover {
                     color: #1c63f8;
                     text-decoration: underline;
+                  }
+                  @media only screen and (max-width: 767px) {
+                    font-size: 15px;
                   }
               }
             }
@@ -222,12 +231,16 @@
               font-size: 18px;
               @media only screen and (max-width: 767px) {
                 width: 100%;
+                font-size: 16px;
               }
               td {
                   width: 33%;
                   &:first-child {
                     @media only screen and (min-width: 768px) {
                       width: 54%;
+                    }
+                    @media only screen and (max-width: 767px) {
+                      min-width: 100px;
                     }
                   }
               }
@@ -267,7 +280,7 @@
         tbody {
           tr {
             td {
-              padding: 6px;
+              padding: 6px 4px;
             }
           }
         }
@@ -355,7 +368,7 @@
     }
   }
   @media only screen and (max-width: 767px) {
-    padding: 0 13px 13px;
+    padding: 0 3px 13px;
   }
 }
 
