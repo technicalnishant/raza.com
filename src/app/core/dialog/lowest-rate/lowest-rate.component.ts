@@ -132,6 +132,9 @@ export class LowestRateComponent implements OnInit, OnDestroy {
   }
 
   displayCountryList(character) {
+    if(this.isDisabled(character) && character != 'All') 
+    return false;
+
     this.currentClickedChar = character;
     const filterValue = character.toLowerCase();
     this.bindSearchRates = this.searchRates.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
@@ -216,4 +219,18 @@ export class LowestRateComponent implements OnInit, OnDestroy {
   closeIcon(): void {
     this.dialogRef.close();
   }
+
+
+  isDisabled(  char)
+  {
+   
+    const filterValue = char.toLowerCase();
+    if(this.allCountry && this.allCountry.length > 0)
+    {
+      let filterlistdata =  this.allCountry.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
+      return filterlistdata.length>0?false:true;
+    }
+  
+  }
+
 }

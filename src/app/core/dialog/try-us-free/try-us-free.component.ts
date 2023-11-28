@@ -446,7 +446,7 @@ export class TryUsFreeComponent implements OnInit {
   closeIcon(): void {
     this.dialogRef.close();
   }
-
+ 
 
   get displayedRecords(): any[] {
     if(this.bindSearchRates && this.bindSearchRates[0])

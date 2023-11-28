@@ -200,6 +200,10 @@ export class Buy1get1Component implements OnInit {
   }
   
   setChar = obj =>{
+
+    if(this.isDisabled(obj) && obj != 'All') 
+     return false;
+
     this.defaultChar = obj;
     this.setDenominations();
   }
@@ -618,6 +622,21 @@ currSymbol = ()=>
   
 
 }
+
+
+
+isDisabled(  char)
+  {
+   
+    const filterValue = char.toLowerCase();
+    if(this.allDenomination && this.allDenomination.length > 0)
+    {
+      let filterlistdata =  this.allDenomination.filter(option => option.CountryToName.toLowerCase().indexOf(filterValue) === 0);
+      return filterlistdata.length>0?false:true;
+    }
+  
+  }
+
 
   }
   

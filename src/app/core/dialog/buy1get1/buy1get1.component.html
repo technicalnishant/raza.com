@@ -9,32 +9,32 @@
 
 <div class="country_alphabet_wrap">
   <div class="alphabet_links">
-    <li class="active" [ngClass]="{'active': defaultChar === 'A' }" (click)="setChar('A')">A</li>
-    <li [ngClass]="{'active': defaultChar === 'B' }" (click)="setChar('B')" >B</li>
-    <li [ngClass]="{'active': defaultChar === 'C' }" (click)="setChar('C')">C</li>
-    <li [ngClass]="{'active': defaultChar === 'D' }" (click)="setChar('D')" >D</li>
-    <li [ngClass]="{'active': defaultChar === 'E' }" (click)="setChar('E')" >E</li>
-    <li [ngClass]="{'active': defaultChar === 'F' }" (click)="setChar('F')" >F</li>
-    <li [ngClass]="{'active': defaultChar === 'G' }" (click)="setChar('G')" >G</li>
-    <li [ngClass]="{'active': defaultChar === 'H' }" (click)="setChar('H')" >H</li>
-    <li [ngClass]="{'active': defaultChar === 'I' }" (click)="setChar('I')" >I</li>
-    <li [ngClass]="{'active': defaultChar === 'J' }" (click)="setChar('J')">J</li>
-    <li [ngClass]="{'active': defaultChar === 'K' }" (click)="setChar('K')">K</li>
-    <li [ngClass]="{'active': defaultChar === 'L' }" (click)="setChar('L')">L</li>
-    <li [ngClass]="{'active': defaultChar === 'M' }" (click)="setChar('M')">M</li>
-    <li [ngClass]="{'active': defaultChar === 'N' }" (click)="setChar('N')">N</li>
-    <li [ngClass]="{'active': defaultChar === 'O' }" (click)="setChar('O')">O</li>
-    <li [ngClass]="{'active': defaultChar === 'P' }" (click)="setChar('P')" >P</li>
-    <li [ngClass]="{'active': defaultChar === 'Q' }" (click)="setChar('Q')">Q</li>
-    <li [ngClass]="{'active': defaultChar === 'R' }" (click)="setChar('R')">R</li>
-    <li [ngClass]="{'active': defaultChar === 'S' }" (click)="setChar('S')">S</li>
-    <li [ngClass]="{'active': defaultChar === 'T' }" (click)="setChar('T')">T</li>
-    <li [ngClass]="{'active': defaultChar === 'U' }" (click)="setChar('U')" >U</li>
-    <li [ngClass]="{'active': defaultChar === 'V' }" (click)="setChar('V')">V</li>
-    <li [ngClass]="{'active': defaultChar === 'W' }" (click)="setChar('W')">W</li>
-    <li [ngClass]="{'active': defaultChar === 'X' }" (click)="setChar('X')">X</li>
-    <li [ngClass]="{'active': defaultChar === 'Y' }" (click)="setChar('Y')" >Y</li>
-    <li [ngClass]="{'active': defaultChar === 'Z' }" (click)="setChar('Z')">Z</li>
+    <li class="active {{isDisabled('A')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'A' }" (click)="setChar('A')">A</li>
+    <li class="{{isDisabled('B')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'B' }" (click)="setChar('B')" >B</li>
+    <li class="{{isDisabled('C')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'C' }" (click)="setChar('C')">C</li>
+    <li class="{{isDisabled('D')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'D' }" (click)="setChar('D')" >D</li>
+    <li class="{{isDisabled('E')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'E' }" (click)="setChar('E')" >E</li>
+    <li class="{{isDisabled('F')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'F' }" (click)="setChar('F')" >F</li>
+    <li class="{{isDisabled('G')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'G' }" (click)="setChar('G')" >G</li>
+    <li class="{{isDisabled('H')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'H' }" (click)="setChar('H')" >H</li>
+    <li class="{{isDisabled('I')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'I' }" (click)="setChar('I')" >I</li>
+    <li class="{{isDisabled('J')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'J' }" (click)="setChar('J')">J</li>
+    <li class="{{isDisabled('K')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'K' }" (click)="setChar('K')">K</li>
+    <li class="{{isDisabled('L')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'L' }" (click)="setChar('L')">L</li>
+    <li class="{{isDisabled('M')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'M' }" (click)="setChar('M')">M</li>
+    <li class="{{isDisabled('N')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'N' }" (click)="setChar('N')">N</li>
+    <li class="{{isDisabled('O')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'O' }" (click)="setChar('O')">O</li>
+    <li class="{{isDisabled('P')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'P' }" (click)="setChar('P')" >P</li>
+    <li class="{{isDisabled('Q')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'Q' }" (click)="setChar('Q')">Q</li>
+    <li class="{{isDisabled('R')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'R' }" (click)="setChar('R')">R</li>
+    <li class="{{isDisabled('S')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'S' }" (click)="setChar('S')">S</li>
+    <li class="{{isDisabled('T')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'T' }" (click)="setChar('T')">T</li>
+    <li class="{{isDisabled('U')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'U' }" (click)="setChar('U')" >U</li>
+    <li class="{{isDisabled('V')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'V' }" (click)="setChar('V')">V</li>
+    <li class="{{isDisabled('W')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'W' }" (click)="setChar('W')">W</li>
+    <li class="{{isDisabled('X')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'X' }" (click)="setChar('X')">X</li>
+    <li class="{{isDisabled('Y')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'Y' }" (click)="setChar('Y')" >Y</li>
+    <li class="{{isDisabled('Z')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'Z' }" (click)="setChar('Z')">Z</li>
     <!--<div>Show All</div>-->
   </div>
 </div>
