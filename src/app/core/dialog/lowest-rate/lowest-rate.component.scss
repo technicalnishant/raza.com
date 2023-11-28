@@ -34,6 +34,10 @@
       &.active {
         color: #f3c423;
       }
+      &.disabled {
+        opacity: .5;
+        pointer-events: none;
+      }
     }
     @media only screen and (max-width: 767px) {
       display: block;
@@ -142,6 +146,7 @@
         }
         tbody {
           max-height: 454px;
+          max-height: calc(100vh - 462px);
           overflow-y: auto;
           tr {
             td {
