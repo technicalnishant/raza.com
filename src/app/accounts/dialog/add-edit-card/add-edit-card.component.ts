@@ -58,6 +58,12 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
     selectepage:number=0;
     isLoading:boolean=false;
     countryFromId:number=1;
+
+    cardnumber:any='';
+    cvv:any='';
+    exp_month:any='';
+    exp_year:any='';
+
     public selectedIndex: number=0;
     constructor(
       private _bottomSheet: MatBottomSheet,
@@ -211,6 +217,12 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
       }
       
 
+      this.cardnumber = (this.paymentDetailForm.get('CardNumber').value as string).replace(/\s/g, '');
+      this.cvv = this.paymentDetailForm.get('Cvv2').value;
+      this.exp_month = this.paymentDetailForm.get('ExpMonth').value;
+      this.exp_year = this.paymentDetailForm.get('ExpYear').value;
+
+
       let body = {
         //CardNumber: this.paymentDetailForm.get('CardNumber').value,
         CardNumber: (this.paymentDetailForm.get('CardNumber').value as string).replace(/\s/g, ''),
@@ -225,7 +237,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
         ZipCode: this.billingInfoForm.get('PostalCode').value
       }
       this.isLoading = true;
-      let data='success'+','+body.Cvv2;
+      let data='success'+','+body.Cvv2+','+body.CardNumber+','+body.ExpMonth+','+body.ExpYear;
       this.customerService.SaveCreditCard(body).subscribe(
   
         (res: boolean) => {
