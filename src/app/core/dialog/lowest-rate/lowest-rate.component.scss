@@ -152,6 +152,10 @@
               padding: 12px 16px;
               span.ratePer {
                 cursor: pointer;
+                padding-left: 33px;
+                @media only screen and (max-width: 767px) {
+                  padding-left: 26px;
+                }
                 &:hover {
                   color: #1c63f8;
                   text-decoration: underline;
