@@ -195,7 +195,7 @@ export class Buy1get1Component implements OnInit {
   setDenominations = () =>{
     if(this.defaultChar == 'All')
     {
-      this.limitDenomination = this.allDenomination;
+      this.limitDenomination = this.getUnique(this.allDenomination, 'CountryToName' );
        
     }
     else{
