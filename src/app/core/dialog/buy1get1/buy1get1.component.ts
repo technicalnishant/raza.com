@@ -72,7 +72,7 @@ export class Buy1get1Component implements OnInit {
   allCountriesData:any[];
   listCountry:any[];
   countryTo: Country;
-  defaultChar:any='A';
+  defaultChar:any='All';
   searchicon: string = '../assets/images/search8.svg';
   mode = new FormControl('over');
   stateCtrl = new FormControl();
@@ -193,10 +193,17 @@ export class Buy1get1Component implements OnInit {
   
   
   setDenominations = () =>{
-  
-          //this.limitDenomination = data.Plans[0].Denominations.splice(0, 5);
-   this.limitDenomination =  this._filterDenomination( this.defaultChar);
-  this.currentPage = 1;
+    if(this.defaultChar == 'All')
+    {
+      this.limitDenomination = this.allDenomination;
+       
+    }
+    else{
+       //this.limitDenomination = data.Plans[0].Denominations.splice(0, 5);
+       this.limitDenomination =  this._filterDenomination( this.defaultChar);
+       this.currentPage = 1;
+    }
+   
   }
   
   setChar = obj =>{

@@ -40,7 +40,7 @@ export class LowestRateComponent implements OnInit, OnDestroy {
   mode = new FormControl('over');
   headerValue: number = 1;
   id: any = 1;
-  currentClickedChar: string = "A";
+  currentClickedChar: string = "All";
 
   currentSetting$: Subscription;
   currentSetting: CurrentSetting;
@@ -113,7 +113,7 @@ export class LowestRateComponent implements OnInit, OnDestroy {
     this.searchRatesService.getSearchRates(this.currentSetting.currentCountryId).subscribe(
       (data: SearchRate[]) => {
         this.searchRates = data;
-        this.displayCountryList('A');
+        this.displayCountryList('All');
       },
       (err: ApiErrorResponse) => console.log(err),
     );
@@ -134,11 +134,20 @@ export class LowestRateComponent implements OnInit, OnDestroy {
   displayCountryList(character) {
     if(this.isDisabled(character) && character != 'All') 
     return false;
+    if(character == 'All' )
+    {
+      this.currentClickedChar = character;
+      const filterValue = character.toLowerCase();
+      this.bindSearchRates = this.searchRates;
 
-    this.currentClickedChar = character;
-    const filterValue = character.toLowerCase();
-    this.bindSearchRates = this.searchRates.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
-  }
+    }
+    else{
+      this.currentClickedChar = character;
+      const filterValue = character.toLowerCase();
+      this.bindSearchRates = this.searchRates.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
+
+    }
+ }
 
   private _filter(value: any): Country[] {
     const filterValue = value.toLowerCase();
