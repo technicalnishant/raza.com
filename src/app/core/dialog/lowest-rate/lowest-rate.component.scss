@@ -153,7 +153,12 @@
               span.ratePer {
                 cursor: pointer;
                 display: block;
-                text-align: center;
+                text-align: right;
+                width: 60px;
+                margin-left: 28px;
+                @media only screen and (max-width: 767px) {
+                  margin-left: 10px;
+                }
                 &:hover {
                   color: #1c63f8;
                   text-decoration: underline;
