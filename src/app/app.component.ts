@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Router, NavigationEnd, NavigationStart, NavigationCancel } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { AuthenticationService } from './core/services/auth.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 //import { RazaSplashScreenService } from './core/services/razaSplashScreen.Service';
 import { SideBarService } from './core/sidemenu/sidemenu.service';
 import { RazaEnvironmentService } from './core/services/razaEnvironment.service';
@@ -11,6 +12,7 @@ import { RazaLayoutService } from './core/services/raza-layout.service';
 import { CurrentSetting } from './core/models/current-setting';
 import { Country } from './core/models/country.model';
 import { environment } from '../environments/environment';
+import { TryUsFreeComponent } from './core/dialog/try-us-free/try-us-free.component';
 //declare let gtag: Function;
 @Component({
   selector: 'app-root',
@@ -23,6 +25,7 @@ export class AppComponent implements OnInit {
   constructor(private router: Router,
     private authService: AuthenticationService,
     //private razaSplashScreen: RazaSplashScreenService,
+    public matDialog: MatDialog,
     private sideBarService: SideBarService,
     private loaderService: LoaderService,
     private razaLayoutService: RazaLayoutService,
@@ -129,6 +132,24 @@ export class AppComponent implements OnInit {
   freeTrial() {
     this.toggleSideNav();
     this.router.navigateByUrl("/freetrial");
+  }
+
+  try_us_free()
+  {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.panelClass = "tryUsFree";
+    dialogConfig.width = "100%";
+    dialogConfig.height = "90%";
+    dialogConfig.data = {
+      name: "logout",
+      title: "Are you sure you want to logout?",
+      description: "Pretend this is a convincing argument on why you shouldn't logout :)",
+      actionButtonText: "Logout",
+    }
+    const modalDialog = this.matDialog.open(TryUsFreeComponent, dialogConfig);
   }
 
 
