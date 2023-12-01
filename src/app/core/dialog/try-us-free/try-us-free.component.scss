@@ -199,6 +199,14 @@
               }
             }
         }
+        &.full_width {
+          thead, tbody {
+            tr {
+              width: 100%;
+              border: none;
+            }
+        }
+      }
         button.view-details-btn {
           border: 2px solid #f3c423;
           font-size: 15px;
