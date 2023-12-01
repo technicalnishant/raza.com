@@ -123,7 +123,7 @@
                                 </div>
                               </div>
                             </td>
-                            <td *ngIf="tblClass == 'two_column' ">
+                            <td >
                               <div class="phoneWrap">
                                 <img src="../../../../assets/images/landline3.png" width="30" height="30" alt="landline"/>
                                 <div>
@@ -132,7 +132,7 @@
                               </div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="tblClass == 'two_column' ">
                           <td>Country</td>
                           <td>
                             <div class="phoneWrap">
