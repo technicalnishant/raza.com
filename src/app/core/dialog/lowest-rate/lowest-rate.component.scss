@@ -146,7 +146,7 @@
         tbody {
           max-height: 454px;
           max-height: calc(100vh - 462px);
-          overflow-y: auto;
+          overflow-y: scroll;
           tr {
             td {
               padding: 12px 16px;
@@ -199,7 +199,7 @@
 
           /* Track */
           &::-webkit-scrollbar-track {
-            border: 1px solid #eee;
+            // border: 1px solid #eee;
             border-radius: 5px;
           }
 
