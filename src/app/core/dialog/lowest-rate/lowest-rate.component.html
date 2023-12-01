@@ -73,6 +73,17 @@
                     <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ option.CountryId"
                         [alt]="option.CountryName" /></span>
                     {{option.CountryName}}
+
+                    <span class="width30">
+                      <img src="./../../assets/images/phone-icon.png" alt="icon" loading="lazy">
+                      <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
+                      
+
+                      <img src="./../../assets/images/icon-landphone.png" alt="icon" loading="lazy">
+                      <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency}} </span>
+      
+                    </span>
+                    
                   </mat-option>
                 </mat-autocomplete>
                 <div class="input-group-append">
@@ -100,7 +111,7 @@
       <section class="country-search">
         <div class="container">
               <div class="countries_row">
-                <table>
+                <table class="{{tblClass}}">
                     <thead>
                         <tr>
                             <td>Country</td>
@@ -112,7 +123,7 @@
                                 </div>
                               </div>
                             </td>
-                            <td>
+                            <td *ngIf="tblClass == 'two_column' ">
                               <div class="phoneWrap">
                                 <img src="../../../../assets/images/landline3.png" width="30" height="30" alt="landline"/>
                                 <div>

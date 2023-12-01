@@ -102,14 +102,14 @@
   <section class="country-search">
     <div class="container">
         <div class="countries_row">
-            <table>
+            <table class="{{tblClass}}">
                 <thead>
                     <tr>
                         <td>Country</td>
                         <td>Upto</td>
                         <td>Offer</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="tblClass == 'two_column' ">
                       <td>Country</td>
                       <td>Upto</td>
                       <td>Offer</td>
@@ -156,7 +156,7 @@
           </div>
         </div> -->
         </div>
-      <!-- Alpahbet search end here-->
+      <!-- Alpahbet search end here -->
     </div>
     </section>
   </div>

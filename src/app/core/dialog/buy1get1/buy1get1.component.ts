@@ -92,6 +92,8 @@ export class Buy1get1Component implements OnInit {
   RatePerMinPromo: any;
   RatePerMin: any;
   RatePerMinWithOutPromo: any;
+
+  tblClass:any='two_columns';
   constructor(
     private authService: AuthenticationService,
     private checkoutService: CheckoutService,
@@ -177,8 +179,10 @@ export class Buy1get1Component implements OnInit {
   }
   
   
-  getUnique(arr, comp) {
+   getUnique(arr, comp) {
   
+    arr = this.sortArray(arr)
+
     // store the comparison  values in array
   const unique =  arr.map(e => e[comp])
   
@@ -192,7 +196,7 @@ export class Buy1get1Component implements OnInit {
   }
   
   
-  setDenominations = () =>{
+   setDenominations = () =>{
     if(this.defaultChar == 'All')
     {
       this.limitDenomination = this.getUnique(this.allDenomination, 'CountryToName' );
@@ -202,7 +206,9 @@ export class Buy1get1Component implements OnInit {
        //this.limitDenomination = data.Plans[0].Denominations.splice(0, 5);
        this.limitDenomination =  this._filterDenomination( this.defaultChar);
        this.currentPage = 1;
+       
     }
+   this.getWidthClass();
    
   }
   
@@ -214,43 +220,61 @@ export class Buy1get1Component implements OnInit {
     this.defaultChar = obj;
     this.setDenominations();
   }
-   getPromotionSrvCall()
-   {
-   // getPromotion(countryId, promotionCode)
-   this.promotionsService.getPromotion(this.currentSetting.currentCountryId, this.promotionCode).subscribe(
-    (data: any) => {
-      var subpans = data
+  getWidthClass()
+  {
+    if(this.limitDenomination && this.limitDenomination.length == 1)
+    {
+      this.tblClass = 'full_width';
+    }
+    else
+    {
+      this.tblClass = 'two_column';
+    }
+  }
+ sortArray(dataArray){
+const sortedArray = dataArray.sort((a, b) => {
+    const countryNameA = a.CountryToName.toLowerCase();
+    const countryNameB = b.CountryToName.toLowerCase();
+
+    if (countryNameA < countryNameB) {
+        return -1;
+    }
+    if (countryNameA > countryNameB) {
+        return 1;
+    }
+    return 0;
+});
+
+return sortedArray;
+}
   
-  
-        if ( data && typeof data.Plans !== undefined )
-        {
+
+async getPromotionSrvCall() {
+  try {
+      const data: any = await this.promotionsService.getPromotion(this.currentSetting.currentCountryId, this.promotionCode).toPromise();
+      
+      if (data && typeof data.Plans !== 'undefined') {
           this.promotion = data.Plans[0];
-  
           this.allDenomination = data.Plans[0].Denominations;
+
           //this.limitDenomination = data.Plans[0].Denominations.splice(0, 5);
-          this.setDenominations()
-          this.allCountry = this.multiDimensionalUnique(data.Plans[0].Denominations);
-        }
-        else{
-  
+          await this.setDenominations();
+          this.allCountry = await this.multiDimensionalUnique(data.Plans[0].Denominations);
+      } else {
           this.limitDenomination = [];
           this.allCountry = [];
-  
+
           this.dialog.open(NodataFoundComponent, {
-            data:{
-              msg:'No Data Found' },
-  
-            width: '85vw',
-            maxWidth: '1235px'
+              data: { msg: 'No Data Found' },
+              width: '85vw',
+              maxWidth: '1235px'
           });
-        }
-  
-  
-  
-  
-    }
-    , (err: ApiErrorResponse) => console.log(err));
+      }
+  } catch (err) {
+      console.log(err);
   }
+}
+
     onSelectCountrFrom(country: Country) {
       this.currentSetting.country = country;
       this.razaEnvService.setCurrentSetting(this.currentSetting);
@@ -285,6 +309,7 @@ export class Buy1get1Component implements OnInit {
   
     private _filter(value: any): any[] {
       const filterValue = value.toLowerCase();
+      if(this.allCountry && this.allCountry.length >0)
       return this.allCountry.filter(option => option.CountryToName.toLowerCase().indexOf(filterValue) === 0);
     }
   
@@ -530,12 +555,57 @@ onClickAmountOption1(item: any) {
   this.checkoutService.setCurrentCart(model);
   this.router.navigate(['/checkout/payment-info']);
 }
-getPlanDetail(countryId){
+getPlanDetail(countryId, obj:any, obj2:any, item){
 this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, countryId).subscribe(
   (data: any) => {
     this.Plans = data.AutorefillPlans;
+     
+   
+    
+    var subcardid = '';
+    var cuponcode = 'BUY1GET1';
+    var service_fee = 0;
+    if(this.currentSetting.currentCountryId == 1)
+    {
+    subcardid = '161-'+obj2;
+    service_fee = 0;
+    }
+    if(this.currentSetting.currentCountryId== 2)
+    {
+    subcardid = '162-'+obj2;
+    service_fee = 10;
+    }
+      const model: NewPlanCheckoutModel = new NewPlanCheckoutModel();
 
+      model.CardId = data.CardId;
+      model.CardName = data.CardName;
+      model.CurrencyCode = data.CurrencyCode;
 
+      model.details = {
+        Price: obj,
+        ServiceCharge: service_fee,
+      SubCardId:subcardid
+      }
+      model.country = null;
+      model.phoneNumber = null;
+      model.countryFrom = this.currentSetting.currentCountryId;
+      model.countryTo = item.CountryToId;
+      
+      model.currencyCode = this.currentSetting.currency;
+      model.transactiontype = TransactionType.Activation;
+      model.isAutoRefill = false;
+      model.couponCode = cuponcode;
+      model.currencyCode = item.CurrencyCode;
+      model.isHideCouponEdit = true;
+     
+      this.checkoutService.setCurrentCart(model);
+
+      if (this.authService.isAuthenticated()) {
+        this.router.navigate(['/checkout/payment-info']);
+      } else {
+        this.router.navigate(['/checkout']);
+      }
+    
     this.countryCode = data.CountryCode;
     this.countryId = data.CountryId;
     this.countryName = data.CountryName;
@@ -553,7 +623,7 @@ this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryI
 }
 async buyNow(obj:any, obj2:any, item) {
  
-  await this.getPlanDetail(item.CountryToId);
+ 
  
   if(this.plan && this.plan.CardId)
   {
@@ -561,52 +631,9 @@ async buyNow(obj:any, obj2:any, item) {
   }
   else
   {
-        var subcardid = '';
-        var cuponcode = 'BUY1GET1';
-        var service_fee = 0;
-        if(this.currentSetting.currentCountryId == 1)
-        {
-        subcardid = '161-'+obj2;
-        service_fee = 0;
-        }
-        if(this.currentSetting.currentCountryId== 2)
-        {
-        subcardid = '162-'+obj2;
-        service_fee = 10;
-        }
-          const model: NewPlanCheckoutModel = new NewPlanCheckoutModel();
- 
-          model.CardId = item.CardId;
-          model.CardName = item.CardName;
-          model.CurrencyCode = item.CurrencyCode;
 
-          model.details = {
-            Price: obj,
-            ServiceCharge: service_fee,
-          SubCardId:subcardid
-          }
-          model.country = null;
-          model.phoneNumber = null;
-          model.countryFrom = this.currentSetting.currentCountryId;
-          model.countryTo = item.CountryToId;
-          
-          model.currencyCode = this.currentSetting.currency;
-          model.transactiontype = TransactionType.Activation;
-          model.isAutoRefill = false;
-          model.couponCode = cuponcode;
-          model.currencyCode = item.CurrencyCode;
-          model.isHideCouponEdit = true;
-         
-          this.checkoutService.setCurrentCart(model);
-
-          if (this.authService.isAuthenticated()) {
-            this.router.navigate(['/checkout/payment-info']);
-          } else {
-            this.router.navigate(['/checkout']);
-          }
-        
-        
-      }
+    const cardDetail:any =  await this.getPlanDetail(item.CountryToId, obj, obj2, item);
+   }
 
       this.dialogRef.close();
         

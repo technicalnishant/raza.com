@@ -46,7 +46,7 @@ export class LowestRateComponent implements OnInit, OnDestroy {
   currentSetting: CurrentSetting;
   showMore = false;
   showButton = true;
-   
+  tblClass:any='two_columns';
   showDropdown:boolean =false;
    currentCurrency:any;
   constructor(private router: Router,
@@ -101,19 +101,41 @@ export class LowestRateComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.currentSetting$.unsubscribe();
   }
-
-  initAllRates() {
-    this.searchRatesService.getAllCountries().subscribe(
+  sortArray(dataArray){
+    const sortedArray = dataArray.sort((a, b) => {
+        const countryNameA = a.CountryName.toLowerCase();
+        const countryNameB = b.CountryName.toLowerCase();
+    
+        if (countryNameA < countryNameB) {
+            return -1;
+        }
+        if (countryNameA > countryNameB) {
+            return 1;
+        }
+        return 0;
+    });
+    
+    return sortedArray;
+    }
+  async initAllRates() {
+     
+     await this.searchRatesService.getAllCountries().subscribe(
       (data: Country[]) => {
         this.allCountry = data;
       },
       (err: ApiErrorResponse) => console.log(err),
     );
 
-    this.searchRatesService.getSearchRates(this.currentSetting.currentCountryId).subscribe(
+    const data =  await this.searchRatesService.getAllCountries().toPromise();
+     
+    
+    
+    await this.searchRatesService.getSearchRates(this.currentSetting.currentCountryId).subscribe(
       (data: SearchRate[]) => {
-        this.searchRates = data;
-        this.displayCountryList('All');
+      this.searchRates = data;
+      this.allCountry = data;
+      this.displayCountryList('All')
+        
       },
       (err: ApiErrorResponse) => console.log(err),
     );
@@ -138,7 +160,7 @@ export class LowestRateComponent implements OnInit, OnDestroy {
     {
       this.currentClickedChar = character;
       const filterValue = character.toLowerCase();
-      this.bindSearchRates = this.searchRates;
+      this.bindSearchRates = this.sortArray(this.searchRates) ;
 
     }
     else{
@@ -147,11 +169,17 @@ export class LowestRateComponent implements OnInit, OnDestroy {
       this.bindSearchRates = this.searchRates.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
 
     }
+
+    this.getWidthClass();
  }
 
   private _filter(value: any): Country[] {
     const filterValue = value.toLowerCase();
-    return this.allCountry.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
+    if(this.allCountry && this.allCountry.length > 0)
+    {
+      return this.allCountry.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
+    }
+    
   }
 
   addClass(id: any) {
@@ -241,5 +269,15 @@ export class LowestRateComponent implements OnInit, OnDestroy {
     }
   
   }
-
+  getWidthClass()
+  {
+    if(this.bindSearchRates && this.bindSearchRates.length == 1)
+    {
+      this.tblClass = 'full_width';
+    }
+    else
+    {
+      this.tblClass = 'two_column';
+    }
+  }
 }

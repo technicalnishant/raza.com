@@ -141,7 +141,7 @@
   <section class="country-search">
     <div class="container">
       <div class="countries_row">
-        <table>
+        <table class="{{tblClass}}">
             <thead>
                 <tr>
                     <td>Country</td>
@@ -149,7 +149,7 @@
                     <td>{{currSymbol()}}<span class="lg">3</span> <span>Was <span class="csm">{{currSymbol()}}6</span></span></td>
                     <td>{{currSymbol()}}<span class="lg">5</span> <span>Was <span class="csm">{{currSymbol()}}10</span></span></td>
                 </tr>
-                <tr>
+                <tr *ngIf="tblClass == 'two_column' ">
                   <td>Country</td>
                   <td>{{currSymbol()}}<span class="lg">2</span> <span>Was <span class="csm">{{currSymbol()}}4</span></span></td>
                   <td>{{currSymbol()}}<span class="lg">3</span> <span>Was <span class="csm">{{currSymbol()}}6</span></span></td>

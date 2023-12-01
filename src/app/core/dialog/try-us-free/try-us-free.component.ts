@@ -89,7 +89,7 @@ export class TryUsFreeComponent implements OnInit {
  searchicon: string = '../assets/images/search8.svg';
  recordsPerPage: number = 7;
  currentPage: number = 1;
- 
+ tblClass:any = 'two_column';
   constructor(private router: Router,
     private titleService: Title,
     private freeTrialService: FreeTrialService,
@@ -390,6 +390,25 @@ export class TryUsFreeComponent implements OnInit {
     })
 
   }
+
+  sortArray(dataArray){
+    const sortedArray = dataArray.sort((a, b) => {
+        const countryNameA = a.CountryToName.toLowerCase();
+        const countryNameB = b.CountryToName.toLowerCase();
+    
+        if (countryNameA < countryNameB) {
+            return -1;
+        }
+        if (countryNameA > countryNameB) {
+            return 1;
+        }
+        return 0;
+    });
+    
+    return sortedArray;
+    }
+
+
     displayCountryList(character) {
      this.currentPage =1;
      if(this.isDisabled(character) && character != 'All') 
@@ -400,7 +419,7 @@ export class TryUsFreeComponent implements OnInit {
       // this.bindSearchRates = this.searchRates.filter(option => option.CountryName.toLowerCase().indexOf(filterValue) === 0);
       if(character == 'All')
       {
-        this.bindSearchRates = this.allCountryList;
+        this.bindSearchRates = this.sortArray(this.allCountryList) ;
          
       }
       
@@ -410,7 +429,7 @@ export class TryUsFreeComponent implements OnInit {
        
       }
        
-     
+      this.getWidthClass();
     
   }
   
@@ -491,5 +510,17 @@ get totalPages(): number[] {
 getSelected(page)
 {
   return (this.currentPage == page)?'selected':'';
+}
+
+getWidthClass()
+{
+  if(this.bindSearchRates && this.bindSearchRates.length == 1)
+  {
+    this.tblClass = 'full_width';
+  }
+  else
+  {
+    this.tblClass = 'two_column';
+  }
 }
 }
