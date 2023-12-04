@@ -100,7 +100,7 @@
           <h2 class="heading_style4">
             <span>Your order</span>
           </h2>
-         
+
         </div>
         <table class="table" *ngIf="currentCart.transactiontype != 4">
           <tbody>
@@ -118,7 +118,7 @@
               <td>{{ (currentCart?.getPurchaseAmount() *2) | bCurrency : currentCart?.currencyCode }} </td>
             </tr>
             <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
-              <td>Discount (Buy1 Get1)</td>
+              <td class="discountBuy1Get1">Discount (Buy1 Get1)</td>
               <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode }}</span> </td>
             </tr>
             <tr *ngIf="!currentCart?.couponCode == 'Buy1Get1'">
