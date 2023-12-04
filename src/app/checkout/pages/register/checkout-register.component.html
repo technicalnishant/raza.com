@@ -108,10 +108,24 @@
               <td>Plan</td>
               <td>{{currentCart?.getOrderName()}}</td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td>Purchase Amount</td>
               <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode  }} </td>
+            </tr> -->
+
+            <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
+              <td>Purchase Amount</td>
+              <td>{{ (currentCart?.getPurchaseAmount() *2) | bCurrency : currentCart?.currencyCode }} </td>
             </tr>
+            <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
+              <td>Discount (Buy1 Get1)</td>
+              <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode }}</span> </td>
+            </tr>
+            <tr *ngIf="!currentCart?.couponCode == 'Buy1Get1'">
+              <td>Purchase Amount</td>
+              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode }} </td>
+            </tr>
+
             <tr>
               <td>Service Fee</td>
               <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode  }}</td>

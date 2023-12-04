@@ -2584,6 +2584,14 @@
   "resolved" "https://registry.npmjs.org/angular-cc-library/-/angular-cc-library-2.0.1.tgz"
   "version" "2.0.1"
 
+"angularx-qrcode@^12.0.3":
+  "integrity" "sha512-0/oy0b+Co7SWxdGKYLcCJfWFaSWYLivI97UiV2xRRUpgQNgXJ2OtdeogcaJtEIpWQQPJFJlRDblAah1SFvc18g=="
+  "resolved" "https://registry.npmjs.org/angularx-qrcode/-/angularx-qrcode-12.0.3.tgz"
+  "version" "12.0.3"
+  dependencies:
+    "qrcode" "1.5.0"
+    "tslib" "^2.1.0"
+
 "angularx-social-login@^3.5.6":
   "integrity" "sha512-5eGGZfCWi/DTLcritXGvwv7GUI29+Yx70BsotXxd1QCj40HpVPjUw9XEWrm8PbUK2DBoFHRPsfTMV+Mp7H3pAQ=="
   "resolved" "https://registry.npmjs.org/angularx-social-login/-/angularx-social-login-3.5.6.tgz"
@@ -4442,6 +4450,11 @@
   "resolved" "https://registry.npmjs.org/diff/-/diff-4.0.2.tgz"
   "version" "4.0.2"
 
+"dijkstrajs@^1.0.1":
+  "integrity" "sha512-qiSlmBq9+BCdCA/L46dw8Uy93mloxsPSbwnm5yrKn2vMPiy8KyAskTF6zuV/j5BMsmOGZDPs7KjU+mjb670kfA=="
+  "resolved" "https://registry.npmjs.org/dijkstrajs/-/dijkstrajs-1.0.3.tgz"
+  "version" "1.0.3"
+
 "dir-glob@^3.0.1":
   "integrity" "sha1-Vtv3PZkqSpO6FYT0U0Bj/S5BcX8="
   "resolved" "https://registry.npmjs.org/dir-glob/-/dir-glob-3.0.1.tgz"
@@ -4567,6 +4580,11 @@
   "integrity" "sha1-VXBmIEatKeLpFucariYKvf9Pang="
   "resolved" "https://registry.npmjs.org/emojis-list/-/emojis-list-3.0.0.tgz"
   "version" "3.0.0"
+
+"encode-utf8@^1.0.3":
+  "integrity" "sha512-ucAnuBEhUK4boH2HjVYG5Q2mQyPorvv0u/ocS+zhdw0S8AlHYY+GOFhP1Gio5z4icpP2ivFSvhtFjQi8+T9ppw=="
+  "resolved" "https://registry.npmjs.org/encode-utf8/-/encode-utf8-1.0.3.tgz"
+  "version" "1.0.3"
 
 "encodeurl@~1.0.1", "encodeurl@~1.0.2":
   "integrity" "sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k="
@@ -7314,9 +7332,9 @@
     "intersection-observer" "^0.12.0"
 
 "ngx-owl-carousel-o@^6.0.0":
-  "integrity" "sha512-jD6YkQ5PLGA4quR210nfFTQYOLj8Q1FHKOSyw8ZRH2GD85ImnEuFLJ31OyfrZQjPsfV3yMsaWaj6qVFqfjJbzg=="
-  "resolved" "https://registry.npmjs.org/ngx-owl-carousel-o/-/ngx-owl-carousel-o-6.0.0.tgz"
-  "version" "6.0.0"
+  "integrity" "sha512-pB9RwWw/WMe2RojHCYc/a55ETy63tDD5g41DficofjL9c0g4Ht6oN9SD7HFlhhDKOIKcXcJXOZQHihAdbiazpw=="
+  "resolved" "https://registry.npmjs.org/ngx-owl-carousel-o/-/ngx-owl-carousel-o-6.0.2.tgz"
+  "version" "6.0.2"
   dependencies:
     "tslib" "^2.1.0"
 
@@ -7335,7 +7353,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"ngx-splide@^0.0.16":
+"ngx-splide@0.0.16":
   "integrity" "sha512-AxHYiubq+H9kGTS8VTyPU2RPoAvHxF24O6Z7yej6kFrQ7qPIY1ONfuHOXZDUVZuDfUPaYtdhRo+rqDJinl4avw=="
   "resolved" "https://registry.npmjs.org/ngx-splide/-/ngx-splide-0.0.16.tgz"
   "version" "0.0.16"
@@ -7986,6 +8004,11 @@
   "version" "4.2.0"
   dependencies:
     "find-up" "^4.0.0"
+
+"pngjs@^5.0.0":
+  "integrity" "sha512-40QW5YalBNfQo5yRYmiw7Yz6TKKVr3h6970B2YE+3fQpsWcrbj1PzJgxeJ19DRQjhMbKPIuMY8rFaXc8moolVw=="
+  "resolved" "https://registry.npmjs.org/pngjs/-/pngjs-5.0.0.tgz"
+  "version" "5.0.0"
 
 "portfinder@^1.0.26":
   "integrity" "sha512-Se+2isanIcEqf2XMHjyUKskczxbPH7dQnlMjXX6+dybayyHvAf/TCgyMRlzf/B6QDhAEFOGes0pzRo3by4AbMA=="
@@ -8989,6 +9012,16 @@
   "integrity" "sha1-xF6cYYAL0IfviNfiVkI73Unl0HE="
   "resolved" "https://registry.npmjs.org/qjobs/-/qjobs-1.2.0.tgz"
   "version" "1.2.0"
+
+"qrcode@1.5.0":
+  "integrity" "sha512-9MgRpgVc+/+47dFvQeD6U2s0Z92EsKzcHogtum4QB+UNd025WOJSHvn/hjk9xmzj7Stj95CyUAs31mrjxliEsQ=="
+  "resolved" "https://registry.npmjs.org/qrcode/-/qrcode-1.5.0.tgz"
+  "version" "1.5.0"
+  dependencies:
+    "dijkstrajs" "^1.0.1"
+    "encode-utf8" "^1.0.3"
+    "pngjs" "^5.0.0"
+    "yargs" "^15.3.1"
 
 "qs@~6.5.2":
   "integrity" "sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA=="
