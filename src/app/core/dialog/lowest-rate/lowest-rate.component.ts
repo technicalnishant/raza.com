@@ -19,6 +19,7 @@ import { RazaEnvironmentService } from '../../../core/services/razaEnvironment.s
 import { CountriesService } from '../../../core/services/country.service';
 import { MetaTagsService } from 'app/core/services/meta.service';
 import { TryUsFreeComponent } from '../try-us-free/try-us-free.component';
+import { GlobalRatesService } from 'app/home/globalrates.service';
 @Component({
   selector: 'app-lowest-rate',
   templateUrl: './lowest-rate.component.html',
@@ -57,6 +58,7 @@ export class LowestRateComponent implements OnInit, OnDestroy {
     private sideBarService: SideBarService,
     private countryService: CountriesService, 
     public dialog: MatDialog, 
+    private globalRatesService: GlobalRatesService,
     public dialogRef: MatDialogRef<TryUsFreeComponent>,
     ) {
     this.sideBarService.toggle();
@@ -118,27 +120,37 @@ export class LowestRateComponent implements OnInit, OnDestroy {
     return sortedArray;
     }
   async initAllRates() {
-     
-     await this.searchRatesService.getAllCountries().subscribe(
-      (data: Country[]) => {
-        this.allCountry = data;
+    
+    this.globalRatesService.getAllCountriesRates(this.currentSetting.currentCountryId).subscribe(
+      (data: any) => {
+        this.allCountry = data
+        this.searchRates = data;
+       
+      this.displayCountryList('All')
       },
       (err: ApiErrorResponse) => console.log(err),
-    );
+    )
+
+    //  await this.searchRatesService.getAllCountries().subscribe(
+    //   (data: Country[]) => {
+    //     this.allCountry = data;
+    //   },
+    //   (err: ApiErrorResponse) => console.log(err),
+    // );
 
     const data =  await this.searchRatesService.getAllCountries().toPromise();
      
     
     
-    await this.searchRatesService.getSearchRates(this.currentSetting.currentCountryId).subscribe(
-      (data: SearchRate[]) => {
-      this.searchRates = data;
-      this.allCountry = data;
-      this.displayCountryList('All')
+    // await this.searchRatesService.getSearchRates(this.currentSetting.currentCountryId).subscribe(
+    //   (data: SearchRate[]) => {
+    //   this.searchRates = data;
+       
+    //   this.displayCountryList('All')
         
-      },
-      (err: ApiErrorResponse) => console.log(err),
-    );
+    //   },
+    //   (err: ApiErrorResponse) => console.log(err),
+    // );
 
     this.searchRatesService.getPopularRates(this.currentSetting.currentCountryId).subscribe(
       (data: PopularRate[]) => {

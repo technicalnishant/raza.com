@@ -563,7 +563,7 @@ this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryI
    
     
     var subcardid = '';
-    var cuponcode = 'BUY1GET1';
+    var cuponcode = 'Buy1Get1';
     var service_fee = 0;
     if(this.currentSetting.currentCountryId == 1)
     {
@@ -580,7 +580,7 @@ this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryI
       model.CardId = data.CardId;
       model.CardName = data.CardName;
       model.CurrencyCode = data.CurrencyCode;
-
+      model.couponCode = 'Buy1Get1';
       model.details = {
         Price: obj,
         ServiceCharge: service_fee,
@@ -597,14 +597,10 @@ this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryI
       model.couponCode = cuponcode;
       model.currencyCode = item.CurrencyCode;
       model.isHideCouponEdit = true;
-     
+      model.offerPercentage = item.OfferPercentage;;
       this.checkoutService.setCurrentCart(model);
-
-      if (this.authService.isAuthenticated()) {
-        this.router.navigate(['/checkout/payment-info']);
-      } else {
-        this.router.navigate(['/checkout']);
-      }
+       
+      
     
     this.countryCode = data.CountryCode;
     this.countryId = data.CountryId;
@@ -616,6 +612,12 @@ this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryI
     this.RatePerMinWithOutPromo = data.WithoutAutorefillPlans.RatePerMin;
     this.WithoutAutorefillPlans = data.WithoutAutorefillPlans.Denominations;
 
+    
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/checkout/payment-info']);
+    } else {
+      this.router.navigate(['/checkout']);
+    }
     
   },
   (err: ApiErrorResponse) => console.log(err),
