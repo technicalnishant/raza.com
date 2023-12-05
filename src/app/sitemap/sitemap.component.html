@@ -19,7 +19,7 @@
                     <li *ngIf="plan"><a routerLink="/account/autorefill/{{plan?.PlanId}}" routerLinkActive="active-link">Auto -
                         Refill</a></li>
                         <li><a routerLink="/account/order-history" routerLinkActive="active-link">Order-History</a></li>
-                    
+
                     <li><a routerLink="/account/plandetails/{{plan?.PlanId}}" routerLinkActive="active-link">Your access number</a>
                     </li>
                     <li *ngIf="plan.IsAllowPinLess">
@@ -44,7 +44,7 @@
                     <li><a href="javascript:void(0)" (click)="clickRecharge('account','overview', '')">Recharge</a></li>
                     <li><a href="javascript:void(0)" (click)="clickRecharge('account','payment-details', 'planId')">Payment Details</a></li>
                     <li><a href="javascript:void(0)" (click)="clickRecharge('account','order-history','')">Order-History</a></li>
-                    
+
                     <li><a href="javascript:void(0)" (click)="clickRecharge('account','plandetails', 'planId')">Your access number</a>
                     </li>
                     <li >
@@ -118,16 +118,16 @@
                                     mobile app</a></li>
                             <li><a routerLink="/mobile-page">Free $2
                                     Download Android mobile app</a></li>
-                                     
+
                         </ul>
                     </div>
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-3" *ngFor="let item of searchRates" style="cursor: pointer;" > 
-             
-                                        <a href="javascript:void(0)" (click)="viewRates(item.CountryId)">{{item.CountryName}}</a>
+                            <div class="col-md-3" *ngFor="let item of searchRates" style="cursor: pointer;" >
+
+                                        <a href="javascript:void(0)" (click)="viewRates(item.CountryId)">Call {{item.CountryName}}</a>
                               </div>
-                           
+
                         </div>
                     </div>
                 </div>
