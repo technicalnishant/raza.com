@@ -536,21 +536,21 @@ getSelected(page)
 }
 
 
-onClickAmountOption1(item: any) {
+onClickAmountOption1(item: any, obj:any) {
   const model: RechargeCheckoutModel = new RechargeCheckoutModel();
 
   model.purchaseAmount = item;
-  model.couponCode = 'Buy1Get1';
-  model.currencyCode = this.planinfo.CurrencyCode;
+  model.couponCode = '';
+  model.currencyCode = obj.CurrencyCode;
   model.cvv = '';
-  model.planId = this.planinfo.PlanId
+  model.planId = obj.PlanId
   model.transactiontype = TransactionType.Recharge;
-  model.serviceChargePercentage = this.planinfo.ServiceChargePercent;
-  model.planName = this.plan.CardName;
-  model.countryFrom = this.planinfo.CountryFrom;
-  model.countryTo = this.planinfo.CountryTo;
-  model.cardId = this.plan.CardId;
-  model.isAutoRefill = false;
+  model.serviceChargePercentage = obj.ServiceChargePercent;
+  model.planName = obj.CardName;
+  model.countryFrom = obj.CountryFrom;
+  model.countryTo = obj.CountryTo;
+  model.cardId = obj.CardId;
+  model.isAutoRefill = obj.IsAutoRefill;
   model.offerPercentage = '';
   this.checkoutService.setCurrentCart(model);
   this.router.navigate(['/checkout/payment-info']);
@@ -629,7 +629,8 @@ async buyNow(obj:any, obj2:any, item) {
  
   if(this.plan && this.plan.CardId)
   {
-     this.onClickAmountOption1(obj);
+     
+   this.onClickAmountOption1(obj, this.plan);
   }
   else
   {
