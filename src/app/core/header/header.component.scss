@@ -1,4 +1,27 @@
 ::ng-deep {
+  .tryUsfree::after, .mg_menu {
+    background-image: url(../../../assets/images/new_design_images/hp_sprites.png);
+  }
+  .mg_menu {
+    width: 22px;
+    height: 16px;
+    background-position: -266px -101px;
+    &.menu2 {
+      background-position: -290px -101px;
+    }
+  }
+  .mat-autocomplete-panel {
+      .mat-option {
+          span {
+              &.flag {
+                  margin-right: 16px;
+                  margin-top: -2px;
+                  vertical-align: middle;
+              }
+          }
+      }
+  }
+
   .slidemenu.hideSome {
     .plandetails {
       .mat-expansion-panel {
@@ -277,13 +300,25 @@ button.login_btn {
     line-height: 1.2;
     text-transform: none;
     margin-right: 10px;
-    background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
-    background-repeat: no-repeat;
-    background-position: right 10px center;
+    position: relative;
+    &::after {
+      content: "";
+      background-position: -280px -119px;
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      right: 10px;
+      top: 10px;
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+    }
     &:hover {
       background-color: transparent !important;
-      background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
       color: #fff;
+      &::after {
+        background-position: -266px -119px;
+      }
     }
 }
 .headerBackground {
@@ -292,13 +327,11 @@ button.login_btn {
 		color: #2b437d;
 	}
 	.tryUsfree {
-		// border: 2px solid #2b437d;
-		// background-color: #2b437d;
-		// background-image: url(../../../assets/images/new_design_images/tp_arrow_white.png);
-		// color: #fff;
 		&:hover {
 			color: #2b437d;
-			background-image: url(../../../assets/images/new_design_images/tp_arrow.png);
+      &::after {
+        background-position: -280px -119px;
+      }
 		}
 	}
 }

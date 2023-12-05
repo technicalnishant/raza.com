@@ -43,6 +43,10 @@
     margin-right: 45px;
   }
 }
+.icon_holder1,.callAfrica, .callAsia, .callAsiaMb, .callAfricaMb,
+.homepage_bluearea .arrow, .homepage_bluearea .white .arrow, .mobileAppcommon_area::after,.authorIcon, .app_store  {
+  background-image: url(../../../assets/images/new_design_images/hp_sprites.png);
+}
 .homepage_bluearea {
     background: #0160e0;
     text-align: center;
@@ -64,22 +68,25 @@
     }
     .icon_holder1 {
         text-align: center;
-        height: 90px;
-        background-image: url(../../../assets/images/mobile_topup_white.png);
-        background-repeat: no-repeat;
-        background-position: top 0 center;
+        height: 78px;
+        width: 48px;
+        margin-left: auto;
+        margin-right: auto;
+        background-position: -200px -67px;
         &.callAfrica, &.callAsia, &.callAsiaMb {
-          background-image: url(../../../assets/images/callafrica_white.png);
+          width: 75px;
+          height: 75px;
+          background-position: -123px -1px;
         }
         &.callAfricaMb {
-          background-image: url(../../../assets/images/callafrica_blue.png);
+          background-position: -1px -123px;
         }
     }
     .homeBluecommon:hover {
       .icon_holder1 {
-          background-image: url(../../../assets/images/mobile_topup_blue.png);
+          background-position: -266px -1px;
           &.callAfrica, &.callAsia {
-            background-image: url(../../../assets/images/callafrica_blue.png);
+            background-position:  -1px -123px;
           }
       }
     }
@@ -87,19 +94,24 @@
       margin: 0 auto;
       width: 22px;
       height: 20px;
-      background-image: url(../../../assets/images/home_arrow_white.png);
-      background-repeat: no-repeat;
+      background-position: -266px -81px;
     }
     .white {
       .arrow {
-        background-image: url(../../../assets/images/home_arrow_blue.png);
+        background-position: -290px -81px;
       }
     }
 }
-// .imageareaNew {
-//   background-image: url(../../../assets/images/partnerwithus.png);
-//   background-repeat: no-repeat;
-// }
+.app_store {
+  width: 137px; height: 46px;
+  background-position: -140px -264px;
+  display: inline-block;
+  margin: 0 8px;
+  vertical-align: middle;
+  &.aplStore {
+    background-position: -1px -264px;
+  }
+}
 .homeBluecommon {
     padding: 50px 30px;
 }
@@ -124,14 +136,14 @@
     box-shadow: 25px 25px 65px 0px rgba(215, 228, 240, 1);
     background: #fff;
     .icon_holder1 {
-        height: 62px;
-        background-image: url(../../../assets/images/pick_your_plan.png);
-        background-repeat: no-repeat;
+        height: 61px;
+        width: 61px;
+        background-position: -187px -200px;
         &.goMyAcc {
-          background-image: url(../../../assets/images/create_account_icon.png);
+          background-position: -125px -200px;
         }
         &.startCall {
-          background-image: url(../../../assets/images/start_calling_icon.png);
+          background-position: -249px -200px;
         }
     }
     h3 {
@@ -172,6 +184,7 @@
     padding-left: 100px;
     margin-bottom: 50px;
     padding-right: 57px;
+    position: relative;
     h4 {
         color: #0a1f3f;
         font-size: 17px;
@@ -183,6 +196,27 @@
         font-size: 16px;
         font-weight: 400;
         line-height: 28px;
+    }
+    &::after {
+      height: 64px;
+      width: 64px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &.first::after {
+        content: "";
+        background-position: -200px -1px;
+    }
+    &.second::after {
+        content: "";
+        background-position: -78px -123px;
+    }
+    &.third::after {
+        content: "";
+        width: 61px;
+        height: 51px;
+        background-position: -200px -147px;
     }
 }
 .home_pageGreyarea {
@@ -563,7 +597,6 @@ a {
             cursor: pointer;
             .arrow {
                 width: 50px;
-                background-image: url(../../../assets/images/home_arrow_blue.png);
             }
         }
         .arrow {
@@ -571,9 +604,7 @@ a {
             width: 22px;
             height: 20px;
             transition: width 0.5s ease;
-            background-image: url(../../../assets/images/home_arrow_white.png);
-            background-position: right;
-            background-repeat: no-repeat;
+            background-position: -266px -81px;
             img {
                 position: relative;
                 transition: left 0.5s;
@@ -600,7 +631,7 @@ a {
     .home_mobile_div{
         position: absolute; bottom: 50px; left: 30px;z-index: 99;
     }
-    .home_mobile_div a img{ width:40%; padding: 5px;}
+    .home_mobile_div a img{ padding: 5px;}
     .new_style_mobile {
         width: 350px;
         margin: 0 auto;
@@ -704,7 +735,6 @@ a {
         .carousel-caption.tpSlider_0 {
           align-items: center;
           @media only screen  and (max-width: 767px) {
-            background-image: url(../../../assets/images/home_banner_new/promo/hw-uk-mobile.webp);
             background-position: center;
           }
         }
@@ -721,15 +751,14 @@ a {
     }
     .bg-image {
         width: 100%;
-        min-height: 700px;
-        max-height: 700px;
+        min-height: 600px;
+        max-height: 600px;
         object-fit: cover;
     }
     ::ng-deep {
         .carousel-caption.tpSlider_0 {
           left: 0;
           right: 0;
-          background-image: url(../../../assets/images/home_banner_new/promo/hw.webp);
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center;
@@ -739,7 +768,6 @@ a {
           justify-content: center;
           padding-bottom: 0;
           @media only screen  and (max-width: 767px) {
-            background-image: url(../../../assets/images/home_banner_new/promo/hw-mobile.webp);
             background-position: center;
           }
         }
@@ -787,7 +815,90 @@ a {
 }
 
 ::ng-deep {
-      ul.splide__pagination {
+
+// Diwali promo css
+.diwali_strip {
+  margin-top: 10px;
+  background-image: url(../../../assets/images/home_banner_new/promo/banner.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 165px;
+  @media only screen  and (max-width: 600px) {
+    height: 180px;
+    background-size: cover;
+  }
+}
+.viyaFireworWrap {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 155px;
+  left: 0;
+  right: 0;
+    @media only screen  and (max-width: 600px) {
+        height: 170px;
+    }
+    .diwaliPromoText {
+          color: #000;
+          text-align: center;
+          p {
+            margin: 0 0 4px;
+            font-weight: 500;
+          }
+          h3 {
+            font-weight: 600;
+            font-size: 25px;
+            @media only screen  and (max-width: 600px) {
+              font-size: 18px;
+            }
+          }
+          .dPromoBtn {
+            background: #8d3f29;
+            padding: 3px 15px;
+            font-size: 15px;
+            color: #fff;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-top: 5px;
+            display: inline-block;
+            &:hover{
+              opacity: .8;
+            }
+        }
+      }
+      .viyaWrap {
+          margin-right: 30px;
+          img {
+            width: 120px;
+          }
+      }
+      .fireworksWrap {
+          margin-left: -45px;
+          img {
+            width: 140px;
+            margin-top: 10px;
+          }
+      }
+      @media only screen  and (max-width: 600px) {
+        .viyaWrap {
+            margin-right: 10px;
+            img {
+              width: 80px;
+            }
+        }
+        .fireworksWrap {
+            margin-left: 10px;
+            img {
+              width: 110px;
+            }
+        }
+      }
+    }
+
+
+    ul.splide__pagination {
         right: 3%;
         margin-right: 86px;
         left: unset;
@@ -1053,6 +1164,9 @@ h1.buy1get1-text:after {
           height: 620px;
         }
     }
+    .app_store {
+      margin: 0 3px;
+    }
     .carousel-caption {
       top: 0;
       left: 0;
@@ -1212,33 +1326,165 @@ h1.buy1get1-text:after {
         bottom: 30%;
     }
 }
+.testiBlocksWrap {
+  background: url(/assets/images/testimonial-bg-5_d2eb09.webp) 0% 0% / cover;
+  height: 540px;
+  width: 1100px;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  position: relative;
+  .testHoverBlk {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+  }
+  .testiBlockInner {
+      height: 229px;
+      display: flex;
+      flex-direction: column;
+  }
+  .testiBlockSec {
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      height: 270px;
+      transition: all .24s linear 0s;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      .testiBtm {
+          margin-left: 15px;
+          position: relative;
+          transition: all .24s linear 0s;
+          bottom: -22px;
+      }
+      p {
+        font-size: 16px;
+        text-align: left;
+        margin-bottom: 0;
+        display: none;
+        transition: all .24s linear 0s;
+      }
+      &:hover {
+        background-color: rgba(77, 101, 111, 0.9);
+        p, .authorIcon {
+          display: block;
+        }
+        .testiBtm {
+            bottom: 0;
+        }
+      }
+      &:nth-child(1) {
+        width: 75%;
+        flex: 0 0 75%;
+        border-bottom: 1px solid #fff;
+        &:hover {
+          ~ .testiBlkHover1 {
+              display: block;
+              background: url(/assets/images/testimonial-bg-4_uqze4v.webp) 0% 0% / cover;
+          }
+        }
+      }
+      &:nth-child(2) {
+        width: 28%;
+        border-right: 1px solid #fff;
+        &:hover {
+          background-color: rgba(39, 49, 55, 0.9);
+          ~ .testiBlkHover2 {
+              display: block;
+              background: url(/assets/images/testimonial-bg-3a_noysfw.webp) 0% 0% / cover;;
+          }
+        }
+      }
+      &:nth-child(3) {
+        width: 47%;
+        &:hover {
+          background-color: rgba(225, 189, 93, 0.9);
+          ~ .testiBlkHover3 {
+              display: block;
+              background: url(/assets/images/testimonial-bg-6_objrev.webp) 0% 0% / cover;;
+          }
+        }
+      }
+      &:nth-child(4) {
+        width: 25%;
+        height: 540px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-left: 1px solid #fff;
+        &:hover {
+          background-color: rgba(105, 73, 87, 0.9);
+          ~ .testiBlkHover4 {
+              display: block;
+              background: url(/assets/images/testimonial-bg-1_o2x9d9_q58aaf.webp) 0% 0% / cover;
+          }
+        }
+        .testiBlockInner {
+          height: 500px;
+        }
+      }
+  }
+}
+.testiBtmWrap {
+  margin-top: auto;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  .authorIcon {
+    padding: 8px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 62px;
+    height: 62px;
+    background-position: -1px -200px;
+    display: none;
+    &.twitter {
+      background-position: -63px -200px;
+    }
+    &.RazaAppIcon {
+      background-position: -1px -1px;
+      background-size: 158px;
+    }
+    img {
+      border-radius: 50%;
+    }
+  }
+}
+
 @media only screen  and (max-width: 1100px) {
     .home-slider .bg-image {
         min-height: 650px;
     }
 }
 @media only screen and (min-width: 767px) {
-  .btn-slider {
+  .btn-slider, .testiSliderContentMobile {
       display: none;
   }
 }
 @media only screen  and (max-width: 767px) {
   .icon_holder1 {
       &.callAfrica {
-        background-image: url(../../../assets/images/callafrica_blue.png) !important;
+        background-position: -1px -123px !important;
       }
       &.mbTopUpMb {
-        background-image: url(../../../assets/images/mobile_topup_white.png) !important;
+        background-position: -200px -67px !important;
       }
       &.callAfricaMb {
-        background-image: url(../../../assets/images/callafrica_blue.png) !important;
+        background-position: -1px -123px !important;
+        width: 75px !important;
+        height: 75px !important;
       }
       &.callAsiaMb {
-        background-image: url(../../../assets/images/callafrica_white.png) !important;
+        background-position: -123px -1px !important;
       }
-      // &.callAfricaMb {
-      //   background-image: url(../../../assets/images/callafrica_blue.png);
-      // }
   }
   .topup-btn {
       width: 160px;
@@ -1379,7 +1625,83 @@ h1.buy1get1-text:after {
           width: 100%;
       }
   }
+  .testiSliderContent {
+    display: none;
+  }
+
+  .testiSliderContentMobile {
+    background-image: url(/assets/images/testimonial-bg-5_d2eb09.webp);
+    .testiBlockSec {
+      height: 550px;
+      width: 100% !important;
+      border-bottom: 1px solid #fff;
+      background-size: cover;
+      background-position: center;
+      padding: 0;
+      background-image: url(/assets/images/testimonial-bg-5_d2eb09.webp);
+      p, .testiBtm  {
+        display: block;
+        font-size: 15px;
+        text-align: left;
+        br {
+          display: none;
+        }
+      }
+      &.testiBlkSec2 {
+        background-image: url(/assets/images/testimonial-bg-4_uqze4v.webp);
+      }
+      &.testiBlkSec3 {
+        background-image: url(/assets/images/testimonial-bg-3a_noysfw.webp);
+      }
+      &.testiBlkSec4 {
+        background-image: url(/assets/images/testimonial-bg-6_objrev.webp);
+      }
+    }
+    .testHoverBlk {
+      display: none !important;
+    }
+    .testiBlockInner {
+      background-color: rgba(77, 101, 111, 0.7);
+      padding: 10px 10px 35px;
+      height: auto !important;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: #fff;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
+    .testiBtmWrap {
+      overflow: unset;
+      margin: 0;
+      .authorIcon {
+        display: block;
+        padding: 4px;
+        margin-right: 10px;
+        img.example-header-image {
+          width: 42px;
+          height: 42px;
+        }
+      }
+      .testiBtm {
+        position: static;
+      }
+    }
+  }
+
+  ::ng-deep {
+    .testiSliderContentMobile ul.splide__pagination {
+      transform: unset;
+      left: 0;
+      right: 0;
+      bottom: 12px;
+      top: unset;
+    }
+  }
 }
+
 @media only screen  and (max-width: 480px) {
     .uk_mobile {
         margin: -30px -8px;

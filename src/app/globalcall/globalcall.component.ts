@@ -486,7 +486,7 @@ export class GlobalcallComponent implements OnInit {
 
     if(!this.isAutoRefill)
     {
-      console.log("item.Price/(item.TotalTime+item.PromoMinutes", item.Price, item.TotalTime, item.PromoMinutes);
+       
       return this.toFixed1((item.Price/(item.TotalTime+item.PromoMinutes))*100)
 
       
@@ -495,7 +495,7 @@ export class GlobalcallComponent implements OnInit {
     
     let discuont = item.TotalTime + (item.TotalTime*10/100)
 
-    console.log("item.Price/(item.TotalTime+item.PromoMinutes", item.Price, item.TotalTime, item.PromoMinutes);
+     
 
      return this.toFixed1((item.Price/discuont)*100)
 

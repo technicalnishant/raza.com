@@ -16,15 +16,15 @@
       </div>
     </div>
   </div> -->
-    
-   <!-- <div class="col-md-12 mt-5 mb-4" *ngIf="promoCode =='HALLOWEEN23'">
+
+     <div class="col-md-12 mt-5 mb-4" *ngIf="promoCode =='THANKS2023'">
     <img src="./assets/images/promotion/{{promoCode}}.jpg" class="img-fluid" alt="Thanks Giving Banner" />
-  </div>   -->
+  </div>
   <div class="rechargeStepMain pt-2" *ngIf="currentCart.couponCode =='FREETRIAL'">
     <div class="rechargeStep">
       <div class="f-ttile">Call Any Mobile And Landline Number</div>
       <div class="f-description">Get Unlimited access to all premium features. <span>No credit card required.</span></div>
-       
+
     </div>
   </div>
 
@@ -35,7 +35,7 @@
       <div class="row">
       <div class="col-xl-8">
         <router-outlet></router-outlet>
-        
+
       </div>
       <!-- <div class="col-xl-1"></div> -->
       <div class="col-xl-4">
@@ -48,12 +48,22 @@
           <tbody>
             <tr>
               <td>Plan Name</td>
-              <td>{{currentCart?.getOrderName()}}</td>
+              <td>{{currentCart?.getOrderName()}} </td>
             </tr>
-            <tr>
+
+            <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
+              <td>Purchase Amount</td>
+              <td>{{ (currentCart?.getPurchaseAmount() *2) | bCurrency : currentCart?.currencyCode }} </td>
+            </tr>
+            <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
+              <td >Discount (Buy1 Get1)&nbsp;<span class="discountBuy1Get1"></span></td>
+              <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode }} </span></td>
+            </tr>
+            <tr *ngIf="currentCart?.couponCode != 'Buy1Get1'">
               <td>Purchase Amount</td>
               <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async}} </td>
             </tr>
+
             <tr>
               <td>Service Fee</td>
               <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode | async}}</td>
@@ -120,7 +130,7 @@
         <a href="#" type="button" class="btn btn-warning mr-0 mr-lg-4 mb-2">CONFIRM</a>
         <a href="/features" class="small mt-2">100% Money Back Guarantee</a>
         <a href="/support">Privacy Policy</a>
-        <a href="/termsandcondition">Terms of service</a> 
+        <a href="/termsandcondition">Terms of service</a>
       </div>
     </div>
   </div>

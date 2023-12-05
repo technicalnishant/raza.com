@@ -23,6 +23,10 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { TryUsFreeComponent } from './dialog/try-us-free/try-us-free.component';
+import { Buy1get1Component } from './dialog/buy1get1/buy1get1.component';
+import { LowestrateComponent } from './dialog/lowestrate/lowestrate.component';
+import { LowestRateComponent } from './dialog/lowest-rate/lowest-rate.component';
 
  
  /*
@@ -63,7 +67,11 @@ import {
     LogintopdropmenuMobileComponent,
     SpinnerRazaTagHelperComponent,
     AccountTopMenuComponent,
-    DealsTabComponent
+    DealsTabComponent,
+    TryUsFreeComponent,
+    Buy1get1Component,
+    LowestrateComponent,
+    LowestRateComponent
   ],
   providers: [
     AuthGuard,

@@ -247,14 +247,28 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
         });
     }
 
-    getCustomerCards1() {
+    getCustomerCards1(data) {
       this.customerSavedCards = null;
       this.selectedCard = null;
       this.customerService.getSavedCreditCards().toPromise().then(
         (res: CreditCard[]) => {
           if (res.length > 0) {
+            this.cvvStored = data.split(",")[1];
+            let card_number = data.split(",")[2];
+           
+            const matchingCard = res.find(card => card.CardNumber === card_number);
+            if (matchingCard) {
+              this.selectedCard = matchingCard;
+              this.selectedCard.Cvv = this.cvvStored;
+              this.havingExistingCard = true;
+              this.onClickCreditCardPayment();
+            } else {
+              this.selectedCard = null;
+              this.havingExistingCard = false;
+            }
+
+
             this.customerSavedCards = res.splice(0, 2); 
-            
             this.havingExistingCard = true;
             
           } else {
@@ -450,11 +464,11 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
             this.cvvStored=result.split(",")[1];
             
             if (result.split(",")[0] == "success") {
-              this.getCustomerCards();
+               this.getCustomerCards();
           
                 this.customerService.GetBillingInfo().subscribe(
                   (res: any) => { this.billingInfo = res;
-                  
+                   // this.getCustomerCards1(result);
                    // this.onClickCreditCardPay();
                   },
                   (err: ApiErrorResponse) => console.log(err),
@@ -483,11 +497,11 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
         {
           this.cvvStored=result.split(",")[1];
           if (result.split(",")[0] == "success") {
-            this.getCustomerCards1();
+            
             
               this.customerService.GetBillingInfo().subscribe(
                 (res: any) => { this.billingInfo = res;
-                 
+                  this.getCustomerCards1(result);
                 },
                 (err: ApiErrorResponse) => console.log(err),
               )

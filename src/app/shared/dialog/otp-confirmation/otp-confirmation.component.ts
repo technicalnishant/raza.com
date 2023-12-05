@@ -58,11 +58,13 @@ isPhone = false;
     //   otp: ['', [Validators.required]],
     //  });
 
-    var phoneno = /^[0-9]+$/;
-    if( this.enteredPhone.match(phoneno) )
-      {
+    if (this.enteredPhone && typeof this.enteredPhone === 'string') {
+      var phoneno = /^[0-9]+$/;
+      if (this.enteredPhone.match(phoneno)) {
         this.isPhone = true;
       }
+    }
+    
   }
 
   toFormGroup(elements) {

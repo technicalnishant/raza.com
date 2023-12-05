@@ -1,12 +1,12 @@
 <div class="recharge_block recharge2">
-  
-     
+
+
   <!-- <p class="updateCard" *ngIf="!isPromotion" >Almost there...</p> -->
    <div class="row">
-       <!-- <div class="col-md-12 mb-5" *ngIf="promoCode =='HALLOWEEN23'">
+         <div class="col-md-12 mb-5" *ngIf="promoCode =='THANKS2023'">
       <img src="./assets/images/promotion/{{promoCode}}.jpg" class="img-fluid" alt=" Thanks Giving Banner" />
-    </div>   -->
-  </div>  
+    </div>
+  </div>
   <div class="container containerMobile">
     <div class="row">
       <div class="col-xl-6 expCheck">
@@ -23,8 +23,8 @@
 
               <div *ngIf="isPromotion==false" class="col-sm-12 formRowM15 text-left current-country">
                 <img alt="flag" height="20" src="./../../assets/images/blank.gif" width="30" [class]="countryFlagCss">
-                
-                
+
+
                  You are in {{currentCountry.CountryName}}
               </div>
               <div *ngIf="isPromotion==true" class="position-relative">
@@ -67,7 +67,7 @@
                 </svg>
                   You are in {{currentSetting.country?.CountryName}}
               </div>
-              
+
             </div>
 
               <div class="col-sm-12 formRowM15">
@@ -86,8 +86,8 @@
                   </div>
                   <button mat-button class="login-button" (click)="loginWithEmail()">
                     <img src="./assets/images/app-icons/email.png" alt=""> Continue with Email
-                  </button> 
-                   
+                  </button>
+
                 </div>
               </div>
             </div>
@@ -100,6 +100,7 @@
           <h2 class="heading_style4">
             <span>Your order</span>
           </h2>
+
         </div>
         <table class="table" *ngIf="currentCart.transactiontype != 4">
           <tbody>
@@ -107,20 +108,34 @@
               <td>Plan</td>
               <td>{{currentCart?.getOrderName()}}</td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td>Purchase Amount</td>
-              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async  }} </td>
+              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode  }} </td>
+            </tr> -->
+
+            <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
+              <td>Purchase Amount</td>
+              <td>{{ (currentCart?.getPurchaseAmount() *2) | bCurrency : currentCart?.currencyCode | async}} </td>
             </tr>
+            <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
+              <td>Discount (Buy1 Get1)&nbsp;<span class="discountBuy1Get1"></span></td>
+              <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async}}</span> </td>
+            </tr>
+            <tr *ngIf="currentCart?.couponCode != 'Buy1Get1'">
+              <td>Purchase Amount</td>
+              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async}} </td>
+            </tr>
+
             <tr>
               <td>Service Fee</td>
               <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode | async }}</td>
             </tr>
-			
+
 			<tr *ngIf="currentCart?.offerPercentage">
               <td><b>Bonus</b></td>
               <td><b>{{currentCart?.offerPercentage}}%</b></td>
             </tr>
-			
+
             <tr class="total">
               <td>Total ({{currentCart?.currencyCode}})</td>
               <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode | async }}</td>

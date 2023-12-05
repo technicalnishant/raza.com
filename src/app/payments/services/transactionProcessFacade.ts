@@ -365,7 +365,8 @@ export class TransactionProcessFacadeService {
       subCardId: checkoutModel.details.SubCardId,
       countryFrom: checkoutModel.countryFrom,
       countryTo: checkoutModel.countryTo,
-      pinlessNumbers: ['0002520101'],
+      pinlessNumbers: [localStorage.getItem("login_no")],
+     // pinlessNumbers: checkoutModel.pinlessNumbers,
       creditCard: null,
       nonce :'',
       ProcessedBy : '',
@@ -373,6 +374,9 @@ export class TransactionProcessFacadeService {
       PaymentCurrency:localStorage.getItem('PaymentCurrency')
     };
 
+    // console.log("local storage value transactionProcessFacade", localStorage.getItem("login_no"));
+    // console.log("last step", model);
+    // console.log("checkoutModel", checkoutModel);
     let transactionResponseModel: TransactionResponseModel;
     return this.purchaseService.issueNewPin(model).subscribe((res: TransactionResponseModel) => {
       // console.log("purchase new pin successfull", res);

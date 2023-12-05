@@ -19,7 +19,7 @@
     </mat-nav-list>
     <div class="form_row1">
       <div class="input_holder1">
-        <button *ngIf="IsEnableFreeTrial && country.CountryId <= 3" class="submitButton free-trial" (click)="freeTrial()">Free
+        <button *ngIf="IsEnableFreeTrial" class="submitButton free-trial" (click)="try_us_free()">Free
           Trial</button>
       </div>
     </div>
@@ -39,29 +39,3 @@
   </mat-sidenav-content>
 
 </mat-sidenav-container>
-
-
-
-
-
-
-
-<!--
-
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav [mode]="mode.value">
-    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
-    <mat-list role="list">
-      <mat-list-item role="listitem">Item 1</mat-list-item>
-      <mat-list-item role="listitem">Item 2</mat-list-item>
-      <mat-list-item role="listitem">Item 3</mat-list-item>
-    </mat-list>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
-
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
--->

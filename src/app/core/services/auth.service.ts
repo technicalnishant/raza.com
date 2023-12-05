@@ -1,10 +1,10 @@
 
-import { throwError as observableThrowError, Observable, BehaviorSubject } from 'rxjs';
+import { throwError as observableThrowError, Observable, BehaviorSubject, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HelperService } from './helper.service';
 import { Api } from './api.constants';
-import { map } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { userContext } from '../interfaces/userContext';
 import { CustomErrorHandlerService } from './custom-error-handler.service';
 import { ApiErrorResponse } from '../models/ApiErrorResponse';
@@ -19,6 +19,7 @@ import { CountriesService } from './country.service';
 import { Country } from '../models/country.model';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { PlanService } from 'app/accounts/services/planService';
 
 @Injectable()
 export class AuthenticationService {
@@ -37,6 +38,7 @@ export class AuthenticationService {
 		private razaEnvService: RazaEnvironmentService,
 		private countryService: CountriesService,
 		public dialog: MatDialog,
+		private planService: PlanService,
 		private router: Router
 	) {
 
@@ -100,8 +102,83 @@ export class AuthenticationService {
 		return username;
 
 	}
-
+	 
+	
 	login(body: any, otpLogin: boolean = false, isCaptcha = 'N'): Observable<userContext | ApiErrorResponse> {
+	  if (otpLogin) {
+		body.password = 'XOTP~' + body.password;
+	  }
+	
+	  let authCredentials = 'username=' +
+		encodeURIComponent(body.username) +
+		'&password=' +
+		encodeURIComponent(body.password) +
+		'&grant_type=password&client_id=' + environment.appId +
+		'&captcha=' + encodeURIComponent(body.captcha) +
+		'&isCaptcha=' + encodeURIComponent(isCaptcha);
+	
+	  return this.httpClient.post<any>(Api.auth.token, authCredentials).pipe(
+		switchMap(user => {
+		  if (user && user.access_token) {
+			if (body.phone) {
+			  var phoneno = /^\d{10}$/;
+			  let phoneOrEmail = body.phone;
+			  if (phoneOrEmail.match(phoneno)) {
+				let phoneNumber = body.username;
+				let cleanedPhoneNumber = phoneNumber.replace(/\+/g, '');
+				localStorage.setItem("login_no", cleanedPhoneNumber);
+				localStorage.setItem("login_with", 'phone');
+			  } else {
+				localStorage.setItem("login_no", user.additionalId);
+				localStorage.setItem("login_with", 'email');
+			  }
+			}
+			this.user_country_id = user.countryId;
+			localStorage.setItem('fromCountries', user.countryId);
+			let context = new userContext(
+				user.userName,
+				user.access_token,
+				user.refresh_token,
+				user.token_type,
+				user.expires_in,
+				user['.issued'],
+				user['.expires'],
+				
+				user.isNew.toLowerCase() === 'true',
+				'',
+				user.countryId,
+				user.additionalId, 
+			)
+			 
+	
+			AuthenticationService.username.next(user.userName);
+			this.saveCurrentUsertoLocalStorage(context);
+			
+			return this.planService.getPlanInfo(localStorage.getItem("login_no")).pipe(
+			  switchMap((res: any) => {
+				
+				this.setUsersCurrentCountry();
+				this.EmitLoggedInEvent(true);
+				this.setSharedValue(true);
+				return of(context);
+			  }),
+			  catchError(error => {
+				console.error('Error getting plan information:', error);
+				return of(context); // You may want to handle the error differently
+			  })
+			);
+		  } else {
+			return of(null);
+		  }
+		}),
+		catchError(error => {
+		  console.error('Login error:', error);
+		  return of(null);
+		})
+	  );
+	}
+	
+	login1(body: any, otpLogin: boolean = false, isCaptcha = 'N'): Observable<userContext | ApiErrorResponse> {
 		if (otpLogin)
 			body.password = 'XOTP~' + body.password;
 
@@ -283,7 +360,7 @@ export class AuthenticationService {
 		localStorage.removeItem("signup_no");
 		localStorage.removeItem("currentCart");
 		localStorage.removeItem('promo_code');
- 
+		localStorage.removeItem('pinless_'+localStorage.getItem("login_no"));
 		this.setSharedValue(false);
 		this.EmitLoggedInEvent(false);
 		return true;

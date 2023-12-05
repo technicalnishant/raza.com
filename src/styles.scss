@@ -1679,17 +1679,6 @@ ul {
         display: none;
     }
 }
-.mobileAppcommon_area {
-    &.first {
-        background: url("/assets/images/new_design_images/download2dollor.png") no-repeat left top;
-    }
-    &.second {
-        background: url("/assets/images/new_design_images/lowrateapp.png") no-repeat left top;
-    }
-    &.third {
-        background: url("/assets/images/new_design_images/group_voice_icon-d.png") no-repeat left top;
-    }
-}
 .mobileImageSlider {
     video {
         max-width: 100% !important;
@@ -4015,6 +4004,20 @@ section.faq-section .mat-expansion-panel-body p {
         min-width: 85px;
     }
 }
+.recharge_block {
+    /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
 .cvvCard {
     .mat-form-field-appearance-legacy .mat-form-field-label {
         position: absolute;

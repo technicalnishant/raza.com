@@ -351,9 +351,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
       if(obj == 20)
       this.currentCurrency='NZD';
       if(obj == 26)
-      this.currentCurrency='INR';
-     
-      console.log("currenct cart info is ", this.currentCart );
+      this.currentCurrency='INR'; 
       //currencyCode = this.currentCurrency
      // countryFrom = obj;
       const cart: NewPlanCheckoutModel = this.currentCart as NewPlanCheckoutModel;
@@ -398,7 +396,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
   getDefaultPlan()
   {
     this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe(
-      //this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe(
+     
       (res:any)=>{
 
         this.plan = res;

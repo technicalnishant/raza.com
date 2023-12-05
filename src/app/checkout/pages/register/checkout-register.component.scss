@@ -14,6 +14,14 @@
 .mat-toolbar {
 	background: none;
 }
+.discountBuy1Get1 {
+  background-image: url(../../../../assets/images/check.png);
+  background-repeat: no-repeat;
+  background-position: 0 center;
+  background-size: 20px;
+  margin-left: 8px;
+  padding-left: 30px !important;
+}
 .nobg {
 	background: none;
 	cursor: pointer;
@@ -447,11 +455,11 @@ p {
 	  background-color: #fff;
 	}
   }
-  
-  
+
+
   /* express_checkout */
   @media only screen and (max-width: 480) {
-    .form_holder2.express_checkout{ margin-bottom: 25px !important;} 
+    .form_holder2.express_checkout{ margin-bottom: 25px !important;}
   }
   .table {
     td {
@@ -601,15 +609,15 @@ p {
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
   }
-  
-  
-  
+
+
+
   @media only screen and (max-width: 768px) {
     .express_checkout {margin-bottom: 25px !important; border-radius: 10px;}
     .express_checkout p.haveAccountTxt,.express_checkout p.noWorryText{ font-size: 13px;}
     .rechargeStepMain {margin-top: -105px;}
     .containerMobile{width: 100%;}
-	.img-fluid { 
+	.img-fluid {
 		width: auto;
 		height: 120px;
 		object-fit: cover;
@@ -637,7 +645,7 @@ p {
     font-size: 18px;
     font-weight: 400;
   }
-  
+
   .current-country .flag {
     margin-right: 10px;
   }
@@ -666,4 +674,8 @@ p {
     border: 1px solid #d8d8d8;
     border-radius: 30px;
     font-family: "Montserrat", sans-serif;
+}
+
+.color_red{
+color:#ff0000;
 }

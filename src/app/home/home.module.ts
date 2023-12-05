@@ -41,6 +41,7 @@ import { NgxSplideModule } from 'ngx-splide';
        // LazyLoadImageModule,
         RouterModule.forChild([
             { path: '', component: HomepageComponent },
+            { path: 'p/:promo', component: HomepageComponent },
             { path: 'mobileapp', component: HomepageComponent, data: { scrollToMobileApp: true } },
             { path: 'update_password/:number', component: HomepageComponent, data: { scrollToMobileApp: true } },
           //  { path: 'env', component: EnvVariableComponent },
