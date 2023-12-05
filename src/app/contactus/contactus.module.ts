@@ -14,7 +14,7 @@ import { MessageUsComponent } from './dialog/message-us/message-us.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      { path: '', component: ContactusComponent },
+      { path: '', component: ContactusComponent }, 
     ])
   ],
   exports: [

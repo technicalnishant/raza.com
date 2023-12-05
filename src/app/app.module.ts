@@ -40,6 +40,7 @@ import { DialogCofirmComponent } from './mobile-pay/dialog/dialog-cofirm/dialog-
 //var google: any;
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { GlobalcallComponent } from './globalcall/globalcall.component';
+import { QRCodeModule } from 'angularx-qrcode';
 export function LocationProviderFactory(provider: RazaEnvironmentService) 
 {
 
@@ -58,6 +59,7 @@ export function LocationProviderFactory(provider: RazaEnvironmentService)
     GlobalCallIndiaComponent, //23-12-22
     ErrorDialogComponent,
     ConfirmPopupDialog,
+    
     //Page404Component,  //23-12-22
    // LearnmoreComponent, //23-12-22
     //MobiledealsComponent,//26-12-22
@@ -102,6 +104,7 @@ export function LocationProviderFactory(provider: RazaEnvironmentService)
     MatAutocompleteModule,
     MatSnackBarModule,
     CoreModule,  
+    QRCodeModule,
     //HomeModule, //to check page spead
     // DealsModule, //to check page spead
 

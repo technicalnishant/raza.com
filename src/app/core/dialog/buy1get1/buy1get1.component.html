@@ -1,0 +1,210 @@
+<div class="tryUsfreeSearchWrap">
+<a class="close" href="javascript:void(0)" (click)="closeIcon()">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 4.75l-6.5 6.5m0-6.5l6.5 6.5"/></svg>
+</a>
+<div class="buyGetLeftStrip">
+  New Customer <br> Special
+</div>
+<h2>Buy 1 Get 1 Free - Call worlwide</h2>
+
+<div class="country_alphabet_wrap">
+  <div class="alphabet_links">
+    <li class="active" [ngClass]="{'active': defaultChar === 'All' }" (click)="setChar('All')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08l4.15-2.5z"/></svg>
+    </li>
+    <li class="active {{isDisabled('A')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'A' }" (click)="setChar('A')">A</li>
+    <li class="{{isDisabled('B')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'B' }" (click)="setChar('B')" >B</li>
+    <li class="{{isDisabled('C')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'C' }" (click)="setChar('C')">C</li>
+    <li class="{{isDisabled('D')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'D' }" (click)="setChar('D')" >D</li>
+    <li class="{{isDisabled('E')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'E' }" (click)="setChar('E')" >E</li>
+    <li class="{{isDisabled('F')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'F' }" (click)="setChar('F')" >F</li>
+    <li class="{{isDisabled('G')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'G' }" (click)="setChar('G')" >G</li>
+    <li class="{{isDisabled('H')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'H' }" (click)="setChar('H')" >H</li>
+    <li class="{{isDisabled('I')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'I' }" (click)="setChar('I')" >I</li>
+    <li class="{{isDisabled('J')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'J' }" (click)="setChar('J')">J</li>
+    <li class="{{isDisabled('K')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'K' }" (click)="setChar('K')">K</li>
+    <li class="{{isDisabled('L')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'L' }" (click)="setChar('L')">L</li>
+    <li class="{{isDisabled('M')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'M' }" (click)="setChar('M')">M</li>
+    <li class="{{isDisabled('N')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'N' }" (click)="setChar('N')">N</li>
+    <li class="{{isDisabled('O')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'O' }" (click)="setChar('O')">O</li>
+    <li class="{{isDisabled('P')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'P' }" (click)="setChar('P')" >P</li>
+    <li class="{{isDisabled('Q')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'Q' }" (click)="setChar('Q')">Q</li>
+    <li class="{{isDisabled('R')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'R' }" (click)="setChar('R')">R</li>
+    <li class="{{isDisabled('S')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'S' }" (click)="setChar('S')">S</li>
+    <li class="{{isDisabled('T')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'T' }" (click)="setChar('T')">T</li>
+    <li class="{{isDisabled('U')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'U' }" (click)="setChar('U')" >U</li>
+    <li class="{{isDisabled('V')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'V' }" (click)="setChar('V')">V</li>
+    <li class="{{isDisabled('W')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'W' }" (click)="setChar('W')">W</li>
+    <li class="{{isDisabled('X')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'X' }" (click)="setChar('X')">X</li>
+    <li class="{{isDisabled('Y')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'Y' }" (click)="setChar('Y')" >Y</li>
+    <li class="{{isDisabled('Z')?'disabled':''}}" [ngClass]="{'active': defaultChar === 'Z' }" (click)="setChar('Z')">Z</li>
+    <!--<div>Show All</div>-->
+  </div>
+</div>
+
+<div class="country-search-wrap">
+  <section class="country-search">
+    <div class="container">
+      <div class="col-lg-8 col-md-12 mx-auto">
+        <div class="search-input">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text caret bg-white border-right-0">
+                <div (click)="openFlagDropDown()" class="select_top1">
+                  <img
+                    src="./../../assets/images/blank.gif"
+                    alt="flag"
+                    width="30"
+                    height="20"
+                    [ngClass]="
+                      'flag flag-f-' + currentSetting?.country?.CountryId
+                    "
+                  />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down ml-2" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+                </div>
+                <div class="flag_list1" *ngIf="showDropdown">
+                  <ul>
+                    <li
+                      *ngFor="let item of countryFrom"
+                      (click)="onSelectCountrFrom(item)"
+                    >
+                      <span>
+                        <img
+                          src="./../../assets/images/blank.gif"
+                          alt="flag"
+                          width="30"
+                          height="20"
+                          [ngClass]="'flag flag-f-' + item.CountryId"
+                        />
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </span>
+            </div>
+            <input
+              type="text"
+              placeholder="Where do you wish to call?"
+              class="form-control form-control-lg border-right-0 border-left-0"
+              aria-label="State"
+              id="searchInput"
+              [matAutocomplete]="auto"
+              [formControl]="autoControl"
+              ng-placeholder="State"
+              (focusout)="onClickInput()"
+              (focus)="onInputFocus()"
+            />
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option
+                *ngFor="let option of filteredCountry | async"
+                [value]="option"
+                (onSelectionChange)="
+                  viewRates($event, option.CountryToId, option)
+                "
+              >
+                <img
+                  class="example-option-img"
+                  src="./../../assets/images/blank.gif"
+                  aria-hidden
+                  [ngClass]="'flag flag-' + option.CountryToId"
+                  height="25"
+                />
+                <span class="width70">{{ option.CountryToName }}</span>
+              </mat-option>
+            </mat-autocomplete>
+            <div class="input-group-append">
+              <span class="input-group-text border-left-0 bg-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- country search section end here -->
+
+  <section class="country-search">
+    <div class="container">
+      <div class="countries_row">
+        <table class="{{tblClass}}">
+            <thead>
+                <tr>
+                    <td>Country</td>
+                    <td>{{currSymbol()}}<span class="lg">2</span> <span>Was <span class="csm">{{currSymbol()}}4</span></span></td>
+                    <td>{{currSymbol()}}<span class="lg">3</span> <span>Was <span class="csm">{{currSymbol()}}6</span></span></td>
+                    <td>{{currSymbol()}}<span class="lg">5</span> <span>Was <span class="csm">{{currSymbol()}}10</span></span></td>
+                </tr>
+                <tr *ngIf="tblClass == 'two_column' ">
+                  <td>Country</td>
+                  <td>{{currSymbol()}}<span class="lg">2</span> <span>Was <span class="csm">{{currSymbol()}}4</span></span></td>
+                  <td>{{currSymbol()}}<span class="lg">3</span> <span>Was <span class="csm">{{currSymbol()}}6</span></span></td>
+                  <td>{{currSymbol()}}<span class="lg">5</span> <span>Was <span class="csm">{{currSymbol()}}10</span></span></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of limitDenomination; let i = index">
+                    <td>{{item.CountryToName}}
+                    <br />
+                    <span class="sm">From<br> {{ item.RatePerMin | sCurrency : item.CurrencyCode}} / min</span>
+                    </td>
+                    <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{item.FreeMin*2 | number:'1.0-0'}} mins</p></td>
+                    <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{item.FreeMin*3 | number:'1.0-0'}} mins</p></td>
+                    <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{item.FreeMin*5 | number:'1.0-0'}} mins</p></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- <div
+          class="col-xl-3 col-md-4 countries"
+          *ngFor="let option of displayedRecords; let i = index"
+        >
+        {{option|json}}
+          <div class="country-box" >
+            <div class="country-flag">
+              <div class="div">
+
+                <img
+                src="./../../assets/images/flag/{{
+                  getImageName(option.CountryToName) | lowercase
+                }}.png"
+              />
+              </div>
+              <div class="country-name">{{ option.CountryToName }}</div>
+            </div>
+            <div class="country-rate">
+              <span>From</span> {{ option.RatePerMin | sCurrency : option.CurrencyCode}} <span>/ min</span>
+            </div>
+            <button
+              class="view-details-btn"
+              (click)="showPopup(option.CountryToId, option)"
+            >
+              VIEW Details
+            </button>
+          </div>
+        </div> -->
+      </div>
+
+      <!-- <div class="col-6 col-md-4 col-xl-3 col-lg-4">
+        <button *ngFor="let page of totalPages" (click)="onPageChange(page)" class="{{getSelected(page)}}">
+          {{ page }}
+        </button>
+      </div> -->
+      </div>
+  </section>
+</div>
+</div>

@@ -6,14 +6,9 @@ import { AnonomysOnlyGuard } from './core/guards/anonomys-only.guard';
 import { HomepageComponent } from './home/homepage/homepage.component';
 import { MobiledealsComponent } from './mobiledeals/mobiledeals.component';
 
-//import { LearnmoreComponent } from './globalrates/learnmore/learnmore.component';
-
-//import { CreateInstanceComponent } from './create-instance/create-instance.component';
-
 import { Page404Component } from './page404/page404.component';
 import { Buy5get5Component } from './deals/pages/buy5get5/buy5get5.component';
-
- import { AutoLoginComponent } from './auto-login/auto-login.component';
+import { AutoLoginComponent } from './auto-login/auto-login.component';
 import { GlobalCallratesComponent } from './global-callrates/global-callrates.component';
 import { GlobalcallComponent } from './globalcall/globalcall.component';
 //import { BuyFiveGetFiveComponent } from './buy-five-get-five/buy-five-get-five.component';

@@ -116,8 +116,6 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
     this.SubCardId = inputData.custom.SubCardId;
     this.oneFreemin = this.FreeMin/this.Price;
 
-     console.log(inputData.data);
-     console.log(inputData.custom);
       
 
   }

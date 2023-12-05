@@ -31,6 +31,7 @@ import { Event, NavigationStart, NavigationError } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
 import { PreviousRouteService } from '../services/previous-route.service';
+import { TryUsFreeComponent } from '../dialog/try-us-free/try-us-free.component';
 
 @Component({
   selector: 'app-header',
@@ -130,7 +131,23 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     // https://material.angular.io/components/dialog/overview
     const modalDialog = this.matDialog.open(LoginpopupComponent, dialogConfig);
   }
-
+  try_us_free()
+  {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.panelClass = "tryUsFree";
+    dialogConfig.width = "100%";
+    dialogConfig.height = "90%";
+    dialogConfig.data = {
+      name: "logout",
+      title: "Are you sure you want to logout?",
+      description: "Pretend this is a convincing argument on why you shouldn't logout :)",
+      actionButtonText: "Logout",
+    }
+    const modalDialog = this.matDialog.open(TryUsFreeComponent, dialogConfig);
+  }
   ngOnInit() {
 
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
@@ -147,7 +164,11 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
 
     localStorage.setItem('last_page', event.url);
 
+<<<<<<< HEAD
     if(event.url == '/' || event.url == '/mobileapp' || event.url.includes('/p/'))
+=======
+    if(event.url == '/' || event.url == '/mobileapp' || event.url == '/p')
+>>>>>>> a96e3f2816a4ab06f499813b1de6829938366065
     {
       this.showHeader = true;
       this.showMyaccontHeader = false;
@@ -192,6 +213,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
       // }
       this.showHeader = false;
     }
+
+     
 
     else {
       this.showHeader = false;
@@ -248,7 +271,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     })
   }
   filterListing(){
-   
+
     this.filteredCountry = this.autoControl.valueChanges
       .pipe(
         startWith<string | any>(''),

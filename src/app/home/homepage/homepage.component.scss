@@ -44,7 +44,7 @@
   }
 }
 .icon_holder1,.callAfrica, .callAsia, .callAsiaMb, .callAfricaMb,
-.homepage_bluearea .arrow, .homepage_bluearea .white .arrow, .mobileAppcommon_area::after  {
+.homepage_bluearea .arrow, .homepage_bluearea .white .arrow, .mobileAppcommon_area::after,.authorIcon, .app_store  {
   background-image: url(../../../assets/images/new_design_images/hp_sprites.png);
 }
 .homepage_bluearea {
@@ -102,6 +102,16 @@
       }
     }
 }
+.app_store {
+  width: 137px; height: 46px;
+  background-position: -140px -264px;
+  display: inline-block;
+  margin: 0 8px;
+  vertical-align: middle;
+  &.aplStore {
+    background-position: -1px -264px;
+  }
+}
 .homeBluecommon {
     padding: 50px 30px;
 }
@@ -126,8 +136,8 @@
     box-shadow: 25px 25px 65px 0px rgba(215, 228, 240, 1);
     background: #fff;
     .icon_holder1 {
-        height: 60px;
-        width: 60px;
+        height: 61px;
+        width: 61px;
         background-position: -187px -200px;
         &.goMyAcc {
           background-position: -125px -200px;
@@ -204,7 +214,7 @@
     }
     &.third::after {
         content: "";
-        width: 60px;
+        width: 61px;
         height: 51px;
         background-position: -200px -147px;
     }
@@ -1154,6 +1164,9 @@ h1.buy1get1-text:after {
           height: 620px;
         }
     }
+    .app_store {
+      margin: 0 3px;
+    }
     .carousel-caption {
       top: 0;
       left: 0;
@@ -1429,10 +1442,20 @@ h1.buy1get1-text:after {
     padding: 8px;
     border: 1px solid #fff;
     border-radius: 50%;
+    width: 62px;
+    height: 62px;
+    background-position: -1px -200px;
     display: none;
-      img {
-        border-radius: 50%;
-      }
+    &.twitter {
+      background-position: -63px -200px;
+    }
+    &.RazaAppIcon {
+      background-position: -1px -1px;
+      background-size: 158px;
+    }
+    img {
+      border-radius: 50%;
+    }
   }
 }
 

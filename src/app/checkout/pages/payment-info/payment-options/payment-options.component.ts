@@ -136,16 +136,16 @@ export class PaymentOptionsComponent implements OnInit {
 
   setCartPlanName()
   {
-    // let cardId = this.planInfo.CardId;
-    // let cardName = this.planInfo.CardName; 
-    // const cart: RechargeCheckoutModel  = this.currentCart as RechargeCheckoutModel ;
-    // cart.cardId =  cardId;
-    // cart.planId = this.planInfo.PlanId;
-    // cart.planName = cardName;
-    // cart.currencyCode = this.planInfo.CurrencyCode 
-    // cart.countryFrom  = this.planInfo.CountryFrom;
-    // this.checkoutService.setCurrentCart(cart);
-    // this.currentCart = this.route.parent.snapshot.data['cart'];
+    let cardId = this.planInfo.CardId;
+    let cardName = this.planInfo.CardName; 
+    const cart: RechargeCheckoutModel  = this.currentCart as RechargeCheckoutModel ;
+    cart.cardId =  cardId;
+    cart.planId = this.planInfo.PlanId;
+    cart.planName = cardName;
+    cart.currencyCode = this.planInfo.CurrencyCode 
+    cart.countryFrom  = this.planInfo.CountryFrom;
+    this.checkoutService.setCurrentCart(cart);
+    this.currentCart = this.route.parent.snapshot.data['cart'];
   }
   
 /*

@@ -9,7 +9,7 @@ import { GlobalRatesService } from '../globalrates.service';
 import { ApiErrorResponse } from '../../core/models/ApiErrorResponse';
 import { SearchRatesService } from '../../rates/searchrates.service';
 import { GlobalCallComponent } from '../../globalrates/global-call/global-call.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CountriesService } from '../../core/services/country.service';
 import { Country } from '../../core/models/country.model';
 import { RazaEnvironmentService } from '../../core/services/razaEnvironment.service';
@@ -35,6 +35,8 @@ import { ModalVideoComponent } from '../modal-video/modal-video.component';
 import { MetaTagsService } from '../../core/services/meta.service';
 import { PreviousRouteService } from '../../core/services/previous-route.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Buy1get1Component } from 'app/core/dialog/buy1get1/buy1get1.component';
+import { LowestRateComponent } from 'app/core/dialog/lowest-rate/lowest-rate.component';
 // import Splide from '@splidejs/splide';
 export class SomeModule { }
 // import{GoogleAnalyticsService} from '../../services/google-analytics.service';
@@ -593,4 +595,37 @@ window.scroll({
       }
   }
 
+
+  buyOnegetOne()
+  {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.panelClass = "tryUsFree";
+    dialogConfig.width = "100%";
+    dialogConfig.height = "90%";
+    dialogConfig.data = {
+      name: "buy1get1",
+      title: "Buy1 Get1", 
+    }
+    const modalDialog = this.dialog.open(Buy1get1Component, dialogConfig);
+  }
+
+  showLowestRates()
+  {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.panelClass = "tryUsFree";
+    dialogConfig.width = "100%";
+    dialogConfig.height = "90%";
+    dialogConfig.data = {
+      name: "Lowest rates",
+      title: "Lowest rates",
+       
+    }
+    const modalDialog = this.dialog.open(LowestRateComponent, dialogConfig);
+  }
 }

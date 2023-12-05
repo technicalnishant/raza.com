@@ -95,7 +95,8 @@
       </div>
 
       <div class="login">
-        <a *ngIf="!IsEnableloggedIn" routerLink="/freetrial" class="tryUsfree">Try us Free</a>
+        <!-- <a *ngIf="!IsEnableloggedIn" routerLink="/freetrial" class="tryUsfree">Try us Free</a> -->
+        <a *ngIf="!IsEnableloggedIn" (click)="try_us_free()" class="tryUsfree">Try us Free</a>
         <button *ngIf="!IsEnableloggedIn"  class="login_btn" (click)="openModal()">Login</button>
 
         <div [matMenuTriggerFor]="menu" class="login">
@@ -226,8 +227,9 @@
 
 
       <div class="login">
-        <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span>
-        <a *ngIf="!IsEnableloggedIn" routerLink="/freetrial" class="tryUsfree">Try us Free</a>
+        <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span> 
+        <!-- <a *ngIf="!IsEnableloggedIn" routerLink="/freetrial" class="tryUsfree">Try us Free</a> -->
+        <a *ngIf="!IsEnableloggedIn" (click)="try_us_free()" class="tryUsfree">Try us Free</a>
         <button *ngIf="!IsEnableloggedIn"  class="login_btn" (click)="openModal()">Login</button>
         <div class="login">
           <button *ngIf="IsEnableloggedIn"  mat-icon-button class="p-0" routerLink="/account"
