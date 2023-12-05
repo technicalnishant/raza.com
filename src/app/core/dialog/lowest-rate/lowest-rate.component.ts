@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-
-=======
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -24,21 +20,11 @@ import { CountriesService } from '../../../core/services/country.service';
 import { MetaTagsService } from 'app/core/services/meta.service';
 import { TryUsFreeComponent } from '../try-us-free/try-us-free.component';
 import { GlobalRatesService } from 'app/home/globalrates.service';
->>>>>>> a96e3f2816a4ab06f499813b1de6829938366065
 @Component({
   selector: 'app-lowest-rate',
   templateUrl: './lowest-rate.component.html',
   styleUrls: ['./lowest-rate.component.scss']
 })
-<<<<<<< HEAD
-export class LowestRateComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-=======
 export class LowestRateComponent implements OnInit, OnDestroy {
 
   filteredCountry: Observable<Country[]>;
@@ -306,5 +292,4 @@ export class LowestRateComponent implements OnInit, OnDestroy {
       this.tblClass = 'two_column';
     }
   }
->>>>>>> a96e3f2816a4ab06f499813b1de6829938366065
 }
