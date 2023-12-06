@@ -540,7 +540,7 @@ onClickAmountOption1(item: any, obj:any) {
   const model: RechargeCheckoutModel = new RechargeCheckoutModel();
 
   model.purchaseAmount = item;
-  model.couponCode = '';
+  model.couponCode = 'Buy1Get1';
   model.currencyCode = obj.CurrencyCode;
   model.cvv = '';
   model.planId = obj.PlanId

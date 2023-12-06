@@ -203,6 +203,7 @@ getClientTokenFunction():void{
             catchError(err => this.errorHandleService.handleHttpError(err))
         )
     }
+    
     getBraintreeToken()
     {
         return this.httpClient.get (`${Api.braintree.generateToken}`);

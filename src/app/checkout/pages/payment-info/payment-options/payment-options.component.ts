@@ -1,6 +1,6 @@
-import { ActivatedRoute } from '@angular/router';
-import { Observable} from "rxjs";
  
+import { Observable} from "rxjs";
+import { ActivatedRoute, Router } from '@angular/router';
 import { throwError as observableThrowError,  of, Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import * as braintree from 'braintree-web';
@@ -80,6 +80,7 @@ export class PaymentOptionsComponent implements OnInit {
     private scriptService: ScriptService,
     private authService: AuthenticationService,
     private route: ActivatedRoute,
+    private router: Router,
     private httpClient: HttpClient,
 	private braintreeService: BraintreeService,
   private checkoutService: CheckoutService,
@@ -93,9 +94,50 @@ export class PaymentOptionsComponent implements OnInit {
     this.promoCode = this.currentCart.couponCode;
     if(localStorage.getItem('promotionCode') != this.promoCode)
     this.promoCode = '';
+  
+      if (this.authService.isAuthenticated() && this.currentCart.couponCode == 'Buy1Get1') {
+        
+         this.planService.getStoredPlan(localStorage.getItem("login_no")).subscribe( 
+         
+         (res:any)=>{ 
+         
+            if(res.CardId && res.CardId !== 'undefined')
+           {
+               var obj =  {
+                 CouponCode: 'Buy1Get1',
+                 CardId: res.CardId,
+                 CountryFrom: res.CountryFrom,
+                 CountryTo: res.CountryTo,
+                 Price: 3,
+                 TransType: TransactionType.Recharge
+             }
+             
+             this.validateCoupon(obj).then((res: ValidateCouponCodeResponseModel) => {
+               if (res.Status) 
+               {
+                 
+               }
+               else
+               {
+                let error = new ErrorDialogModel();
+              error.header = 'Invalid Coupon Code';
+              error.message = 'This offer is available for New customers only. Kindly recharge your account or call customer service for assistance. Thank you!';
+              this.openErrorDialog(error);
+              this.router.navigate(['/account/overview']);
+                // alert("This offer is available for New customers only. Kindly recharge your account or call customer service for assistance. Thank you!");
+               }
+             
+             })
+           } 
+          
+         } );
+       }
 
     if(this.promoCode !='')
     {
+      
+
+
       let usersPlan = JSON.parse(localStorage.getItem("currentPlan"));
       if( usersPlan && usersPlan.CardId)
       {
@@ -117,6 +159,8 @@ export class PaymentOptionsComponent implements OnInit {
        } )
        
     }
+    
+
     
    
     //this.currentCart.transactiontype
