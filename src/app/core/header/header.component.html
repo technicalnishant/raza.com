@@ -76,10 +76,10 @@
 
               <span class="width30">
                 <img src="./../../assets/images/phone-icon.png" alt="icon" loading="lazy">
-                <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
+                <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency | async}} </span>
 
                 <img src="./../../assets/images/icon-landphone.png" alt="icon" loading="lazy">
-                <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency}} </span>
+                <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency | async}} </span>
 
               </span>
 
@@ -96,7 +96,7 @@
 
       <div class="login">
         <!-- <a *ngIf="!IsEnableloggedIn" routerLink="/freetrial" class="tryUsfree">Try us Free</a> -->
-        <a *ngIf="!IsEnableloggedIn" (click)="try_us_free()" class="tryUsfree">Try us Free</a>
+        <a *ngIf="!IsEnableloggedIn && currentSetting.currentCountryId <= 3" (click)="try_us_free()" class="tryUsfree">Try us Free</a>
         <button *ngIf="!IsEnableloggedIn"  class="login_btn" (click)="openModal()">Login</button>
 
         <div [matMenuTriggerFor]="menu" class="login">
@@ -190,7 +190,7 @@
 
         <li *ngIf="currentSetting.currentCountryId ==3" ><a routerLink="/deals/get-upto-1500">Deals</a></li>
 
-        <li *ngIf="currentSetting.country.CountryId !=3">
+        <li *ngIf="currentSetting.country.CountryId < 3">
           <a (click)="goTomobileTopup()">Mobile Topup</a>
         </li>
         <li><a (click)="clickRecharge()">Recharge</a></li>
@@ -229,7 +229,7 @@
       <div class="login">
         <span class="colorWhite" (click)="clickRecharge()"><em>RECHARGE</em></span> 
         <!-- <a *ngIf="!IsEnableloggedIn" routerLink="/freetrial" class="tryUsfree">Try us Free</a> -->
-        <a *ngIf="!IsEnableloggedIn" (click)="try_us_free()" class="tryUsfree">Try us Free</a>
+        <a *ngIf="!IsEnableloggedIn && currentSetting.currentCountryId <= 3" (click)="try_us_free()" class="tryUsfree">Try us Free</a>
         <button *ngIf="!IsEnableloggedIn"  class="login_btn" (click)="openModal()">Login</button>
         <div class="login">
           <button *ngIf="IsEnableloggedIn"  mat-icon-button class="p-0" routerLink="/account"

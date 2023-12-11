@@ -121,9 +121,11 @@ export class AuthenticationService {
 		switchMap(user => {
 		  if (user && user.access_token) {
 			if (body.phone) {
-			  var phoneno = /^\d{10}$/;
+			 // var phoneno = /^\d{10}$/;
+			  var phoneno = /^[0-9]+$/;
 			  let phoneOrEmail = body.phone;
-			  if (phoneOrEmail.match(phoneno)) {
+			  if (phoneOrEmail.match(phoneno)) 
+			  {
 				let phoneNumber = body.username;
 				let cleanedPhoneNumber = phoneNumber.replace(/\+/g, '');
 				localStorage.setItem("login_no", cleanedPhoneNumber);

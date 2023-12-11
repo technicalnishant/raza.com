@@ -133,6 +133,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   }
   try_us_free()
   {
+    
     const dialogConfig = new MatDialogConfig();
     // The user can't close the dialog by clicking outside its body
     dialogConfig.disableClose = true;

@@ -118,6 +118,10 @@ export class TryUsFreeComponent implements OnInit {
     this.metaTagsService.getMetaTagsData('freetrial');
     this.currenctSetting$ = this.razaEnvService.getCurrentSetting().subscribe(a => {
       this.currentSetting = a;
+      if(this.currentSetting.currentCountryId > 3)
+      {
+        this.closeIcon();
+      }
     });
 
    

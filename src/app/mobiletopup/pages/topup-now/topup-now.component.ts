@@ -112,6 +112,10 @@ export class TopupNowComponent implements OnInit, OnDestroy {
 
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
+      if(this.currentSetting.currentCountryId >= 3)
+      {
+        this.router.navigate(['/']);
+      }
     });
 
     // let country = this.countryFrom.filter(a=>a.CountryId == res.countryId);

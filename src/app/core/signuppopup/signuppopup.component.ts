@@ -154,17 +154,23 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
     let phoneToRegister: string = this.signUpForm.value.phoneOrEmail;
     //const country: Country = this.signUpForm.value.country;
     const country: Country = this.currentSetting.country;
+    
 
+    // if (phoneToRegister.startsWith(`+${country.CountryCode}`))
+    //   phoneToRegister = `+${phoneToRegister}`;
+    // else if (!phoneToRegister.startsWith(`+${country.CountryCode}`))
+    // phoneToRegister = `+${country.CountryCode}${phoneToRegister}`;
 
     if (!phoneToRegister.startsWith(`+${country.CountryCode}`))
-      phoneToRegister = `+${phoneToRegister}`;
-    else if (!phoneToRegister.startsWith(`+${country.CountryCode}`))
       phoneToRegister = `+${country.CountryCode}${phoneToRegister}`;
 
     if (!isValidPhoneOrEmail(phoneToRegister)) {
       this.signUpForm.controls['phoneOrEmail'].setErrors({ 'invalid_input': true });
       return;
     }
+    
+    
+
 
     this.isEmailOrPhoneExist(country.CountryCode, phoneToRegister).toPromise()
       .then(res => {
@@ -197,8 +203,13 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
     let phoneToRegister: string = this.signUpForm.value.phoneOrEmail;
     // const country: Country = this.signUpForm.value.country;
     const country: Country = this.currentSetting.country
+
+    if (!phoneToRegister.startsWith(`+${country.CountryCode}`))
+      phoneToRegister = `+${country.CountryCode}${phoneToRegister}`;
+
     this.registerUsingPhoneNumber(phoneToRegister, country);
   }
+  
   onOtpConfirmFormSubmit() {
     let phoneNumber = this.signUpForm.value.phoneOrEmail;
     let otpVal = this.signUpForm.value.otp;

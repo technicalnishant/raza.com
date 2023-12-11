@@ -64,7 +64,7 @@
                     <div class="footer_menu">
                         <ul>
                             <li><a routerLink="/searchrates">International calling</a></li>
-                            <li><a (click)="goTomobileTopup()" >Mobile Top-up</a></li>
+                            <li *ngIf="currentSetting.currentCountryId < 3" ><a (click)="goTomobileTopup()" >Mobile Top-up</a></li>
                             <li><a routerLink="/mobile-page">Raza Mobile App</a></li>
                         </ul>
                     </div>
@@ -77,7 +77,7 @@
                             <li><a routerLink="/searchrates">Search Rates</a></li>
                             <li><a routerLink="/faq">FAQs</a></li>
                             <li><a routerLink="/deals/buy1-get1">Buy1 Get1</a></li>
-                            <li><a routerLink="/freetrial">Try us Free</a></li>
+                            <li *ngIf="currentSetting.currentCountryId <= 3"><a routerLink="/freetrial">Try us Free</a></li>
 
                             <li><a *ngIf="IsEnableloggedIn" routerLink="/account/rewards">Refer a friend</a></li>
                             <li><a *ngIf="!IsEnableloggedIn" routerLink="/refer/reffer_a_friend">Refer a friend</a></li>
@@ -144,7 +144,7 @@
                             <li>
                                 <a routerLink="/sitemap">Sitemap</a>
                             </li>
-                            <li>
+                            <li *ngIf="currentSetting.currentCountryId < 3" >
                                 <a routerLink="/mobileterms">Mobile Top-up T &amp; C</a>
                             </li>
 

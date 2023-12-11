@@ -97,6 +97,10 @@ export class MobiletopupComponent implements OnInit, OnDestroy {
 
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
+      if(this.currentSetting.currentCountryId >= 3)
+      {
+        this.router.navigate(['/']);
+      }
     });
 	  
 	  this.pinnumber = (history.state.pin)?history.state.pin:'';

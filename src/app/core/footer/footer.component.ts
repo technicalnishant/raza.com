@@ -29,13 +29,23 @@ export class FooterComponent implements OnInit {
     }
 
     if (this.currentSetting.currentCountryId === 2) {
-      number = '1-(800) 550-3501'
+      number = '1-(800) 550-3501';
     }
 
     if (this.currentSetting.currentCountryId === 3) {
-      number = '+44-(800) 041-8192'
+      number = '+44-(800) 041-8192';
     }
 
+    if (this.currentSetting.currentCountryId === 20) 
+    {
+      number = '+61-(28) 3173403';
+    }
+
+    if (this.currentSetting.currentCountryId === 8) 
+    {
+      number = '+64 (9) 8844133';
+    }
+ 
     return number;
 
   }

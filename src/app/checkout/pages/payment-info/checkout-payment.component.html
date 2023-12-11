@@ -57,7 +57,7 @@
             </tr>
             <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
               <td >Discount (Buy1 Get1)&nbsp;<span class="discountBuy1Get1"></span></td>
-              <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode }} </span></td>
+              <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async}} </span></td>
             </tr>
             <tr *ngIf="currentCart?.couponCode != 'Buy1Get1'">
               <td>Purchase Amount</td>

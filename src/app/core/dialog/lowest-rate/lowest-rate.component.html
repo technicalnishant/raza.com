@@ -155,8 +155,8 @@
                     <tbody>
                         <tr *ngFor="let item of bindSearchRates; let i = index">
                             <td>{{item.CountryName}} </td>
-                            <td  (click)="viewRates(item.CountryId)"><span class="ratePer">{{ item.CallingRateMobile | sCurrency:currentCurrency }}</span></td>
-                            <td  (click)="viewRates(item.CountryId)"><span class="ratePer">{{ item.CallingRateLandline | sCurrency:currentCurrency }}</span></td>
+                            <td  (click)="viewRates(item.CountryId)"><span class="ratePer">{{ item.CallingRateMobile | sCurrency:currentCurrency | async}}</span></td>
+                            <td  (click)="viewRates(item.CountryId)"><span class="ratePer">{{ item.CallingRateLandline | sCurrency:currentCurrency | async}}</span></td>
                         </tr>
                     </tbody>
                 </table>
