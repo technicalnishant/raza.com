@@ -193,7 +193,7 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
     this.authService.sendOtpForRegister(phoneNumber, token).toPromise()
       .then(res => {
         //this.openOtpConfirmDialog(phoneNumber);
-       // this.dialog.open(OtpDialogComponent);
+       //this.dialog.open(OtpDialogComponent);
         this.showPinBox = true;
       });
     })
@@ -209,13 +209,17 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
 
     this.registerUsingPhoneNumber(phoneToRegister, country);
   }
-  
+
   onOtpConfirmFormSubmit() {
     let phoneNumber = this.signUpForm.value.phoneOrEmail;
+    const country: Country = this.currentSetting.country
+    if (!phoneNumber.startsWith(`+${country.CountryCode}`))
+    phoneNumber = `${country.CountryCode}${phoneNumber}`;
+
     let otpVal = this.signUpForm.value.otp;
     this.executeCaptcha('login').toPromise().then(token => {
       
-    this.authService.verifyOtp(this.signUpForm.value.phoneOrEmail, this.signUpForm.value.otp, token).toPromise()
+    this.authService.verifyOtp(phoneNumber, this.signUpForm.value.otp, token).toPromise()
       .then((res: boolean) => {
         
         if (res) {

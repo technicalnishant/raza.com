@@ -184,7 +184,7 @@
     <div class="containerNew">
         <div class="blue">
             <div class="col-md-4 homeBluecommon">
-                <a  (click)="goTomobileTopup()">
+                <a  (click)="goTomobileTopup()" *ngIf="currentSetting?.country?.CountryId <=3">
                     <div class="icon_holder1 mbTopUpMb">
                     </div>
                     <h3>Mobile Topup</h3>
@@ -192,6 +192,14 @@
                     <div class="arrow">
                     </div>
                 </a>
+                <a (click)="buyOnegetOne()" *ngIf="currentSetting?.country?.CountryId > 3">
+                  <div class="icon_holder1 mbTopUpMb">
+                  </div>
+                  <h3>Buy1 Get1</h3>
+                  <p>Send minutes to over 300 carriers in 120 countries</p>
+                  <div class="arrow">
+                  </div>
+              </a>
             </div>
         </div>
         <div class="white">
