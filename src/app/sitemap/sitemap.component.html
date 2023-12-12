@@ -110,7 +110,7 @@
                     <div class="col-md-4">
                         <ul class="list list-nobullet">
                             <li><a href="/deals/buy1-get1">Buy1Get1 free</a></li>
-                            <li><a href="/freetrial">Free trial</a></li>
+                            <li *ngIf="currentSetting.currentCountryId <= 3"><a href="/freetrial">Free trial</a></li>
                             <li><a href="/searchrates">Search Rates </a></li>
                             <li><a href="/callasia">Call Asia</a></li>
                             <li><a href="/callafrica">Call Africa</a></li>

@@ -3,7 +3,17 @@
     <h2>Call Us</h2>
     <h4>Toll free numbers</h4>
     <mat-dialog-content>
-    <div class="row commonPopupRow">
+
+        <div class="row commonPopupRow">
+            <div class="col-sm-4 callusRow" *ngFor="let country of contactDetails">
+              <h3>{{ country.country }}</h3>
+              <a *ngFor="let number of country.numbers" [href]="'tel:' + number">{{ number }}</a>
+              <qrcode [qrdata]="country.qrCodeData"></qrcode>
+            </div>
+          </div>
+
+
+    <!-- <div class="row commonPopupRow">
         <div class="col-sm-4 callusRow">
             <h3>United States</h3>
             <a href="tel:1-877.463.4233">1-877.463.4233</a>
@@ -18,7 +28,7 @@
         </div>
         <div class="col-sm-4 callusRow">
             <h3>England</h3>
-            <!--<a href="tel:+44 800-520-0329">+44 800-520-0329</a>-->
+          
 			<a href="tel:+44 800-041-8192">+44 800-041-8192</a>
             <a href="tel:+44 207-100-3090">+44 207-100-3090</a> 
             <qrcode qrdata="tel:+448000418192" ></qrcode> 
@@ -34,12 +44,12 @@
 
         <div class="col-sm-4 callusRow">
             <h3>Australia</h3>
-            <!--<a href="tel:+44 800-520-0329">+44 800-520-0329</a>-->
+            
 			<a href="tel:+64 9-884-4133">+64 (9) 8844133</a>
             
             <qrcode qrdata="tel:+6498844133" ></qrcode> 
         </div>
-    </div>
+    </div> -->
  
      
     </mat-dialog-content>

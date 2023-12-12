@@ -73,11 +73,11 @@
               </tr>
               <tr>
                 <td>Purchase Amount</td>
-                <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode }} </td>
+                <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode |async }} </td>
               </tr>
               <tr>
                 <td>Service Fee</td>
-                <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode }}</td>
+                <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode |async }}</td>
               </tr>
 
               <tr *ngIf="currentCart?.offerPercentage">
@@ -87,7 +87,7 @@
 
               <tr class="total">
                 <td>Total ({{currentCart?.currencyCode}})</td>
-                <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode}}</td>
+                <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode|async}}</td>
               </tr>
              <!--<tr class="total" *ngIf="currentCart?.couponCode">
                 <td>Promo Code </td>
