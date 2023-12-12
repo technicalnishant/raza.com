@@ -80,15 +80,15 @@
           <tbody>
             <tr>
               <td>Purchase Amount</td>
-              <td>{{ purchaseAmount | bCurrency }} </td>
+              <td>{{ purchaseAmount | bCurrency |async}} </td>
             </tr>
             <tr>
               <td>Service Fee</td>
-              <td>{{ serviceFee | bCurrency }}</td>
+              <td>{{ serviceFee | bCurrency |async}}</td>
             </tr>
             <tr class="total">
               <td>Total</td>
-              <td>{{totalAmount() | bCurrency }}</td>
+              <td>{{totalAmount() | bCurrency |async}}</td>
             </tr>
             <tr>
               <td>Order Id</td>

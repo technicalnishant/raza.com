@@ -85,7 +85,10 @@ export class ContactusComponent implements OnInit {
   }
 
   callUs() {
-    const dialogRef1 = this.dialog.open(CallUsComponent);
+    const dialogRef1 = this.dialog.open(CallUsComponent, {
+      data: { country: this.currentSetting.country.CountryId},
+      
+    });
     dialogRef1.afterClosed().subscribe(result => {
     });
   }
