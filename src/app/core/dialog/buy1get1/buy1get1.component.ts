@@ -653,10 +653,16 @@ currSymbol = ()=>
   {
     return "$"; 
   }
-  else{
+  else if(this.currentSetting.country.CountryId == 3){
     return  "£"
   }
   
+  else if(this.currentSetting.country.CountryId == 20 || this.currentSetting.country.CountryId == 8){
+    return  "$"
+  }
+  else if(this.currentSetting.country.CountryId == 26 ){
+    return  "P"
+  }
 
 }
 

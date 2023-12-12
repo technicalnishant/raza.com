@@ -192,14 +192,7 @@
                     <div class="arrow">
                     </div>
                 </a>
-                <a (click)="buyOnegetOne()" *ngIf="currentSetting?.country?.CountryId > 3">
-                  <div class="icon_holder1 mbTopUpMb">
-                  </div>
-                  <h3>Buy1 Get1</h3>
-                  <p>Send minutes to over 300 carriers in 120 countries</p>
-                  <div class="arrow">
-                  </div>
-              </a>
+                 
             </div>
         </div>
         <div class="white">
@@ -285,7 +278,7 @@
                     <p>Call directly through the app at super low rates.  Our rates are starting as low as 1¢ per/min.
                     </p>
                 </div>
-                <div class="mobileAppcommon_area third">
+                <div class="mobileAppcommon_area third" *ngIf="currentSetting?.country?.CountryId <=3">
                     <h4>International  Mobile Top-up</h4>
                     <p>Send top-ups to over 300 Operators through the app instantly. We deliver most recharges in Seconds!</p>
                 </div>
@@ -484,10 +477,16 @@
 <!-- -->
 <div class="streakBanner">
     <div class="backgroundTexture">
-        <div class="maintextarea">
+        <div class="maintextarea" *ngIf="currentSetting?.country?.CountryId <=3">
             <h4>Try it for free.<br /> It only takes 30 seconds to get started.</h4>
             <a href="#" [routerLink]="['/freetrial']" class="button orange-cta cta w-inline-block chrome">TRY NOW</a>
         </div>
+
+        <div class="maintextarea" *ngIf="currentSetting?.country?.CountryId > 3">
+          <h4>Buy1 Get1.<br /> It only takes 30 seconds to get started.</h4>
+          <a href="#" (click)="buyOnegetOne()" class="button orange-cta cta w-inline-block chrome">TRY NOW</a>
+      </div>
+
     </div>
 </div>
 <div class="streakBannerBottom">
