@@ -4002,6 +4002,9 @@ section.faq-section .mat-expansion-panel-body p {
         margin-right: 30px;
         display: inline-block;
         min-width: 85px;
+        @media only screen and (max-width: 650px) {
+          min-width: 52px;
+        }
     }
 }
 .recharge_block {
