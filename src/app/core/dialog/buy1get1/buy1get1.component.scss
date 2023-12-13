@@ -121,11 +121,12 @@
                 }
                 &.csm {
                     position: relative;
+                    display: inline-block;
                     &::before {
                         content: "";
                         position: absolute;
-                        top: -2px;
-                        right: 6px;
+                        top: -1px;
+                        right: 15%;
                         border: 1px solid red;
                         height: 20px;
                         transform: rotate(47deg);
