@@ -626,7 +626,7 @@ this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryI
 }
 async buyNow(obj:any, obj2:any, item) {
  
-  obj = this.getConvertedPrice(obj);
+  //obj = this.getConvertedPrice(obj);
  
   if(this.plan && this.plan.CardId)
   {
