@@ -145,15 +145,15 @@
             <thead>
                 <tr>
                     <td>Country</td>
-                    <td>{{currSymbol()}}<span class="lg">2</span> <span>Was <span class="csm">{{currSymbol()}}4</span></span></td>
-                    <td>{{currSymbol()}}<span class="lg">3</span> <span>Was <span class="csm">{{currSymbol()}}6</span></span></td>
-                    <td>{{currSymbol()}}<span class="lg">5</span> <span>Was <span class="csm">{{currSymbol()}}10</span></span></td>
+                    <td>{{currSymbol()}}<span class="lg">{{getConvertedPrice(2)}}</span> <span>Was <span class="csm">{{currSymbol()}}{{getConvertedPrice(4)}}</span></span></td>
+                    <td>{{currSymbol()}}<span class="lg">{{getConvertedPrice(3)}}</span> <span>Was <span class="csm">{{currSymbol()}}{{getConvertedPrice(6)}}</span></span></td>
+                    <td>{{currSymbol()}}<span class="lg">{{getConvertedPrice(5)}}</span> <span>Was <span class="csm">{{currSymbol()}}{{getConvertedPrice(10)}}</span></span></td>
                 </tr>
                 <tr *ngIf="tblClass == 'two_column' ">
                   <td>Country</td>
-                  <td>{{currSymbol()}}<span class="lg">2</span> <span>Was <span class="csm">{{currSymbol()}}4</span></span></td>
-                  <td>{{currSymbol()}}<span class="lg">3</span> <span>Was <span class="csm">{{currSymbol()}}6</span></span></td>
-                  <td>{{currSymbol()}}<span class="lg">5</span> <span>Was <span class="csm">{{currSymbol()}}10</span></span></td>
+                  <td>{{currSymbol()}}<span class="lg">{{getConvertedPrice(2)}}</span> <span>Was <span class="csm">{{currSymbol()}}{{getConvertedPrice(4)}}</span></span></td>
+                  <td>{{currSymbol()}}<span class="lg">{{getConvertedPrice(3)}}</span> <span>Was <span class="csm">{{currSymbol()}}{{getConvertedPrice(6)}}</span></span></td>
+                  <td>{{currSymbol()}}<span class="lg">{{getConvertedPrice(5)}}</span> <span>Was <span class="csm">{{currSymbol()}}{{getConvertedPrice(10)}}</span></span></td>
                 </tr>
             </thead>
             <tbody>

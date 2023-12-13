@@ -479,12 +479,12 @@
     <div class="backgroundTexture">
         <div class="maintextarea" *ngIf="currentSetting?.country?.CountryId <=3">
             <h4>Try it for free.<br /> It only takes 30 seconds to get started.</h4>
-            <a href="#" [routerLink]="['/freetrial']" class="button orange-cta cta w-inline-block chrome">TRY NOW</a>
+            <a  [routerLink]="['/freetrial']" class="button orange-cta cta w-inline-block chrome">TRY NOW</a>
         </div>
 
         <div class="maintextarea" *ngIf="currentSetting?.country?.CountryId > 3">
-          <h4>Buy1 Get1.<br /> It only takes 30 seconds to get started.</h4>
-          <a href="#" (click)="buyOnegetOne()" class="button orange-cta cta w-inline-block chrome">TRY NOW</a>
+          <h4>Buy 5 Get 5<br /> It only takes 60 seconds to get started.</h4>
+          <a href="javascript:void(0)" (click)="buyOnegetOne()" class="button orange-cta cta w-inline-block chrome">TRY NOW</a>
       </div>
 
     </div>

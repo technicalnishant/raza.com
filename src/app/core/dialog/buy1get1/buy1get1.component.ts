@@ -113,6 +113,7 @@ export class Buy1get1Component implements OnInit {
     public dialog: MatDialog, 
     public dialogRef: MatDialogRef<Buy1get1Component>,
     
+    
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) { }
 
@@ -625,12 +626,12 @@ this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryI
 }
 async buyNow(obj:any, obj2:any, item) {
  
- 
+  obj = this.getConvertedPrice(obj);
  
   if(this.plan && this.plan.CardId)
   {
      
-   this.onClickAmountOption1(obj, this.plan);
+   await this.onClickAmountOption1(obj, this.plan);
   }
   else
   {
@@ -680,6 +681,10 @@ isDisabled(  char)
   
   }
 
+ getConvertedPrice(obj)
+  {
+    return this.razaEnvService.getFormatedPrice(obj)
+  }
 
   }
   
