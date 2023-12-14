@@ -1,6 +1,14 @@
 .callusRow.australia_new {
   margin-top: 35px;
 }
+.commonPopupRow.callUs {
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+   a {
+      outline: none;
+   }
+}
 @media only screen and (max-width:768px){
   ::ng-deep {
     .cdk-overlay-pane {
@@ -13,5 +21,10 @@
   }
   .callusRow.australia_new {
     margin-top: 5px;
+  }
+}
+@media (max-width: 576px) {
+  .callusRow {
+      border-right: none;
   }
 }
