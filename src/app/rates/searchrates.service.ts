@@ -63,7 +63,7 @@ export class SearchRatesService {
         }
 
         public getPopularRates(countryFromId: number): Observable<PopularRate[] | ApiErrorResponse> {
-                return this.httpClient.get<PopularRate[]>(`${Api.rates.getPopularRates} ${countryFromId}`)
+                return this.httpClient.get<PopularRate[]>(`${Api.rates.getPopularRates}${countryFromId}`)
                         .pipe(
                                 catchError(err => this.handleHttpError(err))
                         );

@@ -867,7 +867,10 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
     this.enteredEmail = this.loginForm.value.username;
     this.loginForm.controls['username'].setValue(this.enteredPhone);
    }
-   this.loginForm.controls['username'].setValue('');
+    
+   this.rememberMe = false;
+  this.loginForm.controls['username'].setValue('');
+  this.loginForm.controls['password'].setValue('');
    //email phone
    //enteredPhone:number;
   //enteredEmail:string;
