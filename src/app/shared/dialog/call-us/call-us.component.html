@@ -5,7 +5,7 @@
     <mat-dialog-content>
 
         <div class="row commonPopupRow">
-            <div class="col-sm-4 callusRow" *ngFor="let country of contactDetails">
+            <div class="col-sm-4 callusRow" *ngFor="let country of filteredContacts">
               <h3>{{ country.country }}</h3>
               <a *ngFor="let number of country.numbers" [href]="'tel:' + number">{{ number }}</a>
               <qrcode [qrdata]="country.qrCodeData"></qrcode>

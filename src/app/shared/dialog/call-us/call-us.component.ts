@@ -8,6 +8,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class CallUsComponent {
   country_id:number=1;
+  filteredContacts:any = [{
+    country_id: 1,
+    country: "United States",
+    numbers: [
+        "1-877.463.4233",
+        "1-773.792.8150"
+    ],
+    qrCodeData: "tel:+18774634233"
+}];
 
    contactDetails:any = [
     {
@@ -72,6 +81,13 @@ export class CallUsComponent {
               return 0; // Preserve the order for other elements
           }
         });
+
+
+        this.filteredContacts = this.contactDetails.filter(contact => {
+          return contact.country_id === this.data.country;
+        });
+
+        console.log('this.filteredContacts', this.filteredContacts)
 
     }
   closeIcon(): void {

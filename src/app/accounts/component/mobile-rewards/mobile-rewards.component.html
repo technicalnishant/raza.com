@@ -4,8 +4,8 @@
   
       <mat-tab label="Raza Reward">
         <div *ngIf="isenableEnroll"><br /><br />
-          <p *ngIf="county_id==1" class="desc">Click to enroll and get 200 points instantly. <br />Get {{enrollAmount| bCurrency : plan?.CurrencyCode}} FREE worth of minutes for every 1000 points redeemed.</p>
-              <p *ngIf="county_id!=1" class="desc">Click to enroll and get 200 points instantly. <br />Get {{enrollAmount| bCurrency : plan?.CurrencyCode}} FREE worth of minutes for every 1100 points redeemed.
+          <p *ngIf="county_id==1" class="desc">Click to enroll and get 200 points instantly. <br />Get {{enrollAmount| bCurrency : plan?.CurrencyCode | async}} FREE worth of minutes for every 1000 points redeemed.</p>
+              <p *ngIf="county_id!=1" class="desc">Click to enroll and get 200 points instantly. <br />Get {{enrollAmount| bCurrency : plan?.CurrencyCode | async}} FREE worth of minutes for every 1100 points redeemed.
             </p>
             
              <!--<p  class="desc">Click enroll to earn 200 free points,
