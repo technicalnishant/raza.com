@@ -974,10 +974,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   }
 
 
-  keyPressEvent(event, index) {
-    
-
-  }
+  keyPressEvent(event, index) { }
 
   resendCode()
   {

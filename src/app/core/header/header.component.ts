@@ -32,6 +32,7 @@ import { filter } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
 import { PreviousRouteService } from '../services/previous-route.service';
 import { TryUsFreeComponent } from '../dialog/try-us-free/try-us-free.component';
+import { RazaSnackBarService } from 'app/shared/razaSnackbar.service';
 
 @Component({
   selector: 'app-header',
@@ -97,7 +98,8 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     private searchRatesService: SearchRatesService,
     private globalRatesService: GlobalRatesService,
     public platform: Platform,
-
+    private snackbar: RazaSnackBarService,
+    
   )
   {
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
@@ -552,6 +554,11 @@ onClickClose(icon)
     } else {
       this.showDropdown = true;
     }
+   }
+   else
+   {
+    
+    this.snackbar._openSnackBar("You're currently logged in. In order to change your calling country, Please log out and try again.","error");
    }
     
   }

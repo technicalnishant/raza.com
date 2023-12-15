@@ -21,7 +21,7 @@
                         <div class="wallet-amount">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="wallet-msg">Purchase Amount</div>
-                                <div class="wallet__amount">{{ order_amount | bCurrency : currency_code }}</div>
+                                <div class="wallet__amount">{{ order_amount | bCurrency : currency_code | async}}</div>
                             </div>
 
                             
