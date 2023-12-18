@@ -1,30 +1,58 @@
 <div class="form_holder commonPopup callUsPopup">
-    <span class="closeIconContactUs" (click)="closeIcon()"><i  mat-dialog-close class="material-icons">close</i></span> 
+    <span class="closeIconContactUs" (click)="closeIcon()"><i  mat-dialog-close class="material-icons">close</i></span>
     <h2>Call Us</h2>
     <h4>Toll free numbers</h4>
     <mat-dialog-content>
-    <div class="row commonPopupRow">
-        <div class="col-sm-4 callusRow"> 
+
+        <div class="row commonPopupRow callUs" *ngFor="let country of filteredContacts">
+            <div class="col-sm-4 callusRow">
+              <h3>{{ country.country }}</h3>
+              <a *ngFor="let number of country.numbers" [href]="'tel:' + number">{{ number }}</a>
+            </div>
+            <div class="col-sm-4 callusRow">
+              <qrcode [qrdata]="country.qrCodeData"></qrcode>
+            </div>
+          </div>
+
+
+    <!-- <div class="row commonPopupRow">
+        <div class="col-sm-4 callusRow">
             <h3>United States</h3>
             <a href="tel:1-877.463.4233">1-877.463.4233</a>
-            <a href="tel:1-773.792.8150">1-773.792.8150</a>   
+            <a href="tel:1-773.792.8150">1-773.792.8150</a>
             <qrcode qrdata="tel:+18774634233"></qrcode>
         </div>
         <div class="col-sm-4 callusRow">
             <h3>Canada</h3>
             <a href="tel:1-800.550.3501">1-800.550.3501</a>
-            <a href="tel:1-416-746-9797">1-416-746-9797</a>   
+            <a href="tel:1-416-746-9797">1-416-746-9797</a>
             <qrcode qrdata="tel:+18005503501"></qrcode>
         </div>
         <div class="col-sm-4 callusRow">
             <h3>England</h3>
-            <!--<a href="tel:+44 800-520-0329">+44 800-520-0329</a>-->
+
 			<a href="tel:+44 800-041-8192">+44 800-041-8192</a>
-            <a href="tel:+44 207-100-3090">+44 207-100-3090</a> 
-            <qrcode qrdata="tel:+448000418192" ></qrcode> 
+            <a href="tel:+44 207-100-3090">+44 207-100-3090</a>
+            <qrcode qrdata="tel:+448000418192" ></qrcode>
         </div>
-    </div>
-    
-    
+
+        <div class="col-sm-4 callusRow">
+            <h3>New Zealand</h3>
+
+
+            <a href="tel:+61 28-317-3403">+61-(28) 3173403</a>
+            <qrcode qrdata="tel:+61283173403" ></qrcode>
+        </div>
+
+        <div class="col-sm-4 callusRow">
+            <h3>Australia</h3>
+
+			<a href="tel:+64 9-884-4133">+64 (9) 8844133</a>
+
+            <qrcode qrdata="tel:+6498844133" ></qrcode>
+        </div>
+    </div> -->
+
+
     </mat-dialog-content>
 </div>
