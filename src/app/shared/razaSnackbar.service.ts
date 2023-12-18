@@ -31,7 +31,7 @@ export class RazaSnackBarService {
             verticalPosition: 'top',
             data: { message: message, closable: closable, type: type },
             panelClass: 'raza-notify-ribbon',
-            duration: closable ? null : 2000
+            duration: closable ? null : 8000
         }); 
          
     }

@@ -60,7 +60,7 @@
                 </div>
               </splide-slide>
 
-             <splide-slide>
+             <splide-slide *ngIf="currentSetting?.country?.CountryId < 3">
                 <div class="carousel-caption download">
                   <a routerLink="/mobile-page" >
                       <img loading="lazy" src="https://raza.com/assets/images/home_banner_new/mobile_app_us_ypncgi_new.webp" alt="img" width="636" height="689" class="img-fluid d-block d-md-none m-auto" *ngIf="currentSetting?.country?.CountryId != 3">

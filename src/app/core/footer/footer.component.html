@@ -64,7 +64,7 @@
                     <div class="footer_menu">
                         <ul>
                             <li><a routerLink="/searchrates">International calling</a></li>
-                            <li *ngIf="currentSetting.currentCountryId < 3" ><a (click)="goTomobileTopup()" >Mobile Top-up</a></li>
+                            <li ><a (click)="goTomobileTopup()" >Mobile Top-up</a></li>
                             <li><a routerLink="/mobile-page">Raza Mobile App</a></li>
                         </ul>
                     </div>
@@ -144,7 +144,7 @@
                             <li>
                                 <a routerLink="/sitemap">Sitemap</a>
                             </li>
-                            <li *ngIf="currentSetting.currentCountryId < 3" >
+                            <li >
                                 <a routerLink="/mobileterms">Mobile Top-up T &amp; C</a>
                             </li>
 
