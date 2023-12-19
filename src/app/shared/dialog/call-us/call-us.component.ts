@@ -1,3 +1,4 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CurrentSetting } from 'app/core/models/current-setting';
@@ -11,6 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class CallUsComponent {
   country_id:number=1;
+  isSmallScreen: boolean=false;
   currentSetting$: Subscription;
   currentSetting: CurrentSetting;
   selectedCountry = 1;
@@ -75,7 +77,8 @@ export class CallUsComponent {
   constructor(
     public dialogRef: MatDialogRef<CallUsComponent>,
     private razaEnvService: RazaEnvironmentService,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    private breakpointObserver: BreakpointObserver,
+    @Inject(MAT_DIALOG_DATA) public data: any) { this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');}
     ngOnInit() {
       
       // Sort the array based on the specific country_id

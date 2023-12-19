@@ -50,8 +50,8 @@
                 </li>
                 <li><a routerLink="/account/call-details/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">Call Details</a></li>
 
-                <!-- <li *ngIf="plan.IsAllowPinLess"> -->
-                  <li >
+                 <li *ngIf="plan.IsAllowPinLess"> 
+                   
                   <a routerLink="/account/mynumber/{{plan?.PlanId}}" (click)="getMyPlan()" routerLinkActive="active-link">My
                     Numbers</a></li>
                 <li *ngIf="currentSetting.currentCountryId <=3" ><a routerLink="/account/onetouchSetups/{{plan?.PlanId}}" routerLinkActive="active-link">One Touch

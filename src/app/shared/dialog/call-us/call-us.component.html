@@ -6,11 +6,12 @@
 
         <div class="row commonPopupRow callUs" *ngFor="let country of filteredContacts">
             <div class="col-sm-4 callusRow">
-              <h3>{{ country.country }}</h3>
+              <h3>{{ country.country }} </h3>
+            
               <a *ngFor="let number of country.numbers" [href]="'tel:' + number">{{ number }}</a>
             </div>
-            <div class="col-sm-4 callusRow">
-              <qrcode [qrdata]="country.qrCodeData"></qrcode>
+            <div class="col-sm-4 callusRow" *ngIf="!isSmallScreen">
+              <qrcode [qrdata]="country.qrCodeData"></qrcode> 
             </div>
           </div>
 
