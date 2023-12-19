@@ -362,6 +362,18 @@
         font-size: 20px;
         font-weight: 400;
     }
+    .ratingStar {
+        display: flex;
+        margin-top: 5px;
+    }
+    .rtStar {
+      background-image: url(../../../assets/images/icon/star.png);
+      background-size: 14px;
+      background-repeat: no-repeat;
+      width: 15px;
+      height: 15px;
+      margin-right: 5px;
+    }
 }
 .activeArea {
     padding-bottom: 15px;
