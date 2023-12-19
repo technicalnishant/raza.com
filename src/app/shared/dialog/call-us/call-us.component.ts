@@ -1,5 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CurrentSetting } from 'app/core/models/current-setting';
+import { RazaEnvironmentService } from 'app/core/services/razaEnvironment.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-call-us',
@@ -8,6 +11,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class CallUsComponent {
   country_id:number=1;
+  currentSetting$: Subscription;
+  currentSetting: CurrentSetting;
+  selectedCountry = 1;
   filteredContacts:any = [{
     country_id: 1,
     country: "United States",
@@ -68,24 +74,35 @@ export class CallUsComponent {
 
   constructor(
     public dialogRef: MatDialogRef<CallUsComponent>,
+    private razaEnvService: RazaEnvironmentService,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
     ngOnInit() {
       
       // Sort the array based on the specific country_id
-        this.contactDetails.sort((a, b) => {
-          if (a.country_id === this.data.country) {
-              return -1; // Place 'a' (specificCountryId) at the beginning
-          } else if (b.country_id === this.data.country) {
-              return 1; // Place 'b' (specificCountryId) at the beginning
-          } else {
-              return 0; // Preserve the order for other elements
-          }
+        // this.contactDetails.sort((a, b) => {
+        //   if (a.country_id === this.data.country) {
+        //       return -1; // Place 'a' (specificCountryId) at the beginning
+        //   } else if (b.country_id === this.data.country) {
+        //       return 1; // Place 'b' (specificCountryId) at the beginning
+        //   } else {
+        //       return 0; // Preserve the order for other elements
+        //   }
+        // });
+        this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
+          this.currentSetting = res;
+          this.selectedCountry = res.currentCountryId;
+
+          this.filteredContacts = this.contactDetails.filter(contact => {
+            //  return contact.country_id === this.data.country;
+              return contact.country_id === this.selectedCountry;
+            });
+
         });
 
-
-        this.filteredContacts = this.contactDetails.filter(contact => {
-          return contact.country_id === this.data.country;
-        });
+        // this.filteredContacts = this.contactDetails.filter(contact => {
+        // //  return contact.country_id === this.data.country;
+        //   return contact.country_id === this.selectedCountry;
+        // });
 
         console.log('this.filteredContacts', this.filteredContacts)
 
