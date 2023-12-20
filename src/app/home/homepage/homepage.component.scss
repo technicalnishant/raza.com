@@ -43,6 +43,32 @@
     margin-right: 45px;
   }
 }
+.carousel-caption.tpSlider_promo {
+  left: 0;
+  right: 0;
+  background-image: url(../../../assets/images/home_banner_new/promo/ch23.webp);
+  background-position: bottom -65px center;
+  bottom: 0;
+  img {
+    width: 1200px;
+    max-width: 90%;
+    margin: 0 auto;
+    @media only screen  and (max-width: 767px) {
+      max-width: 185px;
+      margin-top: 50px;
+      &.ch23-uk {
+        max-width: 250px;
+        margin-top: 70px;
+      }
+    }
+  }
+  @media only screen  and (max-width: 767px) {
+    background-image: url(../../../assets/images/home_banner_new/promo/ch23-mobile.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+  }
+}
 .icon_holder1,.callAfrica, .callAsia, .callAsiaMb, .callAfricaMb,
 .homepage_bluearea .arrow, .homepage_bluearea .white .arrow, .mobileAppcommon_area::after,.authorIcon, .app_store  {
   background-image: url(../../../assets/images/new_design_images/hp_sprites.png);
@@ -818,11 +844,11 @@ a {
 
 // Diwali promo css
 .diwali_strip {
-  margin-top: 10px;
-  background-image: url(../../../assets/images/home_banner_new/promo/banner.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 165px;
+  // margin-top: 10px;
+  // background-image: url(../../../assets/images/home_banner_new/promo/banner.jpg);
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // height: 165px;
   @media only screen  and (max-width: 600px) {
     height: 180px;
     background-size: cover;

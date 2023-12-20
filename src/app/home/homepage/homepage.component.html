@@ -1,6 +1,6 @@
 <div class="first_fold">
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
-            <div class="diwali_strip" >
+            <!-- <div class="diwali_strip" >
               <div class="viyaFireworWrap">
                 <div class="viyaWrap">
                   <img src="../../../assets/images/home_banner_new/promo/left.gif" />
@@ -16,9 +16,19 @@
                   <img src="../../../assets/images/home_banner_new/promo/right.gif" />
                 </div>
               </div>
-            </div>  
+            </div>   -->
 
             <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
+            <splide-slide>
+              <div class="carousel-caption tpSlider_promo">
+                <a (click)="onopenchristmas(typedEl)">
+                  <img src="../../../assets/images/home_banner_new/promo/ch23Top.webp" *ngIf="currentSetting?.country?.CountryId != 3" class="d-none d-md-block" />
+                  <img src="../../../assets/images/home_banner_new/promo/ch23-mobile-top.webp" *ngIf="currentSetting?.country?.CountryId != 3" class="showMobileOnly" />
+                </a>
+                <img src="../../../assets/images/home_banner_new/promo/ch23-uk.webp" *ngIf="currentSetting?.country?.CountryId == 3" class="d-none d-md-block" />
+                <img src="../../../assets/images/home_banner_new/promo/ch23-uk-mobile2.webp" *ngIf="currentSetting?.country?.CountryId == 3" class="showMobileOnly ch23-uk" />
+              </div>
+            </splide-slide>
              <splide-slide>
                 <div class="sliderImg"></div>
                 <div class="carousel-caption tpSlider_1">
