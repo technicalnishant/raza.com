@@ -38,12 +38,13 @@ export class FooterComponent implements OnInit {
 
     if (this.currentSetting.currentCountryId === 20) 
     {
-      number = '+61-(28) 3173403';
+      number = '+64 (9) 8844133';
     }
 
     if (this.currentSetting.currentCountryId === 8) 
     {
-      number = '+64 (9) 8844133';
+      
+      number = '+61-(28) 3173403';
     }
  
     return number;
