@@ -44,7 +44,8 @@ export class CheckoutPaymentComponent implements OnInit, OnDestroy {
     private breakpointObserver: BreakpointObserver,
   ) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
 
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     this.currentCart = this.route.snapshot.data['cart'];
@@ -66,8 +67,7 @@ export class CheckoutPaymentComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnDestroy(): void {
-  }
+  ngOnDestroy(): void { }
 
   openPromoDialog() {
     const dialogOtpConfirm = this.dialog.open(RedeemPromoComponent,

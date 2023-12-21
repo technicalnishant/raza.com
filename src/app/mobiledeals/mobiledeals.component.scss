@@ -1,8 +1,8 @@
 @import "__variables";
 @import "__mixins";
 // deals tab css start here
-$promotion-desktop: url("../../assets/images/promotion/deals.png");
-$promotion-mobile: url("../../assets/images/promotion/mobile-deals-inner.png");
+//$promotion-desktop: url("../../assets/images/promotion/deals.png");
+//$promotion-mobile: url("../../assets/images/promotion/mobile-deals-inner.png");
 .Guyana{
     background-color: #ffe5e1;
 }
@@ -136,7 +136,7 @@ $promotion-mobile: url("../../assets/images/promotion/mobile-deals-inner.png");
 }
 
 .promotions {
-    background-image: $promotion-desktop;
+   // background-image: $promotion-desktop;
     background-size: contain;
     background-repeat: no-repeat;
     .note {
@@ -153,7 +153,7 @@ $promotion-mobile: url("../../assets/images/promotion/mobile-deals-inner.png");
 
 @include breakpoint(md) {
     .promotions {
-        background-image: $promotion-mobile;
+      //  background-image: $promotion-mobile;
         background-size: 100%;
         background-size: contain;
         background-position: bottom;
