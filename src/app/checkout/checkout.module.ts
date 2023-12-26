@@ -21,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { FreetrialConfirmationComponent } from './pages/freetrial-confirmation/freetrial-confirmation.component';
 import { MotoConfirmationComponent } from './pages/moto-confirmation/moto-confirmation.component';
+import { SetCartComponent } from './set-cart/set-cart.component';
 @NgModule({
   declarations: [
     CheckoutRegisterComponent,
@@ -34,6 +35,7 @@ import { MotoConfirmationComponent } from './pages/moto-confirmation/moto-confir
     MobileTopupConfirmationComponent,
     FreetrialConfirmationComponent,
     MotoConfirmationComponent,
+    SetCartComponent,
 
   ],
   imports: [

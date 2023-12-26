@@ -96,7 +96,7 @@ sliderAutoplay: boolean = true;
   contentLoaded: boolean = false;
   isFixHeader: boolean = false;
   //promtionCode:string='';
-  promtionCode:string='XMAS2023';
+  promtionCode:string='NY2024';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';
@@ -298,7 +298,6 @@ window.scroll({
       this.onopenPromotion();
 
     }
-
     
     localStorage.removeItem('IsMoto');
     localStorage.removeItem('moto_orderid')
