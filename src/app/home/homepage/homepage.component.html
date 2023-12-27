@@ -220,13 +220,13 @@
               <div class="snow"></div>
               <div class="snow"></div>
               <div class="snow"></div>
-              <div class="carousel-caption tpSlider_promo">
-                <a (click)="onopenchristmas(typedEl)">
-                  <img src="../../../assets/images/home_banner_new/promo/ch23Top.webp" *ngIf="currentSetting?.country?.CountryId != 3" class="d-none d-md-block" />
-                  <img src="../../../assets/images/home_banner_new/promo/ch23-mobile-top.webp" *ngIf="currentSetting?.country?.CountryId != 3" class="showMobileOnly" />
+              <div class="carousel-caption tpSlider_promo tpSlider_promo-{{currentSetting?.country?.CountryId}}">
+                <a (click)="onopenchristmas(typedEl)" *ngIf="currentSetting?.country?.CountryId != 3" class="ny23_top">
+                  <img src="../../../assets/images/home_banner_new/promo/ny23_top.png" *ngIf="currentSetting?.country?.CountryId != 3" class="d-none d-md-block" />
+                  <!-- <img src="../../../assets/images/home_banner_new/promo/ch23-mobile-top.webp" *ngIf="currentSetting?.country?.CountryId != 3" class="showMobileOnly" /> -->
                 </a>
                 <img src="../../../assets/images/home_banner_new/promo/ch23-uk.webp" *ngIf="currentSetting?.country?.CountryId == 3" class="d-none d-md-block" />
-                <img src="../../../assets/images/home_banner_new/promo/ch23-uk-mobile2.webp" *ngIf="currentSetting?.country?.CountryId == 3" class="showMobileOnly ch23-uk" />
+                <!-- <img src="../../../assets/images/home_banner_new/promo/ch23-uk-mobile2.webp" *ngIf="currentSetting?.country?.CountryId == 3" class="showMobileOnly ch23-uk" /> -->
               </div>
             </splide-slide>
              <splide-slide>
