@@ -1,4 +1,4 @@
-<div class="popup-wrapper pt-1 px-3 text-center" id="signupDilog">
+<div class="popup-wrapper pt-1 px-3 text-center" id="signupDilog" *ngIf="!processOtp">
   <h1 mat-dialog-title class="text-center" *ngIf="!reward_content">Let’s Keep Talking</h1>
   <h1 mat-dialog-title class="text-center" *ngIf="reward_content" >Raza Rewards</h1>
   <p class="text-center subtitle" *ngIf="!reward_content">
@@ -8,7 +8,7 @@
     It's never too late, enroll to Raza rewards today and get 200 bonus points.
   </p>
   <div mat-dialog-content>
-    <div class="example-container" *ngIf="!processOtp">
+    <div class="example-container" >
       <div mat-dialog-actions class="cancel">
         <button mat-dialog-close class="bg-white text-dark">
           <mat-icon class="text-dark">close</mat-icon>
@@ -102,74 +102,76 @@
     </div>
 
 
-    <div mat-dialog-content *ngIf="processOtp">
-      <div mat-dialog-actions class="cancel">
-      
-              <button class="bg-white" (click)="processClose()"><mat-icon class="text-dark">close</mat-icon></button>
-            </div>
-      <div *ngIf="invalidOtp!=''" class="error">{{invalidOtp}}</div>
     
-      <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions && loginWith == 'phone'">We just texted you</h1>
-       <p class="text-center subtitle" *ngIf="!moreOptions && loginWith == 'phone'">Please enter the verification code sent to</p>
-    
-       <h1 mat-dialog-title class="text-center" *ngIf="moreOptions && loginWith == 'phone'">Verify your phone number</h1>
-       <p class="text-center subtitle" *ngIf="moreOptions && loginWith == 'phone'">We'll text you at</p>
-       
-       <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions && loginWith == 'email'">Please enter the verification code sent to</h1>
-    
-        <h2 *ngIf="loginWith == 'phone'" >(+{{currentSetting.country.CountryCode}}) {{formattedNumber(enteredPhone)}}</h2>
-        <h2 *ngIf="loginWith == 'email'" >{{enteredPhone}}</h2>
-          <div> 
-            <a href="javascript:void(0)" *ngIf="loginWith == 'phone'" (click)="changeNumber()" class="changeNum">Change number</a>
-            <!-- <a href="javascript:void(0)" *ngIf="loginWith == 'email'" (click)="changeNumber()" class="changeNum">Change Email </a> -->
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          </div>
-          <div class="example-container forgotPasswordForm" *ngIf="!moreOptions">
-                <form name="forgotPasswordForm"  [formGroup]="form">
-                  
-                  
-                      
-                    <div class="row">
-                        <div class="form-group col-sm-2 col" *ngFor="let input of formInput;  index as i">
-                            <input #formRow autocomplete="on" type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)" autofocus>
-                          </div>
-                    </div>
-                    <p *ngIf="sendAgainMsg && loginWith == 'phone'" class="text_green" >A code has been sent to your mobile. Kindly check and enter it. </p>
-                    <p *ngIf="sendAgainMsg && loginWith == 'email'" class="text_green" >Code has been sent. Please check your email. </p>
-                    <div class="row titleTex">
-                     
-                       Didn’t get code? <a href="javascript:void(0)" (click)="sendOtpAgain();" class="sendAgain"> Send Again</a> 
-                    </div>
-                    
-                    <div class="row">
-                      <a href="javascript:void(0)" (click)="moreOptions=!moreOptions" class="moreOpt">More Options</a>
-                    </div>
-                  
-                  
-                  
-                </form>
-                
-          </div>
-    
-          <div class="example-container" *ngIf="moreOptions">
-    
-             <!-- <h3 class="options" (click)="chatWithUs()">Chat with us</h3>   -->
-             <h3 class="options" (click)="resendCode();processForgot(); moreOptions=!moreOptions" >Resend code</h3>  
-             <!-- <h3 class="options" >Email us</h3> -->
-              <h3 class="options" *ngIf="loginWith == 'phone'" (click)="processWith('email')">Login with email</h3>  
-             <h3 class="options" *ngIf="loginWith == 'email'" (click)="processWith('phone')">Login with phone</h3>    
-             <!-- <p></p> -->
-             <!-- <p>Or</p> -->
-             <div class="contact_div_wrap">
-                <div class="contact_div">
-                  <span class="phone_text"><a href="tel:+18774634233">1877-463-4233</a></span> 24/7
-                </div>
-    
-                 <!-- <p>Or</p>
-                  <h3 class="options" *ngIf="loginWith == 'phone'" (click)="processWith('email')">Login with Email</h3>  
-                  <h3 class="options" *ngIf="loginWith == 'email'" (click)="processWith('phone')">Login with Phone</h3>  -->
-              </div>
-          </div>
-      </div>
   </div>
+</div>
+
+<div class="popup-wrapper pt-1 px-3 text-center" id="signupDilog" *ngIf="processOtp">
+  <div mat-dialog-content >
+    <div mat-dialog-actions class="cancel">
+    
+            <button class="bg-white" (click)="processClose()"><mat-icon class="text-dark">close</mat-icon></button>
+          </div>
+    <div *ngIf="invalidOtp!=''" class="error">{{invalidOtp}}</div>
+  
+    <h1 mat-dialog-title class="text-center" *ngIf="!moreOptions">We just texted you</h1>
+     <p class="text-center subtitle" *ngIf="!moreOptions">Please enter the verification code sent to</p>
+  
+     <h1 mat-dialog-title class="text-center" *ngIf="moreOptions">Verify your phone number</h1>
+     <p class="text-center subtitle" *ngIf="moreOptions">We'll text you at</p>
+     
+    
+      <h2  >(+{{currentSetting.country.CountryCode}}) {{formattedNumber(enteredPhone)}}</h2>
+     
+        <div> 
+          <a href="javascript:void(0)" (click)="changeNumber()" class="changeNum">Change number</a>
+          <!-- <a href="javascript:void(0)" *ngIf="loginWith == 'email'" (click)="changeNumber()" class="changeNum">Change Email </a> -->
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </div>
+        <div class="example-container forgotPasswordForm" *ngIf="!moreOptions">
+              <form name="forgotPasswordForm"  [formGroup]="form">
+                
+                
+                    
+                  <div class="row">
+                      <div class="form-group col-sm-2 col" *ngFor="let input of formInput;  index as i">
+                          <input #formRow autocomplete="on" type="tel" formControlName="{{input}}" class="form-control" maxlength="1" (keypress)="keyPressEvent($event, i)" (keyup)="keyUpEvent($event, i)" autofocus>
+                        </div>
+                  </div>
+                  <p *ngIf="sendAgainMsg" class="text_green" >A code has been sent to your mobile. Kindly check and enter it. </p>
+                   <div class="row titleTex">
+                   
+                     Didn’t get code? <a href="javascript:void(0)" (click)="sendOtpAgain();" class="sendAgain"> Send Again</a> 
+                  </div>
+                  
+                  <div class="row">
+                    <a href="javascript:void(0)" (click)="moreOptions=!moreOptions" class="moreOpt">More Options</a>
+                  </div>
+                
+                
+                
+              </form>
+              
+        </div>
+  
+        <div class="example-container" *ngIf="moreOptions">
+  
+            <h3 class="options" (click)="chatWithUs()">Chat with us</h3>   
+           <h3 class="options" (click)="resendCode();processForgot(); moreOptions=!moreOptions" >Resend code</h3>  
+           <!-- <h3 class="options" >Email us</h3> -->
+          
+               
+           <!-- <p></p> -->
+           <!-- <p>Or</p> -->
+           <div class="contact_div_wrap">
+              <div class="contact_div">
+                <span class="phone_text"><a href="tel:+18774634233">1877-463-4233</a></span> 24/7
+              </div>
+  
+               <!-- <p>Or</p>
+                <h3 class="options" *ngIf="loginWith == 'phone'" (click)="processWith('email')">Login with Email</h3>  
+                <h3 class="options" *ngIf="loginWith == 'email'" (click)="processWith('phone')">Login with Phone</h3>  -->
+            </div>
+        </div>
+    </div>
 </div>
