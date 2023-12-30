@@ -10,8 +10,11 @@
             <span class="lock"><img src="../assets/images/lock_icon.png" alt="" /></span>
           </mat-form-field>
           <label>
-            <span class="floatRight pl-0 pl-lg-3 order-1 order-lg-0">
+            <span class="floatRight pl-0 pl-lg-3 order-1 order-lg-0" *ngIf="search_country_id !=2">
               <img src="../assets/images/credit_cards_icon.png" alt="" />
+            </span>
+            <span class="floatRight pl-0 pl-lg-3 order-1 order-lg-0" *ngIf="search_country_id == 2">
+              <img src="../assets/images/credit_cards_icon2.png" alt="" />
             </span>
           </label>
          </div>
