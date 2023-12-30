@@ -60,7 +60,7 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
    error_response:any='' 
    err_forgot_pass:any='' 
    rows: any;
-
+   enteredPhone:number;
   constructor(private router: Router,
     public dialogRef: MatDialogRef<SignuppopupComponent>,
     private route: ActivatedRoute,
@@ -164,10 +164,11 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
       return;
     }
 
-    let phoneToRegister: string = this.signUpForm.value.phoneOrEmail;
+    let phoneToRegister: any = this.signUpForm.value.phoneOrEmail;
     //const country: Country = this.signUpForm.value.country;
     const country: Country = this.currentSetting.country;
     let country_code:any = country.CountryCode;
+    this.enteredPhone = phoneToRegister;
     if (!phoneToRegister.startsWith(`+1`))
     {
       const firstThreeDigits: string = phoneToRegister.toString().slice(0, 3);
@@ -196,6 +197,7 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
 
     this.isEmailOrPhoneExist(country.CountryCode, phoneToRegister).toPromise()
       .then(res => {
+        
         this.registerUsingPhoneNumber(phoneToRegister, country);
       }).catch((err: ApiErrorResponse) => {
        
@@ -217,6 +219,7 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
          //this.openOtpConfirmDialog(phoneNumber);
         // this.dialog.open(OtpDialogComponent);
          //this.showPinBox = true;
+         
          this.processOtp = true;
       });
     })
@@ -448,5 +451,10 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
     this.signUpForm.controls['otp'].setValue(otp);
     this. onOtpConfirmFormSubmit ();
 
+  }
+
+  processClose()
+  {
+    this.processOtp = false;
   }
 }

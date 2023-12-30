@@ -174,6 +174,47 @@ $common-font-family: "Montserrat", sans-serif;
     }
   }
 }
+
+.signupDilogOtp.popup-wrapper {
+  h1 {
+    margin-bottom: 12px;
+    font-size: 24px;
+  }
+  p {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  input.form-control {
+      height: 60px;
+      background: #FFFFFF;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      box-shadow: none!important;
+      font-size: 30px;
+      color: #222;
+      font-weight: 600;
+      text-align: center;
+  }
+  .forgotPasswordForm form {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+  }
+  .row.titleTex {
+      font-weight: 500;
+      font-size: 15px;
+      color: #222;
+      margin-top: 20px;
+      margin-bottom: 10px;
+  }
+  a.moreOpt {
+      font-size: 15px;
+      color: #007bff;
+      font-weight: 500;
+  }
+}
+
 .full-width {
   width: 100%;
 }
@@ -464,7 +505,7 @@ a.resend {
       max-width: 100% !important;
     }
   }
-  
+
 .login-button{
   padding: 1px 19px;
   font-size: 14px;
