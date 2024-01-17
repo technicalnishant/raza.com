@@ -11,7 +11,7 @@ import { Overlay, BlockScrollStrategy } from '@angular/cdk/overlay';
 
 import { IPaypalCheckoutOrderInfo, ActivationOrderInfo, RechargeOrderInfo, ICheckoutOrderInfo, MobileTopupOrderInfo } from '../../../../payments/models/planOrderInfo.model';
 import { IOnApproveCallbackData, IPayPalConfig } from '../../../../payments/paypal/model/paypal.model';
-import { TransactionType } from '../../../../payments/models/transaction-request.model';
+import { TransactionRequest, TransactionType } from '../../../../payments/models/transaction-request.model';
 import { NewPlanCheckoutModel, ICheckoutModel, RechargeCheckoutModel } from '../../../models/checkout-model';
 import { PurchasePlanReqModel } from '../../../../purchase/models/purchase-plan-req.model';
 import { Country } from '../../../../core/models/country.model';
@@ -39,6 +39,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
  import { TransactionProcessBraintreeService } from "../../../../payments/services/transactionProcessBraintree";
 import { CheckoutService } from 'app/checkout/services/checkout.service';
 import { PlanService } from 'app/accounts/services/planService';
+import { MatTabChangeEvent } from "@angular/material/tabs";
+ 
+var Paypal_PaymentInstance: any;
+//var paypalInstance
+let paypalInstance: any; // Make sure to declare the appropriate type based on the object returned by braintree.paypalCheckout.create
+declare var paypal: any; // Declare the paypal variable
+
 export function scrollFactory(overlay: Overlay): () => BlockScrollStrategy {
   return () => overlay.scrollStrategies.block();
 }
@@ -86,11 +93,15 @@ export class PaymentOptionsComponent implements OnInit {
   private checkoutService: CheckoutService,
   private planService: PlanService,
      
-  ) { }
+  ) { 
+    this.braintreeToken = environment.payplaClientIdNew;
+  }
 
   ngOnInit() {
     this.currentCart = this.route.parent.snapshot.data['cart'];
-    
+
+   //console.log("Your cart is", this.currentCart);
+
     this.promoCode = this.currentCart.couponCode;
     if(localStorage.getItem('promotionCode') != this.promoCode)
     this.promoCode = '';
@@ -167,7 +178,7 @@ export class PaymentOptionsComponent implements OnInit {
 
     this.razaLayoutService.setFixedHeader(true);
  
-    this.initPaypalConfig();
+    //this.initPaypalConfig();
     this.razaLayoutService.setFixedHeader(true);
     this.isLoggedIn = this.authService.isAuthenticated();
     this.scriptService.cleanupAndRegisterScript(environment.songbirdJsUrl, 'Cardinal', (res) => {
@@ -178,7 +189,9 @@ export class PaymentOptionsComponent implements OnInit {
      
   }
 
-  setCartPlanName()
+
+
+  async setCartPlanName()
   {
     let cardId = this.planInfo.CardId;
     let cardName = this.planInfo.CardName; 
@@ -188,8 +201,12 @@ export class PaymentOptionsComponent implements OnInit {
     cart.planName = cardName;
     cart.currencyCode = this.planInfo.CurrencyCode 
     cart.countryFrom  = this.planInfo.CountryFrom;
-    this.checkoutService.setCurrentCart(cart);
+    await this.checkoutService.setCurrentCart(cart);
     this.currentCart = this.route.parent.snapshot.data['cart'];
+
+    console.log("Your plan is ", this.planInfo);
+    console.log("Your modified cart is ", cart);
+    console.log("Your cart is ", this.currentCart);
   }
   
 /*
@@ -447,7 +464,131 @@ export class PaymentOptionsComponent implements OnInit {
   return this.transactionService.getClientTokenFunction();
   }
 
+/***********************************/
+onTabClick(event: MatTabChangeEvent): void {
+  // Check if the clicked tab is the PayPal tab
+  if (event.tab.textLabel === 'PayPal') {
+    // Call the function or perform actions when the PayPal tab is clicked
+    this.createPayPalCheckoutButton(); // Replace 'initiateFunction' with your desired function
+  }
+}
 
+createPayPalCheckoutButton() {
+  var currency_Code         = this.currentCart.currencyCode;
+  var total_amount          = this.currentCart.totalAmount().toString(); 
+  var model_arr = this.currentCart;
+  var country= 'US';
+  if(currency_Code == 'USD')
+  country = 'US';
   
+  if(currency_Code == 'CAD') 
+  country = 'CA';
+  if(currency_Code == 'GBP')
+  country = 'GB';
 
+  if(currency_Code == 'AUD')
+  country = 'AU';
+
+  if(currency_Code == 'INR')
+  country = 'IN';
+
+  if(currency_Code == 'NZD')
+  country = 'NZ';
+
+  setTimeout(() => {
+    const self = this; 
+  braintree.client.create({
+    authorization: this.braintreeToken
+  }, (clientErr: any, clientInstance: any) => {
+    if (clientErr) {
+      console.error('Error creating client:', clientErr);
+      return;
+    }
+
+    braintree.paypalCheckout.create({
+      client: clientInstance
+    }, (paypalCheckoutErr: any, paypalCheckoutInstance: any) => {
+      if (paypalCheckoutErr) {
+        console.error('Error creating PayPal checkout:', paypalCheckoutErr);
+        return;
+      }
+
+      paypalCheckoutInstance.loadPayPalSDK({
+        currency: currency_Code,
+        intent: 'capture'
+      }, () => {
+        // Delay rendering until the SDK is loaded
+      
+        paypal.Buttons({
+          fundingSource: paypal.FUNDING.PAYPAL,
+
+          createOrder: () => {
+            return paypalCheckoutInstance.createPayment({
+              flow: 'checkout',
+              amount: total_amount,
+              currency: currency_Code,
+              intent: 'capture'
+            });
+          },
+
+          onApprove: function (data, actions) {
+            return paypalCheckoutInstance.tokenizePayment(data, function (err, payload) {
+              // Submit 'payload.nonce' to your server
+              console.log("Paypal detail after checkout", payload)
+              self.onPaypalPaymentApproveNew(payload)
+              
+            });
+          },
+  
+          
+          onCancel: function (data) {
+            console.log('PayPal payment cancelled', JSON.stringify(data));
+          },
+  
+          onError: function (err) {
+            console.error('PayPal error', err);
+          }
+
+          // Other callbacks: onShippingChange, onApprove, onCancel, onError
+
+        }).render('#paypal-button').then(() => {
+          console.log('PayPal button rendered successfully.');
+        });
+
+      
+      });
+    });
+  });
+
+}, 50);
+}
+
+    /* On paypal payment approve. */
+    onPaypalPaymentApproveNew(data: any): Promise<any> {
+    
+
+
+      
+      const payer_id = data.details.payerId;
+      const nonce = data.nonce
+
+    this.transactionService.generate(this.currentCart.getTransactionReqModel()).subscribe(
+      (res: TransactionRequest) => {
+
+        const checkOutOrderInfo: IPaypalCheckoutOrderInfo = {
+          checkoutCart: this.currentCart,
+          orderId: res.Order.OrderDetails.OrderNumber,
+          paypalPayerId: payer_id,
+          paymentTransactionId: res.Order.OrderDetails.OrderNumber
+        };
+        this.transactionProcessFacade.processPaypalTransaction(this.currentCart.transactiontype, checkOutOrderInfo, nonce);
+      }
+      );
+
+
+    return of(true).toPromise();
+    }
+    ngAfterViewInit() {
+    //this.createPayPalCheckoutButton()
+    }
   } 

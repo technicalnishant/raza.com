@@ -22,7 +22,7 @@ import { PaymentFailedDialogComponent } from "../dialogs/payment-failed-dialog/p
 import { MatDialog } from "@angular/material/dialog";
 import { IsCentinelBypassRequestModel } from "../models/isCentinelByPass-request.model";
 import { Plan } from "../../accounts/models/plan";
-import { PlanOrderInfo, ICheckoutOrderInfo } from "../models/planOrderInfo.model";
+import { PlanOrderInfo, ICheckoutOrderInfo, IPaypalCheckoutOrderInfo } from "../models/planOrderInfo.model";
 import { ValidateCouponCodeRequestModel, ValidateCouponCodeResponseModel } from "../models/validate-couponcode-request.model";
 import { AuthenticationService } from "../../core/services/auth.service";
 import { map } from 'rxjs/operators';
@@ -113,6 +113,9 @@ getClientTokenFunction():void{
         );
     }
     
+
+    
+
     processPaymentToBraintree(checkoutOrderInfo: ICheckoutOrderInfo): void {
 
         let transactionReq: TransactionRequest;
@@ -221,4 +224,7 @@ getClientTokenFunction():void{
         return data;
             }); */
     }
+
+
+ 
 }

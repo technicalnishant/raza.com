@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, NgModule } from '@angular/core';
+import { Component, OnInit, Injector, NgModule, ViewChildren } from '@angular/core';
 //import { TextMaskModule } from 'angular2-text-mask';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
@@ -55,11 +55,13 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
   showForgotPass:boolean=false;
   formInput = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6'];
   sendAgainMsg:boolean=false;
+  invalidOtpError:boolean=false;
   form: FormGroup;
    invalidOtp:any='' 
    error_response:any='' 
    err_forgot_pass:any='' 
-   rows: any;
+ 
+   @ViewChildren('formRow') rows: any;
    enteredPhone:number;
   constructor(private router: Router,
     public dialogRef: MatDialogRef<SignuppopupComponent>,
@@ -226,6 +228,7 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
   }
 
   resendOtp() {
+    this.invalidOtpError = false;
     let phoneToRegister: string = this.signUpForm.value.phoneOrEmail;
     // const country: Country = this.signUpForm.value.country;
     const country: Country = this.currentSetting.country
@@ -246,6 +249,7 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
           this.registerAndLoginUser(phoneNumber, otpVal);
         } else
          {
+            this.invalidOtpError = true;
           console.log("Invalid Otp.");
         }
       });
@@ -410,13 +414,15 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
   keyUpEvent(event, index) {
     this.invalidOtp = '';
     let pos = index;
+     
+    this.invalidOtpError = false;
    
     if ((event.keyCode === 8 && event.which === 8) || (event.keyCode === 37 && event.which === 37)) {
       pos = index - 1 ;
     } else {
       pos = index + 1 ;
     }
-    
+     
     if (pos > -1 && pos < this.formInput.length ) {
       this.rows._results[pos].nativeElement.focus();
       

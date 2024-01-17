@@ -487,8 +487,7 @@ export class GlobalcallComponent implements OnInit {
     {
        
       return this.toFixed1((item.Price/(item.TotalTime+item.PromoMinutes))*100)
-
-      
+ 
     }
     else{
     
@@ -614,11 +613,9 @@ getTotalMin1(item, price)
 
         //this.Plans = data.DiscountedPlans.Denominations;
         var data_arr = {};
-        
         var multi_data_arr = [];
         this.fileExists();
         this.getFlagName();
-
         this.viewAllRatesTab()
 
         
@@ -756,7 +753,7 @@ getTotalMin1(item, price)
   }
  
   filteredItems(price: number) {
-    //this.FilteredSubPlans = this.SubPlans.filter(a => a.Price == price); 
+     
     let plans_list = this.SubPlans;
     let plan_info = plans_list.filter(a => a.Price == price);
     plan_info = plan_info.sort((a, b) => {
@@ -775,6 +772,7 @@ getTotalMin1(item, price)
  
     return plan_info;
   }
+
   filterDetailRate(price: number) {
     //this.FilteredSubPlans = this.SubPlans.filter(a => a.Price == price); 
     let plan_info = this.SubPlans.filter(a => a.Price == this.selectedPrice);

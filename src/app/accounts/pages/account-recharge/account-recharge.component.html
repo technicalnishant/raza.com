@@ -98,15 +98,19 @@
 </div>
 <app-my-cards *ngIf="plan" [plan]="plan" [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentButtonTrigger($event)" > </app-my-cards>
   
-  <ng-container *ngIf="enablePaypalOption && showPaypal">
+  <ng-container *ngIf="enablePaypalOption">
   <div class="form_row1 paypal-box" >
     <div class="input_holder1">
       <div id="paypal-button-container" class="paypal-button-container">
-        <raza-paypal [config]="payPalConfig"></raza-paypal>
+        <!-- <raza-paypal [config]="payPalConfig"></raza-paypal> -->
+        <div #paypalButton id="paypal-button"></div>
       </div>
     </div>
   </div>
+  
 </ng-container> 
+
+
 
 
 </div>

@@ -12,7 +12,7 @@ import { ApiErrorResponse } from '../../../core/models/ApiErrorResponse';
 import { OtpConfirmationComponent } from '../../../shared/dialog/otp-confirmation/otp-confirmation.component';
 import { RegisterCustomerModel } from '../../../core/models/register-customer.model';
 import { CheckoutService } from '../../services/checkout.service';
-import { ICheckoutModel, NewPlanCheckoutModel } from '../../models/checkout-model';
+import { ICheckoutModel, NewPlanCheckoutModel, RechargeCheckoutModel } from '../../models/checkout-model';
 import { TransactionType } from '../../../payments/models/transaction-request.model';
 import { RazaLayoutService } from '../../../core/services/raza-layout.service';
 import { PasswordBoxComponent } from '../../../shared/dialog/password-box/password-box.component';
@@ -197,7 +197,11 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
         let country = this.countryFrom.filter(a=>a.CountryId == res.countryId);
        // console.log("Your filter data is ", country[0]);
             this.currentSetting.country = country[0]
-            this.setcurrentCurrency(this.currentSetting.country.CountryId);
+
+            
+             // await this.checkoutService.setCurrentCart(cart);
+              
+            this.setcurrentCurrency(this.currentSetting.country.CountryId, 'recharge');
          
       }
     },
@@ -338,7 +342,7 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
   
   }
 
-  setcurrentCurrency(obj)
+  async setcurrentCurrency(obj, obj2='')
   {
     if(obj == 1)
       this.currentCurrency='USD';
@@ -354,24 +358,24 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
       this.currentCurrency='INR'; 
       //currencyCode = this.currentCurrency
      // countryFrom = obj;
-      const cart: NewPlanCheckoutModel = this.currentCart as NewPlanCheckoutModel;
-      cart.CurrencyCode = this.currentCurrency;
-      cart.currencyCode = this.currentCurrency;
-      cart.countryFrom  = obj;
+     
+    //  if(obj2 != '')
+    //  {
+    //    let cart: RechargeCheckoutModel = this.currentCart as RechargeCheckoutModel;
        
-      //var cart_info = this.checkoutService.getCurrentCart().
-      // if(obj == 1)
-      // {
-      //   cart.details.ServiceCharge = 0
-      // }
-      // if(obj == 2)
-      // {
-      //   cart.details.ServiceCharge = 10
-      // }
+    //    cart.transactiontype = TransactionType.Recharge
+    //   cart.currencyCode = this.currentCurrency;
+    //   cart.countryFrom  = obj;
+    //   await this.checkoutService.setCurrentCart(cart);
       
-
+    //  }
+    //  else{}
+      // let cart: NewPlanCheckoutModel = this.currentCart as NewPlanCheckoutModel;
+      // cart.CurrencyCode = this.currentCurrency;
+      // cart.currencyCode = this.currentCurrency;
+      // cart.countryFrom  = obj;
+     // await this.checkoutService.setCurrentCart(cart);
       
-      this.checkoutService.setCurrentCart(cart);
       this.getDefaultPlan()
       
        
@@ -395,12 +399,54 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
   
   getDefaultPlan()
   {
+    //  this.router.navigate(['/checkout/payment-info']);
+
     this.planService.getPlanInfo(localStorage.getItem("login_no")).subscribe(
      
       (res:any)=>{
+        if(res && res.PlanId){ 
+        this.plan = res; 
+        this.currentCart$ = this.checkoutService.getCurrentCart().subscribe(
+          (res:any ) => {
+            this.currentCart = res; 
 
-        this.plan = res;
-        this.router.navigate(['/checkout/payment-info']);
+            if(this.plan.CountryFrom != res.countryFrom && res.transactiontype != TransactionType.Topup)
+            {
+              this.checkoutService.deleteCart();
+              let amount = res.details.Price
+              const model: RechargeCheckoutModel = new RechargeCheckoutModel();
+              model.purchaseAmount = amount;
+              model.couponCode = '';
+              model.currencyCode = this.plan.CurrencyCode;
+              model.cvv   = '';
+              model.planId = this.plan.PlanId
+              model.transactiontype = TransactionType.Recharge;
+              model.serviceChargePercentage = this.plan.ServiceChargePercent;
+              model.planName = this.plan.CardName;
+              model.countryFrom = this.plan.CountryFrom;
+              model.countryTo = this.plan.CountryTo;
+              model.cardId = this.plan.CardId;
+              model.isAutoRefill = false;
+              model.offerPercentage = '';
+              this.currentCart = model;
+              this.checkoutService.setCurrentCart(model);
+              this.router.navigate(['/checkout/payment-info']);
+            }
+            else{
+              this.router.navigate(['/checkout/payment-info']);
+            }
+          },
+          err => { },
+          () => {
+            if (isNullOrUndefined(this.currentCart)) {
+              this.router.navigate(['/']);
+            }
+          })
+        }
+        else{
+          this.router.navigate(['/checkout/payment-info']);
+        }
+ 
       },
 
       (err: ApiErrorResponse) => {

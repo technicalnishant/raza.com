@@ -131,7 +131,7 @@
         <div class="example-container forgotPasswordForm" *ngIf="!moreOptions">
               <form name="forgotPasswordForm"  [formGroup]="form">
 
-
+                <p *ngIf="invalidOtpError" class="error" style="color:red">Kindly input a valid OTP.</p>
 
                   <div class="row">
                       <div class="form-group col-sm-2 col" *ngFor="let input of formInput;  index as i">
