@@ -17,9 +17,9 @@
     </div>
   </div> -->
 
-     <div class="col-md-12 mt-5 mb-4" *ngIf="promoCode =='THANKS2023'">
+     <!-- <div class="col-md-12 mt-5 mb-4" *ngIf="promoCode =='NY2024'">
     <img src="./assets/images/promotion/{{promoCode}}.jpg" class="img-fluid" alt="Thanks Giving Banner" />
-  </div>
+  </div> -->
   <div class="rechargeStepMain pt-2" *ngIf="currentCart.couponCode =='FREETRIAL'">
     <div class="rechargeStep">
       <div class="f-ttile">Call Any Mobile And Landline Number</div>
@@ -53,20 +53,20 @@
 
             <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
               <td>Purchase Amount</td>
-              <td>{{ (currentCart?.getPurchaseAmount() *2) | bCurrency : currentCart?.currencyCode | async}} </td>
+              <td>{{ (currentCart?.getPurchaseAmount() *2) | bCurrency : currentCart?.CurrencyCode | async }} </td>
             </tr>
             <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
               <td >Discount (Buy1 Get1)&nbsp;<span class="discountBuy1Get1"></span></td>
-              <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async}} </span></td>
+              <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.CurrencyCode | async }} </span></td>
             </tr>
             <tr *ngIf="currentCart?.couponCode != 'Buy1Get1'">
               <td>Purchase Amount</td>
-              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async}} </td>
+              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.CurrencyCode | async }} </td>
             </tr>
 
             <tr>
               <td>Service Fee</td>
-              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode | async}}</td>
+              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.CurrencyCode | async }}</td>
             </tr>
 
             <tr *ngIf="currentCart?.offerPercentage">
@@ -75,8 +75,8 @@
             </tr>
 
             <tr class="total">
-              <td>Total ({{currentCart?.currencyCode}})</td>
-              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode | async}}</td>
+              <td>Total ({{currentCart?.CurrencyCode}})</td>
+              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.CurrencyCode | async}}</td>
             </tr>
            <!--<tr class="total" *ngIf="currentCart?.couponCode">
               <td>Promo Code </td>
@@ -89,11 +89,11 @@
           <tbody>
             <tr>
               <td>Mobile Recharge</td>
-              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async }} </td>
+              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.CurrencyCode | async }} </td>
             </tr>
             <tr>
               <td>Service Fee</td>
-              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode | async }} </td>
+              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.CurrencyCode | async }} </td>
             </tr>
             <tr>
               <td>Amount Sent</td>
@@ -109,8 +109,8 @@
               <td>{{currentCart?.topupOption.Operator}}</td>
             </tr>
             <tr class="total">
-              <td>Total ({{currentCart?.currencyCode}})</td>
-              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode | async}}</td>
+              <td>Total ({{currentCart?.CurrencyCode}})</td>
+              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.CurrencyCode | async}}</td>
             </tr>
           </tbody>
         </table>

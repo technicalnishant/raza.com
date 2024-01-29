@@ -14,7 +14,7 @@ export const environment = {
   /* captchaKey: '6Lc3FOEUAAAAALzmBVIaV3c6C4i7u2cqyDkq82CT',
   captchaKeyV3: '6LfHxeIUAAAAAMZ6e4-X1M4mGLArHVoz7GZBdY5z' 
   /***********/
-
+payplaClientIdNew: 'production_v2bxb632_nmcddy4pg3w88f5j',
    /********* NEW Key  **********/
    captchaKey: '66Lc0HXMaAAAAAMVkmOnT_sOz3YzyA9UOGM0cO1wC',
    captchaKeyV3: '6LeUEncaAAAAAK33h5_Nmigor0mHRhI8efZ4Tezo' 

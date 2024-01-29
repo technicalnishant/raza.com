@@ -3,9 +3,9 @@
 
   <!-- <p class="updateCard" *ngIf="!isPromotion" >Almost there...</p> -->
    <div class="row">
-         <div class="col-md-12 mb-5" *ngIf="promoCode =='THANKS2023'">
+         <!-- <div class="col-md-12 mb-5" *ngIf="promoCode =='NY2024'">
       <img src="./assets/images/promotion/{{promoCode}}.jpg" class="img-fluid" alt=" Thanks Giving Banner" />
-    </div>
+    </div> -->
   </div>
   <div class="container containerMobile">
     <div class="row">
@@ -115,20 +115,20 @@
 
             <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
               <td>Purchase Amount</td>
-              <td>{{ (currentCart?.getPurchaseAmount() *2) | bCurrency : currentCart?.currencyCode | async}} </td>
+              <td>{{ (currentCart?.getPurchaseAmount() *2) | bCurrency : currentCart?.CurrencyCode | async}} </td>
             </tr>
             <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
               <td>Discount (Buy1 Get1)&nbsp;<span class="discountBuy1Get1"></span></td>
-              <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async}}</span> </td>
+              <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.CurrencyCode | async}}</span> </td>
             </tr>
             <tr *ngIf="currentCart?.couponCode != 'Buy1Get1'">
               <td>Purchase Amount</td>
-              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async}} </td>
+              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.CurrencyCode | async}} </td>
             </tr>
 
             <tr>
               <td>Service Fee</td>
-              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode | async }}</td>
+              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.CurrencyCode  | async}}</td>
             </tr>
 
 			<tr *ngIf="currentCart?.offerPercentage">
@@ -137,8 +137,8 @@
             </tr>
 
             <tr class="total">
-              <td>Total ({{currentCart?.currencyCode}})</td>
-              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode | async }}</td>
+              <td>Total ({{currentCart?.CurrencyCode}})</td>
+              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.CurrencyCode | async }}</td>
             </tr>
           </tbody>
         </table>
@@ -148,16 +148,16 @@
           <tbody>
             <tr>
               <td>Mobile Recharge</td>
-              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async}} </td>
+              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.CurrencyCode | async}} </td>
             </tr>
             <tr>
               <td>Service Fee</td>
-              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode | async }} </td>
+              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.CurrencyCode | async}} </td>
             </tr>
             <tr>
               <td>Amount Sent</td>
               <td> {{ currentCart?.topupOption.DestinationCurrency }}
-                {{ currentCart?.topupOption.DestinationAmount }}</td>
+                {{ currentCart?.topupOption.DestinationAmount | bCurrency : currentCart?.CurrencyCode | async }}</td>
             </tr>
             <tr>
               <td>Mobile Number</td>
@@ -168,8 +168,8 @@
               <td>{{currentCart?.topupOption.Operator}}</td>
             </tr>
             <tr class="total">
-              <td>Total ({{currentCart?.currencyCode}})</td>
-              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode | async}}</td>
+              <td>Total ({{currentCart?.CurrencyCode}})</td>
+              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.CurrencyCode | async}}</td>
             </tr>
           </tbody>
         </table>

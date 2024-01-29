@@ -180,6 +180,111 @@ export class BraintreePaymentService {
       while (f.length < n) f += '0';
       return `${v[0]}.${f}`
   }
+
+  createPaypalClient(model: TransactionRequest): void {
+     
+     var currency = model.checkoutOrderInfo.checkoutCart.currencyCode;
+     this.validateNonce(model, 'production_v2bxb632_nmcddy4pg3w88f5j');
+      this.httpClient.get(Api.braintree.generateToken+'/'+currency)
+           .subscribe((data:any) => {
+         
+        
+        
+         
+      
+        //   var data_param = {
+        //    "FirstName": model.Order.Consumer.BillingAddress.FirstName,
+        //    "LastName": model.Order.Consumer.BillingAddress.LastName,
+        //    "HomePhone": '',
+        //    "Address1": model.Order.Consumer.BillingAddress.Address1,
+        //    "Amount": model.checkoutOrderInfo.checkoutCart.totalAmount(),
+           
+        //    "City": model.Order.Consumer.BillingAddress.City,
+        //    "State": model.Order.Consumer.BillingAddress.State,
+        //    "ZipCode": model.Order.Consumer.BillingAddress.PostalCode,
+        //    "Comment1": model.Order.OrderDetails.OrderDescription,
+        //    "Comment2": "",
+        //    "Country":country_code,
+           
+        //    "CardNumber": "",
+        //    "ExpiryDate": "",
+        //    "CvvValue": "",
+        //    "CurrencyCode": model.checkoutOrderInfo.checkoutCart.currencyCode,
+           
+        //    "DoAuthorize": "true",
+        //    "EmailAddress":model.Order.Consumer.Email1, 
+           
+           
+        //    "IpAddress": "111.111.111.111",
+           
+        //    "OrderId": model.Order.OrderDetails.OrderNumber,
+        //  };
+          
+          //    this.httpClient.post<any>(Api.braintree.createNonce,data_param).subscribe(data => {
+          //    if(data.Nonce && data.Nonce !='' && data.Nonce !=='null') 
+          //    {
+              
+               
+          //    }
+          //    else
+          //    {
+          //      const loaderService = this.loaderService;
+          //      loaderService.displayPaymentHard(false);
+         
+          //      let error = new ErrorDialogModel();
+          //      error.message = data.ResponseMessage;
+          //      //this.openErrorDialog(error);
+   
+               
+   
+          //      this.razaSnackbarService.openError(data.ResponseMessage);
+          //      ///this.editCardDetails();
+          //      if(data.ResponseCode == 2)
+          //      {
+          //        localStorage.setItem('selectedCvv', model.checkoutOrderInfo.creditCard.Cvv);
+          //      }
+          //      else
+          //      {
+          //        //localStorage.rmoveItem('selectedCvv');
+          //      }
+          //      localStorage.setItem('errorCode', data.ResponseCode);
+   
+          //      let element:HTMLElement = document.getElementById('auto_trigger') as HTMLElement;
+          //      element.click();
+          //      loaderService.displayPaymentHard(false);
+          //      return data;
+          //      //ResponseCode
+          //        /*** 
+          //          ResponseCode = "2" for AVS Issue
+          //          ResponseCode = "3" for CVV issue
+          //          ResponseCode = "4" for invalid credit card(i.e. typo)
+          //          ResponseCode = "5" for invalid expiry date 
+   
+          //          ***/
+   
+          //    }
+               
+               
+               
+          //    console.log(data);
+          //  } , err => {
+          //    const loaderService = this.loaderService;
+             
+          //    loaderService.displayPaymentHard(false);
+          //    let error = new ErrorDialogModel();
+          //    error.message = err.error.Message;
+          //    this.ngZone.run(() => {
+          //      this.openErrorDialog(error);
+                
+               
+          //    });
+   
+          //  }); 
+      
+       });
+     }
+
+
   createClient(model: TransactionRequest): void {
  // var cart_amount = model.checkoutOrderInfo.checkoutCart.totalAmount();
    console.log(TransactionType.MR);
@@ -406,86 +511,57 @@ export class BraintreePaymentService {
        loaderService.displayPaymentHard(false);
     });
  }
-  validateNonce(model: TransactionRequest, data:any, token:any)
+  validateNonce(model: TransactionRequest, token:any)
   {
     var threeDSecure;
     const loaderService = this.loaderService;
     var Bnonce = '';
     let service: TransactionProcessBraintreeService = this.transactionBraintreeService;
-         
+    var paypalButton = document.querySelector('.paypal-button');   
 
         
     braintree.client.create({
       // Use the generated client token to instantiate the Braintree client.
       authorization: token
     }).then(function (clientInstance) {
-      return braintree.threeDSecure.create({
+console.log(clientInstance)
+       braintree.paypalCheckout.create({
         //'version': '2', 
-      'client': clientInstance
+      client: clientInstance
       });
-    }).then(function (threeDSecureInstance) {
-      threeDSecure = threeDSecureInstance;
-      
-      var my3DSContainer;
-      threeDSecure.verifyCard({
-       nonce: data.Nonce.Nonce,
-       //amount: model.Order.OrderDetails.Amount/100,
-       amount: model.checkoutOrderInfo.checkoutCart.totalAmount(),
-       addFrame: function (err, iframe) {
-         // Set up your UI and add the iframe.
-         //my3DSContainer = document.createElement('div');
-         if(iframe)
-         {
-         document.getElementById("mybraintreeDiv").style.display = "block";
-         my3DSContainer = document.getElementById('el');
-         
-         my3DSContainer.appendChild(iframe);
-         document.body.appendChild(my3DSContainer);
-        }
-        else{
-          loaderService.displayPaymentHard(false);
-        }
-         
-       },
-       removeFrame: function () {
-         // Remove UI that you added in addFrame.
-        document.body.removeChild(my3DSContainer);
-        document.getElementById("mybraintreeDiv").style.display = "none";
+    }).then(function (paypalErr, paypalInstance) {
+      if (paypalErr) {
+        console.error('Error creating PayPal:', paypalErr);
+        return;
       }
-      }, function (err, payload) {
-       if (err) {
-         console.error(err);
-       return;
-       }
-       
-        
-       console.log("payment Nonce ");
-       console.log(payload);
-       Bnonce = payload.nonce
-       if (payload.liabilityShifted) {
-         service.processTransaction(model, Bnonce);
-         //submitNonceToServer(payload.nonce);
-      } else if (payload.liabilityShiftPossible) {
-         // Liablity may still be shifted
-         service.processTransaction(model, Bnonce);
-      } else {
-         // Liablity has not shifted and will not shift
-         service.processTransaction(model, Bnonce);
-       }
+      paypalButton.removeAttribute('disabled');
 
-       setTimeout (() => {
-          loaderService.displayPaymentHard(false);
-        }, 5000);
-       
-          
-         
 
-        
-      });
-    
-    
-       
       
+        // When the button is clicked, attempt to tokenize.
+        paypalButton.addEventListener('click', function (event) {
+          // Because tokenization opens a popup, this has to be called as a result of
+          // customer action, like clicking a button. You cannot call this at any time.
+          paypalInstance.tokenize({
+            flow: 'vault'
+            // For more tokenization options, see the full PayPal tokenization documentation
+            // https://braintree.github.io/braintree-web/current/PayPal.html#tokenize
+          }, function (tokenizeErr, payload) {
+            if (tokenizeErr) {
+              if (tokenizeErr.type !== 'CUSTOMER') {
+                console.error('Error tokenizing:', tokenizeErr);
+              }
+              return;
+            }
+
+            // Tokenization succeeded
+           alert(payload.nonce)
+            console.log('Got a nonce! You should submit this to your server.');
+            console.log(payload.nonce);
+          });
+        }, false);
+
+
     }).catch(function (err) {
       // Handle component creation error
       console.log("Brain tree Error");

@@ -43,6 +43,46 @@
     margin-right: 45px;
   }
 }
+.carousel-caption.tpSlider_promo {
+  left: 0;
+  right: 0;
+  background-image: url(../../../assets/images/home_banner_new/promo/ch23.webp);
+  background-position: bottom 0 center;
+  background-size: cover;
+  bottom: 0;
+  img {
+    width: 1250px;
+    max-width: 90%;
+    margin: -65px auto 0;
+    @media only screen  and (max-width: 767px) {
+      max-width: 185px;
+      margin-top: 50px;
+      &.ch23-uk {
+        max-width: 250px;
+        margin-top: 70px;
+      }
+    }
+  }
+  @media only screen  and (max-width: 1550px) {
+    background-position: bottom center;
+
+  }
+  @media only screen  and (max-width: 767px) {
+    background-image: url(../../../assets/images/home_banner_new/promo/ny23-mobile-reference.jpg);
+    background-repeat: no-repeat;
+    a.ny23_top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+    &-3 {
+      background-image: url(../../../assets/images/home_banner_new/promo/ny23-uk-mobile-reference.jpg);
+    }
+  }
+}
 .icon_holder1,.callAfrica, .callAsia, .callAsiaMb, .callAfricaMb,
 .homepage_bluearea .arrow, .homepage_bluearea .white .arrow, .mobileAppcommon_area::after,.authorIcon, .app_store  {
   background-image: url(../../../assets/images/new_design_images/hp_sprites.png);
@@ -828,13 +868,60 @@ a {
 
 ::ng-deep {
 
+// snow
+  @function random_range($min, $max) {
+    $rand: random();
+    $random_range: $min + floor($rand * (($max - $min) + 1));
+    @return $random_range;
+  }
+
+  .snow {
+    $total: 200;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    z-index: 99;
+
+    @for $i from 1 through $total {
+      $random-x: random(1000000) * 0.0001vw;
+      $random-offset: random_range(-100000, 100000) * 0.0001vw;
+      $random-x-end: $random-x + $random-offset;
+      $random-x-end-yoyo: $random-x + ($random-offset / 2);
+      $random-yoyo-time: random_range(30000, 80000) / 100000;
+      $random-yoyo-y: $random-yoyo-time * 100vh;
+      $random-scale: random(10000) * 0.0001;
+      $fall-duration: random_range(10, 30) * 1s;
+      $fall-delay: random(30) * -1s;
+
+      &:nth-child(#{$i}) {
+        opacity: random(10000) * 0.0001;
+        transform: translate($random-x, -10px) scale($random-scale);
+        animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
+      }
+
+      @keyframes fall-#{$i} {
+        #{percentage($random-yoyo-time)} {
+          transform: translate($random-x-end, $random-yoyo-y) scale($random-scale);
+        }
+
+        to {
+          transform: translate($random-x-end-yoyo, 100vh) scale($random-scale);
+        }
+      }
+    }
+  }
+
+// snow end
+
 // Diwali promo css
 .diwali_strip {
-  margin-top: 10px;
-  background-image: url(../../../assets/images/home_banner_new/promo/banner.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 165px;
+  // margin-top: 10px;
+  // background-image: url(../../../assets/images/home_banner_new/promo/banner.jpg);
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // height: 165px;
   @media only screen  and (max-width: 600px) {
     height: 180px;
     background-size: cover;

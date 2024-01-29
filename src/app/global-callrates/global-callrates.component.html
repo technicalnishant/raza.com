@@ -68,7 +68,7 @@
                             (click)="setActiveClass(item); clicked = i" >
                             <div class="bonus" *ngIf="item.DiscountApplied > 0">{{item.DiscountApplied}}% BONUS</div>
                             <div class="ano-col">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async }}
-                                <small *ngIf="item.Price==90">$100</small>
+                                <small *ngIf="item.Price==90">{{ 100 | bCurrency : globalPlanData.CurrencyCode | async }}</small>
                             </div>
                             <div class="inner-cell">{{item.TotalTime}}</div>
                             <div class="inner-cell">{{item.PromoMinutes}}</div>
@@ -89,7 +89,7 @@
                         <div *ngFor="let item of WithoutAutorefillPlans; let i = index" class="col-wrapper active {{getActiveClass(item)}}" (click)="setActiveClass(item)">
                             <div class="bonus" *ngIf="item.DiscountApplied > 0">{{item.DiscountApplied}}% BONUS</div>
                             <div class="ano-col">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async }}
-                                <small *ngIf="item.Price==90">$100</small>
+                                <small *ngIf="item.Price==90">{{ 100 | bCurrency : globalPlanData.CurrencyCode | async }}</small>
                             </div>
                             <div class="inner-cell">{{item.TotalTime}}</div>
                             <div class="inner-cell">{{item.PromoMinutes}}</div>
@@ -250,7 +250,7 @@
                                 <thead>
                                     <th>Amount</th>
                                     <th class="text-right positon-relative">
-                                        <span class="slice" *ngIf="item.Price==90">$100</span>
+                                        <span class="slice" *ngIf="item.Price==90">{{ 100 | bCurrency : globalPlanData.CurrencyCode | async }}</span>
                                         {{ item.Price | bCurrency : countryCode | async}}
                                     </th>
                                 </thead>

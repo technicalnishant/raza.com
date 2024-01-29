@@ -11,6 +11,7 @@ import { PaymentOptionsComponent } from './pages/payment-info/payment-options/pa
 import { PinlessSwitchComponent } from './pages/payment-info/pinless-switch/pinless-switch.component';
 import { FreetrialConfirmationComponent } from './pages/freetrial-confirmation/freetrial-confirmation.component';
 import { MotoConfirmationComponent } from './pages/moto-confirmation/moto-confirmation.component';
+import { SetCartComponent } from './set-cart/set-cart.component';
 @NgModule({
     declarations: [
     ],
@@ -18,6 +19,7 @@ import { MotoConfirmationComponent } from './pages/moto-confirmation/moto-confir
         CommonModule,
         RouterModule.forChild([
             { path: '', component: CheckoutRegisterComponent },
+            { path: 'set-cart/:country/:amount', component: SetCartComponent },
             {
                 path: 'payment-info', component: CheckoutPaymentComponent,
                 canActivate: [AuthGuard, CartRequireGuard],

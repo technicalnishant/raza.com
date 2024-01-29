@@ -18,6 +18,7 @@ import { RazaEnvironmentService } from '../core/services/razaEnvironment.service
 import { SearchRate } from '../rates/model/searchRates';
 import { GlobalCallComponent } from '../globalrates/global-call/global-call.component';
 import { LoginpopupComponent } from '../core/loginpopup/loginpopup.component';
+import { Buy1get1Component } from 'app/core/dialog/buy1get1/buy1get1.component';
 @Component({
   selector: 'app-sitemap',
   templateUrl: './sitemap.component.html',
@@ -139,6 +140,23 @@ clickRecharge(comp, redirect_path, plan)
       // https://material.angular.io/components/dialog/overview
       const modalDialog = this.dialog.open(LoginpopupComponent, dialogConfig);
     }
+  }
+
+
+  buyOnegetOne()
+  {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.panelClass = "tryUsFree";
+    dialogConfig.width = "100%";
+    dialogConfig.height = "90%";
+    dialogConfig.data = {
+      name: "buy1get1",
+      title: "Buy1 Get1", 
+    }
+    const modalDialog = this.dialog.open(Buy1get1Component, dialogConfig);
   }
 
 }

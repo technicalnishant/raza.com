@@ -96,8 +96,8 @@ sliderAutoplay: boolean = true;
   currentCurrency:any;
   contentLoaded: boolean = false;
   isFixHeader: boolean = false;
-  promtionCode:string='';
- // promtionCode:string='THANKS2023';
+   promtionCode:string='';
+  //promtionCode:string='NY2024';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';
@@ -299,7 +299,6 @@ window.scroll({
       this.onopenPromotion();
 
     }
-
     
     localStorage.removeItem('IsMoto');
     localStorage.removeItem('moto_orderid')

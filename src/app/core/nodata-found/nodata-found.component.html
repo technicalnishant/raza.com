@@ -1,11 +1,12 @@
 <div class="popup-wrapper no-data">
   <div>
     
-    <p class="text-center subtitle">oops! this promotion is not available from U.K. Please try again later.</p>
+    <!-- <p class="text-center subtitle">oops! this promotion is not available from U.K. Please try again later.</p> -->
+    <p class="text-center subtitle">oops! this promotion is not available. Please try again later.</p>
     <div mat-dialog-content>
       <div class="example-container" >
         <div mat-dialog-actions class="cancel">
-          <button mat-dialog-close>&times;</button>
+          <button mat-dialog-close (click)="closeModal()">&times;</button>
         </div>
       
       </div>

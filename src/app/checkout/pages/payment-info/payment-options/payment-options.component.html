@@ -11,25 +11,28 @@
   
   <!--<div class="col-md-12">-->
   <div class="form_holder form_holder2 creditCard_paypal" [ngClass]="{'width-full': !enablePaypalOption}">
-    <mat-tab-group>
+    <mat-tab-group (selectedTabChange)="onTabClick($event)">
       <mat-tab label="Credit Card">
 	  <new-credit-card-payment-box [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentInfoFormSubmit($event)">
         </new-credit-card-payment-box>
   		
       </mat-tab>
-      <mat-tab label="PayPal" *ngIf="enablePaypalOption">
-        <ng-template matTabContent>
+      <mat-tab label="PayPal"  *ngIf="enablePaypalOption">
+          <ng-template matTabContent>
           <div class="form_row1 paypal-box">
             <div class="input_holder1">
               <div id="paypal-button-container" class="paypal-button-container">
-                <raza-paypal [config]="payPalConfig"></raza-paypal>
+                <!-- <raza-paypal [config]="payPalConfig"></raza-paypal> -->
+                <div #paypalButton id="paypal-button"></div>  
               </div>
             </div>
           </div>
-        </ng-template>
+        </ng-template>  
+
+         
       </mat-tab>
     </mat-tab-group> 
-        
+    
         <!--<ngx-braintree 
           [getClientToken] = "getClientToken.bind(this)"
            

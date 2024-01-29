@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, ViewChild, ElementRef } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Plan } from 'app/accounts/models/plan';
@@ -10,7 +10,7 @@ import { ApiErrorResponse } from 'app/core/models/ApiErrorResponse';
 import { CurrentSetting } from 'app/core/models/current-setting';
 import { AuthenticationService } from 'app/core/services/auth.service';
 import { RazaLayoutService } from 'app/core/services/raza-layout.service';
-import { TransactionType } from 'app/payments/models/transaction-request.model';
+import { TransactionRequest, TransactionType } from 'app/payments/models/transaction-request.model';
 import { SearchRatesService } from 'app/rates/searchrates.service';
 import { CreditCard } from '../../models/creditCard';
 
@@ -31,6 +31,11 @@ import { ViewratesComponent } from 'app/accounts/dialog/viewrates/viewrates.comp
 import { RechargeService } from 'app/recharge/services/recharge.Service';
 import { IOnApproveCallbackData, IPayPalConfig } from 'app/payments/paypal/model/paypal.model';
 import { environment } from 'environments/environment';
+import * as braintree from 'braintree-web';
+var Paypal_PaymentInstance: any;
+//var paypalInstance
+let paypalInstance: any; // Make sure to declare the appropriate type based on the object returned by braintree.paypalCheckout.create
+declare var paypal: any; // Declare the paypal variable
 @Component({
   selector: 'app-account-recharge',
   templateUrl: './account-recharge.component.html',
@@ -71,6 +76,9 @@ export class AccountRechargeComponent implements OnInit {
   isPremium:boolean=false;
   showPaypal:boolean=false;
   public payPalConfig?: IPayPalConfig;
+   
+  paypalPaymentInstance:any;
+  braintreeToken: string;
   constructor(
 
     private searchRatesService: SearchRatesService,
@@ -90,9 +98,9 @@ export class AccountRechargeComponent implements OnInit {
     private rechargeService: RechargeService,
 
   ) {
-    
+     this.braintreeToken = environment.payplaClientIdNew;;
    }
-
+   @ViewChild('paypalButton', { static: true }) paypalButton!: ElementRef;
   ngOnInit(): void {
 
     this.selectedPlanId = this.route.snapshot.paramMap.get('planId');
@@ -103,16 +111,21 @@ export class AccountRechargeComponent implements OnInit {
     this.razalayoutService.setFixedHeader(true);
     this.uri = this.route.snapshot.paramMap.get('notification');//?this.route.snapshot.paramMap.get('notification'):'notification';
     
-    if(this.selectedPlanId && this.selectedPlanId !='')
-    {
-      this.getSelectedPlan()
-    }
-    else
-    {
-      this.getDefaultPlan()
-    }
-    
+   
+     
  }
+
+ ngAfterViewInit() {
+  //this.createPayPalCheckoutButton();
+  if(this.selectedPlanId && this.selectedPlanId !='')
+  {
+    this.getSelectedPlan()
+  }
+  else
+  {
+    this.getDefaultPlan()
+  }
+}
 // Intitiate paypal config
 private initPaypalConfig(): void {
  
@@ -415,8 +428,8 @@ onPaypalPaymentApprove(data: IOnApproveCallbackData): Promise<any> {
     this.currentCart = model;
     await this.checkoutService.setCurrentCart(model);
     //this.currentCart = await this.checkoutService.getCurrentCart()
-    this.initPaypalConfig1()
-    
+   // this.initPaypalConfig1()
+    this.createPayPalCheckoutButton()
   }
 
 
@@ -441,7 +454,7 @@ onPaypalPaymentApprove(data: IOnApproveCallbackData): Promise<any> {
    this.currentCart = model;
    this.checkoutService.setCurrentCart(model);
    
-   this.initPaypalConfig1()
+   this.createPayPalCheckoutButton()
  }
  initPaypalConfig1()
  {
@@ -649,5 +662,126 @@ validateCoupon(req: ValidateCouponCodeRequestModel): Promise<ValidateCouponCodeR
     
 
   }
+
+ 
+ 
+
+  /***********************************/
+ 
+
+  createPayPalCheckoutButton() {
+    var currency_Code         = this.currentCart.currencyCode;
+    var total_amount          = this.currentCart.totalAmount().toString(); 
+    var model_arr = this.currentCart;
+    var country= 'US';
+    if(currency_Code == 'USD')
+    country = 'US';
+    
+    if(currency_Code == 'CAD') 
+    country = 'CA';
+    if(currency_Code == 'GBP')
+    country = 'GB';
+
+    if(currency_Code == 'AUD')
+    country = 'AU';
+
+    if(currency_Code == 'INR')
+    country = 'IN';
+
+    if(currency_Code == 'NZD')
+    country = 'NZ';
+
+    setTimeout(() => {
+      const self = this; 
+    braintree.client.create({
+      authorization: this.braintreeToken
+    }, (clientErr: any, clientInstance: any) => {
+      if (clientErr) {
+        console.error('Error creating client:', clientErr);
+        return;
+      }
   
+      braintree.paypalCheckout.create({
+        client: clientInstance
+      }, (paypalCheckoutErr: any, paypalCheckoutInstance: any) => {
+        if (paypalCheckoutErr) {
+          console.error('Error creating PayPal checkout:', paypalCheckoutErr);
+          return;
+        }
+  
+        paypalCheckoutInstance.loadPayPalSDK({
+          currency: currency_Code,
+          intent: 'capture'
+        }, () => {
+          // Delay rendering until the SDK is loaded
+        
+          paypal.Buttons({
+            fundingSource: paypal.FUNDING.PAYPAL,
+  
+            createOrder: () => {
+              return paypalCheckoutInstance.createPayment({
+                flow: 'checkout',
+                amount: total_amount,
+                currency: currency_Code,
+                intent: 'capture'
+              });
+            },
+  
+            onApprove: function (data, actions) {
+              return paypalCheckoutInstance.tokenizePayment(data, function (err, payload) {
+                // Submit 'payload.nonce' to your server
+                console.log("Paypal detail after checkout", payload)
+                self.onPaypalPaymentApproveNew(payload)
+                
+              });
+            },
+    
+            
+            onCancel: function (data) {
+              console.log('PayPal payment cancelled', JSON.stringify(data));
+            },
+    
+            onError: function (err) {
+              console.error('PayPal error', err);
+            }
+
+            // Other callbacks: onShippingChange, onApprove, onCancel, onError
+  
+          }).render('#paypal-button').then(() => {
+            console.log('PayPal button rendered successfully.');
+          });
+
+        
+        });
+      });
+    });
+
+  }, 50);
+  }
+  
+ /* On paypal payment approve. */
+onPaypalPaymentApproveNew(data: any): Promise<any> {
+   
+
+
+    
+    const payer_id = data.details.payerId;
+    const nonce = data.nonce
+ 
+  this.transactionService.generate(this.currentCart.getTransactionReqModel()).subscribe(
+    (res: TransactionRequest) => {
+
+      const checkOutOrderInfo: IPaypalCheckoutOrderInfo = {
+        checkoutCart: this.currentCart,
+        orderId: res.Order.OrderDetails.OrderNumber,
+        paypalPayerId: payer_id,
+        paymentTransactionId: res.Order.OrderDetails.OrderNumber
+      };
+      this.transactionProcessFacade.processPaypalTransaction(this.currentCart.transactiontype, checkOutOrderInfo, nonce);
+    }
+    );
+
+ 
+  return of(true).toPromise();
+}
 }

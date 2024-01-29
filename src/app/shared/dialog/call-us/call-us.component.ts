@@ -12,7 +12,6 @@ import { Subscription } from 'rxjs';
 })
 export class CallUsComponent {
   country_id:number=1;
-  isSmallScreen: boolean=false;
   currentSetting$: Subscription;
   currentSetting: CurrentSetting;
   selectedCountry = 1;
@@ -59,17 +58,18 @@ export class CallUsComponent {
         country_id: 20,
         country: "New Zealand",
         numbers: [
-            "+61-(28) 3173403"
+          "+64 (9) 8844133"
+            
         ],
-        qrCodeData: "tel:+61283173403"
+        qrCodeData: "tel:+6498844133"
     },
     {
       country_id: 8,
       country: "Australia",
       numbers: [
-          "+64 (9) 8844133"
+        "+61-(28) 3173403"
       ],
-      qrCodeData: "tel:+6498844133"
+      qrCodeData: "tel:+61283173403"
   }
 ];
 
@@ -77,8 +77,7 @@ export class CallUsComponent {
   constructor(
     public dialogRef: MatDialogRef<CallUsComponent>,
     private razaEnvService: RazaEnvironmentService,
-    private breakpointObserver: BreakpointObserver,
-    @Inject(MAT_DIALOG_DATA) public data: any) { this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');}
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
     ngOnInit() {
       
       // Sort the array based on the specific country_id

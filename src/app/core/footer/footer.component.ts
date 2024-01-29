@@ -10,6 +10,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { RazaSnackBarService } from '../../shared/razaSnackbar.service';
+import { Buy1get1Component } from '../dialog/buy1get1/buy1get1.component';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -147,5 +148,22 @@ export class FooterComponent implements OnInit {
         localStorage.removeItem("topupTrigger");
         this.router.navigateByUrl('mobiletopup');
       }
+  }
+
+  
+  buyOnegetOne()
+  {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.panelClass = "tryUsFree";
+    dialogConfig.width = "100%";
+    dialogConfig.height = "90%";
+    dialogConfig.data = {
+      name: "buy1get1",
+      title: "Buy1 Get1", 
+    }
+    const modalDialog = this.dialog.open(Buy1get1Component, dialogConfig);
   }
 }

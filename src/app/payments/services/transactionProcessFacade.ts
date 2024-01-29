@@ -274,15 +274,15 @@ export class TransactionProcessFacadeService {
     });
   }
 
-  processPaypalTransaction(transactionType: TransactionType, paypalCheckoutOrderInfo: IPaypalCheckoutOrderInfo) {
+  processPaypalTransaction(transactionType: TransactionType, paypalCheckoutOrderInfo: IPaypalCheckoutOrderInfo, nonce='') {
     if (transactionType === TransactionType.Recharge) {
-      this.processRechargeWithPaypal(paypalCheckoutOrderInfo);
+      this.processRechargeWithPaypal(paypalCheckoutOrderInfo, nonce);
     } else if (transactionType === TransactionType.Activation || transactionType === TransactionType.Sale) {
-      this.processNewActivationWithPaypal(paypalCheckoutOrderInfo);
+      this.processNewActivationWithPaypal(paypalCheckoutOrderInfo, nonce);
     }
   }
 
-  private processRechargeWithPaypal(paypalCheckoutOrderInfo: IPaypalCheckoutOrderInfo) {
+  private processRechargeWithPaypal(paypalCheckoutOrderInfo: IPaypalCheckoutOrderInfo, nonce='') {
     const rechargeCheckoutModel: RechargeCheckoutModel = paypalCheckoutOrderInfo.checkoutCart as RechargeCheckoutModel;
     let modelInfo: RechargeRequestModel = {
       OrderId: paypalCheckoutOrderInfo.orderId,
@@ -304,7 +304,7 @@ export class TransactionProcessFacadeService {
       CustomerId: 0,
       Cvv2Response: '',
       ZipCodeResponse: '',
-      nonce : '',
+      nonce : nonce,
       ProcessedBy:'',
       ActualAmountCharge :parseFloat(localStorage.getItem('ActualAmountCharge')),
    PaymentCurrency :localStorage.getItem('PaymentCurrency'),
@@ -338,7 +338,7 @@ export class TransactionProcessFacadeService {
     );
   }
 
-  private processNewActivationWithPaypal(paypalCheckoutOrderInfo: IPaypalCheckoutOrderInfo) {
+  private processNewActivationWithPaypal(paypalCheckoutOrderInfo: IPaypalCheckoutOrderInfo, nonce='') {
     //console.log('processNewActivationWithPaypal');
 
     const checkoutModel: NewPlanCheckoutModel = paypalCheckoutOrderInfo.checkoutCart as NewPlanCheckoutModel;
@@ -372,6 +372,7 @@ export class TransactionProcessFacadeService {
       ProcessedBy : '',
       ActualAmountCharge: parseFloat(localStorage.getItem('ActualAmountCharge')),
       PaymentCurrency:localStorage.getItem('PaymentCurrency')
+       
     };
 
     // console.log("local storage value transactionProcessFacade", localStorage.getItem("login_no"));

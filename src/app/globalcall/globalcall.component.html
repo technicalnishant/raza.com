@@ -141,7 +141,7 @@
                                                          
                                                        
                                                          
-                                                        <span class="slice" *ngIf="item.Price==90">$100</span>
+                                                        <span class="slice" *ngIf="item.Price==90"> {{ 100 | bCurrency : globalPlanData.CurrencyCode | async}}</span>
                                                         <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async}} </div>
 
                                                         <span class="inner_price" *ngIf="item.Price==90">
@@ -167,7 +167,7 @@
                                                           <span class="bonus-new">{{item.DiscountApplied}}% BONUS </span>
                                                         </span>
                                                          
-                                                        <span class="slice" *ngIf="item.Price==90">$100</span>
+                                                        <span class="slice" *ngIf="item.Price==90">{{ 100 | bCurrency : globalPlanData.CurrencyCode | async}}</span>
                                                         <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async }} </div>
 
                                                         <span class="inner_price" *ngIf="item.Price==90">
@@ -263,7 +263,7 @@
                                                         </span>
                                                     </span>
                                                         
-                                                        <span class="slice" *ngIf="item.Price==90">$100</span>
+                                                        <span class="slice" *ngIf="item.Price==90">{{ 100 | bCurrency : globalPlanData.CurrencyCode | async}}</span>
                                                         <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async }}</div>
                                                         <span class="inner_price" *ngIf="item.Price==90">
                                                           {{RatePerMinWithOutPromo | sCurrency : globalPlanData.CurrencyCode | async }} / min</span>
@@ -292,7 +292,7 @@
                                                             </span>
                                                         </span>
                                                        
-                                                        <span class="slice" *ngIf="item.Price==90">$100</span>
+                                                        <span class="slice" *ngIf="item.Price==90">{{ 100 | bCurrency : globalPlanData.CurrencyCode | async}}</span>
                                                         <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode | async }}</div>
                                                         <span class="inner_price" *ngIf="item.Price==90">
                                                           {{RatePerMinPromo | sCurrency : globalPlanData.CurrencyCode | async }} / min</span>
@@ -401,7 +401,7 @@
                                                 <span class="bonus-bg-short" *ngIf="item.DiscountApplied>0">
                                                   <span class="bonus-new ">{{item.DiscountApplied}}% BONUS
                                                 </span></span>
-                                                <div id="10_offer2"><span class="slice" *ngIf="item.Price==90">$100</span>
+                                                <div id="10_offer2"><span class="slice" *ngIf="item.Price==90">{{ 100 | bCurrency : globalPlanData.CurrencyCode | async}}</span>
                                                     {{ item.Price | bCurrency : countryCode | async}} </div>
                                                 <span class="inner_price">{{getRatePerMin(item) | sCurrency : globalPlanData.CurrencyCode | async }} / min</span>
 

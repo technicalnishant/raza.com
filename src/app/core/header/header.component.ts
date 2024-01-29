@@ -33,6 +33,7 @@ import { Platform } from '@angular/cdk/platform';
 import { PreviousRouteService } from '../services/previous-route.service';
 import { TryUsFreeComponent } from '../dialog/try-us-free/try-us-free.component';
 import { RazaSnackBarService } from 'app/shared/razaSnackbar.service';
+import { CustomErrorComponent } from 'app/shared/dialog/custom-error/custom-error.component';
 
 @Component({
   selector: 'app-header',
@@ -151,8 +152,20 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     }
     const modalDialog = this.matDialog.open(TryUsFreeComponent, dialogConfig);
   }
+globalError()
+{
+  
+		var errorMsg = "Our system is under maintenance and our team is working diligently to restore services as quickly as possible. We apologize for any inconvenience caused and appreciate your patience during this time.";
+		 
+	 
+		this.dialog.open(CustomErrorComponent, {
+            data: { errorMsg } 
+          });  
+		 
+    }
   ngOnInit() {
 
+   // this.globalError();
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
       this.getActivePromotion(this.currentSetting.currentCountryId);

@@ -553,6 +553,8 @@ onClickAmountOption1(item: any, obj:any) {
   model.cardId = obj.CardId;
   model.isAutoRefill = obj.IsAutoRefill;
   model.offerPercentage = '';
+
+  
   this.checkoutService.setCurrentCart(model);
   this.router.navigate(['/checkout/payment-info']);
 }
@@ -566,16 +568,21 @@ this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryI
     var subcardid = '';
     var cuponcode = 'Buy1Get1';
     var service_fee = 0;
-    if(this.currentSetting.currentCountryId == 1)
-    {
-    subcardid = '161-'+obj2;
-    service_fee = 0;
-    }
+    // if(this.currentSetting.currentCountryId == 1)
+    // {
+    // subcardid = '161-'+obj2;
+    // service_fee = 0;
+    // }
     if(this.currentSetting.currentCountryId== 2)
     {
     subcardid = '162-'+obj2;
     service_fee = 10;
     }
+    else
+    {
+      subcardid = '161-'+obj2;
+      service_fee = 0;
+      }
       const model: NewPlanCheckoutModel = new NewPlanCheckoutModel();
 
       model.CardId = data.CardId;
@@ -596,7 +603,7 @@ this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryI
       model.transactiontype = TransactionType.Activation;
       model.isAutoRefill = false;
       model.couponCode = cuponcode;
-      model.currencyCode = item.CurrencyCode;
+     // model.currencyCode = data.CurrencyCode;
       model.isHideCouponEdit = true;
       model.offerPercentage = item.OfferPercentage;;
       this.checkoutService.setCurrentCart(model);

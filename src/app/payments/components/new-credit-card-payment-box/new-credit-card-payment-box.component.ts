@@ -125,10 +125,10 @@ search_country:any='US';
     if (this.checkOutModel instanceof NewPlanCheckoutModel) {
       const cart = this.checkOutModel as NewPlanCheckoutModel;
       this.countryFromId = cart.countryFrom;
-      this.paymentInfoForm.get('country').disable();
+     // this.paymentInfoForm.get('country').disable();
 
     }
-
+    
 
     if (this.checkOutModel.transactiontype === TransactionType.Sale || this.checkOutModel.transactiontype === TransactionType.Activation) {
       
@@ -458,6 +458,7 @@ search_country:any='US';
   getCountryFrom(): void {
     this.countryService.getFromCountries().subscribe((res: Country[]) => {
      // this.countries = res.splice(0, 3);
+      
       this.countries = res
     })
   }

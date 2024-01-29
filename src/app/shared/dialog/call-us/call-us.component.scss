@@ -1,30 +1,31 @@
 .callusRow.australia_new {
-  margin-top: 35px;
-}
-.commonPopupRow.callUs {
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-   a {
-      outline: none;
-   }
-}
-@media only screen and (max-width:768px){
-  ::ng-deep {
-    .cdk-overlay-pane {
-        max-width: 96% !important;
+    margin-top: 35px;
+  }
+  .commonPopupRow.callUs {
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+     a {
+        outline: none;
+     }
+  }
+  @media only screen and (max-width:768px){
+    ::ng-deep {
+      .cdk-overlay-pane {
+          max-width: 96% !important;
+      }
+      span.closeIconContactUs {
+          right: -10px;
+          top: -8px;
+      }
     }
-    span.closeIconContactUs {
-        right: -10px;
-        top: -8px;
+    .callusRow.australia_new {
+      margin-top: 5px;
     }
   }
-  .callusRow.australia_new {
-    margin-top: 5px;
+  @media (max-width: 576px) {
+    .callusRow {
+        border-right: none;
+    }
   }
-}
-@media (max-width: 576px) {
-  .callusRow {
-      border-right: none;
-  }
-}
+  

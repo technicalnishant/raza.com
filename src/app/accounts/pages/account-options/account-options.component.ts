@@ -15,6 +15,8 @@ import { isNullOrUndefined } from "../../../shared/utilities";
 import { elementAt } from 'rxjs/operators';
 
 import { AuthenticationService } from '../../../core/services/auth.service';
+import { Buy1get1Component } from 'app/core/dialog/buy1get1/buy1get1.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
  
 @Component({
   selector: 'app-account-options',
@@ -39,6 +41,7 @@ export class AccountOptionsComponent implements OnInit, OnDestroy {
     private titleService: Title,
     private route: ActivatedRoute,
     private router: Router,
+    public dialog: MatDialog,
     private razalayoutService: RazaLayoutService,
 	private planService: PlanService,
 	private authService: AuthenticationService,
@@ -99,7 +102,20 @@ export class AccountOptionsComponent implements OnInit, OnDestroy {
     this.router.navigate(['mobiletopup'])
   }
   onClickBuyGet():void{
-  this.router.navigate(['deals/buy1-get1'])
+  //this.router.navigate(['deals/buy1-get1'])
+
+  const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.panelClass = "tryUsFree";
+    dialogConfig.width = "100%";
+    dialogConfig.height = "90%";
+    dialogConfig.data = {
+      name: "buy1get1",
+      title: "Buy1 Get1", 
+    }
+    const modalDialog = this.dialog.open(Buy1get1Component, dialogConfig);
   }
   keepIt1(e){
     //this.myModel = true;

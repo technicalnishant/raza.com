@@ -257,7 +257,7 @@ export class FeaturesTabComponent implements OnInit {
 		this.data = [
 			 
 			{
-				slide:1,
+				slide:0,
 				tab:{
 					img:"/assets/images/new_design_images/my_number.png",
 					title:"MY NUMBERS",
@@ -279,7 +279,7 @@ export class FeaturesTabComponent implements OnInit {
 						]
 			},
 			{
-				slide:2,
+				slide:1,
 				tab:{
 					img:"/assets/images/new_design_images/call_details.png",
 					title:"Call Details",
@@ -301,7 +301,7 @@ export class FeaturesTabComponent implements OnInit {
 						]
 			},
 			{
-				slide:3,
+				slide:2,
 				tab:{
 					img:"/assets/images/new_design_images/money_back_100.png",
 					title:"100% MONEY BACK",
@@ -322,13 +322,13 @@ export class FeaturesTabComponent implements OnInit {
 						]
 			},
 			{
-				slide:4,
+				slide:3,
 				tab:{
 					img:"/assets/images/new_design_images/auto_rifill.png",
 					title:"AUTO REFILL",
 				},
 				heading:"Auto<br>Refill",
-			  'page_url':"autorefill",
+			  	page_url:"autorefill",
 				subhead:"Insufficient credit? No more worries!",
 				bg_img: "/assets/images/autorefill-bg.webp",
 				img_list:[
@@ -344,7 +344,7 @@ export class FeaturesTabComponent implements OnInit {
 						]
 			},
 			{
-				slide:5,
+				slide:4,
 				tab:{
 					img:"/assets/images/new_design_images/call_forwarding.png",
 					title:"CALL FORWARDING",
@@ -368,7 +368,7 @@ export class FeaturesTabComponent implements OnInit {
 						]
 			},
 			{
-				slide:6,
+				slide:5,
 				tab:{
 					img:"/assets/images/new_design_images/raza_reward_f.png",
 					title:"RAZA REWARDS",
@@ -418,7 +418,7 @@ export class FeaturesTabComponent implements OnInit {
 		page_path = "account/"+page_path+"/"+this.plan_id;
 		else
 		page_path = "account/"+page_path;
-		//console.log(page_path);
+		 console.log('page_path',page_path);
 		  this.router.navigate([page_path])
 		 //this.router.navigate(['account/overview'])
 		}

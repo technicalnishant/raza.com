@@ -99,7 +99,7 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
     this.globalPlanData = inputData.data;
     this.customdata = inputData.custom;
 
-    console.log('this.globalPlanData', this.globalPlanData);
+    //console.log('this.globalPlanData', this.globalPlanData);
     this.customCountry = inputData.custom.CountryToName;
     this.customCountryId = inputData.custom.CountryToId;
     this.customCountryPrice = inputData.custom.customCountryPrice;
@@ -274,7 +274,7 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
     else
     {
           var subcardid = '';
-          var cuponcode = 'BUY1GET1';
+          var cuponcode = 'Buy1Get1';
           var service_fee = 0;
           if(this.currentSetting.currentCountryId == 1)
           {
@@ -307,31 +307,29 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
             const model: NewPlanCheckoutModel = new NewPlanCheckoutModel();
 
             //model.CardId = this.cardId;
-          // model.CardName = this.cardName;
+            //model.CardName = this.cardName;
             //model.CurrencyCode = this.currencyCode;
+            
             model.CardId = this.globalPlanData.CardId;
             model.CardName = this.globalPlanData.CardName;
             model.CurrencyCode = this.globalPlanData.CurrencyCode;
-
             model.details = {
               Price: obj,
               ServiceCharge: service_fee,
-            SubCardId:subcardid
+              SubCardId:subcardid
             }
+            
             model.country = null;
             model.phoneNumber = null;
             model.countryFrom = this.currentSetting.currentCountryId;
             model.countryTo = this.countryId;
-            
             model.currencyCode = this.currentSetting.currency;
             model.transactiontype = TransactionType.Activation;
             model.isAutoRefill = false;
             model.couponCode = cuponcode;
             model.currencyCode = this.globalPlanData.CurrencyCode;
             model.isHideCouponEdit = true;
-          
-          console.log(model);
-          
+            
             this.checkoutService.setCurrentCart(model);
 
             if (this.authService.isAuthenticated()) {
@@ -365,7 +363,7 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
     model.phoneNumber = null;
     model.countryFrom = this.currentSetting.currentCountryId;
     model.countryTo = this.countryId;
-    model.couponCode = '';
+    model.couponCode = 'Buy1Get1';
     model.currencyCode = this.globalPlanData.CurrencyCode;
     model.transactiontype = TransactionType.Activation;
     //     model.phoneNumber = ''; 
@@ -396,11 +394,7 @@ export class GlobalBuyComponent implements OnInit, OnDestroy {
     if(this.currentSetting.country.CountryId ==3 )
     {
       return  "£"
-    }
-    else{
-      
-      return "$";
-    }
+    } else { return "$"; }
     
 
   }
