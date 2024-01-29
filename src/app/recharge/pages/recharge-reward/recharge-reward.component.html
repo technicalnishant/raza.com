@@ -3,7 +3,7 @@
   <div class="selectRechargeamount">
     <p class="selectAmountText">Select Redeem Amount</p>
     <div class="bonusArea">
-      <span >A maximum of {{ 30 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span>
+      <span >A maximum of {{ 30 | bCurrency : plan?.CurrencyCode | async}} can be redeemed at once</span>
    
 
       <!-- <span *ngIf="enrollAmount==10">A maximum of {{ 30 | bCurrency : plan?.CurrencyCode}} can be redeemed at once</span>
@@ -14,7 +14,7 @@
         <li *ngFor="let item of rechargeOptions?.Options" (click)="onClickAmountOption(item.Points)">
           <div class="commonpriceArea mouse-pointer">
             <p class="newPrice">
-              <span>{{ '' | bCurrency : plan?.CurrencyCode}}</span>
+              <span>{{ '' | bCurrency : plan?.CurrencyCode|async}}</span>
                {{item.Amount}}
               </p>
             <p class="points">{{item.Points}} points</p>
