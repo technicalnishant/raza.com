@@ -578,11 +578,26 @@ this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryI
     subcardid = '162-'+obj2;
     service_fee = 10;
     }
-    else
+    else if(this.currentSetting.currentCountryId== 1)
     {
       subcardid = '161-'+obj2;
       service_fee = 0;
       }
+
+      else  
+    {
+      if(obj2 == 11)
+          obj2 = 7
+      if(obj2 == 12)
+          obj2 = 8
+      if(obj2 == 2)
+          obj2 = 6
+     
+
+      subcardid = '20-'+obj2;
+      service_fee = 0;
+      }
+
       const model: NewPlanCheckoutModel = new NewPlanCheckoutModel();
 
       model.CardId = data.CardId;
