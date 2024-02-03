@@ -38,7 +38,10 @@ export class PromotionHostComponent implements OnInit, AfterViewInit, OnDestroy 
 
   ngOnInit() {
 
-    const promotionCode: string = this.route.snapshot.paramMap.get('promotionCode');
+    var promotionCode: string = this.route.snapshot.paramMap.get('promotionCode');
+    
+    if(promotionCode == 'get-upto-1500')
+    promotionCode = 'buy1-get1';
 
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
