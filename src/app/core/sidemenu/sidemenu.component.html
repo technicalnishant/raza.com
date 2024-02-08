@@ -23,9 +23,13 @@
             <li><a routerLink="/account/call-details/{{plan?.PlanId}}" >Call Details</a></li>
 
           
-              <li *ngIf="plan.IsAllowPinLess">
+              <!-- <li *ngIf="plan.IsAllowPinLess">
               <a routerLink="/account/mynumber/{{plan?.PlanId}}" >My
-                Numbers</a></li>
+                Numbers</a></li> -->
+
+                <li ><a routerLink="/account/mynumber/{{plan?.PlanId}}" >My
+                    Numbers</a></li>
+
             <li *ngIf="currentSetting.currentCountryId <=3"><a routerLink="/account/onetouchSetups/{{plan?.PlanId}}" >One Touch
                 Dial</a></li>
             <li *ngIf="plan.IsAllowCallForwarding">

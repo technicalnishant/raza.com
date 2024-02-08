@@ -25,7 +25,7 @@ Refer a Friend<br/>
 				</div>
 				<div class="col-md-4 howitworksSection number3">
 					<div class="icon_holder1"><img src="assets/images/howitworks_icon3.svg" alt="icon"></div>
-					<h3 class="heading_style2">Earn $10 FREE min</h3>
+					<h3 class="heading_style2">Earn {{ 10 | bCurrency : currentCurrency | async }} FREE min</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
 				</div>
 			</div>
@@ -52,25 +52,25 @@ Refer a Friend<br/>
                         <tbody>
                         <tr>
                             <td>1000</td>
-                            <td>$10</td>
+                            <td> {{ 10 | bCurrency : currentCurrency | async }}</td>
                         </tr>
                         <tr>
                             <td>2000</td>
-                            <td>$20</td>
+                            <td>{{ 20 | bCurrency : currentCurrency | async }}</td>
                         </tr>
                         <tr class="total"> 
                             <td>5000</td>
-                            <td>$50</td>
+                            <td>{{ 50 | bCurrency : currentCurrency | async }}</td>
                         </tr>
                         
                         </tbody>
                     </table>
-                    <p class="text-center">A total of 1000 can earn you a $10 card.	</p>
+                    <p class="text-center">A total of 1000 can earn you a {{ 10 | bCurrency : currentCurrency | async }} card.	</p>
                     <p class="text-center">1 referal=250 points.</p>
                </div>
                <div class="col-md-5 deals">
                    <h3>Track all of your referrals online!</h3>
-                   <p>You can view the status of your referrals, redeem your referral points and view redeem history under my account page. Points can be redeemed as soon as you reached a minimum of 1000 points which is applicable for a $10 card.</p>
+                   <p>You can view the status of your referrals, redeem your referral points and view redeem history under my account page. Points can be redeemed as soon as you reached a minimum of 1000 points which is applicable for a {{ 10 | bCurrency : currentCurrency | async }} card.</p>
                    <p>Please note:</p>
                    <p>Points cannot be converted into cash.</p>
                    <p>Refer a friend applies for new account activation only</p>

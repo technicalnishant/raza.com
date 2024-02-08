@@ -507,7 +507,10 @@ globalError()
   viewRates(event, countryId) {
     if (event.isUserInput) {
      // alert(countryId);
-
+     localStorage.setItem('rate_country_id', countryId);
+     localStorage.setItem('history_search_country_id', countryId);
+     this.router.navigate(['globalcallrates']);
+     return false;
 
 
  if(this.currentSetting.currentCountryId != 3 )

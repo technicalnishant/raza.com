@@ -169,6 +169,9 @@ export class GlobalcallComponent implements OnInit {
 
     this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
+       if(this.currentSetting.country.CountryId == 3)
+      this.selectedPrice = 10
+
       this.setcurrentCurrency()
       this.globalRatesService.getAllCountriesRates(this.currentSetting.currentCountryId).subscribe(
         (data: Country[]) => {
@@ -238,6 +241,7 @@ export class GlobalcallComponent implements OnInit {
     
     if( this.countryId != '')
     {
+      
       this.getRates();
     }
     else
@@ -637,9 +641,9 @@ getTotalMin1(item, price)
             data_arr['SubCardId'] = data.DiscountedPlansWithAutoRefill.Denominations[i].SubCardId;
             data_arr['TotalTime'] = data.DiscountedPlansWithAutoRefill.Denominations[i].TotalTime;
 
-            //this.AutorefillPlans.push(data_arr);
+             
              multi_data_arr[j] = data_arr;
-             j++;
+            
              data_arr = {};
             if( j+1 == data.DiscountedPlansWithAutoRefill.Denominations.length)
             {
@@ -647,10 +651,10 @@ getTotalMin1(item, price)
               this.AutorefillPlans = multi_data_arr.filter(a => a.Price != 90);
               else
               this.AutorefillPlans = multi_data_arr;
-               
+              
               this.Plans = this.AutorefillPlans;
             }           
-                      
+            j++;         
           }
        } 
        var wdata_arr = {};
@@ -672,7 +676,7 @@ getTotalMin1(item, price)
            wdata_arr['SubCardId'] = data.DiscountedPlans.Denominations[i].SubCardId;
            wdata_arr['TotalTime'] = data.DiscountedPlans.Denominations[i].TotalTime;
            wmulti_data_arr[j] = wdata_arr;
-           j++;
+           
            wdata_arr = {};
            if( j+1 == data.DiscountedPlans.Denominations.length)
             {
@@ -681,18 +685,16 @@ getTotalMin1(item, price)
               this.WithoutAutorefillPlans = wmulti_data_arr.filter(a => a.Price != 90)
               else
               this.WithoutAutorefillPlans = wmulti_data_arr;//.filter(a => a.Price != 90)
-
-              
-              //this.WithoutAutorefillPlans = wmulti_data_arr;
+ 
             }    
-            
+            j++;
                      
          }
       } 
       
 
  
-
+ 
         
         
          this.RatePerMinPromo = data.DiscountedPlans.RatePerMin;
@@ -776,8 +778,9 @@ getTotalMin1(item, price)
 
   filterDetailRate(price: number) {
     //this.FilteredSubPlans = this.SubPlans.filter(a => a.Price == price); 
+    
     let plan_info = this.SubPlans.filter(a => a.Price == this.selectedPrice);
-
+    console.log('this.plan_info',plan_info );
      this.FilteredSubPlans = plan_info.sort((a, b) => {
       const countryNameA = a.CountryName.toLowerCase();
       const countryNameB = b.CountryName.toLowerCase();

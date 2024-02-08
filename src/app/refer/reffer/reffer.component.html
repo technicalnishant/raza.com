@@ -271,7 +271,7 @@
                 alt="icon"
               />
             </div>
-            <h3 class="heading_style2">Earn <br/>$10 FREE min</h3>
+            <h3 class="heading_style2">Earn <br/>{{ 10 | bCurrency : currentCurrency | async }} FREE min</h3>
             <p>
               Redeem anytime anywhere when <br/>your points add up to 1000.
             </p>
@@ -306,20 +306,20 @@
                   <tbody>
                     <tr>
                       <td>1000</td>
-                      <td>$10</td>
+                      <td>{{ 10 | bCurrency : currentCurrency | async }}</td>
                     </tr>
                     <tr>
                       <td>2000</td>
-                      <td>$20</td>
+                      <td>{{ 20 | bCurrency : currentCurrency | async }}</td>
                     </tr>
                     <tr class="total">
                       <td>5000</td>
-                      <td>$50</td>
+                      <td>{{ 50 | bCurrency : currentCurrency | async }}</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <p class="note">A total of 1000 can earn you a $10 card. 1 referal=500 points.</p>
+              <p class="note">A total of 1000 can earn you a {{ 10 | bCurrency : currentCurrency | async }} card. 1 referal=500 points.</p>
             </div>
           </div>
           <div class="col-md-6">
@@ -329,7 +329,7 @@
               You can view the status of your referrals, redeem your referral
               points and view redeem history under my account page. Points can
               be redeemed as soon as you reached a minimum of 1100 points which
-              is applicable for a $10 card.
+              is applicable for a {{ 10 | bCurrency : currentCurrency | async }} card.
             </p>
             <div class="note_box">
               <h3>Please note:</h3>
@@ -367,7 +367,7 @@
               <div class="description">
                 Our system will
                 automatically add 500 points
-                each. (Redeemable for $5)
+                each. (Redeemable for {{ 5 | bCurrency : currentCurrency | async }})
               </div>
             </li>
             <li class="rightArw">

@@ -18,6 +18,8 @@ import { MatTabGroup } from '@angular/material/tabs';
 import { CallUsComponent } from 'app/shared/dialog/call-us/call-us.component';
 import { LoginpopupComponent } from 'app/core/loginpopup/loginpopup.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CurrentSetting } from 'app/core/models/current-setting';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-reffer',
@@ -62,7 +64,9 @@ Please use the link below
   county_id:number = 0;
   county_name:any;
   billingInfo: BillingInfo;
-  
+  currentCurrency:any;
+  currentSetting: CurrentSetting;
+  currenctSetting$: Subscription;
   itemsPerPage = 10; // Number of items to load per page
   currentPage = 1; // Current page
   showLoadMore:boolean = false;
@@ -101,11 +105,29 @@ Please use the link below
     {
       this.userLoggedin = false;
     }
-    
+    this.currenctSetting$ = this.razaEnvService.getCurrentSetting().subscribe(a => {
+      this.currentSetting = a;
+      console.log('Ga dsfasdf ads',this.currentSetting);
+      this.setcurrentCurrency();
+    });
 
   }
  
-   
+  setcurrentCurrency()
+  {
+    if(this.currentSetting.country.CountryId == 1)
+      this.currentCurrency='USD';
+      if(this.currentSetting.country.CountryId == 2)
+      this.currentCurrency='CAD';
+      if(this.currentSetting.country.CountryId == 3)
+      this.currentCurrency='GBP';
+      if(this.currentSetting.country.CountryId == 8)
+      this.currentCurrency='AUD';
+      if(this.currentSetting.country.CountryId == 20)
+      this.currentCurrency='NZD';
+      if(this.currentSetting.country.CountryId == 26)
+      this.currentCurrency='INR';
+  }
   getRechargeOptions() {
     this.rechargeRewardService.getRechargeOptions().subscribe(
       (res: any) => {

@@ -146,7 +146,7 @@ export class FeaturesTabComponent implements OnInit {
 						title:"Call Details",
 					},
 					heading:"Call<br>Details",
-				  'page_url':"plandetails",
+				  'page_url':"call-details",
 					subhead:"Keep track of your calls, view call details up to 60 days",
 					bg_img: "/assets/images/testimonial-bg-4_uqze4v.webp",
 					img_list:[
@@ -285,7 +285,7 @@ export class FeaturesTabComponent implements OnInit {
 					title:"Call Details",
 				},
 				heading:"Call<br>Details",
-			  'page_url':"plandetails",
+			  'page_url':"call-details",
 				subhead:"Keep track of your calls, view call details up to 60 days",
 				bg_img: "/assets/images/testimonial-bg-4_uqze4v.webp",
 				img_list:[
