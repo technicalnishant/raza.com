@@ -168,7 +168,11 @@ export class GlobalcallComponent implements OnInit {
     this.getCountryFrom();
 
     this.razaEnvService.getCurrentSetting().subscribe(res => {
-      this.currentSetting = res;
+    this.currentSetting = res;
+
+      if(this.currentSetting.country.CountryId == 3)
+      this.selectedPrice = 10
+
       this.globalRatesService.getAllCountriesRates(this.currentSetting.currentCountryId).subscribe(
         (data: Country[]) => {
           if(data)
@@ -638,7 +642,7 @@ getTotalMin1(item, price)
 
             //this.AutorefillPlans.push(data_arr);
              multi_data_arr[j] = data_arr;
-             j++;
+            
              data_arr = {};
             if( j+1 == data.DiscountedPlansWithAutoRefill.Denominations.length)
             {
@@ -649,7 +653,7 @@ getTotalMin1(item, price)
                
               this.Plans = this.AutorefillPlans;
             }           
-                      
+            j++;          
           }
        } 
        var wdata_arr = {};
@@ -671,7 +675,7 @@ getTotalMin1(item, price)
            wdata_arr['SubCardId'] = data.DiscountedPlans.Denominations[i].SubCardId;
            wdata_arr['TotalTime'] = data.DiscountedPlans.Denominations[i].TotalTime;
            wmulti_data_arr[j] = wdata_arr;
-           j++;
+           
            wdata_arr = {};
            if( j+1 == data.DiscountedPlans.Denominations.length)
             {
@@ -685,7 +689,7 @@ getTotalMin1(item, price)
               //this.WithoutAutorefillPlans = wmulti_data_arr;
             }    
             
-                     
+            j++;       
          }
       } 
       
