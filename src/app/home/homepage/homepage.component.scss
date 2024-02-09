@@ -46,7 +46,7 @@
 .carousel-caption.tpSlider_promo {
   left: 0;
   right: 0;
-  background-image: url(../../../assets/images/home_banner_new/promo/ch23.webp);
+//   background-image: url(../../../assets/images/home_banner_new/promo/ch23.webp);
   background-position: bottom 0 center;
   background-size: cover;
   bottom: 0;
@@ -68,7 +68,7 @@
 
   }
   @media only screen  and (max-width: 767px) {
-    background-image: url(../../../assets/images/home_banner_new/promo/ny23-mobile-reference.jpg);
+    // background-image: url(../../../assets/images/home_banner_new/promo/ny23-mobile-reference.jpg);
     background-repeat: no-repeat;
     a.ny23_top {
         position: absolute;
@@ -79,7 +79,7 @@
         z-index: 1;
     }
     &-3 {
-      background-image: url(../../../assets/images/home_banner_new/promo/ny23-uk-mobile-reference.jpg);
+    //   background-image: url(../../../assets/images/home_banner_new/promo/ny23-uk-mobile-reference.jpg);
     }
   }
 }
@@ -917,11 +917,11 @@ a {
 
 // Diwali promo css
 .diwali_strip {
-  // margin-top: 10px;
-  // background-image: url(../../../assets/images/home_banner_new/promo/banner.jpg);
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // height: 165px;
+  margin-top: 10px;
+  background-image: url(../../../assets/images/home_banner_new/promo/banner.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 165px;
   @media only screen  and (max-width: 600px) {
     height: 180px;
     background-size: cover;
@@ -940,8 +940,8 @@ a {
         height: 170px;
     }
     .diwaliPromoText {
-          color: #000;
-          text-align: center;
+          color: #57283b;
+        //   text-align: center;
           p {
             margin: 0 0 4px;
             font-weight: 500;
@@ -954,7 +954,7 @@ a {
             }
           }
           .dPromoBtn {
-            background: #8d3f29;
+            background: #ec5e66;
             padding: 3px 15px;
             font-size: 15px;
             color: #fff;
@@ -968,29 +968,28 @@ a {
         }
       }
       .viyaWrap {
-          margin-right: 30px;
+          margin-right: 50px;
           img {
-            width: 120px;
+            width: 200px;
           }
       }
       .fireworksWrap {
-          margin-left: -45px;
+          margin-left: 5px;
           img {
-            width: 140px;
-            margin-top: 10px;
+            width: auto;
           }
       }
       @media only screen  and (max-width: 600px) {
         .viyaWrap {
             margin-right: 10px;
             img {
-              width: 80px;
+              width: 120px;
             }
         }
         .fireworksWrap {
             margin-left: 10px;
             img {
-              width: 110px;
+              width: 210px;
             }
         }
       }
