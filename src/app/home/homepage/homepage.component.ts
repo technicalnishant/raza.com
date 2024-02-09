@@ -96,7 +96,7 @@ sliderAutoplay: boolean = true;
   contentLoaded: boolean = false;
   isFixHeader: boolean = false;
    //promtionCode:string='';
-  promtionCode:string='VD2024';
+  promtionCode:string='VDAY2024';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';
