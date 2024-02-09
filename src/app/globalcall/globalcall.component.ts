@@ -447,11 +447,15 @@ export class GlobalcallComponent implements OnInit {
       var regularTime = this.WithoutAutorefillPlans[i].TotalTime;
       
         if(price == 90)
-        discount_pct = 5;
+        discount_pct = 15;
         if(price == 50)
         discount_pct = 10;
 
-        if(price == 20)
+         
+        if(price == 25 )
+        discount_pct = 10;
+
+        if(price == 20 )
         discount_pct = 7;
 
         if(price == 10)

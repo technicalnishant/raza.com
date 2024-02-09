@@ -255,7 +255,9 @@ export class TryUsFreeComponent implements OnInit {
 
   private getCountryFrom() {
     this.countryService.getFromCountries().subscribe((res: Country[]) => {
-      this.countryFrom = res;
+    //  this.countryFrom = res;
+      this.countryFrom = res.filter(country => country.CountryId <= 3);
+ 
     });
   }  
   ngOnDestroy(): void {
