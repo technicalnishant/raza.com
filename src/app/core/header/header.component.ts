@@ -176,7 +176,7 @@ globalError()
 
 
     localStorage.setItem('last_page', event.url);
-
+    this.setcurrentCurrency();
     if(event.url == '/' || event.url == '/mobileapp' || event.url == '/p')
     {
       this.showHeader = true;
@@ -504,32 +504,34 @@ globalError()
     if (event.isUserInput) {
      // alert(countryId);
 
+     localStorage.setItem('rate_country_id', countryId);
+     localStorage.setItem('history_search_country_id', countryId);
+     this.router.navigate(['globalcallrates']);
 
-
- if(this.currentSetting.currentCountryId != 3 )
-{
-      localStorage.setItem('rate_country_id', countryId);
-      localStorage.setItem('history_search_country_id', countryId);
-      this.router.navigate(['globalcallrates']);
-}
-else
- {
-   localStorage.removeItem('rate_country_id');
-      this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, countryId).subscribe(
-        (data: any) =>
-        {
-          if (this.dialog.openDialogs.length == 0)
-          {
-            this.dialog.open(GlobalCallComponent, {
-              data: { data },
-              width: '83vw',
-              maxWidth: '1235px'
-            });
-          }
-        },
-        (err: ApiErrorResponse) => console.log(err),
-      );
-    }
+//  if(this.currentSetting.currentCountryId != 3 )
+// {
+//       localStorage.setItem('rate_country_id', countryId);
+//       localStorage.setItem('history_search_country_id', countryId);
+//       this.router.navigate(['globalcallrates']);
+// }
+// else
+//  {
+//    localStorage.removeItem('rate_country_id');
+//       this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, countryId).subscribe(
+//         (data: any) =>
+//         {
+//           if (this.dialog.openDialogs.length == 0)
+//           {
+//             this.dialog.open(GlobalCallComponent, {
+//               data: { data },
+//               width: '83vw',
+//               maxWidth: '1235px'
+//             });
+//           }
+//         },
+//         (err: ApiErrorResponse) => console.log(err),
+//       );
+//     }
 
     }
   }

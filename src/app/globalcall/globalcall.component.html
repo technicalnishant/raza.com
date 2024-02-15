@@ -139,11 +139,11 @@
                                                          <span class="bonus-new">{{item.DiscountApplied}}% BONUS </span>
                                                         </span>
                                                         <span class="slice" *ngIf="item.Price==90">$100</span>
-                                                        <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }} </div>
+                                                        <div id="7_offer3">{{ item.Price | bCurrency : currentCurrency}} </div>
 
                                                         <span class="inner_price" *ngIf="item.Price==90">
-                                                          {{RatePerMinWithOutPromo}}₵ / min</span>
-			                                                  <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
+                                                          {{RatePerMinWithOutPromo  | sCurrency : currentCurrency }}  / min</span>
+			                                                  <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item) | sCurrency : currentCurrency}}  / min</span>
 
                                                     </div>
                                                     <div class="button button_bg_price"><button mat-button=""
@@ -164,11 +164,11 @@
                                                           <span class="bonus-new">{{item.DiscountApplied}}% BONUS </span>
                                                         </span>
                                                         <span class="slice" *ngIf="item.Price==90">$100</span>
-                                                        <div id="7_offer3">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }} </div>
+                                                        <div id="7_offer3">{{ item.Price | bCurrency : currentCurrency }} </div>
 
                                                         <span class="inner_price" *ngIf="item.Price==90">
-                                                          {{RatePerMinPromo}}₵ / min</span>
-			                                                  <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
+                                                          {{RatePerMinPromo | sCurrency : currentCurrency}} / min</span>
+			                                                  <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item) | sCurrency : currentCurrency}}  / min</span>
 
                                                     </div>
                                                     <div class="button button_bg_price">
@@ -259,10 +259,10 @@
                                                         </span>
                                                     </span>
                                                         <span class="slice" *ngIf="item.Price==90">$100</span>
-                                                        <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
+                                                        <div id="7_offer">{{ item.Price | bCurrency : currentCurrency}}</div>
                                                         <span class="inner_price" *ngIf="item.Price==90">
-                                                          {{RatePerMinWithOutPromo}}₵ / min</span>
-                                                        <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
+                                                          {{RatePerMinWithOutPromo | sCurrency : currentCurrency}}  / min</span>
+                                                        <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item) | sCurrency : currentCurrency}}  / min</span>
 
                                                     </div>
                                                     <div class="button button_bg_price"><button mat-button=""
@@ -287,10 +287,10 @@
                                                             </span>
                                                         </span>
                                                         <span class="slice" *ngIf="item.Price==90">$100</span>
-                                                        <div id="7_offer">{{ item.Price | bCurrency : globalPlanData.CurrencyCode }}</div>
+                                                        <div id="7_offer">{{ item.Price | bCurrency : currentCurrency }}</div>
                                                         <span class="inner_price" *ngIf="item.Price==90">
-                                                          {{RatePerMinPromo}}₵ / min</span>
-                                                        <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item)}}₵ / min</span>
+                                                          {{RatePerMinPromo | sCurrency : currentCurrency}}  / min</span>
+                                                        <span class="inner_price" *ngIf="item.Price!=90">{{getRatePerMin(item) | sCurrency : currentCurrency}}  / min</span>
 
                                                     </div>
                                                     <div class="button button_bg_price"><button mat-button=""
@@ -397,7 +397,7 @@
                                                 </span></span>
                                                 <div id="10_offer2"><span class="slice" *ngIf="item.Price==90">$100</span>
                                                     {{ item.Price | bCurrency : countryCode }} </div>
-                                                <span class="inner_price">{{getRatePerMin(item)}}₵ / min</span>
+                                                <span class="inner_price">{{getRatePerMin(item) | sCurrency : currentCurrency}} / min</span>
 
                                                 <div class="button"><button (click)="onClickRateTab(item)" mat-button=""
                                                         class="mat-focus-indicator mat-button mat-button-base">

@@ -237,6 +237,7 @@ export class GlobalcallComponent implements OnInit {
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
       //this.getActivePromotion(this.currentSetting.currentCountryId);
+      this.setcurrentCurrency();
     })
     
     if( this.countryId != '')
@@ -444,9 +445,11 @@ export class GlobalcallComponent implements OnInit {
       var discount_pct = 10;
       var price = this.WithoutAutorefillPlans[i].Price; 
       var regularTime = this.WithoutAutorefillPlans[i].TotalTime;
-      
+    
+     if(this.currentSetting.country.CountryId != 3) 
+     {
         if(price == 90)
-        discount_pct = 5;
+        discount_pct = 15;
         if(price == 50)
         discount_pct = 10;
 
@@ -455,6 +458,10 @@ export class GlobalcallComponent implements OnInit {
 
         if(price == 10)
         discount_pct = 5;
+     }
+     else
+     discount_pct = 0;
+        
 
       var discount_min = regularTime*discount_pct/100;
       var TotalTime = regularTime+discount_min; 
@@ -462,11 +469,7 @@ export class GlobalcallComponent implements OnInit {
      
       var per_cent  = this.toFixed((price/TotalTime)*100);
 
-      if(price == 90)
-      {
-        
-        discount_pct = 15;
-      }
+      
       
       var denonm_arr = {
         SubCardId: this.WithoutAutorefillPlans[i].SubCardId, 
@@ -685,7 +688,7 @@ getTotalMin1(item, price)
               else
               this.WithoutAutorefillPlans = wmulti_data_arr;//.filter(a => a.Price != 90)
 
-              
+             
               //this.WithoutAutorefillPlans = wmulti_data_arr;
             }    
             

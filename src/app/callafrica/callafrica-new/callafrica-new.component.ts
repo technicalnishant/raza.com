@@ -246,30 +246,31 @@ getcountryrate(obj)
 
   private OpenPlanDialog(countryId) {
 
-    if(this.currentSetting.currentCountryId == 3)
-    {
+    // if(this.currentSetting.currentCountryId == 3)
+    // {
 
-      this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, countryId).subscribe(
-        (data: any) => {
-          if (this.dialog.openDialogs.length == 0) {
-            this.dialog.open(GlobalCallComponent, {
-              data: { data },
-              width: '83vw',
-              maxWidth: '1235px'
-            });
-          }
-        },
-        (err: ApiErrorResponse) => console.log(err),
-      );
+    //   this.searchRatesService.getSearchGlobalRates(this.currentSetting.currentCountryId, countryId).subscribe(
+    //     (data: any) => {
+    //       if (this.dialog.openDialogs.length == 0) {
+    //         this.dialog.open(GlobalCallComponent, {
+    //           data: { data },
+    //           width: '83vw',
+    //           maxWidth: '1235px'
+    //         });
+    //       }
+    //     },
+    //     (err: ApiErrorResponse) => console.log(err),
+    //   );
 
-    }
-    else{
+    // }
+    // else{
 
-      localStorage.setItem('rate_country_id', countryId);
-      this.router.navigate(['globalcallrates']);
-    }
+    //   localStorage.setItem('rate_country_id', countryId);
+    //   this.router.navigate(['globalcallrates']);
+    // }
     
-
+    localStorage.setItem('rate_country_id', countryId);
+    this.router.navigate(['globalcallrates']);
   
 
   }
