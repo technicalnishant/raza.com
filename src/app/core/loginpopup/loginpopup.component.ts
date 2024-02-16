@@ -391,7 +391,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
       this.loginForm.controls['username'].setErrors({ 'invalid_input': true });
       return;
     }
-
+    
     this.executeCaptcha('login').toPromise().then(token => {
       //console.log('token', token);
       let body = {
@@ -401,13 +401,20 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
         phone:phone,
       };
         
-      this.authService.login(body, false, "Y").subscribe((response) => {
+      this.authService.login(body, false, "Y").subscribe((response:any) => {
         if (response != null) {
 
           this.setCookie(this.loginWith, phone, userPassword)
           
-          
-
+         // console.log(response, 'You are here because of th eAPI')
+          if(response.error)
+          {
+            this.error_response = response.error.error_description
+            this.loginForm.controls['password'].setErrors({ 'invalid': true });
+           
+             
+            return false;
+          }
           if(this.fromPage   == '' && this.navigateTo == '') 
           { 
             this.router.navigate([this.returnUrl]);
@@ -421,13 +428,13 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
 
         } else if (response == null) {
-          this.callRedirect(); // this.router.navigateByUrl('/auth/sign-in');
+         // this.callRedirect(); 
         }
       },
         (error) => {
 
-            this.error_response = error.error.error_description
-        //  console.log("error message is ",error.error.error_description);
+            this.error_response = error.error_description
+          console.log("error message is ",error.error.error_description);
 
           this.loginForm.patchValue({
             captcha: ''
@@ -442,7 +449,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
   callRedirect()
   {
      var path = '/'+this.module+'/'+this.fromPage
-    
+    console.log("This function get called automatically");
      
 
     this.planService.getAllPlans().subscribe(

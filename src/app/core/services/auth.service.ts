@@ -120,6 +120,7 @@ export class AuthenticationService {
 	  return this.httpClient.post<any>(Api.auth.token, authCredentials).pipe(
 		switchMap(user => {
 		  if (user && user.access_token) {
+		 
 			if (body.phone) {
 			  var phoneno = /^\d{10}$/;
 			  let phoneOrEmail = body.phone;
@@ -173,7 +174,7 @@ export class AuthenticationService {
 		}),
 		catchError(error => {
 		  console.error('Login error:', error);
-		  return of(null);
+		  return of(error);
 		})
 	  );
 	}
