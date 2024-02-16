@@ -434,7 +434,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
         (error) => {
 
             this.error_response = error.error_description
-          console.log("error message is ",error.error.error_description);
+           
 
           this.loginForm.patchValue({
             captcha: ''
@@ -519,17 +519,14 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      }
     else
     {
- 
-       
   
-        console.log("Step 11");
         if(phoneOrEmail !='')
         {
 
           this.enteredPhone = phoneOrEmail;
           this.processForgot()
           this.showForgotPass = true;
-          console.log("Step 111");
+          
           this.processOtp = true;
         }
         else{
@@ -560,7 +557,6 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      if (!isValidPhoneOrEmail(reciever)) 
      {
       this.showForgotPass = true;
-      console.log("Step 2");
       this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid': true });
       return;
     }
@@ -602,7 +598,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
      if (!isValidPhoneOrEmail(reciever)) 
      {
       this.showForgotPass = true;
-      console.log("Step 2");
+     
       this.forgotPasswordForm.controls['phoneEmailControl'].setErrors({ 'invalid': true });
       return;
     }
