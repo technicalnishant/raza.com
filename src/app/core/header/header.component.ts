@@ -132,6 +132,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
     // https://material.angular.io/components/dialog/overview
     const modalDialog = this.matDialog.open(LoginpopupComponent, dialogConfig);
   }
+
   try_us_free()
   {
     const dialogConfig = new MatDialogConfig();
@@ -151,15 +152,12 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   }
 globalError()
 {
-  
-		var errorMsg = "Our system is under maintenance and our team is working diligently to restore services as quickly as possible. We apologize for any inconvenience caused and appreciate your patience during this time.";
-		 
-	 
-		this.dialog.open(CustomErrorComponent, {
+  var errorMsg = "Our system is under maintenance and our team is working diligently to restore services as quickly as possible. We apologize for any inconvenience caused and appreciate your patience during this time.";
+	this.dialog.open(CustomErrorComponent, {
             data: { errorMsg } 
           });  
-		 
-    }
+	}
+
   ngOnInit() {
 
    // this.globalError();
@@ -221,6 +219,10 @@ globalError()
       //   this.blueBg = 1;
       // }
       this.showHeader = false;
+    }
+    else if(event.url == '/login')
+    {
+      this.openModal();
     }
 
      

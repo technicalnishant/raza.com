@@ -23,6 +23,8 @@ const routes: Routes = [
 
  
   { path: 'ref/:signup_code', component: HomepageComponent },
+  /******* Route to login popup *******/
+  { path: 'login', component: HomepageComponent },
 
   { path: 'mobileapp', component: HomepageComponent, data: { scrollToMobileApp: true } },
 
