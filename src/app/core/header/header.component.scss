@@ -778,18 +778,14 @@ button.login_btn {
 }
 .deal-menu {
   display: flex;
+  height: 20px;
 }
 ::ng-deep .mat-toolbar-multiple-rows {
   min-height: unset;
 }
 
-
 // search css
-
-
-
-
-  .deal-menu ul li a{
+.deal-menu ul li a {
     margin-left: 20px;
 }
 .flag_list1 {
