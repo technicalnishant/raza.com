@@ -714,6 +714,9 @@ button.login_btn {
 .search-box {
   width: 50%;
   margin: auto;
+  .input-group {
+    height: 46px;
+  }
 }
 .logo-white img {
   width: 125px;
