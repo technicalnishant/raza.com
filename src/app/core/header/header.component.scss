@@ -2,6 +2,9 @@
   .tryUsfree::after, .mg_menu {
     background-image: url(../../../assets/images/new_design_images/hp_sprites.png);
   }
+  .logo-white {
+      height: 51px;
+  }
   .mg_menu {
     width: 22px;
     height: 16px;
@@ -1547,6 +1550,7 @@ input#searchInput::placeholder {
   .logo-white {
     text-align: center;
     padding-left: 5px;
+    height: auto;
  }
   .second-menu {
     display: none;
