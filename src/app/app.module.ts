@@ -41,6 +41,7 @@ import { DialogCofirmComponent } from './mobile-pay/dialog/dialog-cofirm/dialog-
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { GlobalcallComponent } from './globalcall/globalcall.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import { PlanCheckoutComponent } from './plan-checkout/plan-checkout.component';
 export function LocationProviderFactory(provider: RazaEnvironmentService) 
 {
 
@@ -89,7 +90,8 @@ export function LocationProviderFactory(provider: RazaEnvironmentService)
     BottomUpComponent,
     DialogCofirmComponent,
     
-    GlobalcallComponent
+    GlobalcallComponent,
+          PlanCheckoutComponent
          
 
   ],

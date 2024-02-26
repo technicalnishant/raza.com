@@ -9,11 +9,14 @@ import { AuthenticationService } from '../../../core/services/auth.service';
 import { RazaLayoutService } from '../../../core/services/raza-layout.service';
 import { TransactionResponseModel } from '../../../payments/models/transaction-response.model';
 import { BreakpointObserver } from '@angular/cdk/layout'; 
+declare var gtag: Function;
+declare var window: any;
 @Component({
   selector: 'app-checkout-confirmation',
   templateUrl: './checkout-confirmation.component.html',
   styleUrls: ['./checkout-confirmation.component.scss']
 })
+ 
 export class CheckoutConfirmationComponent implements OnInit, OnDestroy {
   constructor(
     private titleService: Title,
@@ -43,10 +46,31 @@ export class CheckoutConfirmationComponent implements OnInit, OnDestroy {
     this.userContext = this.authService.getCurrentLoginUser();
     this.orderId = this.route.snapshot.paramMap.get('orderId');
     
-    
+    // Add your Google Tag Manager script here
+    this.addGtmScript();
   }
+  
+  addGtmScript() {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-1070990896';
+    document.head.appendChild(script);
 
- 
+    script.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      const gtag: Function = function () {
+        window.dataLayer.push(arguments);
+      };
+      gtag('js', new Date());
+      gtag('config', 'AW-1070990896');
+      
+    };
+
+    gtag('event', 'conversion', {
+      'send_to': 'AW-1070990896/hVOfCI-X9IMDELCM2P4D',
+      'transaction_id': this.orderId 
+  });
+  }
    
   getCurrentCart() {
     this.currentCartObs$ = this.checkoutService.getCurrentCart().subscribe((model: ICheckoutModel) => {

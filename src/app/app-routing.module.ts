@@ -16,6 +16,7 @@ import { GlobalcallComponent } from './globalcall/globalcall.component';
 import { MotoComponent } from './moto/moto.component';
 import { AutoComponent } from './auto/auto.component';
 import { SearchComponent } from './search/search.component';
+import { PlanCheckoutComponent } from './plan-checkout/plan-checkout.component';
 const routes: Routes = [
  // { path: '', component: HomepageComponent, pathMatch: 'full' },
   { path:'', loadChildren:()=> import('./home/home.module').then(m=>m.HomeModule)},
@@ -73,7 +74,7 @@ const routes: Routes = [
  // { path: 'globalcallrates', component: GlobalCallratesComponent},
   { path: 'globalcallrates', component: GlobalcallComponent},
   { path: 'globalcallrates_new', component: GlobalcallComponent},
-
+  { path: 'custom_checkout', component: PlanCheckoutComponent},
   { path: 'globalcallrates/:country_name', component: GlobalCallratesComponent},
   { path: 'call/:country_name', component: GlobalCallratesComponent},
   { path: 'rates/:country_name', component: GlobalCallratesComponent},
