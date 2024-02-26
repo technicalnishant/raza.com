@@ -765,6 +765,7 @@ a {
     margin-top: 40px;
     background-color: #ffcf05;
     text-transform: uppercase;
+    min-height: 52px;
     &:hover {
         opacity: .8;
     }
@@ -1641,6 +1642,7 @@ h1.buy1get1-text:after {
       letter-spacing: inherit;
       padding: 7px 48px !important;
       margin-top: 30px;
+      min-height: unset;
   }
   .view-more {
       font-size: 12px;
