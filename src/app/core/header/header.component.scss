@@ -2,6 +2,9 @@
   .tryUsfree::after, .mg_menu {
     background-image: url(../../../assets/images/new_design_images/hp_sprites.png);
   }
+  .logo-white {
+      height: 51px;
+  }
   .mg_menu {
     width: 22px;
     height: 16px;
@@ -714,6 +717,9 @@ button.login_btn {
 .search-box {
   width: 50%;
   margin: auto;
+  .input-group {
+    height: 46px;
+  }
 }
 .logo-white img {
   width: 125px;
@@ -724,9 +730,10 @@ button.login_btn {
   align-items: center;
   color: #fff;
   text-transform: uppercase;
-  font-family: "MONTSERRAT";
+  font-family: "Montserrat";
   font-weight: 400;
   font-size: 14px;
+  height: 36px;
 }
 .second-menu {
   font-size: 13px;
@@ -774,18 +781,14 @@ button.login_btn {
 }
 .deal-menu {
   display: flex;
+  height: 20px;
 }
 ::ng-deep .mat-toolbar-multiple-rows {
   min-height: unset;
 }
 
-
 // search css
-
-
-
-
-  .deal-menu ul li a{
+.deal-menu ul li a {
     margin-left: 20px;
 }
 .flag_list1 {
@@ -1547,6 +1550,7 @@ input#searchInput::placeholder {
   .logo-white {
     text-align: center;
     padding-left: 5px;
+    height: auto;
  }
   .second-menu {
     display: none;
