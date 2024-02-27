@@ -175,7 +175,7 @@ export class AuthenticationService {
 		}),
 		catchError(error => {
 		  console.error('Login error:', error);
-		  return of(null);
+		  return of(error);
 		})
 	  );
 	}

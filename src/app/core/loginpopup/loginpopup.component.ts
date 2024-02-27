@@ -426,7 +426,7 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
 
 
         } else if (response == null) {
-          this.callRedirect(); // this.router.navigateByUrl('/auth/sign-in');
+          //this.callRedirect();  
         }
       },
         (error) => {

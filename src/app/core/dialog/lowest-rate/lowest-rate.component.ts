@@ -84,8 +84,7 @@ export class LowestRateComponent implements OnInit, OnDestroy {
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(
       res => {
         this.currentSetting = res;
-        this.initAllRates();
-        this.setcurrentCurrency();
+        this.getLowestRates();
          
         
       }, () => {
@@ -94,6 +93,10 @@ export class LowestRateComponent implements OnInit, OnDestroy {
       this.getCountryFrom();
   }
  
+  private getLowestRates(){
+    this.initAllRates();
+    this.setcurrentCurrency();
+  }
   private getCountryFrom() {
     this.countryService.getFromCountries().subscribe((res: Country[]) => {
       this.countryFrom = res;
@@ -239,7 +242,7 @@ export class LowestRateComponent implements OnInit, OnDestroy {
   onSelectCountrFrom(country: Country) {
     this.currentSetting.country = country;
     this.razaEnvService.setCurrentSetting(this.currentSetting);
-     
+     this.getLowestRates();
     this.closeFlagDropDown();
     
   }

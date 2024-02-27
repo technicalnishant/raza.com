@@ -88,12 +88,12 @@
         <table class="table" *ngIf="currentCart.transactiontype === 4">
           <tbody>
             <tr>
-              <td>Mobile Recharge</td>
-              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.CurrencyCode | async }} </td>
+              <td>Mobile Recharge </td>
+              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async }} </td>
             </tr>
             <tr>
               <td>Service Fee</td>
-              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.CurrencyCode | async }} </td>
+              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode | async }} </td>
             </tr>
             <tr>
               <td>Amount Sent</td>
@@ -109,8 +109,8 @@
               <td>{{currentCart?.topupOption.Operator}}</td>
             </tr>
             <tr class="total">
-              <td>Total ({{currentCart?.CurrencyCode}})</td>
-              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.CurrencyCode | async}}</td>
+              <td>Total ({{currentCart?.currencyCode}})</td>
+              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode | async}}</td>
             </tr>
           </tbody>
         </table>
