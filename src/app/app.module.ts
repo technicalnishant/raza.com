@@ -43,9 +43,6 @@ import { GlobalcallComponent } from './globalcall/globalcall.component';
 import { QRCodeModule } from 'angularx-qrcode';
 export function LocationProviderFactory(provider: RazaEnvironmentService) 
 {
-
- 
-
   return () => provider.getCurrentLocationByIp(); 
    
 }

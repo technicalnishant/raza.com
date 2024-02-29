@@ -40,6 +40,7 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
   selector: 'app-loginpopup',
   templateUrl: './loginpopup.component.html',
   styleUrls: ['./loginpopup.component.scss'],
+  
 })
 
 

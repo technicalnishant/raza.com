@@ -19,20 +19,43 @@ export class RazaEnvironmentService {
     private static _setting: CurrentSetting;
     
     // private static _currentSetting = new BehaviorSubject<CurrentSetting>(null)
-
-
-    getToFixedTrunc(x:any) 
-    {
-        
+    getToFixedTrunc(x: any) {
         let n = 2;
         const v = (typeof x === 'string' ? x : x.toString()).split('.');
-         
+        
         if (n <= 0) return v[0];
+        
         let f = v[1] || '';
-        if (f.length > n) return `${v[0]}.${f.substr(0,n)}`;
-        while (f.length < n) f += '0';
-        return `${v[0]}.${f}`
+        let roundedDecimal = Math.round(parseFloat(`0.${f}`) * 10) / 10;
+    
+        if (roundedDecimal >= 1) {
+            v[0] = String(parseInt(v[0]) + 1);
+            roundedDecimal = 0;
+        }
+    
+        let result = `${v[0]}.${String(roundedDecimal)}`;
+    
+        // Trim trailing zeros
+        result = result.replace(/\.?0+$/, '');
+    
+        // Remove leading zero from the decimal part if less than 1
+        result = result.replace(/^0\./, '.');
+    
+        return result;
     }
+
+    // getToFixedTrunc(x:any) 
+    // {
+        
+    //     let n = 2;
+    //     const v = (typeof x === 'string' ? x : x.toString()).split('.');
+         
+    //     if (n <= 0) return v[0];
+    //     let f = v[1] || '';
+    //     if (f.length > n) return `${v[0]}.${f.substr(0,n)}`;
+    //     while (f.length < n) f += '0';
+    //     return `${v[0]}.${f}`
+    // }
 
     getCurrentSetting() {
         //return RazaEnvironmentService._currentSetting;
