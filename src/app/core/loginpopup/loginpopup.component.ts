@@ -407,12 +407,18 @@ export class LoginpopupComponent extends AppBaseComponent implements OnInit {
         //phone:phoneOrEmail,
       };
         
-      this.authService.login(body, false, "Y").subscribe((response) => {
+      this.authService.login(body, false, "Y").subscribe((response:any) => {
+        console.log("error login ", response);
         if (response != null) {
 
           this.setCookie(this.loginWith, phone, userPassword)
           
-          
+          if(response.error)
+          {
+            this.error_response = response.error.error_description
+            this.loginForm.controls['password'].setErrors({ 'invalid': true });
+            return false;
+          }
 
           if(this.fromPage   == '' && this.navigateTo == '') 
           { 

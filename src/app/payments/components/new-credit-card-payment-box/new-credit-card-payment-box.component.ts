@@ -682,6 +682,14 @@ search_country:any='US';
     {
       this.search_country = 'UK';
     }
+    if(this.search_country_id == 8)
+    {
+      this.search_country = 'AU';
+    }
+    if(this.search_country_id == 20)
+    {
+      this.search_country = 'NZ';
+    }
     const autocomplete = new google.maps.places.Autocomplete(this.addresstext.nativeElement,
         {
             componentRestrictions: { country: this.search_country },

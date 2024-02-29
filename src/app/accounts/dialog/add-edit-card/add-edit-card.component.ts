@@ -30,7 +30,7 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
   /********** Google place search **********/
     @Input() adressType: string;
     @Output() setAddress: EventEmitter<any> = new EventEmitter();
-    @ViewChild('addresstext') addresstext: any;
+    @ViewChild('addresstexts') addresstexts: any;
   
     autocompleteInput: string;
     queryWait: boolean;
@@ -278,7 +278,15 @@ export class AddEditCardComponent implements OnInit, AfterViewInit {
       {
         this.search_country = 'UK';
       }
-    const autocomplete = new google.maps.places.Autocomplete(this.addresstext.nativeElement,
+      if(this.search_country_id == 8)
+      {
+        this.search_country = 'AU';
+      }
+      if(this.search_country_id == 20)
+      {
+        this.search_country = 'NZ';
+      }
+    const autocomplete = new google.maps.places.Autocomplete(this.addresstexts.nativeElement,
         {
             componentRestrictions: { country: this.search_country },
             types: ['address']  // 'establishment' / 'address' / 'geocode'
