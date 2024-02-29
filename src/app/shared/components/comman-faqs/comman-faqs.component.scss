@@ -217,4 +217,87 @@
           }
         }
     }
+
+    @media only screen and (min-width: 767px) {
+        .testiSliderContentMobile {
+            display: none;
+        }
+    }
+
+    @media only screen  and (max-width: 767px) {
+    .splide__arrow {
+        display: none;
+    }
+    .testPadding {
+        padding: 13px 0 13px 0;
+    }
+    .testiSliderContent {
+        display: none;
+    }
+    .testimonial_area_container {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .testiSliderContentMobile {
+        background-image: url(/assets/images/testimonial-bg-5_d2eb09.webp);
+        .testiBlockSec {
+          height: 550px;
+          width: 100% !important;
+          border-bottom: 1px solid #fff;
+          background-size: cover;
+          background-position: center;
+          padding: 0;
+          background-image: url(/assets/images/testimonial-bg-5_d2eb09.webp);
+          p, .testiBtm  {
+            display: block;
+            font-size: 15px;
+            text-align: left;
+            br {
+              display: none;
+            }
+          }
+          &.testiBlkSec2 {
+            background-image: url(/assets/images/testimonial-bg-4_uqze4v.webp);
+          }
+          &.testiBlkSec3 {
+            background-image: url(/assets/images/testimonial-bg-3a_noysfw.webp);
+          }
+          &.testiBlkSec4 {
+            background-image: url(/assets/images/testimonial-bg-6_objrev.webp);
+          }
+        }
+        .testHoverBlk {
+          display: none !important;
+        }
+        .testiBlockInner {
+          background-color: rgba(77, 101, 111, 0.7);
+          padding: 10px 10px 35px;
+          height: auto !important;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          color: #fff;
+          display: flex;
+          flex-direction: row-reverse;
+          align-items: center;
+        }
+        .testiBtmWrap {
+          overflow: unset;
+          margin: 0;
+          .authorIcon {
+            display: block;
+            padding: 4px;
+            margin-right: 10px;
+            img.example-header-image {
+              width: 42px;
+              height: 42px;
+            }
+          }
+          .testiBtm {
+            position: static;
+          }
+        }
+      }
+    }
 }
