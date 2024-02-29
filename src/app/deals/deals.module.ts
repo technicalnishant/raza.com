@@ -21,7 +21,7 @@ import { CommanFaqsComponent } from 'app/shared/components/comman-faqs/comman-fa
 import { Buy5popupComponent } from '../globalrates/buy5popup/buy5popup.component';
 
 import { MobiledealsComponent } from '../mobiledeals/mobiledeals.component'; 
-
+import { NgxSplideModule } from 'ngx-splide';
 
 @NgModule({
   imports: [
@@ -30,6 +30,7 @@ import { MobiledealsComponent } from '../mobiledeals/mobiledeals.component';
     FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
+    NgxSplideModule,
     RouterModule.forChild([
       { path: ':promotionCode', component: PromotionHostComponent },
       { path: 'page/guyana', component: GuyanaComponent },
