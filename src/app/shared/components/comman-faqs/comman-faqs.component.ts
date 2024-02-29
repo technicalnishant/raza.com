@@ -13,7 +13,7 @@ export class CommanFaqsComponent implements OnInit {
   }
   showMore = false;
   showButton = true;
-
+  sliderAutoplay: boolean = true;
    isVisibleFaq(){
     this.showMore = true;
     this.showButton = false;
