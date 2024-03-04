@@ -111,7 +111,7 @@
           </mat-form-field>
         </div>
 
-        <div class="col-sm-6" *ngIf="search_country_id != 3">
+        <div class="col-sm-6" *ngIf="search_country_id < 3">
           <mat-form-field *ngIf="!isFreeStateText">
             <mat-select placeholder="State" formControlName="state" required>
               <mat-option *ngFor="let item of states" [value]="item.Id">{{item.Name}}</mat-option>
