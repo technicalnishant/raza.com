@@ -706,7 +706,7 @@ search_country:any='US';
     this.phone = this.getPhone(place);
     this.formattedAddress = place['formatted_address'];
     this.zone.run(() => this.formattedAddress = place['formatted_address']);
-  
+  console.log(place);
     console.log(place);
     var street      =  this.getStreet(place) ; 
     var street_no   = this.getStreetNumber(place); 
