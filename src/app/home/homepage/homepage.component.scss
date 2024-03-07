@@ -50,13 +50,70 @@
   background-position: bottom 0 center;
   background-size: cover;
   bottom: 0;
-  img {
-    width: 1250px;
+  &-3 {
+    .promoTextWrap {
+        justify-content: center;
+        @media only screen  and (max-width: 767px) {
+            max-width: 90% !important;
+            margin-top: 80px !important;
+        }
+    }
+  }
+  .promoTextWrap {
+    width: 860px;
+    display: flex;
+    align-items: center;
     max-width: 90%;
-    margin: -65px auto 0;
+    margin: 0 auto;
+    font-weight: 700;
+    .promo_text {
+        margin-left: 70px;
+        text-align: left;
+        @media only screen  and (max-width: 767px) {
+            margin-left: 0;
+        }
+        span {
+            font-size: 45px;
+            display: block;
+            line-height: 1;
+            @media only screen  and (max-width: 767px) {
+                font-size: 30px;
+            }
+        }
+        h2 {
+            font-size: 65px;
+            line-height: 1;
+            font-weight: 700;
+            @media only screen  and (max-width: 767px) {
+                font-size: 45px;
+                margin-top: 10px;
+            }
+        }
+        button.buy_now {
+            color: #000;
+            margin-top: 30px;
+            width: 200px;
+            font-weight: 600;
+            background: #000;
+            border-radius: 30px;
+            background-color: #ffcf05;
+            padding: 8px 14px;
+            font-size: 25px;
+            border: none;
+            @media only screen  and (max-width: 767px) {
+                font-size: 22px;
+            }
+        }
+    }
+    @media only screen  and (max-width: 900px) {
+        img {
+            max-width: 100%;
+        }
+    }
     @media only screen  and (max-width: 767px) {
-      max-width: 185px;
-      margin-top: 50px;
+      max-width: 285px;
+      margin-top: 0;
+      display: block;
       &.ch23-uk {
         max-width: 250px;
         margin-top: 70px;
