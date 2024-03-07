@@ -1,22 +1,25 @@
 <div class="first_fold">
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
-            <!-- <div class="diwali_strip" >
+            <div class="diwali_strip" >
               <div class="viyaFireworWrap">
-                <div class="viyaWrap">
+                <div class="viyaWrap" *ngIf="currentSetting?.country?.CountryId != 3">
                   <img src="../../../assets/images/home_banner_new/promo/left.webp" />
+                </div>
+                <div class="viyaWrap" *ngIf="currentSetting?.country?.CountryId == 3">
+                  <img class="viyaWrapUK" src="../../../assets/images/home_banner_new/promo/left-UK.webp" />
                 </div>
                 <div class="diwaliPromoText" *ngIf="currentSetting?.country?.CountryId != 3">
                   <div>
-                    <p>Happy Valentines Day</p>
+                    <p>Ramadan Kareem</p>
                     <h3>Get upto 20% bonus mins</h3>
                   </div>
                   <a (click)="onopenchristmas(typedEl)" class="dPromoBtn">Buy now</a>
                 </div>
-                <div class="fireworksWrap" *ngIf="currentSetting?.country?.CountryId == 3">
+                <!-- <div class="fireworksWrap" *ngIf="currentSetting?.country?.CountryId == 3">
                   <img src="../../../assets/images/home_banner_new/promo/right.webp" />
-                </div>
+                </div> -->
               </div>
-            </div>   -->
+            </div>  
 
             <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
             <!-- <splide-slide>
