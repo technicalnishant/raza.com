@@ -63,6 +63,7 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
  
    @ViewChildren('formRow') rows: any;
    enteredPhone:number;
+  #size: number=6;
   constructor(private router: Router,
     public dialogRef: MatDialogRef<SignuppopupComponent>,
     private route: ActivatedRoute,
@@ -244,13 +245,16 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
     this.authService.verifyOtp(this.signUpForm.value.phoneOrEmail, this.signUpForm.value.otp, token).toPromise()
       .then((res: boolean) => {
         
-        if (res) { 
+         if (res) { 
           this.closeModal();
           this.registerAndLoginUser(phoneNumber, otpVal);
         } else
          {
             this.invalidOtpError = true;
           console.log("Invalid Otp.");
+           
+        return false;
+         
         }
       });
     });
@@ -462,5 +466,38 @@ export class SignuppopupComponent extends AppBaseComponent implements OnInit {
   processClose()
   {
     this.processOtp = false;
+  }
+
+   
+  handlePaste(e: ClipboardEvent, idx: number) {
+    e.preventDefault();
+  
+    if (idx !== 0) {
+      // If the target input is not the first one - ignore
+      return;
+    }
+  
+    const pasteData = e.clipboardData?.getData('text');
+    console.log(pasteData);
+    // \d stands for digit in RegExp
+    // \\d escapes the slash before the "d" which we need
+    // because of the regexp being written as a string
+    const regex = new RegExp(`\\d{${this.#size}}`);
+    
+    if (!pasteData || !regex.test(pasteData)) {
+      // If there is nothing to be pasted or the pasted data does not
+      // comply with the required format - ignore the event
+      return;
+    }
+  
+    for (let i = 0; i < pasteData.length; i++) {
+     // this.form.controls[i].setValue(pasteData[i]);
+     const count = i+1
+     this.form.controls['input'+count].setValue(pasteData[i]);
+     if(count == this.#size)
+     this.onSubmit()
+    }
+  
+     
   }
 }

@@ -17,35 +17,28 @@ export class currencySmallSymbolPipe implements PipeTransform {
   currencySymbol: string;
 
   transform(value: number, currency: CurrencyCode): any {
-   
-    if (currency == CurrencyCode.GBP) 
-    {
+
+    if (currency == CurrencyCode.GBP) {
       this.currencySymbol = "p";
       return value + "" + this.currencySymbol;
     }
-    else if (currency == CurrencyCode.INR) 
-    {
+    else if (currency == CurrencyCode.INR) {
       this.currencySymbol = "p";
       return value + "" + this.currencySymbol;
     }
-    else if (currency == CurrencyCode.AUD) 
-    {
+    else if (currency == CurrencyCode.AUD) {
       this.currencySymbol = "¢";
       return value + "" + this.currencySymbol;
     }
-    else if (currency == CurrencyCode.NZD) 
-    {
+    else if (currency == CurrencyCode.NZD) {
       this.currencySymbol = "¢";
       return value + "" + this.currencySymbol;
     }
-    else 
-    {
+    else {
       this.currencySymbol = "¢";
       return value + "" + this.currencySymbol;
     }
 
-    //return value + "" +localStorage.getItem('subCurrencySymbol');
-    
   }
 }
 
@@ -54,34 +47,26 @@ export class currencyMainSymbolPipe implements PipeTransform {
   constructor(private razaEnvService: RazaEnvironmentService) { }
   currencySymbol: string = "$";
   transform(value: number, currency: CurrencyCode): string {
-    if (currency == CurrencyCode.GBP) 
-    {
+    if (currency == CurrencyCode.GBP) {
       this.currencySymbol = "£";
       return this.currencySymbol + "" + value;
     }
-    else if (currency == CurrencyCode.INR) 
-    {
+    else if (currency == CurrencyCode.INR) {
       this.currencySymbol = "₹";
       return value + "" + this.currencySymbol;
     }
-    else if (currency == CurrencyCode.AUD) 
-    {
+    else if (currency == CurrencyCode.AUD) {
       this.currencySymbol = "$";
       return value + "" + this.currencySymbol;
     }
-    else if (currency == CurrencyCode.NZD) 
-    {
+    else if (currency == CurrencyCode.NZD) {
       this.currencySymbol = "$";
       return value + "" + this.currencySymbol;
     }
-    else 
-    {
+    else {
       this.currencySymbol = "$";
       return this.currencySymbol + "" + value;
     }
-    
-  //  return this.razaEnvService.getCurrencySymbol()+ "" +this.razaEnvService.getFormatedPrice(value);
-     //return localStorage.getItem('currencySymbol')+ "" + value;
 
   }
 }
