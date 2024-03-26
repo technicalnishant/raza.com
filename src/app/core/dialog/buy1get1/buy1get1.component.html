@@ -162,9 +162,9 @@
                     <br />
                     <span class="sm">From<br> {{ item.RatePerMin | sCurrency : item.CurrencyCode}} / min</span>
                     </td>
-                    <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{item.FreeMin*2 | number:'1.0-0'}} mins</p></td>
-                    <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{item.FreeMin*3 | number:'1.0-0'}} mins</p></td>
-                    <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{item.FreeMin*5 | number:'1.0-0'}} mins</p></td>
+                    <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{(item.FreeMin/5)*2 | number:'1.0-0'}} mins</p></td>
+                    <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{(item.FreeMin/5)*3 | number:'1.0-0'}} mins</p></td>
+                    <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{ item.FreeMin  | number:'1.0-0'}} mins</p></td>
                 </tr>
             </tbody>
         </table>
