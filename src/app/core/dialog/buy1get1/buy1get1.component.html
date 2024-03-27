@@ -142,7 +142,7 @@
     <div class="container">
       <div class="countries_row">
         <table class="{{tblClass}}">
-            <thead>
+            <thead >
                 <tr>
                     <td>Country</td>
                     <td>{{currSymbol()}}<span class="lg">2</span> <span>Was <span class="csm">{{currSymbol()}}4</span></span></td>
@@ -156,7 +156,7 @@
                   <td>{{currSymbol()}}<span class="lg">5</span> <span>Was <span class="csm">{{currSymbol()}}10</span></span></td>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="currentSetting?.country?.CountryId >=3">
                 <tr *ngFor="let item of limitDenomination; let i = index">
                     <td>{{item.CountryToName}}
                     <br />
@@ -167,6 +167,20 @@
                     <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{ item.FreeMin  | number:'1.0-0'}} mins</p></td>
                 </tr>
             </tbody>
+
+
+            <tbody *ngIf="currentSetting?.country?.CountryId < 3">
+              <tr *ngFor="let item of limitDenomination; let i = index">
+                  <td>{{item.CountryToName}}
+                  <br />
+                  <span class="sm">From<br> {{ item.RatePerMin | sCurrency : item.CurrencyCode}} / min</span>
+                  </td>
+                  <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{item.FreeMin*2 | number:'1.0-0'}} mins</p></td>
+                  <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{item.FreeMin*3 | number:'1.0-0'}} mins</p></td>
+                  <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{ item.FreeMin*5  | number:'1.0-0'}} mins</p></td>
+              </tr>
+          </tbody>
+
         </table>
 
         <!-- <div
