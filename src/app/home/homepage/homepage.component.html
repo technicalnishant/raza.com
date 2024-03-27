@@ -22,7 +22,7 @@
             </div>   -->
 
             <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
-            <!-- <splide-slide> -->
+            <splide-slide>
               <!-- <div class="snow"></div>
               <div class="snow"></div>
               <div class="snow"></div>
@@ -223,23 +223,28 @@
               <div class="snow"></div>
               <div class="snow"></div>
               <div class="snow"></div> -->
-              <!-- <div class="carousel-caption tpSlider_promo tpSlider_promo-{{currentSetting?.country?.CountryId}}">
+              <div class="carousel-caption tpSlider_promo tpSlider_promo-{{currentSetting?.country?.CountryId}}">
                 <div class="promoTextWrap">
-                  <a (click)="onopenchristmas(typedEl)" *ngIf="currentSetting?.country?.CountryId != 3" class="ny23_top1">
+                  <!-- <a (click)="onopenchristmas(typedEl)" *ngIf="currentSetting?.country?.CountryId != 3" class="ny23_top1">
                     <img src="../../../assets/images/home_banner_new/promo/banner_left.webp" />                    
-                  </a>
-                  <img src="../../../assets/images/home_banner_new/promo/banner_left.webp" *ngIf="currentSetting?.country?.CountryId == 3" />
-                   <div class="promo_text"  *ngIf="currentSetting?.country?.CountryId != 3">
-                      <span>GET UPTO</span>
-                      <h2>20% 
-                        BONUS
-                        MINS
-                      </h2>
-                       <button (click)="onopenchristmas(typedEl)" class="buy_now">BUY NOW</button> 
-                   </div>
+                  </a> -->
+                  <div class="promo_textWrap">
+                    <img src="../../../assets/images/home_banner_new/promo/easter2a-uk.webp" *ngIf="currentSetting?.country?.CountryId == 3" class="img-fluid d-none d-md-block"/>
+                    <img src="../../../assets/images/home_banner_new/promo/mobile-uk.webp" *ngIf="currentSetting?.country?.CountryId == 3" class="img-fluid showMobileOnly"/>
+                    <img src="../../../assets/images/home_banner_new/promo/easter2a.webp" *ngIf="currentSetting?.country?.CountryId != 3"/>
+                    <div class="promo_text"  *ngIf="currentSetting?.country?.CountryId != 3">
+                       <!-- <span>GET UPTO</span>
+                       <h2>
+                         20% 
+                         BONUS
+                         MINS
+                       </h2> -->
+                        <button (click)="onopenchristmas(typedEl)" class="buy_now">BUY NOW</button> 
+                    </div>
+                  </div>
                 </div>             
               </div>
-            </splide-slide> -->
+            </splide-slide>
              <splide-slide>
                 <div class="sliderImg"></div>
                 <div class="carousel-caption tpSlider_1">
