@@ -1388,8 +1388,11 @@ h1.buy1get1-text:after {
           display: none;
         }
         ul.splide__pagination {
-            right: -10px;
+            right: 18px;
             margin-right: 0;
+            transform: none;
+            display: flex;
+            flex-direction: column;
         }
         .carousel-control-next,
         .carousel-control-prev {
