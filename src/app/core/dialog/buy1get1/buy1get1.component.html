@@ -156,54 +156,34 @@
                   <td>{{currSymbol()}}<span class="lg">{{getConvertedPrice(5)}}</span> <span> Was <span class="csm">{{currSymbol()}}{{getConvertedPrice(10)}}</span></span></td>
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let item of limitDenomination; let i = index">
-                    <td>{{item.CountryToName}}
-                    <br />
-                    <span class="sm">From<br> {{ item.RatePerMin | sCurrency : item.CurrencyCode | async}} / min</span>
-                    </td>
-                    <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{item.FreeMin*2 | number:'1.0-0'}} mins</p></td>
-                    <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{item.FreeMin*3 | number:'1.0-0'}} mins</p></td>
-                    <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{item.FreeMin*5 | number:'1.0-0'}} mins</p></td>
-                </tr>
-            </tbody>
+            <tbody *ngIf="currentSetting?.country?.CountryId >=3">
+              <tr *ngFor="let item of limitDenomination; let i = index">
+                  <td>{{item.CountryToName}}
+                  <br />
+                  <span class="sm">From<br> {{ item.RatePerMin | sCurrency : item.CurrencyCode | async}} / min</span>
+                  </td>
+                  <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{(item.FreeMin/5)*2 | number:'1.0-0'}} mins</p></td>
+                  <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{(item.FreeMin/5)*3 | number:'1.0-0'}} mins</p></td>
+                  <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{ item.FreeMin  | number:'1.0-0'}} mins</p></td>
+              </tr>
+          </tbody>
+
+
+          <tbody *ngIf="currentSetting?.country?.CountryId < 3">
+            <tr *ngFor="let item of limitDenomination; let i = index">
+                <td>{{item.CountryToName}}
+                <br />
+                <span class="sm">From<br> {{ item.RatePerMin | sCurrency : item.CurrencyCode | async}} / min</span>
+                </td>
+                <td><p class="free-mins" (click)="buyNow(2, 11,item )" >{{item.FreeMin*2 | number:'1.0-0'}} mins</p></td>
+                <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{item.FreeMin*3 | number:'1.0-0'}} mins</p></td>
+                <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{ item.FreeMin*5  | number:'1.0-0'}} mins</p></td>
+            </tr>
+        </tbody>
         </table>
-
-        <!-- <div
-          class="col-xl-3 col-md-4 countries"
-          *ngFor="let option of displayedRecords; let i = index"
-        >
-        {{option|json}}
-          <div class="country-box" >
-            <div class="country-flag">
-              <div class="div">
-
-                <img
-                src="./../../assets/images/flag/{{
-                  getImageName(option.CountryToName) | lowercase
-                }}.png"
-              />
-              </div>
-              <div class="country-name">{{ option.CountryToName }}</div>
-            </div>
-            <div class="country-rate">
-              <span>From</span> {{ option.RatePerMin | sCurrency : option.CurrencyCode}} <span>/ min</span>
-            </div>
-            <button
-              class="view-details-btn"
-              (click)="showPopup(option.CountryToId, option)"
-            >
-              VIEW Details
-            </button>
-          </div>
-        </div> -->
+ 
       </div>
-
-      <!-- <div class="col-6 col-md-4 col-xl-3 col-lg-4">
-        <button *ngFor="let page of totalPages" (click)="onPageChange(page)" class="{{getSelected(page)}}">
-          {{ page }}
-        </button>
-      </div> -->
+ 
       </div>
   </section>
 </div>
