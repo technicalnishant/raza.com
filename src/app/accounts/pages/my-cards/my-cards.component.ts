@@ -199,7 +199,7 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     get isFreeStateText() {
       return isNullOrUndefined(this.states) || this.states.length === 0;
     }
-  
+   
     getCardIcon(CreditCard: CreditCard) {
       switch (CreditCard.CardType.toLowerCase()) {
         case 'visa':

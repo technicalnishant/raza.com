@@ -1,4 +1,4 @@
-<div class="containerMyCard" *ngIf="currentCart">
+<div class="containerMyCard myaccountcards" *ngIf="currentCart">
   <div class="body-tab mt-5">
         <div class="row">
         <div class="{{isTopupPage ?'col-xl-8':'col-xl-12'}}">
@@ -51,7 +51,17 @@
                     <div class="d-block d-lg-flex px-4 justify-content-between align-items-center">
                       <div class="order-2 mr-0">
                       </div>
-                      <p class="haveAccountAlready text-center text-lg-right mb-0 order-1"> <a (click)="addNewCard()"><span class="addCard"></span> Add New Card</a></p>
+                      <p class="haveAccountAlready text-center text-lg-right mb-0 order-1">
+                         <a (click)="addNewCard()"><span class="addCard"></span> Add New Card 
+                        &nbsp;&nbsp;
+ 
+                        <div class="icon_payment_div">
+                          <img class="icon_payment" src="assets/images/visa_card.png" loading="lazy" alt="app">
+                          <img class="icon_payment"src="assets/images/master-card.png" loading="lazy" alt="app">
+                          <img class="icon_payment" src="assets/images/american-card.png" loading="lazy" alt="app">
+                      </div>
+                      </a>
+                      </p>
                     </div>
                 </section>
               </div>
