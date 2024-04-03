@@ -9,7 +9,7 @@
     <table class="table table-striped" *ngIf="isDisplayAutorefillInfo()">
       <tbody>
         <tr>
-          <td>Auto top up - {{autorefill?.AutoRefillAmount | bCurrency : autorefill?.CurrencyCode }} </td>
+          <td>Auto top up - {{autorefill?.AutoRefillAmount | bCurrency : autorefill?.CurrencyCode | async }} </td>
 
           <td class="enable">
             <mat-icon *ngIf="isAutorefillActive()">check_circle</mat-icon>{{getAutorefillStatusText()}}
@@ -41,7 +41,7 @@
       <button mat-button class="submitButton" (click)="addEnroll()">Enroll Autorefill</button>
     </div>
     <div class="autorefillTextarea" *ngIf="isDisplayAutorefillInfo()">
-      <p class="autoTextcommon">Auto top up - {{autorefill?.AutoRefillAmount | bCurrency : currentSetting.currency}}</p>
+      <p class="autoTextcommon">Auto top up - {{autorefill?.AutoRefillAmount | bCurrency : currentSetting.currency | async}}</p>
       <p *ngIf="autorefill?.Status==='A'" class="enabledText">
         <mat-icon *ngIf="isAutorefillActive()">check_circle</mat-icon>{{getAutorefillStatusText()}}
       </p>
