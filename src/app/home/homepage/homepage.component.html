@@ -14,7 +14,7 @@
                     <button (click)="onopenchristmas(typedEl)" class="img-fluid d-none d-md-block buy_nowEid">
                       <img src="../../../assets/images/home_banner_new/promo/eid24.webp" *ngIf="currentSetting?.country?.CountryId != 3"/>
                     </button>
-                    <div class="buy_nowEidMbWrap">
+                    <div class="buy_nowEidMbWrap" *ngIf="currentSetting?.country?.CountryId != 3">
                       <button (click)="onopenchristmas(typedEl)" class="buy_nowEidMb showMobileOnly">BUY NOW</button> 
                     </div>
                     <!-- <div class="promo_text"  *ngIf="currentSetting?.country?.CountryId != 3">
