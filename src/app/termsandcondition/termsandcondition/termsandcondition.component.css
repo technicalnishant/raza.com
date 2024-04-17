@@ -27,7 +27,12 @@
   .second_fold{padding: 10px 0px 35px 0;}
   .mobileOnly{ display: none; margin: 0 20px 30px 20px !important;}
   .deskTopOnly{ display: block;}
-  
+  .second_fold h6 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 30px;
+    color: #4b5358;
+}
   
 @media only screen and (max-width: 650px)  {     
     .hideinMobile{display: none;}
@@ -38,6 +43,13 @@
     .mobileOnly{ display: block; margin:0 20px;}
     .aboutusCont p {
       font-size: 16px;
+    }    
+    .aboutusCont h6 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 20px;
+      color: #4b5358;
+      font-family: 'Montserrat', sans-serif;
     }
     .mat-expansion-panel-header-title {
         color: #333;
