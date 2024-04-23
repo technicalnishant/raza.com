@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, AfterViewChecked, NgModule} from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, AfterViewChecked, NgModule } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
@@ -37,6 +37,7 @@ import { PreviousRouteService } from '../../core/services/previous-route.service
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Buy1get1Component } from 'app/core/dialog/buy1get1/buy1get1.component';
 import { LowestRateComponent } from 'app/core/dialog/lowest-rate/lowest-rate.component';
+import { SsoService } from 'app/core/services/sso.service'
 // import Splide from '@splidejs/splide';
 export class SomeModule { }
 // import{GoogleAnalyticsService} from '../../services/google-analytics.service';
@@ -62,7 +63,7 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     lazyLoad: true,
   }
 
-sliderAutoplay: boolean = true;
+  sliderAutoplay: boolean = true;
   headerValue: number = 1;
   // slideConfig = { "slidesToShow": 3, "slidesToScroll": 2 };
   slideConfig = {
@@ -92,15 +93,15 @@ sliderAutoplay: boolean = true;
   currentSetting: CurrentSetting;
   isAuthenticated: boolean = false;
   appLinkForm: FormGroup;
-  currentCurrency:any;
+  currentCurrency: any;
   contentLoaded: boolean = false;
   isFixHeader: boolean = false;
-   promtionCode:string='';
+  promtionCode: string = '';
   // promtionCode:string='EID2024';
-  currentURL:any;
+  currentURL: any;
   defaultImage = '';
-  previousUrl:any='';
-  loadTestimonials:boolean=false;
+  previousUrl: any = '';
+  loadTestimonials: boolean = false;
   image_1 = 'https://d2uij5nbaiduhc.cloudfront.net/images/slider-bg.webp';
   image_2 = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
   image_3 = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
@@ -108,7 +109,7 @@ sliderAutoplay: boolean = true;
   image_5 = 'https://d2uij5nbaiduhc.cloudfront.net/images/uk_left.webp';
   image_6 = 'https://d2uij5nbaiduhc.cloudfront.net/images/mobile-uk.webp';
 
-  @ViewChild('typedEl',{static: true}) typedEl: any;
+  @ViewChild('typedEl', { static: true }) typedEl: any;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -124,120 +125,116 @@ sliderAutoplay: boolean = true;
     private razaSnackBarService: RazaSnackBarService,
     private promotionResolverService: PromotionResolverService,
     public platform: Platform,
-	private authService: AuthenticationService,
-  private metaTagsService:MetaTagsService,
-  private previousRouteService: PreviousRouteService,
-  @Inject(DOCUMENT) private document: Document,
-  //public googleAnalyticsService: GoogleAnalyticsService
+    private authService: AuthenticationService,
+    private ssoService: SsoService,
+    private metaTagsService: MetaTagsService,
+    private previousRouteService: PreviousRouteService,
+    @Inject(DOCUMENT) private document: Document,
+    //public googleAnalyticsService: GoogleAnalyticsService
 
   ) {
     this.sideBarService.toggle();
     router.events
-    .pipe(filter(event => event instanceof NavigationEnd))
-    .subscribe((event: NavigationEnd) => {
-     
-      this.previousUrl = event.url;
-    });
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+
+        this.previousUrl = event.url;
+      });
   }
 
-  
- 
 
-  
+
+
+
   ngAfterViewInit(): void {
-  
-    
+
+
   }
 
   ngOnInit() {
-  /******************* Remember & redirect rate page search functioanlity ********************/
-  // Simulate a delay of 2 seconds before loading the child component
+    /******************* Remember & redirect rate page search functioanlity ********************/
+    // Simulate a delay of 2 seconds before loading the child component
 
-  
-  setTimeout(() => {
-    this.loadTestimonials = true;
-  }, 5000);
+
+    setTimeout(() => {
+      this.loadTestimonials = true;
+    }, 5000);
 
     let previous = this.previousRouteService.getPreviousUrl();
     let currnet = this.previousRouteService.getCurrentUrl();
-    
 
-    if(previous == '/globalcallrates' && currnet == '/')
-    {
+
+    if (previous == '/globalcallrates' && currnet == '/') {
       localStorage.removeItem('history_search_country_id');
 
     }
-    else if(previous != '/globalcallrates' && previous != '/')
-    {
+    else if (previous != '/globalcallrates' && previous != '/') {
       localStorage.removeItem('history_search_country_id')
 
     }
-   else if( localStorage.getItem('history_search_country_id') && parseFloat(localStorage.getItem('history_search_country_id'))> 0)
-    {
+    else if (localStorage.getItem('history_search_country_id') && parseFloat(localStorage.getItem('history_search_country_id')) > 0) {
 
-     localStorage.setItem('rate_country_id', localStorage.getItem('history_search_country_id'));
-       this.router.navigate(['globalcallrates']);
+      localStorage.setItem('rate_country_id', localStorage.getItem('history_search_country_id'));
+      this.router.navigate(['globalcallrates']);
     }
-   
-    if(previous == '/mobiletopup' && currnet == '/')
-    {
+
+    if (previous == '/mobiletopup' && currnet == '/') {
       localStorage.removeItem("topupCountry");
       localStorage.removeItem("topupPhone");
       localStorage.removeItem("topupCountryId");
       localStorage.removeItem("topupTrigger");
 
     }
-    else if(previous != '/mobiletopup' && previous != '/')
-    {
+    else if (previous != '/mobiletopup' && previous != '/') {
       localStorage.removeItem("topupCountry");
       localStorage.removeItem("topupPhone");
       localStorage.removeItem("topupCountryId");
       localStorage.removeItem("topupTrigger");
 
     }
-   else if( localStorage.getItem('topupCountryId') && parseFloat(localStorage.getItem('topupCountryId'))> 0)
-    {
+    else if (localStorage.getItem('topupCountryId') && parseFloat(localStorage.getItem('topupCountryId')) > 0) {
 
 
-     this.router.navigate(['mobiletopup']);
+      this.router.navigate(['mobiletopup']);
     }
 
 
-/******************* EOF Remember & redirect  rate page search functioanlity ********************/
+    /******************* EOF Remember & redirect  rate page search functioanlity ********************/
 
-window.scroll({
+    window.scroll({
       top: 10,
       left: 0,
       behavior: 'smooth'
-  });
+    });
 
-   // this.googleAnalyticsService.eventEmitter("home_page", "Home page", "Home page", "page load", 1);
+    // this.googleAnalyticsService.eventEmitter("home_page", "Home page", "Home page", "page load", 1);
 
-    this.defaultImage   = 'https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif';
-    this.image_1        = 'https://d2uij5nbaiduhc.cloudfront.net/images/slider-bg.webp';
-    this.image_2        = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
-    this.image_3        = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
-    this.image_4        = 'https://d2uij5nbaiduhc.cloudfront.net/images/was10now5.webp';
-    this.image_5        = 'https://d2uij5nbaiduhc.cloudfront.net/images/uk_left.webp';
-    this.image_6        = 'https://d2uij5nbaiduhc.cloudfront.net/images/mobile-uk.webp';
+    this.defaultImage = 'https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif';
+    this.image_1 = 'https://d2uij5nbaiduhc.cloudfront.net/images/slider-bg.webp';
+    this.image_2 = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
+    this.image_3 = 'https://d2uij5nbaiduhc.cloudfront.net/images/buy1get1.webp';
+    this.image_4 = 'https://d2uij5nbaiduhc.cloudfront.net/images/was10now5.webp';
+    this.image_5 = 'https://d2uij5nbaiduhc.cloudfront.net/images/uk_left.webp';
+    this.image_6 = 'https://d2uij5nbaiduhc.cloudfront.net/images/mobile-uk.webp';
 
 
     this.currentURL = window.location.href;
-    if(this.currentURL.includes('/ref/'))
-    {
+    if (this.currentURL.includes('/ref/')) {
 
       console.log("this.route.snapshot.params['signup_code']", this.route.snapshot.params['signup_code']);
-        if(this.route.snapshot.params['signup_code'] && this.route.snapshot.params['signup_code']!='')
-        {
-          var code = this.route.snapshot.params['signup_code'];
-          localStorage.setItem('promo_code', code);
+      if (this.route.snapshot.params['signup_code'] && this.route.snapshot.params['signup_code'] != '') {
+        var code = this.route.snapshot.params['signup_code'];
+        localStorage.setItem('promo_code', code);
 
-          this.signupModal();
-        }
-  }
+        this.signupModal();
+      }
+    }
 
 
-  if (this.authService.isAuthenticated()) {
+
+
+
+    if (this.authService.isAuthenticated()) {
       this.isAuthenticated = true;
 
     }
@@ -268,7 +265,7 @@ window.scroll({
       );
 
     if (!isNullOrUndefined(this.currentSetting)) {
-   
+
     }
 
 
@@ -281,24 +278,113 @@ window.scroll({
       videoHeight: 815
     };
 
-	setTimeout(() => {
+    setTimeout(() => {
       this.contentLoaded = true;
     }, 4000);
 
-    if(this.route.snapshot.queryParamMap.get('promo') && this.route.snapshot.queryParamMap.get('promo')!='')
-    {
+    if (this.route.snapshot.queryParamMap.get('promo') && this.route.snapshot.queryParamMap.get('promo') != '') {
       this.promtionCode = this.route.snapshot.queryParamMap.get('promo');
       this.onopenPromotion();
 
     }
 
-    if(this.route.snapshot.params['promo'] && this.route.snapshot.params['promo'] !='')
-    {
+    if (this.route.snapshot.params['promo'] && this.route.snapshot.params['promo'] != '') {
       this.promtionCode = this.route.snapshot.params['promo'];
       this.onopenPromotion();
 
     }
-    
+
+
+    if (this.currentURL.includes('/sso')) {
+      // var code = this.route.snapshot.params['signup_code'];
+
+      //   if(this.ssoService.validateToken(code))
+      //     {
+      //       alert("Token is Valid "+code);
+      //     }
+
+      //    // Subscribe to route parameters
+      //  this.route.paramMap.subscribe(params => {
+      //   // Retrieve POST data
+      //   //30f32a57bd3c43af803f58dc4a7b58ce7f2a448a8c1d4d18b729f3b2903089f9
+      //   console.log("params", params);
+      //   const token         = params.get('token');
+      //   const phoneNumber   = params.get('phoneNumber');
+      //   const emailAddress  = params.get('emailAddress');
+      //   const origin        = params.get('origin');
+      //   console.log("token", token);
+      //   console.log("phoneNumber", phoneNumber);
+      //   console.log("emailAddress", emailAddress);
+      //   if(this.ssoService.validateToken(token))
+      //     {
+
+      //       const loginData =     this.ssoService.signupLogin(token, phoneNumber, emailAddress );
+      //       console.log("loginData",loginData);
+      //     }
+      //   // Do whatever you want with the retrieved data
+      //   console.log('Token:', token);
+      //   console.log('Phone Number:', phoneNumber);
+      //   console.log('Email Address:', emailAddress);
+      //   console.log('Origin:', origin);
+
+      //   // You can use the retrieved data in your component logic here
+      // });
+
+      this.ssoService.authorization().subscribe(resp => {
+        console.log("REsp", resp);
+       
+        // Subscribe to query parameters
+        this.route.queryParamMap.subscribe(params => {
+          // Retrieve query parameters
+          const token = params.get('token');
+          const phoneNumber = params.get('phoneNumber');
+          const emailAddress = params.get('emailAddress');
+          const origin = params.get('origin');
+
+          // Do whatever you want with the retrieved data
+          console.log('Token:', token);
+          console.log('Phone Number:', phoneNumber);
+          console.log('Email Address:', emailAddress);
+          console.log('Origin:', origin);
+
+          // You can use the retrieved data in your component logic here
+
+          // Validate token
+          this.ssoService.validateToken( token, phoneNumber,origin ).subscribe(
+            response => {
+              console.log('Token Response:', response);
+              // Handle response here
+
+              this.ssoService.signupLogin(token, phoneNumber, emailAddress).subscribe(
+                response => {
+                  console.log('signup Response:', response);
+                },
+                error => {
+                  console.error('Error:', error);
+                  // Handle error here
+                }
+              );
+
+            },
+            error => {
+              console.error('Error:', error);
+              // Handle error here
+            }
+          );
+
+        });
+      }, error => {
+        console.log("Authorization error is ", error);
+      });;
+
+
+    }
+
+
+
+
+
+
     localStorage.removeItem('IsMoto');
     localStorage.removeItem('moto_orderid')
   }
@@ -306,13 +392,13 @@ window.scroll({
 
 
   openDialog() {
-    this.dialog.open(ModalVideoComponent,{
+    this.dialog.open(ModalVideoComponent, {
       panelClass: 'mobile-video-dialog', //======> pass your class name
-  });
+    });
   }
-  
 
-  ngAfterViewChecked(){
+
+  ngAfterViewChecked() {
 
   }
   ngOnDestroy(): void {
@@ -323,8 +409,7 @@ window.scroll({
     window.scrollTo(1650, 1650);
   }
 
-  cliclDownloadAppFree(el: HTMLElement)
-  {
+  cliclDownloadAppFree(el: HTMLElement) {
     if (this.platform.ANDROID) {
       window.open('https://cutt.ly/7eFSBtF', 'blank')
     } else if (this.platform.IOS) {
@@ -447,20 +532,19 @@ window.scroll({
     window.location.reload();
   }
 
-  setcurrentCurrency()
-  {
-    if(this.currentSetting.country.CountryId == 1)
-      this.currentCurrency='USD';
-      if(this.currentSetting.country.CountryId == 2)
-      this.currentCurrency='CAD';
-      if(this.currentSetting.country.CountryId == 3)
-      this.currentCurrency='GBP';
-      if(this.currentSetting.country.CountryId == 8)
-      this.currentCurrency='AUD';
-      if(this.currentSetting.country.CountryId == 20)
-      this.currentCurrency='NZD';
-      if(this.currentSetting.country.CountryId == 26)
-      this.currentCurrency='INR';
+  setcurrentCurrency() {
+    if (this.currentSetting.country.CountryId == 1)
+      this.currentCurrency = 'USD';
+    if (this.currentSetting.country.CountryId == 2)
+      this.currentCurrency = 'CAD';
+    if (this.currentSetting.country.CountryId == 3)
+      this.currentCurrency = 'GBP';
+    if (this.currentSetting.country.CountryId == 8)
+      this.currentCurrency = 'AUD';
+    if (this.currentSetting.country.CountryId == 20)
+      this.currentCurrency = 'NZD';
+    if (this.currentSetting.country.CountryId == 26)
+      this.currentCurrency = 'INR';
   }
   onInputFocus() {
     this.searchicon = 'https://d2uij5nbaiduhc.cloudfront.net/images/cross8.png';
@@ -494,18 +578,16 @@ window.scroll({
 
   }
 
-  signupModal() 
-  {
-  if (this.authService.isAuthenticated()) {
-		 this.router.navigate(['account/overview'])
-		}
-		else
-		{
-				this.dialog.open(SignuppopupComponent, {
+  signupModal() {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['account/overview'])
+    }
+    else {
+      this.dialog.open(SignuppopupComponent, {
 
-			  data: {  }
-			});
-		}
+        data: {}
+      });
+    }
 
   }
 
@@ -517,36 +599,33 @@ window.scroll({
 
   enrollNow() {
     if (this.authService.isAuthenticated()) {
-       this.router.navigate(['account/rewards'])
-      }
-      else
-      {
+      this.router.navigate(['account/rewards'])
+    }
+    else {
 
-          localStorage.setItem('redirect_path', 'account/rewards');
-          this.dialog.open(LoginpopupComponent, {
-          data: {  }
-        });
-      }
-
+      localStorage.setItem('redirect_path', 'account/rewards');
+      this.dialog.open(LoginpopupComponent, {
+        data: {}
+      });
     }
 
-    rewardLearnMore(obj:number) 
-    {
-      this.router.navigateByUrl('features', { state: { slid: obj} });
+  }
+
+  rewardLearnMore(obj: number) {
+    this.router.navigateByUrl('features', { state: { slid: obj } });
+  }
+
+
+  getText() {
+    if (this.authService.isAuthenticated()) {
+      return 'Go to my account';
     }
+    else {
+      return 'Create an account';
+    }
+  }
 
-
-	getText()
-	{
-		if (this.authService.isAuthenticated()) {
-		return 'Go to my account';
-		}
-		else{
-		return 'Create an account';
-		}
-	}
-
-	howItWorksPopup(obj) {
+  howItWorksPopup(obj) {
 
     this.dialog.open(HowWorksComponent, {
 
@@ -560,43 +639,36 @@ window.scroll({
     });
   }
 
-  downloadApp() 
-  {
+  downloadApp() {
     if (this.platform.ANDROID) {
       window.open('https://play.google.com/store/apps/details?id=com.razacomm.universe', 'blank')
-    } 
-    else if (this.platform.IOS) 
-    {
+    }
+    else if (this.platform.IOS) {
       window.open('https://apps.apple.com/ca/app/raza-universe/id1226298666', 'blank')
     }
-    else
-     {
+    else {
       window.open('https://play.google.com/store/apps/details?id=com.razacomm.universe', 'blank')
     }
- }
-
-
-
-
- goTomobileTopup()
- {
-  if(this.authService.isAuthenticated())
-      {
-        this.router.navigate(['/account/international-topup']);
-      }
-      else
-      {
-        localStorage.removeItem("topupCountry");
-        localStorage.removeItem("topupPhone");
-        localStorage.removeItem("topupCountryId");
-        localStorage.removeItem("topupTrigger");
-        this.router.navigateByUrl('mobiletopup');
-      }
   }
 
 
-  buyOnegetOne()
-  {
+
+
+  goTomobileTopup() {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/account/international-topup']);
+    }
+    else {
+      localStorage.removeItem("topupCountry");
+      localStorage.removeItem("topupPhone");
+      localStorage.removeItem("topupCountryId");
+      localStorage.removeItem("topupTrigger");
+      this.router.navigateByUrl('mobiletopup');
+    }
+  }
+
+
+  buyOnegetOne() {
     const dialogConfig = new MatDialogConfig();
     // The user can't close the dialog by clicking outside its body
     dialogConfig.disableClose = true;
@@ -606,13 +678,12 @@ window.scroll({
     dialogConfig.height = "90%";
     dialogConfig.data = {
       name: "buy1get1",
-      title: "Buy1 Get1", 
+      title: "Buy1 Get1",
     }
     const modalDialog = this.dialog.open(Buy1get1Component, dialogConfig);
   }
 
-  showLowestRates()
-  {
+  showLowestRates() {
     const dialogConfig = new MatDialogConfig();
     // The user can't close the dialog by clicking outside its body
     dialogConfig.disableClose = true;
@@ -623,7 +694,7 @@ window.scroll({
     dialogConfig.data = {
       name: "Lowest rates",
       title: "Lowest rates",
-       
+
     }
     const modalDialog = this.dialog.open(LowestRateComponent, dialogConfig);
   }
