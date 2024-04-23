@@ -163,7 +163,7 @@
                     <div class="topup_item" *ngFor="let item of topups; let i = index">
                     <div class="topup_box denomination__box">
                           <div class="top_section">
-                              <div class="promo_word" (click)="showDetailTopup()"><span>Promo</span></div>
+                              <!-- <div class="promo_word" (click)="showDetailTopup()"><span>Promo</span></div> -->
                               <h2>{{item.UsDenomination | bCurrency|async}}</h2>
                               <p>{{mobileTopupData.Operator}} {{countryName}}</p>
                               <!-- <p>200% Bonus</p> -->
@@ -189,7 +189,7 @@
                   <div  class="topup_item" *ngFor="let item of bundleInfo?.ProductDescriptions; let i = index">
                       <div class="bundle_box denomination__box">
                           <div class="top_section">
-                              <div class="promo_word" (click)="showDetailTopup()"><span>Promo</span></div>
+                              <!-- <div class="promo_word" (click)="showDetailTopup()"><span>Promo</span></div> -->
                               <h2>{{item.Price | bCurrency|async}}</h2>
                               <p>{{item.Operator}} </p>
                               <p></p>
