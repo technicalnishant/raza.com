@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, AfterViewChecked, NgModule } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, AfterViewChecked, NgModule, Injector } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
@@ -38,6 +38,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Buy1get1Component } from 'app/core/dialog/buy1get1/buy1get1.component';
 import { LowestRateComponent } from 'app/core/dialog/lowest-rate/lowest-rate.component';
 import { SsoService } from 'app/core/services/sso.service'
+import { AppBaseComponent } from 'app/shared/components/app-base-component';
 // import Splide from '@splidejs/splide';
 export class SomeModule { }
 // import{GoogleAnalyticsService} from '../../services/google-analytics.service';
@@ -49,7 +50,7 @@ export class SomeModule { }
   styleUrls: ['./homepage.component.scss'],
 })
 
-export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
+export class HomepageComponent extends AppBaseComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -131,8 +132,9 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
     private previousRouteService: PreviousRouteService,
     @Inject(DOCUMENT) private document: Document,
     //public googleAnalyticsService: GoogleAnalyticsService
-
+    _injector: Injector
   ) {
+    super(_injector); 
     this.sideBarService.toggle();
     router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -358,6 +360,37 @@ export class HomepageComponent implements OnInit, AfterViewInit, OnDestroy, Afte
               this.ssoService.signupLogin(token, phoneNumber, emailAddress).subscribe(
                 response => {
                   console.log('signup Response:', response);
+                  const phone  = response.PhoneNumber;
+                  const pass = response.Password;
+                   const prefix = response.Address.Country.CountryCode
+/*********************/
+                this.executeCaptcha('login').toPromise().then(token => {
+                  //console.log('token', token);
+                 
+                    
+                
+                    let body = {
+                      username: prefix+phone,
+                      password: pass,
+                      captcha: token,
+                      phone:phone,
+                    };
+
+             
+                    this.authService.login(body, false, "Y").subscribe((response:any) => {
+                    if (response != null) 
+                    {
+                     this.router.navigateByUrl('/account');
+                    } 
+                    
+                  },
+                    (error) => {
+                      console.log('error', error);
+                    });
+                  })
+/******************/
+
+                  
                 },
                 error => {
                   console.error('Error:', error);
