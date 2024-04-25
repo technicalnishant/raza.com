@@ -76,11 +76,11 @@
 
                     <span class="width30">
                       <img src="./../../assets/images/phone-icon.png" alt="icon" loading="lazy">
-                      <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
+                      <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency|async}} </span>
                       
 
                       <img src="./../../assets/images/icon-landphone.png" alt="icon" loading="lazy">
-                      <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency}} </span>
+                      <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency|async}} </span>
       
                     </span>
                     

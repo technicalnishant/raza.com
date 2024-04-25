@@ -53,20 +53,20 @@
 
             <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
               <td>Purchase Amount</td>
-              <td>{{ (currentCart?.getPurchaseAmount() *2) | bCurrency : currentCart?.CurrencyCode | async }} </td>
+              <td>{{ (currentCart?.getPurchaseAmount() *2) | bCurrency : currentCart?.currencyCode | async }} </td>
             </tr>
             <tr *ngIf="currentCart?.couponCode == 'Buy1Get1'">
               <td >Discount (Buy1 Get1)&nbsp;<span class="discountBuy1Get1"></span></td>
-              <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.CurrencyCode | async }} </span></td>
+              <td><span class="color_red">- {{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async }} </span></td>
             </tr>
             <tr *ngIf="currentCart?.couponCode != 'Buy1Get1'">
               <td>Purchase Amount</td>
-              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.CurrencyCode | async }} </td>
+              <td>{{ currentCart?.getPurchaseAmount() | bCurrency : currentCart?.currencyCode | async }} </td>
             </tr>
 
             <tr>
               <td>Service Fee</td>
-              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.CurrencyCode | async }}</td>
+              <td>{{ currentCart?.calculateServiceFee() | bCurrency : currentCart?.currencyCode | async }}</td>
             </tr>
 
             <tr *ngIf="currentCart?.offerPercentage">
@@ -75,8 +75,8 @@
             </tr>
 
             <tr class="total">
-              <td>Total ({{currentCart?.CurrencyCode}})</td>
-              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.CurrencyCode | async}}</td>
+              <td>Total ({{currentCart?.currencyCode}})</td>
+              <td>{{currentCart?.totalAmount() | bCurrency : currentCart?.currencyCode | async}}</td>
             </tr>
            <!--<tr class="total" *ngIf="currentCart?.couponCode">
               <td>Promo Code </td>

@@ -92,10 +92,10 @@ class="form-control form-control-lg border-right-0 border-left-0" ng-placeholder
 
                         <span class="width40">
                           <img src="./../../assets/images/phone-icon.png" alt="phone" loading="lazy">
-                          <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency}} </span>
+                          <span class="mobileRate">{{option.CallingRateMobile| sCurrency:currentCurrency|async}} </span>
                           <!-- <span class="mobileRate">{{setPrice(option.CallingRateMobile)}} </span> -->
                           <img src="./../../assets/images/icon-landphone.png" alt="landphone" loading="lazy">
-                          <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency}} </span>
+                          <span class="landlineRate">{{option.CallingRateLandline| sCurrency:currentCurrency|async}} </span>
                           <!-- <span class="landlineRate">{{setPrice(option.CallingRateLandline)}} </span> -->
                         </span>
 
