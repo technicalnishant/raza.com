@@ -12,6 +12,7 @@
 body {
     margin: 0;
     font-family: $font-family;
+    background-color: #000;
 }
 a {
     cursor: pointer;
@@ -2944,6 +2945,10 @@ h2 {
     line-height: 64px !important;
     border-top: 1px solid #999;
     font-size: 17px;
+    @media only screen and (max-width: 767px) {
+        padding: 0 10px !important;
+        font-size: 15px;
+    }
 }
 .showMobileOnly {
     display: none;
@@ -3998,6 +4003,9 @@ section.faq-section .mat-expansion-panel-body p {
 }
 .mat-option-text .width30 {
     width: 210px;
+    @media only screen and (max-width: 767px) {
+        width: 190px;
+    }
     .landlineRate {
         margin-right: 0;
     }
@@ -4005,6 +4013,9 @@ section.faq-section .mat-expansion-panel-body p {
         margin-right: 30px;
         display: inline-block;
         min-width: 85px;
+        @media only screen and (max-width: 767px) {
+            min-width: 66px;
+        }
     }
 }
 .recharge_block {

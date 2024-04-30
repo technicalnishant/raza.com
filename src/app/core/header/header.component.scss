@@ -20,6 +20,9 @@
                   margin-right: 16px;
                   margin-top: -2px;
                   vertical-align: middle;
+                  @media only screen and (max-width: 767px) {
+                      margin-right: 8px;
+                  }
               }
           }
       }
@@ -1353,7 +1356,7 @@ input#searchInput::placeholder {
     padding-bottom: 11px;
  }
   .width70 {
-    width: 40% !important;
+    width: 44% !important;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
