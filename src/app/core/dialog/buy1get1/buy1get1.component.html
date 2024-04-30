@@ -156,7 +156,7 @@
                   <td>{{currSymbol()}}<span class="lg">{{getConvertedPrice(5)}}</span> <span> Was <span class="csm">{{currSymbol()}}{{getConvertedPrice(10)}}</span></span></td>
                 </tr>
             </thead>
-            <tbody *ngIf="currentSetting?.country?.CountryId >=3">
+             <tbody *ngIf="currentSetting?.country?.CountryId ==3">
               <tr *ngFor="let item of limitDenomination; let i = index">
                   <td>{{item.CountryToName}}
                   <br />
@@ -166,10 +166,10 @@
                   <td><p class="free-mins" (click)="buyNow(3, 12,item)" >{{(item.FreeMin/5)*3 | number:'1.0-0'}} mins</p></td>
                   <td><p class="free-mins" (click)="buyNow(5, 2,item)" >{{ item.FreeMin  | number:'1.0-0'}} mins</p></td>
               </tr>
-          </tbody>
+          </tbody> 
 
 
-          <tbody *ngIf="currentSetting?.country?.CountryId < 3">
+          <tbody *ngIf="currentSetting?.country?.CountryId != 3">
             <tr *ngFor="let item of limitDenomination; let i = index">
                 <td>{{item.CountryToName}}
                 <br />
