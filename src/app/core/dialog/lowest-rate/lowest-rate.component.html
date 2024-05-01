@@ -72,7 +72,9 @@
                     [value]="option">
                     <span><img src="assets/images/blank.gif" [ngClass]="'flag flag-'+ option.CountryId"
                         [alt]="option.CountryName" /></span>
-                    {{option.CountryName}}
+                      <span class="countyNm">
+                        {{option.CountryName}}
+                      </span>
 
                     <span class="width30">
                       <img src="./../../assets/images/phone-icon.png" alt="icon" loading="lazy">
