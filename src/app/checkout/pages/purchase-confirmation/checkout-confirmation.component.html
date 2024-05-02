@@ -18,6 +18,7 @@
   </div> -->
 
   <!-- rechargeStep -->
+ 
   <div *ngIf="checkoutModel">
     <div *ngIf="checkoutModel.transactiontype === 1">
       <app-recharge-confirmation [orderId]="orderId" [message]="transResponse.Message" [userContext]="userContext">
@@ -27,8 +28,7 @@
         <app-purchase-confirmation [orderId]="orderId" [userContext]="userContext" [checkoutModel]="checkoutModel">
       </app-purchase-confirmation> 
 
-      <!-- <app-recharge-confirmation [orderId]="orderId" [message]="transResponse.Message" [userContext]="userContext">
-      </app-recharge-confirmation> -->
+         
 
     </div>
 
