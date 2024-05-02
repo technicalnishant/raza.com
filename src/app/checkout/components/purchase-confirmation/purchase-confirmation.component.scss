@@ -557,6 +557,12 @@ td {
 	box-shadow: 1px 3px 21px #ddd;
 	-moz-box-shadow: 1px 3px 21px #ddd;
 	-webkit-box-shadow: 1px 3px 21px #ddd;
+	.app_list li img {
+		width: 110px;
+	}
+	.app_list ul {
+		padding: 0;
+	}
 }
 .live_chatarea {
 	margin-top: 25px;
