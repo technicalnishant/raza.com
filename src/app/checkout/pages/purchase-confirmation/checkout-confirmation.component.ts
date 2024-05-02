@@ -74,7 +74,7 @@ export class CheckoutConfirmationComponent implements OnInit, OnDestroy {
   getCurrentCart() {
     this.currentCartObs$ = this.checkoutService.getCurrentCart().subscribe((model: ICheckoutModel) => {
       if (model === null) {
-        //this.router.navigate(['/']);
+         this.router.navigate(['/']);
       }
       // console.log(model);
       this.checkoutModel = model
