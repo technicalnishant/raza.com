@@ -46,9 +46,9 @@
 .carousel-caption.tpSlider_promo {
   left: 0;
   right: 0;
-  background-image: url(../../../assets/images/home_banner_new/promo/eid24.jpg);
-  background-position: top 0 center;
-  background-size: cover;
+  background-image: url(../../../assets/images/home_banner_new/promo/md24.jpg);
+  background-position: bottom 0 center;
+  background-size: 100%;
   bottom: 0;
   .buy_nowEid {
     border: none;
@@ -57,7 +57,7 @@
   @media only screen  and (max-width: 767px) {
     .buy_nowEidMbWrap {
         position: absolute;
-        bottom: 170px;
+        bottom: 352px;
         left: 0;
         right: 0;
         display: flex;
@@ -66,20 +66,21 @@
             font-size: 21px;
             font-weight: 700;
             border: none;
-            background: #fff;
-            padding: 6px 20px;
-            border-radius: 8px;
+            background: #000;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 25px;
             &:hover {
-                background: #ddd;
+                background: #333;
             }
         }
     }
     background-image: url(../../../assets/images/home_banner_new/promo/mobile.jpg);
   }
   &-3 {
-    background-image: url(../../../assets/images/home_banner_new/promo/eid24-uk.jpg);
+    // background-image: url(../../../assets/images/home_banner_new/promo/eid24-uk.jpg);
     @media only screen  and (max-width: 767px) {
-        background-image: url(../../../assets/images/home_banner_new/promo/mobile-uk.jpg);
+        // background-image: url(../../../assets/images/home_banner_new/promo/mobile-uk.jpg);
     }
     .promoTextWrap {
         justify-content: center;
@@ -102,7 +103,10 @@
     font-weight: 700;
     .promo_textWrap {
         margin-left: auto;
-        margin-top: 125px;
+        margin-top: 85px;
+        img {
+            width: 100%;
+        }
         @media only screen  and (max-width: 767px) {
             margin-top: 50px;
             img {
