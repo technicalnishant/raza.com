@@ -110,17 +110,17 @@
                     <div class="d-flex justify-content-between">
 
                         <div class="denomination {{getSelectedClass(5)}}" (click)="onClickAmountOption(5)" >
-                            {{'5' | bCurrency : autorefillSetup?.CurrencyCode}}
+                            {{'5' | bCurrency : autorefillSetup?.CurrencyCode|async}}
                         </div>
                         <div class="denomination {{getSelectedClass(10)}}" (click)="onClickAmountOption(10)" >
-                            {{'10' | bCurrency : autorefillSetup?.CurrencyCode}}
+                            {{'10' | bCurrency : autorefillSetup?.CurrencyCode|async}}
                         </div>
 
                         <div class="denomination {{getSelectedClass(20)}}" (click)="onClickAmountOption(20)" >
-                            {{'20' | bCurrency : autorefillSetup?.CurrencyCode}}
+                            {{'20' | bCurrency : autorefillSetup?.CurrencyCode|async}}
                         </div>
                         <div class="denomination {{getSelectedClass(50)}}" (click)="onClickAmountOption(50)" >
-                            {{'50' | bCurrency : autorefillSetup?.CurrencyCode}}
+                            {{'50' | bCurrency : autorefillSetup?.CurrencyCode|async}}
                         </div>
                         <!-- <div class="denomination {{getSelectedClass(100)}}" (click)="onClickAmountOption(100)" >
                             {{'100' | bCurrency : autorefillSetup?.CurrencyCode}}
