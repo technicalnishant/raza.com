@@ -96,8 +96,8 @@ sliderAutoplay: boolean = true;
   currentCurrency:any;
   contentLoaded: boolean = false;
   isFixHeader: boolean = false;
-   promtionCode:string='';
-  //promtionCode:string='NY2024';
+   
+   promtionCode:string='MOM2024';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';

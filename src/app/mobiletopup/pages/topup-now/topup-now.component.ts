@@ -320,9 +320,11 @@ export class TopupNowComponent implements OnInit, OnDestroy {
         this.getBundlesTopUpInfo()
         this.getTopupDetail();
       },
-      (err: ApiErrorResponse) => {
-        this.mobileTopupForm.get('phoneNumber').setErrors({ Invalid_Operator: true })
+      (err: ApiErrorResponse) => 
+        {
+          this.mobileTopupForm.get('phoneNumber').setErrors({ Invalid_Operator: true })
       }
+      
       
     );
   }
