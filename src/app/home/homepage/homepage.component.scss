@@ -35,6 +35,31 @@
 .showInmobile {
     display: none;
 }
+.term_cond {
+    color: #000;
+    font-size: 12px;
+    text-align: right;
+    padding-right: 40px;
+    @media only screen  and (max-width: 767px) {
+        position: absolute;
+        bottom: 8px;
+        padding: 0 20px;
+        text-align: center;
+    }
+}
+.term_apply {
+    color: #000;
+    font-size: 12px;
+    position: absolute;
+    bottom: 125px;
+    left: 51%;
+    @media only screen  and (max-width: 767px) {
+        bottom: -26px;
+        left: 0;
+        right: 0;
+        font-weight: normal;
+    }
+}
 .carousel-caption.tpSlider_1 {
   margin-top: 110px !important;
   top: 0;
@@ -83,15 +108,15 @@
         // background-image: url(../../../assets/images/home_banner_new/promo/mobile-uk.jpg);
     }
     .promoTextWrap {
-        justify-content: center;
-        .promo_textWrap {
-            margin-right: auto;
-            margin-top: 70px !important;       
-        }
-        @media only screen  and (max-width: 767px) {
-            max-width: 90% !important;
-            margin-top: 80px !important;
-        }
+        // justify-content: center;
+        // .promo_textWrap {
+        //     margin-right: auto;
+        //     margin-top: 70px !important;       
+        // }
+        // @media only screen  and (max-width: 767px) {
+        //     max-width: 90% !important;
+        //     margin-top: 80px !important;
+        // }
     }
   }
   .promoTextWrap {
@@ -103,7 +128,7 @@
     font-weight: 700;
     .promo_textWrap {
         margin-left: auto;
-        margin-top: 85px;
+        margin-top: 95px;
         img {
             width: 100%;
         }

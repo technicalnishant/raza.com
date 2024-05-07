@@ -6,18 +6,25 @@
               <splide-slide>
               
               <div class="carousel-caption tpSlider_promo tpSlider_promo-{{currentSetting?.country?.CountryId}}">
-                <div class="promoTextWrap">
-                  
+                <div class="promoTextWrap">                  
                   <div class="promo_textWrap"> <button (click)="onopenchristmas(typedEl)" class="img-fluid d-none d-md-block buy_nowEid">
                       <img src="../../../assets/images/home_banner_new/promo/md24.webp"/>
                       <!-- <img src="../../../assets/images/home_banner_new/promo/md24.webp" *ngIf="currentSetting?.country?.CountryId != 3"/> -->
+                      <div class="term_apply">*Some restrictions apply</div>
                     </button>
                     <div class="buy_nowEidMbWrap">
                       <button (click)="onopenchristmas(typedEl)" class="buy_nowEidMb showMobileOnly">GET 20% BONUS</button> 
+                      <div class="term_apply showMobileOnly">*Some restrictions apply</div>
                     </div>
                     
                   </div>
-                </div>             
+                </div>   
+                <div class="term_cond" *ngIf="currentSetting?.country?.CountryId != 3">
+                  Disclaimer: The 20% discount is applicable on the purchase of the highest denomination. The promotion starts from as low as a $10 purchase.
+                </div>  
+                <div class="term_cond" *ngIf="currentSetting?.country?.CountryId == 3">
+                  Disclaimer: The 20% discount is applicable on the purchase of the highest denomination. The promotion starts from as low as a £10 purchase.
+                </div>            
               </div>
             </splide-slide> 
 
