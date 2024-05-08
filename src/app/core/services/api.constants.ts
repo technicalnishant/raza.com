@@ -107,9 +107,10 @@ export class Api {
 		getDealCallAsia: base + "/api/Rates/Asia",
 		getDealCallAfrica: base + "/api/Rates/Africa"
 	}
-
+ 
 	static Promotions = {
-		get: base + 'api/Promotions'
+		get: base + 'api/Promotions',
+		getv2: base + 'api/Promotions/v2'
 	}
  
 	static rates = {

@@ -45,13 +45,14 @@ export class CartResolverService implements Resolve<any> {
             if (cart.transactiontype === TransactionType.Activation || cart.transactiontype === TransactionType.Sale) {
                 this.planService.getPlanByCardId((cart as NewPlanCheckoutModel).CardId)
                     .toPromise().then((res: Plan) => {
+                        
                         if (!isNullOrUndefined(res) && res.PlanType === PlanType.Signature) 
 						{
 							
                             const model = this.updateCartForRecharge(res, (cart as NewPlanCheckoutModel))
 							var code = (cart as NewPlanCheckoutModel).couponCode;//: "FREETRIAL"DIWALI2020;
 							 
-                            console.log((cart as NewPlanCheckoutModel)); 
+                             
                             var userInfo = this.authService.getCurrentLoginUser();
 
                             
@@ -91,6 +92,11 @@ export class CartResolverService implements Resolve<any> {
                             observer.next(model);
                             observer.complete();
                         } else {
+
+                            console.log('this.authService.isNewUser()', this.authService.isNewUser());
+                            console.log('cart.transactiontype', cart.transactiontype);
+                            console.log();
+
                             if (!this.authService.isNewUser() && cart.transactiontype === TransactionType.Activation) {
                                 cart = this.updateCartToSale(cart as NewPlanCheckoutModel)
                             }

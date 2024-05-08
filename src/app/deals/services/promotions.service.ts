@@ -15,7 +15,7 @@ export class PromotionsService {
     ) { }
 
     getPromotion(countryId, promotionCode): Observable<Promotion> {
-        return this.httpClient.get<Promotion>(`${Api.Promotions.get}/${promotionCode}/${countryId}`);
+        return this.httpClient.get<Promotion>(`${Api.Promotions.getv2}/${promotionCode}/${countryId}`);
     }
     
     getActivePromotions(countryId: number): Observable<Promotion[]> {
