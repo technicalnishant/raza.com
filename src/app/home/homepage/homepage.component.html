@@ -1,235 +1,10 @@
 <div class="first_fold">
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">
-            <!-- <div class="diwali_strip" >
-              <div class="viyaFireworWrap">
-                <div class="viyaWrap">
-                  <img src="../../../assets/images/home_banner_new/promo/left.gif" />
-                </div>
-                <div class="diwaliPromoText">
-                  <div>
-                    <p>HAPPY THANKSGIVING</p>
-                    <h3>Get upto 15% bonus mins</h3>
-                  </div>
-                  <a (click)="onopenchristmas(typedEl)" class="dPromoBtn">Buy now</a>
-                </div>
-                <div class="fireworksWrap">
-                  <img src="../../../assets/images/home_banner_new/promo/right.gif" />
-                </div>
-              </div>
-            </div>   -->
+            
 
             <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
+            
             <!-- <splide-slide>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="snow"></div>
-              <div class="carousel-caption tpSlider_promo tpSlider_promo-{{currentSetting?.country?.CountryId}}">
-                <a (click)="onopenchristmas(typedEl)" *ngIf="currentSetting?.country?.CountryId != 3" class="ny23_top">
-                  <img src="../../../assets/images/home_banner_new/promo/ny23_top.png" *ngIf="currentSetting?.country?.CountryId != 3" class="d-none d-md-block" />
-                  
-                </a>
-                <img src="../../../assets/images/home_banner_new/promo/ch23-uk.webp" *ngIf="currentSetting?.country?.CountryId == 3" class="d-none d-md-block" />
-                 
-              </div>
-            </splide-slide> -->
-            <splide-slide>
               
               <div class="carousel-caption tpSlider_promo tpSlider_promo-{{currentSetting?.country?.CountryId}}">
                 <div class="promoTextWrap">
@@ -237,7 +12,7 @@
                   <div class="promo_textWrap"> 
                     <button (click)="onopenchristmas(typedEl)" class="img-fluid d-none d-md-block buy_nowEid">
                       <img src="../../../assets/images/home_banner_new/promo/md24.webp"/>
-                      <!-- <img src="../../../assets/images/home_banner_new/promo/md24.webp" *ngIf="currentSetting?.country?.CountryId != 3"/> -->
+                      
                       <div class="term_apply">*Some restrictions apply</div>
                     </button>
                     <div class="buy_nowEidMbWrap">
@@ -254,7 +29,7 @@
                   The 20% discount is applicable on the purchase of the highest denomination. The promotion starts from as low as a £10 purchase.
                 </div>           
               </div>
-            </splide-slide> 
+            </splide-slide>  -->
              <splide-slide>
                 <div class="sliderImg"></div>
                 <div class="carousel-caption tpSlider_1">
