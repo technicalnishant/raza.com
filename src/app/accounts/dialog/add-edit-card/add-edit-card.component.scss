@@ -1,3 +1,9 @@
+::ng-deep {
+    .pac-container.pac-logo {
+        top: 476px !important;
+        position: fixed !important;
+    }
+}
 .form_holder.commonPopup.cardPopUp {
     margin: -9px;
     @media only screen and (max-width: 767px) {
