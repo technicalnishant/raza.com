@@ -40,6 +40,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CheckoutService } from 'app/checkout/services/checkout.service';
 import { PlanService } from 'app/accounts/services/planService';
 import { MatTabChangeEvent } from "@angular/material/tabs";
+import { SingleCartService } from "app/core/services/single-crt.service";
  
 var Paypal_PaymentInstance: any;
 //var paypalInstance
@@ -92,6 +93,7 @@ export class PaymentOptionsComponent implements OnInit {
 	private braintreeService: BraintreeService,
   private checkoutService: CheckoutService,
   private planService: PlanService,
+  private singleCartService:SingleCartService
      
   ) { 
     this.braintreeToken = environment.payplaClientIdNew;
@@ -99,7 +101,13 @@ export class PaymentOptionsComponent implements OnInit {
 
   ngOnInit() {
     this.currentCart = this.route.parent.snapshot.data['cart'];
-
+    console.log(this.currentCart);
+    if (this.authService.isAuthenticated())
+      {
+        this.singleCartService.setGlobalCart(this.currentCart);
+    
+ 
+      }
    //console.log("Your cart is", this.currentCart);
 
     this.promoCode = this.currentCart.couponCode;

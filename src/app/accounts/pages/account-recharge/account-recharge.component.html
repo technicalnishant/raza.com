@@ -18,7 +18,7 @@
 <div *ngIf="isPremium"> 
 <div *ngIf="!isAutorefill" class="denomination__box_wrap">
   <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index" class="{{getActiveClass(item, '')}}" class="demBoxWrp">
-    <div class="denomination__box" (click)="onClickAmountOption(item)">
+    <div class="denomination__box" (click)="onClickAmountOption(item); cacheckCards()">
      <div class="d-flex justify-content-between">
            
           <div class="amount">{{item.Price | bCurrency : plan?.CurrencyCode | async}}</div>
@@ -38,7 +38,7 @@
 
 <div *ngIf="isAutorefill" class="denomination__box_wrap">
   <div  *ngFor="let item of denominatons?.Denominations.slice().reverse(); let i = index"  class="{{getActiveClass(item, '')}}" class="demBoxWrp">
-    <div class="denomination__box" (click)="onClickAmountOption(item)" >
+    <div class="denomination__box" (click)="onClickAmountOption(item); cacheckCards()" >
      <div class="d-flex justify-content-between">
           <div class="amount">{{item.Price | bCurrency | async}}</div>
           <div class="discount_applied">
@@ -99,7 +99,7 @@
 </div>
 
 </div>
-<app-my-cards *ngIf="plan" [plan]="plan" [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentButtonTrigger($event)" > </app-my-cards>
+<app-my-cards *ngIf="plan" [plan]="plan" [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentButtonTrigger($event)" #myCardsComponent > </app-my-cards>
   
   <ng-container *ngIf="enablePaypalOption">
   <div class="form_row1 paypal-box" >

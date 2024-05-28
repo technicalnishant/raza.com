@@ -43,10 +43,15 @@ export class LogintopdropmenuComponent implements OnInit, OnDestroy {
   private planSub$: Observable<Plan>
 
   get username() {
-    if (isNullOrUndefined(this.user.username) || (this.user.username as string).length === 0) {
-      return 'Welcome Back, User !';
-    }
-    return this.user.username;
+    if(this.user && this.user.username)
+      {
+        if ( isNullOrUndefined(this.user.username) || (this.user.username as string).length === 0) {
+          return 'Welcome Back, User !';
+        }
+        return this.user?.username;
+      }
+      
+    
   }
 
   ngOnInit() {

@@ -1,6 +1,9 @@
 export class userContext {
   constructor(
     public username: string,
+    public firstName: string| null = null,
+    public lastName: string | null = null,
+    
     public accessToken: string,
     public refreshToken: string,
     public tokenType: string,
@@ -11,5 +14,6 @@ export class userContext {
     public emailAddress: string,
     public countryId: number,
     public additionalId: any
+
   ) { }
 };

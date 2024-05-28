@@ -214,6 +214,14 @@ export class Api {
 	}
 	
 
+	static singlecart = {
+		//generateToken: base + "api/BrainTree/GenerateToken",
+		signupLogin:  "https://razacoreapis.hotphonecard.com/api/SingleCart/UpsertGlobalCustomer",
+		 
+		
+	}
+
+
 	static angularApplicationAddress = websiteHost;
 	static webApiApplicationAddress = base;
 }

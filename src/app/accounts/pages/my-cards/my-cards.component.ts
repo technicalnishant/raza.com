@@ -796,6 +796,38 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
     }); 
       
     }
+
+
+    getClassAcive()
+    {
+      if(this.customerSavedCards && this.customerSavedCards.length > 0)
+        {
+          return 'blue_border';
+        }
+        else{
+          return 'red_border'
+        }
+    }
+    childFunction()
+    {
+      if(this.customerSavedCards && this.customerSavedCards.length > 0)
+        {
+          
+        }
+        else{
+          
+          const dialogRef = this.dialog.open(ConfirmPopupDialog, {
+            data: {
+              success: 'success',
+              message:'Please add your credit card to proceed with the recharge.',
+              heading:'Add Credit Card',
+              showNoButton:'No'
+            }
+          });
+
+        }
+    }
+
      /********************/
   
   }

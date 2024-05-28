@@ -41,6 +41,7 @@ import { DialogCofirmComponent } from './mobile-pay/dialog/dialog-cofirm/dialog-
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { GlobalcallComponent } from './globalcall/globalcall.component';
 import { QRCodeModule } from 'angularx-qrcode';
+ 
 export function LocationProviderFactory(provider: RazaEnvironmentService) 
 {
   return () => provider.getCurrentLocationByIp(); 
@@ -139,6 +140,7 @@ export function LocationProviderFactory(provider: RazaEnvironmentService)
     SideBarService,
     LocationService,
     RazaEnvironmentService,
+    
     { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.captchaKeyV3 },
     { provide: APP_INITIALIZER, useFactory: LocationProviderFactory, deps: [RazaEnvironmentService], multi: true },
 

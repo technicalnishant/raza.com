@@ -32,6 +32,7 @@ import { RechargeService } from 'app/recharge/services/recharge.Service';
 import { IOnApproveCallbackData, IPayPalConfig } from 'app/payments/paypal/model/paypal.model';
 import { environment } from 'environments/environment';
 import * as braintree from 'braintree-web';
+import { MyCardsComponent } from '../my-cards/my-cards.component';
 var Paypal_PaymentInstance: any;
 //var paypalInstance
 let paypalInstance: any; // Make sure to declare the appropriate type based on the object returned by braintree.paypalCheckout.create
@@ -42,6 +43,9 @@ declare var paypal: any; // Declare the paypal variable
   styleUrls: ['./account-recharge.component.scss']
 })
 export class AccountRechargeComponent implements OnInit {
+
+  @ViewChild('myCardsComponent') myCardsComponent: MyCardsComponent;
+
   @Input() plan: Plan;
   currentSetting: CurrentSetting;
   phoneNumber:any;
@@ -784,4 +788,11 @@ onPaypalPaymentApproveNew(data: any): Promise<any> {
  
   return of(true).toPromise();
 }
+
+
+cacheckCards() {
+ 
+  this.myCardsComponent.childFunction(); // Call the function in the child component
+}
+
 }

@@ -8,6 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 export class ConfirmPopupDialog implements OnInit {
   message:any='';
   heading:any='';
+  showNoButton:any = 'Yes';
   constructor(
     public dialogRef: MatDialogRef<ConfirmPopupDialog>,
     public dialog: MatDialog ,
@@ -20,9 +21,13 @@ export class ConfirmPopupDialog implements OnInit {
       this.message = this.data.message;
     }
     this.heading = this.data.heading?this.data.heading:'';
+
+    if(this.data.showNoButton )
+    this.showNoButton = this.data.showNoButton
+
   }
 
-
+  
   closeIcon(): void {
     this.dialogRef.close();
   }

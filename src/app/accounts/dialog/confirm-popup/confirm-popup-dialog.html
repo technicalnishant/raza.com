@@ -6,9 +6,13 @@
     <mat-dialog-content>
 
 
-    <div class="myNumberButtonArea2">
+    <div class="myNumberButtonArea2" *ngIf="showNoButton == 'Yes'">
         <button mat-button class="submitButton" [mat-dialog-close]="data.success">Yes</button>
-        <button mat-button class="submitButton" (click)="closeIcon()">No</button>
+        <button  mat-button class="submitButton" (click)="closeIcon()">No</button>
+    </div>
+    <div class="myNumberButtonArea2" *ngIf="showNoButton == 'No'">
+        <button mat-button class="submitButton" [mat-dialog-close]="data.success">Ok</button>
+       
     </div>
     </mat-dialog-content>
 </div>

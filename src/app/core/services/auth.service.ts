@@ -1,6 +1,6 @@
 
 import { throwError as observableThrowError, Observable, BehaviorSubject, of } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, forwardRef } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HelperService } from './helper.service';
 import { Api } from './api.constants';
@@ -20,6 +20,8 @@ import { Country } from '../models/country.model';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { PlanService } from 'app/accounts/services/planService';
+import { SingleCartService } from './single-crt.service';
+
 
 @Injectable()
 export class AuthenticationService {
@@ -29,7 +31,7 @@ export class AuthenticationService {
 	currentSetting: CurrentSetting;
 	user_country_id:any;
 	fromCountry:any;
-	 
+ 
 	constructor(
 		private httpClient: HttpClient,
 		private helperService: HelperService,
@@ -39,7 +41,9 @@ export class AuthenticationService {
 		private countryService: CountriesService,
 		public dialog: MatDialog,
 		private planService: PlanService,
-		private router: Router
+		private router: Router,
+	 
+		 private singleCartService: SingleCartService,
 	) {
 
 	}
@@ -139,13 +143,14 @@ export class AuthenticationService {
 			localStorage.setItem('fromCountries', user.countryId);
 			let context = new userContext(
 				user.userName,
+				user.firstName,
+				user.lastName,
 				user.access_token,
 				user.refresh_token,
 				user.token_type,
 				user.expires_in,
 				user['.issued'],
 				user['.expires'],
-				
 				user.isNew.toLowerCase() === 'true',
 				'',
 				user.countryId,
@@ -155,7 +160,19 @@ export class AuthenticationService {
 	
 			AuthenticationService.username.next(user.userName);
 			this.saveCurrentUsertoLocalStorage(context);
+
+			// const storedToken = this.singleCartService.getStoredToken();
+			// console.log('storedToken', storedToken)
+			// if(!storedToken)
+			// {
+			// 	this.singleCartService.updateSignup(context);
+			// }
+			// else if (storedToken && !this.singleCartService.isTokenExpired(storedToken.timestamp)) {
+			// 	this.singleCartService.updateSignup(context);
+			// }
+
 			
+
 			return this.planService.getPlanInfo(localStorage.getItem("login_no")).pipe(
 			  switchMap((res: any) => {
 				
@@ -169,6 +186,8 @@ export class AuthenticationService {
 				return of(context); // You may want to handle the error differently
 			  })
 			);
+			
+			
 		  } else {
 			return of(null);
 		  }
@@ -220,6 +239,8 @@ export class AuthenticationService {
 					localStorage.setItem('fromCountries', user.countryId);
 					let context = new userContext(
 						user.userName,
+						user.firstName,
+				user.lastName,
 						user.access_token,
 						user.refresh_token,
 						user.token_type,
@@ -277,6 +298,8 @@ export class AuthenticationService {
 					localStorage.setItem('fromCountries', user.countryId);
 					let context = new userContext(
 						user.userName,
+						user.firstName,
+						user.lastName,
 						user.access_token,
 						user.refresh_token,
 						user.token_type,
@@ -536,6 +559,8 @@ export class AuthenticationService {
 					
 					let context = new userContext(
 						user.userName,
+						user.firstName,
+						user.lastName,
 						user.access_token,
 						user.refresh_token,
 						user.token_type,

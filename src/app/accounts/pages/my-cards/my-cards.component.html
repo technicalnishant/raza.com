@@ -2,7 +2,7 @@
   <div class="body-tab mt-5">
         <div class="row">
         <div class="{{isTopupPage ?'col-xl-8':'col-xl-12'}}">
-          <div  class="saveCardWrap">
+          <div  class="saveCardWrap {{getClassAcive()}}">
             <h3>Payment Details</h3>
             <mat-radio-group class="example-radio-group" name="cardNumber" [(ngModel)]="selectedCard">
               <div class="savedCard" *ngFor="let item of customerSavedCards; let ind = index"
