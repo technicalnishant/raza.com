@@ -161,15 +161,15 @@ export class AuthenticationService {
 			AuthenticationService.username.next(user.userName);
 			this.saveCurrentUsertoLocalStorage(context);
 
-			// const storedToken = this.singleCartService.getStoredToken();
-			// console.log('storedToken', storedToken)
-			// if(!storedToken)
-			// {
-			// 	this.singleCartService.updateSignup(context);
-			// }
-			// else if (storedToken && !this.singleCartService.isTokenExpired(storedToken.timestamp)) {
-			// 	this.singleCartService.updateSignup(context);
-			// }
+			const storedToken = this.singleCartService.getStoredToken();
+			console.log('storedToken', storedToken)
+			if(!storedToken)
+			{
+				this.singleCartService.updateSignup(context);
+			}
+			else if (storedToken && !this.singleCartService.isTokenExpired(storedToken.timestamp)) {
+				this.singleCartService.updateSignup(context);
+			}
 
 			
 
