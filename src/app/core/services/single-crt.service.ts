@@ -200,29 +200,99 @@ export class SingleCartService {
 
 
    
-  getSingleCartByCustomerId(obj: any): void {
+  getSingleCartByCustomerId(): Observable<any>  {
     const url         = `https://razacoreapis.hotphonecard.com/api/SingleCart/GetSingleCartByCustomerId/${this.siteId()}/${localStorage.getItem("globalCustomerId")}`;
     const headers     = new HttpHeaders().set('Authorization', 'Bearer ' + this.getStoredToken()?.accessToken);
     const customerId  = localStorage.getItem("globalCustomerId");
     
-  
-    this.httpClient.get<any>(url, { headers }).pipe(
-      map(res => {
-        console.log("Response from cart json", res);
-        return res;  // Return the response to handle it later if needed
-      }),
-      catchError(error => {
-        console.error("Error storing cart", error);
-        return throwError(error);  // Ensure the error is rethrown after logging it
-      })
-    ).subscribe(
-      success => {
-        console.log('Cart update successful', success);
-      },
-      error => {
-        console.error('Cart update failed', error);
-      }
-    );
+    return this.httpClient.get<any>(url, {headers}  );
+    
   }
+  getStaticCart() : Observable<any> 
+  {
+    const staticCart = {
+      cart: {
+        cartId: 12,
+        cartAddedDate: "2024-05-24T12:17:43.61",
+        customerId: "8"
+      },
+      cartItems: [
+        {
+          cartItemId: 9,
+          cartId: 12,
+          siteId: "7",
+          productId: "162",
+          unitPrice: 5,
+          productCaption: "CANADA ONE TOUCH DIAL",
+          productDescription: "CANADA ONE TOUCH DIAL",
+          productImageIconURL: "",
+          productDetailURL: "",
+          quantity: 1,
+          currencyCode: "CAD",
+          serviceCharge: 10,
+          couponCode: "",
+          couponDescription: "",
+          couponValue: 0,
+          taxName: "",
+          taxPercent: 0,
+          taxAmount: 0,
+          shippingRequired: true
+        },
+        {
+          cartItemId: 10,
+          cartId: 13,
+          siteId: "7",
+          productId: "162",
+          unitPrice: 5,
+          productCaption: "CANADA ONE TOUCH DIAL",
+          productDescription: "CANADA ONE TOUCH DIAL",
+          productImageIconURL: "",
+          productDetailURL: "",
+          quantity: 1,
+          currencyCode: "CAD",
+          serviceCharge: 10,
+          couponCode: "",
+          couponDescription: "",
+          couponValue: 0,
+          taxName: "",
+          taxPercent: 0,
+          taxAmount: 0,
+          shippingRequired: true
+        },
+        {
+          cartItemId: 11,
+          cartId: 14,
+          siteId: "7",
+          productId: "162",
+          unitPrice: 5,
+          productCaption: "CANADA ONE TOUCH DIAL",
+          productDescription: "CANADA ONE TOUCH DIAL",
+          productImageIconURL: "",
+          productDetailURL: "",
+          quantity: 1,
+          currencyCode: "CAD",
+          serviceCharge: 10,
+          couponCode: "",
+          couponDescription: "",
+          couponValue: 0,
+          taxName: "",
+          taxPercent: 0,
+          taxAmount: 0,
+          shippingRequired: true
+        }
+      ]
+    };
+    return of(staticCart);
+  }
+
+  deleteItem(item:any): Observable<any>  {
+    const url         = ` https://razacoreapis.hotphonecard.com/api/SingleCart/DeleteItemFromSingleCartAsync/${localStorage.getItem("login_no")}/${item.cartId}/${item.productId}`;
+    const headers     = new HttpHeaders().set('Authorization', 'Bearer ' + this.getStoredToken()?.accessToken);
   
+    return this.httpClient.delete<any>(url, {headers}  );
+    
+  }
+
+
+ 
 }

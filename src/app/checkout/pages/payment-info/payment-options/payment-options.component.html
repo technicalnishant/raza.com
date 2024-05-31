@@ -3,6 +3,44 @@
     <span>Select payment method</span>
   </h2> -->
 </div>
+
+<div>
+  <!-- cart.component.html -->
+ 
+  <div *ngIf="isLoading; else content">
+    <p>Loading...</p>
+  </div>
+  <ng-template #content>
+    <div *ngIf="hasError; else cartContent">
+      <p>Error loading cart data. Please try again later.</p>
+    </div>
+    <ng-template #cartContent>
+      <div *ngIf="allCarts && allCarts.cartItems && allCarts.cartItems.length > 0; else noItems">
+        <div *ngFor="let item of allCarts.cartItems" class="cart-item">
+          <div class="cart-item-header">
+            <input type="checkbox" (change)="onCheckboxChange($event, item)">
+            <a href="javascript:void(0)" (click)="removeGlobalCart(item)" class="remove-btn">X</a>
+          </div>
+          <div class="item-details">
+            <h4>Product Caption: {{ item.productCaption }}</h4>
+            <p>Product Description: {{ item.productDescription }}</p>
+            <p>Unit Price: {{ item.unitPrice }} {{ item.currencyCode }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+            <p>Service Charge: {{ item.serviceCharge }}</p>
+            <p>Shipping Required: {{ item.shippingRequired ? 'Yes' : 'No' }}</p>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </ng-template>
+      <ng-template #noItems>
+        <p>No items in the cart.</p>
+      </ng-template>
+   
+    </ng-template>
+   
+ 
+</div>
   <div class="col-md-12" *ngIf="currentCart.couponCode =='FREETRIAL'">
   <app-no-card-payment-box  [checkOutModel]="currentCart" (onPaymentSubmit)="onPaymentInfoFormSubmit($event)">
   </app-no-card-payment-box>

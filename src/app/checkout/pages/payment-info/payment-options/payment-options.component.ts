@@ -79,6 +79,13 @@ export class PaymentOptionsComponent implements OnInit {
   cardholdersName: string;
   planInfo:any;
   promoCode:any;
+  fiveGcart:any;
+
+  marketPlaceCart:any;
+  allCarts:any;
+  isLoading: boolean = true;
+  hasError: boolean = false;
+  selectedItems: any[] = [];
   constructor(
     private transactionService: TransactionService,
     private transactionProcessFacade: TransactionProcessFacadeService,
@@ -97,17 +104,20 @@ export class PaymentOptionsComponent implements OnInit {
      
   ) { 
     this.braintreeToken = environment.payplaClientIdNew;
+    sessionStorage.setItem('cartTotal', '0');
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.currentCart = this.route.parent.snapshot.data['cart'];
-    console.log(this.currentCart);
+    this.modifyCart()
     if (this.authService.isAuthenticated())
       {
+
         this.singleCartService.setGlobalCart(this.currentCart);
-    
- 
+        this.getGlobalCart();
       }
+        
+      
    //console.log("Your cart is", this.currentCart);
 
     this.promoCode = this.currentCart.couponCode;
@@ -212,9 +222,6 @@ export class PaymentOptionsComponent implements OnInit {
     await this.checkoutService.setCurrentCart(cart);
     this.currentCart = this.route.parent.snapshot.data['cart'];
 
-    console.log("Your plan is ", this.planInfo);
-    console.log("Your modified cart is ", cart);
-    console.log("Your cart is ", this.currentCart);
   }
   
 /*
@@ -598,5 +605,76 @@ createPayPalCheckoutButton() {
     }
     ngAfterViewInit() {
     //this.createPayPalCheckoutButton()
+    }
+
+    /*************** Global cart functionality **********/
+    getGlobalCart()
+    {
+      this.singleCartService.getSingleCartByCustomerId().subscribe({ 
+       // this.singleCartService.getStaticCart().subscribe({ 
+        next: (data) => {
+          this.allCarts = data; 
+          this.isLoading = false;
+        },
+        error: (error) => {
+          
+          console.error('Error fetching cart:', error);
+          this.hasError = true;
+          this.isLoading = false;
+          
+        }
+      });
+    }
+    removeGlobalCart(item: any): void {
+      const confirmed = confirm('Are you sure you want to remove this item from the cart?');
+    
+      if (confirmed) {
+        console.log(item);
+        
+        this.singleCartService.deleteItem(item).subscribe({
+          next: (data) => {
+            this.getGlobalCart();
+          },
+          error: (error) => {
+            console.error('Error fetching cart:', error);
+          }
+        });
+      }
+    }
+    
+    setTotal(currentItem) {
+      
+          const serviceFee = (currentItem.serviceCharge / 100) * currentItem.unitPrice;
+          return currentItem.unitPrice + serviceFee;
+      
+  }
+
+    onCheckboxChange(event: any, item: any): void {
+      const isChecked = event.target.checked;
+  
+      if (isChecked) {
+        
+        this.selectedItems.push(item);
+      } else {
+        const index = this.selectedItems.findIndex(i => i.cartItemId === item.cartItemId);
+        if (index > -1) {
+          this.selectedItems.splice(index, 1);
+        }
+      }
+  
+      const itemTotal = this.setTotal(item);
+      // Calculate the sum of unit prices of the selected items
+      const total = this.selectedItems.reduce((sum, currentItem) => sum + itemTotal, 0);
+      
+      // Store the total in session storage
+      sessionStorage.setItem('cartTotal', total.toString());
+
+      this.modifyCart()
+    }
+
+    modifyCart()
+    {
+      
+      this.checkoutService.setCurrentCart(this.currentCart);
     }
   } 

@@ -53,20 +53,29 @@ export class NewPlanCheckoutModel implements ICheckoutModel {
         }
     }
     totalAmount?(): number {
-        return Math.round((this.calculateServiceFee() + this.details.Price) * 100) / 100;
+        const storedTotal = sessionStorage.getItem('cartTotal');
+        storedTotal ? parseFloat(storedTotal) : 0;
+        const cartTotal = Math.round(   (parseFloat(storedTotal)+this.calculateServiceFee() + this.details.Price) * 100) / 100;
+      
+        return cartTotal;
     }
     transactiontype: TransactionType;
     getOrderName?(): string {
         return this.CardName;
     }
     getPurchaseAmount?(): number {
-        return this.details.Price;
+       
+        return this.details.Price ;
     }
 
     getTransactionReqModel?(): GenerateTransactionRequestModel {
+
+        const storedTotal = sessionStorage.getItem('cartTotal');
+        storedTotal ? parseFloat(storedTotal) : 0;
+
         let generateTranreqModel = new GenerateTransactionRequestModel();
         generateTranreqModel.planId = this.details.SubCardId;
-        generateTranreqModel.purchaseAmount = this.getPurchaseAmount();
+        generateTranreqModel.purchaseAmount = this.getPurchaseAmount()+parseFloat(storedTotal);
         generateTranreqModel.transactionType = this.transactiontype;
         generateTranreqModel.cardName = this.getOrderName();
         generateTranreqModel.currencyCode = this.currencyCode;
@@ -124,10 +133,11 @@ export class RechargeCheckoutModel implements ICheckoutModel {
        
         var fee = this.calculateServiceFee();
         var amount = this.getPurchaseAmount();
-       // return (fee*1 )+ (amount*1)
-        return Math.round(((fee*1 ) + (amount*1)) * 100) / 100;
-
-       // return  this.calculateServiceFee() + this.getPurchaseAmount();
+        const storedTotal:any = sessionStorage.getItem('cartTotal');
+        storedTotal ? parseFloat(storedTotal) : 0;
+        const grartTotal:number = parseFloat(storedTotal);
+        return Math.round((grartTotal+ (fee*1 ) + (amount*1)) * 100) / 100;
+        // return  this.calculateServiceFee() + this.getPurchaseAmount();
     }
 
     getValidateCouponCodeReqModel?(couponCode: string): ValidateCouponCodeRequestModel {
@@ -143,9 +153,13 @@ export class RechargeCheckoutModel implements ICheckoutModel {
     }
 
     getTransactionReqModel?(): GenerateTransactionRequestModel {
+
+        const storedTotal = sessionStorage.getItem('cartTotal');
+        storedTotal ? parseFloat(storedTotal) : 0;
+
         let generateTranreqModel = new GenerateTransactionRequestModel();
         generateTranreqModel.planId = this.planId;
-        generateTranreqModel.purchaseAmount = this.getPurchaseAmount();
+        generateTranreqModel.purchaseAmount = this.getPurchaseAmount()+parseFloat(storedTotal) ;
         generateTranreqModel.transactionType = this.transactiontype;
         generateTranreqModel.cardName = this.getOrderName();
         generateTranreqModel.currencyCode = this.currencyCode;
@@ -171,24 +185,35 @@ export class MobileTopupCheckoutModel implements ICheckoutModel {
     }
 
     getPurchaseAmount?(): number {
+      
         return this.topupOption.UsDenomination;
     }
     calculateServiceFee?(): number {
         return 0;
     };
+
+
     totalAmount?(): number {
-        return this.calculateServiceFee() + this.getPurchaseAmount();
+
+        const storedTotal:any = sessionStorage.getItem('cartTotal');
+        storedTotal ? parseFloat(storedTotal) : 0;
+        const cartTotal  = parseFloat(storedTotal);
+        return cartTotal + this.calculateServiceFee() + this.getPurchaseAmount();
     };
 
     getTransactionReqModel?(): GenerateTransactionRequestModel {
+        const storedTotal = sessionStorage.getItem('cartTotal');
+        storedTotal ? parseFloat(storedTotal) : 0;
+
         let generateTranreqModel = new GenerateTransactionRequestModel();
         generateTranreqModel.planId = '';
-        generateTranreqModel.purchaseAmount = this.getPurchaseAmount();
+        generateTranreqModel.purchaseAmount = this.getPurchaseAmount()+parseFloat(storedTotal);
         generateTranreqModel.transactionType = this.transactiontype;
         generateTranreqModel.cardName = this.getOrderName();
         generateTranreqModel.currencyCode = this.currencyCode;
         return generateTranreqModel;
     }
+    
 
     getValidateCouponCodeReqModel?(couponCode: string, plan?: Plan): ValidateCouponCodeRequestModel {
         const validateCouponCodeReq: ValidateCouponCodeRequestModel = {

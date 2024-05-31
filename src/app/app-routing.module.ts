@@ -68,6 +68,7 @@ const routes: Routes = [
   { path:'404', loadChildren:()=>import('./page404/page404.module').then(m=>(m.Page404Module))},
   //{path: '404', component: Page404Component},
   { path: 'buy_five_get_five', component: Buy5get5Component},
+  { path: '5gapp', component: Buy5get5Component},
  // { path: 'globalcallrates', component: GlobalCallratesComponent},
   { path: 'globalcallrates', component: GlobalcallComponent},
   { path: 'globalcallrates_new', component: GlobalcallComponent},
@@ -88,6 +89,7 @@ const routes: Routes = [
    //https://raza.com/buy?promotion=buy5get5
   //{ path: '**',  redirectTo: './404' },
   { path:'search', loadChildren:()=>import("./search/search.module").then(m=>(m.SearchModule))},
+ 
   // { path: 'search/:country', component: SearchComponent }, //27-12-2022
   { path: 'mobile_pay', loadChildren: () => import('./mobile-pay/mobile-pay.module').then(m => m.MobilePayModule) },
   

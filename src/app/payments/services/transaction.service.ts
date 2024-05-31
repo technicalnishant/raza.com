@@ -119,7 +119,8 @@ getClientTokenFunction():void{
     processPaymentToBraintree(checkoutOrderInfo: ICheckoutOrderInfo): void {
 
         let transactionReq: TransactionRequest;
-        console.log(checkoutOrderInfo.checkoutCart);
+        
+        
         this.generate(checkoutOrderInfo.checkoutCart.getTransactionReqModel()).subscribe(
             (res: TransactionRequest) => {
                 //  console.log("Executing first observable response");
@@ -174,19 +175,17 @@ getClientTokenFunction():void{
 	   processPaymentNormal(checkoutOrderInfo: ICheckoutOrderInfo): void {
 
         let transactionReq: TransactionRequest;
+   
         this.generate(checkoutOrderInfo.checkoutCart.getTransactionReqModel()).subscribe(
             (res: TransactionRequest) => {
                 //  console.log("Executing first observable response");
                 transactionReq = res;
-                console.log(transactionReq);
                 //this information will passdown to server.
-
                 let account = new Account();
                 account.AccountNumber = checkoutOrderInfo.creditCard.CardNumber;
                 account.ExpirationMonth = checkoutOrderInfo.creditCard.ExpiryMonth.toString();
                 account.ExpirationYear = `${new Date().getFullYear().toString().slice(0, 2)}${checkoutOrderInfo.creditCard.ExpiryYear.toString()}`;
                 account.NameOnCard = checkoutOrderInfo.creditCard.CardHolderName;
-
                 transactionReq.checkoutOrderInfo = checkoutOrderInfo;
                 transactionReq.Order.Consumer.Account = account;
                 transactionReq.TransactionType = checkoutOrderInfo.checkoutCart.transactiontype;

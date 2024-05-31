@@ -313,9 +313,6 @@ export class BrainTreePaymentMobileService {
    
              }
                
-               
-               
-             console.log(data);
            } , err => {
              const loaderService = this.loaderService;
              
