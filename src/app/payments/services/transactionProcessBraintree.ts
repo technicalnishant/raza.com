@@ -189,10 +189,10 @@ export class TransactionProcessBraintreeService {
     let transactionResponseModel: TransactionResponseModel;
     /* Process recharge. */
     const rechargeCart = orderInfo.checkoutCart as RechargeCheckoutModel
- /*
-    console.log(model);
-    console.log(rechargeCart.planId);
-    return false;*/ 
+ 
+    // console.log(model);
+    // console.log(rechargeCart.planId);
+    // return false; 
 
 
     this.rechargeService.ProcessRecharge(rechargeCart.planId, model).subscribe(
