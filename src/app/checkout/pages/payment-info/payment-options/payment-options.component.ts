@@ -101,10 +101,10 @@ export class PaymentOptionsComponent implements OnInit {
 
   ngOnInit() {
     this.currentCart = this.route.parent.snapshot.data['cart'];
-    console.log(this.currentCart);
+  //  console.log(this.currentCart);
     if (this.authService.isAuthenticated())
       {
-        this.singleCartService.setGlobalCart(this.currentCart);
+       // this.singleCartService.setGlobalCart(this.currentCart);
     
  
       }
