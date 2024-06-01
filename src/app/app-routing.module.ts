@@ -16,6 +16,7 @@ import { GlobalcallComponent } from './globalcall/globalcall.component';
 import { MotoComponent } from './moto/moto.component';
 import { AutoComponent } from './auto/auto.component';
 import { SearchComponent } from './search/search.component';
+import { FivegappComponent } from './fivegapp/fivegapp.component';
 const routes: Routes = [
  // { path: '', component: HomepageComponent, pathMatch: 'full' },
   { path:'', loadChildren:()=> import('./home/home.module').then(m=>m.HomeModule)},
@@ -97,6 +98,9 @@ const routes: Routes = [
 
   { path: 'refer', loadChildren:()=>import('./refer/refer.module').then(m=>m.ReferModule)},
   { path: 'raza-us', loadChildren: () => import('./raza-us/raza-us.module').then(m => m.RazaUsModule) },
+
+  { path: '5gapp', component: FivegappComponent },
+
   { path: '**', pathMatch: 'full',  component: Page404Component },
 ];
 
