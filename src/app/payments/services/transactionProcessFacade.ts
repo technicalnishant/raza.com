@@ -307,6 +307,7 @@ export class TransactionProcessFacadeService {
       nonce : nonce,
       ProcessedBy:'',
       ActualAmountCharge :parseFloat(localStorage.getItem('ActualAmountCharge')),
+      SingleCartActualAmountCharge:parseFloat(localStorage.getItem('ActualAmountCharge')),
    PaymentCurrency :localStorage.getItem('PaymentCurrency'),
     };
     let transactionResponseModel: TransactionResponseModel;

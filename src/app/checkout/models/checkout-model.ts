@@ -76,7 +76,7 @@ export class NewPlanCheckoutModel implements ICheckoutModel {
 
         let generateTranreqModel = new GenerateTransactionRequestModel();
         generateTranreqModel.planId = this.details.SubCardId;
-        generateTranreqModel.purchaseAmount = this.getPurchaseAmount()+parseFloat(storedTotal)+this.calculateServiceFee();
+        generateTranreqModel.purchaseAmount = this.getPurchaseAmount()+parseFloat(storedTotal);
         generateTranreqModel.transactionType = this.transactiontype;
         generateTranreqModel.cardName = this.getOrderName();
         generateTranreqModel.currencyCode = this.currencyCode;
@@ -163,7 +163,7 @@ export class RechargeCheckoutModel implements ICheckoutModel {
 
         let generateTranreqModel = new GenerateTransactionRequestModel();
         generateTranreqModel.planId = this.planId;
-        generateTranreqModel.purchaseAmount = this.getPurchaseAmount()+parseFloat(storedTotal)+this.calculateServiceFee(); ;
+        generateTranreqModel.purchaseAmount = this.getPurchaseAmount()+parseFloat(storedTotal) ;
         generateTranreqModel.transactionType = this.transactiontype;
         generateTranreqModel.cardName = this.getOrderName();
         generateTranreqModel.currencyCode = this.currencyCode;
@@ -213,7 +213,7 @@ export class MobileTopupCheckoutModel implements ICheckoutModel {
 
         let generateTranreqModel = new GenerateTransactionRequestModel();
         generateTranreqModel.planId = '';
-        generateTranreqModel.purchaseAmount = this.getPurchaseAmount()+parseFloat(storedTotal)+this.calculateServiceFee();;
+        generateTranreqModel.purchaseAmount = this.getPurchaseAmount()+parseFloat(storedTotal);
         generateTranreqModel.transactionType = this.transactiontype;
         generateTranreqModel.cardName = this.getOrderName();
         generateTranreqModel.currencyCode = this.currencyCode;

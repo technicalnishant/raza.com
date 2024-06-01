@@ -28,5 +28,6 @@ DeviceType:string;
 AppVersion:string;
 ProcessedBy:string='';
 ActualAmountCharge: number;
+SingleCartActualAmountCharge:number;
     PaymentCurrency :string;
 }

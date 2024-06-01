@@ -650,9 +650,9 @@ createPayPalCheckoutButton() {
     
     setTotal(currentItem) {
       
-          // const serviceFee = (currentItem.serviceCharge / 100) * currentItem.unitPrice;
-          // return currentItem.unitPrice + serviceFee;
-          return currentItem.unitPrice;
+          const serviceFee = (currentItem.serviceCharge / 100) * currentItem.unitPrice;
+          return currentItem.unitPrice + serviceFee;
+         // return currentItem.unitPrice;
       
   }
 

@@ -174,6 +174,7 @@ export class TransactionMobProcessBraintreeService {
     model.DeviceType='';
     model.AppVersion='';
     model.ProcessedBy = rechargeCheckOutModel.ProcessedBy;
+    
     let transactionResponseModel: TransactionResponseModel;
     /* Process recharge. */
     const rechargeCart = orderInfo.checkoutCart as RechargeCheckoutModel
@@ -336,6 +337,7 @@ export class TransactionMobProcessBraintreeService {
       nonce :'',
       ProcessedBy : '',
       ActualAmountCharge: parseFloat(localStorage.getItem('ActualAmountCharge')),
+      SingleCartActualAmountCharge:parseFloat(localStorage.getItem('ActualAmountCharge')),
       PaymentCurrency:localStorage.getItem('PaymentCurrency')
     };
     

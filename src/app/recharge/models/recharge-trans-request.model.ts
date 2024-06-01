@@ -1,4 +1,5 @@
 export class RechargeRequestModel{
+  SingleCartActualAmountCharge: number;
     constructor(){}
 	OrderId: string
     CustomerId: number;

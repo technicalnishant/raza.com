@@ -183,6 +183,7 @@ export class RechargePaymentComponent implements OnInit {
 	  nonce:'',
     ProcessedBy:'',
     ActualAmountCharge: parseFloat(localStorage.getItem('ActualAmountCharge')),
+    SingleCartActualAmountCharge:parseFloat(localStorage.getItem('ActualAmountCharge')),
       PaymentCurrency:localStorage.getItem('PaymentCurrency')
     };
 

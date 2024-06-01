@@ -178,7 +178,7 @@ export class TransactionProcessBraintreeService {
     let exp_curr = localStorage.getItem('PaymentCurrency') ;
     model.OrderId = order.OrderDetails.OrderNumber;
     //model.CustomerId: 
-    model.Amount = order.OrderDetails.Amount / 100;
+   // model.Amount = order.OrderDetails.Amount / 100;
     model.CouponCode = orderInfo.checkoutCart.couponCode;
     model.PaymentMethod = PaymentMethod.CreditCard;
     model.IsPaymentProcessed = false;
@@ -192,18 +192,20 @@ export class TransactionProcessBraintreeService {
     model.PayPalPayerId = '';
     model.IsAutoReFill = rechargeCheckOutModel.isAutoRefill;
     model.AutoReFillAmount = rechargeCheckOutModel.purchaseAmount;
+    model.Amount = rechargeCheckOutModel.purchaseAmount;
 	  model.nonce = nonce;
     model.ProcessedBy = rechargeCheckOutModel.ProcessedBy;
     model.ActualAmountCharge = exp_amount;
+    model.SingleCartActualAmountCharge = exp_amount;
     model.PaymentCurrency = exp_curr;
 
     let transactionResponseModel: TransactionResponseModel;
     /* Process recharge. */
     const rechargeCart = orderInfo.checkoutCart as RechargeCheckoutModel
   
-    console.log(model);
-    console.log(rechargeCart.planId);
-    return false; 
+    // console.log(model);
+    // console.log(rechargeCart.planId);
+    // return false; 
 
 
     this.rechargeService.ProcessRecharge(rechargeCart.planId, model).subscribe(
@@ -365,6 +367,8 @@ export class TransactionProcessBraintreeService {
       nonce :'',
       ProcessedBy:'',
       ActualAmountCharge: exp_amount,
+      SingleCartActualAmountCharge: exp_amount,
+     
       PaymentCurrency:exp_curr.toString()
     };
     let transactionResponseModel: TransactionResponseModel;
