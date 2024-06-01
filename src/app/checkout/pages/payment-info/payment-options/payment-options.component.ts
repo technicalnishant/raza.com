@@ -275,12 +275,15 @@ export class PaymentOptionsComponent implements OnInit {
 
       planOrderInfo.creditCard = creditCard;
       planOrderInfo.checkoutCart = this.currentCart;
-
+      localStorage.setItem('PaymentCurrency', planOrderInfo.checkoutCart.currencyCode);
        if(planOrderInfo.checkoutCart.couponCode == 'FREETRIAL')
       {
 
          
         let service: TransactionProcessBraintreeService = this.transactionProcessBraintree;
+
+        console.log("payment Step 1", planOrderInfo);
+
         let checkoutInfo = this.transactionService.processPaymentNormal(planOrderInfo);
         
       }
@@ -341,6 +344,9 @@ export class PaymentOptionsComponent implements OnInit {
           {
             /********** Use3DSecure :false  then process transaction directly **********/
             let service: TransactionProcessBraintreeService = this.transactionProcessBraintree;
+            
+            
+
             let checkoutInfo = this.transactionService.processPaymentNormal(planOrderInfo);
             
           }
@@ -644,8 +650,9 @@ createPayPalCheckoutButton() {
     
     setTotal(currentItem) {
       
-          const serviceFee = (currentItem.serviceCharge / 100) * currentItem.unitPrice;
-          return currentItem.unitPrice + serviceFee;
+          // const serviceFee = (currentItem.serviceCharge / 100) * currentItem.unitPrice;
+          // return currentItem.unitPrice + serviceFee;
+          return currentItem.unitPrice;
       
   }
 

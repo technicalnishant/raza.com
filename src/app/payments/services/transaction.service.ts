@@ -175,11 +175,13 @@ getClientTokenFunction():void{
 	   processPaymentNormal(checkoutOrderInfo: ICheckoutOrderInfo): void {
 
         let transactionReq: TransactionRequest;
-   
+        console.log("payment Step 2 transactionReq", transactionReq);
+        console.log("payment Step 2 checkoutOrderInfo", checkoutOrderInfo);
         this.generate(checkoutOrderInfo.checkoutCart.getTransactionReqModel()).subscribe(
             (res: TransactionRequest) => {
                 //  console.log("Executing first observable response");
                 transactionReq = res;
+                console.log("payment Step 2 After generate token", transactionReq);
                 //this information will passdown to server.
                 let account = new Account();
                 account.AccountNumber = checkoutOrderInfo.creditCard.CardNumber;
@@ -189,7 +191,7 @@ getClientTokenFunction():void{
                 transactionReq.checkoutOrderInfo = checkoutOrderInfo;
                 transactionReq.Order.Consumer.Account = account;
                 transactionReq.TransactionType = checkoutOrderInfo.checkoutCart.transactiontype;
-                 
+                console.log("payment Step 2 Transaction request", transactionReq);
 				return this.directPaymentService.startTransaction(transactionReq);
             }
         );

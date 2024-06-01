@@ -287,8 +287,7 @@ export class BraintreePaymentService {
 
   createClient(model: TransactionRequest): void {
  // var cart_amount = model.checkoutOrderInfo.checkoutCart.totalAmount();
-   console.log(TransactionType.MR);
-  console.log(model);
+   
   var currency = model.checkoutOrderInfo.checkoutCart.currencyCode;
    //this.httpClient.get(Api.braintree.generateToken)
    this.httpClient.get(Api.braintree.generateToken+'/'+currency)

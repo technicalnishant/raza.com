@@ -38,6 +38,7 @@ export class TransactionProcessBraintreeService {
 
   processTransaction(transactionReq: TransactionRequest, nonce: any) {
     
+    console.log("payment Step 3 processTransaction", transactionReq);
     switch (transactionReq.TransactionType) {
       case TransactionType.Recharge: {
         this.processRecharge(transactionReq, nonce);
@@ -199,10 +200,10 @@ export class TransactionProcessBraintreeService {
     let transactionResponseModel: TransactionResponseModel;
     /* Process recharge. */
     const rechargeCart = orderInfo.checkoutCart as RechargeCheckoutModel
- /*
+  
     console.log(model);
     console.log(rechargeCart.planId);
-    return false;*/ 
+    return false; 
 
 
     this.rechargeService.ProcessRecharge(rechargeCart.planId, model).subscribe(
