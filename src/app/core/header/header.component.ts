@@ -81,7 +81,7 @@ export class HeaderComponent implements AfterViewInit, OnInit  {
   filter_string:string=''
   ctryName:any;
   previousUrl:any ='';
-  navClick:any='hide_nav';
+  navClick:any='';
   otherPlans:boolean=false;
   constructor(
     private router: Router,
