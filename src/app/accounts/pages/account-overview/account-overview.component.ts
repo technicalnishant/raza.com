@@ -39,7 +39,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   newDesign:boolean=false;
   clientCardId:any;
   selectedPlanId:any='';
-  sharedValue:any='hide_nav';
+  sharedValue:any='';
   showBalance :boolean=true;
   private subscription: Subscription;
   currentURL:any
