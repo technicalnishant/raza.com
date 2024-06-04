@@ -1,6 +1,6 @@
 
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PlanService } from '../../services/planService';
 import { AuthenticationService } from '../../../core/services/auth.service';
 import { Plan } from '../../models/plan';
@@ -19,6 +19,7 @@ import { ConfirmPopupDialog } from 'app/accounts/dialog/confirm-popup/confirm-po
 import { CustomerService } from 'app/accounts/services/customerService';
 import { CurrentSetting } from 'app/core/models/current-setting';
 import { RazaEnvironmentService } from 'app/core/services/razaEnvironment.service';
+import { LowestRateComponent } from 'app/core/dialog/lowest-rate/lowest-rate.component';
 @Component({
   selector: 'app-account-overview',
   templateUrl: './account-overview.component.html',
@@ -66,9 +67,8 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   {
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
-    
-      
     })
+    
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     //Loading All customer plans.
@@ -285,4 +285,21 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
   }
 
    /******** EOF Function when user click on logout button************ */
+
+   showLowestRates()
+   {
+     const dialogConfig = new MatDialogConfig();
+     // The user can't close the dialog by clicking outside its body
+     dialogConfig.disableClose = true;
+     dialogConfig.id = "modal-component";
+     dialogConfig.panelClass = "tryUsFree";
+     dialogConfig.width = "100%";
+     dialogConfig.height = "90%";
+     dialogConfig.data = {
+       name: "Lowest rates",
+       title: "Lowest rates",
+        
+     }
+     const modalDialog = this.dialog.open(LowestRateComponent, dialogConfig);
+   }
 }
