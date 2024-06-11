@@ -10,6 +10,7 @@ export class FivegappComponent implements OnInit {
   constructor(public platform: Platform,) { }
 
   ngOnInit(): void {
+    
     if (this.platform.ANDROID) {
       window.open('https://play.google.com/store/apps/details?id=com.razacomm.universe', '_self')
     } else if (this.platform.IOS) {
