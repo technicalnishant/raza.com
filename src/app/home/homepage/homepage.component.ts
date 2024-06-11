@@ -150,7 +150,7 @@ sliderAutoplay: boolean = true;
   }
 
   ngOnInit() {
-    
+
   /******************* Remember & redirect rate page search functioanlity ********************/
   // Simulate a delay of 2 seconds before loading the child component
 
@@ -198,9 +198,7 @@ sliderAutoplay: boolean = true;
     }
    else if( localStorage.getItem('topupCountryId') && parseFloat(localStorage.getItem('topupCountryId'))> 0)
     {
-
-
-     this.router.navigate(['mobiletopup']);
+      this.router.navigate(['mobiletopup']);
     }
 
 
@@ -238,9 +236,9 @@ window.scroll({
   }
 
 
-  if (this.authService.isAuthenticated()) {
+  if (this.authService.isAuthenticated()) 
+    {
       this.isAuthenticated = true;
-
     }
 
     this.titleService.setTitle('Free International calls with Raza calling app');
@@ -268,9 +266,10 @@ window.scroll({
         map(CountryName => CountryName ? this._filter(CountryName) : this.allCountry)
       );
 
-    if (!isNullOrUndefined(this.currentSetting)) {
+    if (!isNullOrUndefined(this.currentSetting)) 
+      {
    
-    }
+     }
 
 
     let videoOptions: any = {
@@ -306,7 +305,8 @@ window.scroll({
 
 
 
-  openDialog() {
+  openDialog() 
+  {
     this.dialog.open(ModalVideoComponent,{
       panelClass: 'mobile-video-dialog', //======> pass your class name
   });
@@ -316,6 +316,7 @@ window.scroll({
   ngAfterViewChecked(){
 
   }
+
   ngOnDestroy(): void {
     this.currentSetting$.unsubscribe();
   }
@@ -331,7 +332,8 @@ window.scroll({
     } else if (this.platform.IOS) {
       window.open('https://cutt.ly/ReFSGpW', 'blank')
     }
-    else {
+    else 
+    {
       el.scrollIntoView();
 
     }

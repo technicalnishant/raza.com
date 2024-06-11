@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiHost: 'https://restapi.razacomm.com/',
+  apiHost: determineApiHost(),
   apiVersion: 'v1',
   websiteHost: 'http://localhost:4200/',
   env: 'prod',
@@ -23,6 +23,16 @@ payplaClientIdNew: 'production_v2bxb632_nmcddy4pg3w88f5j',
 };
 
 
+function determineApiHost(): string {
+  const hostname = window.location.hostname;
+  if (hostname === 'raza.com') {
+    return 'https://restapi.razacomm.com/';
+    
+  }
+  else
+  return 'https://restapibeta.hotphonecard.com/';
+  
+}
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.

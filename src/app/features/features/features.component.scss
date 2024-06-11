@@ -62,9 +62,7 @@ ul.features_list li span.icon img.white{ display: none;}
 
 ul.features_list li span.icon:hover img.gey{ display: none !important;}
 ul.features_list li span.icon:hover img.white{ display: inline-block !important;}
-
 .home_banner{ background-color: #fff !important;}
-
 .leftCommonArea{padding:20px;  background: #fff; box-shadow: 9px 12px 15px 5px rgba(0,0,0,0.1);  -moz-box-shadow: 9px 12px 15px 5px rgba(0,0,0,0.1);  -webkit-box-shadow: 9px 12px 15px 5px rgba(0,0,0,0.1); clear: both; overflow: hidden;}
 .onetouchIcon{ float: left; margin-right: 14px;}
 .oneTouchText{ float: left; width: 70%;text-align: left;}
@@ -78,17 +76,13 @@ ul.features_list li span.icon:hover img.white{ display: inline-block !important;
 .commonTextArea p{color: #919EAF; font-family: 'Montserrat', sans-serif; font-size:14px; font-weight: 400; line-height: 23px; }
 .commonIconArea{ float: left; width: 10%;}
 .second_fold{padding: 100px 0px 70px 0;}
-
 @media only screen and (max-width: 650px)  {
-
   ul.commonUl{ max-width: 230px; float: none !important; margin: 0 auto !important;}
   .hideinMobile{display: none;}
-  .showInmobile { display: block;}
-  
+  .showInmobile { display: block;}  
   .three_service{ height: 360px;}
   .leftCommonArea{ margin-bottom: 60px;}
   ul.features_list li span.text{font-size: 15px;}
-
   .oneTouchText {float: left;width: 100%;text-align: center;}
   .onetouchIcon {float: left;margin-right: 0px;display: table;margin: 10px auto;float: none;}
   .second_fold{padding: 28px 0px 70px 0;}
