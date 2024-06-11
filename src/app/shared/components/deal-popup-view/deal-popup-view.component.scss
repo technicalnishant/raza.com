@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
 $background-color: #daf4f7;
 $background-image: url("../../../../assets/images/promotion/popup-bg.jpg");
+$background-image-mb: url("../../../../assets/images/promotion/popup-bg_mb.jpg");
 $percentage-color: #c75c2d;
 // $top-left : url('https://d2uij5nbaiduhc.cloudfront.net/images/promotion/top-left.png');
 // $top-right : url('https://d2uij5nbaiduhc.cloudfront.net/images/promotion/top-right.png');
@@ -212,7 +213,7 @@ h1 {
     border-radius: 0;
     position: absolute;
     background-size: cover;
-    background-position: center;
+    // background-position: center;
 }
 
 .popup-card {
@@ -350,18 +351,12 @@ h1 {
     .background-effect {
         //display: none;
         background: skyblue;
-  background-image: $background-image;
-  background-image: -webkit-image-set(
-    $background-image 1x,
-    $background-image 2x);
-  background-image: image-set(
-    $background-image 1x,
-    $background-image 2x);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #fff!important;
-    height: 155px;
+        background-image: $background-image-mb;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #fff!important;
+        height: 110px;
     }
     .box-wrapper {
         width: 85%;
