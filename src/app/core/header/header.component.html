@@ -167,11 +167,9 @@
             (click)="onClickClose(searchicon)" loading="lazy"></span>
       </div>
     </div>
-
-
   </div>
-  <div class="second-menu" *ngIf="showHeader" >
 
+  <div class="second-menu" *ngIf="showHeader" >
     <div class="app-menu">
       <div class="mr-2">Download Raza App</div>
       <div>
@@ -187,13 +185,8 @@
     </div>
     <div class="deal-menu">
       <ul class="d-none d-lg-flex pl-0">
-
-
         <!-- <li *ngIf="currentSetting.currentCountryId ==3" ><a routerLink="/deals/get-upto-1500">Deals</a></li> -->
-
-        <li>
-          <a (click)="goTomobileTopup()">Mobile Topup</a>
-        </li>
+        <li><a (click)="goTomobileTopup()">Mobile Topup</a></li>
         <li><a (click)="clickRecharge()">Recharge</a></li>
         <li><a routerLink="/features">Features</a></li>
       </ul>
