@@ -38,10 +38,12 @@
 .term_cond {
     color: #000;
     font-size: 12px;
-    text-align: right;
+    text-align: left;
     padding-right: 40px;
+    position: absolute;
+    bottom: 20px;
+    left: 3%;
     @media only screen  and (max-width: 767px) {
-        position: absolute;
         bottom: 8px;
         padding: 0 20px;
         text-align: center;
@@ -71,14 +73,14 @@
 .carousel-caption.tpSlider_promo {
   left: 0;
   right: 0;
-  background-image: url(../../../assets/images/home_banner_new/promo/md24.jpg);
+  background-image: url(../../../assets/images/home_banner_new/promo/fd24.jpg);
   background-position: bottom 0 center;
   background-size: cover;
   bottom: 0;
   img {
     width: 1250px;
     max-width: 90%;
-    margin: -65px auto 0;
+    margin: 0 auto;
     @media only screen  and (max-width: 767px) {
       max-width: 185px;
       margin-top: 50px;
@@ -97,7 +99,8 @@
     font-weight: 700;
     .promo_textWrap {
         margin-left: auto;
-        margin-top: 145px;
+        margin-right: auto;
+        margin-top: 55px;
         .buy_nowEidMbWrap {
             text-align: center;
             position: absolute;
@@ -124,7 +127,8 @@
                 margin: 0 auto;
             }
             img {
-                width: 270px;
+                width: 100%;
+                max-width: 330px;
                 margin: auto;
             }
         }
