@@ -1,7 +1,8 @@
 export const environment = {
   production: false,
   //apiHost: 'http://localhost:63137/',
-  apiHost: 'https://restapi.razacomm.com/',
+  //apiHost: 'https://restapi.razacomm.com/', 
+  apiHost: determineApiHost(),  
   apiVersion: 'v1',
   websiteHost: 'http://localhost:4200/',
   env: 'dev',
@@ -22,7 +23,16 @@ export const environment = {
   captchaKeyV3: '6LeUEncaAAAAAK33h5_Nmigor0mHRhI8efZ4Tezo' 
   /***********/
 };
-
+function determineApiHost(): string {
+  const hostname = window.location.hostname;
+  if (hostname === 'raza.com') {
+    return 'https://restapi.razacomm.com/';
+    
+  }
+  else
+  return 'https://restapibeta.hotphonecard.com/';
+  
+}
 /*
   NEW key's created 08-03-21
   RAZA Captcha v2
