@@ -145,12 +145,12 @@ sliderAutoplay: boolean = true;
  
 
   
-  ngAfterViewInit(): void {
-  
+  ngAfterViewInit(): void {  
     
   }
 
   ngOnInit() {
+    
   /******************* Remember & redirect rate page search functioanlity ********************/
   // Simulate a delay of 2 seconds before loading the child component
 
