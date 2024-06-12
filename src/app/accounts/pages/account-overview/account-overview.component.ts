@@ -68,11 +68,10 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
     this.currentSetting$ = this.razaEnvService.getCurrentSetting().subscribe(res => {
       this.currentSetting = res;
     })
-    
+    this.razalayoutService.setSharedValue('');
     this.razalayoutService.setFixedHeader(true);
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 868px)');
     //Loading All customer plans.
-
     this.titleService.setTitle('Overview');
     this.username = this.authService.getCurrentLoginUserName();
     this.currentURL = window.location.href;

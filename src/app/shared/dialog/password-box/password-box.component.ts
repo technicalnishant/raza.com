@@ -58,7 +58,8 @@ export class PasswordBoxComponent implements OnInit {
             // this.errorMessage = res.error.error_description;
           } else {
             // Handle other errors
-            console.error("An unexpected error occurred: ", res);
+            this.dialogRef.close(res);
+           // console.error("An unexpected error occurred: ", res);
             // Optionally show a generic error message
             // this.errorMessage = "An unexpected error occurred. Please try again later.";
           }

@@ -201,6 +201,7 @@ globalError()
      else if(event.url.includes('/account')){
       this.showMyaccontHeader = true;
       this.showHeader = false;
+       
       if (!isNullOrUndefined(this.currentSetting)) {
         this.searchRates();
       }
