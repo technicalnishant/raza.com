@@ -626,6 +626,7 @@ window.scroll({
     dialogConfig.data = {
       name: "Lowest rates",
       title: "Lowest rates",
+      route: "/globalcallrates"
        
     }
     const modalDialog = this.dialog.open(LowestRateComponent, dialogConfig);

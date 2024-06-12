@@ -1,11 +1,11 @@
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { SearchRatesService } from '../../../rates/searchrates.service';
 import { SideBarService } from '../../../core/sidemenu/sidemenu.service';
@@ -60,6 +60,7 @@ export class LowestRateComponent implements OnInit, OnDestroy {
     public dialog: MatDialog, 
     private globalRatesService: GlobalRatesService,
     public dialogRef: MatDialogRef<TryUsFreeComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     ) {
     this.sideBarService.toggle();
 
@@ -223,7 +224,11 @@ export class LowestRateComponent implements OnInit, OnDestroy {
     //   this.router.navigate(['globalcallrates']); 
     // } 
     localStorage.setItem('rate_country_id', countryId);
-    this.router.navigate(['globalcallrates']); 
+    if(this.data.route)
+    this.router.navigate([this.data.route]); 
+  else
+  this.router.navigate(['globalcallrates']); 
+
     this.closeIcon()
   }
   

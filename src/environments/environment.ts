@@ -25,6 +25,7 @@ export const environment = {
 };
 function determineApiHost(): string {
   const hostname = window.location.hostname;
+  
   if (hostname === 'raza.com') {
     return 'https://restapi.razacomm.com/';
     

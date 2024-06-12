@@ -298,6 +298,7 @@ export class AccountOverviewComponent implements OnInit, OnDestroy {
      dialogConfig.data = {
        name: "Lowest rates",
        title: "Lowest rates",
+       route:"/account/overview"
         
      }
      const modalDialog = this.dialog.open(LowestRateComponent, dialogConfig);

@@ -45,13 +45,39 @@ export class PasswordBoxComponent implements OnInit {
     }
 
     this.authService.login(body).toPromise()
-      .then((res) => {
-        if (res) {
-          console.log("this is the response afer login", res);
-          this.dialogRef.close(res );
+      .then((res:any) => {
+        if (res && res.status === 200) {
+          console.log("This is the response after login", res);
+          this.dialogRef.close(res);
+        } else {
+          // Handle the error as if it was caught in the catch block
+          if (res.error && res.error.error === 'invalid_grant') {
+            console.error("Invalid Password: ", res.error.error_description);
+            this.passwordForm.controls['password'].setErrors({ 'invalid': true });
+            // Optionally show a message to the user
+            // this.errorMessage = res.error.error_description;
+          } else {
+            // Handle other errors
+            console.error("An unexpected error occurred: ", res);
+            // Optionally show a generic error message
+            // this.errorMessage = "An unexpected error occurred. Please try again later.";
+          }
         }
       }).catch(err => {
         this.passwordForm.controls['password'].setErrors({ 'invalid': true });
+
+        if (err.status === 400 && err.error && err.error.error === 'invalid_grant') {
+          console.error("Invalid Password: ", err.error.error_description);
+          this.passwordForm.controls['password'].setErrors({ 'invalid': true });
+          // Optionally show a message to the user
+          // this.errorMessage = err.error.error_description;
+        } else {
+          // Handle other errors
+          console.error("An unexpected error occurred: ", err);
+          // Optionally show a generic error message
+          // this.errorMessage = "An unexpected error occurred. Please try again later.";
+        }
+
       });
 
   }

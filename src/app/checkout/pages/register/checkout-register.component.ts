@@ -96,9 +96,6 @@ export class CheckoutRegisterComponent extends AppBaseComponent implements OnIni
     if(localStorage.getItem('promotionCode') != this.promoCode)
     this.promoCode = '';
 
-     
-     console.log("Hello cart", cart);
-   // console.log(localStorage.getItem('promotionCode'));
 
   }
 
