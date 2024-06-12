@@ -951,11 +951,19 @@ table {
 						}
 					}
 				}
-				&.international-topup {
+				&.search-rates{
 					a {
 						background-image: url(../../../../assets/images/myaccount_icons/intertopup-normal.png);
 						&:hover, &.active-link  {
 							background-image: url(../../../../assets/images/myaccount_icons/intertopup-hover.png);
+						}
+					}
+				}			
+				&.international-topup {
+					a {
+						background-image: url(../../../../assets/images/myaccount_icons/topup.png);
+						&:hover, &.active-link  {
+							background-image: url(../../../../assets/images/myaccount_icons/topup-hover.png);
 						}
 					}
 				}
