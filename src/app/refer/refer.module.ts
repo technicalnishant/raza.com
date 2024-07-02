@@ -18,7 +18,7 @@ import { RefferComponent } from './reffer/reffer.component';
       RouterModule.forChild([
         // { path: '', component: ReferafriendComponent }, 
         { path: '', component: Referafriend2Component } ,  
-        {path:'reffer_a_friend', component: RefferComponent}
+        {path:'refer_a_friend', component: RefferComponent}
       ]) 
    ],
   exports: [

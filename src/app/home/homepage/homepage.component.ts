@@ -97,7 +97,7 @@ sliderAutoplay: boolean = true;
   contentLoaded: boolean = false;
   isFixHeader: boolean = false;
    
-   promtionCode:string='DAD2024';
+   promtionCode:string='';
   currentURL:any;
   defaultImage = '';
   previousUrl:any='';

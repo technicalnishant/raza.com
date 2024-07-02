@@ -24,7 +24,7 @@ import { AuthenticationService } from 'app/core/services/auth.service';
 })
 export class AccountRewardsComponent implements OnInit {
 
-  @ViewChild('reffer_a_friend') reffer_a_friend: ElementRef;
+  @ViewChild('refer_a_friend') refer_a_friend: ElementRef;
   
   rewardTotal: number;
   referedFriends: Rewards[];
@@ -233,7 +233,7 @@ export class AccountRewardsComponent implements OnInit {
     );
   }
   scrollToSection() {
-    const targetPosition = this.reffer_a_friend.nativeElement.offsetTop;
+    const targetPosition = this.refer_a_friend.nativeElement.offsetTop;
 
     window.scrollTo({
       top: targetPosition,

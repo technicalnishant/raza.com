@@ -108,7 +108,7 @@ export class FooterComponent implements OnInit {
       }
       else
       {
-        this.router.navigate(['refer/reffer_a_friend']);
+        this.router.navigate(['refer/refer_a_friend']);
       
       }
 

@@ -2,23 +2,20 @@
     <div class="home-slider slider-bg-{{currentSetting?.country?.CountryId}}">          
         <splide [options]="{ type: 'loop', autoplay: sliderAutoplay, lazyLoad: 'true'  }">
             
-          <splide-slide>              
+          <!-- <splide-slide>              
               <div class="carousel-caption tpSlider_promo tpSlider_promo-{{currentSetting?.country?.CountryId}}">
                 <div class="promoTextWrap">
                   
                   <div class="promo_textWrap"> 
                     <button (click)="onopenchristmas(typedEl)" class="img-fluid d-none d-md-block buy_nowEid">
                       <img src="../../../assets/images/home_banner_new/promo/fd24.webp"/>                      
-                      <!-- <div class="term_apply">*Some restrictions apply</div> -->
+                    
                     </button>
                     <div (click)="onopenchristmas(typedEl)" class="img-fluid showMobileOnly">
                       <img src="../../../assets/images/home_banner_new/promo/mobile.webp"/>                      
-                      <!-- <div class="term_apply">*Some restrictions apply</div> -->
+                     
                     </div>
-                    <!-- <div class="buy_nowEidMbWrap">
-                      <button (click)="onopenchristmas(typedEl)" class="buy_nowEidMb showMobileOnly">GET 20% BONUS</button> 
-                      <div class="term_apply showMobileOnly">*Some restrictions apply</div>
-                    </div>                     -->
+                    
                   </div>
                 </div>  
                 <div class="term_cond" *ngIf="currentSetting?.country?.CountryId != 3">
@@ -28,7 +25,7 @@
                   The 20% discount is applicable on the purchase of the highest denomination. The promotion starts from as low as a £10 purchase.
                 </div>           
               </div>
-            </splide-slide>
+            </splide-slide> -->
 
              <splide-slide>
                 <div class="sliderImg"></div>
@@ -331,7 +328,7 @@
             <div class="textareaNew">
                 <h4>Get rewarded with <br />bonus points!</h4>
                 <p>Become a member today</p>
-                <p routerLink="/refer/reffer_a_friend" class="smallText">SIGN UP NOW <span><img loading="lazy"
+                <p routerLink="/refer/refer_a_friend" class="smallText">SIGN UP NOW <span><img loading="lazy"
               src="https://raza.com/assets/images/arrow_right.png" alt="icon"  width="18" height="7" /></span></p>
             </div>
             <div class="imageareaNew">

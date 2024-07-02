@@ -236,8 +236,7 @@ export class AddCreditcardDialog implements OnInit, AfterViewInit {
           
       },
       err => {
-        this.isLoading = false;
-        
+        this.isLoading = false;        
         this.razaSnackBarService.openError(err.error)
        // this.razaSnackBarService.openError("An error occurred!! Please try again.")
     }
