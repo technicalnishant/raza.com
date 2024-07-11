@@ -127,7 +127,7 @@ export class SidemenuComponent implements OnInit {
   log_out_click(card) {
     const dialogRef = this.dialog.open(ConfirmPopupDialog, {
       data: {
-        message:'Are your sure?',
+        message:'Are you sure?',
         success: 'success'
       }
     });

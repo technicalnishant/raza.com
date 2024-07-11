@@ -815,15 +815,8 @@ export class MyCardsComponent implements OnInit, AfterViewInit {
           
         }
         else{
+           this.addNewCard();
           
-          const dialogRef = this.dialog.open(ConfirmPopupDialog, {
-            data: {
-              success: 'success',
-              message:'Please add your credit card to proceed with the recharge.',
-              heading:'Add Credit Card',
-              showNoButton:'No'
-            }
-          });
 
         }
     }
